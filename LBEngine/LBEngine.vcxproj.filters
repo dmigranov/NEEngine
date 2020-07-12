@@ -108,6 +108,12 @@
     <ClCompile Include="src\GameWindows.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -176,6 +182,12 @@
     <ClInclude Include="inc\font.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
@@ -197,9 +209,6 @@
       <Filter>Data\Shaders\Spherical</Filter>
     </FxCompile>
     <FxCompile Include="Data\Shaders\VertexSphericalExpSqFogShader.hlsl">
-      <Filter>Data\Shaders\Spherical</Filter>
-    </FxCompile>
-    <FxCompile Include="Data\Shaders\VertexSphericalLinearFogShader.hlsl">
       <Filter>Data\Shaders\Spherical</Filter>
     </FxCompile>
     <FxCompile Include="Data\Shaders\VertexEllipticalExpSqFogShader.hlsl">
