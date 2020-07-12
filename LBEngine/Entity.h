@@ -12,14 +12,20 @@ class Entity
 {
 public:
 	Entity(const char* name = nullptr);
+	~Entity();
+
+	void Initialize();
+
 	void AddComponent(Component* pComponent);
+
+
 	void Update();
 private:
 
 	/**
 	* @brief Contains shaders and texture.
 	*/
-	Mesh* mesh;
+	Mesh* m_pMesh;
 	std::list<Component*> m_components;
 	bool m_isActive;
 	std::string m_name;
