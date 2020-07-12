@@ -48,7 +48,7 @@
     <ClCompile Include="src\SphericalSphere.cpp" />
     <ClCompile Include="src\TextDrawer.cpp" />
     <ClCompile Include="src\Texture.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
@@ -76,7 +76,7 @@
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

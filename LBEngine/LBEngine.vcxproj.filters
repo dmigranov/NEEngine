@@ -120,7 +120,7 @@
     <ClCompile Include="Effect.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp">
+    <ClCompile Include="Scene.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -200,7 +200,7 @@
     <ClInclude Include="Effect.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="World.h">
+    <ClInclude Include="Scene.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
