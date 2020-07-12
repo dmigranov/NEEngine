@@ -1,2 +1,5 @@
-﻿  Scene.cpp
+﻿  Component.cpp
+  Entity.cpp
+  Scene.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
