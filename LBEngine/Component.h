@@ -5,7 +5,8 @@ class Component
 {
 public:
 	Component();
-	virtual ~Component();
+	virtual ~Component() {};
+	virtual void Initialize(Entity* pEntity);
 
 
 protected:
