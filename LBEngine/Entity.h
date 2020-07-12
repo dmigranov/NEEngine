@@ -2,15 +2,15 @@
 #include <list>
 #include <string>
 
-
 class Component;
 class TransformComponent;
 class Mesh;
 
-
 /**
 * @brief Basic class for all entities (objects) in the scene.
 */
+
+//todo: Camera должна наследоваться от Entity
 class Entity
 {
 public:
