@@ -5,15 +5,15 @@
 #include "Camera.h"
 
 
-World::World() : m_pCamera(nullptr)
+Scene::Scene() : m_pCamera(nullptr)
 {}
 
-World::~World()
+Scene::~Scene()
 {
 	//удаление объектов...
 }
 
-void World::AddEntity(Entity* pEntity)
+void Scene::AddEntity(Entity* pEntity)
 {
 	if (pEntity == nullptr)
 	{
@@ -25,7 +25,7 @@ void World::AddEntity(Entity* pEntity)
 	//ObjectStorage::Push(pObject);
 }
 
-void World::SetCamera(Camera* pCamera)
+void Scene::SetCamera(Camera* pCamera)
 {
 	if (pCamera != nullptr)
 	{
@@ -33,12 +33,12 @@ void World::SetCamera(Camera* pCamera)
 	}
 }
 
-Camera* World::GetCamera()
+Camera* Scene::GetCamera()
 {
 	return m_pCamera;
 }
 
-void World::Update()
+void Scene::Update()
 {
 	//m_pCamera->GetObjectPtr()->Update();
 
@@ -53,7 +53,7 @@ void World::Update()
 	}
 }
 
-void World::Render()
+void Scene::Render()
 {
 	/*
 	//TODO

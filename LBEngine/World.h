@@ -5,11 +5,11 @@ class Entity;
 class Light;
 class Camera;
 
-class World
+class Scene
 {
 public:
-	World();
-	~World();
+	Scene();
+	~Scene();
 	void AddEntity(Entity* pEntity);
 	void AddLight(Light* pLight);
 

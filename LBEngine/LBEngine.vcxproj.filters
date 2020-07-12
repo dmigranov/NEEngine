@@ -46,6 +46,9 @@
     <Filter Include="Исходные файлы\Meshes\Spherical">
       <UniqueIdentifier>{ba669908-5fd2-497e-be17-d82fcb051298}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Components">
+      <UniqueIdentifier>{9411237b-8f62-4103-af5e-9a488746f567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
