@@ -1,0 +1,4 @@
+﻿D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpSqFogShader.hlsl(33,18-29): error X4502: invalid vs_2_0 output semantic 'FOG_FACTOR'
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpSqFogShader.hlsl(37,63-77): error X4502: invalid vs_2_0 input semantic 'SV_InstanceID'
+  
+  compilation failed; no code produced

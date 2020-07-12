@@ -72,9 +72,6 @@
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
-    <ClCompile Include="SphericalMath.cpp">
-      <Filter>Исходные файлы\Math</Filter>
-    </ClCompile>
     <ClCompile Include="src\HyperbolicMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
@@ -102,11 +99,14 @@
     <ClCompile Include="src\FPSCounter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="GameWindows.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="SphericalEllipsoid.cpp">
+    <ClCompile Include="src\SphericalEllipsoid.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMath.cpp">
+      <Filter>Исходные файлы\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameWindows.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,19 +190,19 @@
     <FxCompile Include="GeometryShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
-    <FxCompile Include="VertexSphericalExpFogShader.hlsl">
-      <Filter>Data\Shaders\Spherical</Filter>
-    </FxCompile>
-    <FxCompile Include="VertexSphericalExpSqFogShader.hlsl">
-      <Filter>Data\Shaders\Spherical</Filter>
-    </FxCompile>
-    <FxCompile Include="VertexSphericalLinearFogShader.hlsl">
-      <Filter>Data\Shaders\Spherical</Filter>
-    </FxCompile>
     <FxCompile Include="Data\Shaders\VertexEllipticalExpFogShader.hlsl">
       <Filter>Data\Shaders\Elliptical</Filter>
     </FxCompile>
-    <FxCompile Include="VertexEllipticalExpSqFogShader.hlsl">
+    <FxCompile Include="Data\Shaders\VertexSphericalExpFogShader.hlsl">
+      <Filter>Data\Shaders\Spherical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexSphericalExpSqFogShader.hlsl">
+      <Filter>Data\Shaders\Spherical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexSphericalLinearFogShader.hlsl">
+      <Filter>Data\Shaders\Spherical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexEllipticalExpSqFogShader.hlsl">
       <Filter>Data\Shaders\Elliptical</Filter>
     </FxCompile>
   </ItemGroup>
