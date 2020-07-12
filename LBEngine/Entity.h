@@ -2,8 +2,11 @@
 #include <list>
 #include <string>
 
+
 class Component;
+class TransformComponent;
 class Mesh;
+
 
 /**
 * @brief Basic class for all entities (objects) in the scene.
@@ -18,14 +21,12 @@ public:
 
 	void AddComponent(Component* pComponent);
 
-
 	void Update();
 private:
+	TransformComponent* m_pTransform;
+	//EffectComponent* m_pEffect; //todo
+	Mesh* m_pMesh; //todo: превратить в компонент?
 
-	/**
-	* @brief Contains shaders and texture.
-	*/
-	Mesh* m_pMesh;
 	std::list<Component*> m_components;
 	bool m_isActive;
 	std::string m_name;

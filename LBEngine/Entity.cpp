@@ -2,12 +2,18 @@
 #include "Entity.h"
 
 #include "Component.h"
+#include "TransformComponent.h"
 
 
 Entity::Entity(const char* name) : 
 	m_isActive(false)
 {
-	m_name = (NULL == name) ? "Object" : name;
+	m_name = (nullptr == name) ? "Object" : name;
+
+	m_pTransform = new TransformComponent();
+	AddComponent(m_pTransform);
+
+	m_pMesh = nullptr;
 }
 
 Entity::~Entity()
@@ -20,25 +26,37 @@ Entity::~Entity()
 	}
 	m_components.clear();
 
-	/*if (NULL != m_pEffect)
+	/*if (nullptr != m_pEffect)
 	{
 		m_pEffect->Deinit();
 		delete m_pEffect;
 		m_pEffect = NULL;
 	}*/
 
-	if (NULL != m_pMesh)
+	if (nullptr != m_pMesh)
 	{
-		//todo
-		/*m_pMesh->Deinit();
 		delete m_pMesh;
-		m_pMesh = NULL;*/
+		m_pMesh = nullptr;
 	}
 
 	/*if (NULL != m_pTransform)
 	{
 		delete m_pTransform;
 		m_pTransform = NULL;
+	}*/
+}
+
+void Entity::Initialize()
+{
+	//todo
+	/*if (m_pMesh != nullptr)
+	{
+		m_pMesh->Init();
+	}
+
+	if ( m_pEffect != nullptr)
+	{
+		m_pMaterial->Init();
 	}*/
 }
 

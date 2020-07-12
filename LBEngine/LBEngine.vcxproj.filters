@@ -52,6 +52,18 @@
     <Filter Include="Исходные файлы\Components">
       <UniqueIdentifier>{c0559ed8-8f6a-4b5e-8d93-540055ad918a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Entities">
+      <UniqueIdentifier>{d1c0fc11-b62f-4460-9fa4-fc3946e10848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Entities">
+      <UniqueIdentifier>{65a7c67f-66e4-442d-b33f-bace9899c4d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Systems">
+      <UniqueIdentifier>{2669487a-620e-491c-bff3-aa2867d01cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Systems">
+      <UniqueIdentifier>{8cd1b026-7e41-4ec4-8f8d-8329a1409ffd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -60,14 +72,8 @@
     <ClCompile Include="src\SimpleInputHandler.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>pch</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalCamera.cpp">
-      <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
@@ -114,9 +120,6 @@
     <ClCompile Include="src\GameWindows.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -129,6 +132,18 @@
     <ClCompile Include="TransformComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalCamera.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -140,14 +155,8 @@
     <ClInclude Include="inc\SimpleInputHandler.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Camera.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\pch.h">
       <Filter>pch</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalCamera.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\TextDrawer.h">
       <Filter>Файлы заголовков</Filter>
@@ -191,14 +200,8 @@
     <ClInclude Include="inc\SphericalEllipsoid.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\font.h">
       <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>Файлы заголовков</Filter>
@@ -206,11 +209,23 @@
     <ClInclude Include="Scene.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Файлы заголовков\Components</Filter>
+    <ClInclude Include="Entity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalCamera.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Camera.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
