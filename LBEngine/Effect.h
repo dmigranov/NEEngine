@@ -5,7 +5,7 @@ class Effect
 public:
 	Effect();
 	virtual ~Effect();
-	//void Initialize();
+	void Initialize();
 	void Deinitialize();
 private:
 	std::string		m_vsFileName;

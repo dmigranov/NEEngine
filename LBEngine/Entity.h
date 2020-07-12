@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <string>
 
 class Component;
 class Mesh;
@@ -12,6 +13,7 @@ class Entity
 public:
 	Entity(const char* name = nullptr);
 	void AddComponent(Component* pComponent);
+	void Update();
 private:
 
 	/**

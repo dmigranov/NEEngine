@@ -10,6 +10,11 @@ Effect::~Effect()
 	//todo
 }
 
+void Effect::Initialize()
+{
+	//todo
+}
+
 void Effect::Deinitialize()
 {
 	//todo: delete...

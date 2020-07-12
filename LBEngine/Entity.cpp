@@ -12,3 +12,7 @@ void Entity::AddComponent(Component* pComponent)
 	m_components.push_back(pComponent);
 	//pComponent->Initialize(this);
 }
+
+void Entity::Update()
+{
+}
