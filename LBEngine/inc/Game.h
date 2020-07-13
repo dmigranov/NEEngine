@@ -32,14 +32,13 @@
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
-#include "TextDrawer.h"
-#include "Drawer2D.h"
-#include "Texture.h"
 
-
+#include "FPSCounter.h"
 
 class Scene;
-class FPSCounter;
+class Texture;
+class Drawer2D;
+class TextDrawer;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 

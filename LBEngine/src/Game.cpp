@@ -1,7 +1,9 @@
 ﻿#include <pch.h>
 #include "Game.h"
 
-#include "FPSCounter.h"
+#include "Texture.h"
+#include "Drawer2D.h"
+#include "TextDrawer.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
