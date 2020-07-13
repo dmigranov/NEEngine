@@ -1,10 +1,9 @@
 #include "pch.h"
 #include "Entity.h"
 
-#include "Component.h"
 #include "ComponentType.h"
+#include "Component.h"
 #include "TransformComponent.h"
-
 
 Entity::Entity(const char* name) : 
 	m_isActive(false)
@@ -19,11 +18,10 @@ Entity::Entity(const char* name) :
 
 Entity::~Entity()
 {
-	
-	for(auto pComponent : m_components)
+	for(auto pair : m_components)
 	{
-		if (pComponent != nullptr)
-			delete pComponent;
+		if (pair.second != nullptr)
+			delete pair.second;
 	}
 	m_components.clear();
 
@@ -61,9 +59,13 @@ void Entity::Initialize()
 	}*/
 }
 
-void Entity::AddComponent(ComponentType type, Component* pComponent)
+void Entity::AddComponent(const ComponentType type, Component* pComponent)
 {
-	m_components.insert(type, pComponent);
+	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
 }
 
+Component* Entity::GetComponent(ComponentType type)
+{
+	return m_components[type];
+}

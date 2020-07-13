@@ -8,6 +8,7 @@ class Component;
 class TransformComponent;
 class RenderComponent;
 class Mesh;
+enum ComponentType;
 
 /**
 * @brief Basic class for all entities (objects) in the scene.
@@ -22,7 +23,9 @@ public:
 
 	void Initialize();
 
-	void AddComponent(ComponentType type, Component* pComponent);
+	void AddComponent(const ComponentType type, Component* pComponent);
+	Component* GetComponent(ComponentType type);
+
 private:
 
 	//TransformComponent* m_pTransform;
@@ -33,16 +36,8 @@ private:
 	bool m_isActive;
 	std::string m_name;
 
-public:
-	template <class T> T* GetComponent();
 
 };
 
-template<class T>
-inline T* Entity::GetComponent()
-{
-
-	return nullptr;
-}
 
 

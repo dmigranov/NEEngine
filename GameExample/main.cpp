@@ -6,6 +6,7 @@
 #include "../LBEngine/Entity.h"
 #include "../LBEngine/PlayerComponent.h"
 #include "../LBEngine/TransformComponent.h"
+#include "../LBEngine/ComponentType.h"
 
 
 using namespace DirectX;
@@ -22,11 +23,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Texture * earthTexture = game.CreateTexture(L"earth.dds");
     
     Entity* e = new Entity();
-    e->AddComponent(new PlayerComponent());
-    e->AddComponent(new TransformComponent());
+    e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
+    e->AddComponent(ComponentType::TransformComponentType, new TransformComponent());
     
-    TransformComponent* tc = e->GetComponent<TransformComponent>();
-    PlayerComponent* pc = e->GetComponent<PlayerComponent>();
+    TransformComponent* tc = (TransformComponent*)e->GetComponent(TransformComponentType);
+    PlayerComponent* pc = (PlayerComponent*)e->GetComponent(PlayerComponentType);
 
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
