@@ -70,6 +70,7 @@ private:
     friend class SphericalSphere;
     friend class SphericalAsteroid;
     friend class SphericalEllipsoid;
+    template <class T> friend class MeshComponent;
 
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 

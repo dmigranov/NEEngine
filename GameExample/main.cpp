@@ -40,6 +40,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
     auto transform = new TransformComponent(0, 0, 0);
     e->AddComponent(ComponentType::TransformComponentType, transform);
+    //e->SetMesh(new );
     scene->AddEntity(e);
 
     /*int bodyCount = 8;
