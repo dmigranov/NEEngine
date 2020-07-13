@@ -20,7 +20,7 @@ void Scene::AddEntity(Entity* pEntity)
 	{
 		return;
 	}
-	//pEntity->Initialize();
+	pEntity->Initialize();
 	m_entities.push_back(pEntity);
 }
 
@@ -41,8 +41,7 @@ void Scene::Update()
 {
 	//m_pCamera->GetObjectPtr()->Update();
 
-	//std::list<const Object *>::iterator iter;
-	//for (iter = m_objects.begin(); iter != m_objects.end(); iter++)
+
 	for (auto pSystem : m_systems)
 	{
 		if (pSystem != nullptr)
@@ -50,16 +49,4 @@ void Scene::Update()
 			pSystem->Execute();
 		}
 	}
-}
-
-void Scene::Render()
-{
-	/*
-	//TODO
-	if (NULL == m_pCamera)
-	{
-		return;
-	}
-
-	m_pCamera->Render();*/
 }

@@ -38,9 +38,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     
     Entity* e = new Entity();
     //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
-    auto transform = new TransformComponent();
+    auto transform = new TransformComponent(0, 0, 0);
     e->AddComponent(ComponentType::TransformComponentType, transform);
-    
+    scene->AddEntity(e);
 
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
