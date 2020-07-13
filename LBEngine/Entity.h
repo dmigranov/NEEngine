@@ -8,7 +8,7 @@ class Component;
 class TransformComponent;
 class RenderComponent;
 class Mesh;
-enum ComponentType;
+enum class ComponentType;
 
 /**
 * @brief Basic class for all entities (objects) in the scene.

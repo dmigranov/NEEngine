@@ -1,6 +1,6 @@
 #pragma once
 
-enum ComponentType
+enum class ComponentType
 {
 	TransformComponentType,
 	PlayerComponentType,

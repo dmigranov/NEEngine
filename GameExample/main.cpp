@@ -26,8 +26,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
     e->AddComponent(ComponentType::TransformComponentType, new TransformComponent());
     
-    TransformComponent* tc = (TransformComponent*)e->GetComponent(TransformComponentType);
-    PlayerComponent* pc = (PlayerComponent*)e->GetComponent(PlayerComponentType);
+    TransformComponent* tc = (TransformComponent*)e->GetComponent(ComponentType::TransformComponentType);
+    PlayerComponent* pc = (PlayerComponent*)e->GetComponent(ComponentType::PlayerComponentType);
 
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
