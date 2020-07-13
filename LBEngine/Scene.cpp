@@ -60,6 +60,7 @@ void Scene::Render()
 	auto& game = Game::GetInstance();
 
 	game.g_d3dDeviceContext->UpdateSubresource(game.g_d3dVSConstantBuffers[game.CB_Frame], 0, nullptr, &view, 0, 0);
+
 	for (auto p_entity : m_entities)
 		p_entity->Render();
 }

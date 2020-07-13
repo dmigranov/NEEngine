@@ -4,15 +4,15 @@
 using namespace DirectX::SimpleMath;
 
 TransformComponent::TransformComponent() :
-	m_pParent(NULL), m_positionLocal(0, 0, 0), m_shouldRecalc(true)
+	m_pParent(NULL), m_positionLocal(0, 0, 0), m_shouldRecalc(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(double x, double y, double z) : 
-	m_pParent(NULL), m_positionLocal(x, y, z), m_shouldRecalc(true)
+	m_pParent(NULL), m_positionLocal(x, y, z), m_shouldRecalc(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(DirectX::SimpleMath::Vector3 position) :
-	m_pParent(NULL), m_positionLocal(position), m_shouldRecalc(true)
+	m_pParent(NULL), m_positionLocal(position), m_shouldRecalc(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(double x, double y, double z, double rx, double ry, double rz, double sx, double sy, double sz) :

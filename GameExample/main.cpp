@@ -39,17 +39,17 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e = new Entity();
     //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
     auto transform = new TransformComponent(0, 0, 0);
-    e->AddComponent(ComponentType::TransformComponentType, transform);
+    e->SetTransform(transform);
 
     MeshComponent::VertexPosTex vertices[8] = {
-        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 1
-        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 2
-        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f)}, // 3
-        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 4
-        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f)}, // 5
-        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 6
-        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }  // 7
+        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 1
+        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 2
+        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 1.0f, 1.0f, 1.f)}, // 3
+        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(1.0f, 0.0f, 1.0f, 1.f) }, // 4
+        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f)}, // 5
+        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 6
+        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }  // 7
     };
 
     WORD indices[36] =

@@ -26,7 +26,7 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
     m_outputWidth(width),
     m_outputHeight(height)
 {
-    m_camera = std::make_shared<SphericalCamera>();
+    m_camera = std::make_shared<Camera>();
     m_pScene = new Scene();
     m_pScene->SetCamera(m_camera.get());
 }
@@ -275,38 +275,7 @@ int Game::Initialize(HWND window, int width, int height)
             perApplicationPSConstantBuffer.m_edgeThickness += 0.0002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
-        if(ks.O)
-        { 
-            perApplicationVSConstantBuffer.density += 0.005;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-        }
-        if (ks.P)
-        {
-            if(perApplicationVSConstantBuffer.density >= 0.004)
-            { 
-                perApplicationVSConstantBuffer.density -= 0.005;
-                g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-            }
-        }
-        if (ks.D1)
-        {
-            //spherical
-            isSpherical = true;
-            g_d3dVertexShader = g_d3dSphericalVertexShader;
-            auto density = perApplicationVSConstantBuffer.density;
-            perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-        }
-
-        if (ks.D2)
-        {
-            //elliptical 
-            isSpherical = false;
-            g_d3dVertexShader = g_d3dEllipticalVertexShader;
-            auto density = perApplicationVSConstantBuffer.density;
-            perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density };
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-        }
+        
     }, m_hwnd);
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
@@ -433,24 +402,15 @@ void Game::CreateResources()
 
     RecalculateProjectionMatrices();
 
-    auto density = perApplicationVSConstantBuffer.density;
-    if(isSpherical)
-    {
-        perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
-    else
-    {
-        perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density };
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
+    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &commonProjectionMatrix, 0, 0);
+ 
 }
 
 void Game::RecalculateProjectionMatrices()
 {
-    commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-    frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-    backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+    commonProjectionMatrix = m_camera->GetProj();
+    frontProjectionMatrix = m_camera->GetProj();
+    backProjectionMatrix = m_camera->GetProj();
 }
 
 
@@ -490,7 +450,7 @@ void Game::Render()
 
     //Pixel Shader Stage
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
-    g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
+    //g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
     g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
@@ -521,13 +481,6 @@ void Game::Render()
     ss << "W: " << pos.w << std::endl;
     m_textDrawer->DrawTextDownLeftAlign(ss.str().c_str(), 20, m_outputHeight - 20);
 
-  
-    
-    /*auto frameTime = fpsCounter.GetFrameTime();
-    static double ftSum = 0;
-    static double ftCount = 0;
-    ftSum += frameTime;
-    ftCount++;*/
 
     m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
     //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
@@ -586,21 +539,21 @@ bool Game::LoadContent()
 
     //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
     
-    constantBufferDesc.ByteWidth = sizeof(PerApplicationVSConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(Matrix);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
     if (FAILED(hr))
     {
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(PerFrameVSConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(Matrix);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(Matrix);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
     if (FAILED(hr))
     {
@@ -659,6 +612,8 @@ bool Game::LoadContent()
     }
 
     m_camera->SetNearPlane(0.001f);
+    m_camera->SetFarPlane(100.f);
+
 
     CreateResources();
 
