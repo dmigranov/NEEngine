@@ -7,8 +7,8 @@ D:\Code\LBEngine\LBEngine\src\Game.cpp(270,1): warning C4305: '-=': truncation f
 D:\Code\LBEngine\LBEngine\src\Game.cpp(275,1): warning C4305: '+=': truncation from 'double' to 'float'
 D:\Code\LBEngine\LBEngine\src\Game.cpp(280,1): warning C4305: '+=': truncation from 'double' to 'float'
 D:\Code\LBEngine\LBEngine\src\Game.cpp(287,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Code\LBEngine\LBEngine\src\Game.cpp(520,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(530,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(522,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(532,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameWindows.cpp
   Mesh.cpp
   MeshComponent.cpp

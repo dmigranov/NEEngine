@@ -3,8 +3,8 @@
 
 #include "Game.h"
 
-template <class T>
-MeshComponent<T>::MeshComponent(int nv, T* vertices, int ni, WORD* indices)
+
+MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices)
 {
 	auto& game = Game::GetInstance();
 	auto device = game.g_d3dDevice;
@@ -19,7 +19,7 @@ MeshComponent<T>::MeshComponent(int nv, T* vertices, int ni, WORD* indices)
 	ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;  //how the buffer is bound to pipeline
-	vertexBufferDesc.ByteWidth = sizeof(T) * verticesCount;
+	vertexBufferDesc.ByteWidth = sizeof(VertexPosTex) * verticesCount;
 	vertexBufferDesc.CPUAccessFlags = 0;    // no CPU access is necessary
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
@@ -44,10 +44,9 @@ MeshComponent<T>::MeshComponent(int nv, T* vertices, int ni, WORD* indices)
 
 }
 
-template<class T>
-void MeshComponent<T>::Render(DirectX::XMMATRIX world)
+void MeshComponent::Render(DirectX::XMMATRIX world)
 {
-	const UINT vertexStride = sizeof(T);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+	const UINT vertexStride = sizeof(VertexPosTex);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
 	const UINT offset = 0;
 	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
@@ -65,8 +64,7 @@ void MeshComponent<T>::Render(DirectX::XMMATRIX world)
 	deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
-template<class T>
-void MeshComponent<T>::SetTexture(Texture* texture)
+void MeshComponent::SetTexture(Texture* texture)
 {
 	this->m_pTexture = texture;
 }

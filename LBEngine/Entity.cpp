@@ -65,7 +65,7 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 	pComponent->Initialize(this);
 }
 
-void Entity::SetMesh(MeshComponent<VertexPosTex>* pMesh)
+void Entity::SetMesh(MeshComponent* pMesh)
 {
 	m_pMesh = pMesh;
 	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::MeshComponentType, pMesh));

@@ -28,7 +28,7 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
 {
     m_camera = std::make_shared<SphericalCamera>();
     m_pScene = new Scene();
-
+    m_pScene->SetCamera(m_camera.get());
 }
 
 Game& Game::GetInstance()
@@ -498,12 +498,14 @@ void Game::Render()
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
     g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
 
-    auto viewFront = m_camera->GetView();
+    /*auto viewFront = m_camera->GetView();
     auto viewBack = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
     PerFrameVSConstantBuffer buf = { viewFront , viewBack };
     g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &buf, 0, 0);
     for (auto mesh : meshes)
-        mesh->Render();
+        mesh->Render();*/
+
+    m_pScene->Render();
 
     //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 

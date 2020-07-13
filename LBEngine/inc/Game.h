@@ -73,8 +73,7 @@ private:
     friend class SphericalEllipsoid;
 
     friend class Scene;
-
-    template <class T> friend class MeshComponent;
+    friend class MeshComponent;
 
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 

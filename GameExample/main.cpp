@@ -40,7 +40,29 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
     auto transform = new TransformComponent(0, 0, 0);
     e->AddComponent(ComponentType::TransformComponentType, transform);
-    //e->SetMesh(new );
+
+    MeshComponent::VertexPosTex vertices[8] = {
+        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 1
+        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 2
+        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f)}, // 3
+        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 4
+        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f)}, // 5
+        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 6
+        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }  // 7
+    };
+
+    WORD indices[36] =
+    {
+        0, 1, 2, 0, 2, 3,
+        4, 6, 5, 4, 7, 6,
+        4, 5, 1, 4, 1, 0,
+        3, 2, 6, 3, 6, 7,
+        1, 5, 6, 1, 6, 2,
+        4, 0, 3, 4, 3, 7
+    };
+
+    e->SetMesh(new MeshComponent(8, vertices, 36, indices));
     scene->AddEntity(e);
 
     /*int bodyCount = 8;
