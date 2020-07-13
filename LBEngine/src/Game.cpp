@@ -256,19 +256,6 @@ int Game::Initialize(HWND window, int width, int height)
             perApplicationPSConstantBuffer.m_edgeThickness += 0.0002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
-        float mouseLikeGain = 1.f * deltaTime;
-        if (ks.Q)
-        {
-            m_camera->ChangePitchYawRoll(0, -mouseLikeGain, 0);
-            if (ks.LeftShift)
-                xAngleProtractor -= mouseLikeGain;
-        }
-        if (ks.E)
-        {
-            m_camera->ChangePitchYawRoll(0, mouseLikeGain, 0);
-            if (ks.LeftShift)
-                xAngleProtractor += mouseLikeGain;
-        }
         if(ks.O)
         { 
             perApplicationVSConstantBuffer.density += 0.005;
@@ -301,20 +288,6 @@ int Game::Initialize(HWND window, int width, int height)
             perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density };
             g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
-
-        if (ks.PageUp)
-        {
-            m_camera->ChangePitchYawRoll(0, 0, mouseLikeGain);
-        }
-        if (ks.Home)
-        {
-            m_camera->ChangePitchYawRoll(0, 0, -mouseLikeGain);
-        }
-
-
-        if (ks.IsKeyUp(Keyboard::Keys::LeftShift))
-            xAngleProtractor = 0;
-
     }, m_hwnd);
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
@@ -469,10 +442,15 @@ void Game::Update(float deltaTime)
     //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 
+    for (auto pSystem : systems)
+    {
+        system->Update(deltaTime);
+    }
+
     for (auto mesh : meshes)
     {
         mesh->Update(deltaTime);
-    }
+    } //todo: убрать
 }
 
 void Game::Render()
@@ -530,12 +508,7 @@ void Game::Render()
     ss << "W: " << pos.w << std::endl;
     m_textDrawer->DrawTextDownLeftAlign(ss.str().c_str(), 20, m_outputHeight - 20);
 
-    if (Keyboard::Get().GetState().LeftShift)
-    {
-        ss.str(std::string());
-        ss << xAngleProtractor / XM_PI * 180;
-        m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
-    }
+  
     
     /*auto frameTime = fpsCounter.GetFrameTime();
     static double ftSum = 0;

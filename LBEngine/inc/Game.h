@@ -199,8 +199,6 @@ private:
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
 
-    double xAngleProtractor = 0;
-
     bool isInitialized = false;
     bool isSpherical = true;
 
