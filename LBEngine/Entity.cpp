@@ -66,10 +66,3 @@ void Entity::AddComponent(Component* pComponent)
 	pComponent->Initialize(this);
 }
 
-void Entity::Update()
-{
-	for (auto pComponent : m_components)
-	{
-		if (pComponent != nullptr) pComponent->Update();
-	}
-}

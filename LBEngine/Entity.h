@@ -4,6 +4,7 @@
 
 class Component;
 class TransformComponent;
+class RenderComponent;
 class Mesh;
 
 /**
@@ -21,11 +22,10 @@ public:
 
 	void AddComponent(Component* pComponent);
 
-	void Update();
 private:
 	TransformComponent* m_pTransform;
 	//EffectComponent* m_pEffect; //todo
-	Mesh* m_pMesh; //todo: превратить в компонент?
+	RenderComponent* m_pMesh;
 
 	std::list<Component*> m_components;
 	bool m_isActive;

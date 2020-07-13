@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 #include "Entity.h"
+#include "System.h"
 #include "Camera.h"
 
 
@@ -44,11 +45,11 @@ void Scene::Update()
 
 	//std::list<const Object *>::iterator iter;
 	//for (iter = m_objects.begin(); iter != m_objects.end(); iter++)
-	for (auto pEntity : m_entities)
+	for (auto pSystem : m_systems)
 	{
-		if (pEntity != nullptr)
+		if (pSystem != nullptr)
 		{
-			pEntity->Update();
+			pSystem->Update();
 		}
 	}
 }

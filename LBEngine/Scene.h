@@ -3,6 +3,7 @@
 
 class Entity;
 class Light;
+class System;
 class Camera;
 
 class Scene
@@ -20,7 +21,9 @@ public:
 	Camera* GetCamera();
 
 private:
-	std::list<Entity *>	m_entities;
+	std::vector<Entity *>	m_entities;
+	std::vector<System*>	m_systems;
+
 	//std::list<const Light*>	m_lights;
 	Camera* m_pCamera;
 };
