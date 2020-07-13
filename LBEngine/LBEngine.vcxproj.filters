@@ -147,6 +147,9 @@
     <ClCompile Include="TransformUpdateSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -232,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="TransformUpdateSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentType.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

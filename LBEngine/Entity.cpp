@@ -2,6 +2,7 @@
 #include "Entity.h"
 
 #include "Component.h"
+#include "ComponentType.h"
 #include "TransformComponent.h"
 
 
@@ -60,9 +61,9 @@ void Entity::Initialize()
 	}*/
 }
 
-void Entity::AddComponent(Component* pComponent)
+void Entity::AddComponent(ComponentType type, Component* pComponent)
 {
-	m_components.push_back(pComponent);
+	m_components.insert(type, pComponent);
 	pComponent->Initialize(this);
 }
 

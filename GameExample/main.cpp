@@ -3,6 +3,10 @@
 
 #include <pch.h>
 #include "Game.h"
+#include "../LBEngine/Entity.h"
+#include "../LBEngine/PlayerComponent.h"
+#include "../LBEngine/TransformComponent.h"
+
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -17,6 +21,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     Texture * earthTexture = game.CreateTexture(L"earth.dds");
     
+    Entity* e = new Entity();
+    e->AddComponent(new PlayerComponent());
+    e->AddComponent(new TransformComponent());
+    
+    TransformComponent* tc = e->GetComponent<TransformComponent>();
+    PlayerComponent* pc = e->GetComponent<PlayerComponent>();
 
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
