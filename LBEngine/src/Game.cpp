@@ -482,7 +482,7 @@ void Game::Render()
     g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dVSConstantBuffers);
 
     //Geometry Shader Stage
-    g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
+    //g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
 
     //Rasterizer Stage
     g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
@@ -613,7 +613,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
+    /*hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
     if (FAILED(hr))
     {
         return false;
@@ -623,15 +623,18 @@ bool Game::LoadContent()
     if (FAILED(hr))
     {
         return false;
-    }
-
-    g_d3dVertexShader = g_d3dSphericalVertexShader;
-
-    hr = g_d3dDevice->CreateGeometryShader(g_gs, sizeof(g_gs), nullptr, &g_d3dGeometryShader);
+    }*/
+    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
     if (FAILED(hr))
     {
         return false;
     }
+
+    /*hr = g_d3dDevice->CreateGeometryShader(g_gs, sizeof(g_gs), nullptr, &g_d3dGeometryShader);
+    if (FAILED(hr))
+    {
+        return false;
+    }*/
 
     hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
     if (FAILED(hr))
@@ -647,7 +650,7 @@ bool Game::LoadContent()
         { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
     };
 
-    hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_sphexp2vs, sizeof(g_sphexp2vs), &g_d3dInputLayout);
+    hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
     if (FAILED(hr))
     {
         return false;
@@ -673,7 +676,7 @@ void Game::UnloadContent()
     SafeRelease(g_d3dEllipticalVertexShader);
     SafeRelease(g_d3dSphericalVertexShader);
 
-    SafeRelease(g_d3dGeometryShader);
+    //SafeRelease(g_d3dGeometryShader);
 
     SafeRelease(g_d3dPixelShader);
 

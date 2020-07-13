@@ -43,3 +43,28 @@ MeshComponent<T>::MeshComponent(int nv, T* vertices, int ni, WORD* indices)
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
 }
+
+template<class T>
+void MeshComponent<T>::Render()
+{
+	const UINT vertexStride = sizeof(T);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+	const UINT offset = 0;
+	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+	deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+	if (m_pTexture != nullptr)
+	{     //Pixel Shader Stafe - unique 4 every stage
+		auto shaderResource = m_pTexture->GetTexture();
+		deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+	}
+
+	//DRAW
+	deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+}
+
+template<class T>
+void MeshComponent<T>::SetTexture(Texture* texture)
+{
+	this->m_pTexture = texture;
+}

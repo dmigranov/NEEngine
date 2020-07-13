@@ -154,7 +154,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\MeshComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -255,13 +255,10 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
-      <Filter>Data\Shaders</Filter>
-    </FxCompile>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
@@ -282,6 +279,9 @@
     </FxCompile>
     <FxCompile Include="Data\Shaders\VertexEllipticalExpSqFogShader.hlsl">
       <Filter>Data\Shaders\Elliptical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
+      <Filter>Data\Shaders</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>

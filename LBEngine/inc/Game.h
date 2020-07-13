@@ -3,13 +3,14 @@
 #include <iomanip>
 
 //Shaders
-#include "SphExpVertexShader.h"
+/*#include "SphExpVertexShader.h"
 #include "SphExp2VertexShader.h"
 #include "EllExpVertexShader.h"
 #include "EllExp2VertexShader.h"
 
-#include "GeometryShader.h"
+#include "GeometryShader.h"*/
 
+#include "VertexShader.h"
 #include "PixelShader.h"
 
 #include "SimpleInputHandler.h"
@@ -129,7 +130,7 @@ private:
     ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
     ID3D11VertexShader* g_d3dEllipticalVertexShader = nullptr;
 
-    ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+    //ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
 
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 

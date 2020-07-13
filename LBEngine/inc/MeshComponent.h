@@ -9,18 +9,13 @@ template <class T> class MeshComponent
 {
 public:
     MeshComponent(int nv, T* vertices, int ni, WORD* indices);
-    virtual void Render()
-    {
+    virtual void Render();
 
-    }
 	virtual ~MeshComponent()
     {
 
     }
-    void SetTexture(Texture* texture)
-    {
-        this->m_pTexture = texture;
-    }
+    void SetTexture(Texture* texture);
 protected:
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
@@ -32,5 +27,5 @@ protected:
     WORD* g_Indices;
     int indicesCount;
 
-    Texture* m_pTexture;
+    Texture* m_pTexture;    //todo: перенести в материал
 };
