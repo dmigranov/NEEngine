@@ -29,7 +29,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     }*/
 
     
-    int bodyCount = 8;
+    /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
     {
         auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationXW(i * XM_PI / bodyCount));
@@ -38,8 +38,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh);
     }
-    
-    
+    */
+    auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
+    mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
+        auto ks = Keyboard::Get().GetState();
+        float gain = 0.0045f;
+        Matrix m = Matrix::Identity;
+        if (ks.U)
+            m = SphericalRotationZW(-gain);
+        if (ks.J)
+            m = SphericalRotationZW(gain);
+
+
+        return  in * m;  //так всегда вверх!
+    }));
+    game.AddMesh(mesh);
 
     return game.StartGame();
 

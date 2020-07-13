@@ -22,13 +22,28 @@ public:
 
 	void AddComponent(Component* pComponent);
 
+	template <class T> T* GetComponent();
+
 private:
-	TransformComponent* m_pTransform;
+	//TransformComponent* m_pTransform;
 	//EffectComponent* m_pEffect; //todo
-	RenderComponent* m_pMesh;
+	Mesh* m_pMesh;
 
 	std::list<Component*> m_components;
 	bool m_isActive;
 	std::string m_name;
 };
 
+template<class T>
+inline T* Entity::GetComponent()
+{
+	for (Component* pComponent : m_components)
+	{
+		if (dynamic)
+
+	}
+	return nullptr;
+}
+
+template <class> bool isInstance(Component* c) {return false}
+template <class T> bool isInstance<T>(Component* c) { return true }

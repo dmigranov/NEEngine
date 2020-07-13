@@ -51,6 +51,7 @@
     <ClCompile Include="src\TextDrawer.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
@@ -80,6 +81,7 @@
     <ClInclude Include="System.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="TransformUpdateSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

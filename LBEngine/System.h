@@ -10,6 +10,6 @@ public:
 	virtual ~System() {};
 	virtual void Update() {};
 protected:
-	std::vector<Entity *> entities;;
+	std::vector<Entity *> m_entities;;
 };
 

@@ -10,8 +10,8 @@ Entity::Entity(const char* name) :
 {
 	m_name = (nullptr == name) ? "Object" : name;
 
-	m_pTransform = new TransformComponent();
-	AddComponent(m_pTransform);
+	//m_pTransform = new TransformComponent();
+	//AddComponent(m_pTransform);
 
 	m_pMesh = nullptr;
 }
