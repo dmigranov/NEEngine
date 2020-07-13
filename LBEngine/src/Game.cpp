@@ -459,12 +459,12 @@ void Game::Update(float deltaTime)
     fpsCounter.Update();
     m_inputHandler->HandleInput(deltaTime);
 
-    //todo: scene->update() {for each system ...}
+    m_pScene->Update(/*TODO: дельта*/);
 
-    for (auto mesh : meshes)
+    /*for (auto mesh : meshes)
     {
         mesh->Update(deltaTime);
-    } //todo: убрать
+    } //todo: убрать*/
 }
 
 void Game::Render()
@@ -505,7 +505,7 @@ void Game::Render()
     for (auto mesh : meshes)
         mesh->Render();
 
-    g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
+    //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition(); 

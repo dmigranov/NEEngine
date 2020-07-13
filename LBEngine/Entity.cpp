@@ -4,7 +4,6 @@
 #include "ComponentType.h"
 #include "Component.h"
 #include "TransformComponent.h"
-#include "inc\Entity.h"
 
 Entity::Entity(const char* name) : 
 	m_isActive(false)
@@ -66,9 +65,22 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 	pComponent->Initialize(this);
 }
 
-void Entity::SetMesh(Mesh* pMesh)
+void Entity::SetMesh(MeshComponent<VertexPosTex>* pMesh)
 {
 	m_pMesh = pMesh;
+	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::MeshComponentType, pMesh));
+}
+
+void Entity::SetTransform(TransformComponent* pTransform)
+{
+	m_pTransform = pTransform;
+	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::TransformComponentType, pTransform));
+
+}
+
+void Entity::Render()
+{
+	m_pMesh->Render(m_pTransform->GetWorld());
 }
 
 Component* Entity::GetComponent(ComponentType type)

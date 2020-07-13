@@ -3,5 +3,6 @@
 enum class ComponentType
 {
 	TransformComponentType,
+	MeshComponentType,
 	PlayerComponentType,
 };

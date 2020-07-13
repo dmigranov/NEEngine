@@ -227,9 +227,6 @@
     <ClInclude Include="inc\Effect.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Entity.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ComponentType.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
@@ -256,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Entity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

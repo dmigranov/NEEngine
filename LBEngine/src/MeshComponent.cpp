@@ -45,7 +45,7 @@ MeshComponent<T>::MeshComponent(int nv, T* vertices, int ni, WORD* indices)
 }
 
 template<class T>
-void MeshComponent<T>::Render()
+void MeshComponent<T>::Render(DirectX::XMMATRIX world)
 {
 	const UINT vertexStride = sizeof(T);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
 	const UINT offset = 0;
@@ -59,8 +59,10 @@ void MeshComponent<T>::Render()
 		deviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
 
+	deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &world, 0, 0);
+
 	//DRAW
-	deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+	deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
 template<class T>

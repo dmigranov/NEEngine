@@ -3,13 +3,15 @@
 #include "Texture.h"
 #include <wtypes.h>
 
-#include "ResourceManager.h"
+#include "Component.h"
 
-template <class T> class MeshComponent
+
+template <class T> class MeshComponent 
+    : public Component
 {
 public:
     MeshComponent(int nv, T* vertices, int ni, WORD* indices);
-    virtual void Render();
+    virtual void Render(DirectX::XMMATRIX world);
 
 	virtual ~MeshComponent()
     {

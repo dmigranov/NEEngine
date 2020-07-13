@@ -1,8 +1,6 @@
-﻿  Microsoft (R) Direct3D Shader Compiler 10.1
-  Copyright (C) 2013 Microsoft. All rights reserved.
-  
-  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\VertexShader.h
-  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\BasicVertexShader.cso
+﻿  Entity.cpp
+  Scene.cpp
+  TransformUpdateSystem.cpp
   Game.cpp
 D:\Code\LBEngine\LBEngine\src\Game.cpp(52,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Code\LBEngine\LBEngine\src\Game.cpp(270,1): warning C4305: '-=': truncation from 'double' to 'float'

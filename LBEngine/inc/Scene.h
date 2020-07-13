@@ -15,6 +15,7 @@ public:
 	//void AddLight(Light* pLight);
 
 	void Update();
+	void Render();
 
 	void SetCamera(Camera* pCamera);
 	Camera* GetCamera();
