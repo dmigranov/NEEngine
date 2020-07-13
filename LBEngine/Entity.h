@@ -21,10 +21,11 @@ public:
 	void Initialize();
 
 	void AddComponent(Component* pComponent);
-
-	template <class T> T* GetComponent();
-
 private:
+	template <class T, class F> bool isFTypeT(F* f) { return false; }
+	template <class T, class F> bool isFTypeT(T* f) { return true; }
+
+
 	//TransformComponent* m_pTransform;
 	//EffectComponent* m_pEffect; //todo
 	Mesh* m_pMesh;
@@ -32,6 +33,10 @@ private:
 	std::list<Component*> m_components;
 	bool m_isActive;
 	std::string m_name;
+
+public:
+	template <class T> T* GetComponent();
+
 };
 
 template<class T>
@@ -39,11 +44,10 @@ inline T* Entity::GetComponent()
 {
 	for (Component* pComponent : m_components)
 	{
-		if (dynamic)
-
+		if (isFTypeT<Component, T>(pComponent))
+			return (T*)pComponent;
 	}
 	return nullptr;
 }
 
-template <class> bool isInstance(Component* c) {return false}
-template <class T> bool isInstance<T>(Component* c) { return true }
+

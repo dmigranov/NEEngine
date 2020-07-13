@@ -1,71 +1,7 @@
 ﻿  Entity.cpp
-D:\Code\LBEngine\LBEngine\Entity.h(26,25): error C2061: syntax error: identifier 'GetComponent'
-D:\Code\LBEngine\LBEngine\Entity.h(26,34): error C3413: 'Entity::T': invalid explicit instantiation
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2143: syntax error: missing ';' before '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2059: syntax error: '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-D:\Code\LBEngine\LBEngine\Component.h(2,13): error C3769: 'Entity': a nested class cannot have the same name as the immediately enclosing class
-D:\Code\LBEngine\LBEngine\Entity.cpp(8,34): error C3254: 'Entity': class contains explicit override '{ctor}' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(8,34): error C2838: '{ctor}': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(8,34): error C2535: 'Entity::Entity(const char *)': member function already defined or declared
-D:\Code\LBEngine\LBEngine\Entity.h(18): message : see declaration of 'Entity::Entity'
-D:\Code\LBEngine\LBEngine\Entity.cpp(20,1): error C3254: 'Entity': class contains explicit override '{dtor}' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(20,1): error C2838: '{dtor}': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(20,1): error C2535: 'Entity::~Entity(void)': member function already defined or declared
-D:\Code\LBEngine\LBEngine\Entity.h(19): message : see declaration of 'Entity::~Entity'
-D:\Code\LBEngine\LBEngine\Entity.cpp(50,1): error C3254: 'Entity': class contains explicit override 'Initialize' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(50,1): error C2838: 'Initialize': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(50,1): error C2535: 'void Entity::Initialize(void)': member function already defined or declared
-D:\Code\LBEngine\LBEngine\Entity.h(21): message : see declaration of 'Entity::Initialize'
-D:\Code\LBEngine\LBEngine\Entity.cpp(64,1): error C3254: 'Entity': class contains explicit override 'AddComponent' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(64,1): error C2838: 'AddComponent': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Entity.cpp(69,1): fatal error C1004: unexpected end-of-file found
-  System.cpp
-  SphericalMath.cpp
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(14,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(19,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(20,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(24,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(32,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(37,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(38,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(42,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(50,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(55,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(56,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(60,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\Entity.cpp(38,17): warning C4150: deletion of pointer to incomplete type 'Mesh'; no destructor called
+D:\Code\LBEngine\LBEngine\Entity.h(8): message : see declaration of 'Mesh'
   Scene.cpp
-D:\Code\LBEngine\LBEngine\Entity.h(26,25): error C2061: syntax error: identifier 'GetComponent'
-D:\Code\LBEngine\LBEngine\Entity.h(26,34): error C3413: 'Entity::T': invalid explicit instantiation
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2143: syntax error: missing ';' before '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2059: syntax error: '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-D:\Code\LBEngine\LBEngine\System.h(4,13): error C3769: 'Entity': a nested class cannot have the same name as the immediately enclosing class
-D:\Code\LBEngine\LBEngine\Scene.cpp(9,16): error C3254: 'Entity': class contains explicit override '{ctor}' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(9,16): error C2838: '{ctor}': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(13,1): error C3254: 'Entity': class contains explicit override '{dtor}' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(13,1): error C2838: '{dtor}': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(13,1): error C2535: 'Entity::~Entity(void)': member function already defined or declared
-D:\Code\LBEngine\LBEngine\Entity.h(19): message : see declaration of 'Entity::~Entity'
-D:\Code\LBEngine\LBEngine\Scene.cpp(18,1): error C3254: 'Entity': class contains explicit override 'AddEntity' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(18,1): error C2838: 'AddEntity': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(30,1): error C3254: 'Entity': class contains explicit override 'SetCamera' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(30,1): error C2838: 'SetCamera': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(38,1): error C3254: 'Entity': class contains explicit override 'GetCamera' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(38,1): error C2838: 'GetCamera': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(43,1): error C3254: 'Entity': class contains explicit override 'Update' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(43,1): error C2838: 'Update': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(58,1): error C3254: 'Entity': class contains explicit override 'Render' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(58,1): error C2838: 'Render': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\Scene.cpp(68,1): fatal error C1004: unexpected end-of-file found
   TransformUpdateSystem.cpp
-D:\Code\LBEngine\LBEngine\Entity.h(26,25): error C2061: syntax error: identifier 'GetComponent'
-D:\Code\LBEngine\LBEngine\Entity.h(26,34): error C3413: 'Entity::T': invalid explicit instantiation
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2143: syntax error: missing ';' before '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2059: syntax error: '{'
-D:\Code\LBEngine\LBEngine\Entity.h(36,1): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
-D:\Code\LBEngine\LBEngine\Component.h(2,13): error C3769: 'Entity': a nested class cannot have the same name as the immediately enclosing class
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(8,1): error C3254: 'Entity': class contains explicit override 'Update' but does not derive from an interface that contains the function declaration
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(8,1): error C2838: 'Update': illegal qualified name in member declaration
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(14,1): fatal error C1004: unexpected end-of-file found
   Generating Code...
+  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

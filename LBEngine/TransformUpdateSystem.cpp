@@ -8,6 +8,6 @@ void TransformUpdateSystem::Update()
 {
 	for(auto pEntity : m_entities)
 	{ 
-		TransformComponent transform = pEntity->GetComponent<TransformComponent>();
+		TransformComponent *transform = pEntity->GetComponent<TransformComponent>();
 	}
 }
