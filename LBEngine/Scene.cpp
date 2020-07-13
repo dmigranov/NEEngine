@@ -49,7 +49,7 @@ void Scene::Update()
 	{
 		if (pSystem != nullptr)
 		{
-			pSystem->Update();
+			pSystem->Execute();
 		}
 	}
 }

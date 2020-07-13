@@ -36,7 +36,10 @@
 #include "Drawer2D.h"
 #include "Texture.h"
 
-#include "FPSCounter.h"
+
+
+class Scene;
+class FPSCounter;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -128,6 +131,7 @@ private:
     
     std::list<Mesh *> meshes;
     std::list<Texture *> textures;
+    Scene* scene;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;

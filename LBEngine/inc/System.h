@@ -8,7 +8,7 @@ class System
 public:
 	System() {};
 	virtual ~System() {};
-	virtual void Update() {};
+	virtual void Execute() {};
 protected:
 	std::vector<Entity *> m_entities;;
 };

@@ -1,6 +1,8 @@
 ﻿#include <pch.h>
 #include "Game.h"
 
+#include "FPSCounter.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -413,7 +415,6 @@ void Game::CreateResources()
 
     RecalculateProjectionMatrices();
 
-
     auto density = perApplicationVSConstantBuffer.density;
     if(isSpherical)
     {
@@ -439,13 +440,8 @@ void Game::Update(float deltaTime)
 {
     fpsCounter.Update();
     m_inputHandler->HandleInput(deltaTime);
-    //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
-    //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 
-    for (auto pSystem : systems)
-    {
-        system->Update(deltaTime);
-    }
+    //todo: scene->update() {for each system ...}
 
     for (auto mesh : meshes)
     {
@@ -458,9 +454,6 @@ void Game::Render()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
-    //double ffar = exp(-perApplicationVSConstantBuffer.density * 2);
-    //https://www.opengl.org/archives/resources/code/samples/advanced/advanced97/notes/node122.html
-    //у меня тут случай far=inf
     Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
 
     //Input Assembler Stage - common
