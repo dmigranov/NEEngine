@@ -55,17 +55,20 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="ComponentType.h" />
-    <ClInclude Include="Effect.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="inc\Camera.h" />
+    <ClInclude Include="inc\Component.h" />
+    <ClInclude Include="inc\ComponentType.h" />
     <ClInclude Include="inc\Drawer2D.h" />
+    <ClInclude Include="inc\Effect.h" />
+    <ClInclude Include="inc\Entity.h" />
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\HyperbolicMath.h" />
     <ClInclude Include="inc\Mesh.h" />
+    <ClInclude Include="inc\PlayerComponent.h" />
+    <ClInclude Include="inc\RenderSystem.h" />
+    <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\SphericalAsteroid.h" />
     <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalEllipsoid.h" />
@@ -78,13 +81,11 @@
     <ClInclude Include="inc\SphericalMath.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
     <ClInclude Include="inc\SphericalSphere.h" />
+    <ClInclude Include="inc\System.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
-    <ClInclude Include="PlayerComponent.h" />
-    <ClInclude Include="System.h" />
-    <ClInclude Include="TransformComponent.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="TransformUpdateSystem.h" />
+    <ClInclude Include="inc\TransformComponent.h" />
+    <ClInclude Include="inc\TransformUpdateSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

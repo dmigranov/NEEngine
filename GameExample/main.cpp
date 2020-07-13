@@ -3,10 +3,10 @@
 
 #include <pch.h>
 #include "Game.h"
-#include "../LBEngine/Entity.h"
-#include "../LBEngine/PlayerComponent.h"
-#include "../LBEngine/TransformComponent.h"
-#include "../LBEngine/ComponentType.h"
+#include "Entity.h"
+#include "PlayerComponent.h"
+#include "TransformComponent.h"
+#include "ComponentType.h"
 
 
 using namespace DirectX;

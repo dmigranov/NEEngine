@@ -1,2 +1,12 @@
-﻿  TransformUpdateSystem.cpp
+﻿  Component.cpp
+  Effect.cpp
+  Entity.cpp
+D:\Code\LBEngine\LBEngine\Entity.cpp(37,17): warning C4150: deletion of pointer to incomplete type 'Mesh'; no destructor called
+D:\Code\LBEngine\LBEngine\inc\Entity.h(10): message : see declaration of 'Mesh'
+  PlayerComponent.cpp
+  Scene.cpp
+  System.cpp
+  TransformComponent.cpp
+  TransformUpdateSystem.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
