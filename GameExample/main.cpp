@@ -22,22 +22,24 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 {
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
-    
     Scene* scene = game.GetScene();
-    Camera* camera = scene->GetCamera();
-    //todo: мувать камеру как объект...
+    //game.getResourceManager... resourceManager.loadTexture
 
+    Texture* earthTexture = game.CreateTexture(L"earth.dds");
+
+    //Camera* camera = scene->GetCamera();
+    //todo: мувать камеру как объект...
+    Entity* cameraEntity = new Entity();
+    //scene->SetCamera(cameraEntity);
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
-    Texture * earthTexture = game.CreateTexture(L"earth.dds");
     
     Entity* e = new Entity();
-    e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
-    e->AddComponent(ComponentType::TransformComponentType, new TransformComponent());
+    //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
+    auto transform = new TransformComponent();
+    e->AddComponent(ComponentType::TransformComponentType, transform);
     
-    TransformComponent* tc = (TransformComponent*)e->GetComponent(ComponentType::TransformComponentType);
-    PlayerComponent* pc = (PlayerComponent*)e->GetComponent(ComponentType::PlayerComponentType);
 
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
