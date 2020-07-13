@@ -1,11 +1,11 @@
 ﻿  Game.cpp
-D:\Code\LBEngine\LBEngine\src\Game.cpp(37,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(255,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Code\LBEngine\LBEngine\src\Game.cpp(260,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Code\LBEngine\LBEngine\src\Game.cpp(265,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Code\LBEngine\LBEngine\src\Game.cpp(272,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Code\LBEngine\LBEngine\src\Game.cpp(504,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(514,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(48,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(266,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Code\LBEngine\LBEngine\src\Game.cpp(271,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Code\LBEngine\LBEngine\src\Game.cpp(276,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Code\LBEngine\LBEngine\src\Game.cpp(283,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Code\LBEngine\LBEngine\src\Game.cpp(515,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(525,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameWindows.cpp
   Mesh.cpp
   SphericalAsteroid.cpp

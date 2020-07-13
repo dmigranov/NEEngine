@@ -3,6 +3,8 @@
 
 #include <pch.h>
 #include "Game.h"
+#include "SphericalSphere.h"
+
 #include "Entity.h"
 #include "PlayerComponent.h"
 #include "TransformComponent.h"

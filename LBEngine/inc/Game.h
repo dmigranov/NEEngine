@@ -3,32 +3,14 @@
 #include <iomanip>
 
 //Shaders
-
-#include "VertexShader.h"
-#include "MorphingVertexShader.h"
-
-#include "SphLinVertexShader.h"
 #include "SphExpVertexShader.h"
 #include "SphExp2VertexShader.h"
-
 #include "EllExpVertexShader.h"
 #include "EllExp2VertexShader.h"
 
 #include "GeometryShader.h"
 
 #include "PixelShader.h"
-
-#include "Mesh.h"
-
-#include "SphericalMesh.h"
-#include "SphericalOctahedron.h"
-#include "SphericalMeshLoader.h"
-#include "SphericalCube.h"
-#include "SphericalSphere.h"
-#include "SphericalAsteroid.h"
-#include "SphericalEllipsoid.h"
-
-#include "HyperbolicMesh.h"
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
@@ -39,6 +21,8 @@ class Scene;
 class Texture;
 class Drawer2D;
 class TextDrawer;
+class Mesh;
+class SphericalMesh;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 

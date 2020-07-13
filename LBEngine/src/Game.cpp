@@ -4,6 +4,16 @@
 #include "Texture.h"
 #include "Drawer2D.h"
 #include "TextDrawer.h"
+#include "SphericalMeshLoader.h"
+
+#include "Mesh.h"
+#include "SphericalMesh.h"
+
+#include "SphericalOctahedron.h"
+#include "SphericalCube.h"
+#include "SphericalSphere.h"
+#include "SphericalAsteroid.h"
+#include "SphericalEllipsoid.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
