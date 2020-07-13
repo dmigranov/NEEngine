@@ -15,6 +15,8 @@
 #include "SphericalAsteroid.h"
 #include "SphericalEllipsoid.h"
 
+#include "Scene.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -24,6 +26,7 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
     m_outputHeight(height)
 {
     m_camera = std::make_shared<SphericalCamera>();
+    m_pScene = new Scene();
 }
 
 Game& Game::GetInstance()
@@ -685,6 +688,11 @@ Texture * Game::CreateTexture(const WCHAR * name)
         return nullptr;
     textures.push_back(texture);
     return texture;
+}
+
+Scene* Game::GetScene()
+{
+    return m_pScene;;
 }
 
 void Game::AddMesh(Mesh* mesh)

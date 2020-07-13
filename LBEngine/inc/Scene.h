@@ -12,7 +12,7 @@ public:
 	Scene();
 	~Scene();
 	void AddEntity(Entity* pEntity);
-	void AddLight(Light* pLight);
+	//void AddLight(Light* pLight);
 
 	void Update();
 	void Render();
@@ -23,8 +23,8 @@ public:
 private:
 	std::vector<Entity *>	m_entities;
 	std::vector<System*>	m_systems;
-
 	//std::list<const Light*>	m_lights;
+
 	Camera* m_pCamera;
 };
 

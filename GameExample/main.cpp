@@ -3,6 +3,9 @@
 
 #include <pch.h>
 #include "Game.h"
+#include "Scene.h"
+#include "Camera.h"
+
 #include "SphericalSphere.h"
 
 #include "Entity.h"
@@ -19,6 +22,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 {
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
+    
+    Scene* scene = game.GetScene();
+    Camera* camera = scene->GetCamera();
+    //todo: мувать камеру как объект...
+
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);

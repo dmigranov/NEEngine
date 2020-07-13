@@ -4,6 +4,7 @@
 #include "ComponentType.h"
 #include "Component.h"
 #include "TransformComponent.h"
+#include "inc\Entity.h"
 
 Entity::Entity(const char* name) : 
 	m_isActive(false)
@@ -63,6 +64,11 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 {
 	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
+}
+
+void Entity::SetMesh(Mesh* pMesh)
+{
+	m_pMesh = pMesh;
 }
 
 Component* Entity::GetComponent(ComponentType type)

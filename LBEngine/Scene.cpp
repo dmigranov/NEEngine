@@ -20,10 +20,8 @@ void Scene::AddEntity(Entity* pEntity)
 	{
 		return;
 	}
-
 	//pEntity->Initialize();
 	m_entities.push_back(pEntity);
-	//ObjectStorage::Push(pObject);
 }
 
 void Scene::SetCamera(Camera* pCamera)

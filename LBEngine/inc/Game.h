@@ -34,6 +34,9 @@ public:
     int StartGame();
 
     Texture * CreateTexture(const WCHAR * name);
+
+    Scene* GetScene();
+
     void AddMesh(Mesh * mesh);
     void MoveCamera(DirectX::SimpleMath::Vector3);
     void SetCameraFovY(float fovY);
@@ -112,9 +115,9 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
-    std::list<Mesh *> meshes;
     std::list<Texture *> textures;
-    Scene* scene;
+    std::list<Mesh*> meshes;
+    Scene* m_pScene;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
