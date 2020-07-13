@@ -10,8 +10,7 @@ public:
     TransformComponent(double x, double y, double z, double rx, double ry, double rz, double sx = 1, double sy = 1, double sz = 1);
     TransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);
 
-
-    const Matrix& GetWorld();
+    const DirectX::SimpleMath::Matrix& GetWorld();
 private:
     void Recalculate();
 

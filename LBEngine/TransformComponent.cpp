@@ -26,7 +26,7 @@ TransformComponent::TransformComponent(DirectX::SimpleMath::Vector3 position, Di
 {}
 
 
-const Matrix& TransformComponent::GetWorld()
+const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {
 	if (m_shouldRecalc)
 	{
@@ -54,7 +54,6 @@ void TransformComponent::Recalculate()
 	Vector4 position4 = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
 	m_position = Vector3(position4.x, position4.y, position4.z);	//global position
 	
-
 	
 	Vector4 forward4 = Vector4::Transform(Vector4(0, 0, 1, 0), m_world);
 	m_forward = Vector3(forward4.x, forward4.y, forward4.z);
@@ -64,15 +63,9 @@ void TransformComponent::Recalculate()
 	m_right = Vector3(right4.x, right4.y, right4.z);
 	m_right.Normalize();
 
-	Vector4 up4 = m_matWorld * Vector4(0, 1, 0, 0);
-	m_up = up4.ToVector3();
+	Vector4 up4 = Vector4::Transform(Vector4(0, 1, 0, 0), m_world);
+	m_up = Vector3(up4.x, up4.y, up4.z);
 	m_up.Normalize();
 	
-
-	// ѕересчитываем матрицу View
-	{
-		m_matView = Matrix4x4::LookAtLH(m_positionLocal, m_positionLocal + m_forward, m_up);
-	}
-
 	m_shouldRecalc = false;
 }
