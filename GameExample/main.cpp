@@ -12,6 +12,7 @@
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
 #include "ComponentType.h"
+#include "ResourceManager.h"
 
 
 using namespace DirectX;
@@ -23,9 +24,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
     Scene* scene = game.GetScene();
-    //game.getResourceManager... resourceManager.loadTexture
+    auto resourceManager = game.GetResourceManager(); 
+    Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
 
-    Texture* earthTexture = game.CreateTexture(L"earth.dds");
 
     //Camera* camera = scene->GetCamera();
     //todo: мувать камеру как объект...

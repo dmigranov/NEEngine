@@ -18,11 +18,15 @@
 #include "FPSCounter.h"
 
 class Scene;
+class ResourceManager;
+
 class Texture;
 class Drawer2D;
 class TextDrawer;
 class Mesh;
 class SphericalMesh;
+
+
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -33,9 +37,8 @@ public:
     int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isVSyncEnabled = true);
     int StartGame();
 
-    Texture * CreateTexture(const WCHAR * name);
-
     Scene* GetScene();
+    ResourceManager* GetResourceManager();
 
     void AddMesh(Mesh * mesh);
     void MoveCamera(DirectX::SimpleMath::Vector3);
@@ -118,6 +121,7 @@ private:
     std::list<Texture *> textures;
     std::list<Mesh*> meshes;
     Scene* m_pScene;
+    ResourceManager* m_pResourceManager;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;

@@ -16,6 +16,7 @@
 #include "SphericalEllipsoid.h"
 
 #include "Scene.h"
+#include "ResourceManager.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -27,6 +28,7 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
 {
     m_camera = std::make_shared<SphericalCamera>();
     m_pScene = new Scene();
+
 }
 
 Game& Game::GetInstance()
@@ -312,6 +314,7 @@ int Game::Initialize(HWND window, int width, int height)
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
+    m_pResourceManager = new ResourceManager(g_d3dDevice);
     return 0;
 }
 
@@ -675,24 +678,20 @@ void Game::UnloadContent()
     SafeRelease(g_d3dPixelShader);
 
     while (!meshes.empty()) delete meshes.front(), meshes.pop_front();
-    while (!textures.empty()) delete textures.front(), textures.pop_front();
-
+    m_pResourceManager->Clean();
+    delete m_pResourceManager;
     delete m_textDrawer;
     delete m_drawer2D;
-}
-
-Texture * Game::CreateTexture(const WCHAR * name)
-{
-    auto texture = new Texture();
-    if (!texture->Initialize(g_d3dDevice, name))
-        return nullptr;
-    textures.push_back(texture);
-    return texture;
 }
 
 Scene* Game::GetScene()
 {
     return m_pScene;;
+}
+
+ResourceManager* Game::GetResourceManager()
+{
+    return m_pResourceManager;
 }
 
 void Game::AddMesh(Mesh* mesh)
