@@ -1,4 +1,7 @@
-﻿  Game.cpp
-D:\Code\LBEngine\LBEngine\src\Game.cpp(49,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(442,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  CameraComponent.cpp
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

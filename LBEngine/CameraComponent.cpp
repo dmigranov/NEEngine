@@ -33,6 +33,7 @@ void CameraComponent::SetAspect(double aspect)
 void CameraComponent::SetOutputSize(double width, double height)
 {
 	m_aspect = width / height;
+	m_shouldRecalc = true;
 }
 
 void CameraComponent::RecalculateProj()
