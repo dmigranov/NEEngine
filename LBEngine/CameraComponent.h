@@ -9,10 +9,13 @@ public:
 	const DirectX::XMMATRIX& GetProj();
 
 private:
+	void RecalculateProj();
+
 	double m_fovY;
 	double m_nearPlane;
 	double m_farPlane;
 
 	bool m_shouldRecalc;
+	DirectX::SimpleMath::Matrix m_proj;
 };
 

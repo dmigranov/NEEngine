@@ -11,5 +11,12 @@ CameraComponent::CameraComponent(double nearPlane, double farPlane, double fovY)
 
 const DirectX::XMMATRIX& CameraComponent::GetProj()
 {
-	// TODO: insert return statement here
+	if (m_shouldRecalc)
+		RecalculateProj();
+	return m_proj;
+}
+
+void CameraComponent::RecalculateProj()
+{
+	//todo
 }
