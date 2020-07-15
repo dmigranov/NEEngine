@@ -34,12 +34,6 @@
     <Filter Include="Data\Shaders\Elliptical">
       <UniqueIdentifier>{6a0c3b28-243b-4135-a316-e74236d95f35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Math">
-      <UniqueIdentifier>{a7a08830-a25b-4b9b-9816-f95f463db1f9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Math">
-      <UniqueIdentifier>{0bcbe090-06ce-4838-8120-90fafd889f3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Meshes\Spherical">
       <UniqueIdentifier>{c2c10979-b0ac-4dc7-b6ef-bbb5eeafe61c}</UniqueIdentifier>
     </Filter>
@@ -84,9 +78,6 @@
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
-    <ClCompile Include="src\HyperbolicMath.cpp">
-      <Filter>Исходные файлы\Math</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalCube.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
@@ -105,17 +96,11 @@
     <ClCompile Include="src\SphericalSphere.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalAsteroid.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
     <ClCompile Include="src\FPSCounter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalEllipsoid.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalMath.cpp">
-      <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\GameWindows.cpp">
       <Filter>Исходные файлы</Filter>
@@ -136,9 +121,6 @@
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera.cpp">
-      <Filter>Исходные файлы\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalCamera.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
     <ClCompile Include="System.cpp">
@@ -182,12 +164,6 @@
     <ClInclude Include="inc\Mesh.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
-    <ClInclude Include="inc\HyperbolicMath.h">
-      <Filter>Файлы заголовков\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalMath.h">
-      <Filter>Файлы заголовков\Math</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalCube.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
@@ -206,9 +182,6 @@
     <ClInclude Include="inc\SphericalSphere.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalAsteroid.h">
-      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
-    </ClInclude>
     <ClInclude Include="inc\FPSCounter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -217,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="inc\font.h">
       <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalCamera.h">
-      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
     <ClInclude Include="inc\Camera.h">
       <Filter>Файлы заголовков\Entities</Filter>

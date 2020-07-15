@@ -1,7 +1,36 @@
-﻿  CameraComponent.cpp
-D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\CameraComponent.cpp(41,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary
+﻿  SphericalCube.cpp
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(38,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(38,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(38,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(38,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(39,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(39,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(39,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(39,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(40,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(40,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(40,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(40,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(41,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(41,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(41,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(41,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(42,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(42,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(42,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(43,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(43,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(43,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(43,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(44,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(44,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(44,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(44,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(45,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(45,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(45,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(45,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Scene.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

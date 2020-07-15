@@ -7,7 +7,6 @@
 #include "PixelShader.h"
 
 #include "SimpleInputHandler.h"
-#include "SphericalCamera.h"
 
 #include "FPSCounter.h"
 
@@ -149,21 +148,6 @@ private:
     const int                             aimSize = 20;
 
     FPSCounter                            fpsCounter;
-
-    struct PerApplicationVSConstantBuffer
-    {
-        DirectX::XMMATRIX proj;
-        DirectX::XMMATRIX proj_anti;
-        float density;
-
-    };
-    PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
-
-    struct PerFrameVSConstantBuffer
-    {
-        DirectX::XMMATRIX view;
-        DirectX::XMMATRIX view_anti;
-    };
 
     struct PerApplicationPSConstantBuffer
     {

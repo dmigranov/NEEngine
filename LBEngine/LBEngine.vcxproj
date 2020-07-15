@@ -33,12 +33,9 @@
     <ClCompile Include="src\FPSCounter.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameWindows.cpp" />
-    <ClCompile Include="src\HyperbolicMath.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
-    <ClCompile Include="src\SphericalAsteroid.cpp" />
     <ClCompile Include="src\SphericalCube.cpp" />
     <ClCompile Include="src\SphericalEllipsoid.cpp" />
-    <ClCompile Include="src\SphericalMath.cpp" />
     <ClCompile Include="src\SphericalOctahedron.cpp" />
     <ClCompile Include="src\SphericalMesh.cpp" />
     <ClCompile Include="src\pch.cpp">
@@ -49,7 +46,6 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="src\SimpleInputHandler.cpp" />
-    <ClCompile Include="src\SphericalCamera.cpp" />
     <ClCompile Include="src\SphericalMeshLoader.cpp" />
     <ClCompile Include="src\SphericalSphere.cpp" />
     <ClCompile Include="src\TextDrawer.cpp" />
@@ -68,14 +64,12 @@
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
-    <ClInclude Include="inc\HyperbolicMath.h" />
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponent.h" />
     <ClInclude Include="inc\PlayerComponent.h" />
     <ClInclude Include="inc\RenderSystem.h" />
     <ClInclude Include="inc\ResourceManager.h" />
     <ClInclude Include="inc\Scene.h" />
-    <ClInclude Include="inc\SphericalAsteroid.h" />
     <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalEllipsoid.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
@@ -83,8 +77,6 @@
     <ClInclude Include="inc\SphericalMesh.h" />
     <ClInclude Include="inc\pch.h" />
     <ClInclude Include="inc\SimpleInputHandler.h" />
-    <ClInclude Include="inc\SphericalCamera.h" />
-    <ClInclude Include="inc\SphericalMath.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
     <ClInclude Include="inc\SphericalSphere.h" />
     <ClInclude Include="inc\System.h" />
