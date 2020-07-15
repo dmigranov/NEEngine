@@ -46,7 +46,7 @@ const DirectX::SimpleMath::Matrix& TransformComponent::GetView()
 }
 
 void TransformComponent::Recalculate()
-	
+{
 	Matrix matTransLocal = Matrix::CreateTranslation(m_positionLocal);
 	Matrix matRotLocal = Matrix::CreateRotationX(m_rotation.x) * Matrix::CreateRotationY(m_rotation.y) * Matrix::CreateRotationZ(m_rotation.z);
 	Matrix matScale = Matrix::CreateScale(m_scale);

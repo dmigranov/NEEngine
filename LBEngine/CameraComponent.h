@@ -6,6 +6,8 @@ class CameraComponent :
 public:
 	CameraComponent();
 	CameraComponent(double nearPlane, double farPlane, double fovY = 90.);
+	const DirectX::XMMATRIX& GetProj();
+
 private:
 	double m_fovY;
 	double m_nearPlane;
