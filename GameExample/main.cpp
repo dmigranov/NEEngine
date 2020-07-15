@@ -13,7 +13,7 @@
 #include "TransformComponent.h"
 #include "ComponentType.h"
 #include "ResourceManager.h"
-
+#include "TransformUpdateSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -26,6 +26,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager(); 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
+
+    scene->AddSystem(new TransformUpdateSystem());
+
 
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));

@@ -35,6 +35,15 @@ void Scene::AddEntity(Entity* pEntity)
 	m_entities.push_back(pEntity);
 }
 
+void Scene::AddSystem(System* pSystem)
+{
+	if (pSystem == nullptr)
+	{
+		return;
+	}
+	m_systems.push_back(pSystem);
+}
+
 void Scene::SetCamera(Entity* pCamera)
 {
 	//надо ли добавлять камеру в ентити?

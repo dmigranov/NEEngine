@@ -16,6 +16,9 @@ public:
 	void AddEntity(Entity* pEntity);
 	//void AddLight(Light* pLight);
 
+	void AddSystem(System* system);
+
+
 	void Update();
 	void Render();
 

@@ -25,6 +25,17 @@ TransformComponent::TransformComponent(DirectX::SimpleMath::Vector3 position, Di
 	m_scale(scale), m_shouldRecalcWorld(true), m_shouldRecalcView(true)
 {}
 
+void TransformComponent::Move(Vector3 v)
+{
+	m_positionLocal += v;
+	m_shouldRecalcWorld = true;
+}
+
+void TransformComponent::Move(double x, double y, double z)
+{
+	this->Move(Vector3(x, y, z));
+}
+
 const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {
 	if (m_shouldRecalcWorld)
