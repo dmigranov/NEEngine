@@ -43,8 +43,6 @@ private:
 	std::map<ComponentType, Component*> m_components;	
 	bool m_isActive;
 	std::string m_name;
-
-
 };
 
 

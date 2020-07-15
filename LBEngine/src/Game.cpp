@@ -398,7 +398,8 @@ void Game::CreateResources()
 void Game::Update(float deltaTime)
 {
     fpsCounter.Update();
-    m_inputHandler->HandleInput(deltaTime);
+    //todo: 
+    //m_inputHandler->HandleInput(deltaTime);
 
     m_pScene->Update(/*TODO: дельта*/);
 }

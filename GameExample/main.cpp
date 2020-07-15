@@ -28,7 +28,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
 
     Entity* cameraEntity = new Entity();
-    cameraEntity->SetTransform(new TransformComponent(0, 0, 1, 0, 0, 0));
+    cameraEntity->SetTransform(new TransformComponent(0, 0, -1, 0, 0, 0));
     scene->SetCamera(cameraEntity);
 
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);

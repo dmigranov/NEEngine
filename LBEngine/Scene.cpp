@@ -41,8 +41,9 @@ void Scene::SetCamera(Entity* pCamera)
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;
+		m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent());
+		UpdateProjMatrix();
 	}
-	m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent());
 }
 
 Entity* Scene::GetCamera()
@@ -52,15 +53,24 @@ Entity* Scene::GetCamera()
 
 void Scene::SetCameraOutputSize(double width, double height)
 {
-	//проблема: камера изначально нулл
+	m_width = width;
+	m_height = height;
+	if(m_pCamera != nullptr)
+	{
+		UpdateProjMatrix();
+	}
+}
+
+void Scene::UpdateProjMatrix()
+{
 	//todo: оптимизировать: сохранить в поле?
+
 	auto cc = (CameraComponent*)(m_pCamera->GetComponent(ComponentType::CameraComponentType));
-	cc->SetOutputSize(width, height);
+	cc->SetOutputSize(m_width, m_height);
 
 	auto proj = cc->GetProj();
 
 	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &proj, 0, 0);
-
 }
 
 void Scene::Update()

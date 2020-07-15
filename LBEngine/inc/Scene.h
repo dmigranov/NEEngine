@@ -25,9 +25,13 @@ public:
 	void SetCameraOutputSize(double width, double height);
 
 private:
+	void UpdateProjMatrix();
+
 	std::vector<Entity *>	m_entities;
 	std::vector<System*>	m_systems;
 	//std::list<const Light*>	m_lights;
+
+	double m_width, m_height;
 
 	Game& m_game;
 	Entity* m_pCamera;
