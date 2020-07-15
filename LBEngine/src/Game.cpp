@@ -382,6 +382,7 @@ void Game::CreateResources()
 
 
     // Setup depth/stencil state.
+    SafeRelease(g_d3dDepthStencilState);
     D3D11_DEPTH_STENCIL_DESC depthStencilStateDesc;
     ZeroMemory(&depthStencilStateDesc, sizeof(D3D11_DEPTH_STENCIL_DESC));
 
