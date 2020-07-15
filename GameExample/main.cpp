@@ -27,19 +27,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto resourceManager = game.GetResourceManager(); 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
 
-
-    //Camera* camera = scene->GetCamera();
-    //todo: мувать камеру как объект...
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 0, 1, 0, 0, 0));
     scene->SetCamera(cameraEntity);
 
-    game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
-    game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     
     Entity* e = new Entity();
-    //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
     auto transform = new TransformComponent(0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3);
     e->SetTransform(transform);
 

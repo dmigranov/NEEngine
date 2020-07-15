@@ -34,6 +34,7 @@ void Scene::AddEntity(Entity* pEntity)
 
 void Scene::SetCamera(Entity* pCamera)
 {
+	//надо ли добавлять камеру в ентити?
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;

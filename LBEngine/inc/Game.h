@@ -34,10 +34,7 @@ public:
     Scene* GetScene();
     ResourceManager* GetResourceManager();
 
-    void MoveCamera(DirectX::SimpleMath::Vector3);
-    void SetCameraFovY(float fovY);
     void SetBackgroundColor(DirectX::XMVECTORF32);
-    DirectX::SimpleMath::Matrix GetCameraTransformMatrix();
 
 private:
     Game(unsigned int width, unsigned int height) noexcept;
@@ -79,9 +76,6 @@ private:
 
     bool LoadContent();
     void UnloadContent();
-
-    DirectX::XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);
-    DirectX::XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
 
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры
@@ -154,8 +148,6 @@ private:
 
     // Input
     std::unique_ptr<InputHandler>         m_inputHandler;
-    // Camera
-    std::shared_ptr<Camera>               m_camera;
 
     TextDrawer *                          m_textDrawer;
     Drawer2D *                            m_drawer2D;
@@ -186,9 +178,5 @@ private:
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
-
     bool isInitialized = false;
-    bool isSpherical = true;
-
-    DirectX::XMMATRIX frontProjectionMatrix, backProjectionMatrix, commonProjectionMatrix;
 };

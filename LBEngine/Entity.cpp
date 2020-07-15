@@ -67,12 +67,14 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 
 void Entity::SetMesh(MeshComponent* pMesh)
 {
+	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pMesh = pMesh;
 	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::MeshComponentType, pMesh));
 }
 
 void Entity::SetTransform(TransformComponent* pTransform)
 {
+	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pTransform = pTransform;
 	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::TransformComponentType, pTransform));
 }
