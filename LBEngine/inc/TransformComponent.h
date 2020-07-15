@@ -13,6 +13,8 @@ public:
     const DirectX::SimpleMath::Matrix& GetWorld();
     const DirectX::SimpleMath::Matrix& GetView();
 
+    //todo: setPosition, Move, Rotate... В них ставить флаг
+
 private:
     void Recalculate();
     void RecalculateView();

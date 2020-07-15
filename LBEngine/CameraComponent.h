@@ -8,6 +8,7 @@ public:
 	CameraComponent(double nearPlane, double farPlane, double fovY = 90.);
 	const DirectX::XMMATRIX& GetProj();
 
+	void SetFovY(double fovY);
 private:
 	void RecalculateProj();
 
