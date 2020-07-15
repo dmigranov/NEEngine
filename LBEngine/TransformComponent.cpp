@@ -36,6 +36,15 @@ const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 	return m_world;
 }
 
+const DirectX::SimpleMath::Matrix& TransformComponent::GetView()
+{
+	if (m_shouldRecalcWorld)
+		Recalculate();
+	if (m_shouldRecalcView)
+		RecalculateView();
+	return m_view;
+}
+
 void TransformComponent::Recalculate()
 {
 	
@@ -72,7 +81,7 @@ void TransformComponent::Recalculate()
 
 void TransformComponent::RecalculateView()
 {
-
+	m_view = Matrix::CreateLookAt(m_position, m_position + m_forward, m_up);
 
 	m_shouldRecalcView = false;
 }
