@@ -31,7 +31,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //Camera* camera = scene->GetCamera();
     //todo: мувать камеру как объект...
     Entity* cameraEntity = new Entity();
-    //scene->SetCamera(cameraEntity);
+    scene->SetCamera(cameraEntity);
+
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);

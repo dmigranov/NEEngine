@@ -4,31 +4,31 @@
 using namespace DirectX::SimpleMath;
 
 TransformComponent::TransformComponent() :
-	m_pParent(NULL), m_positionLocal(0, 0, 0), m_shouldRecalc(true), m_scale(1, 1, 1)
+	m_pParent(NULL), m_positionLocal(0, 0, 0), m_shouldRecalcWorld(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(double x, double y, double z) : 
-	m_pParent(NULL), m_positionLocal(x, y, z), m_shouldRecalc(true), m_scale(1, 1, 1)
+	m_pParent(NULL), m_positionLocal(x, y, z), m_shouldRecalcWorld(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(DirectX::SimpleMath::Vector3 position) :
-	m_pParent(NULL), m_positionLocal(position), m_shouldRecalc(true), m_scale(1, 1, 1)
+	m_pParent(NULL), m_positionLocal(position), m_shouldRecalcWorld(true), m_scale(1, 1, 1)
 {}
 
 TransformComponent::TransformComponent(double x, double y, double z, double rx, double ry, double rz, double sx, double sy, double sz) :
 	m_pParent(NULL), m_positionLocal(x, y, z), m_rotation(rx, ry, rz), 
-	m_scale(sx, sy, sz), m_shouldRecalc(true)
+	m_scale(sx, sy, sz), m_shouldRecalcWorld(true)
 {}
 
 TransformComponent::TransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale) :
 	m_pParent(NULL), m_positionLocal(position), m_rotation(rotation), 
-	m_scale(scale), m_shouldRecalc(true)
+	m_scale(scale), m_shouldRecalcWorld(true)
 {}
 
 
 const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {
-	if (m_shouldRecalc)
+	if (m_shouldRecalcWorld)
 	{
 		Recalculate();
 	}
@@ -67,5 +67,12 @@ void TransformComponent::Recalculate()
 	m_up = Vector3(up4.x, up4.y, up4.z);
 	m_up.Normalize();
 	
-	m_shouldRecalc = false;
+	m_shouldRecalcWorld = false;
+}
+
+void TransformComponent::RecalculateView()
+{
+
+
+	m_shouldRecalcView = false;
 }

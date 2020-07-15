@@ -11,8 +11,12 @@ public:
     TransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);
 
     const DirectX::SimpleMath::Matrix& GetWorld();
+    const DirectX::SimpleMath::Matrix& GetView();
+
 private:
     void Recalculate();
+    void RecalculateView();
+
 
     TransformComponent* m_pParent;
     DirectX::SimpleMath::Matrix m_world;
@@ -24,7 +28,11 @@ private:
 
     DirectX::SimpleMath::Vector3 m_forward, m_right, m_up;
 
+    DirectX::SimpleMath::Matrix m_view;
 
-    bool m_shouldRecalc;
+
+    bool m_shouldRecalcWorld;
+    bool m_shouldRecalcView;
+
 };
 

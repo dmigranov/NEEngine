@@ -17,7 +17,7 @@ public:
 	void Update();
 	void Render();
 
-	void SetCamera(Camera* pCamera);
+	void SetCamera(Entity* pCamera);
 	Camera* GetCamera();
 
 private:
@@ -25,6 +25,6 @@ private:
 	std::vector<System*>	m_systems;
 	//std::list<const Light*>	m_lights;
 
-	Camera* m_pCamera;
+	Entity* m_pCamera;
 };
 
