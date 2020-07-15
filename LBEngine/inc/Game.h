@@ -67,7 +67,6 @@ private:
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
     void CreateResources();
-    void RecalculateProjectionMatrices();
 
     void Update(float deltaTime);
     void Render();
@@ -137,10 +136,6 @@ private:
 
     ID3D11Buffer* g_d3dPSConstantBuffer;
 
-    DirectX::XMMATRIX m_morph;
-    DirectX::XMMATRIX m_view;
-    DirectX::XMMATRIX m_proj;
-
     // Timer
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
@@ -160,8 +155,7 @@ private:
         DirectX::XMMATRIX proj;
         DirectX::XMMATRIX proj_anti;
         float density;
-        //float fogStart;
-        //float fogEnd;
+
     };
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
