@@ -28,7 +28,7 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
 {
     m_camera = std::make_shared<Camera>();
     m_pScene = new Scene();
-    m_pScene->SetCamera(m_camera.get());
+    //m_pScene->SetCamera(m_camera.get());
 }
 
 Game& Game::GetInstance()

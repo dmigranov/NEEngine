@@ -31,6 +31,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //Camera* camera = scene->GetCamera();
     //todo: мувать камеру как объект...
     Entity* cameraEntity = new Entity();
+    cameraEntity->SetTransform(new TransformComponent(0, 0, 1, 0, 0, 0));
     scene->SetCamera(cameraEntity);
 
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));

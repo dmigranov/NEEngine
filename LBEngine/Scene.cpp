@@ -5,6 +5,8 @@
 #include "System.h"
 #include "Camera.h"
 
+#include "TransformComponent.h"
+
 #include "Game.h"
 
 
@@ -30,7 +32,7 @@ void Scene::AddEntity(Entity* pEntity)
 	m_entities.push_back(pEntity);
 }
 
-void Scene::SetCamera(Camera* pCamera)
+void Scene::SetCamera(Entity* pCamera)
 {
 	if (pCamera != nullptr)
 	{
@@ -38,7 +40,7 @@ void Scene::SetCamera(Camera* pCamera)
 	}
 }
 
-Camera* Scene::GetCamera()
+Entity* Scene::GetCamera()
 {
 	return m_pCamera;
 }
@@ -46,7 +48,6 @@ Camera* Scene::GetCamera()
 void Scene::Update()
 {
 	//m_pCamera->GetObjectPtr()->Update();
-
 
 	for (auto pSystem : m_systems)
 	{
@@ -59,7 +60,7 @@ void Scene::Update()
 
 void Scene::Render()
 {
-	auto view = m_pCamera->GetView();
+	const auto view = m_pCamera->GetTransform()->GetView();
 
 	auto& game = Game::GetInstance();
 

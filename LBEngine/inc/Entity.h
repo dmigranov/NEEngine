@@ -29,6 +29,7 @@ public:
 	void AddComponent(const ComponentType type, Component* pComponent);
 	void SetMesh(MeshComponent * pMesh);
 	void SetTransform(TransformComponent* pTransform);
+	TransformComponent* const GetTransform();
 
 	void Render();
 

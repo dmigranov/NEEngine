@@ -75,7 +75,11 @@ void Entity::SetTransform(TransformComponent* pTransform)
 {
 	m_pTransform = pTransform;
 	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::TransformComponentType, pTransform));
+}
 
+TransformComponent* const Entity::GetTransform()
+{
+	return m_pTransform;
 }
 
 void Entity::Render()

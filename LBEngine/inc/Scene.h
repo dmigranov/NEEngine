@@ -18,7 +18,7 @@ public:
 	void Render();
 
 	void SetCamera(Entity* pCamera);
-	Camera* GetCamera();
+	Entity* GetCamera();
 
 private:
 	std::vector<Entity *>	m_entities;
