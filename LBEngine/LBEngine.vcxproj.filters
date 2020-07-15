@@ -145,7 +145,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="InputHandlerComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -243,7 +243,7 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="InputHandlerComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
