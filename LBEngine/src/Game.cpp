@@ -26,7 +26,6 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
     m_outputWidth(width),
     m_outputHeight(height)
 {
-    m_pScene = new Scene();
 }
 
 Game& Game::GetInstance()
@@ -278,6 +277,7 @@ int Game::Initialize(HWND window, int width, int height)
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
     m_pResourceManager = new ResourceManager(g_d3dDevice);
+    m_pScene = new Scene();
     return 0;
 }
 
@@ -390,22 +390,9 @@ void Game::CreateResources()
     g_Viewport.Width = static_cast<float>(backBufferWidth);
     g_Viewport.Height = static_cast<float>(backBufferHeight);
 
-    // Setup the projection matrix.
+    m_pScene->SetCameraOutputSize(backBufferWidth, backBufferHeight);
 
-    {
-        m_pScene->SetCameraOutputSize(backBufferWidth, backBufferHeight);
-
-        RecalculateProjectionMatrices();
-
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &commonProjectionMatrix, 0, 0);
-    }
 }
-
-void Game::RecalculateProjectionMatrices()
-{
-    m_proj = m_camera->GetProj();
-}
-
 
 void Game::Update(float deltaTime)
 {

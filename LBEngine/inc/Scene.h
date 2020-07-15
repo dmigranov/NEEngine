@@ -5,6 +5,8 @@ class Entity;
 class Light;
 class System;
 class Camera;
+class Game;
+
 
 class Scene
 {
@@ -27,6 +29,7 @@ private:
 	std::vector<System*>	m_systems;
 	//std::list<const Light*>	m_lights;
 
+	Game& m_game;
 	Entity* m_pCamera;
 };
 
