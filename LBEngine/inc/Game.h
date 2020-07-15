@@ -3,13 +3,6 @@
 #include <iomanip>
 
 //Shaders
-/*#include "SphExpVertexShader.h"
-#include "SphExp2VertexShader.h"
-#include "EllExpVertexShader.h"
-#include "EllExp2VertexShader.h"
-
-#include "GeometryShader.h"*/
-
 #include "VertexShader.h"
 #include "PixelShader.h"
 
@@ -41,7 +34,6 @@ public:
     Scene* GetScene();
     ResourceManager* GetResourceManager();
 
-    void AddMesh(Mesh * mesh);
     void MoveCamera(DirectX::SimpleMath::Vector3);
     void SetCameraFovY(float fovY);
     void SetBackgroundColor(DirectX::XMVECTORF32);
@@ -122,8 +114,6 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
-    std::list<Texture *> textures;
-    std::list<Mesh*> meshes;
     Scene* m_pScene;
     ResourceManager* m_pResourceManager;
 

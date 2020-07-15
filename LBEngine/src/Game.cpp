@@ -420,11 +420,6 @@ void Game::Update(float deltaTime)
     m_inputHandler->HandleInput(deltaTime);
 
     m_pScene->Update(/*TODO: дельта*/);
-
-    /*for (auto mesh : meshes)
-    {
-        mesh->Update(deltaTime);
-    } //todo: убрать*/
 }
 
 void Game::Render()
@@ -457,13 +452,6 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
     g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
-
-    /*auto viewFront = m_camera->GetView();
-    auto viewBack = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
-    PerFrameVSConstantBuffer buf = { viewFront , viewBack };
-    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &buf, 0, 0);
-    for (auto mesh : meshes)
-        mesh->Render();*/
 
     m_pScene->Render();
 
@@ -637,7 +625,6 @@ void Game::UnloadContent()
 
     SafeRelease(g_d3dPixelShader);
 
-    while (!meshes.empty()) delete meshes.front(), meshes.pop_front();
     m_pResourceManager->Clean();
     delete m_pResourceManager;
     delete m_textDrawer;
@@ -652,11 +639,6 @@ Scene* Game::GetScene()
 ResourceManager* Game::GetResourceManager()
 {
     return m_pResourceManager;
-}
-
-void Game::AddMesh(Mesh* mesh)
-{
-    meshes.push_back(mesh);
 }
 
 void Game::MoveCamera(DirectX::SimpleMath::Vector3 v)

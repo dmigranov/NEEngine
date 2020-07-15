@@ -13,7 +13,11 @@ Scene::Scene() : m_pCamera(nullptr)
 
 Scene::~Scene()
 {
-	//удаление объектов...
+	while (!m_entities.empty())
+	{
+		delete m_entities.front();
+		m_entities.erase(m_entities.begin());
+	}
 }
 
 void Scene::AddEntity(Entity* pEntity)

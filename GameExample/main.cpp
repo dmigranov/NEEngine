@@ -38,7 +38,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     
     Entity* e = new Entity();
     //e->AddComponent(ComponentType::PlayerComponentType, new PlayerComponent());
-    auto transform = new TransformComponent(0, 0, 0);
+    auto transform = new TransformComponent(0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3);
     e->SetTransform(transform);
 
     MeshComponent::VertexPosTex vertices[8] = {
@@ -65,16 +65,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     e->SetMesh(new MeshComponent(8, vertices, 36, indices));
     scene->AddEntity(e);
 
-    /*int bodyCount = 8;
-    for (int i = 0; i < bodyCount; i++)
-    {
-        auto mesh = new SphericalSphere(0.03f, 19, 20, earthTexture, SphericalRotationXW(i * XM_PI /bodyCount));
-        mesh->AddUpdater(Mesh::MeshUpdater([&game, i](Matrix in, float delta) {
-            return SphericalRotationYW(0.001*sin(delta * i / 500)) * in;
-        }));
-        game.AddMesh(mesh);
-    }*/
-
     
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
@@ -85,7 +75,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh);
     }
-    */
     auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
     mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
         auto ks = Keyboard::Get().GetState();
@@ -99,7 +88,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
         return  in * m;  //так всегда вверх!
     }));
-    game.AddMesh(mesh);
+    game.AddMesh(mesh);*/
 
     return game.StartGame();
 

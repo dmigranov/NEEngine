@@ -38,11 +38,11 @@ Entity::~Entity()
 		m_pMesh = nullptr;
 	}
 
-	/*if (NULL != m_pTransform)
+	if (NULL != m_pTransform)
 	{
 		delete m_pTransform;
 		m_pTransform = NULL;
-	}*/
+	}
 }
 
 void Entity::Initialize()
