@@ -141,6 +141,9 @@
     <ClCompile Include="CameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\MeshLoader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="CameraComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MeshLoader.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
