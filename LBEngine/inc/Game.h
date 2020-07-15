@@ -19,8 +19,6 @@ class TextDrawer;
 class Mesh;
 class SphericalMesh;
 
-
-
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 class Game
@@ -57,7 +55,6 @@ private:
     friend class SphericalOctahedron;
     friend class SphericalCube;
     friend class SphericalSphere;
-    friend class SphericalAsteroid;
     friend class SphericalEllipsoid;
 
     friend class Scene;
