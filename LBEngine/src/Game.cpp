@@ -392,7 +392,7 @@ void Game::CreateResources()
 
     // Setup the projection matrix.
 
-    //m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
+    m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
 
     RecalculateProjectionMatrices();
 
@@ -403,7 +403,6 @@ void Game::CreateResources()
 void Game::RecalculateProjectionMatrices()
 {
     m_proj = m_camera->GetProj();
-
 }
 
 
