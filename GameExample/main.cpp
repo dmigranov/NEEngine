@@ -61,6 +61,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     e->SetMesh(new MeshComponent(8, vertices, 36, indices));
     scene->AddEntity(e);
 
+
     
     /*int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
