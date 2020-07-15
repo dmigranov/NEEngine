@@ -30,6 +30,11 @@ void CameraComponent::SetAspect(double aspect)
 	m_shouldRecalc = true;
 }
 
+void CameraComponent::SetOutputSize(double width, double height)
+{
+	m_aspect = width / height;
+}
+
 void CameraComponent::RecalculateProj()
 {
 	m_proj = Matrix::CreatePerspectiveFieldOfView(m_fovY, m_aspect, m_nearPlane, m_farPlane);

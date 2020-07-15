@@ -20,6 +20,8 @@ public:
 	void SetCamera(Entity* pCamera);
 	Entity* GetCamera();
 
+	void SetCameraOutputSize(double width, double height);
+
 private:
 	std::vector<Entity *>	m_entities;
 	std::vector<System*>	m_systems;

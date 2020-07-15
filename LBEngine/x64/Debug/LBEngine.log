@@ -1,4 +1,18 @@
-﻿  Entity.cpp
+﻿  CameraComponent.cpp
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Entity.cpp
+  Game.cpp
+D:\Code\LBEngine\LBEngine\src\Game.cpp(50,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(400,100): error C2065: 'commonProjectionMatrix': undeclared identifier
+D:\Code\LBEngine\LBEngine\src\Game.cpp(406,14): error C2065: 'm_camera': undeclared identifier
+D:\Code\LBEngine\LBEngine\src\Game.cpp(453,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(582,5): error C2065: 'm_camera': undeclared identifier
+D:\Code\LBEngine\LBEngine\src\Game.cpp(583,5): error C2065: 'm_camera': undeclared identifier
+  GameWindows.cpp
   Scene.cpp
+  TransformUpdateSystem.cpp
   Generating Code...
-  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary

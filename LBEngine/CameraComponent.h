@@ -10,6 +10,8 @@ public:
 
 	void SetFovY(double fovY);
 	void SetAspect(double aspect);
+	void SetOutputSize(double width, double height);
+
 
 private:
 	void RecalculateProj();

@@ -6,6 +6,8 @@
 #include "Camera.h"
 
 #include "TransformComponent.h"
+#include "CameraComponent.h"
+#include "ComponentType.h"
 
 #include "Game.h"
 
@@ -39,11 +41,19 @@ void Scene::SetCamera(Entity* pCamera)
 	{
 		m_pCamera = pCamera;
 	}
+	m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent());
 }
 
 Entity* Scene::GetCamera()
 {
 	return m_pCamera;
+}
+
+void Scene::SetCameraOutputSize(double width, double height)
+{
+	//todo: оптимизировать: сохранить в поле?
+	auto cc = (CameraComponent*)(m_pCamera->GetComponent(ComponentType::CameraComponentType));
+	cc->SetOutputSize(width, height);
 }
 
 void Scene::Update()

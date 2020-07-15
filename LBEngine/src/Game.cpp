@@ -392,12 +392,13 @@ void Game::CreateResources()
 
     // Setup the projection matrix.
 
-    m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
+    {
+        m_pScene->SetCameraOutputSize(backBufferWidth, backBufferHeight);
 
-    RecalculateProjectionMatrices();
+        RecalculateProjectionMatrices();
 
-    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &commonProjectionMatrix, 0, 0);
- 
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &commonProjectionMatrix, 0, 0);
+    }
 }
 
 void Game::RecalculateProjectionMatrices()
@@ -577,10 +578,6 @@ bool Game::LoadContent()
     {
         return false;
     }
-
-    m_camera->SetNearPlane(0.001f);
-    m_camera->SetFarPlane(100.f);
-
 
     CreateResources();
 
