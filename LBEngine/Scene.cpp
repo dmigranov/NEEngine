@@ -70,6 +70,11 @@ void Scene::SetCameraOutputSize(double width, double height)
 	}
 }
 
+void Scene::SynchronizeSystemsWithEntities()
+{
+	//TODO: добавить в вектора систем нужные энтити...
+}
+
 void Scene::UpdateProjMatrix()
 {
 	//todo: оптимизировать: сохранить в поле?

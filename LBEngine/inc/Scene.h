@@ -26,7 +26,7 @@ public:
 	Entity* GetCamera();
 
 	void SetCameraOutputSize(double width, double height);
-
+	void SynchronizeSystemsWithEntities();
 private:
 	void UpdateProjMatrix();
 

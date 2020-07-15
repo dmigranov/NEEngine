@@ -9,6 +9,7 @@ public:
 	System() {};
 	virtual ~System() {};
 	virtual void Execute() {};
+
 protected:
 	std::vector<Entity *> m_entities;;
 };

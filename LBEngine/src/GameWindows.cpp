@@ -12,6 +12,8 @@ extern "C"
 
 int Game::StartGame()
 {
+    m_pScene->SynchronizeSystemsWithEntities();
+
     // Main message loop
     // it runs indefinitely, and then check for messages inside the while loop
     // the loop will keep running forever unless something interrupts the loop and causes it to exit
