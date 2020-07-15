@@ -245,7 +245,10 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
+
     isInitialized = true;
+    m_pScene = new Scene();
+
 
     if (!LoadContent())
     {
@@ -277,7 +280,6 @@ int Game::Initialize(HWND window, int width, int height)
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
     m_pResourceManager = new ResourceManager(g_d3dDevice);
-    m_pScene = new Scene();
     return 0;
 }
 
@@ -391,7 +393,6 @@ void Game::CreateResources()
     g_Viewport.Height = static_cast<float>(backBufferHeight);
 
     m_pScene->SetCameraOutputSize(backBufferWidth, backBufferHeight);
-
 }
 
 void Game::Update(float deltaTime)
@@ -590,6 +591,7 @@ void Game::UnloadContent()
 
     m_pResourceManager->Clean();
     delete m_pResourceManager;
+    delete m_pScene;
     delete m_textDrawer;
     delete m_drawer2D;
 }

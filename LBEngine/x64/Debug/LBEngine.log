@@ -1,9 +1,78 @@
-﻿  MeshComponent.cpp
+﻿  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\PixelShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\BasicPixelShader_d.cso
+  Microsoft (R) Direct3D Shader Compiler 10.1
+  Copyright (C) 2013 Microsoft. All rights reserved.
+  
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\VertexShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\BasicVertexShader.cso
+D:\Code\LBEngine\LBEngine\Data\Shaders\MorphingVertexShader.hlsl(36,9-24): warning X3206: implicit truncation of vector type
+  
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\MorphingVertexShader.cso
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\EllExpVertexShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\VertexEllipticalExpFogShader_d.cso
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpSqFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexEllipticalExpSqFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\EllExp2VertexShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader_d.cso
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\SphExpVertexShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpFogShader_d.cso
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\Code\LBEngine\LBEngine\Data\Shaders\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\SphExp2VertexShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpSqFogShader_d.cso
+  compilation header save succeeded; see D:\Code\LBEngine\LBEngine\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Code\LBEngine\LBEngine\bin64\GeometryShader.cso
+  pch.cpp
+  CameraComponent.cpp
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(40,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Component.cpp
+  Effect.cpp
+  Entity.cpp
+  PlayerComponent.cpp
+  MeshComponent.cpp
   ResourceManager.cpp
+  System.cpp
+  TransformComponent.cpp
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(11,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(11,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(11,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(19,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(20,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(20,14): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\TransformComponent.cpp(20,10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera.cpp
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(29,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(30,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(31,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(32,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(68,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(68,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(68,23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(86,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(86,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Drawer2D.cpp
+  FPSCounter.cpp
   Game.cpp
 D:\Code\LBEngine\LBEngine\src\Game.cpp(49,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(440,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(441,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GameWindows.cpp
+  HyperbolicMath.cpp
   Mesh.cpp
   SphericalAsteroid.cpp
 D:\Code\LBEngine\LBEngine\src\SphericalAsteroid.cpp(16,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
@@ -50,6 +119,23 @@ D:\Code\LBEngine\LBEngine\src\SphericalCube.cpp(45,20): warning C4244: 'argument
 D:\Code\LBEngine\LBEngine\src\SphericalEllipsoid.cpp(71,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalEllipsoid.cpp(82,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalEllipsoid.cpp(85,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  SphericalMath.cpp
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(14,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(19,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(20,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(24,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(32,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(37,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(38,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(42,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(50,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(55,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(56,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalMath.cpp(60,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+D:\Code\LBEngine\LBEngine\src\Camera.cpp(50): warning C4172: returning address of local variable or temporary
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary
+  Compiling...
   SphericalOctahedron.cpp
 D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(34,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(34,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -163,11 +249,57 @@ D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(288,39): warning C4244: 'a
 D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(287,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(286,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalOctahedron.cpp(285,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalMesh.cpp
+  SimpleInputHandler.cpp
+  SphericalCamera.cpp
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(119,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(120,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(122,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(122,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalMeshLoader.cpp
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(38,74): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(38,63): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(38,52): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(38,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(45,46): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(45,35): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Code\LBEngine\LBEngine\src\SphericalMeshLoader.cpp(93,98): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   SphericalSphere.cpp
 D:\Code\LBEngine\LBEngine\src\SphericalSphere.cpp(69,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalSphere.cpp(80,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 D:\Code\LBEngine\LBEngine\src\SphericalSphere.cpp(83,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  TextDrawer.cpp
+  Texture.cpp
   Scene.cpp
   TransformUpdateSystem.cpp
   Generating Code...
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(45): warning C4172: returning address of local variable or temporary
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(78): warning C4172: returning address of local variable or temporary
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(65): warning C4172: returning address of local variable or temporary
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(96): warning C4172: returning address of local variable or temporary
+D:\Code\LBEngine\LBEngine\src\SphericalCamera.cpp(91): warning C4172: returning address of local variable or temporary
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

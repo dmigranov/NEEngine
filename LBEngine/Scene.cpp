@@ -22,6 +22,7 @@ Scene::~Scene()
 		delete m_entities.front();
 		m_entities.erase(m_entities.begin());
 	}
+	//todo: camera?
 }
 
 void Scene::AddEntity(Entity* pEntity)
@@ -51,6 +52,7 @@ Entity* Scene::GetCamera()
 
 void Scene::SetCameraOutputSize(double width, double height)
 {
+	//проблема: камера изначально нулл
 	//todo: оптимизировать: сохранить в поле?
 	auto cc = (CameraComponent*)(m_pCamera->GetComponent(ComponentType::CameraComponentType));
 	cc->SetOutputSize(width, height);
