@@ -1,3 +1,2 @@
-﻿  Entity.cpp
-D:\Code\LBEngine\LBEngine\Entity.cpp(67,59): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+﻿  TransformUpdateSystem.cpp
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

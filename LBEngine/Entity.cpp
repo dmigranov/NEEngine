@@ -64,7 +64,7 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
 
-	std::bitset<COMPONENT_TYPE_COUNT> add = 1 << (size_t)type;
+	std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
 	m_componentsMask |= add;
 }
 

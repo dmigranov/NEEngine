@@ -15,10 +15,8 @@ void TransformUpdateSystem::Execute()
 	{ 
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
 		
-		static int step = 0;
-		step++;
-		if (step > 5)
-			step - 11;
-		transform->Move(0, 0, step);
+
+
+		transform->Move(0, 0.1, 0);
 	}
 }
