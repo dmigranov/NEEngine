@@ -248,13 +248,13 @@
     <ClInclude Include="inc\MeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="InputHandlerComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="InputInfo.h">
+    <ClInclude Include="inc\InputInfo.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="InputSystem.h">
+    <ClInclude Include="inc\InputHandlerComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\InputSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>

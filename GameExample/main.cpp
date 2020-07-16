@@ -8,13 +8,20 @@
 
 #include "SphericalSphere.h"
 
+#include "ResourceManager.h"
+#include "InputInfo.h"
+
+
 #include "Entity.h"
+
+// Components
+#include "ComponentType.h"
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
-#include "ComponentType.h"
-#include "ResourceManager.h"
+#include "InputHandlerComponent.h"
 
 
+// Systems
 #include "TransformUpdateSystem.h"
 #include "InputSystem.h"
 
@@ -30,7 +37,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto resourceManager = game.GetResourceManager(); 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
 
-    scene->AddSystem(new TransformUpdateSystem());
+    //scene->AddSystem(new TransformUpdateSystem());
     scene->AddSystem(new InputSystem());
 
 
@@ -43,6 +50,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e = new Entity();
     auto transform = new TransformComponent(0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3);
     e->SetTransform(transform);
+    e->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, InputInfo &input) {
+        auto pTransform = pEntity->GetTransform();
+
+        if (input.IsKeyPressed(DirectX::Keyboard::Keys::Up))
+            pTransform->Move(0, 0, 0.01);
+    }));
+
+    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, InputInfo& input) {
+        auto pTransform = pEntity->GetTransform();
+
+        if (input.IsKeyPressed(DirectX::Keyboard::Keys::W))
+            pTransform->Move(0, 0, 0.01);
+        if (input.IsKeyPressed(DirectX::Keyboard::Keys::S))
+            pTransform->Move(0, 0, -0.01);
+    }));
 
     MeshComponent::VertexPosTex vertices[8] = {
         { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f) }, // 0

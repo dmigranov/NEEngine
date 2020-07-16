@@ -68,6 +68,9 @@
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\InputHandlerComponent.h" />
+    <ClInclude Include="inc\InputInfo.h" />
+    <ClInclude Include="inc\InputSystem.h" />
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponent.h" />
     <ClInclude Include="inc\MeshLoader.h" />
@@ -89,9 +92,6 @@
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
-    <ClInclude Include="InputHandlerComponent.h" />
-    <ClInclude Include="InputInfo.h" />
-    <ClInclude Include="InputSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
