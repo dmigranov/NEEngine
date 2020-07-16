@@ -22,6 +22,12 @@ Scene::~Scene()
 		delete m_entities.front();
 		m_entities.erase(m_entities.begin());
 	}
+
+	while (!m_systems.empty())
+	{
+		delete m_systems.front();
+		m_systems.erase(m_systems.begin());
+	}
 	//todo: camera?
 }
 

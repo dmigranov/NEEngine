@@ -31,7 +31,7 @@ private:
 	void UpdateProjMatrix();
 
 	std::vector<Entity *>	m_entities;
-	std::vector<System*>	m_systems;
+	std::vector<System *>	m_systems;
 	//std::list<const Light*>	m_lights;
 
 	double m_width, m_height;

@@ -21,28 +21,17 @@ Entity::~Entity()
 	for(auto pair : m_components)
 	{
 		if (pair.second != nullptr)
+		{
 			delete pair.second;
+			pair.second = nullptr;
+		}
 	}
 	m_components.clear();
 
-	/*if (nullptr != m_pEffect)
-	{
-		m_pEffect->Deinit();
-		delete m_pEffect;
-		m_pEffect = NULL;
-	}*/
-
-	if (nullptr != m_pMesh)
-	{
-		delete m_pMesh;
-		m_pMesh = nullptr;
-	}
-
-	if (NULL != m_pTransform)
-	{
-		delete m_pTransform;
-		m_pTransform = NULL;
-	}
+	//mesh и transform удялятся при удалении всех компонентов.
+	//но правильно ли удалять компоненты тут, в энтити?
+	//ведь компоненты могут быть общими
+	//todo: smart ptr?
 }
 
 void Entity::Initialize()

@@ -19,8 +19,6 @@ class RenderComponent;
 class Entity
 {
 public:
-
-
 	Entity(const char* name = nullptr);
 	~Entity();
 
