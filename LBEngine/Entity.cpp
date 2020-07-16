@@ -63,20 +63,23 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 {
 	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
+
+	std::bitset<COMPONENT_TYPE_COUNT> add = 1 << (size_t)type;
+	m_componentsMask |= add;
 }
 
 void Entity::SetMesh(MeshComponent* pMesh)
 {
 	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pMesh = pMesh;
-	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::MeshComponentType, pMesh));
+	AddComponent(ComponentType::MeshComponentType, pMesh);
 }
 
 void Entity::SetTransform(TransformComponent* pTransform)
 {
 	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pTransform = pTransform;
-	m_components.insert(std::pair<ComponentType, Component*>(ComponentType::TransformComponentType, pTransform));
+	AddComponent(ComponentType::TransformComponentType, pTransform);
 }
 
 TransformComponent* const Entity::GetTransform()
