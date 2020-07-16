@@ -1,9 +1,13 @@
 #include "pch.h"
 #include "TransformUpdateSystem.h"
-
 #include "Entity.h"
 #include "TransformComponent.h"
 #include "ComponentType.h"
+
+TransformUpdateSystem::TransformUpdateSystem()
+{
+	SubscribeToComponentType(ComponentType::TransformComponentType);
+}
 
 void TransformUpdateSystem::Execute()
 {

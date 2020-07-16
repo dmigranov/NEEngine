@@ -4,6 +4,7 @@ class TransformUpdateSystem :
     public System
 {
 public:
+    TransformUpdateSystem();
     virtual void Execute () override;
 };
 
