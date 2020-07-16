@@ -25,6 +25,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="InputHandlerComponent.cpp" />
     <ClCompile Include="InputInfo.cpp" />
+    <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
@@ -90,6 +91,7 @@
     <ClInclude Include="inc\TransformUpdateSystem.h" />
     <ClInclude Include="InputHandlerComponent.h" />
     <ClInclude Include="InputInfo.h" />
+    <ClInclude Include="InputSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

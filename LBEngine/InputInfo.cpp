@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "InputInfo.h"
 
-void InputInfo::Update()
+
+DirectX::Keyboard::State& InputInfo::GetKeys()
 {
+	auto k = m_keyboard.GetState();
+	return k;
 }
