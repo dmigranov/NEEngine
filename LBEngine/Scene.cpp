@@ -53,6 +53,10 @@ void Scene::AddSystem(System* pSystem)
 void Scene::SetCamera(Entity* pCamera)
 {
 	//надо ли добавлять камеру в ентити?
+	//todo: сделать всякие проверки на нахождение...
+
+
+	AddEntity(pCamera);
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;

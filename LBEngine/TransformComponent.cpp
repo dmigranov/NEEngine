@@ -29,6 +29,7 @@ void TransformComponent::Move(Vector3 v)
 {
 	m_positionLocal += v;
 	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
 }
 
 void TransformComponent::Move(double x, double y, double z)

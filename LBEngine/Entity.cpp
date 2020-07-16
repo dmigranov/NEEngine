@@ -78,6 +78,8 @@ TransformComponent* const Entity::GetTransform()
 
 void Entity::Render()
 {
+	if (m_pMesh == nullptr)
+		return;
 	m_pMesh->Render(m_pTransform->GetWorld());
 }
 
