@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Game.h"
+#include "Scene.h"
 
 using namespace DirectX;
 

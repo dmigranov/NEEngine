@@ -3,14 +3,14 @@
 #include <string>
 #include <map>
 #include <typeindex>
+#include <bitset>
 
 #include "MeshComponent.h"
+#include "ComponentType.h"
 
 class Component;
 class TransformComponent;
 class RenderComponent;
-enum class ComponentType;
-
 /**
 * @brief Basic class for all entities (objects) in the scene.
 */
@@ -43,6 +43,8 @@ private:
 	std::map<ComponentType, Component*> m_components;	
 	bool m_isActive;
 	std::string m_name;
+
+	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
 };
 
 

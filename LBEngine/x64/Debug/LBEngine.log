@@ -1,2 +1,5 @@
-﻿  TransformUpdateSystem.cpp
+﻿  Entity.cpp
+  Scene.cpp
+  TransformUpdateSystem.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

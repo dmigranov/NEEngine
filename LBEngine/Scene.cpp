@@ -72,7 +72,10 @@ void Scene::SetCameraOutputSize(double width, double height)
 
 void Scene::SynchronizeSystemsWithEntities()
 {
-	//TODO: добавить в вектора систем нужные энтити...
+	for (auto pSystem : m_systems)
+	{
+
+	}
 }
 
 void Scene::UpdateProjMatrix()

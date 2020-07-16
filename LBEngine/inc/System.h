@@ -2,7 +2,6 @@
 #include <vector>
 
 class Entity;
-//todo: создать MoveSystem/UpdateSystem - для обновления положений?
 class System
 {
 public:
