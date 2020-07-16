@@ -14,6 +14,7 @@ public:
     //через лямбды.
     //также сделать InputSystem, апдейтер которой вызывает лямбду...
     InputHandlerComponent(std::function<void(Entity *, InputInfo)> func);
+    void operator()(Entity*, InputInfo);
 private:
     std::function<void(Entity*, InputInfo)> m_inputHandlerFunc;
 };

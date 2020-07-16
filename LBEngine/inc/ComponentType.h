@@ -7,7 +7,7 @@ enum class ComponentType
 	MeshComponentType,
 	PlayerComponentType,
 	CameraComponentType,
-
+	InputHandlerComponentType,
 
 
 	TypeCount 
