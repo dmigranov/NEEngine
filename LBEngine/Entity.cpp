@@ -96,3 +96,8 @@ Component* Entity::GetComponent(ComponentType type)
 {
 	return m_components[type];
 }
+
+const std::bitset<COMPONENT_TYPE_COUNT>& Entity::GetComponentsMask()
+{
+	return m_componentsMask;
+}

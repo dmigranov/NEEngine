@@ -34,7 +34,7 @@ public:
 	void Render();
 
 	Component* GetComponent(ComponentType type);
-
+	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
 private:
 
 	//EffectComponent* m_pEffect; //todo

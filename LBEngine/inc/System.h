@@ -11,11 +11,14 @@ public:
 	System() {};
 	virtual ~System() {};
 	virtual void Execute() {};
-
 protected:
 	void SubscribeToComponentType(ComponentType ct);
-
 	std::vector<Entity *> m_entities;;
 	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
+
+	friend class Scene;
+private:
+	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
+	void AddEntity(Entity * pEntity);
 };
 

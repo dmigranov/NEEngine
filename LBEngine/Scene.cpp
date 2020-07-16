@@ -72,9 +72,13 @@ void Scene::SetCameraOutputSize(double width, double height)
 
 void Scene::SynchronizeSystemsWithEntities()
 {
-	for (auto pSystem : m_systems)
+	for (auto pEntity : m_entities)
 	{
-
+		for (auto pSystem : m_systems)
+		{
+			if ((pSystem->GetComponentsMask() & pEntity->GetComponentsMask()) == pSystem->GetComponentsMask())
+				pSystem->AddEntity(pEntity);
+		}
 	}
 }
 
