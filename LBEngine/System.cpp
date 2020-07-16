@@ -8,6 +8,7 @@ const std::bitset<COMPONENT_TYPE_COUNT>& System::GetComponentsMask()
 
 void System::AddEntity(Entity* pEntity)
 {
+	m_entities.push_back(pEntity);
 }
 
 void System::SubscribeToComponentType(ComponentType type)

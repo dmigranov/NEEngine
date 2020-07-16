@@ -6,5 +6,6 @@ class InputHandlerComponent :
     //todo: чем-то похож на апдейтер и InputHandler: сделать также
     //через лямбды.
     //также сделать InputSystem...
+    InputHandlerComponent();
 };
 

@@ -14,9 +14,7 @@ void TransformUpdateSystem::Execute()
 	for(auto pEntity : m_entities)
 	{ 
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
-		
 
-
-		transform->Move(0, 0.1, 0);
+		transform->Move(0, 0.001, 0);
 	}
 }
