@@ -3,14 +3,12 @@
 
 #include <functional>
 
+class InputInfo;
+
 class InputHandlerComponent :
     public Component
 {
 public:
-    class InputInfo
-    {
-
-    };
 
     //todo: чем-то похож на апдейтер и InputHandler: сделать также
     //через лямбды.
