@@ -17,6 +17,8 @@ public:
 
     const DirectX::SimpleMath::Matrix& GetWorld();
     const DirectX::SimpleMath::Matrix& GetView();
+    const DirectX::SimpleMath::Vector3& GetRotation();
+    const DirectX::SimpleMath::Vector3& GetForward();
 
 
 private:
@@ -29,7 +31,6 @@ private:
     DirectX::SimpleMath::Vector3 m_positionLocal;
     DirectX::SimpleMath::Vector3 m_rotation;
     DirectX::SimpleMath::Vector3 m_scale;
-
     DirectX::SimpleMath::Vector3 m_position;
 
     DirectX::SimpleMath::Vector3 m_forward, m_right, m_up;

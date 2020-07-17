@@ -69,6 +69,18 @@ const DirectX::SimpleMath::Matrix& TransformComponent::GetView()
 	return m_view;
 }
 
+const DirectX::SimpleMath::Vector3& TransformComponent::GetRotation()
+{
+	return m_rotation;
+}
+
+const DirectX::SimpleMath::Vector3& TransformComponent::GetForward()
+{
+	if (m_shouldRecalcWorld)
+		Recalculate();
+	return m_forward;
+}
+
 void TransformComponent::Recalculate()
 {
 	Matrix matTransLocal = Matrix::CreateTranslation(m_positionLocal);
