@@ -1,15 +1,17 @@
 #pragma once
+
+typedef DirectX::Keyboard::State KeyboardState;
+
 class InputInfo
 {
 public:
-	InputInfo();
-	//todo: создать свою обертку и на каждом апдейте обновлять ее в зависимости от DXTK-шной
-	//static void Update();
-	//DirectX::Keyboard::State GetKeys();
-	//bool IsKeyPressed(DirectX::Keyboard::Keys key);
+	KeyboardState GetKeyboardState();
 private:
 	friend class InputSystem;
+	InputInfo(DirectX::Keyboard::State state);
+	InputInfo();
+    KeyboardState m_keyboardState;
 
-	void Update();
+
 };
 

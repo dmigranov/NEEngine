@@ -52,17 +52,18 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     e->SetTransform(transform);
     e->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, InputInfo &input) {
         auto pTransform = pEntity->GetTransform();
-
-        if (input.IsKeyPressed(DirectX::Keyboard::Keys::Up))
+        auto kb = input.GetKeyboardState();
+        if (kb.Up)
             pTransform->Move(0, 0, 0.01);
     }));
 
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, InputInfo& input) {
         auto pTransform = pEntity->GetTransform();
+        auto kb = input.GetKeyboardState();
 
-        if (input.IsKeyPressed(DirectX::Keyboard::Keys::W))
+        if (kb.W)
             pTransform->Move(0, 0, 0.01);
-        if (input.IsKeyPressed(DirectX::Keyboard::Keys::S))
+        if (kb.S)
             pTransform->Move(0, 0, -0.01);
     }));
 

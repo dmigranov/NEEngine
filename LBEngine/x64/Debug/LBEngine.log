@@ -1,2 +1,5 @@
-﻿  InputSystem.cpp
+﻿  InputHandlerComponent.cpp
+  InputInfo.cpp
+  InputSystem.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

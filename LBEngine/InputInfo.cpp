@@ -2,11 +2,15 @@
 #include "InputInfo.h"
 
 
-InputInfo::InputInfo()
+KeyboardState InputInfo::GetKeyboardState()
 {
+	return m_keyboardState;
 }
 
-bool InputInfo::IsKeyPressed(DirectX::Keyboard::Keys key)
+InputInfo::InputInfo(DirectX::Keyboard::State state)
 {
-	return m_keyboard->GetState().IsKeyDown(key);
+	this->m_keyboardState = state;
 }
+
+InputInfo::InputInfo()
+{}

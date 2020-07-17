@@ -6,7 +6,7 @@
 
 using namespace DirectX;
 
-InputSystem::InputSystem()
+InputSystem::InputSystem() 
 {
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
@@ -14,7 +14,7 @@ InputSystem::InputSystem()
 
 void InputSystem::Execute()
 {
-	m_inputInfo = InputInfo();
+	m_inputInfo = InputInfo(m_keyboard->GetState());
 	for (auto pEntity : m_entities)
 	{
 		InputHandlerComponent* inputHandler = (InputHandlerComponent*)pEntity->GetComponent(ComponentType::InputHandlerComponentType);
