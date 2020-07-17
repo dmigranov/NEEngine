@@ -49,6 +49,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, InputInfo& input) {
+        //todo: по готовности камеры вынести в отдельный InputHandlerComponent и включить в библиотеку
+        
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
 
