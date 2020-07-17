@@ -12,7 +12,7 @@ public:
     void Move(DirectX::SimpleMath::Vector3 v);
     void Move(double x, double y, double z);
     void Rotate(DirectX::SimpleMath::Vector3 r);
-    void Rotate(double x, double y, double z);
+    void Rotate(double rx, double ry, double rz);
     //todo: setPosition, setRotate, setScale...
 
     const DirectX::SimpleMath::Matrix& GetWorld();

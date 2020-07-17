@@ -56,6 +56,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pTransform->Move(0, 0, 0.01);
         if (kb.S)
             pTransform->Move(0, 0, -0.01);
+
+        if (kb.Q)
+            pTransform->Rotate(0, 0.01, 0);
+        if (kb.E)
+            pTransform->Rotate(0, -0.01, 0);
     }));
     scene->SetCamera(cameraEntity);
 

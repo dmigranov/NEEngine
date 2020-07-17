@@ -37,6 +37,19 @@ void TransformComponent::Move(double x, double y, double z)
 	this->Move(Vector3(x, y, z));
 }
 
+void TransformComponent::Rotate(Vector3 r)
+{
+	m_rotation += r;
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
+void TransformComponent::Rotate(double rx, double ry, double rz)
+{
+	this->Rotate(Vector3(rx, ry, rz));
+}
+
+
 const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {
 	if (m_shouldRecalcWorld)
