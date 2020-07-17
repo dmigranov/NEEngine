@@ -27,6 +27,7 @@
     <ClCompile Include="InputInfo.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="src\FirstPersonCameraInputHandlerComponent.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -65,6 +66,7 @@
     <ClInclude Include="inc\Drawer2D.h" />
     <ClInclude Include="inc\Effect.h" />
     <ClInclude Include="inc\Entity.h" />
+    <ClInclude Include="inc\FirstPersonCameraInputHandlerComponent.h" />
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
