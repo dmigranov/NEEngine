@@ -38,7 +38,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto resourceManager = game.GetResourceManager(); 
 
     
-    Texture* earthTexture = resourceManager->CreateTexture(L"earth.dds");
+    Texture* asphaltTexture = resourceManager->CreateTexture(L"asphalt.dds");
 
 
     {
@@ -68,17 +68,19 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto kb = input.GetKeyboardState();
         if (kb.Up)
             pTransform->Move(0, 0, 0.01);
+        if (kb.P)
+            pTransform->Move(0, 0.01, 0);
     }));
 
     MeshComponent::VertexPosTex vertices[8] = {
-        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f) }, // 0
-        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f) }, // 2
-        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f)}, // 3
-        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 4
-        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f)}, // 5
-        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }, // 6
-        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) }  // 7
+        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f), XMFLOAT2(0, 0) }, // 0
+        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f), XMFLOAT2(0, 1) }, // 1
+        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f), XMFLOAT2(1, 1)}, // 2
+        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT4(1.0f, 1.0f, 1.0f, 1.f), XMFLOAT2(1, 0)}, // 3
+        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0, 0) }, // 4
+        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0, 1)}, // 5
+        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(1, 1) }, // 6
+        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0, 1) }  // 7
     };
 
     WORD indices[36] =
@@ -90,8 +92,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         1, 6, 5, 1, 2, 6,
         4, 3, 0, 4, 7, 3
     };
-
-    e->SetMesh(new MeshComponent(8, vertices, 36, indices));
+    auto m = new MeshComponent(8, vertices, 36, indices);
+    m->SetTexture(asphaltTexture);
+    e->SetMesh(m);
     scene->AddEntity(e);
 
     return game.StartGame();
