@@ -6,8 +6,6 @@
 #include "VertexShader.h"
 #include "PixelShader.h"
 
-#include "SimpleInputHandler.h"
-
 #include "FPSCounter.h"
 
 class Scene;
@@ -59,6 +57,8 @@ private:
 
     friend class Scene;
     friend class MeshComponent;
+
+    friend class InputSystem;
 
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -136,9 +136,6 @@ private:
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
     const float                                     maxTimeStep = 1.0f / targetFramerate;
-
-    // Input
-    std::unique_ptr<InputHandler>         m_inputHandler;
 
     TextDrawer *                          m_textDrawer;
     Drawer2D *                            m_drawer2D;

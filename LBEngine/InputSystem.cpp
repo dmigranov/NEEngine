@@ -4,17 +4,23 @@
 #include "ComponentType.h"
 #include "Entity.h"
 
+#include "Game.h"
+
 using namespace DirectX;
 
 InputSystem::InputSystem() 
 {
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
+	m_mouse->SetWindow(Game::GetInstance().m_hwnd);
+	m_mouse->SetMode(Mouse::MODE_RELATIVE);
 }
 
 void InputSystem::Execute()
 {
-	m_inputInfo = InputInfo(m_keyboard->GetState());
+	auto ms = m_mouse->GetState();
+	m_inputInfo = InputInfo(m_keyboard->GetState(), ms);
+
 	for (auto pEntity : m_entities)
 	{
 		InputHandlerComponent* inputHandler = (InputHandlerComponent*)pEntity->GetComponent(ComponentType::InputHandlerComponentType);

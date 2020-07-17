@@ -53,23 +53,25 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         //todo: по готовности камеры вынести в отдельный InputHandlerComponent и включить в библиотеку
         
         auto pTransform = pEntity->GetTransform();
-        auto kb = input.GetKeyboardState();
+        auto kbs = input.GetKeyboardState();
+        auto ms = input.GetMouseState();
 
-        if (kb.Q)
-            pTransform->Rotate(0, -0.01, 0);
-        if (kb.E)
-            pTransform->Rotate(0, 0.01, 0);
+        if (ms.leftButton)
+        {
+            Vector3 delta = Vector3(float(ms.x) * 0.01, float(ms.y) * 0.01, 0.f);
+            pTransform->Rotate(delta.y, delta.x, 0.);
+        }
 
         Vector3 fwd = pTransform->GetForward();
         Vector3 right = pTransform->GetRight();
 
-        if (kb.W)
+        if (kbs.W)
             pTransform->Move(fwd * 0.01);
-        if (kb.S)
+        if (kbs.S)
             pTransform->Move(-fwd * 0.01);
-        if (kb.A)
+        if (kbs.A)
             pTransform->Move(-right * 0.01);
-        if (kb.D)
+        if (kbs.D)
             pTransform->Move(right * 0.01);
     }));
     scene->SetCamera(cameraEntity);
@@ -100,12 +102,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     WORD indices[36] =
     {
-        0, 2, 1, 0, 3, 2,
-        4, 5, 6, 4, 6, 7,
-        4, 1, 5, 4, 0, 1,
-        3, 6, 2, 3, 7, 6,
-        1, 6, 5, 1, 2, 6,
-        4, 3, 0, 4, 7, 3
+        0, 1, 2, 0, 2, 3,
+        4, 6, 5, 4, 7, 6,
+        4, 5, 1, 4, 1, 0,
+        3, 2, 6, 3, 6, 7,
+        1, 5, 6, 1, 6, 2,
+        3, 4, 0, 7, 4, 3
     };
     auto m = new MeshComponent(8, vertices, 36, indices);
     m->SetTexture(asphaltTexture);

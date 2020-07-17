@@ -7,9 +7,15 @@ KeyboardState InputInfo::GetKeyboardState()
 	return m_keyboardState;
 }
 
-InputInfo::InputInfo(DirectX::Keyboard::State state)
+MouseState InputInfo::GetMouseState()
 {
-	this->m_keyboardState = state;
+	return m_mouseState;
+}
+
+InputInfo::InputInfo(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState)
+{
+	this->m_keyboardState = keyboardState;
+	this->m_mouseState = mouseState;
 }
 
 InputInfo::InputInfo()

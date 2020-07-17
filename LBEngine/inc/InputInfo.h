@@ -7,9 +7,10 @@ class InputInfo
 {
 public:
 	KeyboardState GetKeyboardState();
+	MouseState GetMouseState();
 private:
 	friend class InputSystem;
-	InputInfo(DirectX::Keyboard::State state);
+	InputInfo(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState);
 	InputInfo();
     KeyboardState m_keyboardState;
 	MouseState m_mouseState;
