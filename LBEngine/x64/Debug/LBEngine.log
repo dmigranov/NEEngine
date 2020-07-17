@@ -1,10 +1,12 @@
 ﻿  InputSystem.cpp
-  Scene.cpp
-D:\Code\LBEngine\LBEngine\Scene.cpp(115,21): error C2660: 'System::Execute': function does not take 0 arguments
-D:\Code\LBEngine\LBEngine\inc\System.h(13,15): message : see declaration of 'System::Execute'
+  Timer.cpp
   System.cpp
-  TransformUpdateSystem.cpp
   Game.cpp
 D:\Code\LBEngine\LBEngine\src\Game.cpp(49,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(387,22): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
 D:\Code\LBEngine\LBEngine\src\Game.cpp(425,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  GameWindows.cpp
+  Scene.cpp
+  TransformUpdateSystem.cpp
   Generating Code...
+  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

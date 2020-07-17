@@ -9,7 +9,7 @@ TransformUpdateSystem::TransformUpdateSystem()
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 }
 
-void TransformUpdateSystem::Execute(double deltaTime)
+void TransformUpdateSystem::Execute(DWORD deltaTime)
 {
 	for(auto pEntity : m_entities)
 	{ 

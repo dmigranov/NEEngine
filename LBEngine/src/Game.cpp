@@ -264,6 +264,7 @@ int Game::Initialize(HWND window, int width, int height)
 
 void Game::Tick()
 {
+    //todo: перенести в таймер 
     DWORD currentTime = timeGetTime();
     float deltaTime = (currentTime - previousTime) / 1000.0f;
     previousTime = currentTime;
@@ -381,10 +382,8 @@ void Game::CreateResources()
 void Game::Update(float deltaTime)
 {
     fpsCounter.Update();
-    //todo: 
-    //m_inputHandler->HandleInput(deltaTime);
 
-    m_pScene->Update(/*TODO: дельта*/);
+    m_pScene->Update(deltaTime);
 }
 
 void Game::Render()

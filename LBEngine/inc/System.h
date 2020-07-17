@@ -10,7 +10,7 @@ class System
 public:
 	System() {};
 	virtual ~System() {};
-	virtual void Execute(double deltaTime) {};
+	virtual void Execute(DWORD deltaTime) {};
 protected:
 	void SubscribeToComponentType(ComponentType ct);
 	std::vector<Entity *> m_entities;;

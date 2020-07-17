@@ -104,7 +104,7 @@ void Scene::UpdateProjMatrix()
 	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &proj, 0, 0);
 }
 
-void Scene::Update()
+void Scene::Update(DWORD delta)
 {
 	//todo: время?
 
@@ -112,7 +112,7 @@ void Scene::Update()
 	{
 		if (pSystem != nullptr)
 		{
-			pSystem->Execute(0);
+			pSystem->Execute(delta);
 		}
 	}
 }
