@@ -8,12 +8,7 @@
 using namespace DirectX::SimpleMath;
 
 FirstPersonCameraInputHandlerComponent::FirstPersonCameraInputHandlerComponent() :
-    InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
-    //todo: по готовности камеры вынести в отдельный InputHandlerComponent и включить в библиотеку
-    //todo: перенести в поля 
-    static const double MOVEMENT_GAIN = 0.003;
-    static const double ROTATION_GAIN = 0.004;
-
+    InputHandlerComponent([this](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
     auto pTransform = pEntity->GetTransform();
     auto kbs = input.GetKeyboardState();
     auto ms = input.GetMouseState();
@@ -21,11 +16,11 @@ FirstPersonCameraInputHandlerComponent::FirstPersonCameraInputHandlerComponent()
     if (ms.leftButton)
     {
         Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-        pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * ROTATION_GAIN);
+        pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * m_rotationGain);
     }
 
-    Vector3 fwd = pTransform->GetForward() * deltaTime * MOVEMENT_GAIN;
-    Vector3 right = pTransform->GetRight() * deltaTime * MOVEMENT_GAIN;
+    Vector3 fwd = pTransform->GetForward() * deltaTime * m_movementGain;
+    Vector3 right = pTransform->GetRight() * deltaTime * m_movementGain;
 
     if (kbs.W)
         pTransform->Move(fwd);
