@@ -106,8 +106,6 @@ void Scene::UpdateProjMatrix()
 
 void Scene::Update(DWORD delta)
 {
-	//todo: время?
-
 	for (auto pSystem : m_systems)
 	{
 		if (pSystem != nullptr)

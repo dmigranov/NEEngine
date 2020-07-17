@@ -28,6 +28,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
@@ -47,32 +48,36 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     }
 
 
+
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
         //todo: по готовности камеры вынести в отдельный InputHandlerComponent и включить в библиотеку
-        
+        //todo: перенести в поля 
+        static const double MOVEMENT_GAIN = 0.003;
+        static const double ROTATION_GAIN = 0.004;
+
         auto pTransform = pEntity->GetTransform();
         auto kbs = input.GetKeyboardState();
         auto ms = input.GetMouseState();
 
         if (ms.leftButton)
         {
-            Vector3 delta = Vector3(float(ms.x) * 0.01, float(ms.y) * 0.01, 0.f);
-            pTransform->Rotate(delta.y, delta.x, 0.);
+            Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
+            pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * ROTATION_GAIN);
         }
 
-        Vector3 fwd = pTransform->GetForward();
-        Vector3 right = pTransform->GetRight();
+        Vector3 fwd = pTransform->GetForward() * deltaTime * MOVEMENT_GAIN;
+        Vector3 right = pTransform->GetRight() * deltaTime * MOVEMENT_GAIN;
 
         if (kbs.W)
-            pTransform->Move(fwd * 0.01);
+            pTransform->Move(fwd) ;
         if (kbs.S)
-            pTransform->Move(-fwd * 0.01);
+            pTransform->Move(-fwd);
         if (kbs.A)
-            pTransform->Move(-right * 0.01);
+            pTransform->Move(-right);
         if (kbs.D)
-            pTransform->Move(right * 0.01);
+            pTransform->Move(right);
     }));
     scene->SetCamera(cameraEntity);
 
