@@ -255,25 +255,6 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
-    /*m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this](float deltaTime) { 
-        auto ks = Keyboard::Get().GetState();
-
-        float gain = 0.45f * deltaTime;
-
-        if(ks.N)
-        {
-            if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
-                perApplicationPSConstantBuffer.m_edgeThickness -= 0.0002;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
-        }
-        if (ks.M)
-        {
-            perApplicationPSConstantBuffer.m_edgeThickness += 0.0002;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
-        }
-        
-    }, m_hwnd);*/
-
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
