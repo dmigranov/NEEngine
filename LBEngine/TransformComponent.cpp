@@ -81,6 +81,13 @@ const DirectX::SimpleMath::Vector3& TransformComponent::GetForward()
 	return m_forward;
 }
 
+const DirectX::SimpleMath::Vector3& TransformComponent::GetRight()
+{
+	if (m_shouldRecalcWorld)
+		Recalculate();
+	return m_right;
+}
+
 void TransformComponent::Recalculate()
 {
 	Matrix matTransLocal = Matrix::CreateTranslation(m_positionLocal);
@@ -116,7 +123,8 @@ void TransformComponent::Recalculate()
 
 void TransformComponent::RecalculateView()
 {
-	m_view = Matrix::CreateLookAt(m_position, m_position + m_forward, m_up);
+	//m_view = Matrix::CreateLookAt(m_position, m_position + m_forward, m_up); //RH
+	m_view = XMMatrixLookAtLH(m_position, m_position + m_forward, m_up); //LH
 
 	m_shouldRecalcView = false;
 }

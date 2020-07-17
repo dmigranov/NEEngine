@@ -56,15 +56,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto kb = input.GetKeyboardState();
 
         if (kb.Q)
-            pTransform->Rotate(0, 0.01, 0);
-        if (kb.E)
             pTransform->Rotate(0, -0.01, 0);
+        if (kb.E)
+            pTransform->Rotate(0, 0.01, 0);
 
         Vector3 fwd = pTransform->GetForward();
+        Vector3 right = pTransform->GetRight();
+
         if (kb.W)
             pTransform->Move(fwd * 0.01);
         if (kb.S)
             pTransform->Move(-fwd * 0.01);
+        if (kb.A)
+            pTransform->Move(-right * 0.01);
+        if (kb.D)
+            pTransform->Move(right * 0.01);
     }));
     scene->SetCamera(cameraEntity);
 

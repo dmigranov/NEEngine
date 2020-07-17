@@ -1,5 +1,8 @@
-﻿  Entity.cpp
-  Scene.cpp
+﻿  CameraComponent.cpp
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(42,76): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(42,63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(42,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(42,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   TransformComponent.cpp
 D:\Code\LBEngine\LBEngine\TransformComponent.cpp(11,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\TransformComponent.cpp(11,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -19,6 +22,6 @@ D:\Code\LBEngine\LBEngine\TransformComponent.cpp(37,21): warning C4244: 'argumen
 D:\Code\LBEngine\LBEngine\TransformComponent.cpp(49,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\TransformComponent.cpp(49,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\TransformComponent.cpp(49,23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  TransformUpdateSystem.cpp
   Generating Code...
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

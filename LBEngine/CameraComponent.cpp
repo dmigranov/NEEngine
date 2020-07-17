@@ -38,6 +38,7 @@ void CameraComponent::SetOutputSize(double width, double height)
 
 void CameraComponent::RecalculateProj()
 {
-	m_proj = Matrix::CreatePerspectiveFieldOfView(m_fovY, m_aspect, m_nearPlane, m_farPlane);
+	//m_proj = Matrix::CreatePerspectiveFieldOfView(m_fovY, m_aspect, m_nearPlane, m_farPlane);
+	m_proj = DirectX::XMMatrixPerspectiveFovLH(m_fovY, m_aspect, m_nearPlane, m_farPlane);
 	m_shouldRecalc = false;
 }

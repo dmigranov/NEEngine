@@ -19,6 +19,8 @@ public:
     const DirectX::SimpleMath::Matrix& GetView();
     const DirectX::SimpleMath::Vector3& GetRotation();
     const DirectX::SimpleMath::Vector3& GetForward();
+    const DirectX::SimpleMath::Vector3& GetRight();
+
 
 
 private:
