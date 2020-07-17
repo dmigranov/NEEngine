@@ -106,13 +106,13 @@ void Scene::UpdateProjMatrix()
 
 void Scene::Update()
 {
-	//m_pCamera->GetObjectPtr()->Update();
+	//todo: время?
 
 	for (auto pSystem : m_systems)
 	{
 		if (pSystem != nullptr)
 		{
-			pSystem->Execute();
+			pSystem->Execute(0);
 		}
 	}
 }

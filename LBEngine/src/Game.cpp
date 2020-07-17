@@ -245,10 +245,8 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
-
     isInitialized = true;
     m_pScene = new Scene();
-
 
     if (!LoadContent())
     {

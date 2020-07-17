@@ -8,7 +8,7 @@
 
 using namespace DirectX;
 
-InputSystem::InputSystem() 
+InputSystem::InputSystem()
 {
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
@@ -16,7 +16,7 @@ InputSystem::InputSystem()
 	m_mouse->SetMode(Mouse::MODE_RELATIVE);
 }
 
-void InputSystem::Execute()
+void InputSystem::Execute(double deltaTime)
 {
 	auto ms = m_mouse->GetState();
 	m_inputInfo = InputInfo(m_keyboard->GetState(), ms);
