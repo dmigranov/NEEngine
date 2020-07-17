@@ -11,9 +11,9 @@ class InputHandlerComponent :
 public:
 
     //todo: передавать ещё время?
-    InputHandlerComponent(std::function<void(Entity *, InputInfo&)> func);
-    void operator()(Entity*, InputInfo&);
+    InputHandlerComponent(std::function<void(Entity *, DWORD, InputInfo&)> func);
+    void operator()(Entity*, DWORD, InputInfo&);
 private:
-    std::function<void(Entity*, InputInfo&)> m_inputHandlerFunc;
+    std::function<void(Entity*, DWORD, InputInfo&)> m_inputHandlerFunc;
 };
 

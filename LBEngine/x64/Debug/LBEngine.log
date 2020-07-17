@@ -1,12 +1,9 @@
-﻿  InputSystem.cpp
-  Timer.cpp
-  System.cpp
+﻿  InputHandlerComponent.cpp
+  InputSystem.cpp
   Game.cpp
 D:\Code\LBEngine\LBEngine\src\Game.cpp(49,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(387,22): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-D:\Code\LBEngine\LBEngine\src\Game.cpp(425,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GameWindows.cpp
-  Scene.cpp
-  TransformUpdateSystem.cpp
+D:\Code\LBEngine\LBEngine\src\Game.cpp(386,22): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(424,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Timer.cpp
   Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

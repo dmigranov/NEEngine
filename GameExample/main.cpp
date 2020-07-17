@@ -49,7 +49,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));
-    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, InputInfo& input) {
+    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
         //todo: по готовности камеры вынести в отдельный InputHandlerComponent и включить в библиотеку
         
         auto pTransform = pEntity->GetTransform();
@@ -80,7 +80,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e = new Entity();
     auto transform = new TransformComponent(0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3);
     e->SetTransform(transform);
-    e->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, InputInfo &input) {
+    e->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputInfo &input) {
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
         if (kb.Up)

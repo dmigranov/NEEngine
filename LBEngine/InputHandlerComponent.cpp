@@ -2,12 +2,12 @@
 #include "InputHandlerComponent.h"
 #include "InputInfo.h"
 
-InputHandlerComponent::InputHandlerComponent(std::function<void(Entity*, InputInfo&)> func)
+InputHandlerComponent::InputHandlerComponent(std::function<void(Entity*, DWORD, InputInfo&)> func)
 {
 	m_inputHandlerFunc = func;
 }
 
-void InputHandlerComponent::operator()(Entity* pEntity, InputInfo &input)
+void InputHandlerComponent::operator()(Entity* pEntity, DWORD time, InputInfo &input)
 {
-	m_inputHandlerFunc(pEntity, input);
+	m_inputHandlerFunc(pEntity, time, input);
 }

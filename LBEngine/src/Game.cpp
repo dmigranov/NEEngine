@@ -273,7 +273,7 @@ void Game::Tick()
     // debugging and you don't want the deltaTime value to explode.
     deltaTime = std::min<float>(deltaTime, maxTimeStep);
 
-    Update( deltaTime );
+    Update(deltaTime);
     Render();
 }
 
