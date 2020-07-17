@@ -11,11 +11,13 @@ public:
     TransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);
     void Move(DirectX::SimpleMath::Vector3 v);
     void Move(double x, double y, double z);
+    void Rotate(DirectX::SimpleMath::Vector3 r);
+    void Rotate(double x, double y, double z);
+    //todo: setPosition, setRotate, setScale...
 
     const DirectX::SimpleMath::Matrix& GetWorld();
     const DirectX::SimpleMath::Matrix& GetView();
 
-    //todo: setPosition, Move, Rotate... В них ставить флаг
 
 private:
     void Recalculate();
