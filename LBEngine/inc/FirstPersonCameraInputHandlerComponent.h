@@ -3,6 +3,7 @@
 class FirstPersonCameraInputHandlerComponent :
     public InputHandlerComponent
 {
-
+public:
+    //todo: добавить параметры...
+    FirstPersonCameraInputHandlerComponent();
 };
-
