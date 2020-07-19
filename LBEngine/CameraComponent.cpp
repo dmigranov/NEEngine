@@ -4,7 +4,7 @@
 using namespace DirectX::SimpleMath;
 
 CameraComponent::CameraComponent(bool isPerspective) :
-	m_fovY(90.), m_shouldRecalc(true), m_nearPlane(0.01), m_farPlane(100.), m_aspect(1.), m_isPerspective(isPerspective)
+	m_fovY(90.), m_shouldRecalc(true), m_nearPlane(0.001), m_farPlane(100.), m_aspect(1.), m_isPerspective(isPerspective)
 {}
 
 CameraComponent::CameraComponent(double nearPlane, double farPlane, double aspect, double fovY, bool isPerspective) :
@@ -49,6 +49,6 @@ void CameraComponent::RecalculateProj()
 	if (m_isPerspective)
 		m_proj = DirectX::XMMatrixPerspectiveFovLH(m_fovY, m_aspect, m_nearPlane, m_farPlane);
 	else
-		m_proj = DirectX::XMMatrixOrthographicLH(m_width, m_height, m_nearPlane, m_farPlane);
+		m_proj = DirectX::XMMatrixOrthographicLH(m_aspect, 1, m_nearPlane, m_farPlane);
 	m_shouldRecalc = false;
 }

@@ -10,6 +10,8 @@ using namespace DirectX;
 
 InputSystem::InputSystem()
 {
+	SubscribeToComponentType(ComponentType::InputHandlerComponentType);
+
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
 	m_mouse->SetWindow(Game::GetInstance().m_hwnd);

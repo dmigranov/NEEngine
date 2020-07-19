@@ -1,2 +1,10 @@
-﻿  Scene.cpp
+﻿  CameraComponent.cpp
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(50,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(50,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(50,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(50,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(52,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(52,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\CameraComponent.cpp(18): warning C4172: returning address of local variable or temporary
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

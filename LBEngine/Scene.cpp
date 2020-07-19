@@ -60,7 +60,7 @@ void Scene::SetCamera(Entity* pCamera)
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;
-		m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent());
+		m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent(false));
 		UpdateProjMatrix();
 	}
 }
