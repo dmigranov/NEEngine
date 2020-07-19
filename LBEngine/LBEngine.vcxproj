@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BitmapComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Effect.cpp" />
@@ -59,6 +60,7 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BitmapComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\Component.h" />

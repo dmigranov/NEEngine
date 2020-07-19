@@ -48,13 +48,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         //scene->AddSystem(new ..);
     }
 
-
-
     Entity* cameraEntity = new Entity();
     cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new FirstPersonCameraInputHandlerComponent());
     scene->SetCamera(cameraEntity);
-
 
     Entity* e = new Entity();
     auto transform = new TransformComponent(0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3);
