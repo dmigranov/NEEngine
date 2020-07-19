@@ -16,7 +16,7 @@ cbuffer PerObject : register(b2)
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables
 struct VertexShaderInput
 {
-	float4 position : POSITION;
+	float3 position : POSITION;
 	float2 tex : TEXCOORD0;
 };
 
@@ -31,9 +31,9 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
 {
 	VertexShaderOutput OUT;
 
-
+	float4 position = float4(IN.position.x, IN.position.y, IN.position.z, 1);
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
-	float4 cameraSpacePosition = mul(viewWorld, IN.position);
+	float4 cameraSpacePosition = mul(viewWorld, position);
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
 	OUT.tex = IN.tex;

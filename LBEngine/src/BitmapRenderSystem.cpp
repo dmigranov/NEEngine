@@ -14,14 +14,51 @@ BitmapRenderSystem::BitmapRenderSystem()
 
 void BitmapRenderSystem::Execute(DWORD deltaTime)
 {
-	auto& game = Game::GetInstance();
-	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
-	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
+	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
+		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
+	});	//сортирует по убыванию: сначала большие z...
 
-	//сначала opaque (front-to-back)
 	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
 		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
 	});	//сортирует по возрастанию: сначала меньшие z...
+
+	auto& game = Game::GetInstance();
+	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
+	auto pDevice = game.g_d3dDevice;
+
+	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
+
+	assert(pDevice);
+	assert(pDeviceContext);
+
+	game.Clear(game.perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
+
+	//Input Assembler Stage - common
+	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
+
+	//Vertex Shader Stage
+	pDeviceContext->VSSetShader(game.g_d3dVertexShader, nullptr, 0);
+	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
+
+	//Geometry Shader Stage
+	//g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
+
+	//Rasterizer Stage
+	pDeviceContext->RSSetState(game.g_d3dRasterizerState);
+	pDeviceContext->RSSetViewports(1, &game.g_Viewport);
+
+	//Pixel Shader Stage
+	pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
+	//g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
+	pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
+
+	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
+	pDeviceContext->OMSetRenderTargets(1, &game.g_d3dRenderTargetView, game.g_d3dDepthStencilView);
+	pDeviceContext->OMSetDepthStencilState(game.g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
+	pDeviceContext->OMSetBlendState(game.g_d3dBlendState, 0, 0xffffffff);
+
+
+	//сначала opaque (front-to-back)
 	for (auto pEntity : m_opaqueEntities)
 	{
 		Render(pEntity, pDeviceContext, pConstantBuffer);
@@ -29,13 +66,11 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 
 
 	//затем non opaque (back-to-front)
-	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
-		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
-	});	//сортирует по убыванию: сначала большие z...
 	for (auto pEntity : m_nonOpaqueEntities)
 	{
 		Render(pEntity, pDeviceContext, pConstantBuffer);
 	}	
+
 }
 
 void BitmapRenderSystem::AddEntity(Entity* pEntity)
