@@ -57,6 +57,7 @@ private:
 
     friend class Scene;
     friend class MeshComponent;
+    friend class BitmapComponent;
 
     friend class InputSystem;
 
