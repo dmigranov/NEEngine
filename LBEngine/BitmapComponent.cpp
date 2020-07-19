@@ -105,10 +105,13 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	vertices[5].position = Vector3(0.5f, 0.5f, 0.f);  // Bottom right.
 	vertices[5].uv = Vector2(1.f, 1.f);
 
-	for (i = 0; i < m_indexCount; i++)
-	{
-		indices[i] = i;
-	}
+	indices[0] = 0;
+	indices[1] = 2;
+	indices[2] = 1;
+
+	indices[3] = 3;
+	indices[4] = 5;
+	indices[5] = 4;
 
 	// Vertex Buffer
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;		//DYNAMIC!
