@@ -36,10 +36,7 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 		{
 
 		}
-	}
-		
-	//todo: в будущем переделать и избавиться от зависимостей от MeshComponent
-	
+	}	
 }
 
 void BitmapRenderSystem::AddEntity(Entity* pEntity)

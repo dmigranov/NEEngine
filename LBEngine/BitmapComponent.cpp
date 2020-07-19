@@ -5,7 +5,6 @@
 
 BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, bool isOpaque)
 {
-	m_quad = new MeshComponent(4, nullptr, 6, nullptr); 	//todo
 	m_bitmapWidth = width;
 	m_bitmapHeight = height;
 	m_spriteSheet = nullptr;
@@ -19,7 +18,7 @@ BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, Textur
 
 BitmapComponent::~BitmapComponent()
 {
-	delete m_quad;
+	//delete ...
 }
 
 void BitmapComponent::SetFrameIndex(unsigned int frameIndex)
