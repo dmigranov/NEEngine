@@ -21,7 +21,11 @@ void BitmapRenderSystem::AddEntity(Entity* pEntity)
 {
 	BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
 
-	if(bitmapComponent->IsOpaque())
+	if (bitmapComponent->IsOpaque())
+		m_opaqueEntities.push_back(pEntity);
+	else
+		m_nonOpaqueEntities.push_back(pEntity);
+
 	m_entities.push_back(pEntity);
 
 }
