@@ -4,6 +4,7 @@ class BitmapRenderSystem :
     public System
 {
 public:
+    BitmapRenderSystem();
     virtual void Execute(DWORD deltaTime) override;
 private:
     virtual void AddEntity(Entity* pEntity) override;

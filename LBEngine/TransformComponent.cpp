@@ -88,6 +88,11 @@ const DirectX::SimpleMath::Vector3& TransformComponent::GetRight()
 	return m_right;
 }
 
+const DirectX::SimpleMath::Vector3& TransformComponent::GetPosition()
+{
+	return m_position;
+}
+
 void TransformComponent::Recalculate()
 {
 	Matrix matTransLocal = Matrix::CreateTranslation(m_positionLocal);
