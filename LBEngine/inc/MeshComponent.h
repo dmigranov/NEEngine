@@ -16,7 +16,6 @@ public:
         DirectX::XMFLOAT2 TexCoord;
     };
 
-
     MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
     virtual void Render(DirectX::XMMATRIX world);
 

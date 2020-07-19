@@ -27,7 +27,20 @@ BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, Textur
 
 BitmapComponent::~BitmapComponent()
 {
-	//delete ...
+	if (m_indexBuffer)
+	{
+		m_indexBuffer->Release();
+		m_indexBuffer = nullptr;
+	}
+
+	// Release the vertex buffer.
+	if (m_vertexBuffer)
+	{
+		m_vertexBuffer->Release();
+		m_vertexBuffer = nullptr;
+	}
+
+	return;
 }
 
 void BitmapComponent::SetFrameIndex(unsigned int frameIndex)
@@ -73,23 +86,23 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	}
 
 	// First triangle.
-	vertices[0].position = Vector3(-1.f, -1.f, 0.f);  // Top left.
+	vertices[0].position = Vector3(-0.5f, -0.5f, 0.f);  // Top left.
 	vertices[0].uv = Vector2(0.f, 0.f);
 
-	vertices[1].position = Vector3(1.f, 1.f, 0.f);  // Bottom right.
+	vertices[1].position = Vector3(0.5f, 0.5f, 0.f);  // Bottom right.
 	vertices[1].uv = Vector2(1.f, 1.f);
 
-	vertices[2].position = Vector3(-1.f, 1.f, 0.f);  // Bottom left.
+	vertices[2].position = Vector3(-0.5f, 0.5f, 0.f);  // Bottom left.
 	vertices[2].uv = Vector2(0.f, 1.f);
 
 	// Second triangle.
-	vertices[3].position = Vector3(-1.f, -1.f, 0.f);  // Top left.
+	vertices[3].position = Vector3(-0.5f, -0.5f, 0.f);  // Top left.
 	vertices[3].uv = Vector2(0.f, 0.f);
 
-	vertices[4].position = Vector3(1.f, -1.f, 0.f);  // Top right.
+	vertices[4].position = Vector3(0.5f, -0.5f, 0.f);  // Top right.
 	vertices[4].uv = Vector2(1.f, 0.f);
 
-	vertices[5].position = Vector3(1.f, 1.f, 0.f);  // Bottom right.
+	vertices[5].position = Vector3(0.5f, 0.5f, 0.f);  // Bottom right.
 	vertices[5].uv = Vector2(1.f, 1.f);
 
 	for (i = 0; i < m_indexCount; i++)

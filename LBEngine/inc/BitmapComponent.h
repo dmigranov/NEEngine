@@ -26,6 +26,8 @@ public:
 
     bool IsOpaque();
 private:
+    friend class BitmapRenderSystem;
+
     bool InitializeBuffers(ID3D11Device* device);
 
     bool m_isOpaque = true;   //opaque - непрозрачный
@@ -36,7 +38,6 @@ private:
     ID3D11Buffer* m_indexBuffer = nullptr;
     int m_vertexCount, m_indexCount;
     Texture* m_spriteSheet;
-
 
     unsigned int m_frameIndex = 0;
 };
