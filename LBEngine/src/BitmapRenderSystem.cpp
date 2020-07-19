@@ -71,6 +71,12 @@ void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCon
 		// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 		pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-		//todo: texture...
+		Texture* pTexture;
+		if (( pTexture = p_bitmapComponent->m_spriteSheet) != nullptr)
+		{     
+			//Pixel Shader Stafe - unique 4 every stage
+			auto shaderResource = pTexture->GetTexture();
+			pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
+		}
 	}
 }
