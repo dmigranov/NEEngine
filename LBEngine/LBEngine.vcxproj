@@ -28,6 +28,7 @@
     <ClCompile Include="InputInfo.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\FirstPersonCameraInputHandlerComponent.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
@@ -61,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\BitmapComponent.h" />
+    <ClInclude Include="inc\BitmapRenderSystem.h" />
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\CameraComponent.h" />
     <ClInclude Include="inc\Component.h" />
