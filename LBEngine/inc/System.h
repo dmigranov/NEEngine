@@ -19,6 +19,6 @@ protected:
 	friend class Scene;
 private:
 	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
-	void AddEntity(Entity * pEntity);
+	virtual void AddEntity(Entity * pEntity);
 };
 

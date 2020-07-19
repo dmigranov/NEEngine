@@ -16,3 +16,12 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 		//todo: в будущем переделать и избавиться от зависимостей от MeshComponent
 	}
 }
+
+void BitmapRenderSystem::AddEntity(Entity* pEntity)
+{
+	BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
+
+	if(bitmapComponent->IsOpaque())
+	m_entities.push_back(pEntity);
+
+}
