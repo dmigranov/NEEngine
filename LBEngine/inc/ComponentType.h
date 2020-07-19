@@ -8,7 +8,7 @@ enum class ComponentType
 	PlayerComponentType,
 	CameraComponentType,
 	InputHandlerComponentType,
-
+	BitmapComponentType,
 
 	TypeCount 
 };
