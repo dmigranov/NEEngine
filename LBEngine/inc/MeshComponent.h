@@ -20,10 +20,8 @@ public:
     MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
     virtual void Render(DirectX::XMMATRIX world);
 
-	virtual ~MeshComponent()
-    {
+    virtual ~MeshComponent();
 
-    }
     void SetTexture(Texture* texture);
 protected:
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;

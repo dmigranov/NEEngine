@@ -60,9 +60,9 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BitmapComponent.h" />
-    <ClInclude Include="CameraComponent.h" />
+    <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\Camera.h" />
+    <ClInclude Include="inc\CameraComponent.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\ComponentType.h" />
     <ClInclude Include="inc\Drawer2D.h" />

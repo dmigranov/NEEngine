@@ -13,6 +13,7 @@ Texture::Texture(const Texture&)
 
 Texture::~Texture()
 {
+	Shutdown();
 }
 
 bool Texture::Initialize(ID3D11Device* device, const WCHAR* name)
@@ -23,6 +24,13 @@ bool Texture::Initialize(ID3D11Device* device, const WCHAR* name)
 	{
 		return false;
 	}
+	ID3D11Texture2D* pTextureInterface = nullptr;
+	m_resource->QueryInterface<ID3D11Texture2D>(&pTextureInterface);
+	D3D11_TEXTURE2D_DESC desc;
+	pTextureInterface->GetDesc(&desc);
+
+	m_width = desc.Width;
+	m_height = desc.Height;
 
 	return true;
 }

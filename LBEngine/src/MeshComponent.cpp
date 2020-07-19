@@ -2,6 +2,7 @@
 #include "MeshComponent.h"
 
 #include "Game.h"
+#include "..\inc\MeshComponent.h"
 
 
 MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices)
@@ -63,6 +64,11 @@ void MeshComponent::Render(DirectX::XMMATRIX world)
 
 	//DRAW
 	deviceContext->DrawIndexed(indicesCount, 0, 0);
+}
+
+MeshComponent::~MeshComponent()
+{
+	//todo: delete buffers and vertices
 }
 
 void MeshComponent::SetTexture(Texture* texture)
