@@ -52,6 +52,16 @@ void Texture::Shutdown()
 	return;
 }
 
+unsigned int Texture::GetWidth()
+{
+	return m_width;
+}
+
+unsigned int Texture::GetHeight()
+{
+	return m_height;
+}
+
 ID3D11ShaderResourceView* Texture::GetTexture()
 {
 	return m_texture;

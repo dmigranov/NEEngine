@@ -81,8 +81,8 @@ void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCon
 			pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 		}
 
-
-		pDeviceContext->UpdateSubresource(pConstantBuffer, 0, nullptr, &world, 0, 0);
+		if(p_transformComponent != nullptr)
+			pDeviceContext->UpdateSubresource(pConstantBuffer, 0, nullptr, &p_transformComponent->GetWorld(), 0, 0);
 
 		//DRAW
 		pDeviceContext->DrawIndexed(p_bitmapComponent->m_indexCount, 0, 0);

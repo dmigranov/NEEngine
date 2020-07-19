@@ -20,11 +20,13 @@
 #include "TransformComponent.h"
 #include "InputHandlerComponent.h"
 #include "FirstPersonCameraInputHandlerComponent.h"
+#include "BitmapComponent.h"
 
 
 // Systems
 #include "TransformUpdateSystem.h"
 #include "InputSystem.h"
+#include "BitmapRenderSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -45,11 +47,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     {
         scene->AddSystem(new InputSystem());
-        //scene->AddSystem(new ..);
+        scene->AddSystem(new BitmapRenderSystem());
     }
 
     Entity* cameraEntity = new Entity();
-    cameraEntity->SetTransform(new TransformComponent(0, 1, -1, 0, 0, 0));
+    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
+    cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new FirstPersonCameraInputHandlerComponent());
     scene->SetCamera(cameraEntity);
 
@@ -60,34 +63,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
         if (kb.Up)
-            pTransform->Move(0, 0, 0.01);
-        if (kb.P)
-            pTransform->Move(0, 0.01, 0);
+            pTransform->Move(0., 0.01, 0.);
+        if (kb.Down)
+            pTransform->Move(0., -0.01, 0.);
     }));
 
-    MeshComponent::VertexPosTex vertices[8] = {
-        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
-        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(0, 1) }, // 1
-        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(1, 1)}, // 2
-        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(1, 0)}, // 3
-        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f),  XMFLOAT2(0, 0) }, // 4
-        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1)}, // 5
-        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(1, 1) }, // 6
-        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1) }  // 7
-    };
+    e->AddComponent(ComponentType::BitmapComponentType, new BitmapComponent(1, 1, asphaltTexture));
 
-    WORD indices[36] =
-    {
-        0, 1, 2, 0, 2, 3,
-        4, 6, 5, 4, 7, 6,
-        4, 5, 1, 4, 1, 0,
-        3, 2, 6, 3, 6, 7,
-        1, 5, 6, 1, 6, 2,
-        3, 4, 0, 7, 4, 3
-    };
-    auto m = new MeshComponent(8, vertices, 36, indices);
-    m->SetTexture(asphaltTexture);
-    e->SetMesh(m);
     scene->AddEntity(e);
 
     return game.StartGame();
@@ -186,3 +168,28 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         
     }*/
 
+/*
+
+    MeshComponent::VertexPosTex vertices[8] = {
+        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
+        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(0, 1) }, // 1
+        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(1, 1)}, // 2
+        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(1, 0)}, // 3
+        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f),  XMFLOAT2(0, 0) }, // 4
+        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1)}, // 5
+        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(1, 1) }, // 6
+        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1) }  // 7
+    };
+
+    WORD indices[36] =
+    {
+        0, 1, 2, 0, 2, 3,
+        4, 6, 5, 4, 7, 6,
+        4, 5, 1, 4, 1, 0,
+        3, 2, 6, 3, 6, 7,
+        1, 5, 6, 1, 6, 2,
+        3, 4, 0, 7, 4, 3
+    };
+    auto m = new MeshComponent(8, vertices, 36, indices);
+
+*/
