@@ -12,23 +12,30 @@ BitmapRenderSystem::BitmapRenderSystem()
 
 void BitmapRenderSystem::Execute(DWORD deltaTime)
 {
-	//todo: sort
-
-
-	//сначала opaque (front to back)
+	//сначала opaque (front-to-back)
 	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
 		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
 	});	//сортирует по возрастанию: сначала меньшие z...
-
 	for (auto pEntity : m_opaqueEntities)
 	{
 		BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
-	}
-	//затем non opaque (back to front)
+		TransformComponent* transformComponent = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
+		{
 
+		}
+	}
+
+	//затем non opaque (back-to-front)
+	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
+		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
+	});	//сортирует по убыванию: сначала большие z...
 	for (auto pEntity : m_nonOpaqueEntities)
 	{
 		BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
+		TransformComponent* transformComponent = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
+		{
+
+		}
 	}
 		
 	//todo: в будущем переделать и избавиться от зависимостей от MeshComponent
