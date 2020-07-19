@@ -21,7 +21,7 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 		BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
 		TransformComponent* transformComponent = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
 		{
-
+			//bitmapComponent->
 		}
 	}
 
