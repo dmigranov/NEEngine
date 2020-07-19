@@ -6,8 +6,7 @@
 #include "TextDrawer.h"
 #include "SphericalMeshLoader.h"
 
-#include "Mesh.h"
-#include "SphericalMesh.h"
+#include "MeshComponent.h"
 
 #include "SphericalOctahedron.h"
 #include "SphericalCube.h"
@@ -539,8 +538,8 @@ bool Game::LoadContent()
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(MeshComponent::VertexPosTex, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        //{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
         { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
     };
 
