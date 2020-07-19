@@ -4,6 +4,8 @@
 #include "MeshComponent.h"
 #include "Game.h"
 
+using namespace DirectX::SimpleMath;
+
 BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, bool isOpaque)
 {
 	m_bitmapWidth = width;
@@ -70,14 +72,32 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-	memset(vertices, 0, (sizeof(VertexType) * m_vertexCount));
+	// First triangle.
+	vertices[0].position = Vector3(-1.f, -1.f, 0.f);  // Top left.
+	vertices[0].uv = Vector2(0.f, 0.f);
 
-	// Load the index array with data.
+	vertices[1].position = Vector3(1.f, 1.f, 0.f);  // Bottom right.
+	vertices[1].uv = Vector2(1.f, 1.f);
+
+	vertices[2].position = Vector3(-1.f, 1.f, 0.f);  // Bottom left.
+	vertices[2].uv = Vector2(0.f, 1.f);
+
+	// Second triangle.
+	vertices[3].position = Vector3(-1.f, -1.f, 0.f);  // Top left.
+	vertices[3].uv = Vector2(0.f, 0.f);
+
+	vertices[4].position = Vector3(1.f, -1.f, 0.f);  // Top right.
+	vertices[4].uv = Vector2(1.f, 0.f);
+
+	vertices[5].position = Vector3(1.f, 1.f, 0.f);  // Bottom right.
+	vertices[5].uv = Vector2(1.f, 1.f);
+
 	for (i = 0; i < m_indexCount; i++)
 	{
 		indices[i] = i;
 	}
 
+	// Vertex Buffer
 	vertexBufferDesc.Usage = D3D11_USAGE_DYNAMIC;		//DYNAMIC!
 	vertexBufferDesc.ByteWidth = sizeof(VertexType) * m_vertexCount;
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
@@ -87,14 +107,34 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	vertexData.pSysMem = vertices;
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
-	// Now create the vertex buffer.
 	result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
 	if (FAILED(result))
 	{
 		return false;
 	}
 
+	// Index Buffer
+	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	indexBufferDesc.ByteWidth = sizeof(unsigned long) * m_indexCount;
+	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	indexBufferDesc.CPUAccessFlags = 0;
+	indexBufferDesc.MiscFlags = 0;
+	indexBufferDesc.StructureByteStride = 0;
+	indexData.pSysMem = indices;
+	indexData.SysMemPitch = 0;
+	indexData.SysMemSlicePitch = 0;
+	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
+	if (FAILED(result))
+	{
+		return false;
+	}
 
+	// Release the arrays now that the vertex and index buffers have been created and loaded.
+	delete[] vertices;
+	vertices = 0;
+
+	delete[] indices;
+	indices = 0;
 
 	return true;
 }
