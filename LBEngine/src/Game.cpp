@@ -270,8 +270,7 @@ void Game::Tick()
     DWORD deltaTime = (currentTime - previousTime);
     previousTime = currentTime;
 
-    // Cap the delta time to the max time step (useful if your 
-    // debugging and you don't want the deltaTime value to explode.
+    // Cap the delta time to the max time step (useful if your debugging and you don't want the deltaTime value to explode.
     //deltaTime = std::min<double>(deltaTime, maxTimeStep);
 
     Update(deltaTime);
