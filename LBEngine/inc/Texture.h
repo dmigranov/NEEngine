@@ -9,6 +9,8 @@ public:
 	bool Initialize(ID3D11Device* device, const WCHAR* name);
 	void Shutdown();
 
+	//GetWidth
+
 	ID3D11ShaderResourceView* GetTexture();
 private:
 	ID3D11ShaderResourceView* m_texture;
