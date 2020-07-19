@@ -14,7 +14,9 @@ BitmapRenderSystem::BitmapRenderSystem()
 
 void BitmapRenderSystem::Execute(DWORD deltaTime)
 {
-	ID3D11DeviceContext* pDeviceContext = Game::GetInstance().g_d3dDeviceContext;
+	auto& game = Game::GetInstance();
+	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
+	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
 
 	//сначала opaque (front-to-back)
 	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
@@ -22,7 +24,7 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 	});	//сортирует по возрастанию: сначала меньшие z...
 	for (auto pEntity : m_opaqueEntities)
 	{
-		Render(pEntity, pDeviceContext);
+		Render(pEntity, pDeviceContext, pConstantBuffer);
 	}
 
 
@@ -32,7 +34,7 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 	});	//сортирует по убыванию: сначала большие z...
 	for (auto pEntity : m_nonOpaqueEntities)
 	{
-		Render(pEntity, pDeviceContext);
+		Render(pEntity, pDeviceContext, pConstantBuffer);
 	}	
 }
 
@@ -49,7 +51,7 @@ void BitmapRenderSystem::AddEntity(Entity* pEntity)
 
 }
 
-void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
+void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
 {
 	BitmapComponent* p_bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
 	TransformComponent* p_transformComponent = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
@@ -78,5 +80,11 @@ void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCon
 			auto shaderResource = pTexture->GetTexture();
 			pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 		}
+
+
+		pDeviceContext->UpdateSubresource(pConstantBuffer, 0, nullptr, &world, 0, 0);
+
+		//DRAW
+		pDeviceContext->DrawIndexed(p_bitmapComponent->m_indexCount, 0, 0);
 	}
 }
