@@ -42,7 +42,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto resourceManager = game.GetResourceManager(); 
 
     
-    Texture* asphaltTexture = resourceManager->CreateTexture(L"asphalt.dds");
+    Texture* asphaltTexture = resourceManager->CreateTexture(L"cat.dds");
 
 
     {
@@ -50,10 +50,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         scene->AddSystem(new BitmapRenderSystem());
     }
 
-    Entity* cameraEntity = new Entity();
     //todo: переделать систему камер
     //todo: переделать рендер
-    //todo: проверить culling
+
+    Entity* cameraEntity = new Entity();
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new FirstPersonCameraInputHandlerComponent());
