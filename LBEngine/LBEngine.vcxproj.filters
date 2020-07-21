@@ -165,6 +165,9 @@
     <ClCompile Include="src\VelocityComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\CollisionComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -276,6 +279,9 @@
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\VelocityComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CollisionComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
