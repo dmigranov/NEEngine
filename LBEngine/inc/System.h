@@ -20,5 +20,7 @@ protected:
 private:
 	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
 	virtual void AddEntity(Entity * pEntity);
+protected:
+	boolean m_isDrawing = false;
 };
 

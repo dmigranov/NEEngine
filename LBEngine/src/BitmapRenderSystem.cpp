@@ -10,6 +10,8 @@ BitmapRenderSystem::BitmapRenderSystem()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 	SubscribeToComponentType(ComponentType::BitmapComponentType);
+
+	m_isDrawing = true;
 }
 
 void BitmapRenderSystem::Execute(DWORD deltaTime)

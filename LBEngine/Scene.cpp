@@ -28,7 +28,6 @@ Scene::~Scene()
 		delete m_systems.front();
 		m_systems.erase(m_systems.begin());
 	}
-	//todo: camera?
 }
 
 void Scene::AddEntity(Entity* pEntity)
@@ -48,6 +47,8 @@ void Scene::AddSystem(System* pSystem)
 		return;
 	}
 	m_systems.push_back(pSystem);
+
+	//todo: вставлять исрендеринг системы в конец 
 }
 
 void Scene::SetCamera(Entity* pCamera)
@@ -104,11 +105,17 @@ void Scene::Update(DWORD delta)
 {
 	for (auto pSystem : m_systems)
 	{
-		if (pSystem != nullptr)
+		if (pSystem != nullptr && !pSystem->m_isDrawing)
 		{
 			pSystem->Execute(delta);
 		}
 	}
+
+	//todo: проинициализировать системы
+
+	//выполнить рисующие системы
+
+	//present
 }
 
 void Scene::Render()
