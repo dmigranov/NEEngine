@@ -47,9 +47,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //todo: переделать рендер
 
     Entity* cameraEntity = new Entity();
-    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
-    cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
+    auto cameraTransform1 = new TransformComponent(1, 0, -1, 0, 0, 0);
+    auto cameraTransform2 = new TransformComponent(-1, 0, -1, 0, 0, 0);
+
+    cameraEntity->SetTransform(cameraTransform1);
+    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([cameraTransform1, cameraTransform2](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
        static double m_movementGain = 0.003;
        static double m_rotationGain = 0.004;
         
@@ -74,6 +76,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pTransform->Move(-right);
         if (kbs.D)
             pTransform->Move(right);
+
+
+        if (kbs.D1)
+            pEntity->SetTransform(cameraTransform1);
+        else if (kbs.D2)
+            pEntity->SetTransform(cameraTransform2);
+
     }));
 
 
