@@ -34,6 +34,7 @@
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Timer.cpp" />
+    <ClCompile Include="src\VelocityComponent.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="src\Camera.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="inc\Timer.h" />
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
+    <ClInclude Include="inc\VelocityComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

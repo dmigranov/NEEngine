@@ -162,6 +162,9 @@
     <ClCompile Include="BitmapComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\VelocityComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -271,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="inc\BitmapRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\VelocityComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
