@@ -14,7 +14,7 @@ BitmapRenderSystem::BitmapRenderSystem()
 	m_isDrawing = true;
 }
 
-void BitmapRenderSystem::Execute(DWORD deltaTime)
+void BitmapRenderSystem::Execute(DWORD)
 {
 	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
 		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
@@ -115,6 +115,8 @@ void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCon
 
 		if(p_transformComponent != nullptr)
 			pDeviceContext->UpdateSubresource(pConstantBuffer, 0, nullptr, &p_transformComponent->GetWorld(), 0, 0);
+
+		//todo: set view matrix
 
 		//DRAW
 		pDeviceContext->DrawIndexed(p_bitmapComponent->m_indexCount, 0, 0);
