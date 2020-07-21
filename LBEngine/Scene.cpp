@@ -128,7 +128,7 @@ void Scene::Update(DWORD delta)
 
 	for (auto pSystem : m_drawingSystems)
 	{
-		if (pSystem != nullptr && !pSystem->m_isDrawing)
+		if (pSystem != nullptr)
 		{
 			pSystem->Execute(delta);
 		}
