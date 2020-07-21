@@ -8,6 +8,8 @@ using namespace DirectX::SimpleMath;
 
 BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, bool isOpaque)
 {
+	//todo: учесть width и height
+
 	m_bitmapWidth = width;
 	m_bitmapHeight = height;
 	m_spriteSheet = nullptr;

@@ -20,8 +20,8 @@ void BitmapRenderSystem::Execute(DWORD)
 		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
 	});	//сортирует по убыванию: сначала большие z...
 
-	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
-		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;
+	std::stable_sort(m_nonOpaqueEntities.begin(), m_nonOpaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
+		return e1->GetTransform()->GetPosition().z > e2->GetTransform()->GetPosition().z;
 	});	//сортирует по возрастанию: сначала меньшие z...
 
 	auto& game = Game::GetInstance();
