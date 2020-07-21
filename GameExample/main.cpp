@@ -5,7 +5,7 @@
 #include "Camera.h"
 
 #include "ResourceManager.h"
-#include "InputInfo.h"
+#include "InputComponent.h"
 
 #include "Entity.h"
 
@@ -47,7 +47,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* cameraEntity = new Entity();
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
+    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputComponent& input) {
        static double m_movementGain = 0.003;
        static double m_rotationGain = 0.004;
         
@@ -87,7 +87,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
     e1->SetTransform(transform1);
-    e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputInfo &input) {
+    e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputComponent &input) {
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
         if (kb.Up)

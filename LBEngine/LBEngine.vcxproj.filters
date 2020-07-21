@@ -144,9 +144,6 @@
     <ClCompile Include="InputHandlerComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="InputInfo.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="InputSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
@@ -166,6 +163,9 @@
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\CollisionComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,9 +254,6 @@
     <ClInclude Include="inc\MeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\InputInfo.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\InputHandlerComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
@@ -282,6 +279,9 @@
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\CollisionComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\InputComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>

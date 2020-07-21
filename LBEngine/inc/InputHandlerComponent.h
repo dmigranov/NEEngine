@@ -3,7 +3,7 @@
 
 #include <functional>
 
-class InputInfo;
+class InputComponent;
 
 class InputHandlerComponent :
     public Component
@@ -11,9 +11,9 @@ class InputHandlerComponent :
 public:
 
     //todo: передавать ещё время?
-    InputHandlerComponent(std::function<void(Entity *, DWORD, InputInfo&)> func);
-    void operator()(Entity*, DWORD, InputInfo&);
+    InputHandlerComponent(std::function<void(Entity *, DWORD, InputComponent&)> func);
+    void operator()(Entity*, DWORD, InputComponent&);
 private:
-    std::function<void(Entity*, DWORD, InputInfo&)> m_inputHandlerFunc;
+    std::function<void(Entity*, DWORD, InputComponent&)> m_inputHandlerFunc;
 };
 

@@ -21,7 +21,7 @@ InputSystem::InputSystem()
 void InputSystem::Execute(DWORD deltaTime)
 {
 	auto ms = m_mouse->GetState();
-	m_inputInfo = InputInfo(m_keyboard->GetState(), ms);
+	m_inputInfo = InputComponent(m_keyboard->GetState(), ms);
 
 	for (auto pEntity : m_entities)
 	{

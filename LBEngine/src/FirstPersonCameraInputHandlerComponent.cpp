@@ -3,12 +3,12 @@
 
 #include "Entity.h"
 #include "TransformComponent.h"
-#include "InputInfo.h"
+#include "InputComponent.h"
 
 using namespace DirectX::SimpleMath;
 
 FirstPersonCameraInputHandlerComponent::FirstPersonCameraInputHandlerComponent() :
-    InputHandlerComponent([this](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
+    InputHandlerComponent([this](Entity* pEntity, DWORD deltaTime, InputComponent& input) {
     auto pTransform = pEntity->GetTransform();
     auto kbs = input.GetKeyboardState();
     auto ms = input.GetMouseState();
