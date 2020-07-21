@@ -82,9 +82,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
     scene->SetCamera(cameraEntity);
 
+    auto bitmap = new BitmapComponent(1, 1, asphaltTexture, false);
+
     Entity* e1 = new Entity();
-    auto transform = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
-    e1->SetTransform(transform);
+    auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
+    e1->SetTransform(transform1);
     e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputInfo &input) {
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
@@ -93,13 +95,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         if (kb.Down)
             pTransform->Move(0., -0.01, 0.);
     }));
-    e1->AddComponent(ComponentType::BitmapComponentType, new BitmapComponent(1, 1, asphaltTexture, false));
+    e1->AddComponent(ComponentType::BitmapComponentType, bitmap);
     scene->AddEntity(e1);
 
-
+    auto transform2 = new TransformComponent(0, 0.3, 2, 0, 0, XM_PI/4, 0.3, 0.3, 0.3);
     Entity* e2 = new Entity();
-    e2->SetTransform(new TransformComponent(0, 0.3, 2, 0, 0, 0, 0.3, 0.3, 0.3));
-    e2->AddComponent(ComponentType::BitmapComponentType, new BitmapComponent(1, 1, asphaltTexture, false));
+    e2->SetTransform(transform2);
+    e2->AddComponent(ComponentType::BitmapComponentType, bitmap);
     scene->AddEntity(e2);
 
     return game.StartGame();
