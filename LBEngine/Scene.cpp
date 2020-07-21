@@ -23,10 +23,16 @@ Scene::~Scene()
 		m_entities.erase(m_entities.begin());
 	}
 
-	while (!m_systems.empty())
+	while (!m_nonDrawingSystems.empty())
 	{
-		delete m_systems.front();
-		m_systems.erase(m_systems.begin());
+		delete m_nonDrawingSystems.front();
+		m_nonDrawingSystems.erase(m_nonDrawingSystems.begin());
+	}
+
+	while (!m_drawingSystems.empty())
+	{
+		delete m_drawingSystems.front();
+		m_drawingSystems.erase(m_drawingSystems.begin());
 	}
 }
 
@@ -46,9 +52,10 @@ void Scene::AddSystem(System* pSystem)
 	{
 		return;
 	}
-	m_systems.push_back(pSystem);
-
-	//todo: вставлять исрендеринг системы в конец 
+	if(pSystem->m_isDrawing)
+		m_drawingSystems.push_back(pSystem);
+	else
+		m_nonDrawingSystems.push_back(pSystem);
 }
 
 void Scene::SetCamera(Entity* pCamera)
@@ -81,7 +88,12 @@ void Scene::SynchronizeSystemsWithEntities()
 {
 	for (auto pEntity : m_entities)
 	{
-		for (auto pSystem : m_systems)
+		for (auto pSystem : m_nonDrawingSystems)
+		{
+			if ((pSystem->GetComponentsMask() & pEntity->GetComponentsMask()) == pSystem->GetComponentsMask())
+				pSystem->AddEntity(pEntity);
+		}
+		for (auto pSystem : m_drawingSystems)
 		{
 			if ((pSystem->GetComponentsMask() & pEntity->GetComponentsMask()) == pSystem->GetComponentsMask())
 				pSystem->AddEntity(pEntity);
@@ -103,9 +115,9 @@ void Scene::UpdateProjMatrix()
 
 void Scene::Update(DWORD delta)
 {
-	for (auto pSystem : m_systems)
+	for (auto pSystem : m_nonDrawingSystems)
 	{
-		if (pSystem != nullptr && !pSystem->m_isDrawing)
+		if (pSystem != nullptr)
 		{
 			pSystem->Execute(delta);
 		}
@@ -113,7 +125,15 @@ void Scene::Update(DWORD delta)
 
 	m_game.StartDrawing();
 
-	//выполнить рисующие системы
+
+	for (auto pSystem : m_drawingSystems)
+	{
+		if (pSystem != nullptr && !pSystem->m_isDrawing)
+		{
+			pSystem->Execute(delta);
+		}
+	}
+
 
 	m_game.FinishDrawing();
 

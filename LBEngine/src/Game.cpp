@@ -387,8 +387,6 @@ void Game::Update(DWORD deltaTime)
 
 void Game::Render()
 {
-
-
     //Input Assembler Stage - common
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
 
@@ -416,8 +414,6 @@ void Game::Render()
     m_pScene->Render();
 
     //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
-
-    
 }
 
 void Game::StartDrawing()

@@ -31,10 +31,12 @@ private:
 	void UpdateProjMatrix();
 
 	std::vector<Entity *>	m_entities;
-	std::vector<System *>	m_systems;
+	std::vector<System *>	m_nonDrawingSystems;
+	std::vector<System*>	m_drawingSystems;
+
 	//std::list<const Light*>	m_lights;
 
-	double m_width, m_height;
+	double m_width = -1, m_height = -1;
 
 	Game& m_game;
 	Entity* m_pCamera;
