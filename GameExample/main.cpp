@@ -1,16 +1,11 @@
-﻿//inspired by:
-//https://www.3dgep.com/introduction-to-directx-11/#Initialize_DirectX
+﻿#include <pch.h>
 
-#include <pch.h>
 #include "Game.h"
 #include "Scene.h"
 #include "Camera.h"
 
-#include "SphericalSphere.h"
-
 #include "ResourceManager.h"
 #include "InputInfo.h"
-
 
 #include "Entity.h"
 
@@ -19,9 +14,8 @@
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
 #include "InputHandlerComponent.h"
-#include "FirstPersonCameraInputHandlerComponent.h"
 #include "BitmapComponent.h"
-
+#include "CameraComponent.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -50,13 +44,42 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         scene->AddSystem(new BitmapRenderSystem());
     }
 
-    //todo: переделать систему камер
     //todo: переделать рендер
 
     Entity* cameraEntity = new Entity();
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new FirstPersonCameraInputHandlerComponent());
+    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputInfo& input) {
+       static double m_movementGain = 0.003;
+       static double m_rotationGain = 0.004;
+        
+        auto pTransform = pEntity->GetTransform();
+        auto kbs = input.GetKeyboardState();
+        auto ms = input.GetMouseState();
+
+        if (ms.leftButton)
+        {
+            Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
+            pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * m_rotationGain);
+        }
+
+        Vector3 fwd = pTransform->GetForward() * deltaTime * m_movementGain;
+        Vector3 right = pTransform->GetRight() * deltaTime * m_movementGain;
+
+        if (kbs.W)
+            pTransform->Move(fwd);
+        if (kbs.S)
+            pTransform->Move(-fwd);
+        if (kbs.A)
+            pTransform->Move(-right);
+        if (kbs.D)
+            pTransform->Move(right);
+    }));
+
+
+    scene->AddEntity(cameraEntity);
+    auto cameraComponent = new CameraComponent(true);
+    cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
     scene->SetCamera(cameraEntity);
 
     Entity* e = new Entity();
@@ -76,7 +99,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(e);
 
     return game.StartGame();
-
 }
     
 

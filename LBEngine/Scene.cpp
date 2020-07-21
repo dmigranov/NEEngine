@@ -52,15 +52,11 @@ void Scene::AddSystem(System* pSystem)
 
 void Scene::SetCamera(Entity* pCamera)
 {
-	//надо ли добавлять камеру в ентити?
-	//todo: сделать всякие проверки на нахождение...
+	//todo: сделать всякие проверки на то, есть ли компонент...
 
-
-	AddEntity(pCamera);
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;
-		m_pCamera->AddComponent(ComponentType::CameraComponentType, new CameraComponent(true));
 		UpdateProjMatrix();
 	}
 }
