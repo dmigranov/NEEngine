@@ -30,11 +30,6 @@ void BitmapRenderSystem::Execute(DWORD deltaTime)
 
 	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
 
-	assert(pDevice);
-	assert(pDeviceContext);
-
-	game.Clear(game.perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
-
 	//Input Assembler Stage - common
 	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
 

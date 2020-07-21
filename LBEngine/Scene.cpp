@@ -111,11 +111,12 @@ void Scene::Update(DWORD delta)
 		}
 	}
 
-	//todo: проинициализировать системы
+	m_game.StartDrawing();
 
 	//выполнить рисующие системы
 
-	//present
+	m_game.FinishDrawing();
+
 }
 
 void Scene::Render()

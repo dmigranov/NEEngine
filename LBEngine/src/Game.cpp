@@ -387,10 +387,7 @@ void Game::Update(DWORD deltaTime)
 
 void Game::Render()
 {
-    assert(g_d3dDevice);
-    assert(g_d3dDeviceContext);
 
-    //Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
 
     //Input Assembler Stage - common
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
@@ -420,17 +417,15 @@ void Game::Render()
 
     //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
-    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
-    //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
-    //m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFrameTime()).c_str(), m_outputWidth - 20, 60);
-    //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)ftSum / ftCount).c_str(), m_outputWidth - 20, 60);
+    
+}
 
+void Game::StartDrawing()
+{
+    assert(g_d3dDevice);
+    assert(g_d3dDeviceContext);
 
-    float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
-    m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
-    m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
-
-    Present();
+    Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
 }
 
 void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil)
@@ -439,9 +434,22 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
     g_d3dDeviceContext->ClearDepthStencilView(g_d3dDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, clearDepth, clearStencil);        //method is used to clear the depth and stencil buffer to a particular depth value and stencil value.
 }
 
+void Game::FinishDrawing()
+{
+    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
+
+    float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
+    m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
+    m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
+
+
+    Present();
+}
+
+
 void Game::Present()
 {
-    if(m_isVSyncEnabled)
+    if (m_isVSyncEnabled)
         g_d3dSwapChain->Present(1, 0);    //60 гц: VSync on
     else
         g_d3dSwapChain->Present(0, 0);    //Vsync off; для тестирования производительности
