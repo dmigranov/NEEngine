@@ -128,6 +128,9 @@ void Scene::Render()
 {
 	m_game.StartDrawing();
 
+	const auto view = m_pCamera->GetTransform()->GetView();
+	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Frame], 0, nullptr, &view, 0, 0);
+
 	for (auto pSystem : m_drawingSystems)
 	{
 		if (pSystem != nullptr)
@@ -137,8 +140,6 @@ void Scene::Render()
 	}
 
 	{	//todo: старая система рендера, переделать
-		const auto view = m_pCamera->GetTransform()->GetView();
-		m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Frame], 0, nullptr, &view, 0, 0);
 		for (auto p_entity : m_entities)
 			p_entity->Render();
 	}

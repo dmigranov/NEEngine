@@ -116,8 +116,6 @@ void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCon
 		if(p_transformComponent != nullptr)
 			pDeviceContext->UpdateSubresource(pConstantBuffer, 0, nullptr, &p_transformComponent->GetWorld(), 0, 0);
 
-		//todo: set view matrix
-
 		//DRAW
 		pDeviceContext->DrawIndexed(p_bitmapComponent->m_indexCount, 0, 0);
 	}
