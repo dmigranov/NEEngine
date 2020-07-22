@@ -36,30 +36,27 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager(); 
-
-    
     Texture* asphaltTexture = resourceManager->CreateTexture(L"cat.dds");
-
 
     {
         scene->AddSystem(new InputSystem());
         scene->AddSystem(new BitmapRenderSystem());
 
-        scene->AddSystem(new ActionSystem([](Entity* pEntity, DWORD deltaTime) {
+        scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType }, [](Entity* pEntity, DWORD deltaTime) {
             auto pTransform = pEntity->GetTransform();
             auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
-            auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+            auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
 
             if (ms.leftButton)
             {
                 Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-                pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * m_rotationGain);
+                pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * pWalk->m_rotationGain);
             }
 
-            Vector3 fwd = pTransform->GetForward() * deltaTime * m_movementGain;
-            Vector3 right = pTransform->GetRight() * deltaTime * m_movementGain;
+            Vector3 fwd = pTransform->GetForward() * deltaTime * pWalk->m_movementGain;
+            Vector3 right = pTransform->GetRight() * deltaTime * pWalk->m_movementGain;
 
             if (kbs.W)
                 pTransform->Move(fwd);
@@ -73,7 +70,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
                 pEntity->SetTransform(cameraTransform1);
             else if (kbs.D2)
                 pEntity->SetTransform(cameraTransform2);*/
-        }, {ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType}));
+        }));
 
     }
 
@@ -82,7 +79,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     cameraEntity->SetTransform(cameraTransform);
     auto cameraInputComponent = new InputComponent();
     cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
-    
+    auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
+    cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
     scene->AddEntity(cameraEntity);
     auto cameraComponent = new CameraComponent(true);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
@@ -93,14 +91,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
     e1->SetTransform(transform1);
-    /*e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputComponent &input) {
-        auto pTransform = pEntity->GetTransform();
-        auto kb = input.GetKeyboardState();
-        if (kb.Up)
-            pTransform->Move(0., 0.01, 0.);
-        if (kb.Down)
-            pTransform->Move(0., -0.01, 0.);
-    }));*/
     e1->AddComponent(ComponentType::BitmapComponentType, bitmap);
     scene->AddEntity(e1);
 

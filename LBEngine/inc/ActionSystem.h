@@ -9,7 +9,7 @@ class ActionSystem :
     public System
 {
 public:
-    ActionSystem(std::function<void(Entity*, DWORD)> func, const std::list<ComponentType>& types);
+    ActionSystem(const std::list<ComponentType>& types, std::function<void(Entity*, DWORD)> func);
     virtual void Execute(DWORD deltaTime) override;
 private:
     std::function<void(Entity*, DWORD&)> m_executeFunc;

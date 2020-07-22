@@ -141,17 +141,11 @@
     <ClCompile Include="src\MeshLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="InputHandlerComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
     <ClCompile Include="InputSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
     <ClCompile Include="src\Timer.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\FirstPersonCameraInputHandlerComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\BitmapRenderSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
@@ -260,17 +254,11 @@
     <ClInclude Include="inc\MeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\InputHandlerComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
     <ClInclude Include="inc\InputSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\Timer.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FirstPersonCameraInputHandlerComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\BitmapComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
