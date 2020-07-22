@@ -10,6 +10,8 @@ enum class ComponentType
 	InputComponentType,
 	BitmapComponentType,
 	WalkComponentType,
+	VelocityComponentType,
+
 
 	TypeCount 
 };

@@ -44,6 +44,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new BitmapRenderSystem());
 
     scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType }, [](Entity* pEntity, DWORD deltaTime) {
+        //todo: в будущем обновлять тут скорость, а положение менять в физике?
+        
         auto pTransform = pEntity->GetTransform();
         auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
         auto kbs = pInput->GetKeyboardState();
@@ -72,8 +74,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         else if (kbs.D2)
             pEntity->SetTransform(cameraTransform2);*/
     }));
-      
-       
+            
 
     Entity* cameraEntity = new Entity("camera");
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);

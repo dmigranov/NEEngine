@@ -166,6 +166,9 @@
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\ActionSystem.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -282,6 +285,9 @@
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\ActionSystem.h">
+      <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
