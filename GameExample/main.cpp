@@ -54,10 +54,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //Можно даже эти action systems реализовать в виде лямбд
     //наследоваться от ActionSystem, выбирать нужные компоненты и лямбдить экшн
 
-    Entity* cameraEntity = new Entity();
+    Entity* cameraEntity = new Entity("camera");
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputComponent& input) {
+    auto cameraInputComponent = new InputComponent();
+    cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
+    /*cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputComponent& input) {
        static double m_movementGain = 0.003;
        static double m_rotationGain = 0.004;
         
@@ -82,11 +84,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pTransform->Move(-right);
         if (kbs.D)
             pTransform->Move(right);
-        /*if (kbs.D1)
+        if (kbs.D1)
             pEntity->SetTransform(cameraTransform1);
         else if (kbs.D2)
-            pEntity->SetTransform(cameraTransform2);*/
-    }));
+            pEntity->SetTransform(cameraTransform2);
+    }));*/
     scene->AddEntity(cameraEntity);
     auto cameraComponent = new CameraComponent(true);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
@@ -97,14 +99,14 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
     e1->SetTransform(transform1);
-    e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputComponent &input) {
+    /*e1->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity * pEntity, DWORD deltaTime, InputComponent &input) {
         auto pTransform = pEntity->GetTransform();
         auto kb = input.GetKeyboardState();
         if (kb.Up)
             pTransform->Move(0., 0.01, 0.);
         if (kb.Down)
             pTransform->Move(0., -0.01, 0.);
-    }));
+    }));*/
     e1->AddComponent(ComponentType::BitmapComponentType, bitmap);
     scene->AddEntity(e1);
 

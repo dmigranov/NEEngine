@@ -10,7 +10,7 @@ using namespace DirectX;
 
 InputSystem::InputSystem()
 {
-	SubscribeToComponentType(ComponentType::InputHandlerComponentType);
+	SubscribeToComponentType(ComponentType::InputComponentType);
 
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
@@ -25,7 +25,7 @@ void InputSystem::Execute(DWORD deltaTime)
 
 	for (auto pEntity : m_entities)
 	{
-		InputHandlerComponent* inputHandler = (InputHandlerComponent*)pEntity->GetComponent(ComponentType::InputHandlerComponentType);
+		InputHandlerComponent* inputHandler = (InputHandlerComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
 		(*inputHandler)(pEntity, deltaTime, m_inputInfo);
 	}
 }

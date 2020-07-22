@@ -11,10 +11,10 @@ class InputComponent :
 public:
 	KeyboardState GetKeyboardState();
 	MouseState GetMouseState();
+	InputComponent();
 private:
 	friend class InputSystem;
 	InputComponent(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState);
-	InputComponent();
     KeyboardState m_keyboardState;
 	MouseState m_mouseState;
 
