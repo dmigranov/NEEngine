@@ -9,6 +9,7 @@ enum class ComponentType
 	CameraComponentType,
 	InputComponentType,
 	BitmapComponentType,
+	WalkComponentType,
 
 	TypeCount 
 };

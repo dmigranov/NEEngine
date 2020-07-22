@@ -16,15 +16,17 @@
 #include "InputComponent.h"
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
+#include "WalkComponent.h"
+
 
 // Systems
 #include "TransformUpdateSystem.h"
 #include "InputSystem.h"
 #include "BitmapRenderSystem.h"
+#include "ActionSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
-
 
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
@@ -42,53 +44,45 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     {
         scene->AddSystem(new InputSystem());
         scene->AddSystem(new BitmapRenderSystem());
-    }
 
-    //todo: изменить InputSystem
-    //InputInfo -> InputComponent. Задумка: 
-    //I would create an input componentand various other action components, like walk, jump, crawl, weapon, etc.The input component would have fields that describe how the entity wants to move, such as : walk left, jump, and attack.This can be supplied by the keyboard, by an AI, or over the network, which is implemented as a control component.
-    //The control systems - there is one for each control component type(keyboard, gamepad, network, AI, etc.); they set fields of the input component
-    //The action systems - there is one for each action component type(walk, jump, attack, interact, etc.); they look at the fields of the input componentand modify the physics state, weapon component, etc.
-    //Тогда у InputHandler не будет зависимости от ускорения, сил...
-    //Если надо для Jump - ок
-    //Можно даже эти action systems реализовать в виде лямбд
-    //наследоваться от ActionSystem, выбирать нужные компоненты и лямбдить экшн
+        scene->AddSystem(new ActionSystem([](Entity* pEntity, DWORD deltaTime) {
+            auto pTransform = pEntity->GetTransform();
+            auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
+            auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+
+            if (ms.leftButton)
+            {
+                Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
+                pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * m_rotationGain);
+            }
+
+            Vector3 fwd = pTransform->GetForward() * deltaTime * m_movementGain;
+            Vector3 right = pTransform->GetRight() * deltaTime * m_movementGain;
+
+            if (kbs.W)
+                pTransform->Move(fwd);
+            if (kbs.S)
+                pTransform->Move(-fwd);
+            if (kbs.A)
+                pTransform->Move(-right);
+            if (kbs.D)
+                pTransform->Move(right);
+            /*if (kbs.D1)
+                pEntity->SetTransform(cameraTransform1);
+            else if (kbs.D2)
+                pEntity->SetTransform(cameraTransform2);*/
+        }, {ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType}));
+
+    }
 
     Entity* cameraEntity = new Entity("camera");
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
     cameraEntity->SetTransform(cameraTransform);
     auto cameraInputComponent = new InputComponent();
     cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
-    /*cameraEntity->AddComponent(ComponentType::InputHandlerComponentType, new InputHandlerComponent([](Entity* pEntity, DWORD deltaTime, InputComponent& input) {
-       static double m_movementGain = 0.003;
-       static double m_rotationGain = 0.004;
-        
-        auto pTransform = pEntity->GetTransform();
-        auto kbs = input.GetKeyboardState();
-        auto ms = input.GetMouseState();
-
-        if (ms.leftButton)
-        {
-            Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-            pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * m_rotationGain);
-        }
-
-        Vector3 fwd = pTransform->GetForward() * deltaTime * m_movementGain;
-        Vector3 right = pTransform->GetRight() * deltaTime * m_movementGain;
-
-        if (kbs.W)
-            pTransform->Move(fwd);
-        if (kbs.S)
-            pTransform->Move(-fwd);
-        if (kbs.A)
-            pTransform->Move(-right);
-        if (kbs.D)
-            pTransform->Move(right);
-        if (kbs.D1)
-            pEntity->SetTransform(cameraTransform1);
-        else if (kbs.D2)
-            pEntity->SetTransform(cameraTransform2);
-    }));*/
+    
     scene->AddEntity(cameraEntity);
     auto cameraComponent = new CameraComponent(true);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);

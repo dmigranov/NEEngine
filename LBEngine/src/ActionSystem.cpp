@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "ActionSystem.h"
 
-ActionSystem::ActionSystem(std::function<void(Entity*, DWORD)> func, const std::list<ComponentType> types)
+ActionSystem::ActionSystem(std::function<void(Entity*, DWORD)> func, const std::list<ComponentType>& types)
 {
 	for(auto type : types)
 		SubscribeToComponentType(type);
