@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "ActionSystem.h"
 
-ActionSystem::ActionSystem(std::function<void(Entity*, DWORD)> func, ComponentType type, ...)
+ActionSystem::ActionSystem(std::function<void(Entity*, DWORD)> func, const std::list<ComponentType> types)
 {
-	//todo: subscribe
+	for(auto type : types)
+		SubscribeToComponentType(type);
 	m_executeFunc = func;
 }
 
