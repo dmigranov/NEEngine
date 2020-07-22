@@ -17,6 +17,10 @@ void PhysicsSystem::Execute(DWORD deltaTime)
 	{
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
 		VelocityComponent* velocity = (VelocityComponent*)pEntity->GetComponent(ComponentType::VelocityComponentType);
+		
+		
+		transform->Move(velocity->x * deltaTime, velocity->y * deltaTime, 0);
 
+		velocity->y += m_gravity * deltaTime;  
 	}
 }

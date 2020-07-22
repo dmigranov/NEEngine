@@ -6,6 +6,7 @@ class PhysicsSystem :
 public:
     PhysicsSystem();
     virtual void Execute(DWORD deltaTime) override;
-
+private:
+    double m_gravity = 0.5;
 };
 

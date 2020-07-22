@@ -17,6 +17,7 @@
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
 #include "WalkComponent.h"
+#include "VelocityComponent.h"
 
 
 // Systems
@@ -24,6 +25,7 @@
 #include "InputSystem.h"
 #include "BitmapRenderSystem.h"
 #include "ActionSystem.h"
+#include "PhysicsSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -42,8 +44,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
+    scene->AddSystem(new PhysicsSystem());
 
-    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType }, [](Entity* pEntity, DWORD deltaTime) {
+
+    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::VelocityComponentType }, [](Entity* pEntity, DWORD deltaTime) {
         //todo: в будущем обновлять тут скорость, а положение менять в физике?
         
         auto pTransform = pEntity->GetTransform();
@@ -51,6 +55,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
         auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
+        auto pVelocity = (VelocityComponent*)pEntity->GetComponent(ComponentType::VelocityComponentType);
+
 
         if (ms.leftButton)
         {
@@ -73,6 +79,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pEntity->SetTransform(cameraTransform1);
         else if (kbs.D2)
             pEntity->SetTransform(cameraTransform2);*/
+
+        if(kbs.Space)
+
     }));
             
 
