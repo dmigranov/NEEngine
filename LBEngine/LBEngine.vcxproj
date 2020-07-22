@@ -83,6 +83,7 @@
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponent.h" />
     <ClInclude Include="inc\MeshLoader.h" />
+    <ClInclude Include="inc\PhysicsSystem.h" />
     <ClInclude Include="inc\PlayerComponent.h" />
     <ClInclude Include="inc\RenderSystem.h" />
     <ClInclude Include="inc\ResourceManager.h" />
@@ -102,7 +103,6 @@
     <ClInclude Include="inc\TransformUpdateSystem.h" />
     <ClInclude Include="inc\VelocityComponent.h" />
     <ClInclude Include="inc\WalkComponent.h" />
-    <ClInclude Include="PhysicsSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

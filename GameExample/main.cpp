@@ -80,21 +80,22 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         else if (kbs.D2)
             pEntity->SetTransform(cameraTransform2);*/
 
-        if(kbs.Space)
 
     }));
             
 
-    Entity* cameraEntity = new Entity("camera");
+    Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
     auto cameraInputComponent = new InputComponent();
     auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
     auto cameraComponent = new CameraComponent(true);
+    auto velocityComponent = new VelocityComponent();
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
     cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
+    cameraEntity->AddComponent(ComponentType::VelocityComponentType, velocityComponent);
 
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
