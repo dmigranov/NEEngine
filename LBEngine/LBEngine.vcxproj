@@ -28,6 +28,7 @@
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="src\ActionSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\CollisionComponent.cpp" />
     <ClCompile Include="src\FirstPersonCameraInputHandlerComponent.cpp" />
@@ -36,6 +37,7 @@
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\VelocityComponent.cpp" />
+    <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="src\Camera.cpp" />
@@ -63,6 +65,7 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\BitmapRenderSystem.h" />
     <ClInclude Include="inc\Camera.h" />
@@ -101,6 +104,7 @@
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
     <ClInclude Include="inc\VelocityComponent.h" />
+    <ClInclude Include="inc\WalkComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

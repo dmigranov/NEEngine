@@ -13,7 +13,7 @@
 #include "ComponentType.h"
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
-#include "InputHandlerComponent.h"
+#include "InputComponent.h"
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
 

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "InputSystem.h"
-#include "InputHandlerComponent.h"
 #include "ComponentType.h"
 #include "Entity.h"
 
@@ -20,12 +19,12 @@ InputSystem::InputSystem()
 
 void InputSystem::Execute(DWORD deltaTime)
 {
-	auto ms = m_mouse->GetState();
-	m_inputInfo = InputComponent(m_keyboard->GetState(), ms);
+	pMouseState = m_mouse->GetState();
+	pKeyboardState = m_keyboard->GetState();
 
 	for (auto pEntity : m_entities)
 	{
-		InputHandlerComponent* inputHandler = (InputHandlerComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
-		(*inputHandler)(pEntity, deltaTime, m_inputInfo);
+		InputComponent* inputComponent = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+		inputComponent->SetInputData(pKeyboardState, pMouseState);
 	}
 }

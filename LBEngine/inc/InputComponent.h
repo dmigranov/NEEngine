@@ -14,7 +14,7 @@ public:
 	InputComponent();
 private:
 	friend class InputSystem;
-	InputComponent(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState);
+	void SetInputData(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState);
     KeyboardState m_keyboardState;
 	MouseState m_mouseState;
 
