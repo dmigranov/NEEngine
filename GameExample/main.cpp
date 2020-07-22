@@ -38,56 +38,60 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto resourceManager = game.GetResourceManager(); 
     Texture* asphaltTexture = resourceManager->CreateTexture(L"cat.dds");
 
-    {
-        scene->AddSystem(new InputSystem());
-        scene->AddSystem(new BitmapRenderSystem());
 
-        scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType }, [](Entity* pEntity, DWORD deltaTime) {
-            auto pTransform = pEntity->GetTransform();
-            auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-            auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
 
-            if (ms.leftButton)
-            {
-                Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-                pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * pWalk->m_rotationGain);
-            }
+    scene->AddSystem(new InputSystem());
+    scene->AddSystem(new BitmapRenderSystem());
 
-            Vector3 fwd = pTransform->GetForward() * deltaTime * pWalk->m_movementGain;
-            Vector3 right = pTransform->GetRight() * deltaTime * pWalk->m_movementGain;
+    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType }, [](Entity* pEntity, DWORD deltaTime) {
+        auto pTransform = pEntity->GetTransform();
+        auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+        auto kbs = pInput->GetKeyboardState();
+        auto ms = pInput->GetMouseState();
+        auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
 
-            if (kbs.W)
-                pTransform->Move(fwd);
-            if (kbs.S)
-                pTransform->Move(-fwd);
-            if (kbs.A)
-                pTransform->Move(-right);
-            if (kbs.D)
-                pTransform->Move(right);
-            /*if (kbs.D1)
-                pEntity->SetTransform(cameraTransform1);
-            else if (kbs.D2)
-                pEntity->SetTransform(cameraTransform2);*/
-        }));
+        if (ms.leftButton)
+        {
+            Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
+            pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * pWalk->m_rotationGain);
+        }
 
-    }
+        Vector3 fwd = pTransform->GetForward() * deltaTime * pWalk->m_movementGain;
+        Vector3 right = pTransform->GetRight() * deltaTime * pWalk->m_movementGain;
+
+        if (kbs.W)
+            pTransform->Move(fwd);
+        if (kbs.S)
+            pTransform->Move(-fwd);
+        if (kbs.A)
+            pTransform->Move(-right);
+        if (kbs.D)
+            pTransform->Move(right);
+        /*if (kbs.D1)
+            pEntity->SetTransform(cameraTransform1);
+        else if (kbs.D2)
+            pEntity->SetTransform(cameraTransform2);*/
+    }));
+      
+       
 
     Entity* cameraEntity = new Entity("camera");
     auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
-    cameraEntity->SetTransform(cameraTransform);
     auto cameraInputComponent = new InputComponent();
-    cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
     auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
-    cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
-    scene->AddEntity(cameraEntity);
     auto cameraComponent = new CameraComponent(true);
+
+    cameraEntity->SetTransform(cameraTransform);
+    cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
+    cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
+
+    scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
 
-    auto bitmap = new BitmapComponent(1, 1, asphaltTexture, false);
 
+
+    auto bitmap = new BitmapComponent(1, 1, asphaltTexture, false);
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
     e1->SetTransform(transform1);
@@ -110,99 +114,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
 
 
-
-
-/*{
-    game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
-    game.SetCameraFovY(XM_PI / 2);
-    game.SetBackgroundColor(DirectX::Colors::PowderBlue);
-
-    auto earthTexture = game.CreateTexture(L"earth.dds");
-    auto asteroidTexture = game.CreateTexture(L"asteroid2.dds");
-    auto fabricTexture = game.CreateTexture(L"fabric.dds");
-    auto sviborgTexture = game.CreateTexture(L"sviborg.dds");
-    auto fireTexture = game.CreateTexture(L"fire.dds");
-    auto moonTexture = game.CreateTexture(L"moon.dds");
-    if (!earthTexture || !moonTexture || !asteroidTexture || !fireTexture || !sviborgTexture || !fabricTexture)
-    {
-        MessageBox(nullptr, TEXT("Failed to load textures."), TEXT("Error"), MB_OK);
-        return 1;
-    }
-
-    auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
-    //auto mesh1 = new SphericalEllipsoid(0.9999f, 0.55f, 0.45f, 40, 40, asteroidTexture);
-
-    mesh1->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
-        auto ks = Keyboard::Get().GetState();
-        float gain = 0.045f;
-        Matrix m = Matrix::Identity;
-        if (ks.U)
-            m = SphericalRotationYW(-gain);
-        if (ks.J)
-            m = SphericalRotationYW(gain);
-        if (ks.H)
-            m = SphericalRotationXW(gain);
-        if (ks.K)
-            m = SphericalRotationXW(-gain);
-        return  in *  m;  //так всегда вверх!
-    }));
-    game.AddMesh(mesh1);
-
-
-    for (int i = 1; i < 8; i++)
-    {
-        Mesh* mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationZW(i * XM_PI / 8));
-        game.AddMesh(mesh);
-    }
-
-
-    auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.39f));
-    moon->SetParent(mesh1);
-    moon->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
-        return in * SphericalRotationXZ(delta);
-    }));
-    game.AddMesh(moon);
-
-
-    auto asteroid = new SphericalSphere(0.02f, 20, 20, asteroidTexture, SphericalRotationZW(-0.1f));
-    asteroid->SetParent(moon);
-    asteroid->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
-        return in * SphericalRotationXZ(7 * delta);
-    }));
-    game.AddMesh(asteroid);
-
-
-    auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
-    head->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
-        auto ks = Keyboard::Get().GetState();
-
-        static double time = 0;
-        if (!ks.Space)
-            time += delta;
-
-        return SphericalRotationYW(-0.15f) * SphericalRotationXZ(XM_PI / 2) * SphericalRotationZW(time / 5.) * SphericalRotationYW(0.03 * sin(7 * time));
-
-    }));
-    game.AddMesh(head);
-
-    int sect = 8;
-    for (int i = 0; i < sect; i++)
-    {
-        Mesh* mesh = new SphericalSphere(0.01f, 20, 20, fireTexture, SphericalRotationYW(-0.12f) * SphericalRotationYZ(i * XM_2PI / sect));
-        mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
-            return  in * SphericalRotationYZ(delta / 3.f);
-        }));
-        mesh->SetParent(head);
-        game.AddMesh(mesh);
-    }
-
-
-    auto mesh2 = SphericalMeshLoader::LoadMesh("mesh3.sph");
-    mesh2->SetTexture(fabricTexture);
-    mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
-    game.AddMesh(mesh2);
-
-}*/
 
 /*
 
