@@ -13,10 +13,10 @@ public:
     void RemoveForce(std::string forceName);
 
 private:
-    DirectX::SimpleMath::Vector3 velocity;
-    DirectX::SimpleMath::Vector3 acceleration;
-    double mass;
+    DirectX::SimpleMath::Vector3 m_velocity;
+    DirectX::SimpleMath::Vector3 m_acceleration;
+    double m_mass;
 
-    std::map<std::string, DirectX::SimpleMath::Vector3> forces;
+    std::map<std::string, DirectX::SimpleMath::Vector3> m_forces;
 };
 
