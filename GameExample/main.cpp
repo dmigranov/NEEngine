@@ -33,6 +33,8 @@ using namespace DirectX::SimpleMath;
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
+    //todo: перенастроить SwapChain, чтобы был Swapping!
+
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести

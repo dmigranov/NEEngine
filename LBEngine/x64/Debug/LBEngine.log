@@ -1,4 +1,3 @@
-﻿  PhysicsSystem.cpp
-  PhysicsComponent.cpp
-  Generating Code...
+﻿  BitmapComponent.cpp
+D:\Code\LBEngine\LBEngine\BitmapComponent.cpp(72,6): warning C4101: 'i': unreferenced local variable
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
