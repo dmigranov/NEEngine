@@ -60,9 +60,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
         auto pVelocity = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
-
-        
-
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
 
@@ -86,16 +83,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
-    auto cameraInputComponent = new InputComponent();
-    auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
     auto cameraComponent = new CameraComponent(false);
-    auto velocityComponent = new PhysicsComponent();
 
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
-    cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
-    cameraEntity->AddComponent(ComponentType::PhysicsComponentType, velocityComponent);
 
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
@@ -117,9 +108,18 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 0, 0, 0, 0, 0, 1, 1, 1);
+    auto charWalkComponent = new WalkComponent(0.003, 0.004);
+    auto charPhysicsComponent = new PhysicsComponent();
+    auto charInputComponent = new InputComponent();
+
     Entity* character = new Entity();
+
     character->SetTransform(charTransform);
     character->AddComponent(ComponentType::BitmapComponentType, charBitmap);
+    character->AddComponent(ComponentType::WalkComponentType, charWalkComponent);
+    character->AddComponent(ComponentType::PhysicsComponentType, charPhysicsComponent);
+    character->AddComponent(ComponentType::InputComponentType, charInputComponent);
+
     scene->AddEntity(character);
 
     return game.StartGame();
