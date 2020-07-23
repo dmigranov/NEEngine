@@ -41,6 +41,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager(); 
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
+    Texture* characterTexture = resourceManager->CreateTexture(L"char.dds");
 
 
 
@@ -101,18 +102,25 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
 
 
-    auto bitmap = new BitmapComponent(1, 1, brickTexture, false);
+    auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 1, 1, 1);
     e1->SetTransform(transform1);
-    e1->AddComponent(ComponentType::BitmapComponentType, bitmap);
+    e1->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
     scene->AddEntity(e1);
 
     auto transform2 = new TransformComponent(1, 0, 1, 0, 0, 0, 1, 1, 1);
     Entity* e2 = new Entity();
     e2->SetTransform(transform2);
-    e2->AddComponent(ComponentType::BitmapComponentType, bitmap);
+    e2->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
     scene->AddEntity(e2);
+
+    auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
+    auto charTransform = new TransformComponent(1, 0, 0, 0, 0, 0, 1, 1, 1);
+    Entity* character = new Entity();
+    character->SetTransform(charTransform);
+    character->AddComponent(ComponentType::BitmapComponentType, charBitmap);
+    scene->AddEntity(character);
 
     return game.StartGame();
 }
