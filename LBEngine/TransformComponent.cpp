@@ -52,20 +52,28 @@ void TransformComponent::Rotate(double rx, double ry, double rz)
 void TransformComponent::SetParent(TransformComponent* pParent)
 {
 	m_pParent = pParent;
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
 }
 
 const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {
-	if (m_shouldRecalcWorld)
-	{
+	//понятно, надо при GetView/Getworld ребенка как-то проверять, не изменилось ли положение родителя
+
+	if (m_shouldRecalcWorld || nullptr != m_pParent && m_pParent->GetWorld() != oldParentMatrix)
 		Recalculate();
-	}
 
 	return m_world;
 }
 
 const DirectX::SimpleMath::Matrix& TransformComponent::GetView()
 {
+	if (nullptr != m_pParent && m_pParent->GetWorld() != oldParentMatrix)
+	{
+		m_shouldRecalcWorld = true;
+		m_shouldRecalcView = true;
+	}
+
 	if (m_shouldRecalcWorld)
 		Recalculate();
 	if (m_shouldRecalcView)
@@ -107,8 +115,8 @@ void TransformComponent::Recalculate()
 
 	if (nullptr != m_pParent)
 	{
-		Matrix matWorldParent = m_pParent->GetWorld();
-		m_world = m_world * matWorldParent;
+		oldParentMatrix = m_pParent->GetWorld();
+		m_world = m_world * oldParentMatrix;
 	}
 
 	Vector4 position4 = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);

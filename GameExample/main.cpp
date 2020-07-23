@@ -49,8 +49,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
 
+    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
-    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime) {
+    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, 
+        [](Entity* pEntity, DWORD deltaTime) {
         //todo: в будущем обновлять тут скорость, а положение менять в физике?
         
         auto pTransform = pEntity->GetTransform();
@@ -62,7 +64,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-
 
         if (kbs.W)
             pTransform->Move(up);
@@ -82,7 +83,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
     auto cameraComponent = new CameraComponent(false);
 
     cameraEntity->SetTransform(cameraTransform);

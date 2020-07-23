@@ -32,6 +32,8 @@ private:
 
 
     TransformComponent* m_pParent;
+    DirectX::SimpleMath::Matrix oldParentMatrix;
+
     DirectX::SimpleMath::Matrix m_world;
     DirectX::SimpleMath::Vector3 m_positionLocal;
     DirectX::SimpleMath::Vector3 m_rotation;
