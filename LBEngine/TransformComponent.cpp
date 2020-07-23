@@ -49,6 +49,10 @@ void TransformComponent::Rotate(double rx, double ry, double rz)
 	this->Rotate(Vector3(rx, ry, rz));
 }
 
+void TransformComponent::SetParent(TransformComponent* pParent)
+{
+	m_pParent = pParent;
+}
 
 const DirectX::SimpleMath::Matrix& TransformComponent::GetWorld()
 {

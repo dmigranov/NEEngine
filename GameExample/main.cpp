@@ -120,6 +120,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent(ComponentType::PhysicsComponentType, charPhysicsComponent);
     character->AddComponent(ComponentType::InputComponentType, charInputComponent);
 
+    cameraTransform->SetParent(charTransform);
+    
     scene->AddEntity(character);
 
     return game.StartGame();

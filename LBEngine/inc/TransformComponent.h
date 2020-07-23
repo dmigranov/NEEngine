@@ -15,6 +15,8 @@ public:
     void Rotate(double rx, double ry, double rz);
     //todo: setPosition, setRotate, setScale...
 
+    void SetParent(TransformComponent* pParent);
+
     const DirectX::SimpleMath::Matrix& GetWorld();
     const DirectX::SimpleMath::Matrix& GetView();
     const DirectX::SimpleMath::Vector3& GetRotation();
