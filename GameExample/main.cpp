@@ -60,19 +60,16 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto pVelocity = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
 
-        if (ms.leftButton)
-        {
-            Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-            pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * pWalk->m_rotationGain);
-        }
+        
 
-        Vector3 fwd = pTransform->GetForward() * deltaTime * pWalk->m_movementGain;
-        Vector3 right = pTransform->GetRight() * deltaTime * pWalk->m_movementGain;
+        Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
+        Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
+
 
         if (kbs.W)
-            pTransform->Move(fwd);
+            pTransform->Move(up);
         if (kbs.S)
-            pTransform->Move(-fwd);
+            pTransform->Move(-up);
         if (kbs.A)
             pTransform->Move(-right);
         if (kbs.D)
