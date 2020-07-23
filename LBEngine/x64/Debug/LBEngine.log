@@ -1,5 +1,4 @@
 ﻿  PhysicsSystem.cpp
   PhysicsComponent.cpp
-  TransformUpdateSystem.cpp
   Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

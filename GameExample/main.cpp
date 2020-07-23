@@ -38,7 +38,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager(); 
-    Texture* asphaltTexture = resourceManager->CreateTexture(L"cat.dds");
+    Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
 
 
 
@@ -102,7 +102,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
 
 
-    auto bitmap = new BitmapComponent(1, 1, asphaltTexture, false);
+    auto bitmap = new BitmapComponent(1, 1, brickTexture, false);
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
     e1->SetTransform(transform1);
