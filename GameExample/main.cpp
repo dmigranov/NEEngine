@@ -87,10 +87,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new TransformComponent(1, 0, -1, 0, 0, 0);
+    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
     auto cameraInputComponent = new InputComponent();
     auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
-    auto cameraComponent = new CameraComponent(true);
+    auto cameraComponent = new CameraComponent(false);
     auto velocityComponent = new PhysicsComponent();
 
     cameraEntity->SetTransform(cameraTransform);
@@ -106,12 +106,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto bitmap = new BitmapComponent(1, 1, brickTexture, false);
     Entity* e1 = new Entity();
-    auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 0.3, 0.3, 0.3);
+    auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 1, 1, 1);
     e1->SetTransform(transform1);
     e1->AddComponent(ComponentType::BitmapComponentType, bitmap);
     scene->AddEntity(e1);
 
-    auto transform2 = new TransformComponent(0, 0.3, 2, 0, 0, XM_PI/4, 0.3, 0.3, 0.3);
+    auto transform2 = new TransformComponent(1, 0, 1, 0, 0, 0, 1, 1, 1);
     Entity* e2 = new Entity();
     e2->SetTransform(transform2);
     e2->AddComponent(ComponentType::BitmapComponentType, bitmap);

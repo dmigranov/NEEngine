@@ -18,20 +18,22 @@ Entity::Entity(const char* name) :
 
 Entity::~Entity()
 {
-	for(auto pair : m_components)
+
+
+	//mesh, transform и другие энтити удялялись при удалении всех энтити.
+	//но правильно ли удалять компоненты тут, в энтити?
+	//ведь компоненты могут быть общими
+	//todo: smart ptr?
+	/*for(auto pair : m_components)
 	{
 		if (pair.second != nullptr)
 		{
 			delete pair.second;
 			pair.second = nullptr;
 		}
-	}
+	}*/
 	m_components.clear();
 
-	//mesh и transform удялятся при удалении всех компонентов.
-	//но правильно ли удалять компоненты тут, в энтити?
-	//ведь компоненты могут быть общими
-	//todo: smart ptr?
 }
 
 void Entity::Initialize()

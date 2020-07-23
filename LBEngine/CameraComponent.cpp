@@ -49,6 +49,6 @@ void CameraComponent::RecalculateProj()
 	if (m_isPerspective)
 		m_proj = DirectX::XMMatrixPerspectiveFovLH(m_fovY, m_aspect, m_nearPlane, m_farPlane);
 	else
-		m_proj = DirectX::XMMatrixOrthographicLH(m_aspect, 1, m_nearPlane, m_farPlane);
+		m_proj = DirectX::XMMatrixOrthographicLH(4 * m_aspect, 4, m_nearPlane, m_farPlane);
 	m_shouldRecalc = false;
 }
