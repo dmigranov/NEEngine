@@ -17,7 +17,7 @@
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
 #include "WalkComponent.h"
-#include "VelocityComponent.h"
+#include "PhysicsComponent.h"
 
 
 // Systems
@@ -47,7 +47,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new PhysicsSystem());
 
 
-    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::VelocityComponentType }, [](Entity* pEntity, DWORD deltaTime) {
+    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime) {
         //todo: в будущем обновлять тут скорость, а положение менять в физике?
         
         auto pTransform = pEntity->GetTransform();
@@ -55,7 +55,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
         auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
-        auto pVelocity = (VelocityComponent*)pEntity->GetComponent(ComponentType::VelocityComponentType);
+        auto pVelocity = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
 
         if (ms.leftButton)
@@ -89,13 +89,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto cameraInputComponent = new InputComponent();
     auto cameraWalkComponent = new WalkComponent(0.003, 0.004);
     auto cameraComponent = new CameraComponent(true);
-    auto velocityComponent = new VelocityComponent();
+    auto velocityComponent = new PhysicsComponent();
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent(ComponentType::InputComponentType, cameraInputComponent);
     cameraEntity->AddComponent(ComponentType::WalkComponentType, cameraWalkComponent);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
-    cameraEntity->AddComponent(ComponentType::VelocityComponentType, velocityComponent);
+    cameraEntity->AddComponent(ComponentType::PhysicsComponentType, velocityComponent);
 
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);

@@ -33,9 +33,9 @@
     <ClCompile Include="src\CollisionComponent.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
+    <ClCompile Include="src\PhysicsComponent.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\Timer.cpp" />
-    <ClCompile Include="src\VelocityComponent.cpp" />
     <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -83,6 +83,7 @@
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponent.h" />
     <ClInclude Include="inc\MeshLoader.h" />
+    <ClInclude Include="inc\PhysicsComponent.h" />
     <ClInclude Include="inc\PhysicsSystem.h" />
     <ClInclude Include="inc\PlayerComponent.h" />
     <ClInclude Include="inc\RenderSystem.h" />
@@ -101,7 +102,6 @@
     <ClInclude Include="inc\Timer.h" />
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
-    <ClInclude Include="inc\VelocityComponent.h" />
     <ClInclude Include="inc\WalkComponent.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,13 @@
 #include "pch.h"
 #include "PhysicsSystem.h"
 #include "TransformComponent.h"
-#include "VelocityComponent.h"
+#include "PhysicsComponent.h"
 #include "Entity.h"
 
 PhysicsSystem::PhysicsSystem()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
-	SubscribeToComponentType(ComponentType::VelocityComponentType);
+	SubscribeToComponentType(ComponentType::PhysicsComponentType);
 
 }
 
@@ -16,7 +16,7 @@ void PhysicsSystem::Execute(DWORD deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
-		VelocityComponent* velocity = (VelocityComponent*)pEntity->GetComponent(ComponentType::VelocityComponentType);
+		PhysicsComponent* physics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
 
 		
