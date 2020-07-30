@@ -18,6 +18,7 @@
 #include "CameraComponent.h"
 #include "WalkComponent.h"
 #include "PhysicsComponent.h"
+#include "CollisionComponent.h"
 
 
 // Systems
@@ -111,6 +112,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
+    auto charCollisionComponent = new CollisionComponent();
 
     charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
 
