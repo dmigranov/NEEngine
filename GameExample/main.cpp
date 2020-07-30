@@ -112,7 +112,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    auto charCollisionComponent = new CollisionComponent();
+    auto charCollisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
 
     charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
 

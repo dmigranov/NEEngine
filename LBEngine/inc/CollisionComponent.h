@@ -8,7 +8,9 @@ public:
     CollisionComponent(DirectX::SimpleMath::Vector2 upleft, DirectX::SimpleMath::Vector2 downright);
 
 private:
+    friend class PhysicsSystem;
+
     //AABB - axis-aligned bounding box
-    DirectX::SimpleMath::Vector2 m_upleft, m_upright, m_downleft, m_downright;
+    DirectX::SimpleMath::Vector2 m_upleft, m_downright; //m_upright, m_downleft, - избыточно
 };
 

@@ -41,7 +41,11 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 
 			transform->Move(velocity * deltaTime);
 
-			std::cout << transform->GetPosition().y << std::endl;
 		}
 	}
+
+	//Коллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
+
+
+
 }
