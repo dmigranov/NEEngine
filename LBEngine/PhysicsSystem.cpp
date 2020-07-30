@@ -2,6 +2,9 @@
 #include "PhysicsSystem.h"
 #include "TransformComponent.h"
 #include "PhysicsComponent.h"
+
+#include "CollisionComponent.h"
+
 #include "Entity.h"
 
 using namespace DirectX::SimpleMath;
@@ -11,6 +14,8 @@ PhysicsSystem::PhysicsSystem()
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);
 
+	//todo: перенести в отдельную систему и избавитьс€ от зависимости
+	SubscribeToComponentType(ComponentType::CollisionComponentType);
 }
 
 void PhysicsSystem::Execute(DWORD deltaMillis)
@@ -44,8 +49,17 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 		}
 	}
 
-	// оллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
+	//todo  оллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
 
+	for (auto pEntityFirst : m_entities)
+	{
+		for (auto pEntitySecond : m_entities)
+		{
+			//todo: возможно, итерироватьс€ по парам более эффективно, чтобы без повторений (симметри€ же)...
+			if (pEntityFirst != pEntitySecond)
+			{
 
-
+			}
+		}
+	}
 }

@@ -11,6 +11,7 @@ enum class ComponentType
 	BitmapComponentType,
 	WalkComponentType,
 	PhysicsComponentType,
+	CollisionComponentType,
 
 
 	TypeCount 
