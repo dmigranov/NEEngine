@@ -40,7 +40,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.InitializeEngine(hInstance, nCmdShow, L"Test game", false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
-    auto resourceManager = game.GetResourceManager(); 
+    auto resourceManager = game.GetResourceManager();
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char.dds");
 
@@ -52,10 +52,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
-    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, 
+    scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType },
         [](Entity* pEntity, DWORD deltaTime) {
         //todo: в будущем обновлять тут скорость, а положение менять в физике?
-        
+
         auto pTransform = pEntity->GetTransform();
         auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
         auto kbs = pInput->GetKeyboardState();
@@ -85,7 +85,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
                 isLeftForceApplied = true;
             }
             else
-            { 
+            {
                 pPhysics->RemoveForce("left");
                 isLeftForceApplied = false;
             }
@@ -94,14 +94,14 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             isLeftForceApplied = false;
             */
 
-        /*if (kbs.D1)
-            pEntity->SetTransform(cameraTransform1);
-        else if (kbs.D2)
-            pEntity->SetTransform(cameraTransform2);*/
+            /*if (kbs.D1)
+                pEntity->SetTransform(cameraTransform1);
+            else if (kbs.D2)
+                pEntity->SetTransform(cameraTransform2);*/
 
 
     }));
-            
+
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new CameraComponent(false);
@@ -134,7 +134,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charInputComponent = new InputComponent();
     //auto charCollisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
 
-    charPhysicsComponent->AddForce("gravity", Vector3(0, 0, 0));
+    //charPhysicsComponent->AddForce("gravity", Vector3(0, 0, 0));
 
     Entity* character = new Entity();
 
@@ -145,12 +145,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent(ComponentType::InputComponentType, charInputComponent);
 
     cameraTransform->SetParent(charTransform);
-    
+
     scene->AddEntity(character);
 
     return game.StartGame();
 }
-    
+
 
 
 
