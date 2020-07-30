@@ -76,7 +76,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pTransform->Move(right);
 
 
-        /*static bool isLeftForceApplied = false;
+        static bool isLeftForceApplied = false;
         if (kbs.Left)
         {
             if(!isLeftForceApplied)
@@ -84,16 +84,16 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
                 pPhysics->AddForce("left", Vector3(-1., 0., 0.));
                 isLeftForceApplied = true;
             }
-            else
-            {
-                pPhysics->RemoveForce("left");
-                isLeftForceApplied = false;
-            }
-        }
-        else
-            isLeftForceApplied = false;
-            */
 
+        }
+        if (kbs.Space)
+        {
+            pPhysics->RemoveForce("left");
+
+            isLeftForceApplied = false;
+
+            //todo: занулить ускорение; по-хорошему, это сила в противоположном направлении, но..
+        }
             /*if (kbs.D1)
                 pEntity->SetTransform(cameraTransform1);
             else if (kbs.D2)
@@ -128,7 +128,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(e2);
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
-    auto charTransform = new TransformComponent(1, 4, 0, 0, 0, 0, 1, 1, 1);
+    auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
