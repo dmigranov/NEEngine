@@ -37,7 +37,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     //todo: перенастроить SwapChain, чтобы был Swapping!
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
+    game.InitializeEngine(hInstance, nCmdShow, L"Test game", false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager(); 
@@ -61,7 +61,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
         auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
-        auto pVelocity = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
+        auto pPhysics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
@@ -74,6 +74,26 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pTransform->Move(-right);
         if (kbs.D)
             pTransform->Move(right);
+
+
+        /*static bool isLeftForceApplied = false;
+        if (kbs.Left)
+        {
+            if(!isLeftForceApplied)
+            {
+                pPhysics->AddForce("left", Vector3(-1., 0., 0.));
+                isLeftForceApplied = true;
+            }
+            else
+            { 
+                pPhysics->RemoveForce("left");
+                isLeftForceApplied = false;
+            }
+        }
+        else
+            isLeftForceApplied = false;
+            */
+
         /*if (kbs.D1)
             pEntity->SetTransform(cameraTransform1);
         else if (kbs.D2)
@@ -112,9 +132,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    auto charCollisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
+    //auto charCollisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
 
-    charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
+    charPhysicsComponent->AddForce("gravity", Vector3(0, 0, 0));
 
     Entity* character = new Entity();
 

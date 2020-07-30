@@ -15,7 +15,7 @@ PhysicsSystem::PhysicsSystem()
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);
 
 	//todo: перенести в отдельную систему и избавиться от зависимости
-	SubscribeToComponentType(ComponentType::CollisionComponentType);
+	//SubscribeToComponentType(ComponentType::CollisionComponentType);
 }
 
 void PhysicsSystem::Execute(DWORD deltaMillis)
@@ -51,7 +51,7 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 
 	//todo Коллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
 
-	for (auto pEntityFirst : m_entities)
+	/*for (auto pEntityFirst : m_entities)
 	{
 		for (auto pEntitySecond : m_entities)
 		{
@@ -61,5 +61,5 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 
 			}
 		}
-	}
+	}*/
 }
