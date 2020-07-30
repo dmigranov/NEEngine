@@ -107,10 +107,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(e2);
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
-    auto charTransform = new TransformComponent(1, 1, 0, 0, 0, 0, 1, 1, 1);
+    auto charTransform = new TransformComponent(1, 4, 0, 0, 0, 0, 1, 1, 1);
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
-    auto charPhysicsComponent = new PhysicsComponent();
+    auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
+
+    charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
 
     Entity* character = new Entity();
 

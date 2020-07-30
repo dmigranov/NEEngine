@@ -3,8 +3,9 @@
 
 using namespace DirectX::SimpleMath;
 
-PhysicsComponent::PhysicsComponent()
+PhysicsComponent::PhysicsComponent(double mass)
 {
+	m_mass = mass;
 }
 
 void PhysicsComponent::AddForce(std::string forceName, DirectX::SimpleMath::Vector3 force)

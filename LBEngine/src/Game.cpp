@@ -264,6 +264,10 @@ int Game::Initialize(HWND window, int width, int height)
 void Game::Tick()
 {
     //todo: перенести в таймер 
+
+    //todo: чё-то на первом кадре много времени, после стабилизируется.
+    //проверить и исправить?
+
     DWORD currentTime = timeGetTime();
     //double deltaTime = (currentTime - previousTime) / 1000.;
     DWORD deltaTime = (currentTime - previousTime);
