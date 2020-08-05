@@ -43,7 +43,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
-    Texture* characterTexture = resourceManager->CreateTexture(L"char.dds");
+    Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
 
 
@@ -145,11 +145,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
-
-
     }, -0.5, -0.5, 0.5, 0.5);
 
-    charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
+    charPhysicsComponent->AddForce("gravity", Vector3(0, -9.8, 0));
 
     Entity* character = new Entity();
 
