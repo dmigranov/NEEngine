@@ -31,7 +31,9 @@ void CollisionSystem::Execute(DWORD deltaTime)
 				CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
 				CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
 			
-				
+				pCollision1->m_executeFunc(pEntity1, pEntity2, deltaTime);
+				pCollision2->m_executeFunc(pEntity2, pEntity1, deltaTime);
+
 			}
 		}
 	}
