@@ -51,15 +51,14 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 
 	//todo  оллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
 
-	/*for (auto pEntityFirst : m_entities)
-	{
-		for (auto pEntitySecond : m_entities)
-		{
-			//todo: возможно, итерироватьс€ по парам более эффективно, чтобы без повторений (симметри€ же)...
-			if (pEntityFirst != pEntitySecond)
-			{
 
-			}
+	for (auto i = m_entities.begin(); i != m_entities.end(); ++i) {
+		for (auto j = i; ++j != m_entities.end(); /**/) {
+			auto pEntityFirst = *i;
+			auto pEntitySecond = *j;
+
+			std::cout << pEntityFirst << " " << pEntitySecond << std::endl;
 		}
-	}*/
+	}
+
 }
