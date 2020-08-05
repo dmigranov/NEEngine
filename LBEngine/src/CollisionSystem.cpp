@@ -52,7 +52,17 @@ bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 	auto worldUL2 = ul2 + pos2_2D;
 	auto worldDR2 = dr2 + pos2_2D;
 
-	//todo
+	auto width1 = worldDR1.x - worldUL1.x;
+	auto width2 = worldDR2.x - worldUL2.x;
+	auto height1 = worldDR1.y - worldUL1.y;
+	auto height2 = worldDR2.y - worldUL2.y;
+	if (worldUL1.x < worldDR2.x &&
+		worldDR1.x > worldUL2.x &&
+		worldUL1.y < worldDR2.y &&
+		worldDR1.y > worldUL2.y) 
+	{
+		return true;
+	}
 
 	return false;
 }

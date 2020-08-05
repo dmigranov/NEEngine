@@ -102,6 +102,8 @@ const DirectX::SimpleMath::Vector3& TransformComponent::GetRight()
 
 const DirectX::SimpleMath::Vector3& TransformComponent::GetPosition()
 {
+	if (m_shouldRecalcWorld)
+		Recalculate();
 	return m_position;
 }
 
