@@ -142,6 +142,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) {
+        //todo: вернуть в прежнее положение еще
+        //видно, что персонаж просачивается сквозь кирпич!
+        
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
