@@ -114,19 +114,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
 
-
+    auto collisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
     Entity* e1 = new Entity();
     auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 1, 1, 1);
     e1->SetTransform(transform1);
     e1->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
+    e1->AddComponent(ComponentType::CollisionComponentType, collisionComponent);
     scene->AddEntity(e1);
 
     auto transform2 = new TransformComponent(1, 0, 1, 0, 0, 0, 1, 1, 1);
     Entity* e2 = new Entity();
     e2->SetTransform(transform2);
     e2->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
+    e2->AddComponent(ComponentType::CollisionComponentType, collisionComponent);
     scene->AddEntity(e2);
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
@@ -134,7 +136,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    //auto charCollisionComponent = new CollisionComponent(-0.5, -0.5, 0.5, 0.5);
 
     //charPhysicsComponent->AddForce("gravity", Vector3(0, 0, 0));
 
@@ -145,6 +146,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent(ComponentType::WalkComponentType, charWalkComponent);
     character->AddComponent(ComponentType::PhysicsComponentType, charPhysicsComponent);
     character->AddComponent(ComponentType::InputComponentType, charInputComponent);
+    character->AddComponent(ComponentType::CollisionComponentType, collisionComponent);
+
 
     cameraTransform->SetParent(charTransform);
 

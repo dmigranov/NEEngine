@@ -3,7 +3,10 @@
 class CollisionSystem :
     public System
 {
+public:
     CollisionSystem();
     virtual void Execute(DWORD deltaTime) override;
+private:
+
 };
 
