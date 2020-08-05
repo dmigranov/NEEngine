@@ -143,11 +143,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) {
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
-        pPhysics->SetAcceleration(.0);
-        pPhysics->SetVelocity(0.);
+        pPhysics->SetAcceleration(Vector3::Zero);
+        pPhysics->SetVelocity(Vector3::Zero);
 
 
-        std::cout << "hello " << std::endl;
     }, -0.5, -0.5, 0.5, 0.5);
 
     charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));

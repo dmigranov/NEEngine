@@ -12,8 +12,8 @@ public:
     DirectX::SimpleMath::Vector3 GetForce(std::string forceName);
     void RemoveForce(std::string forceName);
 
-    void SetAcceleration(double a);
-    void SetVelocity(double v);
+    void SetAcceleration(DirectX::SimpleMath::Vector3 a);
+    void SetVelocity(DirectX::SimpleMath::Vector3 v);
 
 
 private:

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "PhysicsComponent.h"
+#include "..\inc\PhysicsComponent.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -21,4 +22,14 @@ DirectX::SimpleMath::Vector3 PhysicsComponent::GetForce(std::string forceName)
 void PhysicsComponent::RemoveForce(std::string forceName)
 {
 	m_forces.erase(forceName);
+}
+
+void PhysicsComponent::SetAcceleration(Vector3 a)
+{
+	m_acceleration = a;
+}
+
+void PhysicsComponent::SetVelocity(DirectX::SimpleMath::Vector3 v)
+{
+	m_velocity = v;
 }
