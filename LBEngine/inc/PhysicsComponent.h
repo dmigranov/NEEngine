@@ -12,6 +12,10 @@ public:
     DirectX::SimpleMath::Vector3 GetForce(std::string forceName);
     void RemoveForce(std::string forceName);
 
+    void SetAcceleration(double a);
+    void SetVelocity(double v);
+
+
 private:
     friend class PhysicsSystem;
     DirectX::SimpleMath::Vector3 m_velocity;

@@ -77,7 +77,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         if (kbs.D)
             pTransform->Move(right);
 
-
+        /*
         static bool isLeftForceApplied = false;
         if (kbs.Left)
         {
@@ -96,10 +96,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
             //todo: занулить ускорение; по-хорошему, это сила в противоположном направлении, но..
         }
-            /*if (kbs.D1)
-                pEntity->SetTransform(cameraTransform1);
-            else if (kbs.D2)
-                pEntity->SetTransform(cameraTransform2);*/
+        */
+
+        /*if (kbs.D1)
+            pEntity->SetTransform(cameraTransform1);
+        else if (kbs.D2)
+            pEntity->SetTransform(cameraTransform2);
+            */
 
 
     }));
@@ -115,7 +118,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->SetCamera(cameraEntity);
 
     auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) { 
-        std::cout << "TAAB" << std::endl;
+
     }, -0.5, -0.5, 0.5, 0.5);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
@@ -139,10 +142,15 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) {
+        auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
+        pPhysics->SetAcceleration(.0);
+        pPhysics->SetVelocity(0.);
+
+
         std::cout << "hello " << std::endl;
     }, -0.5, -0.5, 0.5, 0.5);
 
-    //charPhysicsComponent->AddForce("gravity", Vector3(0, 0, 0));
+    charPhysicsComponent->AddForce("gravity", Vector3(0, -1, 0));
 
     Entity* character = new Entity();
 
