@@ -32,6 +32,7 @@
     <ClCompile Include="src\ActionSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\CollisionComponent.cpp" />
+    <ClCompile Include="src\CollisionSystem.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\PhysicsComponent.cpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="inc\CameraActionSystem.h" />
     <ClInclude Include="inc\CameraComponent.h" />
     <ClInclude Include="inc\CollisionComponent.h" />
+    <ClInclude Include="inc\CollisionSystem.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\ComponentType.h" />
     <ClInclude Include="inc\Drawer2D.h" />

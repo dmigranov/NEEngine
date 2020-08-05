@@ -13,14 +13,10 @@ PhysicsSystem::PhysicsSystem()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);
-
-	//todo: перенести в отдельную систему и избавиться от зависимости
-	//SubscribeToComponentType(ComponentType::CollisionComponentType);
 }
 
 void PhysicsSystem::Execute(DWORD deltaMillis)
 {
-
 	double deltaTime = deltaMillis / 1000.;
 	for (auto pEntity : m_entities)
 	{
@@ -48,17 +44,4 @@ void PhysicsSystem::Execute(DWORD deltaMillis)
 
 		}
 	}
-
-	//todo Коллизии: можно перенести в CollisionSystem (тогда PhysicsSystem не будет зависеть от CollisionComponent)
-
-
-	for (auto i = m_entities.begin(); i != m_entities.end(); ++i) {
-		for (auto j = i; ++j != m_entities.end(); /**/) {
-			auto pEntityFirst = *i;
-			auto pEntitySecond = *j;
-
-			std::cout << pEntityFirst << " " << pEntitySecond << std::endl;
-		}
-	}
-
 }

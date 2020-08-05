@@ -27,6 +27,7 @@
 #include "BitmapRenderSystem.h"
 #include "ActionSystem.h"
 #include "PhysicsSystem.h"
+#include "CollisionSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -49,6 +50,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
+    scene->AddSystem(new CollisionSystem());
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
