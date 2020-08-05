@@ -26,6 +26,13 @@ void CollisionSystem::Execute(DWORD deltaTime)
 			auto pEntity2 = *j;
 
 			bool areCollided = CheckCollision(pEntity1, pEntity2);
+			if (areCollided)
+			{
+				CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
+				CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
+			
+				
+			}
 		}
 	}
 }

@@ -3,12 +3,13 @@
 
 using namespace DirectX::SimpleMath;
 
-CollisionComponent::CollisionComponent(double upleftX, double upleftY, double downrightX, double downrightY) : CollisionComponent(Vector2(upleftX, upleftY), Vector2(downrightX, downrightY))
+CollisionComponent::CollisionComponent(std::function<void(Entity*, Entity*, DWORD)> func, double upleftX, double upleftY, double downrightX, double downrightY) : CollisionComponent(func, Vector2(upleftX, upleftY), Vector2(downrightX, downrightY))
 {}
 
 
-CollisionComponent::CollisionComponent(DirectX::SimpleMath::Vector2 upleft, DirectX::SimpleMath::Vector2 downright)
+CollisionComponent::CollisionComponent(std::function<void(Entity*, Entity*, DWORD)> func, DirectX::SimpleMath::Vector2 upleft, DirectX::SimpleMath::Vector2 downright)
 {
 	m_upleft = upleft;
 	m_downright = downright;
+	m_executeFunc = func;
 }
