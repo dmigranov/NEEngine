@@ -1,2 +1,12 @@
-﻿  CollisionSystem.cpp
+﻿  PhysicsSystem.cpp
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(37,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(40,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(43,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  CollisionComponent.cpp
+D:\Code\LBEngine\LBEngine\src\CollisionComponent.cpp(6,148): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\CollisionComponent.cpp(6,139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\CollisionComponent.cpp(6,178): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\src\CollisionComponent.cpp(6,166): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  CollisionSystem.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
