@@ -52,7 +52,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
-    //scene->AddSystem(new CollisionSystem());  //todo: оптимизировать
+    scene->AddSystem(new CollisionSystem());  //todo: оптимизировать
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
