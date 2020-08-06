@@ -38,3 +38,8 @@ const DirectX::SimpleMath::Vector3& PhysicsComponent::GetVelocity()
 {
 	return m_velocity;
 }
+
+const double& PhysicsComponent::GetMass()
+{
+	return m_mass;
+}

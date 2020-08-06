@@ -68,35 +68,25 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
 
-        if (kbs.W)
-            pTransform->Move(up);
-        if (kbs.S)
-            pTransform->Move(-up);
         if (kbs.A)
             pTransform->Move(-right);
         if (kbs.D)
             pTransform->Move(right);
 
-        /*
-        static bool isLeftForceApplied = false;
-        if (kbs.Left)
+        static int jumpCounter = 0, jumpHead = 50;
+        if (kbs.Space && pPhysics->GetVelocity().y == 0 && jumpCounter == 0)
         {
-            if(!isLeftForceApplied)
-            {
-                pPhysics->AddForce("left", Vector3(-1., 0., 0.));
-                isLeftForceApplied = true;
-            }
-
+            pPhysics->AddForce("jump", Vector3(0., 40, 0.));
         }
-        if (kbs.Space)
+        if (jumpCounter >= 0 && jumpCounter < jumpHead)
         {
-            pPhysics->RemoveForce("left");
-
-            isLeftForceApplied = false;
-
-            //todo: занулить ускорение; по-хорошему, это сила в противоположном направлении, но..
+            jumpCounter++;
         }
-        */
+        else if (jumpCounter >= jumpHead)
+        {
+            pPhysics->RemoveForce("jump");
+            jumpCounter = 0;
+        }
 
         /*if (kbs.D1)
             pEntity->SetTransform(cameraTransform1);
