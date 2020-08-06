@@ -20,20 +20,20 @@ void CollisionSystem::Execute(double deltaTime)
 	//нет нужды проверять кирпичи на столкновения друг с другом. 
 	//держать список движущихся объектов?
 	//
-	for (auto i = m_entities.begin(); i != m_entities.end(); ++i) {
-		for (auto j = i; ++j != m_entities.end(); /**/) {
-			auto pEntity1 = *i;
-			auto pEntity2 = *j;
-
-			bool areCollided = CheckCollision(pEntity1, pEntity2);
-			if (areCollided)
+	for (auto pMovable: m_movableEntities) {
+		for (auto e: m_entities) {
+			if (pMovable != e)
 			{
-				CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
-				CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
-			
-				pCollision1->m_executeFunc(pEntity1, pEntity2, deltaTime);
-				pCollision2->m_executeFunc(pEntity2, pEntity1, deltaTime);
+				bool areCollided = CheckCollision(pMovable, e);
+				if (areCollided)
+				{
+					CollisionComponent* pCollision1 = (CollisionComponent*)pMovable->GetComponent(ComponentType::CollisionComponentType);
+					CollisionComponent* pCollision2 = (CollisionComponent*)e->GetComponent(ComponentType::CollisionComponentType);
 
+					pCollision1->m_executeFunc(pMovable, e, deltaTime);
+					pCollision2->m_executeFunc(e, pMovable, deltaTime);
+
+				}
 			}
 		}
 	}

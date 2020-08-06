@@ -52,7 +52,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
-    scene->AddSystem(new CollisionSystem());  //todo: оптимизировать
+    scene->AddSystem(new CollisionSystem());
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
@@ -168,7 +168,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         pTransform->Move(-velocity * deltaTime);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
-    }, -0.5, -0.5, 0.5, 0.5);
+    }, -0.5, -0.5, 0.5, 0.5, true);
 
     charPhysicsComponent->AddForce("gravity", Force(Vector3(0, -9.8, 0)));
     charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)
