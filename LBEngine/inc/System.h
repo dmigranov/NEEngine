@@ -13,14 +13,13 @@ public:
 	virtual void Execute(double deltaTime) {};
 protected:
 	void SubscribeToComponentType(ComponentType ct);
-	std::vector<Entity *> m_entities;;
+	std::vector<Entity *> m_entities;
 	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
+	boolean m_isDrawing = false;
 
+	virtual void AddEntity(Entity* pEntity);
 	friend class Scene;
 private:
 	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
-	virtual void AddEntity(Entity * pEntity);
-protected:
-	boolean m_isDrawing = false;
 };
 

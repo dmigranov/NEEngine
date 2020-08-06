@@ -39,6 +39,16 @@ void CollisionSystem::Execute(double deltaTime)
 	}
 }
 
+void CollisionSystem::AddEntity(Entity* pEntity)
+{
+	CollisionComponent* pCollision = (CollisionComponent*)pEntity->GetComponent(ComponentType::CollisionComponentType);
+
+	if (pCollision->IsMovable())
+		m_movableEntities.push_back(pEntity);
+
+	System::AddEntity(pEntity);
+}
+
 bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 {
 	CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
