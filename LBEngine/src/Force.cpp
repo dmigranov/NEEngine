@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Force.h"
-#include "..\inc\Force.h"
+
+Force Force::Zero = Force(DirectX::SimpleMath::Vector3::Zero);
+
+Force::Force() : Force(DirectX::SimpleMath::Vector3::Zero)
+{}
 
 Force::Force(DirectX::SimpleMath::Vector3 vector)
 {
@@ -22,19 +26,17 @@ DirectX::SimpleMath::Vector3& Force::GetVector() noexcept
 Force& Force::operator+=(const Force& V) noexcept
 {
 	m_forceVector += V.m_forceVector;
+	return *this;
 }
 
 Force& Force::operator-=(const Force& V) noexcept
 {
 	m_forceVector -= V.m_forceVector;
+	return *this;
 }
 
-Force Force::operator+(const Force& V1, const Force& V2) noexcept
+void Force::Update()
 {
-	return Force(V1.m_forceVector + V2.m_forceVector);
-}
-
-Force Force::operator-(const Force& V1, const Force& V2) noexcept
-{
-	return Force(V1.m_forceVector - V2.m_forceVector);
+	if(m_hasToBeUpdated)
+		m_forceUpdater();
 }

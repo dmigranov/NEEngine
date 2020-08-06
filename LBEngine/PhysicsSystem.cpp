@@ -28,7 +28,7 @@ void PhysicsSystem::Execute(double deltaTime)
 		auto resultForce = Force::Zero;
 		for(auto pair : forces)
 		{
-			//todo: обновить силы
+			pair.second.Update();
 			resultForce += pair.second;
 		}
 		

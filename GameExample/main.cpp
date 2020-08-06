@@ -20,6 +20,8 @@
 #include "PhysicsComponent.h"
 #include "CollisionComponent.h"
 
+#include "Force.h"
+
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -74,21 +76,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if (!isRightPressed)
             {
-                pPhysics->AddForce("right", Vector3(10., 0, 0.));
-                pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+                //pPhysics->AddForce("right", Force(Vector3(10., 0, 0.)));
+                //pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
                 
                 isRightPressed = true;
             }
             else
             {
-                pPhysics->RemoveForce("contraRight");
-                pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+                //pPhysics->RemoveForce("contraRight");
+                //pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
             }
         }
         else if (isRightPressed)
         {
-            pPhysics->RemoveForce("right");
-            pPhysics->RemoveForce("contraRight");
+            //pPhysics->RemoveForce("right");
+            //pPhysics->RemoveForce("contraRight");
             isRightPressed = false;
         }
 
@@ -97,21 +99,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if (!isLeftPressed)
             {
-                pPhysics->AddForce("left", Vector3(-10., 0, 0.));
-                pPhysics->AddForce("contraLeft", Vector3(-2* pPhysics->GetVelocity().x, 0, 0.));
+                //pPhysics->AddForce("left", Vector3(-10., 0, 0.));
+                //pPhysics->AddForce("contraLeft", Vector3(-2* pPhysics->GetVelocity().x, 0, 0.));
 
                 isLeftPressed = true;
             }
             else
             {
-                pPhysics->RemoveForce("contraLeft");
-                pPhysics->AddForce("contraLeft", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+                //pPhysics->RemoveForce("contraLeft");
+                //pPhysics->AddForce("contraLeft", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
             }
         }
         else if (isLeftPressed)
         {
-            pPhysics->RemoveForce("left");
-            pPhysics->RemoveForce("contraLeft");
+            //pPhysics->RemoveForce("left");
+            //pPhysics->RemoveForce("contraLeft");
             isLeftPressed = false;
         }
 
@@ -120,7 +122,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if(!isSpacePressed)
             {
-                pPhysics->AddForce("jump", Vector3(0., 15, 0.));
+                pPhysics->AddForce("jump", Force(Vector3(0., 15, 0.)));
                 isSpacePressed = true;
             }
         }
@@ -189,7 +191,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         pPhysics->SetVelocity(Vector3::Zero);
     }, -0.5, -0.5, 0.5, 0.5);
 
-    charPhysicsComponent->AddForce("gravity", Vector3(0, -9.8, 0));
+    charPhysicsComponent->AddForce("gravity", Force(Vector3(0, -9.8, 0)));
 
     Entity* character = new Entity();
 
