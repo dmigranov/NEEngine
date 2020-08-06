@@ -76,21 +76,14 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if (!isRightPressed)
             {
-                pPhysics->AddForce("right", Force(Vector3(10., 0, 0.)));
-                //pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
-                
+                pPhysics->AddForce("right", Force(Vector3(10., 0, 0.)));                
                 isRightPressed = true;
             }
-            else
-            {
-                //pPhysics->RemoveForce("contraRight");
-                //pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
-            }
+
         }
         else if (isRightPressed)
         {
             pPhysics->RemoveForce("right");
-            //pPhysics->RemoveForce("contraRight");
             isRightPressed = false;
         }
 
@@ -100,20 +93,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             if (!isLeftPressed)
             {
                 pPhysics->AddForce("left", Force(Vector3(-10., 0, 0.)));
-                //pPhysics->AddForce("contraLeft", Vector3(-2* pPhysics->GetVelocity().x, 0, 0.));
 
                 isLeftPressed = true;
-            }
-            else
-            {
-                //pPhysics->RemoveForce("contraLeft");
-                //pPhysics->AddForce("contraLeft", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
             }
         }
         else if (isLeftPressed)
         {
             pPhysics->RemoveForce("left");
-            //pPhysics->RemoveForce("contraLeft");
             isLeftPressed = false;
         }
 
@@ -172,7 +158,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     }
 
 
-
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
     auto charWalkComponent = new WalkComponent(3, 4);
@@ -195,7 +180,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)
     {
         auto v = charPhysicsComponent->GetVelocity();
-        force.SetVector(Vector3(0, 0, 0));
+        force.SetVector(-v*v/2);
     }));
 
     Entity* character = new Entity();
