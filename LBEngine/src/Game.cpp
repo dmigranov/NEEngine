@@ -44,16 +44,15 @@ int Game::Initialize(HWND window, int width, int height)
     5. Create a depth-stencil state object that defines the behaviour of the output merger stage,
     6. Create a rasterizer state object that defines the behaviour of the rasterizer stage.
     */
-
     srand(time(NULL));
 
     m_hwnd = window;
     assert(m_hwnd != 0);
-
     RECT clientRect;
     GetClientRect(m_hwnd, &clientRect);
     unsigned int clientWidth = clientRect.right - clientRect.left;
     unsigned int clientHeight = clientRect.bottom - clientRect.top;
+
 
     //The swap chain description defines the size and number of render buffers that will be used by the swap chain. It also associates the window to the swap chain which determines where the final image will be presented. The swap chain description also defines the quality of anti-aliasing (if any) that should be applied and how the back buffer is flipped during presentation.
     DXGI_SWAP_CHAIN_DESC swapChainDesc;
