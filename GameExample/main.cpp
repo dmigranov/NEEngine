@@ -130,12 +130,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
 
-    auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) { 
+    auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {}, -0.5, -0.5, 0.5, 0.5);
 
-    }, -0.5, -0.5, 0.5, 0.5);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
-
     constexpr int wh = 25;
     constexpr int brickCount = wh * wh - (wh -2) * (wh - 2);
     Entity* bricks[brickCount];
@@ -180,7 +178,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)
     {
         auto v = charPhysicsComponent->GetVelocity();
-        force.SetVector(-v*v/2);
+        force.SetVector(-v/2);
     }));
 
     Entity* character = new Entity();
