@@ -4,10 +4,10 @@ class Force
 public:
     Force();
     Force(DirectX::SimpleMath::Vector3 vector);
-    Force(DirectX::SimpleMath::Vector3 vector, std::function<void()> forceUpdater);
+    Force(std::function<void(Force& force)> forceUpdater);
     static Force Zero;
     DirectX::SimpleMath::Vector3& GetVector() noexcept;
-
+    void SetVector(DirectX::SimpleMath::Vector3);
     //todo: переопределение
     Force& operator+= (const Force& V) noexcept;
     Force& operator-= (const Force& V) noexcept;
@@ -22,7 +22,8 @@ public:
     void Update();
 private:
     DirectX::SimpleMath::Vector3 m_forceVector;
-    std::function<void()> m_forceUpdater;
+    friend class std::function<void(Force& force)>;
+    std::function<void(Force& force)> m_forceUpdater;
     bool m_hasToBeUpdated = false;
 };
 

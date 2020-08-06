@@ -76,7 +76,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if (!isRightPressed)
             {
-                //pPhysics->AddForce("right", Force(Vector3(10., 0, 0.)));
+                pPhysics->AddForce("right", Force(Vector3(10., 0, 0.)));
                 //pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
                 
                 isRightPressed = true;
@@ -89,7 +89,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }
         else if (isRightPressed)
         {
-            //pPhysics->RemoveForce("right");
+            pPhysics->RemoveForce("right");
             //pPhysics->RemoveForce("contraRight");
             isRightPressed = false;
         }
@@ -99,7 +99,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         {
             if (!isLeftPressed)
             {
-                //pPhysics->AddForce("left", Vector3(-10., 0, 0.));
+                pPhysics->AddForce("left", Force(Vector3(-10., 0, 0.)));
                 //pPhysics->AddForce("contraLeft", Vector3(-2* pPhysics->GetVelocity().x, 0, 0.));
 
                 isLeftPressed = true;
@@ -112,7 +112,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }
         else if (isLeftPressed)
         {
-            //pPhysics->RemoveForce("left");
+            pPhysics->RemoveForce("left");
             //pPhysics->RemoveForce("contraLeft");
             isLeftPressed = false;
         }
@@ -192,6 +192,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     }, -0.5, -0.5, 0.5, 0.5);
 
     charPhysicsComponent->AddForce("gravity", Force(Vector3(0, -9.8, 0)));
+    charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)
+    {
+        auto v = charPhysicsComponent->GetVelocity();
+        force.SetVector(Vector3(0, 0, 0));
+    }));
 
     Entity* character = new Entity();
 

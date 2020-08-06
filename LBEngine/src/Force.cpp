@@ -11,9 +11,9 @@ Force::Force(DirectX::SimpleMath::Vector3 vector)
 	m_forceVector = vector;
 }
 
-Force::Force(DirectX::SimpleMath::Vector3 vector, std::function<void()> forceUpdater)
+Force::Force(std::function<void(Force& force)> forceUpdater)
 {
-	m_forceVector = vector;
+	m_forceVector = DirectX::SimpleMath::Vector3::Zero;
 	m_forceUpdater = forceUpdater;
 	m_hasToBeUpdated = true;
 }
@@ -21,6 +21,11 @@ Force::Force(DirectX::SimpleMath::Vector3 vector, std::function<void()> forceUpd
 DirectX::SimpleMath::Vector3& Force::GetVector() noexcept
 {
 	return m_forceVector;
+}
+
+void Force::SetVector(DirectX::SimpleMath::Vector3 v)
+{
+	m_forceVector = v;
 }
 
 Force& Force::operator+=(const Force& V) noexcept
@@ -38,5 +43,5 @@ Force& Force::operator-=(const Force& V) noexcept
 void Force::Update()
 {
 	if(m_hasToBeUpdated)
-		m_forceUpdater();
+		m_forceUpdater(*this);
 }
