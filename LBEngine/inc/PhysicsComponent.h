@@ -3,13 +3,18 @@
 
 #include <map>
 
+class Force;
+
+
 class PhysicsComponent :
     public Component
 {
 public:
+    
+
     PhysicsComponent(double mass);
-    void AddForce(std::string forceName, DirectX::SimpleMath::Vector3 force);
-    DirectX::SimpleMath::Vector3 GetForce(std::string forceName);
+    void AddForce(std::string forceName, Force force);
+    Force GetForce(std::string forceName);
     void RemoveForce(std::string forceName);
 
     void SetAcceleration(DirectX::SimpleMath::Vector3 a);
@@ -26,6 +31,6 @@ private:
     DirectX::SimpleMath::Vector3 m_acceleration;
     double m_mass;
 
-    std::map<std::string, DirectX::SimpleMath::Vector3> m_forces;
+    std::map<std::string, Force> m_forces;
 };
 

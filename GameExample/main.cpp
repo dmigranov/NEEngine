@@ -115,13 +115,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             isLeftPressed = false;
         }
 
-        /*
-        if (kbs.A)
-            pTransform->Move(-right);
-        if (kbs.D)
-            pTransform->Move(right);
-        */
-
         static bool isSpacePressed;
         if (kbs.Space)
         {

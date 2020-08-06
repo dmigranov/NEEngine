@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "PhysicsComponent.h"
-#include "..\inc\PhysicsComponent.h"
+#include "Force.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -9,12 +9,12 @@ PhysicsComponent::PhysicsComponent(double mass)
 	m_mass = mass;
 }
 
-void PhysicsComponent::AddForce(std::string forceName, DirectX::SimpleMath::Vector3 force)
+void PhysicsComponent::AddForce(std::string forceName, Force force)
 {
-	m_forces.insert(std::pair<std::string, Vector3>(forceName, force));
+	m_forces.insert(std::pair<std::string, Force>(forceName, force));
 }
 
-DirectX::SimpleMath::Vector3 PhysicsComponent::GetForce(std::string forceName)
+Force PhysicsComponent::GetForce(std::string forceName)
 {
 	return m_forces[forceName];
 }
