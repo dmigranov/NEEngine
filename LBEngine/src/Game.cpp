@@ -189,7 +189,7 @@ int Game::Initialize(HWND window, int width, int height)
     {
         return -1;
     }
-    //
+    
 
     // Setup rasterizer state.
     D3D11_RASTERIZER_DESC rasterizerDesc;
