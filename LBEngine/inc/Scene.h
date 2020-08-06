@@ -19,7 +19,7 @@ public:
 	void AddSystem(System* system);
 
 
-	void Update(DWORD delta);
+	void Update(double delta);
 	void Render();
 
 	void SetCamera(Entity* pCamera);

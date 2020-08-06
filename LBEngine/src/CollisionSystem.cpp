@@ -14,7 +14,7 @@ CollisionSystem::CollisionSystem()
 
 }
 
-void CollisionSystem::Execute(DWORD deltaTime)
+void CollisionSystem::Execute(double deltaTime)
 {
 	//todo: оптимищировать: 
 	//нет нужды проверять кирпичи на столкновения друг с другом. 

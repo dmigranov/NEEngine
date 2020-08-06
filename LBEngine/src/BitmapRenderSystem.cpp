@@ -14,7 +14,7 @@ BitmapRenderSystem::BitmapRenderSystem()
 	m_isDrawing = true;
 }
 
-void BitmapRenderSystem::Execute(DWORD)
+void BitmapRenderSystem::Execute(double)
 {
 	std::stable_sort(m_opaqueEntities.begin(), m_opaqueEntities.end(), [](Entity* e1, Entity* e2) -> bool {
 		return e1->GetTransform()->GetPosition().z < e2->GetTransform()->GetPosition().z;

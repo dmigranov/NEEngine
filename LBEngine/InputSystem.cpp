@@ -17,7 +17,7 @@ InputSystem::InputSystem()
 	//m_mouse->SetMode(Mouse::MODE_RELATIVE);
 }
 
-void InputSystem::Execute(DWORD deltaTime)
+void InputSystem::Execute(double deltaTime)
 {
 	pMouseState = m_mouse->GetState();
 	pKeyboardState = m_keyboard->GetState();

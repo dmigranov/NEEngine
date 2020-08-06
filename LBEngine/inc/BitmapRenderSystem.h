@@ -5,7 +5,7 @@ class BitmapRenderSystem :
 {
 public:
     BitmapRenderSystem();
-    virtual void Execute(DWORD deltaTime) override;
+    virtual void Execute(double deltaTime) override;
 private:
     virtual void AddEntity(Entity* pEntity) override;
     std::vector<Entity*> m_opaqueEntities;;

@@ -5,6 +5,6 @@ class TransformUpdateSystem :
 {
 public:
     TransformUpdateSystem();
-    virtual void Execute (DWORD deltaTime) override;
+    virtual void Execute(double deltaTime) override;
 };
 

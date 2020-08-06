@@ -15,9 +15,8 @@ PhysicsSystem::PhysicsSystem()
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);
 }
 
-void PhysicsSystem::Execute(DWORD deltaMillis)
+void PhysicsSystem::Execute(double deltaTime)
 {
-	double deltaTime = deltaMillis / 1000.;
 	for (auto pEntity : m_entities)
 	{
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);

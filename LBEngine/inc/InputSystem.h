@@ -7,7 +7,7 @@ class InputSystem :
 {
 public:
     InputSystem();
-    virtual void Execute(DWORD deltaTime) override;
+    virtual void Execute(double deltaTime) override;
 
     InputComponent m_inputInfo;
 private:
