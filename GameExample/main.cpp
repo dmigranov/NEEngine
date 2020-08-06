@@ -186,7 +186,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent(ComponentType::InputComponentType, charInputComponent);
     character->AddComponent(ComponentType::CollisionComponentType, charCollisionComponent);
 
-
     cameraTransform->SetParent(charTransform);
 
     scene->AddEntity(character);
@@ -202,8 +201,26 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
 
 
-/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
     MeshComponent::VertexPosTex vertices[8] = {
         { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
         { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(0, 1) }, // 1
@@ -225,5 +242,4 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         3, 4, 0, 7, 4, 3
     };
     auto m = new MeshComponent(8, vertices, 36, indices);
-
 */
