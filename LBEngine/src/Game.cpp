@@ -269,12 +269,12 @@ void Game::Tick()
     //проверить и исправить?
 
     DWORD currentTime = timeGetTime();
-    //double deltaTime = (currentTime - previousTime) / 1000.;
-    DWORD deltaTime = (currentTime - previousTime);
+    double deltaTime = (currentTime - previousTime) / 1000.;
+    //DWORD deltaTime = (currentTime - previousTime);
     previousTime = currentTime;
 
     // Cap the delta time to the max time step (useful if your debugging and you don't want the deltaTime value to explode.
-    //deltaTime = std::min<double>(deltaTime, maxTimeStep);
+    deltaTime = std::min<double>(deltaTime, maxTimeStep);
 
     Update(deltaTime);
     Render();
@@ -382,7 +382,7 @@ void Game::CreateResources()
     m_pScene->SetCameraOutputSize(backBufferWidth, backBufferHeight);
 }
 
-void Game::Update(DWORD deltaTime)
+void Game::Update(double deltaTime)
 {
     fpsCounter.Update();
 
