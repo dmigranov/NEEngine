@@ -14,7 +14,9 @@ public:
 
     void SetAcceleration(DirectX::SimpleMath::Vector3 a);
     void SetVelocity(DirectX::SimpleMath::Vector3 v);
+
     const DirectX::SimpleMath::Vector3& GetVelocity();
+    const DirectX::SimpleMath::Vector3& GetAcceleration();
     const double& GetMass();
 
 

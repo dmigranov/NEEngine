@@ -68,10 +68,59 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
 
+
+        static bool isRightPressed;
+        if (kbs.D)
+        {
+            if (!isRightPressed)
+            {
+                pPhysics->AddForce("right", Vector3(10., 0, 0.));
+                pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+                
+                isRightPressed = true;
+            }
+            else
+            {
+                pPhysics->RemoveForce("contraRight");
+                pPhysics->AddForce("contraRight", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+            }
+        }
+        else if (isRightPressed)
+        {
+            pPhysics->RemoveForce("right");
+            pPhysics->RemoveForce("contraRight");
+            isRightPressed = false;
+        }
+
+        static bool isLeftPressed;
+        if (kbs.A)
+        {
+            if (!isLeftPressed)
+            {
+                pPhysics->AddForce("left", Vector3(-10., 0, 0.));
+                pPhysics->AddForce("contraLeft", Vector3(-2* pPhysics->GetVelocity().x, 0, 0.));
+
+                isLeftPressed = true;
+            }
+            else
+            {
+                pPhysics->RemoveForce("contraLeft");
+                pPhysics->AddForce("contraLeft", Vector3(-2 * pPhysics->GetVelocity().x, 0, 0.));
+            }
+        }
+        else if (isLeftPressed)
+        {
+            pPhysics->RemoveForce("left");
+            pPhysics->RemoveForce("contraLeft");
+            isLeftPressed = false;
+        }
+
+        /*
         if (kbs.A)
             pTransform->Move(-right);
         if (kbs.D)
             pTransform->Move(right);
+        */
 
         static bool isSpacePressed;
         if (kbs.Space)
@@ -87,14 +136,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pPhysics->RemoveForce("jump");
             isSpacePressed = false;
         }
-
-
-        /*if (kbs.D1)
-            pEntity->SetTransform(cameraTransform1);
-        else if (kbs.D2)
-            pEntity->SetTransform(cameraTransform2);
-            */
-
     }));
 
 
@@ -114,7 +155,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
 
-    constexpr int wh = 13;
+    constexpr int wh = 25;
     constexpr int brickCount = wh * wh - (wh -2) * (wh - 2);
     Entity* bricks[brickCount];
     TransformComponent* transforms[brickCount];
@@ -148,6 +189,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
 
         auto velocity = pPhysics->GetVelocity();
+        auto acceleration = pPhysics->GetAcceleration();
+
         pTransform->Move(-velocity * deltaTime);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);

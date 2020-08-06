@@ -37,6 +37,7 @@ void PhysicsSystem::Execute(double deltaTime)
 			physics->m_acceleration = acceleration;
 
 			auto velocity = physics->m_velocity + acceleration * deltaTime;
+
 			physics->m_velocity = velocity;
 
 			transform->Move(velocity * deltaTime);
