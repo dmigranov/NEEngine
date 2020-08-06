@@ -142,8 +142,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaMillis) {
-        //todo: вернуть в прежнее положение еще
-        //видно, что персонаж просачивается сквозь кирпич!
+        //todo: настроить таймер
+        //иногда на первой итерации слишкмо много времени проходит
+        //и он тупо проходит сквозь кирпич
         
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
         auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
