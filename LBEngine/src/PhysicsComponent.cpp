@@ -33,3 +33,8 @@ void PhysicsComponent::SetVelocity(DirectX::SimpleMath::Vector3 v)
 {
 	m_velocity = v;
 }
+
+const DirectX::SimpleMath::Vector3& PhysicsComponent::GetVelocity()
+{
+	return m_velocity;
+}

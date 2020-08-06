@@ -141,11 +141,15 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(0.003, 0.004);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) {
+    auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaMillis) {
         //todo: вернуть в прежнее положение еще
         //видно, что персонаж просачивается сквозь кирпич!
         
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
+        auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
+
+        auto velocity = pPhysics->GetVelocity();
+        pTransform->Move(-velocity * deltaMillis/1000.);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
     }, -0.5, -0.5, 0.5, 0.5);
