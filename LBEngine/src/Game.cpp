@@ -58,7 +58,7 @@ int Game::Initialize(HWND window, int width, int height)
     DXGI_SWAP_CHAIN_DESC swapChainDesc;
     ZeroMemory(&swapChainDesc, sizeof(DXGI_SWAP_CHAIN_DESC));
 
-    swapChainDesc.BufferCount = 1;
+    swapChainDesc.BufferCount = m_backBufferCount;
     swapChainDesc.BufferDesc.Width = clientWidth;
     swapChainDesc.BufferDesc.Height = clientHeight;
     swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -68,9 +68,10 @@ int Game::Initialize(HWND window, int width, int height)
     //sampledesc - multisampling
     swapChainDesc.SampleDesc.Count = 1;
     swapChainDesc.SampleDesc.Quality = 0;
-    swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
-    swapChainDesc.Windowed = TRUE;
 
+    swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
+    swapChainDesc.Windowed = TRUE;
+    swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
     UINT createDeviceFlags = 0;
 #if _DEBUG
     createDeviceFlags = D3D11_CREATE_DEVICE_DEBUG;
@@ -319,13 +320,12 @@ void Game::CreateResources()
 
     DXGI_FORMAT backBufferFormat = DXGI_FORMAT_B8G8R8A8_UNORM;
     DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D24_UNORM_S8_UINT;
-    UINT backBufferCount = 1;
 
     SafeRelease(g_d3dRenderTargetView);
     // If the swap chain already exists, resize it
     if (g_d3dSwapChain)	//!= null
     {
-        HRESULT hr = g_d3dSwapChain->ResizeBuffers(backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
+        HRESULT hr = g_d3dSwapChain->ResizeBuffers(m_backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
         DX::ThrowIfFailed(hr);
     }
     
