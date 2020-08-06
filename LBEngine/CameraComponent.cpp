@@ -44,11 +44,16 @@ void CameraComponent::SetPerspective(bool isPerspective)
 	m_shouldRecalc = true;
 }
 
+void CameraComponent::SetOrthogonalWidth(double width)
+{
+	m_orthoWidth = width;
+}
+
 void CameraComponent::RecalculateProj()
 {
 	if (m_isPerspective)
 		m_proj = DirectX::XMMatrixPerspectiveFovLH(m_fovY, m_aspect, m_nearPlane, m_farPlane);
 	else
-		m_proj = DirectX::XMMatrixOrthographicLH(4 * m_aspect, 4, m_nearPlane, m_farPlane);
+		m_proj = DirectX::XMMatrixOrthographicLH(m_orthoWidth * m_aspect, m_orthoWidth, m_nearPlane, m_farPlane);
 	m_shouldRecalc = false;
 }

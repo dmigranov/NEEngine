@@ -13,7 +13,7 @@ public:
 	void SetOutputSize(double width, double height);
 
 	void SetPerspective(bool isPerspective);
-
+	void SetOrthogonalWidth(double width);
 private:
 	void RecalculateProj();
 
@@ -21,6 +21,7 @@ private:
 	double m_nearPlane,  m_farPlane;
 	double m_aspect;
 	double m_width = -1, m_height = -1;
+	double m_orthoWidth = 1;
 
 	bool m_shouldRecalc;
 	bool m_isPerspective;

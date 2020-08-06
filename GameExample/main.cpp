@@ -73,20 +73,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         if (kbs.D)
             pTransform->Move(right);
 
-        static int jumpCounter = 0, jumpHead = 50;
-        if (kbs.Space && pPhysics->GetVelocity().y == 0 && jumpCounter == 0)
+        static bool isSpacePressed;
+        if (kbs.Space)
         {
-            pPhysics->AddForce("jump", Vector3(0., 40, 0.));
+            if(!isSpacePressed)
+            {
+                pPhysics->AddForce("jump", Vector3(0., 15, 0.));
+                isSpacePressed = true;
+            }
         }
-        if (jumpCounter >= 0 && jumpCounter < jumpHead)
-        {
-            jumpCounter++;
-        }
-        else if (jumpCounter >= jumpHead)
+        else if (isSpacePressed)
         {
             pPhysics->RemoveForce("jump");
-            jumpCounter = 0;
+            isSpacePressed = false;
         }
+
 
         /*if (kbs.D1)
             pEntity->SetTransform(cameraTransform1);
@@ -99,6 +100,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new CameraComponent(false);
+    cameraComponent->SetOrthogonalWidth(30.);
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
@@ -111,19 +113,29 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     }, -0.5, -0.5, 0.5, 0.5);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
-    Entity* e1 = new Entity();
-    auto transform1 = new TransformComponent(0, 0, 1, 0, 0, 0, 1, 1, 1);
-    e1->SetTransform(transform1);
-    e1->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
-    e1->AddComponent(ComponentType::CollisionComponentType, brickCollisionComponent);
-    scene->AddEntity(e1);
 
-    auto transform2 = new TransformComponent(1, 0, 1, 0, 0, 0, 1, 1, 1);
-    Entity* e2 = new Entity();
-    e2->SetTransform(transform2);
-    e2->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
-    e2->AddComponent(ComponentType::CollisionComponentType, brickCollisionComponent);
-    scene->AddEntity(e2);
+    constexpr int wh = 13;
+    constexpr int brickCount = wh * wh - (wh -2) * (wh - 2);
+    Entity* bricks[brickCount];
+    TransformComponent* transforms[brickCount];
+    int j = 0;
+    for (int i = 0; i < wh * wh; i++)
+    {
+        int ColumnNumber = i % wh;
+        int RowNumber = i / wh;
+        if (ColumnNumber == 0 || RowNumber == 0 || ColumnNumber == wh - 1 || RowNumber == wh - 1)
+        {
+            auto e = bricks[j] = new Entity();
+            auto t = transforms[j] = new TransformComponent(ColumnNumber, RowNumber, 1, 0, 0, 0, 1, 1, 1);
+            j++;
+            e->SetTransform(t);
+            e->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
+            e->AddComponent(ComponentType::CollisionComponentType, brickCollisionComponent);
+            scene->AddEntity(e);
+        }
+    }
+
+
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
