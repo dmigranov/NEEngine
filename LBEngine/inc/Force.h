@@ -8,7 +8,7 @@ public:
     static Force Zero;
     DirectX::SimpleMath::Vector3& GetVector() noexcept;
     void SetVector(DirectX::SimpleMath::Vector3);
-    //todo: переопределение
+
     Force& operator+= (const Force& V) noexcept;
     Force& operator-= (const Force& V) noexcept;
     friend Force operator+(const Force& V1, const Force& V2) noexcept

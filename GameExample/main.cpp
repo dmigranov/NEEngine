@@ -52,13 +52,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
-    scene->AddSystem(new CollisionSystem());
+    //scene->AddSystem(new CollisionSystem());  //todo: оптимизировать
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
     scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType },
         [](Entity* pEntity, double deltaTime) {
-        //todo: в будущем обновлять тут скорость, а положение менять в физике?
 
         auto pTransform = pEntity->GetTransform();
         auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
@@ -69,7 +68,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-
 
         static bool isRightPressed;
         if (kbs.D)
@@ -132,7 +130,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {}, -0.5, -0.5, 0.5, 0.5);
 
-
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
     constexpr int wh = 25;
     constexpr int brickCount = wh * wh - (wh -2) * (wh - 2);
@@ -154,7 +151,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             scene->AddEntity(e);
         }
     }
-
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
