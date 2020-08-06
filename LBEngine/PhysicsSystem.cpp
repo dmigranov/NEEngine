@@ -2,6 +2,7 @@
 #include "PhysicsSystem.h"
 #include "TransformComponent.h"
 #include "PhysicsComponent.h"
+#include "Force.h"
 
 #include "CollisionComponent.h"
 
@@ -24,16 +25,17 @@ void PhysicsSystem::Execute(double deltaTime)
 
 		auto forces = physics->m_forces;
 
-		auto resultForce = Vector3::Zero;
+		auto resultForce = Force::Zero;
 		for(auto pair : forces)
 		{
+			//todo: обновить силы
 			resultForce += pair.second;
 		}
 		
 		auto mass = physics->m_mass;
 		if(mass > 0)
 		{ 
-			auto acceleration = resultForce / mass;
+			auto acceleration = resultForce.GetVector() / mass;
 			physics->m_acceleration = acceleration;
 
 			auto velocity = physics->m_velocity + acceleration * deltaTime;
