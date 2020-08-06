@@ -87,7 +87,7 @@ private:
     ID3D11Device* g_d3dDevice = nullptr;                                    //used for allocating GPU resources such as buffers, textures, shaders, and state objects
     ID3D11DeviceContext* g_d3dDeviceContext = nullptr;                      //used to configure the rendering pipeline and draw geometry
     IDXGISwapChain* g_d3dSwapChain = nullptr;                               //stores the buffers that are used for rendering data; used to determine how the buffers are swapped when the rendered image should be presented to the scree
-    UINT m_backBufferCount = 3;
+    UINT m_backBufferCount = 1;
 
     // Render target view for the back buffer of the swap chain.
     ID3D11RenderTargetView* g_d3dRenderTargetView = nullptr;
