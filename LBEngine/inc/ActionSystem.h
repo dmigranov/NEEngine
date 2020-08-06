@@ -12,7 +12,7 @@ public:
     ActionSystem(const std::list<ComponentType>& types, std::function<void(Entity*, double)> func);
     virtual void Execute(double deltaTime) override;
 private:
-    std::function<void(Entity*, double&)> m_executeFunc;
+    std::function<void(Entity*, double)> m_executeFunc;
 
 };
 

@@ -300,7 +300,7 @@
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\CollisionSystem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

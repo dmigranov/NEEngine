@@ -55,7 +55,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
     scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType },
-        [](Entity* pEntity, DWORD deltaTime) {
+        [](Entity* pEntity, double deltaTime) {
         //todo: в будущем обновлять тут скорость, а положение менять в физике?
 
         auto pTransform = pEntity->GetTransform();
@@ -104,7 +104,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pEntity->SetTransform(cameraTransform2);
             */
 
-
     }));
 
 
@@ -117,7 +116,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
 
-    auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaTime) { 
+    auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) { 
 
     }, -0.5, -0.5, 0.5, 0.5);
 
@@ -138,19 +137,16 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
-    auto charWalkComponent = new WalkComponent(0.003, 0.004);
+    auto charWalkComponent = new WalkComponent(3, 4);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, DWORD deltaMillis) {
-        //todo: настроить таймер
-        //иногда на первой итерации слишкмо много времени проходит
-        //и он тупо проходит сквозь кирпич
-        
+    auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {
+
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
         auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
 
         auto velocity = pPhysics->GetVelocity();
-        pTransform->Move(-velocity * deltaMillis/1000.);
+        pTransform->Move(-velocity * deltaTime);
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
     }, -0.5, -0.5, 0.5, 0.5);
