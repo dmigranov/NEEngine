@@ -2,7 +2,6 @@
 
 #include "Game.h"
 #include "Scene.h"
-#include "Camera.h"
 
 #include "ResourceManager.h"
 #include "InputComponent.h"
@@ -186,7 +185,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         force.SetVector(-v / 2);
 
         vxPrevAbs = abs(v.x);
-
     }));
 
     Entity* character = new Entity();

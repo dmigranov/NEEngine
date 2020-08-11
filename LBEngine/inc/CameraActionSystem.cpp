@@ -10,7 +10,6 @@
 using namespace DirectX::SimpleMath;
 
 CameraActionSystem::CameraActionSystem() : ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime) {
-    //todo: в будущем обновлять тут скорость, а положение менять в физике?
 
     auto pTransform = pEntity->GetTransform();
     auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);

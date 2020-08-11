@@ -3,7 +3,6 @@
 
 #include "Entity.h"
 #include "System.h"
-#include "Camera.h"
 
 #include "TransformComponent.h"
 #include "CameraComponent.h"

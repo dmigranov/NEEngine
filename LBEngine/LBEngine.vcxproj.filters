@@ -117,9 +117,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>Исходные файлы\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="System.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
@@ -223,9 +220,6 @@
     </ClInclude>
     <ClInclude Include="inc\font.h">
       <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Camera.h">
-      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
     <ClInclude Include="inc\Scene.h">
       <Filter>Файлы заголовков</Filter>

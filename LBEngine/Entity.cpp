@@ -24,30 +24,14 @@ Entity::~Entity()
 	//но правильно ли удалять компоненты тут, в энтити?
 	//ведь компоненты могут быть общими
 	//todo: smart ptr?
-	/*for(auto pair : m_components)
-	{
-		if (pair.second != nullptr)
-		{
-			delete pair.second;
-			pair.second = nullptr;
-		}
-	}*/
+
 	m_components.clear();
 
 }
 
 void Entity::Initialize()
 {
-	//todo
-	/*if (m_pMesh != nullptr)
-	{
-		m_pMesh->Init();
-	}
 
-	if ( m_pEffect != nullptr)
-	{
-		m_pMaterial->Init();
-	}*/
 }
 
 void Entity::AddComponent(const ComponentType type, Component* pComponent)
@@ -61,14 +45,12 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 
 void Entity::SetMesh(MeshComponent* pMesh)
 {
-	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pMesh = pMesh;
 	AddComponent(ComponentType::MeshComponentType, pMesh);
 }
 
 void Entity::SetTransform(TransformComponent* pTransform)
 {
-	//todo: а что делать со старым? удалять? todo: smart ptr
 	m_pTransform = pTransform;
 	AddComponent(ComponentType::TransformComponentType, pTransform);
 }
