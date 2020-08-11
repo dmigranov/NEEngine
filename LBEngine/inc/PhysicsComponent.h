@@ -16,9 +16,9 @@ public:
     Force GetForce(std::string forceName);
     void RemoveForce(std::string forceName);
 
-    void AddImpulse(std::string forceName, Impulse force);
-    Impulse GetImpulse(std::string forceName);
-    void RemoveImpulse(std::string forceName);
+    void AddImpulse(std::string impulseName, Impulse force);
+    Impulse GetImpulse(std::string impulseName);
+    void RemoveImpulse(std::string impulseName);
 
     void SetAcceleration(DirectX::SimpleMath::Vector3 a);
     void SetVelocity(DirectX::SimpleMath::Vector3 v);

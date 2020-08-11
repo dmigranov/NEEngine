@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PhysicsComponent.h"
 #include "Force.h"
+#include "Impulse.h"
 
 using namespace DirectX::SimpleMath;
 
@@ -22,6 +23,21 @@ Force PhysicsComponent::GetForce(std::string forceName)
 void PhysicsComponent::RemoveForce(std::string forceName)
 {
 	m_forces.erase(forceName);
+}
+
+void PhysicsComponent::AddImpulse(std::string impulseName, Impulse force)
+{
+	m_impulses.insert(std::pair<std::string, Impulse>(impulseName, force));
+}
+
+Impulse PhysicsComponent::GetImpulse(std::string impulseName)
+{
+	return m_impulses[impulseName];
+}
+
+void PhysicsComponent::RemoveImpulse(std::string impulseName)
+{
+	m_impulses.erase(impulseName);
 }
 
 void PhysicsComponent::SetAcceleration(Vector3 a)
