@@ -3,6 +3,7 @@
 #include "TransformComponent.h"
 #include "PhysicsComponent.h"
 #include "Force.h"
+#include "Impulse.h"
 
 #include "CollisionComponent.h"
 
@@ -23,8 +24,10 @@ void PhysicsSystem::Execute(double deltaTime)
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
 		PhysicsComponent* physics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
-		auto forces = physics->m_forces;
 
+		//todo:надо по ссылке и форсес и импулсес тк изменения не синкуются
+		auto forces = physics->m_forces;
+		auto impulses = physics->m_impulses;
 		auto resultForce = Force::Zero;
 		for(auto pair : forces)
 		{
@@ -41,10 +44,12 @@ void PhysicsSystem::Execute(double deltaTime)
 			auto velocity = physics->m_velocity + acceleration * deltaTime;
 
 			physics->m_velocity = velocity;
-			std::cout << velocity.x << std::endl;
+			//std::cout << velocity.x << std::endl;
 
 			transform->Move(velocity * deltaTime);
 
 		}
+		impulses.clear();	//неправильно, так как никак не влияет на настоящий impulses, это его клон
+		int t = 5;
 	}
 }

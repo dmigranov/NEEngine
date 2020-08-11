@@ -1,5 +1,4 @@
-﻿  CollisionSystem.cpp
-  Scene.cpp
+﻿  ContactManifold.cpp
   TransformUpdateSystem.cpp
   Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
