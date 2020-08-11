@@ -36,7 +36,7 @@ using namespace DirectX::SimpleMath;
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
-    //todo: перенастроить SwapChain, чтобы был Swapping!
+    //todo: Component* -> Component&  ?
 
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, L"Test game", false, false);
@@ -195,6 +195,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent(ComponentType::InputComponentType, charInputComponent);
     character->AddComponent(ComponentType::CollisionComponentType, charCollisionComponent);
 
+    
     cameraTransform->SetParent(charTransform);
 
     scene->AddEntity(character);

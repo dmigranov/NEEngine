@@ -22,6 +22,7 @@
     <ClCompile Include="BitmapComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ContactManifold.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="inc\CameraActionSystem.cpp" />
@@ -67,6 +68,7 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ContactManifold.h" />
     <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\BitmapRenderSystem.h" />

@@ -58,10 +58,10 @@
     <Filter Include="Файлы заголовков\Systems">
       <UniqueIdentifier>{8cd1b026-7e41-4ec4-8f8d-8329a1409ffd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Physics">
+    <Filter Include="Исходные файлы\Physics and Collisions">
       <UniqueIdentifier>{13f63341-5b7b-4a30-8928-975ec991a27b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Physics">
+    <Filter Include="Файлы заголовков\Physics and Collisions">
       <UniqueIdentifier>{04b8f0c5-76e4-43a7-abb6-af6519f844a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -178,13 +178,16 @@
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\Force.cpp">
-      <Filter>Исходные файлы\Physics</Filter>
+      <Filter>Исходные файлы\Physics and Collisions</Filter>
     </ClCompile>
     <ClCompile Include="src\Impulse.cpp">
-      <Filter>Исходные файлы\Physics</Filter>
+      <Filter>Исходные файлы\Physics and Collisions</Filter>
     </ClCompile>
     <ClCompile Include="src\CollisionSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactManifold.cpp">
+      <Filter>Исходные файлы\Physics and Collisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -309,10 +312,13 @@
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\Force.h">
-      <Filter>Файлы заголовков\Physics</Filter>
+      <Filter>Файлы заголовков\Physics and Collisions</Filter>
     </ClInclude>
     <ClInclude Include="inc\Impulse.h">
-      <Filter>Файлы заголовков\Physics</Filter>
+      <Filter>Файлы заголовков\Physics and Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactManifold.h">
+      <Filter>Файлы заголовков\Physics and Collisions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

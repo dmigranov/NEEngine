@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CollisionSystem.h"
 #include "CollisionComponent.h"
+#include "PhysicsComponent.h"
 #include "TransformComponent.h"
 
 #include "Entity.h"
@@ -10,6 +11,7 @@ using namespace DirectX::SimpleMath;
 CollisionSystem::CollisionSystem()
 {
 	SubscribeToComponentType(ComponentType::CollisionComponentType);
+	SubscribeToComponentType(ComponentType::PhysicsComponentType);
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 
 }
@@ -29,6 +31,15 @@ void CollisionSystem::Execute(double deltaTime)
 				{
 					CollisionComponent* pCollision1 = (CollisionComponent*)pMovable->GetComponent(ComponentType::CollisionComponentType);
 					CollisionComponent* pCollision2 = (CollisionComponent*)e->GetComponent(ComponentType::CollisionComponentType);
+					PhysicsComponent* pPhysics1 = (PhysicsComponent*)pMovable->GetComponent(ComponentType::PhysicsComponentType);
+					PhysicsComponent* pPhysics2 = (PhysicsComponent*)e->GetComponent(ComponentType::PhysicsComponentType);
+
+					//todo: calculate normal and penetration
+
+					//Resolve Collision
+					Vector3 relativeV = pPhysics1->GetVelocity() - pPhysics1->GetVelocity();
+
+					//todo: сделать откат
 
 					pCollision1->m_executeFunc(pMovable, e, deltaTime);
 					pCollision2->m_executeFunc(e, pMovable, deltaTime);
