@@ -39,7 +39,7 @@ void CollisionSystem::Execute(double deltaTime)
 					//Resolve Collision
 					Vector3 relativeV = pPhysics1->GetVelocity() - pPhysics1->GetVelocity();
 
-					//todo: сделать откат
+					//todo: сделать откат: добавить ссылку на ContactManifold в сигнатуры (нескольких) чек-функций
 
 					pCollision1->m_executeFunc(pMovable, e, deltaTime);
 					pCollision2->m_executeFunc(e, pMovable, deltaTime);
