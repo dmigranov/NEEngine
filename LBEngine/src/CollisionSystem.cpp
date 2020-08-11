@@ -24,7 +24,7 @@ void CollisionSystem::Execute(double deltaTime)
 		for (auto e: m_entities) {
 			if (pMovable != e)
 			{
-				bool areCollided = CheckCollision(pMovable, e);
+				bool areCollided = CheckAABBCollision(pMovable, e);
 				if (areCollided)
 				{
 					CollisionComponent* pCollision1 = (CollisionComponent*)pMovable->GetComponent(ComponentType::CollisionComponentType);
@@ -32,7 +32,6 @@ void CollisionSystem::Execute(double deltaTime)
 
 					pCollision1->m_executeFunc(pMovable, e, deltaTime);
 					pCollision2->m_executeFunc(e, pMovable, deltaTime);
-
 				}
 			}
 		}
@@ -49,7 +48,7 @@ void CollisionSystem::AddEntity(Entity* pEntity)
 	System::AddEntity(pEntity);
 }
 
-bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
+bool CollisionSystem::CheckAABBCollision(Entity* pEntity1, Entity* pEntity2)
 {
 	CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
 	CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
@@ -79,9 +78,7 @@ bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 		worldDR1.x > worldUL2.x &&
 		worldUL1.y < worldDR2.y &&
 		worldDR1.y > worldUL2.y) 
-	{
 		return true;
-	}
 
 	return false;
 }

@@ -4,6 +4,7 @@ class Force
 public:
     Force();
     Force(DirectX::SimpleMath::Vector3 vector);
+    Force(DirectX::SimpleMath::Vector2 vector);
     Force(std::function<void(Force& force)> forceUpdater);
     static Force Zero;
     DirectX::SimpleMath::Vector3& GetVector() noexcept;

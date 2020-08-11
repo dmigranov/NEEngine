@@ -177,14 +177,14 @@
     <ClCompile Include="src\PhysicsComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\CollisionSystem.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\Force.cpp">
       <Filter>Исходные файлы\Physics</Filter>
     </ClCompile>
     <ClCompile Include="src\Impulse.cpp">
       <Filter>Исходные файлы\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionSystem.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

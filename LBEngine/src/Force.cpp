@@ -11,6 +11,11 @@ Force::Force(DirectX::SimpleMath::Vector3 vector)
 	m_forceVector = vector;
 }
 
+Force::Force(DirectX::SimpleMath::Vector2 vector)
+{
+	m_forceVector = DirectX::SimpleMath::Vector3(vector.x, vector.y, 0.);
+}
+
 Force::Force(std::function<void(Force& force)> forceUpdater)
 {
 	m_forceVector = DirectX::SimpleMath::Vector3::Zero;
