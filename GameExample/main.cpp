@@ -166,6 +166,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto acceleration = pPhysics->GetAcceleration();
 
         pTransform->Move(-velocity * deltaTime);
+
+        //todo: поэлегантнее!
+
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
     }, -0.5, -0.5, 0.5, 0.5, true);
@@ -173,8 +176,17 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     charPhysicsComponent->AddForce("gravity", Force(Vector3(0, -9.8, 0)));
     charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)
     {
+        static double vxPrevAbs = 0.;
+
         auto v = charPhysicsComponent->GetVelocity();
-        force.SetVector(-v/2);
+
+        if (abs(v.x) < 0.1 && vxPrevAbs > abs(v.x))
+            charPhysicsComponent->SetVelocity(Vector3(0, v.y, v.z));
+
+        force.SetVector(-v / 2);
+
+        vxPrevAbs = abs(v.x);
+
     }));
 
     Entity* character = new Entity();

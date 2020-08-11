@@ -40,13 +40,8 @@ void PhysicsSystem::Execute(double deltaTime)
 
 			auto velocity = physics->m_velocity + acceleration * deltaTime;
 
-			//todo: рискованно, но работает...
-			if (abs(velocity.x) < 0.01)
-				velocity.x -= velocity.x;
-
-			std::cout << velocity.x << std::endl;
-
 			physics->m_velocity = velocity;
+			std::cout << velocity.x << std::endl;
 
 			transform->Move(velocity * deltaTime);
 
