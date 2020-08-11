@@ -58,6 +58,12 @@
     <Filter Include="Файлы заголовков\Systems">
       <UniqueIdentifier>{8cd1b026-7e41-4ec4-8f8d-8329a1409ffd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Physics">
+      <UniqueIdentifier>{13f63341-5b7b-4a30-8928-975ec991a27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Physics">
+      <UniqueIdentifier>{04b8f0c5-76e4-43a7-abb6-af6519f844a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -175,7 +181,10 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Force.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Impulse.cpp">
+      <Filter>Исходные файлы\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -300,7 +309,10 @@
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\Force.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Impulse.h">
+      <Filter>Файлы заголовков\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

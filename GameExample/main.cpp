@@ -47,7 +47,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
 
-
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());
     scene->AddSystem(new PhysicsSystem());
