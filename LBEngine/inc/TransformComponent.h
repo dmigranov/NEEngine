@@ -13,7 +13,6 @@ public:
     void Move(double x, double y, double z);
     void Rotate(DirectX::SimpleMath::Vector3 r);
     void Rotate(double rx, double ry, double rz);
-    //todo: setPosition, setRotate, setScale...
 
     void SetParent(TransformComponent* pParent);
 

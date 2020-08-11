@@ -15,7 +15,6 @@ class RenderComponent;
 * @brief Basic class for all entities (objects) in the scene.
 */
 
-//todo: Camera должна наследоваться от Entity
 class Entity
 {
 public:

@@ -4,7 +4,6 @@ class CollisionComponent :
     public Component
 {
 public:
-    //todo: сделать конструктор с шириной и высотой и хранить их?
     CollisionComponent(std::function<void(Entity*, Entity*, double)> func, double upleftX, double upleftY, double downrightX, double downrightY);
     CollisionComponent(std::function<void(Entity*, Entity*, double)> func, double upleftX, double upleftY, double downrightX, double downrightY, bool isMovable);
     CollisionComponent(std::function<void(Entity*, Entity*, double)> func, DirectX::SimpleMath::Vector2 upleft, DirectX::SimpleMath::Vector2 downright);
