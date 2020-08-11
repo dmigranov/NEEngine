@@ -26,6 +26,8 @@ void PhysicsSystem::Execute(double deltaTime)
 
 
 		//todo:надо по ссылке и форсес и импулсес тк изменения не синкуются
+		//а возможно как-то сделать свой итератор (только по вторым частям мап) в PhysicsComponent?
+		//и свой метод для очистки?
 		auto forces = physics->m_forces;
 		auto impulses = physics->m_impulses;
 		auto resultForce = Force::Zero;
