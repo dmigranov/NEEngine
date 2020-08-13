@@ -15,6 +15,7 @@ public:
     };
 
 
+
     BitmapComponent(unsigned int width, unsigned int height, bool isOpaque = true);
     BitmapComponent(unsigned int width, unsigned int height, Texture * texture, bool isOpaque = true);
     
@@ -25,6 +26,7 @@ public:
     void SetTexture(Texture* texture);
 
     bool IsOpaque();
+
 private:
     friend class BitmapRenderSystem;
 

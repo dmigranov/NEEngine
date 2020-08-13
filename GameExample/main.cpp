@@ -68,6 +68,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
 
+        /*
+        с помощью импульсов и сил можно реализовывать движение
+        на постоянной скорости, но это не входит в мои цели
+        */
+
         static bool isRightPressed;
         if (kbs.D)
         {
@@ -114,23 +119,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pPhysics->RemoveForce("jump");
             isSpacePressed = false;
         }
-
-        static bool isWPressed = false;
-        if (kbs.W)
-        {
-            if (!isWPressed)
-            {
-                pPhysics->AddImpulse("jump", Impulse(Vector3(0., 15, 0.)));
-                isWPressed = true;
-            }
-        }
-        else if (isWPressed)
-        {
-            pPhysics->RemoveImpulse("jump");
-            isWPressed = false;
-        }
     }));
-
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new CameraComponent(false);
