@@ -28,12 +28,16 @@ void PhysicsSystem::Execute(double deltaTime)
 		auto& impulses = physics->m_impulses;
 
 		auto resultForce = Force::Zero;
-		for(auto& pair : forces)
+		for(auto& forcePair : forces)
 		{
-			pair.second.Update();
-			resultForce += pair.second;
+			forcePair.second.Update();
+			resultForce += forcePair.second;
 		}
-		
+		for (auto& impulsePair : impulses)
+		{
+			resultForce += impulsePair.second.GetForce();
+		}
+
 		auto mass = physics->m_mass;
 		if(mass > 0)
 		{ 

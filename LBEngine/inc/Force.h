@@ -1,4 +1,5 @@
 #pragma once
+
 class Force
 {
 public:
@@ -20,6 +21,7 @@ public:
     {
         return Force(V1.m_forceVector - V2.m_forceVector);
     }
+
     void Update();
 private:
     DirectX::SimpleMath::Vector3 m_forceVector;

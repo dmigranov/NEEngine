@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Impulse.h"
+#include "Force.h"
 
 Impulse Impulse::Zero = Impulse(DirectX::SimpleMath::Vector3::Zero);
 
@@ -13,4 +14,9 @@ Impulse::Impulse(DirectX::SimpleMath::Vector3 vector)
 Impulse::Impulse(DirectX::SimpleMath::Vector2 vector)
 {
 	m_impulseVector = DirectX::SimpleMath::Vector3(vector.x, vector.y, 0.);
+}
+
+Force Impulse::GetForce()
+{
+	return Force(m_impulseVector);
 }
