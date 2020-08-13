@@ -24,14 +24,11 @@ void PhysicsSystem::Execute(double deltaTime)
 		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
 		PhysicsComponent* physics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
+		auto& forces = physics->m_forces;
+		auto& impulses = physics->m_impulses;
 
-		//todo:надо по ссылке и форсес и импулсес тк изменения не синкуются
-		//а возможно как-то сделать свой итератор (только по вторым частям мап) в PhysicsComponent?
-		//и свой метод для очистки?
-		auto forces = physics->m_forces;
-		auto impulses = physics->m_impulses;
 		auto resultForce = Force::Zero;
-		for(auto pair : forces)
+		for(auto& pair : forces)
 		{
 			pair.second.Update();
 			resultForce += pair.second;
@@ -51,7 +48,7 @@ void PhysicsSystem::Execute(double deltaTime)
 			transform->Move(velocity * deltaTime);
 
 		}
-		impulses.clear();	//неправильно, так как никак не влияет на настоящий impulses, это его клон
+		impulses.clear();
 		int t = 5;
 	}
 }
