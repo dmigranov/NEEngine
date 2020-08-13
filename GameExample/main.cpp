@@ -20,6 +20,7 @@
 #include "CollisionComponent.h"
 
 #include "Force.h"
+#include "Impulse.h"
 
 
 // Systems
@@ -113,6 +114,21 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pPhysics->RemoveForce("jump");
             isSpacePressed = false;
         }
+
+        static bool isWPressed = false;
+        if (kbs.W)
+        {
+            if (!isWPressed)
+            {
+                pPhysics->AddImpulse("jump", Impulse(Vector3(0., 15, 0.)));
+                isWPressed = true;
+            }
+        }
+        else if (isWPressed)
+        {
+            pPhysics->RemoveImpulse("jump");
+            isWPressed = false;
+        }
     }));
 
 
@@ -127,6 +143,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->SetCamera(cameraEntity);
 
     auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {}, -0.5, -0.5, 0.5, 0.5);
+    auto brickPhysicsComponent = new PhysicsComponent(10.);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
     constexpr int wh = 25;
@@ -145,6 +162,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             j++;
             e->SetTransform(t);
             e->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
+            e->AddComponent(ComponentType::PhysicsComponentType, brickPhysicsComponent);
             e->AddComponent(ComponentType::CollisionComponentType, brickCollisionComponent);
             scene->AddEntity(e);
         }

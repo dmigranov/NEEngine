@@ -1,5 +1,10 @@
 ﻿  PhysicsSystem.cpp
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(46,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(49,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(54,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(47,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(56,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Force.cpp
+  Impulse.cpp
+  PhysicsComponent.cpp
+  Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
