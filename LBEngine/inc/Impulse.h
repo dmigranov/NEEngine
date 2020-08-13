@@ -7,6 +7,9 @@ public:
 	Impulse();
 	Impulse(DirectX::SimpleMath::Vector3 vector);
 	Impulse(DirectX::SimpleMath::Vector2 vector);
+
+    DirectX::SimpleMath::Vector3& GetVector() noexcept;
+
 	static Impulse Zero;
     Impulse& operator+= (const Impulse& V) noexcept;
     Impulse& operator-= (const Impulse& V) noexcept;

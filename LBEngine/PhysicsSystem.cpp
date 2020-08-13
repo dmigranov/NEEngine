@@ -25,36 +25,35 @@ void PhysicsSystem::Execute(double deltaTime)
 		PhysicsComponent* physics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
 
 		auto& forces = physics->m_forces;
-		auto& impulses = physics->m_impulses;
-
 		auto resultForce = Force::Zero;
-		auto resultImpulse = Impulse::Zero;
-
 		for(auto& forcePair : forces)
 		{
 			forcePair.second.Update();
 			resultForce += forcePair.second;
 		}
+
+		auto& impulses = physics->m_impulses;
+		auto resultImpulse = Impulse::Zero;
 		for (auto& impulsePair : impulses)
 		{
 			resultImpulse += impulsePair.second;
 		}
-//импульс - m*v2 - m*v1...
+		impulses.clear();
+
 		auto mass = physics->m_mass;
 		if(mass > 0)
 		{ 
+			//сила - кг*м/с^2
 			auto acceleration = resultForce.GetVector() / mass;
 			physics->m_acceleration = acceleration;
 
-			auto velocity = physics->m_velocity + acceleration * deltaTime;
+			//todo: изменить интегрирование: не по эйлеру, как сейчас, а Verlet
+			//импульс - кг*м/с, потому после деления на массу имеет размерность скорости
+			auto velocity = physics->m_velocity + resultImpulse.GetVector() / mass + acceleration * deltaTime;
 
 			physics->m_velocity = velocity;
-			//std::cout << velocity.x << std::endl;
 
 			transform->Move(velocity * deltaTime);
-
 		}
-		impulses.clear();
-		int t = 5;
 	}
 }
