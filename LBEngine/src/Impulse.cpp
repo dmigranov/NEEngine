@@ -16,7 +16,14 @@ Impulse::Impulse(DirectX::SimpleMath::Vector2 vector)
 	m_impulseVector = DirectX::SimpleMath::Vector3(vector.x, vector.y, 0.);
 }
 
-Force Impulse::GetForce()
+Impulse& Impulse::operator+=(const Impulse& V) noexcept
 {
-	return Force(m_impulseVector);
+	m_impulseVector += V.m_impulseVector;
+	return *this;
+}
+
+Impulse& Impulse::operator-=(const Impulse& V) noexcept
+{
+	m_impulseVector -= V.m_impulseVector;
+	return *this;
 }
