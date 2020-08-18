@@ -14,10 +14,9 @@ public:
 
     virtual CollisionComponentType GetType() override;
 
-
-
 private:
-    DirectX::SimpleMath::Vector2 m_upleft, m_downright; //m_upright, m_downleft, - избыточно
+    friend class CollisionSystem;
 
+    DirectX::SimpleMath::Vector2 m_upleft, m_downright; //m_upright, m_downleft, - избыточно
 };
 

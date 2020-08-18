@@ -77,16 +77,16 @@ bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 	CollisionComponentType type1 = pCollision1->GetType(), type2 = pCollision2->GetType();
 	
 	if(type1 == CollisionComponentType::AAABCollisionComponentType && type2 == CollisionComponentType::AAABCollisionComponentType)
-		areCollided = CheckDoubleAABBCollision(pEntity1, pEntity2);
+		areCollided = CheckDoubleAABBCollision(static_cast<AABBCollisionComponent*>(pCollision1), static_cast<AABBCollisionComponent*>(pCollision2), pTransform1, pTransform2);
 
 	return areCollided;
 }
 
-bool CollisionSystem::CheckDoubleAABBCollision(Entity* pEntity1, Entity* pEntity2)
+bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, AABBCollisionComponent* pAABB2, TransformComponent* pTransform1, TransformComponent* pTransform2)
 {
 
-	auto ul1 = pCollision1->m_upleft, dr1 = pCollision1->m_downright;
-	auto ul2 = pCollision2->m_upleft, dr2 = pCollision2->m_downright;
+	auto ul1 = pAABB1->m_upleft, dr1 = pAABB1->m_downright;
+	auto ul2 = pAABB2->m_upleft, dr2 = pAABB2->m_downright;
 
 	auto pos1_3D = pTransform1->GetPosition();
 	auto pos1_2D = Vector2(pos1_3D.x, pos1_3D.y);

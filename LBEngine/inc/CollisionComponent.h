@@ -1,5 +1,8 @@
 #pragma once
 #include "Component.h"
+
+enum class CollisionComponentType;
+
 class CollisionComponent :
     public Component
 {
