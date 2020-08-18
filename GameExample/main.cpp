@@ -18,6 +18,7 @@
 #include "WalkComponent.h"
 #include "PhysicsComponent.h"
 #include "CollisionComponent.h"
+#include "AABBCollisionComponent.h"
 
 #include "Force.h"
 #include "Impulse.h"
@@ -131,12 +132,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
 
-    auto brickCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {}, -0.5, -0.5, 0.5, 0.5);
+    auto brickCollisionComponent = new AABBCollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {}, -0.5, -0.5, 0.5, 0.5);
     auto brickPhysicsComponent = new PhysicsComponent(10.);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
     constexpr int wh = 25;
-    constexpr int brickCount = wh * wh - (wh -2) * (wh - 2);
+    constexpr int brickCount = wh * wh - (wh - 2) * (wh - 3);
     Entity* bricks[brickCount];
     TransformComponent* transforms[brickCount];
     int j = 0;
@@ -144,7 +145,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     {
         int ColumnNumber = i % wh;
         int RowNumber = i / wh;
-        if (ColumnNumber == 0 || RowNumber == 0 || ColumnNumber == wh - 1 || RowNumber == wh - 1)
+        if (ColumnNumber == 0 || RowNumber == 0 || ColumnNumber == wh - 1)
         {
             auto e = bricks[j] = new Entity();
             auto t = transforms[j] = new TransformComponent(ColumnNumber, RowNumber, 1, 0, 0, 0, 1, 1, 1);
@@ -162,7 +163,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charPhysicsComponent = new PhysicsComponent(1.);
     auto charInputComponent = new InputComponent();
-    auto charCollisionComponent = new CollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {
+    auto charCollisionComponent = new AABBCollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {
 
         auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
         auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
@@ -188,6 +189,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         if (abs(v.x) < 0.1 && vxPrevAbs > abs(v.x))
             charPhysicsComponent->SetVelocity(Vector3(0, v.y, v.z));
 
+        //todo: а должна ли drag force действовать при движении вниз?
         force.SetVector(-v / 2);
 
         vxPrevAbs = abs(v.x);
