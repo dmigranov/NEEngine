@@ -332,6 +332,9 @@
     <ClInclude Include="inc\AABBCollisionComponent.h">
       <Filter>Файлы заголовков\Components\Collision Components</Filter>
     </ClInclude>
+    <ClInclude Include="inc\CollisionComponentType.h">
+      <Filter>Файлы заголовков\Components\Collision Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">

@@ -84,6 +84,7 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
+	//todo: на самом деле это не совсем правильно, там же в пикселях
 	float widthDiv2 = m_bitmapWidth / 2.f, heightDiv2 = m_bitmapHeight / 2.f;
 
 	// First triangle.

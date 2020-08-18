@@ -5,6 +5,7 @@ class CollisionComponent :
 {
 public:
     bool IsMovable();
+    virtual CollisionComponentType GetType() = 0;
 protected:
     friend class CollisionSystem;
 

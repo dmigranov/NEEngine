@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "CollisionSystem.h"
+
 #include "CollisionComponent.h"
+#include "AABBCollisionComponent.h"
+#include "CollisionComponentType.h"
+
 #include "PhysicsComponent.h"
 #include "TransformComponent.h"
 
@@ -18,15 +22,16 @@ CollisionSystem::CollisionSystem()
 
 void CollisionSystem::Execute(double deltaTime)
 {
-	//todo: оптимищировать: 
-	//нет нужды проверять кирпичи на столкновения друг с другом. 
-	//держать список движущихся объектов?
-	//
+	//todo: оптимищировать ещё:
+	//добавить разные (пользовательские) типы?
+	//ведь нет нужды проверять, например, пули на столкновение друг с другом
+
 	for (auto pMovable: m_movableEntities) {
 		for (auto e: m_entities) {
 			if (pMovable != e)
 			{
-				bool areCollided = CheckAABBCollision(pMovable, e);
+				bool areCollided = CheckCollision(pMovable, e);
+
 				if (areCollided)
 				{
 					CollisionComponent* pCollision1 = (CollisionComponent*)pMovable->GetComponent(ComponentType::CollisionComponentType);
@@ -59,13 +64,26 @@ void CollisionSystem::AddEntity(Entity* pEntity)
 	System::AddEntity(pEntity);
 }
 
-bool CollisionSystem::CheckAABBCollision(Entity* pEntity1, Entity* pEntity2)
+bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 {
+	bool areCollided;
+
 	CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
 	CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
 
 	TransformComponent* pTransform1 = (TransformComponent*)pEntity1->GetComponent(ComponentType::TransformComponentType);
 	TransformComponent* pTransform2 = (TransformComponent*)pEntity2->GetComponent(ComponentType::TransformComponentType);
+
+	CollisionComponentType type1 = pCollision1->GetType(), type2 = pCollision2->GetType();
+	
+	if(type1 == CollisionComponentType::AAABCollisionComponentType && type2 == CollisionComponentType::AAABCollisionComponentType)
+		areCollided = CheckDoubleAABBCollision(pEntity1, pEntity2);
+
+	return areCollided;
+}
+
+bool CollisionSystem::CheckDoubleAABBCollision(Entity* pEntity1, Entity* pEntity2)
+{
 
 	auto ul1 = pCollision1->m_upleft, dr1 = pCollision1->m_downright;
 	auto ul2 = pCollision2->m_upleft, dr2 = pCollision2->m_downright;
