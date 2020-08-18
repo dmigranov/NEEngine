@@ -97,8 +97,13 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	vertices[5].position = Vector3(widthDiv2, -heightDiv2, 0.f);  // Bottom right.
 
 
-	UpdateUV(vertices);
+	vertices[0].uv = Vector2(0.f, 0.f);
+	vertices[1].uv = Vector2(1.f, 1.f);
+	vertices[2].uv = Vector2(0.f, 1.f);
 
+	vertices[3].uv = Vector2(0.f, 0.f);
+	vertices[4].uv = Vector2(1.f, 0.f);
+	vertices[5].uv = Vector2(1.f, 1.f);
 
 	for (int i = 0; i < 6; i++)
 		indices[i] = i;
@@ -142,18 +147,14 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	delete[] indices;
 	indices = 0;
 
+	m_pDevice = device;
+
 	return true;
 }
 
-void BitmapComponent::UpdateUV(VertexType*& vertices)
+bool BitmapComponent::UpdateBuffers()
 {
-	//todo: vector values depend on m_frameIndex
-
-	vertices[0].uv = Vector2(0.f, 0.f);
-	vertices[1].uv = Vector2(1.f, 1.f);
-	vertices[2].uv = Vector2(0.f, 1.f);
-
-	vertices[3].uv = Vector2(0.f, 0.f);
-	vertices[4].uv = Vector2(1.f, 0.f);
-	vertices[5].uv = Vector2(1.f, 1.f);
+	//todo: обновить uv в зависимости от индекса
+	//todo: dynamic buffers
+	return false;
 }
