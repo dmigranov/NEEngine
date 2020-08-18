@@ -5,7 +5,7 @@ class CollisionComponent :
 {
 public:
     bool IsMovable();
-private:
+protected:
     friend class CollisionSystem;
 
     std::function<void(Entity*, Entity*, double)> m_executeFunc;
