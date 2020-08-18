@@ -64,6 +64,9 @@
     <Filter Include="Файлы заголовков\Physics and Collisions">
       <UniqueIdentifier>{04b8f0c5-76e4-43a7-abb6-af6519f844a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Components\Collision Components">
+      <UniqueIdentifier>{1f321c00-d143-4785-953b-fabf5f119a78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -189,6 +192,9 @@
     <ClCompile Include="ContactManifold.cpp">
       <Filter>Исходные файлы\Physics and Collisions</Filter>
     </ClCompile>
+    <ClCompile Include="src\AABBCollisionComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -287,9 +293,6 @@
     <ClInclude Include="inc\BitmapRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\CollisionComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
     <ClInclude Include="inc\InputComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
@@ -319,6 +322,12 @@
     </ClInclude>
     <ClInclude Include="ContactManifold.h">
       <Filter>Файлы заголовков\Physics and Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CollisionComponent.h">
+      <Filter>Файлы заголовков\Components\Collision Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\AABBCollisionComponent.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

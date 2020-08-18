@@ -30,6 +30,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PlayerComponent.cpp" />
+    <ClCompile Include="src\AABBCollisionComponent.cpp" />
     <ClCompile Include="src\ActionSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\CollisionComponent.cpp" />
@@ -69,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContactManifold.h" />
+    <ClInclude Include="inc\AABBCollisionComponent.h" />
     <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\BitmapRenderSystem.h" />
