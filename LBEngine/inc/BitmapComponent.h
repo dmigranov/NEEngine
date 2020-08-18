@@ -15,9 +15,8 @@ public:
     };
 
 
-
-    BitmapComponent(unsigned int width, unsigned int height, bool isOpaque = true);
-    BitmapComponent(unsigned int width, unsigned int height, Texture * texture, bool isOpaque = true);
+    BitmapComponent(unsigned int bitmapWidth, unsigned int bitmapHeight, bool isOpaque = true);
+    BitmapComponent(unsigned int bitmapWidth, unsigned int bitmapHeight, Texture * texture, bool isOpaque = true);
     
     ~BitmapComponent() override;
 
@@ -31,6 +30,7 @@ private:
     friend class BitmapRenderSystem;
 
     bool InitializeBuffers(ID3D11Device* device);
+    void UpdateUV(VertexType*&);
 
     bool m_isOpaque = true;   //opaque - непрозрачный
     unsigned int m_bitmapWidth, m_bitmapHeight;

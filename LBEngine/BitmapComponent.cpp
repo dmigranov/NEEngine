@@ -6,12 +6,10 @@
 
 using namespace DirectX::SimpleMath;
 
-BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, bool isOpaque)
+BitmapComponent::BitmapComponent(unsigned int bitmapWidth, unsigned int bitmapHeight, bool isOpaque)
 {
-	//todo: учесть width и height
-
-	m_bitmapWidth = width;
-	m_bitmapHeight = height;
+	m_bitmapWidth = bitmapWidth;
+	m_bitmapHeight = bitmapHeight;
 	m_spriteSheet = nullptr;
 	m_isOpaque = isOpaque;
 
@@ -19,12 +17,11 @@ BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, bool i
 	auto device = game.g_d3dDevice;
 
 	InitializeBuffers(device);
-
 }
 
-BitmapComponent::BitmapComponent(unsigned int width, unsigned int height, Texture* texture, bool isOpaque) : BitmapComponent(width, height, isOpaque)
+BitmapComponent::BitmapComponent(unsigned int bitmapWidth, unsigned int bitmapHeight, Texture* pTexture, bool isOpaque) : BitmapComponent(bitmapWidth, bitmapHeight, isOpaque)
 {
-	SetTexture(texture);
+	SetTexture(pTexture);
 }
 
 BitmapComponent::~BitmapComponent()
@@ -88,25 +85,20 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	}
 
 	float widthDiv2 = m_bitmapWidth / 2.f, heightDiv2 = m_bitmapHeight / 2.f;
+
 	// First triangle.
 	vertices[0].position = Vector3(-widthDiv2, heightDiv2, 0.f);  // Top left.
-	vertices[0].uv = Vector2(0.f, 0.f);
-
 	vertices[1].position = Vector3(widthDiv2, -heightDiv2, 0.f);  // Bottom right.
-	vertices[1].uv = Vector2(1.f, 1.f);
-
 	vertices[2].position = Vector3(-widthDiv2, -heightDiv2, 0.f);  // Bottom left.
-	vertices[2].uv = Vector2(0.f, 1.f);
 
 	// Second triangle.
 	vertices[3].position = Vector3(-widthDiv2, heightDiv2, 0.f);  // Top left.
-	vertices[3].uv = Vector2(0.f, 0.f);
-
 	vertices[4].position = Vector3(widthDiv2, heightDiv2, 0.f);  // Top right.
-	vertices[4].uv = Vector2(1.f, 0.f);
-
 	vertices[5].position = Vector3(widthDiv2, -heightDiv2, 0.f);  // Bottom right.
-	vertices[5].uv = Vector2(1.f, 1.f);
+
+
+	UpdateUV(vertices);
+
 
 	for (int i = 0; i < 6; i++)
 		indices[i] = i;
@@ -151,4 +143,17 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	indices = 0;
 
 	return true;
+}
+
+void BitmapComponent::UpdateUV(VertexType*& vertices)
+{
+	//todo: vector values depend on m_frameIndex
+
+	vertices[0].uv = Vector2(0.f, 0.f);
+	vertices[1].uv = Vector2(1.f, 1.f);
+	vertices[2].uv = Vector2(0.f, 1.f);
+
+	vertices[3].uv = Vector2(0.f, 0.f);
+	vertices[4].uv = Vector2(1.f, 0.f);
+	vertices[5].uv = Vector2(1.f, 1.f);
 }
