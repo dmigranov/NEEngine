@@ -326,9 +326,6 @@
     <ClInclude Include="inc\Impulse.h">
       <Filter>Файлы заголовков\Physics and Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="ContactManifold.h">
-      <Filter>Файлы заголовков\Physics and Collisions</Filter>
-    </ClInclude>
     <ClInclude Include="inc\CollisionComponent.h">
       <Filter>Файлы заголовков\Components\Collision Components</Filter>
     </ClInclude>
@@ -340,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="inc\CircleCollisionComponent.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ContactManifold.h">
+      <Filter>Файлы заголовков\Physics and Collisions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

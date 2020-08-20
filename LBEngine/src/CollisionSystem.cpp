@@ -8,6 +8,8 @@
 #include "PhysicsComponent.h"
 #include "TransformComponent.h"
 
+#include "ContactManifold.h"
+
 #include "Entity.h"
 
 using namespace DirectX::SimpleMath;
@@ -32,7 +34,8 @@ void CollisionSystem::Execute(double deltaTime)
 		for (auto e: m_entities) {
 			if (pMovable != e)
 			{
-				bool areCollided = CheckCollision(pMovable, e);
+				ContactManifold cm;
+				bool areCollided = CheckCollision(pMovable, e, cm);
 
 				if (areCollided)
 				{
@@ -66,7 +69,7 @@ void CollisionSystem::AddEntity(Entity* pEntity)
 	System::AddEntity(pEntity);
 }
 
-bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
+bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2, ContactManifold& resultContactManifold)
 {
 	bool areCollided = false;
 

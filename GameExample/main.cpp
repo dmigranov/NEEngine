@@ -35,6 +35,12 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+
+template <typename T> int sgn(T val)
+{
+    return (T(0) < val) - (val < T(0));
+}
+
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
@@ -188,6 +194,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
         if (abs(v.x) < 0.1 && vxPrevAbs > abs(v.x))
             charPhysicsComponent->SetVelocity(Vector3(0, v.y, v.z));
+
+        std::cout << v.x << " " << v.y << std::endl;
+
+        //auto newV = Vector3(-sgn<float>(v.x)* v.x * v.x / 2, -sgn<float>(v.y) * v.y * v.y / 2, v.z);
+        //force.SetVector(newV);
 
         //todo: а должна ли drag force действовать при движении вниз?
         force.SetVector(-v / 2);

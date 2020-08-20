@@ -70,7 +70,6 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ContactManifold.h" />
     <ClInclude Include="inc\AABBCollisionComponent.h" />
     <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
@@ -83,6 +82,7 @@
     <ClInclude Include="inc\CollisionSystem.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\ComponentType.h" />
+    <ClInclude Include="inc\ContactManifold.h" />
     <ClInclude Include="inc\Drawer2D.h" />
     <ClInclude Include="inc\Effect.h" />
     <ClInclude Include="inc\Entity.h" />
