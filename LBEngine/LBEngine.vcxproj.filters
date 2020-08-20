@@ -199,7 +199,7 @@
       <Filter>Исходные файлы\Components\Collision Components</Filter>
     </ClCompile>
     <ClCompile Include="src\CircleCollisionComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components\Collision Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -335,11 +335,11 @@
     <ClInclude Include="inc\CollisionComponentType.h">
       <Filter>Файлы заголовков\Components\Collision Components</Filter>
     </ClInclude>
-    <ClInclude Include="inc\CircleCollisionComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ContactManifold.h">
       <Filter>Файлы заголовков\Physics and Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CircleCollisionComponent.h">
+      <Filter>Файлы заголовков\Components\Collision Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
