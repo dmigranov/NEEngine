@@ -3,10 +3,10 @@
 
 using namespace DirectX::SimpleMath;
 
-ContactManifold::ContactManifold(double penetration, DirectX::SimpleMath::Vector3 normal)
+ContactManifold::ContactManifold(Entity* p1, Entity* p2) : ContactManifold()
 {
-	m_normal = normal;
-	m_penetration = penetration;
+	m_pEntity1 = p1;
+	m_pEntity2 = p2;
 }
 
 ContactManifold::ContactManifold()
