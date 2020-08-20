@@ -1,5 +1,2 @@
-﻿  ContactManifold.cpp
-  CircleCollisionComponent.cpp
-  CollisionSystem.cpp
-  Generating Code...
+﻿  CollisionSystem.cpp
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

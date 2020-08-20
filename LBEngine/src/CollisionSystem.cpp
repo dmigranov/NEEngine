@@ -3,6 +3,8 @@
 
 #include "CollisionComponent.h"
 #include "AABBCollisionComponent.h"
+#include "CircleCollisionComponent.h"
+
 #include "CollisionComponentType.h"
 
 #include "PhysicsComponent.h"
@@ -65,6 +67,7 @@ void CollisionSystem::AddEntity(Entity* pEntity)
 
 	if (pCollision->IsMovable())
 		m_movableEntities.push_back(pEntity);
+	//todo: non-movable?
 
 	System::AddEntity(pEntity);
 }
@@ -81,9 +84,12 @@ bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2, Contact
 
 	CollisionComponentType type1 = pCollision1->GetType(), type2 = pCollision2->GetType();
 	
-	if(type1 == CollisionComponentType::AAABCollisionComponentType && type2 == CollisionComponentType::AAABCollisionComponentType)
+	if (type1 == CollisionComponentType::AAABCollisionComponentType && type2 == CollisionComponentType::AAABCollisionComponentType)
 		areCollided = CheckDoubleAABBCollision(static_cast<AABBCollisionComponent*>(pCollision1), static_cast<AABBCollisionComponent*>(pCollision2), pTransform1, pTransform2);
-
+	else if (type1 == CollisionComponentType::CircleCollisionComponentType && type2 == CollisionComponentType::CircleCollisionComponentType)
+		areCollided = CheckDoubleCircleCollision(static_cast<CircleCollisionComponent*>(pCollision1), static_cast<CircleCollisionComponent*>(pCollision2), pTransform1, pTransform2);
+	else
+		;
 	return areCollided;
 }
 
@@ -98,7 +104,6 @@ bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, A
 	auto pos2_3D = pTransform2->GetPosition();
 	auto pos2_2D = Vector2(pos2_3D.x, pos2_3D.y);
 
-	//todo: поворот не учитываю (т.к нужна параллельность осям); масштаб тоже)
 	auto worldUL1 = ul1 + pos1_2D;
 	auto worldDR1 = dr1 + pos1_2D;
 	auto worldUL2 = ul2 + pos2_2D;
@@ -114,5 +119,10 @@ bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, A
 		worldDR1.y > worldUL2.y) 
 		return true;
 
+	return false;
+}
+
+bool CollisionSystem::CheckDoubleCircleCollision(CircleCollisionComponent* pCircle1, CircleCollisionComponent* pCircle2, TransformComponent* pTransform1, TransformComponent* pTransform2)
+{
 	return false;
 }
