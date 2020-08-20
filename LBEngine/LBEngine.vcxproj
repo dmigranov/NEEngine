@@ -33,6 +33,7 @@
     <ClCompile Include="src\AABBCollisionComponent.cpp" />
     <ClCompile Include="src\ActionSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
+    <ClCompile Include="src\CircleCollisionComponent.cpp" />
     <ClCompile Include="src\CollisionComponent.cpp" />
     <ClCompile Include="src\CollisionSystem.cpp" />
     <ClCompile Include="src\Force.cpp" />
@@ -76,6 +77,7 @@
     <ClInclude Include="inc\BitmapRenderSystem.h" />
     <ClInclude Include="inc\CameraActionSystem.h" />
     <ClInclude Include="inc\CameraComponent.h" />
+    <ClInclude Include="inc\CircleCollisionComponent.h" />
     <ClInclude Include="inc\CollisionComponent.h" />
     <ClInclude Include="inc\CollisionComponentType.h" />
     <ClInclude Include="inc\CollisionSystem.h" />

@@ -198,6 +198,9 @@
     <ClCompile Include="src\AABBCollisionComponent.cpp">
       <Filter>Исходные файлы\Components\Collision Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\CircleCollisionComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -334,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="inc\CollisionComponentType.h">
       <Filter>Файлы заголовков\Components\Collision Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\CircleCollisionComponent.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

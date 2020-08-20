@@ -26,6 +26,8 @@ void CollisionSystem::Execute(double deltaTime)
 	//добавить разные (пользовательские) типы?
 	//ведь нет нужды проверять, например, пули на столкновение друг с другом
 
+	//а может, просто считать пули не-мувабл, а только аватар игрока?
+
 	for (auto pMovable: m_movableEntities) {
 		for (auto e: m_entities) {
 			if (pMovable != e)
@@ -66,7 +68,7 @@ void CollisionSystem::AddEntity(Entity* pEntity)
 
 bool CollisionSystem::CheckCollision(Entity* pEntity1, Entity* pEntity2)
 {
-	bool areCollided;
+	bool areCollided = false;
 
 	CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
 	CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
