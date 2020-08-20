@@ -10,6 +10,8 @@ public:
     virtual CollisionComponentType GetType() override;
 
 private:
+    friend class CollisionSystem;
+
     double m_radius;
     DirectX::SimpleMath::Vector2 m_centre;
 };

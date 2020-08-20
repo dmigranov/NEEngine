@@ -101,6 +101,7 @@ bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, A
 
 	auto pos1_3D = pTransform1->GetPosition();
 	auto pos1_2D = Vector2(pos1_3D.x, pos1_3D.y);
+
 	auto pos2_3D = pTransform2->GetPosition();
 	auto pos2_2D = Vector2(pos2_3D.x, pos2_3D.y);
 
@@ -109,10 +110,6 @@ bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, A
 	auto worldUL2 = ul2 + pos2_2D;
 	auto worldDR2 = dr2 + pos2_2D;
 
-	auto width1 = worldDR1.x - worldUL1.x;
-	auto width2 = worldDR2.x - worldUL2.x;
-	auto height1 = worldDR1.y - worldUL1.y;
-	auto height2 = worldDR2.y - worldUL2.y;
 	if (worldUL1.x < worldDR2.x &&
 		worldDR1.x > worldUL2.x &&
 		worldUL1.y < worldDR2.y &&
@@ -124,5 +121,18 @@ bool CollisionSystem::CheckDoubleAABBCollision(AABBCollisionComponent* pAABB1, A
 
 bool CollisionSystem::CheckDoubleCircleCollision(CircleCollisionComponent* pCircle1, CircleCollisionComponent* pCircle2, TransformComponent* pTransform1, TransformComponent* pTransform2)
 {
-	return false;
+	double r1 = pCircle1->m_radius, r2 = pCircle2->m_radius;
+
+	auto pos1_3D = pTransform1->GetPosition();
+	auto pos1_2D = Vector2(pos1_3D.x, pos1_3D.y);
+
+	auto pos2_3D = pTransform2->GetPosition();
+	auto pos2_2D = Vector2(pos2_3D.x, pos2_3D.y);
+
+	auto worldCentre1 = pCircle1->m_centre + pos1_2D;
+	auto worldCentre2 = pCircle2->m_centre + pos2_2D;
+
+	double r = r1 + r2;
+	r *= r;
+	return r < pow(worldCentre1.x + worldCentre2.x, 2.) + pow(worldCentre1.y + worldCentre2.y, 2.);
 }
