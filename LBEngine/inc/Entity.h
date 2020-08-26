@@ -11,6 +11,7 @@
 class Component;
 class TransformComponent;
 class RenderComponent;
+
 /**
 * @brief Basic class for all entities (objects) in the scene.
 */
@@ -31,6 +32,8 @@ public:
 	void Render();
 
 	Component* GetComponent(ComponentType type);
+	template<typename T> T* GetComponent();
+
 	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
 private:
 
@@ -44,5 +47,8 @@ private:
 	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
 };
 
-
-
+template<typename T>
+inline T* Entity::GetComponent()
+{
+	return nullptr;
+}
