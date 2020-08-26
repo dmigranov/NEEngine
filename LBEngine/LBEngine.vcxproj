@@ -36,6 +36,7 @@
     <ClCompile Include="src\CircleCollisionComponent.cpp" />
     <ClCompile Include="src\CollisionComponent.cpp" />
     <ClCompile Include="src\CollisionSystem.cpp" />
+    <ClCompile Include="src\ComponentTypeManager.cpp" />
     <ClCompile Include="src\Force.cpp" />
     <ClCompile Include="src\Impulse.cpp" />
     <ClCompile Include="src\MeshComponent.cpp" />

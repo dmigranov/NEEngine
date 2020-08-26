@@ -1,16 +1,17 @@
 #pragma once
 
+#include <set>
+
 class ComponentTypeManager
 {
 public:
-	template<typename T> static void RegisterComponentType()
+	template<typename T> void RegisterComponentType()
 	{
-
+		auto typeInfo = typeid(T);
 	}
 
-	static int GetComponentTypesCount()
-	{
+	int GetComponentTypesCount();
 
-	}
-
+private:
+	std::set<std::type_info> m_componentTypes;
 };

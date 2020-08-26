@@ -201,6 +201,9 @@
     <ClCompile Include="src\CircleCollisionComponent.cpp">
       <Filter>Исходные файлы\Components\Collision Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\ComponentTypeManager.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
