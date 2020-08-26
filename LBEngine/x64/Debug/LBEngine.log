@@ -1,4 +1,6 @@
-﻿  ContactManifold.cpp
-  CollisionSystem.cpp
+﻿  ComponentTypeManager.cpp
+D:\Code\LBEngine\LBEngine\src\ComponentTypeManager.cpp(8,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Scene.cpp
+  TransformUpdateSystem.cpp
   Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

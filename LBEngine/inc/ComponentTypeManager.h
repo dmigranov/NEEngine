@@ -1,17 +1,25 @@
 #pragma once
 
-#include <set>
+#include <unordered_set>
 
 class ComponentTypeManager
 {
 public:
 	template<typename T> void RegisterComponentType()
 	{
-		auto typeInfo = typeid(T);
+		if(m_typeAdditionPossible)
+		{
+			auto typeInfo = typeid(T);
+			m_componentTypes.insert(typeInfo);
+		}
+
 	}
+
+	void SetTypeAdditionEnded();
 
 	int GetComponentTypesCount();
 
 private:
-	std::set<std::type_info> m_componentTypes;
+	bool m_typeAdditionPossible = true;
+	std::vector<std::type_info> m_componentTypes;
 };
