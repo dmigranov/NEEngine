@@ -4,11 +4,14 @@
 #include "Scene.h"
 
 #include "ResourceManager.h"
+
 #include "InputComponent.h"
 
 #include "Entity.h"
 
 // Components
+#include "ComponentTypeManager.h"
+
 #include "ComponentType.h"
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
@@ -51,6 +54,20 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
+
+    {
+        auto componentTypeManager = game.GetComponentTypeManager();
+        componentTypeManager->RegisterComponentType<TransformComponent>();
+        componentTypeManager->RegisterComponentType<MeshComponent>();
+        componentTypeManager->RegisterComponentType<PlayerComponent>();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<InputComponent>();
+        componentTypeManager->RegisterComponentType<BitmapComponent>();
+        componentTypeManager->RegisterComponentType<WalkComponent>();
+        componentTypeManager->RegisterComponentType<PhysicsComponent>();
+        componentTypeManager->RegisterComponentType<CollisionComponent>();
+    }
+
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 

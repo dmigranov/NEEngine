@@ -1,6 +1,7 @@
 #pragma once
 
 #include <unordered_set>
+#include <typeindex>
 
 class ComponentTypeManager
 {
@@ -9,10 +10,8 @@ public:
 	{
 		if(m_typeAdditionPossible)
 		{
-			auto typeInfo = typeid(T);
-			m_componentTypes.insert(typeInfo);
+			m_componentTypes.insert(m_componentTypes.begin(), typeid(T));
 		}
-
 	}
 
 	void SetTypeAdditionEnded();
@@ -21,5 +20,5 @@ public:
 
 private:
 	bool m_typeAdditionPossible = true;
-	std::vector<std::type_info> m_componentTypes;
+	std::vector<std::type_index> m_componentTypes;
 };

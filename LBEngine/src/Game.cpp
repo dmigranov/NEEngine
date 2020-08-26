@@ -16,6 +16,7 @@
 
 #include "Scene.h"
 #include "ResourceManager.h"
+#include "ComponentTypeManager.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -259,6 +260,8 @@ int Game::Initialize(HWND window, int width, int height)
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
     m_pResourceManager = new ResourceManager(g_d3dDevice);
+    m_pComponentTypeManager = new ComponentTypeManager();
+
     return 0;
 }
 
@@ -581,6 +584,7 @@ void Game::UnloadContent()
 
     m_pResourceManager->Clean();
     delete m_pResourceManager;
+    delete m_pComponentTypeManager;
     delete m_pScene;
     delete m_textDrawer;
     delete m_drawer2D;
@@ -594,6 +598,11 @@ Scene* Game::GetScene()
 ResourceManager* Game::GetResourceManager()
 {
     return m_pResourceManager;
+}
+
+ComponentTypeManager* Game::GetComponentTypeManager()
+{
+    return m_pComponentTypeManager;
 }
 
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)

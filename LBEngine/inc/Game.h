@@ -10,6 +10,7 @@
 
 class Scene;
 class ResourceManager;
+class ComponentTypeManager;
 
 class Texture;
 class Drawer2D;
@@ -28,6 +29,7 @@ public:
 
     Scene* GetScene();
     ResourceManager* GetResourceManager();
+    ComponentTypeManager* GetComponentTypeManager();
 
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
@@ -111,6 +113,7 @@ private:
     
     Scene* m_pScene;
     ResourceManager* m_pResourceManager;
+    ComponentTypeManager* m_pComponentTypeManager;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;

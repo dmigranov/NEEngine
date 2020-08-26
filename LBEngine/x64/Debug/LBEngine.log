@@ -1,6 +1,7 @@
 ﻿  ComponentTypeManager.cpp
-D:\Code\LBEngine\LBEngine\src\ComponentTypeManager.cpp(8,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  Scene.cpp
-  TransformUpdateSystem.cpp
+D:\Code\LBEngine\LBEngine\src\ComponentTypeManager.cpp(17,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Game.cpp
+D:\Code\LBEngine\LBEngine\src\Game.cpp(48,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Code\LBEngine\LBEngine\src\Game.cpp(442,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating Code...
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
