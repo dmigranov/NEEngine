@@ -44,6 +44,7 @@ private:
 	bool m_isActive;
 	std::string m_name;
 
+	//todo: dynamic bitset, тк при использовании манагера в компайл тайм размер неизвестен
 	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
 };
 

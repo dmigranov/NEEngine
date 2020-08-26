@@ -6,6 +6,7 @@
 void ComponentTypeManager::SetTypeAdditionEnded()
 {
     m_typeAdditionPossible = false;
+
     //удаление повторов на всякий случай
     std::sort(m_componentTypes.begin(), m_componentTypes.end()); // {1 1 2 3 4 4 5}
     auto last = std::unique(m_componentTypes.begin(), m_componentTypes.end());

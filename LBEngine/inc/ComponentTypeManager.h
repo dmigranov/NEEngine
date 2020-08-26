@@ -1,6 +1,5 @@
 #pragma once
 
-#include <unordered_set>
 #include <typeindex>
 
 class ComponentTypeManager
