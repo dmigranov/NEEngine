@@ -82,6 +82,7 @@
     <ClInclude Include="inc\CollisionSystem.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\ComponentType.h" />
+    <ClInclude Include="inc\ComponentTypeManager.h" />
     <ClInclude Include="inc\ContactManifold.h" />
     <ClInclude Include="inc\Drawer2D.h" />
     <ClInclude Include="inc\Effect.h" />
