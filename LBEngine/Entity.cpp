@@ -39,7 +39,7 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
 
-	boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;
+	boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
 	m_componentsMask |= add;
 }
 

@@ -27,17 +27,26 @@ public:
 
 	void Initialize();
 
-	void AddComponent(const ComponentType type, Component* pComponent);
 	void SetMesh(MeshComponent * pMesh);
 	void SetTransform(TransformComponent* pTransform);
 	TransformComponent* const GetTransform();
 
 	void Render();
 
-	Component* GetComponent(ComponentType type);
-	template<typename T> T* GetComponent();
+	void AddComponent(const ComponentType type, Component* pComponent);	//old
+	template<typename T> void AddComponent(Component* pComponent)		//new
+	{
+		//todo
+	}
+
+	Component* GetComponent(ComponentType type);	//old
+	template<typename T> T* GetComponent()			//new
+	{
+		return nullptr; //todo
+	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();
+
 private:
 
 	//EffectComponent* m_pEffect; //todo
@@ -52,8 +61,3 @@ private:
 	boost::dynamic_bitset<> m_componentsMask;
 };
 
-template<typename T>
-inline T* Entity::GetComponent()
-{
-	return nullptr;
-}
