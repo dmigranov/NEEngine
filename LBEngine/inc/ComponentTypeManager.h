@@ -20,4 +20,6 @@ public:
 private:
 	bool m_typeAdditionPossible = true;
 	std::vector<std::type_index> m_componentTypes;
+
+	int m_componentTypesCount = 0;
 };

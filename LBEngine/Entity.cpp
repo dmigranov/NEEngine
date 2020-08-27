@@ -1,15 +1,18 @@
 #include "pch.h"
 #include "Entity.h"
 
+#include "Game.h"
+#include "ComponentTypeManager.h"
+
+
 #include "ComponentType.h"
 #include "Component.h"
 #include "TransformComponent.h"
 
 Entity::Entity(const char* name) : 
-	m_isActive(false), m_componentsMask(/* TODO */)
+	m_isActive(false), m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
 {
 	m_name = (nullptr == name) ? "Object" : name;
-
 	//m_pTransform = new TransformComponent();
 	//AddComponent(m_pTransform);
 

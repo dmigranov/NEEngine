@@ -11,9 +11,11 @@ void ComponentTypeManager::SetTypeAdditionEnded()
     std::sort(m_componentTypes.begin(), m_componentTypes.end()); // {1 1 2 3 4 4 5}
     auto last = std::unique(m_componentTypes.begin(), m_componentTypes.end());
     m_componentTypes.erase(last, m_componentTypes.end());
+
+    m_componentTypesCount = m_componentTypes.size();
 }
 
 int ComponentTypeManager::GetComponentTypesCount()
 {
-    return m_componentTypes.size();
+    return m_componentTypesCount;
 }
