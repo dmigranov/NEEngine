@@ -9,14 +9,14 @@
 
 using namespace DirectX::SimpleMath;
 
-CameraActionSystem::CameraActionSystem() : ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime)  {
+/*CameraActionSystem::CameraActionSystem() : ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime)  {
 
     auto pTransform = pEntity->GetTransform();
-    auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+    auto pInput = pEntity->GetComponent<InputComponent>();
     auto kbs = pInput->GetKeyboardState();
     auto ms = pInput->GetMouseState();
-    auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
-    auto pVelocity = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
+    auto pWalk = (WalkComponent*)pEntity->GetComponent<WalkComponent>();
+    auto pVelocity = (PhysicsComponent*)pEntity->GetComponent<PhysicsComponent>();
 
 
     if (ms.leftButton)
@@ -36,11 +36,9 @@ CameraActionSystem::CameraActionSystem() : ActionSystem({ ComponentType::InputCo
         pTransform->Move(-right);
     if (kbs.D)
         pTransform->Move(right);
-    /*if (kbs.D1)
-        pEntity->SetTransform(cameraTransform1);
-    else if (kbs.D2)
-        pEntity->SetTransform(cameraTransform2);*/
+
 
 
 })
 {}
+*/

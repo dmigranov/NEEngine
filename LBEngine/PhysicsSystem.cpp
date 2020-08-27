@@ -13,16 +13,16 @@ using namespace DirectX::SimpleMath;
 
 PhysicsSystem::PhysicsSystem() : System()
 {
-	SubscribeToComponentType(ComponentType::TransformComponentType);
-	SubscribeToComponentType(ComponentType::PhysicsComponentType);
+	SubscribeToComponentType<TransformComponent>();
+	SubscribeToComponentType<PhysicsComponent>();
 }
 
 void PhysicsSystem::Execute(double deltaTime)
 {
 	for (auto pEntity : m_entities)
 	{
-		TransformComponent* transform = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
-		PhysicsComponent* physics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
+		TransformComponent* transform = pEntity->GetComponent<TransformComponent>();
+		PhysicsComponent* physics = pEntity->GetComponent<PhysicsComponent>();
 
 		auto& forces = physics->m_forces;
 		auto resultForce = Force::Zero;

@@ -5,5 +5,5 @@ class CameraActionSystem :
 	public ActionSystem
 {
 public:
-	CameraActionSystem();
+	//CameraActionSystem();
 };

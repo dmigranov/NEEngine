@@ -78,6 +78,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
+    /*
     scene->AddSystem(new ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType },
         [](Entity* pEntity, double deltaTime) {
 
@@ -91,10 +92,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
 
-        /*
-        с помощью импульсов и сил можно реализовывать движение
-        на постоянной скорости, но это не входит в мои цели
-        */
+        
+        //с помощью импульсов и сил можно реализовывать движение на постоянной скорости, 
+        //но это не входит в мои цели
 
         static bool isRightPressed;
         if (kbs.D)
@@ -143,6 +143,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             isSpacePressed = false;
         }
     }));
+    */
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new CameraComponent(false);

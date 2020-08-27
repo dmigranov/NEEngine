@@ -1,11 +1,20 @@
-﻿  Entity.cpp
+﻿  CameraActionSystem.cpp
   InputSystem.cpp
-D:\Code\LBEngine\LBEngine\InputSystem.cpp(12,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\InputSystem.cpp(12,60): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\InputSystem.cpp(27,60): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\InputSystem.cpp(27,108): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=InputComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\InputSystem.cpp(27): message : see reference to function template instantiation 'T *Entity::GetComponent<InputComponent>(void)' being compiled
+          with
+          [
+              T=InputComponent
+          ]
   PhysicsSystem.cpp
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(16,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(16,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
@@ -23,62 +32,6 @@ D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(47,50): warning C4244: 'argument': c
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(56,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Scene.cpp
-D:\Code\LBEngine\LBEngine\Scene.cpp(107,40): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\Scene.cpp(107,89): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\Scene.cpp(108,4): error C3536: 'cc': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\Scene.cpp(112,118): error C3536: 'proj': cannot be used before it is initialized
-  System.cpp
-  TransformUpdateSystem.cpp
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,115): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-  CameraActionSystem.cpp
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,34): error C2065: 'ComponentType': undeclared identifier
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,29): error C2923: 'std::list': 'ComponentType' is not a valid template type argument for parameter '_Ty'
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,29): error C2976: 'std::list': too few template arguments
-D:\Code\LBEngine\LBEngine\packages\boost.1.72.0.0\lib\native\include\boost\detail\container_fwd.hpp(134): message : see declaration of 'std::list'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(15,43): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(15,1): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(16,1): error C3536: 'pInput': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(18,41): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(18,1): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(19,48): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(19,1): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(22,1): error C3536: 'ms': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(25,60): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(25,1): error C3536: 'pWalk': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(28,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(29,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(31,1): error C3536: 'kbs': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(12,56): error C2664: 'ActionSystem::ActionSystem(ActionSystem &&)': cannot convert argument 1 from 'initializer list' to 'const std::list &'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(46,1): message : Reason: cannot convert from 'initializer list' to 'const std::list'
-D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(46,1): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,5): message : see declaration of 'ActionSystem::ActionSystem'
-  ActionSystem.cpp
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,34): error C2065: 'ComponentType': undeclared identifier
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,29): error C2923: 'std::list': 'ComponentType' is not a valid template type argument for parameter '_Ty'
-D:\Code\LBEngine\LBEngine\inc\ActionSystem.h(12,29): error C2976: 'std::list': too few template arguments
-D:\Code\LBEngine\LBEngine\packages\boost.1.72.0.0\lib\native\include\boost\detail\container_fwd.hpp(134): message : see declaration of 'std::list'
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(4,44): error C2065: 'ComponentType': undeclared identifier
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(4,39): error C2923: 'std::list': 'ComponentType' is not a valid template type argument for parameter '_Ty'
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(4,39): error C2976: 'std::list': too few template arguments
-D:\Code\LBEngine\LBEngine\packages\boost.1.72.0.0\lib\native\include\boost\detail\container_fwd.hpp(134): message : see declaration of 'std::list'
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(6,18): error C2663: 'std::list<_Ty,_Alloc>::_Unchecked_begin': 2 overloads have no legal conversion for 'this' pointer
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(6,18): error C2663: 'std::list<_Ty,_Alloc>::_Unchecked_end': 2 overloads have no legal conversion for 'this' pointer
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(6,23): error C3536: '<begin>$L0': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(6,23): error C3536: '<end>$L0': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(6,23): error C2100: illegal indirection
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(7,3): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\ActionSystem.cpp(7,32): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
   BitmapRenderSystem.cpp
 D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(11,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
 D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(11,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
@@ -131,5 +84,18 @@ D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(81,117): error C2780: 'T *Enti
 D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
 D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(82,65): error C2672: 'Entity::GetComponent': no matching overloaded function found
 D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(82,117): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
+D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+  Scene.cpp
+D:\Code\LBEngine\LBEngine\Scene.cpp(107,40): error C2672: 'Entity::GetComponent': no matching overloaded function found
+D:\Code\LBEngine\LBEngine\Scene.cpp(107,89): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
+D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+D:\Code\LBEngine\LBEngine\Scene.cpp(108,4): error C3536: 'cc': cannot be used before it is initialized
+D:\Code\LBEngine\LBEngine\Scene.cpp(112,118): error C3536: 'proj': cannot be used before it is initialized
+  TransformUpdateSystem.cpp
+D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
+D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
+D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
+D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
+D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,115): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
 D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
   Generating Code...
