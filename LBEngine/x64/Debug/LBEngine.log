@@ -1,5 +1,82 @@
-﻿  ComponentTypeManager.cpp
-D:\Code\LBEngine\LBEngine\src\ComponentTypeManager.cpp(17,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+﻿  Entity.cpp
+  InputSystem.cpp
+  PhysicsSystem.cpp
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(47,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(56,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Scene.cpp
+  TransformUpdateSystem.cpp
+  CameraActionSystem.cpp
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(25,60): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(25,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(28,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(28,63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(29,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(29,63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\type_traits(1607,98): warning C4244: 'argument': conversion from '_Ty' to 'DWORD', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\type_traits(1639): message : see reference to function template instantiation 'void std::invoke<_Callable&,_Ty,double>(CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>&,_Ty1 &&,double &&) noexcept(false)' being compiled
+          with
+          [
+              _Callable=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,
+              _Ty=Entity *,
+              _Ty1=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(902): message : see reference to function template instantiation 'void std::_Invoker_ret<_Rx,true>::_Call<_Callable&,_Ty,double>(_Callable &,_Ty &&,double &&)' being compiled
+          with
+          [
+              _Rx=void,
+              _Callable=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,
+              _Ty=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(903): message : see reference to function template instantiation 'void std::_Invoker_ret<_Rx,true>::_Call<_Callable&,_Ty,double>(_Callable &,_Ty &&,double &&)' being compiled
+          with
+          [
+              _Rx=void,
+              _Callable=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,
+              _Ty=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(902): message : while compiling class template member function '_Rx std::_Func_impl_no_alloc<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,_Rx,Entity *,double>::_Do_call(Entity *&&,double &&)'
+          with
+          [
+              _Rx=void
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(796): message : see reference to class template instantiation 'std::_Func_impl_no_alloc<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,_Ret,Entity *,double>' being compiled
+          with
+          [
+              _Ret=void
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(993): message : see reference to variable template 'const bool _Is_large<std::_Func_impl_no_alloc<<lambda_67f8b130a37e74410068aef95a214117>,void,Entity *,double> >' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(1126): message : see reference to function template instantiation 'void std::_Func_class<_Ret,Entity *,double>::_Reset<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>>(_Fx &&)' being compiled
+          with
+          [
+              _Ret=void,
+              _Fx=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(1126): message : see reference to function template instantiation 'void std::_Func_class<_Ret,Entity *,double>::_Reset<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>>(_Fx &&)' being compiled
+          with
+          [
+              _Ret=void,
+              _Fx=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>
+          ]
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(46): message : see reference to function template instantiation 'std::function<void (Entity *,double)>::function<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,0>(_Fx)' being compiled
+          with
+          [
+              _Fx=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>
+          ]
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(12): message : see reference to function template instantiation 'std::function<void (Entity *,double)>::function<CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>,0>(_Fx)' being compiled
+          with
+          [
+              _Fx=CameraActionSystem::<lambda_67f8b130a37e74410068aef95a214117>
+          ]
+  BitmapRenderSystem.cpp
+  CollisionSystem.cpp
+  ComponentTypeManager.cpp
+D:\Code\LBEngine\LBEngine\src\ComponentTypeManager.cpp(18,35): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Game.cpp
 D:\Code\LBEngine\LBEngine\src\Game.cpp(48,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Code\LBEngine\LBEngine\src\Game.cpp(442,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
