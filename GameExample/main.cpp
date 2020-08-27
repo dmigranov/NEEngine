@@ -65,6 +65,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         componentTypeManager->RegisterComponentType<WalkComponent>();
         componentTypeManager->RegisterComponentType<PhysicsComponent>();
         componentTypeManager->RegisterComponentType<CollisionComponent>();
+        
+        componentTypeManager->SetTypeAdditionEnded();
     }
 
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
@@ -212,7 +214,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         if (abs(v.x) < 0.1 && vxPrevAbs > abs(v.x))
             charPhysicsComponent->SetVelocity(Vector3(0, v.y, v.z));
 
-        std::cout << v.x << " " << v.y << std::endl;
+        //std::cout << v.x << " " << v.y << std::endl;
 
         //auto newV = Vector3(-sgn<float>(v.x)* v.x * v.x / 2, -sgn<float>(v.y) * v.y * v.y / 2, v.z);
         //force.SetVector(newV);
