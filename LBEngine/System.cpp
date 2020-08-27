@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "System.h"
 
-const std::bitset<COMPONENT_TYPE_COUNT>& System::GetComponentsMask()
+const boost::dynamic_bitset<>& System::GetComponentsMask()
 {
 	return m_componentsMask;
 }

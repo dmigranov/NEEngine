@@ -38,7 +38,7 @@ public:
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();
 		auto componentIndex = manager.GetComponentTypeIndex<T>();
-		m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
+		//m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 		m_component[index] = pComponent;
 		pComponent->Initialize(this);
 
@@ -51,7 +51,7 @@ public:
 	Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
-		return m_components[type];
+		return m_components[Game::GetInstance().GetComponentTypeManager().GetComponentTypeIndex<T>()];
 	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();
@@ -62,7 +62,7 @@ private:
 	MeshComponent* m_pMesh = nullptr;
 	TransformComponent* m_pTransform = nullptr;
 	//std::map<ComponentType, Component*> m_components;	
-	std::vector<ComponentType, Component*> m_components;	
+	std::vector<Component*> m_components;
 
 	bool m_isActive;
 	std::string m_name;

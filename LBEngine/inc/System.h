@@ -2,7 +2,7 @@
 #include <vector>
 
 #include "ComponentType.h"
-#include <bitset>
+#include <boost/dynamic_bitset.hpp>
 
 class Entity;
 class System
@@ -14,12 +14,12 @@ public:
 protected:
 	void SubscribeToComponentType(ComponentType ct);
 	std::vector<Entity *> m_entities;
-	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
+	boost::dynamic_bitset<> m_componentsMask;
 	boolean m_isDrawing = false;
 
 	virtual void AddEntity(Entity* pEntity);
 	friend class Scene;
 private:
-	const std::bitset<COMPONENT_TYPE_COUNT>& GetComponentsMask();
+	const boost::dynamic_bitset<>& GetComponentsMask();
 };
 
