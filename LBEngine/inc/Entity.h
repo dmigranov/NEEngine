@@ -8,11 +8,12 @@
 
 #include "MeshComponent.h"
 #include "ComponentType.h"
+#include "ComponentTypeManager.h"
 
 class Component;
 class TransformComponent;
 class RenderComponent;
-
+class Game;
 
 
 /**
@@ -37,21 +38,21 @@ public:
 	template<typename T> void AddComponent(Component* pComponent)		//new
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();
-		auto componentIndex = manager.GetComponentTypeIndex<T>();
+		auto componentIndex = manager->template GetComponentTypeIndex<T>();
 		//m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
-		m_component[index] = pComponent;
+		m_components[componentIndex] = pComponent;
 		pComponent->Initialize(this);
 
 		//boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
 		boost::dynamic_bitset<> add(manager->GetComponentTypesCount());
-		add[index] = 1;
+		add[componentIndex] = 1;
 		m_componentsMask |= add;
 	}
 
 	Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
-		return m_components[Game::GetInstance().GetComponentTypeManager().GetComponentTypeIndex<T>()];
+		return m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()];
 	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();

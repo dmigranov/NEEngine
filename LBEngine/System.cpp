@@ -18,6 +18,6 @@ System::System() : m_componentsMask(Game::GetInstance().GetComponentTypeManager(
 
 void System::SubscribeToComponentType(ComponentType type)
 {
-	std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
-	m_componentsMask |= add;
+	//std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
+	//m_componentsMask |= add;
 }

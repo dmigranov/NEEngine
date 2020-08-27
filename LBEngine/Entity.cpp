@@ -76,6 +76,7 @@ void Entity::Render()
 Component* Entity::GetComponent(ComponentType type)
 {
 	//return m_components[type];
+	return nullptr;
 }
 
 const boost::dynamic_bitset<>& Entity::GetComponentsMask()
