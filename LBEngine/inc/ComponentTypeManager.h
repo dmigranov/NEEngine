@@ -1,6 +1,7 @@
 #pragma once
 
 #include <typeindex>
+#include <map>
 
 class ComponentTypeManager
 {
@@ -17,9 +18,14 @@ public:
 
 	int GetComponentTypesCount();
 
+	template<typename T> unsigned int GetComponentTypeIndex()
+	{
+		return m_componentTypesMap[typeid(T)];
+	}
+
 private:
 	bool m_typeAdditionPossible = true;
 	std::vector<std::type_index> m_componentTypes;
-
+	std::map<std::type_index, unsigned int> m_componentTypesMap;
 	int m_componentTypesCount = 0;
 };
