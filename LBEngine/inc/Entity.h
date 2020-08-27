@@ -49,7 +49,8 @@ public:
 	//Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
-		return m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()];
+		//todo:
+		return static_cast<T*>(m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()]);
 	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();
