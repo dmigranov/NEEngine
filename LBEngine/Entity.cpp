@@ -10,7 +10,8 @@
 #include "TransformComponent.h"
 
 Entity::Entity(const char* name) : 
-	m_isActive(false), m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
+	m_isActive(false), m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount()),
+	m_components(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
 {
 	m_name = (nullptr == name) ? "Object" : name;
 	//m_pTransform = new TransformComponent();
@@ -39,11 +40,13 @@ void Entity::Initialize()
 
 void Entity::AddComponent(const ComponentType type, Component* pComponent)
 {
-	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
+	/*m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
 
-	boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
-	m_componentsMask |= add;
+	//boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
+	boost::dynamic_bitset<> add(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount());
+
+	m_componentsMask |= add;*/
 }
 
 void Entity::SetMesh(MeshComponent* pMesh)
@@ -72,7 +75,7 @@ void Entity::Render()
 
 Component* Entity::GetComponent(ComponentType type)
 {
-	return m_components[type];
+	//return m_components[type];
 }
 
 const boost::dynamic_bitset<>& Entity::GetComponentsMask()

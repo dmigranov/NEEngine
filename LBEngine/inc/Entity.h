@@ -36,13 +36,22 @@ public:
 	void AddComponent(const ComponentType type, Component* pComponent);	//old
 	template<typename T> void AddComponent(Component* pComponent)		//new
 	{
-		//todo
+		auto manager = Game::GetInstance().GetComponentTypeManager();
+		auto componentIndex = manager.GetComponentTypeIndex<T>();
+		m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
+		m_component[index] = pComponent;
+		pComponent->Initialize(this);
+
+		//boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
+		boost::dynamic_bitset<> add(manager->GetComponentTypesCount());
+		add[index] = 1;
+		m_componentsMask |= add;
 	}
 
 	Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
-		return nullptr; //todo
+		return m_components[type];
 	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();
@@ -52,7 +61,9 @@ private:
 	//EffectComponent* m_pEffect; //todo
 	MeshComponent* m_pMesh = nullptr;
 	TransformComponent* m_pTransform = nullptr;
-	std::map<ComponentType, Component*> m_components;	
+	//std::map<ComponentType, Component*> m_components;	
+	std::vector<ComponentType, Component*> m_components;	
+
 	bool m_isActive;
 	std::string m_name;
 
