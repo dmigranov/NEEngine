@@ -12,7 +12,6 @@
 // Components
 #include "ComponentTypeManager.h"
 
-#include "ComponentType.h"
 #include "PlayerComponent.h"
 #include "TransformComponent.h"
 #include "InputComponent.h"
@@ -83,11 +82,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         [](Entity* pEntity, double deltaTime) {
 
         auto pTransform = pEntity->GetTransform();
-        auto pInput = (InputComponent*)pEntity->GetComponent(ComponentType::InputComponentType);
+        auto pInput = (InputComponent*)pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
-        auto pWalk = (WalkComponent*)pEntity->GetComponent(ComponentType::WalkComponentType);
-        auto pPhysics = (PhysicsComponent*)pEntity->GetComponent(ComponentType::PhysicsComponentType);
+        auto pWalk = (WalkComponent*)pEntity->GetComponent<WalkComponent>();
+        auto pPhysics = (PhysicsComponent*)pEntity->GetComponent<PhysicsComponent>();
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
@@ -150,7 +149,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     cameraComponent->SetOrthogonalWidth(30.);
 
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent(ComponentType::CameraComponentType, cameraComponent);
+    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
 
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
@@ -174,9 +173,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             auto t = transforms[j] = new TransformComponent(ColumnNumber, RowNumber, 1, 0, 0, 0, 1, 1, 1);
             j++;
             e->SetTransform(t);
-            e->AddComponent(ComponentType::BitmapComponentType, brickBitmap);
-            e->AddComponent(ComponentType::PhysicsComponentType, brickPhysicsComponent);
-            e->AddComponent(ComponentType::CollisionComponentType, brickCollisionComponent);
+            e->AddComponent<BitmapComponent>(brickBitmap);
+            e->AddComponent<PhysicsComponent>(brickPhysicsComponent);
+            e->AddComponent<CollisionComponent>(brickCollisionComponent);
             scene->AddEntity(e);
         }
     }
@@ -188,8 +187,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new AABBCollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {
 
-        auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent(ComponentType::PhysicsComponentType);
-        auto pTransform = (TransformComponent*)pThisEntity->GetComponent(ComponentType::TransformComponentType);
+        auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent<PhysicsComponent>();
+        auto pTransform = (TransformComponent*)pThisEntity->GetComponent<TransformComponent>();
 
         auto velocity = pPhysics->GetVelocity();
         auto acceleration = pPhysics->GetAcceleration();
@@ -226,11 +225,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     Entity* character = new Entity();
 
     character->SetTransform(charTransform);
-    character->AddComponent(ComponentType::BitmapComponentType, charBitmap);
-    character->AddComponent(ComponentType::WalkComponentType, charWalkComponent);
-    character->AddComponent(ComponentType::PhysicsComponentType, charPhysicsComponent);
-    character->AddComponent(ComponentType::InputComponentType, charInputComponent);
-    character->AddComponent(ComponentType::CollisionComponentType, charCollisionComponent);
+    character->AddComponent<BitmapComponent>(charBitmap);
+    character->AddComponent<WalkComponent>(charWalkComponent);
+    character->AddComponent<PhysicsComponent>(charPhysicsComponent);
+    character->AddComponent<InputComponent>(charInputComponent);
+    character->AddComponent<CollisionComponent>(charCollisionComponent);
 
     
     cameraTransform->SetParent(charTransform);

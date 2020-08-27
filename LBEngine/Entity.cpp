@@ -3,9 +3,6 @@
 
 #include "Game.h"
 #include "ComponentTypeManager.h"
-
-
-#include "ComponentType.h"
 #include "Component.h"
 #include "TransformComponent.h"
 

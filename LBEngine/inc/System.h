@@ -2,7 +2,6 @@
 #include <vector>
 #include <boost/dynamic_bitset.hpp>
 
-#include "ComponentType.h"
 
 class Entity;
 class Game;
