@@ -16,8 +16,8 @@ void System::AddEntity(Entity* pEntity)
 System::System() : m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
 {}
 
-void System::SubscribeToComponentType(ComponentType type)
+/*void System::SubscribeToComponentType(ComponentType type)
 {
-	//std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
-	//m_componentsMask |= add;
-}
+	std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
+	m_componentsMask |= add;
+}*/

@@ -14,7 +14,7 @@ public:
 	virtual ~System() {};
 	virtual void Execute(double deltaTime) {};
 protected:
-	void SubscribeToComponentType(ComponentType ct);
+	//void SubscribeToComponentType(ComponentType ct);
 
 	template<typename T> void SubscribeToComponentType()
 	{

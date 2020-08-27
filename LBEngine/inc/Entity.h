@@ -5,7 +5,6 @@
 #include <typeindex>
 #include <boost/dynamic_bitset.hpp>
 
-
 #include "MeshComponent.h"
 #include "ComponentType.h"
 #include "ComponentTypeManager.h"
@@ -34,22 +33,20 @@ public:
 
 	void Render();
 
-	void AddComponent(const ComponentType type, Component* pComponent);	//old
+	//void AddComponent(const ComponentType type, Component* pComponent);	//old
 	template<typename T> void AddComponent(Component* pComponent)		//new
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();
 		auto componentIndex = manager->template GetComponentTypeIndex<T>();
-		//m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 		m_components[componentIndex] = pComponent;
 		pComponent->Initialize(this);
 
-		//boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;	//todo
 		boost::dynamic_bitset<> add(manager->GetComponentTypesCount());
 		add[componentIndex] = 1;
 		m_componentsMask |= add;
 	}
 
-	Component* GetComponent(ComponentType type);	//old
+	//Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
 		return m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()];
