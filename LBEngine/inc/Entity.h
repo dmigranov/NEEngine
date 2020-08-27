@@ -3,7 +3,8 @@
 #include <string>
 #include <map>
 #include <typeindex>
-#include <bitset>
+#include <boost/dynamic_bitset.hpp>
+
 
 #include "MeshComponent.h"
 #include "ComponentType.h"
@@ -11,6 +12,8 @@
 class Component;
 class TransformComponent;
 class RenderComponent;
+
+
 
 /**
 * @brief Basic class for all entities (objects) in the scene.
@@ -45,7 +48,7 @@ private:
 	std::string m_name;
 
 	//todo: dynamic bitset, тк при использовании манагера в компайл тайм размер неизвестен
-	std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;
+	boost::dynamic_bitset<> m_componentsMask;
 };
 
 template<typename T>
