@@ -6,7 +6,7 @@
 #include "TransformComponent.h"
 
 Entity::Entity(const char* name) : 
-	m_isActive(false)
+	m_isActive(false), m_componentsMask(/* TODO */)
 {
 	m_name = (nullptr == name) ? "Object" : name;
 
@@ -39,7 +39,7 @@ void Entity::AddComponent(const ComponentType type, Component* pComponent)
 	m_components.insert(std::pair<ComponentType, Component*>(type, pComponent));
 	pComponent->Initialize(this);
 
-	std::bitset<COMPONENT_TYPE_COUNT> add = (size_t)1 << (size_t)type;
+	boost::dynamic_bitset<> add = (size_t)1 << (size_t)type;
 	m_componentsMask |= add;
 }
 
@@ -72,7 +72,7 @@ Component* Entity::GetComponent(ComponentType type)
 	return m_components[type];
 }
 
-const std::bitset<COMPONENT_TYPE_COUNT>& Entity::GetComponentsMask()
+const boost::dynamic_bitset<>& Entity::GetComponentsMask()
 {
 	return m_componentsMask;
 }
