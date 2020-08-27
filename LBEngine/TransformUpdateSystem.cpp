@@ -4,7 +4,7 @@
 #include "TransformComponent.h"
 #include "ComponentType.h"
 
-TransformUpdateSystem::TransformUpdateSystem()
+TransformUpdateSystem::TransformUpdateSystem() : System()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 }

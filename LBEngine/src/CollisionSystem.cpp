@@ -16,7 +16,7 @@
 
 using namespace DirectX::SimpleMath;
 
-CollisionSystem::CollisionSystem()
+CollisionSystem::CollisionSystem() : System()
 {
 	SubscribeToComponentType(ComponentType::CollisionComponentType);
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);

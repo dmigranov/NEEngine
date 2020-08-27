@@ -6,7 +6,7 @@
 
 #include "Game.h"
 
-BitmapRenderSystem::BitmapRenderSystem()
+BitmapRenderSystem::BitmapRenderSystem() : System()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 	SubscribeToComponentType(ComponentType::BitmapComponentType);

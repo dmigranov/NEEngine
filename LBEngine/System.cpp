@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "System.h"
+#include "Game.h"
+#include "ComponentTypeManager.h"
 
 const boost::dynamic_bitset<>& System::GetComponentsMask()
 {
@@ -10,6 +12,9 @@ void System::AddEntity(Entity* pEntity)
 {
 	m_entities.push_back(pEntity);
 }
+
+System::System() : m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
+{}
 
 void System::SubscribeToComponentType(ComponentType type)
 {

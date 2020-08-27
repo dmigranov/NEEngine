@@ -1,14 +1,14 @@
 #pragma once
 #include <vector>
+#include <boost/dynamic_bitset.hpp>
 
 #include "ComponentType.h"
-#include <boost/dynamic_bitset.hpp>
 
 class Entity;
 class System
 {
 public:
-	System() {};
+	System();
 	virtual ~System() {};
 	virtual void Execute(double deltaTime) {};
 protected:

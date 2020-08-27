@@ -11,7 +11,7 @@
 
 using namespace DirectX::SimpleMath;
 
-PhysicsSystem::PhysicsSystem()
+PhysicsSystem::PhysicsSystem() : System()
 {
 	SubscribeToComponentType(ComponentType::TransformComponentType);
 	SubscribeToComponentType(ComponentType::PhysicsComponentType);

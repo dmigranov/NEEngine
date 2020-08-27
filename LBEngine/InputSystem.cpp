@@ -7,7 +7,7 @@
 
 using namespace DirectX;
 
-InputSystem::InputSystem()
+InputSystem::InputSystem() : System()
 {
 	SubscribeToComponentType(ComponentType::InputComponentType);
 
