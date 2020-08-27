@@ -5,7 +5,6 @@
 #include "AABBCollisionComponent.h"
 #include "CircleCollisionComponent.h"
 
-#include "CollisionComponentType.h"
 
 #include "PhysicsComponent.h"
 #include "TransformComponent.h"
@@ -18,9 +17,9 @@ using namespace DirectX::SimpleMath;
 
 CollisionSystem::CollisionSystem() : System()
 {
-	SubscribeToComponentType(ComponentType::CollisionComponentType);
-	SubscribeToComponentType(ComponentType::PhysicsComponentType);
-	SubscribeToComponentType(ComponentType::TransformComponentType);
+	SubscribeToComponentType<CollisionComponent>();
+	SubscribeToComponentType<PhysicsComponent>();
+	SubscribeToComponentType<TransformComponent>();
 }
 
 void CollisionSystem::Execute(double deltaTime)
@@ -38,10 +37,10 @@ void CollisionSystem::Execute(double deltaTime)
 
 				if (areCollided)
 				{
-					CollisionComponent* pCollision1 = (CollisionComponent*)pMovable->GetComponent(ComponentType::CollisionComponentType);
-					CollisionComponent* pCollision2 = (CollisionComponent*)e->GetComponent(ComponentType::CollisionComponentType);
-					PhysicsComponent* pPhysics1 = (PhysicsComponent*)pMovable->GetComponent(ComponentType::PhysicsComponentType);
-					PhysicsComponent* pPhysics2 = (PhysicsComponent*)e->GetComponent(ComponentType::PhysicsComponentType);
+					CollisionComponent* pCollision1 = pMovable->GetComponent<CollisionComponent>();
+					CollisionComponent* pCollision2 = e->GetComponent<CollisionComponent>();
+					PhysicsComponent* pPhysics1 = pMovable->GetComponent<PhysicsComponent>();
+					PhysicsComponent* pPhysics2 = e->GetComponent<PhysicsComponent>();
 
 					//todo: calculate normal and penetration
 
@@ -62,7 +61,7 @@ void CollisionSystem::Execute(double deltaTime)
 
 void CollisionSystem::AddEntity(Entity* pEntity)
 {
-	CollisionComponent* pCollision = (CollisionComponent*)pEntity->GetComponent(ComponentType::CollisionComponentType);
+	CollisionComponent* pCollision = pEntity->GetComponent<CollisionComponent>();
 
 	if (pCollision->IsMovable())
 		m_movableEntities.push_back(pEntity);
@@ -75,20 +74,24 @@ bool CollisionSystem::CheckCollision(ContactManifold& resultContactManifold)
 	auto pEntity1 = resultContactManifold.m_pEntity1, pEntity2 = resultContactManifold.m_pEntity2;
 	bool areCollided = false;
 
-	CollisionComponent* pCollision1 = (CollisionComponent*)pEntity1->GetComponent(ComponentType::CollisionComponentType);
-	CollisionComponent* pCollision2 = (CollisionComponent*)pEntity2->GetComponent(ComponentType::CollisionComponentType);
+	CollisionComponent* pCollision1 = pEntity1->GetComponent<CollisionComponent>();
+	CollisionComponent* pCollision2 = pEntity2->GetComponent<CollisionComponent>();
 
-	TransformComponent* pTransform1 = (TransformComponent*)pEntity1->GetComponent(ComponentType::TransformComponentType);
-	TransformComponent* pTransform2 = (TransformComponent*)pEntity2->GetComponent(ComponentType::TransformComponentType);
+	TransformComponent* pTransform1 = pEntity1->GetComponent<TransformComponent>();
+	TransformComponent* pTransform2 = pEntity2->GetComponent<TransformComponent>();
 
 	CollisionComponentType type1 = pCollision1->GetType(), type2 = pCollision2->GetType();
 	
+	/*
 	if (type1 == CollisionComponentType::AAABCollisionComponentType && type2 == CollisionComponentType::AAABCollisionComponentType)
 		areCollided = CheckDoubleAABBCollision(static_cast<AABBCollisionComponent*>(pCollision1), static_cast<AABBCollisionComponent*>(pCollision2), pTransform1, pTransform2);
 	else if (type1 == CollisionComponentType::CircleCollisionComponentType && type2 == CollisionComponentType::CircleCollisionComponentType)
 		areCollided = CheckDoubleCircleCollision(static_cast<CircleCollisionComponent*>(pCollision1), static_cast<CircleCollisionComponent*>(pCollision2), pTransform1, pTransform2);
 	else
 		; //areCollided = CheckAABBCircleCollision(static_cast<AABBCollisionComponent*>(pCollision1), static_cast<CircleCollisionComponent*>(pCollision2), pTransform1, pTransform2);
+	
+	*/	//todo: исправить!
+	areCollided = CheckDoubleAABBCollision(static_cast<AABBCollisionComponent*>(pCollision1), static_cast<AABBCollisionComponent*>(pCollision2), pTransform1, pTransform2);
 	return areCollided;
 }
 

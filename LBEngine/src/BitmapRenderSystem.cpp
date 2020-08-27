@@ -8,8 +8,8 @@
 
 BitmapRenderSystem::BitmapRenderSystem() : System()
 {
-	SubscribeToComponentType(ComponentType::TransformComponentType);
-	SubscribeToComponentType(ComponentType::BitmapComponentType);
+	SubscribeToComponentType<TransformComponent>();
+	SubscribeToComponentType<BitmapComponent>();
 
 	m_isDrawing = true;
 }
@@ -72,7 +72,7 @@ void BitmapRenderSystem::Execute(double)
 
 void BitmapRenderSystem::AddEntity(Entity* pEntity)
 {
-	BitmapComponent* bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
+	BitmapComponent* bitmapComponent = pEntity->GetComponent<BitmapComponent>();
 
 	if (bitmapComponent->IsOpaque())
 		m_opaqueEntities.push_back(pEntity);
@@ -85,8 +85,8 @@ void BitmapRenderSystem::AddEntity(Entity* pEntity)
 
 void BitmapRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
 {
-	BitmapComponent* p_bitmapComponent = (BitmapComponent*)pEntity->GetComponent(ComponentType::BitmapComponentType);
-	TransformComponent* p_transformComponent = (TransformComponent*)pEntity->GetComponent(ComponentType::TransformComponentType);
+	BitmapComponent* p_bitmapComponent = pEntity->GetComponent<BitmapComponent>();
+	TransformComponent* p_transformComponent = pEntity->GetComponent<TransformComponent>();
 	{
 
 		unsigned int stride;

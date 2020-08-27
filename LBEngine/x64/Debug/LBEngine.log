@@ -1,5 +1,4 @@
-﻿  CameraActionSystem.cpp
-  InputSystem.cpp
+﻿  InputSystem.cpp
 D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
           with
           [
@@ -16,86 +15,147 @@ D:\Code\LBEngine\LBEngine\InputSystem.cpp(27): message : see reference to functi
               T=InputComponent
           ]
   PhysicsSystem.cpp
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(16,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(16,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(17,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(17,62): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(24,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(24,115): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(25,57): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(25,107): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(47,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(56,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=TransformComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(24): message : see reference to function template instantiation 'T *Entity::GetComponent<TransformComponent>(void)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=PhysicsComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(25): message : see reference to function template instantiation 'T *Entity::GetComponent<PhysicsComponent>(void)' being compiled
+          with
+          [
+              T=PhysicsComponent
+          ]
   BitmapRenderSystem.cpp
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(11,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(11,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(12,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(12,61): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(75,62): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(75,111): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(88,64): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(88,113): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(89,73): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(89,125): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=BitmapComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(75): message : see reference to function template instantiation 'T *Entity::GetComponent<BitmapComponent>(void)' being compiled
+          with
+          [
+              T=BitmapComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=TransformComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\src\BitmapRenderSystem.cpp(89): message : see reference to function template instantiation 'T *Entity::GetComponent<TransformComponent>(void)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
   CollisionSystem.cpp
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(21,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(21,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(22,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(22,62): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(23,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(23,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(41,69): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(41,121): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(42,62): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(42,114): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(43,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(43,113): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(44,56): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(44,106): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(65,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(65,115): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(78,65): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(78,117): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(79,65): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(79,117): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(81,65): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(81,117): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(82,65): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(82,117): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=CollisionComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(40): message : see reference to function template instantiation 'T *Entity::GetComponent<CollisionComponent>(void)' being compiled
+          with
+          [
+              T=CollisionComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=PhysicsComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(42): message : see reference to function template instantiation 'T *Entity::GetComponent<PhysicsComponent>(void)' being compiled
+          with
+          [
+              T=PhysicsComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=TransformComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\src\CollisionSystem.cpp(80): message : see reference to function template instantiation 'T *Entity::GetComponent<TransformComponent>(void)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
   Scene.cpp
-D:\Code\LBEngine\LBEngine\Scene.cpp(107,40): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\Scene.cpp(107,89): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
-D:\Code\LBEngine\LBEngine\Scene.cpp(108,4): error C3536: 'cc': cannot be used before it is initialized
-D:\Code\LBEngine\LBEngine\Scene.cpp(112,118): error C3536: 'proj': cannot be used before it is initialized
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=CameraComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\Scene.cpp(107): message : see reference to function template instantiation 'T *Entity::GetComponent<CameraComponent>(void)' being compiled
+          with
+          [
+              T=CameraComponent
+          ]
   TransformUpdateSystem.cpp
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,2): error C2672: 'System::SubscribeToComponentType': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(9,64): error C2780: 'void System::SubscribeToComponentType(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\System.h(18): message : see declaration of 'System::SubscribeToComponentType'
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,63): error C2672: 'Entity::GetComponent': no matching overloaded function found
-D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16,115): error C2780: 'T *Entity::GetComponent(void)': expects 0 arguments - 1 provided
-D:\Code\LBEngine\LBEngine\inc\Entity.h(50): message : see declaration of 'Entity::GetComponent'
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,1): error C2440: 'return': cannot convert from '_Ty' to 'T *'
+          with
+          [
+              _Ty=Component *
+          ]
+          and
+          [
+              T=TransformComponent
+          ]
+D:\Code\LBEngine\LBEngine\inc\Entity.h(52,105): message : Cast from base to derived requires dynamic_cast or static_cast
+D:\Code\LBEngine\LBEngine\TransformUpdateSystem.cpp(16): message : see reference to function template instantiation 'T *Entity::GetComponent<TransformComponent>(void)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
   Generating Code...

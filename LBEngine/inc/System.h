@@ -1,10 +1,11 @@
 #pragma once
 #include <vector>
 #include <boost/dynamic_bitset.hpp>
+#include "Game.h"
+#include "ComponentTypeManager.h"
 
 
 class Entity;
-class Game;
 
 class System
 {

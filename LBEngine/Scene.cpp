@@ -104,7 +104,7 @@ void Scene::UpdateProjMatrix()
 {
 	//todo: оптимизировать: сохранить в поле?
 
-	auto cc = (CameraComponent*)(m_pCamera->GetComponent(ComponentType::CameraComponentType));
+	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
 	auto proj = cc->GetProj();
