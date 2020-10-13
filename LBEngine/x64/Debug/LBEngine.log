@@ -1,14 +1,1 @@
-﻿  Entity.cpp
-  CameraActionSystem.cpp
-  InputSystem.cpp
-  PhysicsSystem.cpp
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(47,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(52,92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Code\LBEngine\LBEngine\PhysicsSystem.cpp(56,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  BitmapRenderSystem.cpp
-  CollisionSystem.cpp
-  Scene.cpp
-  TransformUpdateSystem.cpp
-  Generating Code...
-  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
+﻿  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
