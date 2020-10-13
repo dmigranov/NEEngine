@@ -145,11 +145,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraComponent = new CameraComponent(false);
+    auto cameraComponent = new CameraComponent(true);
     cameraComponent->SetOrthogonalWidth(30.);
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
+    cameraEntity->AddComponent<InputComponent>(new InputComponent());
 
     scene->AddEntity(cameraEntity);
     scene->SetCamera(cameraEntity);
@@ -232,7 +233,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     character->AddComponent<CollisionComponent>(charCollisionComponent);
 
     
-    cameraTransform->SetParent(charTransform);
+    //cameraTransform->SetParent(charTransform);
 
     scene->AddEntity(character);
 

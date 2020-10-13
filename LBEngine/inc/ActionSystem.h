@@ -25,7 +25,7 @@ public:
             m_executeFunc(pEntity, deltaTime);
         }
     }
-private:
+protected:
     std::function<void(Entity*, double)> m_executeFunc;
 
 };

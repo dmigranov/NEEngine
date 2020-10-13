@@ -1,14 +1,16 @@
 #pragma once
 #include "ActionSystem.h"
+#include "CameraComponent.h"
 
 class InputComponent;
 class TransformComponent;
-class WalkComponent;
-class PhysicsComponent;
+
+
 
 class CameraActionSystem :
-	public ActionSystem<InputComponent, TransformComponent, WalkComponent, PhysicsComponent>
+	public ActionSystem<InputComponent, TransformComponent, CameraComponent>
 {
 public:
 	CameraActionSystem();
+    
 };

@@ -14,7 +14,7 @@ InputSystem::InputSystem() : System()
 	m_keyboard = std::make_unique<Keyboard>();
 	m_mouse = std::make_unique<Mouse>();
 	m_mouse->SetWindow(Game::GetInstance().m_hwnd);
-	//m_mouse->SetMode(Mouse::MODE_RELATIVE);
+	m_mouse->SetMode(Mouse::MODE_RELATIVE);
 }
 
 void InputSystem::Execute(double deltaTime)
