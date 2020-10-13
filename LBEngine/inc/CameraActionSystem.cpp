@@ -34,7 +34,5 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, doub
     if (kbs.D)
         pTransform->Move(right);
 
-
-
 })
 {}

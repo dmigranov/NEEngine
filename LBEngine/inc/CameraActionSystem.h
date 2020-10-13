@@ -6,7 +6,6 @@ class InputComponent;
 class TransformComponent;
 
 
-
 class CameraActionSystem :
 	public ActionSystem<InputComponent, TransformComponent, CameraComponent>
 {
