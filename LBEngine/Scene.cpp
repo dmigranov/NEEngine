@@ -6,7 +6,6 @@
 
 #include "TransformComponent.h"
 #include "CameraComponent.h"
-#include "ComponentType.h"
 
 #include "Game.h"
 

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "InputSystem.h"
-#include "ComponentType.h"
 #include "Entity.h"
 
 #include "Game.h"

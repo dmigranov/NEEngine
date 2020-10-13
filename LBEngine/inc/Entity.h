@@ -6,7 +6,6 @@
 #include <boost/dynamic_bitset.hpp>
 
 #include "MeshComponent.h"
-#include "ComponentType.h"
 #include "ComponentTypeManager.h"
 
 class Component;

@@ -2,7 +2,6 @@
 #include "TransformUpdateSystem.h"
 #include "Entity.h"
 #include "TransformComponent.h"
-#include "ComponentType.h"
 
 TransformUpdateSystem::TransformUpdateSystem() : System()
 {
