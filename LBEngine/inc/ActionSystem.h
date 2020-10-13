@@ -5,28 +5,17 @@
 
 //https://gamedev.stackexchange.com/questions/56519/movement-physics-in-an-entity-component-system
 
-//Args&& is rvalue reference
-//legal: T&& r = T();
-template<typename... Args> inline void pass(Args&&...) {}
 
-template<typename... Args> inline void expand(Args&&... args)
-{
-    pass(SubscribeToComponentType(args)...);
-}
 
-template <class... Types>
+template <class... T>
 class ActionSystem :
     public System
 {
 public:
-    //todo:
-    //ActionSystem(const std::list<ComponentType>& types, std::function<void(Entity*, double)> func);
-    ActionSystem(std::function<void(Entity*, double)>)
+    ActionSystem(std::function<void(Entity*, double)> func)
     {
-        //for (auto type : types)
-        //    SubscribeToComponentType(type);
-
-
+        //... после выражения - вызывает дял каждого элемента списка T...
+        int dummy[] = { (SubscribeToComponentType<T>(), 0)... };
 
         m_executeFunc = func;
     }
