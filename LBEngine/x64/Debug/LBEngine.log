@@ -1,1 +1,67 @@
-﻿  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib
+﻿  CameraActionSystem.cpp
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(24,60): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(24,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(27,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(27,63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(28,46): warning C4244: 'argument': conversion from 'DWORD' to 'float', possible loss of data
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(28,63): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\type_traits(1607,98): warning C4244: 'argument': conversion from '_Ty' to 'DWORD', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\type_traits(1639): message : see reference to function template instantiation 'void std::invoke<_Callable&,_Ty,double>(CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>&,_Ty1 &&,double &&) noexcept(false)' being compiled
+          with
+          [
+              _Callable=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,
+              _Ty=Entity *,
+              _Ty1=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(902): message : see reference to function template instantiation 'void std::_Invoker_ret<_Rx,true>::_Call<_Callable&,_Ty,double>(_Callable &,_Ty &&,double &&)' being compiled
+          with
+          [
+              _Rx=void,
+              _Callable=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,
+              _Ty=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(903): message : see reference to function template instantiation 'void std::_Invoker_ret<_Rx,true>::_Call<_Callable&,_Ty,double>(_Callable &,_Ty &&,double &&)' being compiled
+          with
+          [
+              _Rx=void,
+              _Callable=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,
+              _Ty=Entity *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(902): message : while compiling class template member function '_Rx std::_Func_impl_no_alloc<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,_Rx,Entity *,double>::_Do_call(Entity *&&,double &&)'
+          with
+          [
+              _Rx=void
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(796): message : see reference to class template instantiation 'std::_Func_impl_no_alloc<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,_Ret,Entity *,double>' being compiled
+          with
+          [
+              _Ret=void
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(993): message : see reference to variable template 'const bool _Is_large<std::_Func_impl_no_alloc<<lambda_ed155b7c167137bb1c8af11071980970>,void,Entity *,double> >' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(1126): message : see reference to function template instantiation 'void std::_Func_class<_Ret,Entity *,double>::_Reset<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>>(_Fx &&)' being compiled
+          with
+          [
+              _Ret=void,
+              _Fx=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\functional(1126): message : see reference to function template instantiation 'void std::_Func_class<_Ret,Entity *,double>::_Reset<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>>(_Fx &&)' being compiled
+          with
+          [
+              _Ret=void,
+              _Fx=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>
+          ]
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(43): message : see reference to function template instantiation 'std::function<void (Entity *,double)>::function<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,0>(_Fx)' being compiled
+          with
+          [
+              _Fx=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>
+          ]
+D:\Code\LBEngine\LBEngine\inc\CameraActionSystem.cpp(12): message : see reference to function template instantiation 'std::function<void (Entity *,double)>::function<CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>,0>(_Fx)' being compiled
+          with
+          [
+              _Fx=CameraActionSystem::<lambda_ed155b7c167137bb1c8af11071980970>
+          ]
+  LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngined.lib

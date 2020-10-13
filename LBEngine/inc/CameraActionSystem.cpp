@@ -18,7 +18,6 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, DWOR
     auto pWalk = (WalkComponent*)pEntity->GetComponent<WalkComponent>();
     auto pVelocity = (PhysicsComponent*)pEntity->GetComponent<PhysicsComponent>();
 
-
     if (ms.leftButton)
     {
         Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
@@ -36,6 +35,9 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, DWOR
         pTransform->Move(-right);
     if (kbs.D)
         pTransform->Move(right);
+    std::cout << deltaTime << std::endl;
+
+
 
 })
 {}

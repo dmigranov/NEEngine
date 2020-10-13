@@ -2,11 +2,8 @@
 
 #include "Game.h"
 #include "Scene.h"
-
 #include "ResourceManager.h"
-
 #include "InputComponent.h"
-
 #include "Entity.h"
 
 // Components
@@ -31,6 +28,7 @@
 #include "InputSystem.h"
 #include "BitmapRenderSystem.h"
 #include "ActionSystem.h"
+#include "CameraActionSystem.h"
 #include "PhysicsSystem.h"
 #include "CollisionSystem.h"
 
@@ -81,8 +79,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
     
-    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent, PhysicsComponent>([](Entity* pEntity, double deltaTime) {
-
+    /*scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent, PhysicsComponent>([](Entity* pEntity, double deltaTime) {
         auto pTransform = pEntity->GetTransform();
         auto pInput = (InputComponent*)pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
@@ -143,7 +140,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             pPhysics->RemoveForce("jump");
             isSpacePressed = false;
         }
-    }));
+    }));*/
+    scene->AddSystem(new CameraActionSystem());
     
 
     Entity* cameraEntity = new Entity("camera1");
