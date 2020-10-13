@@ -7,6 +7,7 @@
 #include "SphericalMeshLoader.h"
 
 #include "MeshComponent.h"
+#include "TransformComponent.h"
 
 #include "SphericalOctahedron.h"
 #include "SphericalCube.h"
@@ -261,6 +262,8 @@ int Game::Initialize(HWND window, int width, int height)
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
     m_pResourceManager = new ResourceManager(g_d3dDevice);
     m_pComponentTypeManager = new ComponentTypeManager();
+    m_pComponentTypeManager->RegisterComponentType<TransformComponent>();
+    m_pComponentTypeManager->RegisterComponentType<MeshComponent>();
 
     return 0;
 }

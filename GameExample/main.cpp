@@ -54,8 +54,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
     {
         auto componentTypeManager = game.GetComponentTypeManager();
-        componentTypeManager->RegisterComponentType<TransformComponent>();
-        componentTypeManager->RegisterComponentType<MeshComponent>();
         componentTypeManager->RegisterComponentType<PlayerComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();

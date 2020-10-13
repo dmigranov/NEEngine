@@ -2,7 +2,6 @@
 #include "ComponentTypeManager.h"
 
 
-
 void ComponentTypeManager::SetTypeAdditionEnded()
 {
     m_typeAdditionPossible = false;
