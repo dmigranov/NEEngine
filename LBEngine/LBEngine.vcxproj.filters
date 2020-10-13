@@ -168,9 +168,6 @@
     <ClCompile Include="src\WalkComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\ActionSystem.cpp">
-      <Filter>Исходные файлы\Systems</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicsSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>

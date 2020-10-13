@@ -5,8 +5,6 @@
 
 //https://gamedev.stackexchange.com/questions/56519/movement-physics-in-an-entity-component-system
 
-
-
 template <class... T>
 class ActionSystem :
     public System

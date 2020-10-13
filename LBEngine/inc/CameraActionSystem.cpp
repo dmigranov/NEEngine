@@ -9,7 +9,7 @@
 
 using namespace DirectX::SimpleMath;
 
-/*CameraActionSystem::CameraActionSystem() : ActionSystem({ ComponentType::InputComponentType, ComponentType::TransformComponentType, ComponentType::WalkComponentType, ComponentType::PhysicsComponentType }, [](Entity* pEntity, DWORD deltaTime)  {
+CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, DWORD deltaTime)  {
 
     auto pTransform = pEntity->GetTransform();
     auto pInput = pEntity->GetComponent<InputComponent>();
@@ -37,8 +37,5 @@ using namespace DirectX::SimpleMath;
     if (kbs.D)
         pTransform->Move(right);
 
-
-
 })
 {}
-*/
