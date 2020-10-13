@@ -8,10 +8,4 @@
 	m_executeFunc = func;
 }*/
 
-void ActionSystem::Execute(double deltaTime)
-{
-	for (auto pEntity : m_entities)
-	{
-		m_executeFunc(pEntity, deltaTime);
-	}
-}
+
