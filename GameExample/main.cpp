@@ -42,6 +42,7 @@ template <typename T> int sgn(T val)
 }
 
 // Entry point
+// todo: make it possible to start from regular main!
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     //todo: Component* -> Component&  ?
@@ -79,11 +80,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     
     scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent, PhysicsComponent>([](Entity* pEntity, double deltaTime) {
         auto pTransform = pEntity->GetTransform();
-        auto pInput = (InputComponent*)pEntity->GetComponent<InputComponent>();
+        auto pInput = pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
-        auto pWalk = (WalkComponent*)pEntity->GetComponent<WalkComponent>();
-        auto pPhysics = (PhysicsComponent*)pEntity->GetComponent<PhysicsComponent>();
+        auto pWalk = pEntity->GetComponent<WalkComponent>();
+        auto pPhysics = pEntity->GetComponent<PhysicsComponent>();
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
@@ -184,8 +185,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto charInputComponent = new InputComponent();
     auto charCollisionComponent = new AABBCollisionComponent([](Entity* pThisEntity, Entity* pOtherEntity, double deltaTime) {
 
-        auto pPhysics = (PhysicsComponent*)pThisEntity->GetComponent<PhysicsComponent>();
-        auto pTransform = (TransformComponent*)pThisEntity->GetComponent<TransformComponent>();
+        auto pPhysics = pThisEntity->GetComponent<PhysicsComponent>();
+        auto pTransform = pThisEntity->GetComponent<TransformComponent>();
 
         auto velocity = pPhysics->GetVelocity();
         auto acceleration = pPhysics->GetAcceleration();
