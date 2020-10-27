@@ -89,17 +89,22 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         
         AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); //чтобы это были соотношения рабочей области!
 
-        HWND hwnd = CreateWindowExW(0, L"Direct3DGameWindowClass", windowName, WS_OVERLAPPEDWINDOW,
-            CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
-            nullptr);
-        // TODO: Change to CreateWindowExW(WS_EX_TOPMOST, L"Direct3DGameWindowClass", L"Direct3DGame", WS_POPUP,
-        // to default to fullscreen.
+        HWND hwnd;
+
+
+        if(isFullscreenEnabled)
+            hwnd = CreateWindowExW(WS_EX_TOPMOST, L"Direct3DGameWindowClass", windowName, WS_POPUP,
+                CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+                nullptr);
+        else
+            hwnd = CreateWindowExW(0, L"Direct3DGameWindowClass", windowName, WS_OVERLAPPEDWINDOW,
+                CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+                nullptr);
 
         if (!hwnd)
             return 1;
 
         ShowWindow(hwnd, nCmdShow);
-        // TODO: Change nCmdShow to SW_SHOWMAXIMIZED to default to fullscreen.
 
         GetClientRect(hwnd, &rc);
 
@@ -118,8 +123,13 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
 int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isFullscreenEnabled, bool isVSyncEnabled)
 {
     auto hInstance = GetModuleHandle(nullptr);
-    auto nCmdShow = SW_SHOWNORMAL;
-    return InitializeEngine(hInstance, nCmdShow, windowName, isConsoleEnabled, isVSyncEnabled);
+    int nCmdShow;
+    if(isFullscreenEnabled)
+        nCmdShow = SW_SHOWMAXIMIZED;
+    else
+        nCmdShow = SW_SHOWNORMAL;
+
+    return InitializeEngine(hInstance, nCmdShow, windowName, isConsoleEnabled, isFullscreenEnabled, isVSyncEnabled);
 }
 
 
