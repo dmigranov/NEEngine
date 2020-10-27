@@ -49,7 +49,7 @@ int main(int argc, char * argv[])
     //todo: Component* -> Component&  ?
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(L"Test game", true, false);
+    game.InitializeEngine(L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();

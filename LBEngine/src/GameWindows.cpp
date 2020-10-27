@@ -43,7 +43,7 @@ int Game::StartGame()
     return (int)msg.wParam;
 }
 
-int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName, bool isConsoleEnabled, bool isVSyncEnabled)
+int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName, bool isConsoleEnabled, bool isFullscreenEnabled, bool isVSyncEnabled)
 {
     if (!XMVerifyCPUSupport())
         return 1;
@@ -61,6 +61,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         freopen("CONOUT$", "w", stdout);
         freopen("CONOUT$", "w", stderr);
     }
+
 
     //Game& g_game = Game::GetInstance();
 
@@ -114,7 +115,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
     return 0;
 }
 
-int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isVSyncEnabled)
+int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isFullscreenEnabled, bool isVSyncEnabled)
 {
     auto hInstance = GetModuleHandle(nullptr);
     auto nCmdShow = SW_SHOWNORMAL;

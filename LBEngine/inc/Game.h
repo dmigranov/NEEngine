@@ -24,7 +24,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeEngine(const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isVSyncEnabled = true);
+    int InitializeEngine(const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
 
     int StartGame();
 
@@ -38,7 +38,7 @@ private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
 
-    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isVSyncEnabled = true);
+    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
 
     Game& operator=(Game const&) = delete;
 
