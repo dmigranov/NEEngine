@@ -1,3 +1,2 @@
-﻿  BitmapComponent.cpp
-D:\Code\LBEngine\LBEngine\BitmapComponent.cpp(72,6): warning C4101: 'i': unreferenced local variable
+﻿  ResourceManager.cpp
   LBEngine.vcxproj -> D:\Code\LBEngine\LBEngine\bin64\LBEngine.lib
