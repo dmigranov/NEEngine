@@ -53,11 +53,14 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         return 1;
 
 
-    //DEBUG ONLY - CONSOLE
-    AllocConsole();
-    freopen("CONIN$", "r", stdin);
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
+    if(isConsoleEnabled)
+    { 
+        //DEBUG ONLY - CONSOLE
+        AllocConsole();
+        freopen("CONIN$", "r", stdin);
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
 
     //Game& g_game = Game::GetInstance();
 

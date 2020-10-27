@@ -77,7 +77,7 @@ int main(int argc, char * argv[])
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
 
-    
+
     scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent, PhysicsComponent>([](Entity* pEntity, double deltaTime) {
         auto pTransform = pEntity->GetTransform();
         auto pInput = pEntity->GetComponent<InputComponent>();
@@ -139,7 +139,6 @@ int main(int argc, char * argv[])
             isSpacePressed = false;
         }
     }));
-    
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new CameraComponent(false);
@@ -156,10 +155,14 @@ int main(int argc, char * argv[])
     auto brickPhysicsComponent = new PhysicsComponent(10.);
 
     auto brickBitmap = new BitmapComponent(1, 1, brickTexture, false);
+
     constexpr int wh = 25;
     constexpr int brickCount = wh * wh - (wh - 2) * (wh - 3);
+
     Entity* bricks[brickCount];
     TransformComponent* transforms[brickCount];
+
+
     int j = 0;
     for (int i = 0; i < wh * wh; i++)
     {
@@ -177,6 +180,7 @@ int main(int argc, char * argv[])
             scene->AddEntity(e);
         }
     }
+
 
     auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
     auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
@@ -198,6 +202,8 @@ int main(int argc, char * argv[])
         pPhysics->SetAcceleration(Vector3::Zero);
         pPhysics->SetVelocity(Vector3::Zero);
     }, -0.5, -0.5, 0.5, 0.5, true);
+
+
 
     charPhysicsComponent->AddForce("gravity", Force(Vector3(0, -9.8, 0)));
     charPhysicsComponent->AddForce("drag", Force([charPhysicsComponent](Force& force)

@@ -49,9 +49,12 @@ void BitmapComponent::SetFrameIndex(unsigned int frameIndex)
 
 void BitmapComponent::SetTexture(Texture* texture)
 {
+	std::cout << "here1" << std::endl;
 	m_spriteSheet = texture;
 	m_texWidth = texture->GetWidth();
 	m_texWidth = texture->GetHeight();
+	std::cout << "here2" << std::endl;
+
 }
 
 bool BitmapComponent::IsOpaque()
