@@ -43,7 +43,6 @@ int Game::StartGame()
     return (int)msg.wParam;
 }
 
-
 int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName, bool isConsoleEnabled, bool isVSyncEnabled)
 {
     if (!XMVerifyCPUSupport())
@@ -110,6 +109,12 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
     this->m_isVSyncEnabled = isVSyncEnabled;
 
     return 0;
+}
+
+int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isVSyncEnabled)
+{
+    auto hInstance = GetModuleHandle(nullptr);
+    return InitializeEngine(hInstance, ddd, windowName, isConsoleEnabled, isVSyncEnabled);
 }
 
 
