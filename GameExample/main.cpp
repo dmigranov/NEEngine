@@ -49,7 +49,7 @@ int main(int argc, char * argv[])
     //todo: Component* -> Component&  ?
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(L"Test game", false, false);
+    game.InitializeEngine(L"Test game", true, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
@@ -69,7 +69,6 @@ int main(int argc, char * argv[])
 
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
-
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new BitmapRenderSystem());

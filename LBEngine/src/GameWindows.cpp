@@ -114,7 +114,8 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
 int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isVSyncEnabled)
 {
     auto hInstance = GetModuleHandle(nullptr);
-    return InitializeEngine(hInstance, ddd, windowName, isConsoleEnabled, isVSyncEnabled);
+    auto nCmdShow = SW_SHOWNORMAL;
+    return InitializeEngine(hInstance, nCmdShow, windowName, isConsoleEnabled, isVSyncEnabled);
 }
 
 
