@@ -9,16 +9,18 @@ class SphericalTransformComponent;
 
 SphericalRenderSystem::SphericalRenderSystem()
 {
-	//todo:
-	//или сделать универсальную систему Rendering'а?
-	//потому что тут непонятно, зачем SphericalTransformComponent, если у него интерфейс такой же
-	//лучше так: SphericalMeshComponent и TransformComponent? 
 
 	//todo: подумать над типами: меш - это что?
 	//MeshComponent?
 	//SphericalMeshComponent?
 	//что такое SphericalTransformComponent?
-	//наследуется от TransformComponent, такой же интерфейс, но возвращает другую матрицу!
+	//наследуется от TransformComponent, такой же интерфейс, но возвращает другую матрицу,
+	//подсчитывающуся по сферическим законам!
+
+	//todo:
+	//или сделать универсальную систему Rendering'а?
+	//короче, для начала SphericalMeshComponent и SphericalTransformComponent
+	//EllipticalRenderSystem работает с ними же!
 
 	//SubscribeToComponentType<TransformComponent>();
 	SubscribeToComponentType<MeshComponent>();
