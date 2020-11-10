@@ -23,6 +23,8 @@
 #include "ActionSystem.h"
 #include "CameraActionSystem.h"
 
+#include "SphericalRenderSystem.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 

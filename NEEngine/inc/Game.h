@@ -66,6 +66,9 @@ private:
     friend class BitmapComponent;
     friend class BitmapRenderSystem;
 
+    friend class SphericalRenderSystem;
+
+
     friend class InputSystem;
 
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
