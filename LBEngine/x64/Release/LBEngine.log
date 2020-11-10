@@ -2,9 +2,9 @@
   compilation object save succeeded; see D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicPixelShader.cso
   compilation header save succeeded; see D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\inc\VertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicVertexShader.cso
-  compilation object save succeeded; see D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\MorphingVertexShader.cso
 D:\������\MY CODE Master Degree\NEEngine\LBEngine\Data\Shaders\MorphingVertexShader.hlsl(35,9-24): warning X3206: implicit truncation of vector type
   
+  compilation object save succeeded; see D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\MorphingVertexShader.cso
 D:\������\MY CODE Master Degree\NEEngine\LBEngine\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE Master Degree\NEEngine\LBEngine\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   

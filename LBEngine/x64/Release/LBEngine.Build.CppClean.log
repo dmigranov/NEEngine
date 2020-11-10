@@ -1,121 +1,66 @@
-d:\code\lbengine\lbengine\x64\release\lbengine.pch
-d:\code\lbengine\lbengine\x64\release\lbengine.pdb
-d:\code\lbengine\lbengine\x64\release\pch.obj
-d:\code\lbengine\lbengine\x64\release\texture.obj
-d:\code\lbengine\lbengine\x64\release\textdrawer.obj
-d:\code\lbengine\lbengine\x64\release\sphericalsphere.obj
-d:\code\lbengine\lbengine\x64\release\sphericalmeshloader.obj
-d:\code\lbengine\lbengine\x64\release\sphericalcamera.obj
-d:\code\lbengine\lbengine\x64\release\simpleinputhandler.obj
-d:\code\lbengine\lbengine\x64\release\sphericalmesh.obj
-d:\code\lbengine\lbengine\x64\release\sphericaloctahedron.obj
-d:\code\lbengine\lbengine\x64\release\sphericalcube.obj
-d:\code\lbengine\lbengine\x64\release\sphericalasteroid.obj
-d:\code\lbengine\lbengine\x64\release\mesh.obj
-d:\code\lbengine\lbengine\x64\release\hyperbolicmath.obj
-d:\code\lbengine\lbengine\x64\release\game.obj
-d:\code\lbengine\lbengine\x64\release\fpscounter.obj
-d:\code\lbengine\lbengine\x64\release\drawer2d.obj
-d:\code\lbengine\lbengine\x64\release\camera.obj
-d:\code\lbengine\lbengine\x64\release\sphericalmath.obj
-d:\code\lbengine\lbengine\x64\release\sphericalellipsoid.obj
-d:\code\lbengine\lbengine\x64\release\gamewindows.obj
-d:\code\lbengine\lbengine\x64\release\meshcomponent.obj
-d:\code\lbengine\lbengine\x64\release\impulse.obj
-d:\code\lbengine\lbengine\x64\release\force.obj
-d:\code\lbengine\lbengine\x64\release\componenttypemanager.obj
-d:\code\lbengine\lbengine\x64\release\collisionsystem.obj
-d:\code\lbengine\lbengine\x64\release\collisioncomponent.obj
-d:\code\lbengine\lbengine\x64\release\circlecollisioncomponent.obj
-d:\code\lbengine\lbengine\x64\release\bitmaprendersystem.obj
-d:\code\lbengine\lbengine\x64\release\aabbcollisioncomponent.obj
-d:\code\lbengine\lbengine\x64\release\playercomponent.obj
-d:\code\lbengine\lbengine\x64\release\physicssystem.obj
-d:\code\lbengine\lbengine\x64\release\inputsystem.obj
-d:\code\lbengine\lbengine\x64\release\inputcomponent.obj
-d:\code\lbengine\lbengine\x64\release\cameraactionsystem.obj
-d:\code\lbengine\lbengine\x64\release\entity.obj
-d:\code\lbengine\lbengine\x64\release\effect.obj
-d:\code\lbengine\lbengine\x64\release\contactmanifold.obj
-d:\code\lbengine\lbengine\x64\release\component.obj
-d:\code\lbengine\lbengine\x64\release\cameracomponent.obj
-d:\code\lbengine\lbengine\x64\release\bitmapcomponent.obj
-d:\code\lbengine\lbengine\x64\release\transformcomponent.obj
-d:\code\lbengine\lbengine\x64\release\system.obj
-d:\code\lbengine\lbengine\x64\release\walkcomponent.obj
-d:\code\lbengine\lbengine\x64\release\timer.obj
-d:\code\lbengine\lbengine\x64\release\resourcemanager.obj
-d:\code\lbengine\lbengine\x64\release\physicscomponent.obj
-d:\code\lbengine\lbengine\x64\release\meshloader.obj
-d:\code\lbengine\lbengine\x64\release\transformupdatesystem.obj
-d:\code\lbengine\lbengine\x64\release\scene.obj
-d:\code\lbengine\lbengine\inc\pixelshader.h
-d:\code\lbengine\lbengine\bin64\basicpixelshader.cso
-d:\code\lbengine\lbengine\inc\vertexshader.h
-d:\code\lbengine\lbengine\bin64\basicvertexshader.cso
-d:\code\lbengine\lbengine\bin64\morphingvertexshader.cso
-d:\code\lbengine\lbengine\inc\ellexpvertexshader.h
-d:\code\lbengine\lbengine\bin64\vertexellipticalexpfogshader.cso
-d:\code\lbengine\lbengine\inc\geometryshader.h
-d:\code\lbengine\lbengine\bin64\geometryshader.cso
-d:\code\lbengine\lbengine\inc\ellexp2vertexshader.h
-d:\code\lbengine\lbengine\bin64\vertexellipticalexpsqfogshader.cso
-d:\code\lbengine\lbengine\inc\sphexpvertexshader.h
-d:\code\lbengine\lbengine\bin64\vertexsphericalexpfogshader.cso
-d:\code\lbengine\lbengine\inc\sphexp2vertexshader.h
-d:\code\lbengine\lbengine\bin64\vertexsphericalexpsqfogshader.cso
-d:\code\lbengine\lbengine\bin64\lbengine.lib
-d:\диплом\my code master degree\neengine\lbengine\x64\release\aabbcollisioncomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\bitmapcomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\bitmaprendersystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\camera.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\cameraactionsystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\cameracomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\circlecollisioncomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\collisioncomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\collisionsystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\component.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\componenttypemanager.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\contactmanifold.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\drawer2d.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\effect.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\entity.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\force.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\fpscounter.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\game.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\gamewindows.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\hyperbolicmath.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\impulse.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\inputcomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\inputsystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\mesh.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\meshcomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\meshloader.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\pch.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\physicscomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\physicssystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\playercomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\resourcemanager.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\scene.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\simpleinputhandler.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalasteroid.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalcamera.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalcube.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalellipsoid.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalmath.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalmesh.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalmeshloader.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericaloctahedron.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalsphere.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\system.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\textdrawer.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\texture.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\timer.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\transformcomponent.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\transformupdatesystem.obj
-d:\диплом\my code master degree\neengine\lbengine\x64\release\walkcomponent.obj
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.pch
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.pdb
+d:\диплом\my code master degree\neengine\lbengine\x64\release\pch.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\meshcomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\impulse.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\force.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\componenttypemanager.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\collisionsystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\collisioncomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\circlecollisioncomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\bitmaprendersystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\aabbcollisioncomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\playercomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\physicssystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\inputsystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\inputcomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\cameraactionsystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\entity.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\effect.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\contactmanifold.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\component.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\cameracomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\bitmapcomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\texture.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\textdrawer.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalsphere.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalmeshloader.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalmesh.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericaloctahedron.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalellipsoid.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\sphericalcube.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\mesh.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\gamewindows.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\game.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\fpscounter.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\drawer2d.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\transformcomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\system.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\walkcomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\timer.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\resourcemanager.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\physicscomponent.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\meshloader.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\transformupdatesystem.obj
+d:\диплом\my code master degree\neengine\lbengine\x64\release\scene.obj
+d:\диплом\my code master degree\neengine\lbengine\inc\pixelshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\basicpixelshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\vertexshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\basicvertexshader.cso
+d:\диплом\my code master degree\neengine\lbengine\bin64\morphingvertexshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\ellexpvertexshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\vertexellipticalexpfogshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\ellexp2vertexshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\vertexellipticalexpsqfogshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\sphexpvertexshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\vertexsphericalexpfogshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\sphexp2vertexshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\vertexsphericalexpsqfogshader.cso
+d:\диплом\my code master degree\neengine\lbengine\inc\geometryshader.h
+d:\диплом\my code master degree\neengine\lbengine\bin64\geometryshader.cso
+d:\диплом\my code master degree\neengine\lbengine\bin64\xapobaseredist.pdb
+d:\диплом\my code master degree\neengine\lbengine\bin64\xaudio2_9redist.pdb
+d:\диплом\my code master degree\neengine\lbengine\bin64\xaudio2_9redist.dll
 d:\диплом\my code master degree\neengine\lbengine\bin64\lbengine.lib
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\cl.command.1.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\cl.read.1.tlog
@@ -123,6 +68,8 @@ d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlo
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\fxc.command.1.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\fxc.read.1.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\fxc.write.1.tlog
+d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\lbengine.read.1u.tlog
+d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\lbengine.write.1u.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\lib-link.read.1.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\lib-link.write.1.tlog
 d:\диплом\my code master degree\neengine\lbengine\x64\release\lbengine.tlog\lib.command.1.tlog
