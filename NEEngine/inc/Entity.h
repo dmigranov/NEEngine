@@ -48,7 +48,6 @@ public:
 	//Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent()			//new
 	{
-		//todo:
 		return static_cast<T*>(m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()]);
 	}
 
