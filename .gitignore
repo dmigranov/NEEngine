@@ -2,9 +2,10 @@
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
 
-/LBEngine/.vs/DirectXFold/v16
-/LBEngine/packages
+
+/NEEngine/packages
 /GameExample/x64
 /GameExample/bin64
-/LBEngine/.vs/LBEngine/v16
-/LBEngine/.vs/NEEngine/v16
+/NEEngine/.vs/NEEngine/v16
+/NEEngine/x64
+/NEEngine/bin64

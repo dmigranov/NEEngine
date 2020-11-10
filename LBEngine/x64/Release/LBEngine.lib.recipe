@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project>
-  <ProjectOutputs></ProjectOutputs>
-  <ContentFiles>D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicPixelShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicVertexShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\MorphingVertexShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpFogShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpFogShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpSqFogShader.cso;D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\GeometryShader.cso</ContentFiles>
-  <SatelliteDlls></SatelliteDlls>
-  <NonRecipeFileRefs></NonRecipeFileRefs>
-</Project>
