@@ -61,6 +61,9 @@
     <Filter Include="Исходные файлы\Meshes\Hyperbolic">
       <UniqueIdentifier>{a13577cd-482c-47a4-8f2f-3bc95bdf9e7f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Math">
+      <UniqueIdentifier>{af3b39ef-0bb4-46b0-b44f-53e0b9eb37e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -164,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="src\SphericalRenderSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMath.cpp">
+      <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
