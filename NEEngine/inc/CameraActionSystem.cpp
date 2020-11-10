@@ -5,7 +5,6 @@
 #include "TransformComponent.h"
 #include "InputComponent.h"
 #include "WalkComponent.h"
-#include "PhysicsComponent.h"
 
 using namespace DirectX::SimpleMath;
 

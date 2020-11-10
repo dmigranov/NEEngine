@@ -9,7 +9,6 @@
 // Components
 #include "ComponentTypeManager.h"
 
-#include "PlayerComponent.h"
 #include "TransformComponent.h"
 #include "InputComponent.h"
 #include "BitmapComponent.h"
@@ -39,7 +38,6 @@ int main(int argc, char * argv[])
 
     {
         auto componentTypeManager = game.GetComponentTypeManager();
-        componentTypeManager->RegisterComponentType<PlayerComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<BitmapComponent>();

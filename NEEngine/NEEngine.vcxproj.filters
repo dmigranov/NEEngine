@@ -58,18 +58,6 @@
     <Filter Include="Файлы заголовков\Systems">
       <UniqueIdentifier>{8cd1b026-7e41-4ec4-8f8d-8329a1409ffd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Physics and Collisions">
-      <UniqueIdentifier>{13f63341-5b7b-4a30-8928-975ec991a27b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Physics and Collisions">
-      <UniqueIdentifier>{04b8f0c5-76e4-43a7-abb6-af6519f844a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Components\Collision Components">
-      <UniqueIdentifier>{1f321c00-d143-4785-953b-fabf5f119a78}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Components\Collision Components">
-      <UniqueIdentifier>{d97ade59-507b-40cd-8f93-4ad84f51f4fd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -135,9 +123,6 @@
     <ClCompile Include="TransformUpdateSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -168,35 +153,8 @@
     <ClCompile Include="src\WalkComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsSystem.cpp">
-      <Filter>Исходные файлы\Systems</Filter>
-    </ClCompile>
     <ClCompile Include="inc\CameraActionSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PhysicsComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Force.cpp">
-      <Filter>Исходные файлы\Physics and Collisions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Impulse.cpp">
-      <Filter>Исходные файлы\Physics and Collisions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CollisionSystem.cpp">
-      <Filter>Исходные файлы\Systems</Filter>
-    </ClCompile>
-    <ClCompile Include="ContactManifold.cpp">
-      <Filter>Исходные файлы\Physics and Collisions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CollisionComponent.cpp">
-      <Filter>Исходные файлы\Components\Collision Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\AABBCollisionComponent.cpp">
-      <Filter>Исходные файлы\Components\Collision Components</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CircleCollisionComponent.cpp">
-      <Filter>Исходные файлы\Components\Collision Components</Filter>
     </ClCompile>
     <ClCompile Include="src\ComponentTypeManager.cpp">
       <Filter>Исходные файлы\Components</Filter>
@@ -254,9 +212,6 @@
     <ClInclude Include="inc\Component.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PlayerComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
     <ClInclude Include="inc\RenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
@@ -305,38 +260,8 @@
     <ClInclude Include="inc\ActionSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PhysicsSystem.h">
-      <Filter>Файлы заголовков\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="inc\CameraActionSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\PhysicsComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CollisionSystem.h">
-      <Filter>Файлы заголовков\Systems</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Force.h">
-      <Filter>Файлы заголовков\Physics and Collisions</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Impulse.h">
-      <Filter>Файлы заголовков\Physics and Collisions</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CollisionComponent.h">
-      <Filter>Файлы заголовков\Components\Collision Components</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\AABBCollisionComponent.h">
-      <Filter>Файлы заголовков\Components\Collision Components</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CollisionComponentType.h">
-      <Filter>Файлы заголовков\Components\Collision Components</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ContactManifold.h">
-      <Filter>Файлы заголовков\Physics and Collisions</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\CircleCollisionComponent.h">
-      <Filter>Файлы заголовков\Components\Collision Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\ComponentTypeManager.h">
       <Filter>Файлы заголовков\Components</Filter>
