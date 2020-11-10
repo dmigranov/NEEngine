@@ -58,6 +58,9 @@
     <Filter Include="Файлы заголовков\Systems">
       <UniqueIdentifier>{8cd1b026-7e41-4ec4-8f8d-8329a1409ffd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Meshes\Hyperbolic">
+      <UniqueIdentifier>{a13577cd-482c-47a4-8f2f-3bc95bdf9e7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -67,9 +70,6 @@
       <Filter>pch</Filter>
     </ClCompile>
     <ClCompile Include="src\TextDrawer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalMeshLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Mesh.cpp">
@@ -158,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="src\ComponentTypeManager.cpp">
       <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMeshLoader.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalRenderSystem.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="inc\ComponentTypeManager.h">
       <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalRenderSystem.h">
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

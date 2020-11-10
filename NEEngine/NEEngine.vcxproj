@@ -32,6 +32,7 @@
     <ClCompile Include="src\MeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="inc\SphericalMesh.h" />
     <ClInclude Include="inc\pch.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
+    <ClInclude Include="inc\SphericalRenderSystem.h" />
     <ClInclude Include="inc\SphericalSphere.h" />
     <ClInclude Include="inc\System.h" />
     <ClInclude Include="inc\TextDrawer.h" />
