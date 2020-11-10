@@ -6,3 +6,15 @@ D:\Code\LBEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader.cso
 D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpFogShader.cso
 D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpSqFogShader.cso
 D:\Code\LBEngine\LBEngine\bin64\GeometryShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicPixelShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicVertexShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\MorphingVertexShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpFogShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpFogShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpSqFogShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\GeometryShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\xapobaseredist.pdb
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\xaudio2_9redist.pdb
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\xaudio2_9redist.dll
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\x64\Release\LBEngine.vcxproj.CopyComplete

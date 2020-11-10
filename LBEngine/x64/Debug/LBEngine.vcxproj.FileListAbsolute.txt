@@ -6,3 +6,11 @@ D:\Code\LBEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader_d.cso
 D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpFogShader_d.cso
 D:\Code\LBEngine\LBEngine\bin64\VertexSphericalExpSqFogShader_d.cso
 D:\Code\LBEngine\LBEngine\bin64\GeometryShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicPixelShader_d.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\BasicVertexShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\MorphingVertexShader.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpFogShader_d.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexEllipticalExpSqFogShader_d.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpFogShader_d.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\VertexSphericalExpSqFogShader_d.cso
+D:\Диплом\MY CODE Master Degree\NEEngine\LBEngine\bin64\GeometryShader.cso

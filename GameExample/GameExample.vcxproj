@@ -173,9 +173,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\LBEngine\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\LBEngine\packages\boost.1.72.0.0\build\boost.targets')" />
