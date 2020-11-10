@@ -72,29 +72,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Code\LBEngine\LBEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\lib\x64\Release;D:\Code\LBEngine\LBEngine\bin64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Release;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin64;$(LibraryPath)</LibraryPath>
     <OutDir>bin64\</OutDir>
     <TargetName>DXSphEll</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Code\LBEngine\LBEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Code\LBEngine\LBEngine\bin;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin;$(LibraryPath)</LibraryPath>
     <OutDir>bin</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Code\LBEngine\LBEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\lib\x64\Debug;D:\Code\LBEngine\LBEngine\bin64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Debug;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin64;$(LibraryPath)</LibraryPath>
     <OutDir>bin64\</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Code\LBEngine\LBEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Code\LBEngine\LBEngine\packages\directxtk_desktop_2015.2019.12.17.1\lib\Win32\Release;D:\Code\LBEngine\LBEngine\bin;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\Win32\Release;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin;$(LibraryPath)</LibraryPath>
     <OutDir>bin</OutDir>
     <TargetName>DXSphEll</TargetName>
   </PropertyGroup>
@@ -114,7 +114,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>LBEngine.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>NEEngine.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -130,7 +130,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>LBEngined.lib;%(AdditionalDependencies);DirectXTK.lib</AdditionalDependencies>
+      <AdditionalDependencies>NEEngined.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -146,7 +146,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>LBEngined.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>NEEngined.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
@@ -166,7 +166,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>LBEngine.lib;%(AdditionalDependencies);DirectXTK.lib</AdditionalDependencies>
+      <AdditionalDependencies>NEEngine.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>

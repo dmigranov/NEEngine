@@ -6,6 +6,10 @@
 /NEEngine/packages
 /GameExample/x64
 /GameExample/bin64
+/GameExample/bin
+/GameExample/Release
 /NEEngine/.vs/NEEngine/v16
 /NEEngine/x64
 /NEEngine/bin64
+/NEEngine/bin
+/NEEngine/Release
