@@ -27,14 +27,6 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-
-template <typename T> int sgn(T val)
-{
-    return (T(0) < val) - (val < T(0));
-}
-
-
-// Entry point
 int main(int argc, char * argv[])
 {
     //todo: Component* -> Component&  ?
@@ -77,24 +69,13 @@ int main(int argc, char * argv[])
 
 
         if (kbs.D)
-        {
             pTransform->Move(right);
-        }
-
         if (kbs.A)
-        {
             pTransform->Move(-right);
-        }
-
         if (kbs.W)
-        {
             pTransform->Move(up);
-        }
-
         if (kbs.S)
-        {
             pTransform->Move(-up);
-        }
 
     }));
 
