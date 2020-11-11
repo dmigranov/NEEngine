@@ -65,8 +65,8 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
 {
-	SphericalTransformComponent* p_transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
-	SphericalMeshComponent* p_meshComponent = pEntity->GetComponent<SphericalMeshComponent>();
+	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+	SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
 
 
 	// Input Assembler Stage - unique for every mesh
@@ -77,22 +77,21 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	pDeviceContext->IASetVertexBuffers(0, 1, &p_meshComponent->g_d3dVertexBuffer, &stride, &offset);
+	pDeviceContext->IASetVertexBuffers(0, 1, &pMeshComponent->g_d3dVertexBuffer, &stride, &offset);
 	// Set the index buffer to active in the input assembler so it can be rendered.
-	pDeviceContext->IASetIndexBuffer(p_meshComponent->g_d3dIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+	pDeviceContext->IASetIndexBuffer(pMeshComponent->g_d3dIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-	if (p_meshComponent->m_pTexture != nullptr)
+	if (pMeshComponent->m_pTexture != nullptr)
 	{   //Pixel Shader Stafe - unique 4 every stage
-		auto shaderResource = p_meshComponent->m_pTexture->GetTexture();
+		auto shaderResource = pMeshComponent->m_pTexture->GetTexture();
 		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
 
-	MeshConstantBuffer constantBufferTemp = { matrix };
-	if (p_transformComponent->GetParent() != nullptr)
-		constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
-	deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
+
+	auto world = pTransformComponent->GetWorld();
+	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
 
 	int indicesCount = -1; //todo
-	pDeviceContext->DrawIndexedInstanced(p_meshComponent->indicesCount, 2, 0, 0, 0);
+	pDeviceContext->DrawIndexedInstanced(pMeshComponent->indicesCount, 2, 0, 0, 0);
 
 }

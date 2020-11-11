@@ -25,7 +25,7 @@ protected:
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
-    ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе для Shader'а/материала
+    ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе для Effect!
 
     VertexPosTex* g_Vertices;
     int verticesCount;
