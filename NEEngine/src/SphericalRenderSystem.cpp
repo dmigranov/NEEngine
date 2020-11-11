@@ -28,7 +28,33 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
 
-	//todo: все стадии конвейера настроить
+	//todo: константные буферы перенести в Effect, как и текстуры
+	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
+
+
+	//Input Assembler Stage - common
+	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
+
+	//Vertex Shader Stage
+	pDeviceContext->VSSetShader(game.g_d3dVertexShader, nullptr, 0);
+	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
+
+	//Geometry Shader Stage
+	//g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
+
+	//Rasterizer Stage
+	pDeviceContext->RSSetState(game.g_d3dRasterizerState);
+	pDeviceContext->RSSetViewports(1, &game.g_Viewport);
+
+	//Pixel Shader Stage
+	pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
+	//g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
+	pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
+
+	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
+	pDeviceContext->OMSetRenderTargets(1, &game.g_d3dRenderTargetView, game.g_d3dDepthStencilView);
+	pDeviceContext->OMSetDepthStencilState(game.g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
+	pDeviceContext->OMSetBlendState(game.g_d3dBlendState, 0, 0xffffffff);
 
 
 	for (auto pEntity : m_entities)
@@ -39,7 +65,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
 {
-	//SphericalTransformComponent* p_transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+	SphericalTransformComponent* p_transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	MeshComponent* p_meshComponent = pEntity->GetComponent<MeshComponent>();
 
 
@@ -65,5 +91,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 
 
 	//todo: установить константные буферы в зависимости от трансформа
+
+	int indicesCount = -1; //todo
+	pDeviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
 
 }

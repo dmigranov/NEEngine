@@ -3,8 +3,8 @@
 #include <iomanip>
 
 //Shaders
-#include "VertexShader.h"
-#include "PixelShader.h"
+#include "VertexShader.h" // generated from BasicVertexShader.hlsl
+#include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
 #include "FPSCounter.h"
 
