@@ -1,4 +1,6 @@
-﻿#include <pch.h>
+﻿#pragma once
+
+#include <pch.h>
 
 #include "Game.h"
 #include "Scene.h"
@@ -15,6 +17,8 @@
 #include "CameraComponent.h"
 #include "WalkComponent.h"
 
+#include "SphericalTransformComponent.h"
+#include "SphericalMeshComponent.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -44,7 +48,10 @@ int main(int argc, char * argv[])
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<BitmapComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
-        
+
+        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
+        componentTypeManager->RegisterComponentType<SphericalMeshComponent>();
+
         componentTypeManager->SetTypeAdditionEnded();
     }
 
@@ -52,6 +59,7 @@ int main(int argc, char * argv[])
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
+    scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new BitmapRenderSystem());
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);

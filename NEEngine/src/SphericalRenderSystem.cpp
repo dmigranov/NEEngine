@@ -68,15 +68,13 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
 
-
+	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал
 	// Input Assembler Stage - unique for every mesh
-	// Set vertex buffer stride and offset.
-	unsigned int stride = sizeof(MeshComponent::VertexPosTex); //todo?
-	unsigned int offset = 0;
-
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
+	unsigned int stride = sizeof(MeshComponent::VertexPosTex);
+	unsigned int offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &pMeshComponent->g_d3dVertexBuffer, &stride, &offset);
 	// Set the index buffer to active in the input assembler so it can be rendered.
 	pDeviceContext->IASetIndexBuffer(pMeshComponent->g_d3dIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
@@ -87,11 +85,9 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
 
-
-	auto world = pTransformComponent->GetWorld();
+	const auto& world = pTransformComponent->GetWorld();
 	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
 
-	int indicesCount = -1; //todo
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->indicesCount, 2, 0, 0, 0);
 
 }
