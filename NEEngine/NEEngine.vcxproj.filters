@@ -64,6 +64,12 @@
     <Filter Include="Исходные файлы\Math">
       <UniqueIdentifier>{af3b39ef-0bb4-46b0-b44f-53e0b9eb37e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Components\Transform">
+      <UniqueIdentifier>{d773e491-0a34-4cca-9d67-250f10e81b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Components\Mesh">
+      <UniqueIdentifier>{0b3dd525-b848-42d7-825b-45952270d770}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -171,6 +177,12 @@
     <ClCompile Include="src\SphericalMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalTransformComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMeshComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -230,17 +242,11 @@
     <ClInclude Include="inc\System.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TransformComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
     <ClInclude Include="inc\TransformUpdateSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\ResourceManager.h">
       <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MeshComponent.h">
-      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\Entity.h">
       <Filter>Файлы заголовков\Entities</Filter>
@@ -280,6 +286,18 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TransformComponent.h">
+      <Filter>Файлы заголовков\Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalTransformComponent.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MeshComponent.h">
+      <Filter>Файлы заголовков\Components\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMeshComponent.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -3,27 +3,19 @@
 
 #include "Entity.h"
 #include "MeshComponent.h"
-
-class SphericalTransformComponent;
+#include "SphericalTransformComponent.h"
+#include "SphericalMeshComponent.h"
 
 
 SphericalRenderSystem::SphericalRenderSystem()
 {
-
-	//todo: подумать над типами: меш - это что?
-	//MeshComponent?
-	//SphericalMeshComponent?
-	//что такое SphericalTransformComponent?
-	//наследуется от TransformComponent, такой же интерфейс, но возвращает другую матрицу,
-	//подсчитывающуся по сферическим законам!
-
 	//todo:
 	//или сделать универсальную систему Rendering'а?
 	//короче, для начала SphericalMeshComponent и SphericalTransformComponent
 	//EllipticalRenderSystem работает с ними же!
 
-	//SubscribeToComponentType<TransformComponent>();
-	SubscribeToComponentType<MeshComponent>();
+	SubscribeToComponentType<SphericalTransformComponent>();
+	SubscribeToComponentType<SphericalMeshComponent>();
 
 	m_isDrawing = true;
 }

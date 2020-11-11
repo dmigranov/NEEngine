@@ -33,7 +33,9 @@
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\SphericalMath.cpp" />
+    <ClCompile Include="src\SphericalMeshComponent.cpp" />
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
+    <ClCompile Include="src\SphericalTransformComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
@@ -85,12 +87,14 @@
     <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalEllipsoid.h" />
+    <ClInclude Include="inc\SphericalMeshComponent.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
     <ClInclude Include="inc\SphericalMesh.h" />
     <ClInclude Include="inc\pch.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
     <ClInclude Include="inc\SphericalRenderSystem.h" />
     <ClInclude Include="inc\SphericalSphere.h" />
+    <ClInclude Include="inc\SphericalTransformComponent.h" />
     <ClInclude Include="inc\System.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
