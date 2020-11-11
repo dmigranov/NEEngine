@@ -40,7 +40,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
 
 	//Geometry Shader Stage
-	pDeviceContext->GSSetShader(game.g_d3dGeometryShader, nullptr, 0);
+	//pDeviceContext->GSSetShader(game.g_d3dGeometryShader, nullptr, 0);
 
 	//Rasterizer Stage
 	pDeviceContext->RSSetState(game.g_d3dRasterizerState);

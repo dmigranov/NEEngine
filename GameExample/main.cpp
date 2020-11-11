@@ -111,9 +111,32 @@ int main(int argc, char * argv[])
     character->AddComponent<WalkComponent>(charWalkComponent);
     character->AddComponent<InputComponent>(charInputComponent);
     
+    scene->AddEntity(character); 
     //cameraTransform->SetParent(charTransform);
 
-    scene->AddEntity(character);
+    Entity* test3D = new Entity();
+    auto stc = new SphericalTransformComponent();
+    test3D->AddComponent<SphericalTransformComponent>(stc);
+
+    MeshComponent::VertexPosTex vertices[3] = {
+       { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) }, // 2
+
+    };
+
+    WORD indices[3] =
+    {
+        0, 1, 2
+    };
+    auto smc = new SphericalMeshComponent(3, vertices, 3, indices); //todo: сделать конструктор и отключить дефолтную систеу рендеринга для проверки
+    //потому что иначе она тоже будет включаться, ведт это наследники
+    smc->SetTexture(brickTexture);
+    test3D->SetMesh(smc);
+    test3D->SetTransform(stc);
+    //test3D->AddComponent<SphericalMeshComponent>(smc);
+
+    scene->AddEntity(test3D);
 
     return game.StartGame();
 }
