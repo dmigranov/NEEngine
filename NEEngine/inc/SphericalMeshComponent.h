@@ -3,6 +3,9 @@
 class SphericalMeshComponent :
     public MeshComponent
 {
+    friend class SphericalRenderSystem;
+
+
 
 };
 

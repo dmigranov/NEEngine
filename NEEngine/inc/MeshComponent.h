@@ -9,8 +9,6 @@
 class MeshComponent : public Component
 {
 public:
-    friend class SphericalRenderSystem;
-
     struct VertexPosTex //todo: затемплейтить
     {
         DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
