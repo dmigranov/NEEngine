@@ -30,8 +30,8 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 	//todo: константные буферы перенести в Effect, как и текстуры
 	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
-	//Effect - является частью Mesh?
 
+ 
 	//Input Assembler Stage - common
 	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
 
