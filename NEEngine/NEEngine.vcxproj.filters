@@ -177,11 +177,11 @@
     <ClCompile Include="src\SphericalMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalTransformComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalMeshComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalTransformComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,9 +228,6 @@
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
     <ClInclude Include="inc\Scene.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Effect.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\Component.h">
@@ -290,14 +287,17 @@
     <ClInclude Include="inc\TransformComponent.h">
       <Filter>Файлы заголовков\Components\Transform</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalTransformComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalMeshComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalTransformComponent.h">
+      <Filter>Файлы заголовков\Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Effect.h">
+      <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

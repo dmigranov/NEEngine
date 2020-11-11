@@ -53,24 +53,6 @@ private:
     // Messages
     void OnWindowSizeChanged(int width, int height);
 
-    friend class Mesh;
-
-    friend class SphericalMesh;
-    friend class SphericalOctahedron;
-    friend class SphericalCube;
-    friend class SphericalSphere;
-    friend class SphericalEllipsoid;
-
-    friend class Scene;
-    friend class MeshComponent;
-    friend class BitmapComponent;
-    friend class BitmapRenderSystem;
-
-    friend class SphericalRenderSystem;
-
-
-    friend class InputSystem;
-
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
     void CreateResources();
@@ -127,7 +109,7 @@ private:
     ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
     ID3D11VertexShader* g_d3dEllipticalVertexShader = nullptr;
 
-    //ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+    ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
 
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
@@ -167,4 +149,25 @@ private:
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
     bool isInitialized = false;
+
+
+
+
+    friend class Mesh;
+
+    friend class SphericalMesh;
+    friend class SphericalOctahedron;
+    friend class SphericalCube;
+    friend class SphericalSphere;
+    friend class SphericalEllipsoid;
+
+    friend class Scene;
+
+    friend class MeshComponent;
+    friend class BitmapComponent;
+
+    friend class BitmapRenderSystem;
+    friend class SphericalRenderSystem;
+
+    friend class InputSystem;
 };

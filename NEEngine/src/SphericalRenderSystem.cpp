@@ -30,7 +30,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 	//todo: константные буферы перенести в Effect, как и текстуры
 	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
-
+	//Effect - является частью Mesh?
 
 	//Input Assembler Stage - common
 	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
@@ -40,7 +40,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
 
 	//Geometry Shader Stage
-	//g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
+	pDeviceContext->GSSetShader(game.g_d3dGeometryShader, nullptr, 0);
 
 	//Rasterizer Stage
 	pDeviceContext->RSSetState(game.g_d3dRasterizerState);
@@ -48,7 +48,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 	//Pixel Shader Stage
 	pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
-	//g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
+	pDeviceContext->PSSetConstantBuffers(0, 1, &game.g_d3dPSConstantBuffer);
 	pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
 
 	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
