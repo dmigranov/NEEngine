@@ -132,9 +132,9 @@ int main(int argc, char * argv[])
     auto smc = new SphericalMeshComponent(3, vertices, 3, indices); //todo: сделать конструктор и отключить дефолтную систеу рендеринга для проверки
     //потому что иначе она тоже будет включаться, ведт это наследники
     smc->SetTexture(brickTexture);
-    test3D->SetMesh(smc);
-    test3D->SetTransform(stc);
-    //test3D->AddComponent<SphericalMeshComponent>(smc);
+    //test3D->SetMesh(smc);
+    //test3D->SetTransform(stc);
+    test3D->AddComponent<SphericalMeshComponent>(smc);
 
     scene->AddEntity(test3D);
 

@@ -30,7 +30,6 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 	//todo: константные буферы перенести в Effect, как и текстуры
 	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
-
  
 	//Input Assembler Stage - common
 	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
@@ -70,20 +69,21 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 
 	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал
 	// Input Assembler Stage - unique for every mesh
-	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
-	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	unsigned int stride = sizeof(MeshComponent::VertexPosTex);
+	unsigned int stride = sizeof(SphericalMeshComponent::VertexPosTex);
 	unsigned int offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &pMeshComponent->g_d3dVertexBuffer, &stride, &offset);
 	// Set the index buffer to active in the input assembler so it can be rendered.
-	pDeviceContext->IASetIndexBuffer(pMeshComponent->g_d3dIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+	pDeviceContext->IASetIndexBuffer(pMeshComponent->g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
+	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	if (pMeshComponent->m_pTexture != nullptr)
 	{   //Pixel Shader Stafe - unique 4 every stage
 		auto shaderResource = pMeshComponent->m_pTexture->GetTexture();
 		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
+
 
 	const auto& world = pTransformComponent->GetWorld();
 	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);

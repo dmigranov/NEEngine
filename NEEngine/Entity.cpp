@@ -69,7 +69,7 @@ void Entity::Render()
 {
 	if (m_pMesh == nullptr)
 		return;
-	m_pMesh->Render(m_pTransform->GetWorld());
+	//m_pMesh->Render(m_pTransform->GetWorld());
 }
 
 /*Component* Entity::GetComponent(ComponentType type)
