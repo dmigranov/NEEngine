@@ -72,29 +72,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Release;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin64;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Release;..\NEEngine\bin64;$(LibraryPath)</LibraryPath>
     <OutDir>bin64\</OutDir>
     <TargetName>DXSphEll</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>..\NEEngine\bin;$(LibraryPath)</LibraryPath>
     <OutDir>bin</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Debug;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin64;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Debug;..\NEEngine\bin64;$(LibraryPath)</LibraryPath>
     <OutDir>bin64\</OutDir>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\Win32\Release;D:\Диплом\MY CODE Master Degree\NEEngine\NEEngine\bin;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\Win32\Release;..\NEEngine\bin;$(LibraryPath)</LibraryPath>
     <OutDir>bin</OutDir>
     <TargetName>DXSphEll</TargetName>
   </PropertyGroup>
