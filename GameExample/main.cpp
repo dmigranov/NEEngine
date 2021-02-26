@@ -166,8 +166,6 @@ int main(int argc, char * argv[])
 
 
 
-
-
 /*
     MeshComponent::VertexPosTex vertices[8] = {
         { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
