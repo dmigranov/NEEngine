@@ -1,4 +1,6 @@
-﻿#include <pch.h>
+﻿#pragma once
+
+#include <pch.h>
 
 #include "Game.h"
 #include "Scene.h"
@@ -9,13 +11,14 @@
 // Components
 #include "ComponentTypeManager.h"
 
-#include "PlayerComponent.h"
 #include "TransformComponent.h"
 #include "InputComponent.h"
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
 #include "WalkComponent.h"
 
+#include "SphericalTransformComponent.h"
+#include "SphericalMeshComponent.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -24,17 +27,11 @@
 #include "ActionSystem.h"
 #include "CameraActionSystem.h"
 
+#include "SphericalRenderSystem.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-
-template <typename T> int sgn(T val)
-{
-    return (T(0) < val) - (val < T(0));
-}
-
-
-// Entry point
 int main(int argc, char * argv[])
 {
     //todo: Component* -> Component&  ?
@@ -47,12 +44,14 @@ int main(int argc, char * argv[])
 
     {
         auto componentTypeManager = game.GetComponentTypeManager();
-        componentTypeManager->RegisterComponentType<PlayerComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<BitmapComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
-        
+
+        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
+        componentTypeManager->RegisterComponentType<SphericalMeshComponent>();
+
         componentTypeManager->SetTypeAdditionEnded();
     }
 
@@ -60,6 +59,7 @@ int main(int argc, char * argv[])
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
+    scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new BitmapRenderSystem());
 
     auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
@@ -77,24 +77,13 @@ int main(int argc, char * argv[])
 
 
         if (kbs.D)
-        {
             pTransform->Move(right);
-        }
-
         if (kbs.A)
-        {
             pTransform->Move(-right);
-        }
-
         if (kbs.W)
-        {
             pTransform->Move(up);
-        }
-
         if (kbs.S)
-        {
             pTransform->Move(-up);
-        }
 
     }));
 
@@ -122,9 +111,32 @@ int main(int argc, char * argv[])
     character->AddComponent<WalkComponent>(charWalkComponent);
     character->AddComponent<InputComponent>(charInputComponent);
     
+    scene->AddEntity(character); 
     //cameraTransform->SetParent(charTransform);
 
-    scene->AddEntity(character);
+    Entity* test3D = new Entity();
+    auto stc = new SphericalTransformComponent();
+    test3D->AddComponent<SphericalTransformComponent>(stc);
+
+    MeshComponent::VertexPosTex vertices[3] = {
+       { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) }, // 2
+
+    };
+
+    WORD indices[3] =
+    {
+        0, 1, 2
+    };
+    auto smc = new SphericalMeshComponent(3, vertices, 3, indices); //todo: сделать конструктор и отключить дефолтную систеу рендеринга для проверки
+    //потому что иначе она тоже будет включаться, ведт это наследники
+    smc->SetTexture(brickTexture);
+    //test3D->SetMesh(smc);
+    //test3D->SetTransform(stc);
+    test3D->AddComponent<SphericalMeshComponent>(smc);
+
+    scene->AddEntity(test3D);
 
     return game.StartGame();
 }
