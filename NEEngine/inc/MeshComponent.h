@@ -1,9 +1,10 @@
 #pragma once
+#include "AbstractMeshComponent.h"
 
 class Game;
 
 template <class VertexData>
-class MeshComponent : public Component
+class MeshComponent : public AbstractMeshComponent
 {
 public:
 	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);

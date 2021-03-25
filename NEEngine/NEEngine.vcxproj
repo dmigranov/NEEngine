@@ -64,6 +64,7 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\AbstractMeshComponent.h" />
     <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\BitmapRenderSystem.h" />
