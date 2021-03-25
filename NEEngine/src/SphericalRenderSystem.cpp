@@ -70,7 +70,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал
 	// Input Assembler Stage - unique for every mesh
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	unsigned int stride = sizeof(SphericalMeshComponent::VertexPosTex);
+	unsigned int stride = sizeof(VertexPosTex);
 	unsigned int offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &pMeshComponent->g_d3dVertexBuffer, &stride, &offset);
 	// Set the index buffer to active in the input assembler so it can be rendered.

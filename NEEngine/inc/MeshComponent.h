@@ -6,27 +6,27 @@
 #include "Component.h"
 #include "TemplateMeshComponent.h"
 
-
+struct VertexPosTex //todo: затемплейтить
+{
+    DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
+    DirectX::XMFLOAT2 TexCoord;
+};
 
 //class MeshComponent : public TemplateMeshComponent<VertexPosTex>
-class MeshComponent : public Component
+class MeshComponent : public TemplateMeshComponent<VertexPosTex>
 {
 public:
-    struct VertexPosTex //todo: затемплейтить
-    {
-        DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        DirectX::XMFLOAT2 TexCoord;
-    };
 
     MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
 
     //СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-    virtual void Render(DirectX::XMMATRIX world);
+    //virtual void Render(DirectX::XMMATRIX world);
 
-    virtual ~MeshComponent();
+    //virtual ~MeshComponent();
 
-    void SetTexture(Texture* texture);
+    //void SetTexture(Texture* texture);
 protected:
+    /*
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
@@ -38,4 +38,5 @@ protected:
     int indicesCount;
 
     Texture* m_pTexture;    //todo: перенести в материал
+    */
 };

@@ -118,7 +118,7 @@ int main(int argc, char * argv[])
     auto stc = new SphericalTransformComponent();
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
-    MeshComponent::VertexPosTex vertices[3] = {
+    VertexPosTex vertices[3] = {
        { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) }, // 2

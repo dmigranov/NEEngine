@@ -7,6 +7,10 @@ class TemplateMeshComponent : public Component
 {
 public:
 	TemplateMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
+	virtual void Render(DirectX::XMMATRIX world);
+	virtual ~TemplateMeshComponent();
+	void SetTexture(Texture* texture);
+
 protected:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
@@ -60,4 +64,38 @@ inline TemplateMeshComponent<VertexData>::TemplateMeshComponent(int nv, VertexDa
 	resourceData.pSysMem = g_Indices;
 
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
+}
+
+template<class VertexData>
+inline void TemplateMeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
+{
+	const UINT vertexStride = sizeof(VertexData);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+	const UINT offset = 0;
+	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+	deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+	if (m_pTexture != nullptr)
+	{     //Pixel Shader Stafe - unique 4 every stage
+		auto shaderResource = m_pTexture->GetTexture();
+		deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+	}
+
+	deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &world, 0, 0);
+
+	//DRAW
+	deviceContext->DrawIndexed(indicesCount, 0, 0);
+}
+
+template<class VertexData>
+inline TemplateMeshComponent<VertexData>::~TemplateMeshComponent()
+{
+	SafeRelease(g_d3dVertexBuffer);
+	SafeRelease(g_d3dIndexBuffer);
+}
+
+template<class VertexData>
+inline void TemplateMeshComponent<VertexData>::SetTexture(Texture* texture)
+{
+	this->m_pTexture = texture;
 }
