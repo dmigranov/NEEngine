@@ -25,8 +25,8 @@ void BitmapRenderSystem::Execute(double)
 	});	//сортирует по возрастанию: сначала меньшие z...
 
 	auto& game = Game::GetInstance();
-	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
-	auto pDevice = game.g_d3dDevice;
+	auto pDeviceContext = game.GetDeviceContext();
+	auto pDevice = game.GetDevice();
 
 	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
 

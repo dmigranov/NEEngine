@@ -167,7 +167,6 @@ private:
 
     friend class Scene;
 
-    friend class BitmapComponent;
     friend class BitmapRenderSystem;
 
     friend class SphericalMeshComponent;

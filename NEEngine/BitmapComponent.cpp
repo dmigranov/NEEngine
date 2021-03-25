@@ -14,7 +14,7 @@ BitmapComponent::BitmapComponent(unsigned int bitmapWidth, unsigned int bitmapHe
 	m_isOpaque = isOpaque;
 
 	auto& game = Game::GetInstance();
-	auto device = game.g_d3dDevice;
+	auto device = game.GetDevice();
 
 	InitializeBuffers(device);
 }
