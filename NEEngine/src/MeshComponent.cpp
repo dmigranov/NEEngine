@@ -4,9 +4,9 @@
 #include "Game.h"
 
 
-MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices)
+MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) //: TemplateMeshComponent<VertexPosTex>(nv, vertices, ni, indices)
 {
-	auto& game = Game::GetInstance();
+	/*auto& game = Game::GetInstance();
 	auto device = game.GetDevice();
 	deviceContext = game.GetDeviceContext();
 	d3dConstantBuffer = game.GetVSConstantBuffers()[2];
@@ -42,7 +42,7 @@ MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indic
 	resourceData.pSysMem = g_Indices;
 
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
-
+	*/
 }
 
 void MeshComponent::Render(DirectX::XMMATRIX world)

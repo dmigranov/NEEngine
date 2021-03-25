@@ -4,7 +4,11 @@
 #include <wtypes.h>
 
 #include "Component.h"
+#include "TemplateMeshComponent.h"
 
+
+
+//class MeshComponent : public TemplateMeshComponent<VertexPosTex>
 class MeshComponent : public Component
 {
 public:
