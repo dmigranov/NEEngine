@@ -4,9 +4,11 @@
 #include "Game.h"
 
 
-MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) : TemplateMeshComponent<VertexPosTex>(nv, vertices, ni, indices)
+VertexTexMeshComponent::VertexTexMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) : MeshComponent<VertexPosTex>(nv, vertices, ni, indices)
 {
 	/*
+	
+	
 	auto& game = Game::GetInstance();
 	auto device = game.GetDevice();
 	deviceContext = game.GetDeviceContext();
@@ -43,10 +45,16 @@ MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indic
 	resourceData.pSysMem = g_Indices;
 
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
+
+
 	*/
 }
+
+
 /*
-void MeshComponent::Render(DirectX::XMMATRIX world)
+
+
+void VertexTexMeshComponent::Render(DirectX::XMMATRIX world)
 {
 	const UINT vertexStride = sizeof(VertexPosTex);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
 	const UINT offset = 0;
@@ -66,14 +74,16 @@ void MeshComponent::Render(DirectX::XMMATRIX world)
 	deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
-MeshComponent::~MeshComponent()
+VertexTexMeshComponent::~VertexTexMeshComponent()
 {
 	SafeRelease(g_d3dVertexBuffer);
 	SafeRelease(g_d3dIndexBuffer);
 }
 
-void MeshComponent::SetTexture(Texture* texture)
+void VertexTexMeshComponent::SetTexture(Texture* texture)
 {
 	this->m_pTexture = texture;
 }
+
+
 */

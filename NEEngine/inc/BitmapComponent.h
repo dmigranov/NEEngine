@@ -1,7 +1,7 @@
 #pragma once
 #include "Component.h"
 
-class MeshComponent;
+class VertexTexMeshComponent;
 class Texture;
 
 class BitmapComponent :

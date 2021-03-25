@@ -129,7 +129,7 @@ int main(int argc, char * argv[])
     {
         0, 1, 2
     };
-    //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null MeshComponent)
+    //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
     auto smc = new SphericalMeshComponent(3, vertices, 3, indices); 
     //todo: сделать конструктор
     //потому что иначе она тоже будет включаться, ведт это наследники
@@ -171,7 +171,7 @@ int main(int argc, char * argv[])
 
 
 /*
-    MeshComponent::VertexPosTex vertices[8] = {
+    VertexTexMeshComponent::VertexPosTex vertices[8] = {
         { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
         { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(0, 1) }, // 1
         { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(1, 1)}, // 2
@@ -191,5 +191,5 @@ int main(int argc, char * argv[])
         1, 5, 6, 1, 6, 2,
         3, 4, 0, 7, 4, 3
     };
-    auto m = new MeshComponent(8, vertices, 36, indices);
+    auto m = new VertexTexMeshComponent(8, vertices, 36, indices);
 */

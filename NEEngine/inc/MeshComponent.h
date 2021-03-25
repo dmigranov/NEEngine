@@ -12,17 +12,16 @@ struct VertexPosTex //todo: затемплейтить
     DirectX::XMFLOAT2 TexCoord;
 };
 
-//class MeshComponent : public TemplateMeshComponent<VertexPosTex>
-class MeshComponent : public TemplateMeshComponent<VertexPosTex>
+class VertexTexMeshComponent : public MeshComponent<VertexPosTex>
 {
 public:
 
-    MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
+    VertexTexMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
 
     //СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
     //virtual void Render(DirectX::XMMATRIX world);
 
-    //virtual ~MeshComponent();
+    //virtual ~VertexTexMeshComponent();
 
     //void SetTexture(Texture* texture);
 protected:

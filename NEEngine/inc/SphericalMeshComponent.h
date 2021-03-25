@@ -1,7 +1,7 @@
 #pragma once
 #include "MeshComponent.h"
 class SphericalMeshComponent :
-    public MeshComponent
+    public VertexTexMeshComponent
 {
     friend class SphericalRenderSystem;
 

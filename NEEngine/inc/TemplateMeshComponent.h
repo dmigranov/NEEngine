@@ -3,12 +3,12 @@
 class Game;
 
 template <class VertexData>
-class TemplateMeshComponent : public Component
+class MeshComponent : public Component
 {
 public:
-	TemplateMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
+	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 	virtual void Render(DirectX::XMMATRIX world);
-	virtual ~TemplateMeshComponent();
+	virtual ~MeshComponent();
 	void SetTexture(Texture* texture);
 
 protected:
@@ -26,7 +26,7 @@ protected:
 };
 
 template<class VertexData>
-inline TemplateMeshComponent<VertexData>::TemplateMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices)
+inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices)
 {
 	auto& game = Game::GetInstance();
 	auto device = game.GetDevice();
@@ -67,7 +67,7 @@ inline TemplateMeshComponent<VertexData>::TemplateMeshComponent(int nv, VertexDa
 }
 
 template<class VertexData>
-inline void TemplateMeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
+inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
 {
 	const UINT vertexStride = sizeof(VertexData);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
 	const UINT offset = 0;
@@ -88,14 +88,14 @@ inline void TemplateMeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
 }
 
 template<class VertexData>
-inline TemplateMeshComponent<VertexData>::~TemplateMeshComponent()
+inline MeshComponent<VertexData>::~MeshComponent()
 {
 	SafeRelease(g_d3dVertexBuffer);
 	SafeRelease(g_d3dIndexBuffer);
 }
 
 template<class VertexData>
-inline void TemplateMeshComponent<VertexData>::SetTexture(Texture* texture)
+inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
 {
 	this->m_pTexture = texture;
 }

@@ -26,7 +26,7 @@ public:
 
 	void Initialize();
 
-	void SetMesh(MeshComponent * pMesh);
+	void SetMesh(VertexTexMeshComponent * pMesh);
 	void SetTransform(TransformComponent* pTransform);
 	TransformComponent* const GetTransform();
 
@@ -56,7 +56,7 @@ public:
 private:
 
 	//EffectComponent* m_pEffect; //todo
-	MeshComponent* m_pMesh = nullptr;
+	VertexTexMeshComponent* m_pMesh = nullptr;
 	TransformComponent* m_pTransform = nullptr;
 	//std::map<ComponentType, Component*> m_components;	
 	std::vector<Component*> m_components;

@@ -46,11 +46,11 @@ void Entity::Initialize()
 	m_componentsMask |= add;
 }*/
 
-void Entity::SetMesh(MeshComponent* pMesh)
+void Entity::SetMesh(VertexTexMeshComponent* pMesh)
 {
 	m_pMesh = pMesh;
 	//AddComponent(ComponentType::MeshComponentType, pMesh);
-	AddComponent<MeshComponent>(pMesh);
+	AddComponent<VertexTexMeshComponent>(pMesh);
 }
 
 void Entity::SetTransform(TransformComponent* pTransform)

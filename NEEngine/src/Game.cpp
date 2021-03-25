@@ -263,7 +263,7 @@ int Game::Initialize(HWND window, int width, int height)
     m_pResourceManager = new ResourceManager(g_d3dDevice);
     m_pComponentTypeManager = new ComponentTypeManager();
     m_pComponentTypeManager->RegisterComponentType<TransformComponent>();
-    m_pComponentTypeManager->RegisterComponentType<MeshComponent>();
+    m_pComponentTypeManager->RegisterComponentType<VertexTexMeshComponent>();
 
     return 0;
 }
@@ -550,6 +550,9 @@ bool Game::LoadContent()
     }
 
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
+    //todo: перенести в другое место, так как это зависит от того что подается
+    //todo: вместе с этим перенести и IASetInputLayout
+    //тк он может быть разным у разных мешей
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, offsetof(VertexPosTex, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },

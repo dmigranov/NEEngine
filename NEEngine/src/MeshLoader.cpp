@@ -2,7 +2,7 @@
 #include "MeshLoader.h"
 #include "..\inc\MeshLoader.h"
 
-MeshComponent* MeshLoader::LoadMesh(const char* filepath)
+VertexTexMeshComponent* MeshLoader::LoadMesh(const char* filepath)
 {
 	std::ifstream infile;
 	infile.open(filepath);
