@@ -7,19 +7,15 @@ template <class VertexData>
 class MeshComponent : public AbstractMeshComponent
 {
 public:
-	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 
+	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-	virtual void Render(DirectX::XMMATRIX world);
+	virtual void Render(DirectX::XMMATRIX world) override;
 
 	virtual ~MeshComponent();
-	void SetTexture(Texture* texture);
 
-protected:
-	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
-	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
-	ID3D11DeviceContext* deviceContext;
-	ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе для Effect!
+	//todo: потом убрать
+	void SetTexture(Texture* texture);
 
 	VertexData* g_Vertices;
 	int verticesCount;
