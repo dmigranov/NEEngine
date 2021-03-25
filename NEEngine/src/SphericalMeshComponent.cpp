@@ -3,4 +3,5 @@
 
 SphericalMeshComponent::SphericalMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) : MeshComponent(nv, vertices, ni, indices)
 {
+	//todo: реализовать конструктор
 }
