@@ -96,6 +96,7 @@
     <ClInclude Include="inc\SphericalSphere.h" />
     <ClInclude Include="inc\SphericalTransformComponent.h" />
     <ClInclude Include="inc\System.h" />
+    <ClInclude Include="inc\TemplateMeshComponent.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\Timer.h" />

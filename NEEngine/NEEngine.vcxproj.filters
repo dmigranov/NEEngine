@@ -299,6 +299,9 @@
     <ClInclude Include="inc\Effect.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="inc\TemplateMeshComponent.h">
+      <Filter>Файлы заголовков\Components\Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">

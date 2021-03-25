@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iomanip>
 
-//Shaders
+//Shaders: должны переехать в эфффект TODO
 #include "VertexShader.h" // generated from BasicVertexShader.hlsl
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
@@ -168,9 +168,6 @@ private:
     friend class Scene;
 
     friend class BitmapRenderSystem;
-
-    friend class SphericalMeshComponent;
     friend class SphericalRenderSystem;
-
     friend class InputSystem;
 };
