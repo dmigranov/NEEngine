@@ -7,7 +7,10 @@ class MeshComponent : public Component
 {
 public:
 	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
+
+	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
 	virtual void Render(DirectX::XMMATRIX world);
+
 	virtual ~MeshComponent();
 	void SetTexture(Texture* texture);
 

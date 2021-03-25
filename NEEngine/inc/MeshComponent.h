@@ -18,14 +18,10 @@ public:
 
     VertexTexMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
 
-    //СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-    //virtual void Render(DirectX::XMMATRIX world);
-
-    //virtual ~VertexTexMeshComponent();
-
-    //void SetTexture(Texture* texture);
 protected:
     /*
+    * 
+    * 
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
@@ -37,5 +33,7 @@ protected:
     int indicesCount;
 
     Texture* m_pTexture;    //todo: перенести в материал
+    
+    
     */
 };
