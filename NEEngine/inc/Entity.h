@@ -5,7 +5,7 @@
 #include <typeindex>
 #include <boost/dynamic_bitset.hpp>
 
-#include "MeshComponent.h"
+#include "VertexTexMeshComponent.h"
 #include "ComponentTypeManager.h"
 
 class Component;

@@ -6,6 +6,7 @@
 #include "TextDrawer.h"
 #include "SphericalMeshLoader.h"
 
+#include "VertexTexMeshComponent.h"
 #include "MeshComponent.h"
 #include "TransformComponent.h"
 

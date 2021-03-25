@@ -1,5 +1,5 @@
 #pragma once
-#include "MeshComponent.h"
+#include "VertexTexMeshComponent.h"
 class SphericalMeshComponent :
     public VertexTexMeshComponent
 {

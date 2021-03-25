@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "BitmapComponent.h"
 
-#include "MeshComponent.h"
+#include "VertexTexMeshComponent.h"
 #include "Game.h"
 
 using namespace DirectX::SimpleMath;

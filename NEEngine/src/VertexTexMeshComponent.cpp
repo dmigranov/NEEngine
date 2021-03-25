@@ -1,36 +1,14 @@
-#pragma once
+#include "pch.h"
+#include "VertexTexMeshComponent.h"
 
-class Game;
+#include "Game.h"
 
-template <class VertexData>
-class MeshComponent : public Component
+
+VertexTexMeshComponent::VertexTexMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) : MeshComponent<VertexPosTex>(nv, vertices, ni, indices)
 {
-public:
-	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
-
-	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-	virtual void Render(DirectX::XMMATRIX world);
-
-	virtual ~MeshComponent();
-	void SetTexture(Texture* texture);
-
-protected:
-	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
-	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
-	ID3D11DeviceContext* deviceContext;
-	ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе для Effect!
-
-	VertexData* g_Vertices;
-	int verticesCount;
-	WORD* g_Indices;
-	int indicesCount;
-
-	Texture* m_pTexture;    //todo: перенести в материал
-};
-
-template<class VertexData>
-inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices)
-{
+	/*
+	
+	
 	auto& game = Game::GetInstance();
 	auto device = game.GetDevice();
 	deviceContext = game.GetDeviceContext();
@@ -45,7 +23,7 @@ inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, in
 	ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
 	vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;  //how the buffer is bound to pipeline
-	vertexBufferDesc.ByteWidth = sizeof(VertexData) * verticesCount;
+	vertexBufferDesc.ByteWidth = sizeof(VertexPosTex) * verticesCount;
 	vertexBufferDesc.CPUAccessFlags = 0;    // no CPU access is necessary
 	vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
@@ -67,12 +45,18 @@ inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, in
 	resourceData.pSysMem = g_Indices;
 
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
+
+
+	*/
 }
 
-template<class VertexData>
-inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
+
+/*
+
+
+void VertexTexMeshComponent::Render(DirectX::XMMATRIX world)
 {
-	const UINT vertexStride = sizeof(VertexData);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+	const UINT vertexStride = sizeof(VertexPosTex);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
 	const UINT offset = 0;
 	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
@@ -90,15 +74,16 @@ inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
 	deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
-template<class VertexData>
-inline MeshComponent<VertexData>::~MeshComponent()
+VertexTexMeshComponent::~VertexTexMeshComponent()
 {
 	SafeRelease(g_d3dVertexBuffer);
 	SafeRelease(g_d3dIndexBuffer);
 }
 
-template<class VertexData>
-inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
+void VertexTexMeshComponent::SetTexture(Texture* texture)
 {
 	this->m_pTexture = texture;
 }
+
+
+*/
