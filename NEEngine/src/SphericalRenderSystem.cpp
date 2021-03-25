@@ -13,10 +13,13 @@ SphericalRenderSystem::SphericalRenderSystem()
 	//или сделать универсальную систему Rendering'а?
 	//короче, для начала SphericalMeshComponent и SphericalTransformComponent
 	//EllipticalRenderSystem работает с ними же!
+	//теперь вместо SphericalMeshComponent - общий для вообще всех!
+	//это просто вершины, на корректность можно проверять в другом месте (напр., тут)
+	//пока MeshComponent будет у всех общий!!!
 
 	SubscribeToComponentType<SphericalTransformComponent>();
 	//SubscribeToComponentType<SphericalMeshComponent>();
-	//может, добавить AbstractSpherical?
+
 	SubscribeToComponentType<AbstractMeshComponent>();
 
 	m_isDrawing = true;
