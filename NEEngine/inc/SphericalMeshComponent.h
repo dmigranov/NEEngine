@@ -1,13 +1,16 @@
 #pragma once
-#include "VertexTexMeshComponent.h"
+#include "MeshComponent.h"
+template <class VertexData>
 class SphericalMeshComponent :
-    public VertexTexMeshComponent
+    public MeshComponent<VertexData>
 {
-    friend class SphericalRenderSystem;
 
 public:
-    SphericalMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
+    SphericalMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 
 
 };
 
+template<class VertexData>
+inline SphericalMeshComponent<VertexData>::SphericalMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices) : MeshComponent<VertexData>(nv, vertices, ni, indices)
+{ }

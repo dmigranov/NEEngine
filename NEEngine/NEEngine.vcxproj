@@ -33,7 +33,6 @@
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\SphericalMath.cpp" />
-    <ClCompile Include="src\SphericalMeshComponent.cpp" />
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\SphericalTransformComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />

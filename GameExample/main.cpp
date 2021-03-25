@@ -50,7 +50,7 @@ int main(int argc, char * argv[])
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
-        componentTypeManager->RegisterComponentType<SphericalMeshComponent>();
+        componentTypeManager->RegisterComponentType<SphericalMeshComponent<VertexPosTex>>();
 
         componentTypeManager->SetTypeAdditionEnded();
     }
@@ -130,13 +130,13 @@ int main(int argc, char * argv[])
         0, 1, 2
     };
     //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
-    auto smc = new SphericalMeshComponent(3, vertices, 3, indices); 
+    auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
     //todo: сделать конструктор
     //потому что иначе она тоже будет включаться, ведт это наследники
     smc->SetTexture(brickTexture);
     //test3D->SetMesh(smc);
     //test3D->SetTransform(stc);
-    test3D->AddComponent<SphericalMeshComponent>(smc);
+    test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
 
     scene->AddEntity(test3D);
 

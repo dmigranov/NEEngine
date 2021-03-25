@@ -16,13 +16,11 @@ public:
 
 	//todo: потом убрать
 	void SetTexture(Texture* texture);
-
+protected:
 	VertexData* g_Vertices;
 	int verticesCount;
 	WORD* g_Indices;
-	int indicesCount;
 
-	Texture* m_pTexture;    //todo: перенести в материал
 };
 
 template<class VertexData>

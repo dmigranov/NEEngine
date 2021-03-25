@@ -15,7 +15,9 @@ SphericalRenderSystem::SphericalRenderSystem()
 	//EllipticalRenderSystem работает с ними же!
 
 	SubscribeToComponentType<SphericalTransformComponent>();
-	SubscribeToComponentType<SphericalMeshComponent>();
+	//SubscribeToComponentType<SphericalMeshComponent>();
+	//может, добавить AbstractSpherical?
+	SubscribeToComponentType<AbstractMeshComponent>();
 
 	m_isDrawing = true;
 }
@@ -65,7 +67,8 @@ void SphericalRenderSystem::Execute(double deltaTime)
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
-	SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
+	//SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
+	AbstractMeshComponent* pMeshComponent = pEntity->GetComponent<AbstractMeshComponent>();
 
 	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал
 	// Input Assembler Stage - unique for every mesh

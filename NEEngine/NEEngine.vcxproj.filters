@@ -177,9 +177,6 @@
     <ClCompile Include="src\SphericalMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalMeshComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalTransformComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
