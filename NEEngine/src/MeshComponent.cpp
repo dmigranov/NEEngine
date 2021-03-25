@@ -7,9 +7,9 @@
 MeshComponent::MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices)
 {
 	auto& game = Game::GetInstance();
-	auto device = game.g_d3dDevice;
-	deviceContext = game.g_d3dDeviceContext;
-	d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
+	auto device = game.GetDevice();
+	deviceContext = game.GetDeviceContext();
+	d3dConstantBuffer = game.GetVSConstantBuffers()[2];
 	g_Indices = indices;
 	g_Vertices = vertices;
 	verticesCount = nv;

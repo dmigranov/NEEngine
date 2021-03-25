@@ -16,6 +16,8 @@ public:
     };
 
     MeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices);
+
+    //СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
     virtual void Render(DirectX::XMMATRIX world);
 
     virtual ~MeshComponent();

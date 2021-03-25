@@ -34,6 +34,10 @@ public:
 
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
+    ID3D11Device* const GetDevice();
+    ID3D11DeviceContext* const GetDeviceContext();
+    ID3D11Buffer** const GetVSConstantBuffers();
+
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
@@ -163,10 +167,10 @@ private:
 
     friend class Scene;
 
-    friend class MeshComponent;
     friend class BitmapComponent;
-
     friend class BitmapRenderSystem;
+
+    friend class SphericalMeshComponent;
     friend class SphericalRenderSystem;
 
     friend class InputSystem;

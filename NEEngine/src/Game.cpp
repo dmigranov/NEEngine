@@ -613,3 +613,18 @@ void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
     perApplicationPSConstantBuffer.mistColor = color;
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
+
+ID3D11Device* const Game::GetDevice()
+{
+    return g_d3dDevice;
+}
+
+ID3D11DeviceContext* const Game::GetDeviceContext()
+{
+    return g_d3dDeviceContext;
+}
+
+ID3D11Buffer** const Game::GetVSConstantBuffers()
+{
+    return g_d3dVSConstantBuffers;
+}
