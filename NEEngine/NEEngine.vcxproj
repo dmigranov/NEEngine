@@ -29,6 +29,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\ComponentTypeManager.cpp" />
+    <ClCompile Include="src\SphericalExpFogEffect.cpp" />
     <ClCompile Include="src\VertexTexMeshComponent.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="inc\InputComponent.h" />
     <ClInclude Include="inc\InputSystem.h" />
     <ClInclude Include="inc\Mesh.h" />
+    <ClInclude Include="inc\SphericalExpFogEffect.h" />
     <ClInclude Include="inc\VertexTexMeshComponent.h" />
     <ClInclude Include="inc\MeshLoader.h" />
     <ClInclude Include="inc\RenderSystem.h" />

@@ -90,6 +90,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
 
+	//где то тут будет обращение к методу эффекта
+	//он все загрузит в буферы и тд что надо
 
 	const auto& world = pTransformComponent->GetWorld();
 	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);

@@ -19,3 +19,8 @@ void Effect::Deinitialize()
 {
 	//todo: delete...
 }
+
+void Effect::Update()
+{
+	//todo
+}

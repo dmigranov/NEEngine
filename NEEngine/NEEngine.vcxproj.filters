@@ -70,6 +70,9 @@
     <Filter Include="Файлы заголовков\Components\Mesh">
       <UniqueIdentifier>{0b3dd525-b848-42d7-825b-45952270d770}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Effects">
+      <UniqueIdentifier>{49cd65a7-a232-4915-8d81-577000e59d51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -109,9 +112,6 @@
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
     <ClCompile Include="src\GameWindows.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Effect.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
@@ -179,6 +179,12 @@
     </ClCompile>
     <ClCompile Include="src\SphericalTransformComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Исходные файлы\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalExpFogEffect.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="inc\AbstractMeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalExpFogEffect.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
