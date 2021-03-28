@@ -1,7 +1,12 @@
 #pragma once
 #include <string>
 
+class Entity;
+
 // Effect AKA Material. Abstraction for shaders, contains all the buffers and textures.
+// Each entity has an effect?
+// Or should each mesh have an effect?
+// Any way, effects depend on stuff like transforms...
 class Effect
 {
 public:
@@ -14,16 +19,16 @@ public:
 
 	Effect();
 	virtual ~Effect();
-	void Initialize();
-	void Deinitialize();
-	void Update();
-private:
-	std::string		m_vsFileName;
-	std::string		m_psFileName;
+	virtual void Initialize() = 0;
 
-	ID3D11VertexShader* g_d3dVertexShader = nullptr;
-	ID3D11PixelShader* g_d3dPixelShader = nullptr;
+	virtual void SetMaterial(const Entity* pEntity) = 0;
 
+	virtual void Deinitialize() = 0;
+	//virtual void Update()= 0;
+	bool IsInited();
+
+private: 
+	bool m_isInited = false;
 	/*
 	enum ConstantBuffer
 	{
@@ -37,9 +42,7 @@ private:
 	ID3D11Buffer* g_d3dVSConstantBuffers[NumConstantBuffers];
 	*/
 
-	ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
-	//VS буфер - аналог CB_Object
-	ID3D11Buffer* g_d3dPSConstantBuffer;
+
 
 };
 

@@ -10,17 +10,8 @@ Effect::~Effect()
 	//todo
 }
 
-void Effect::Initialize()
+bool Effect::IsInited()
 {
-	//todo
+	return m_isInited;
 }
 
-void Effect::Deinitialize()
-{
-	//todo: delete...
-}
-
-void Effect::Update()
-{
-	//todo
-}
