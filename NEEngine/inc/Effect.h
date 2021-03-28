@@ -16,6 +16,10 @@ public:
 	//у каждого наследника - свои констукторы и сеттеры (напр, туман)
 
 	//эффект сам заполн€ет в том числе и матрицу проекции и вида (читает ее откуда-то или в качестве аргумента приходит )
+	
+	//todo: Input assembly - тоже эффект: в эффекте определена нужна€ стуктура ,
+	//и Mesh создаетс€ именно с такой <Struct>
+	//Input assembly соответсвует
 
 	Effect();
 	virtual ~Effect();
@@ -24,17 +28,21 @@ public:
 	virtual void SetMaterial(const Entity* pEntity) = 0;
 
 	virtual void Deinitialize() = 0;
-	//virtual void Update()= 0;
+
 	bool IsInited();
 
-private: 
+protected: 
 	bool m_isInited = false;
+
+
+
 	/*
 	enum ConstantBuffer
 	{
 		CB_Application, //The application level constant buffer stores variables that rarely change. 
 		CB_Frame,       //The frame level constant buffer stores variables that change each frame. An example of a frame level shader variable would be the cameraТs view matrix which changes whenever the camera moves
-		CB_Object,      //The object level constant buffer stores variables that are different for every object being rendered. An example of an object level shader variable is the objectТs world matrix.
+		CB_Object,      //The object
+		level constant buffer stores variables that are different for every object being rendered. An example of an object level shader variable is the objectТs world matrix.
 		NumConstantBuffers
 	};
 
