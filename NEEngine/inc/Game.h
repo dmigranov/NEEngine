@@ -51,8 +51,12 @@ public:
 
     ID3D11SamplerState* CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc);
 
-    void PSSetSampler(ID3D11SamplerState *samplerState);
+    void PSSetSampler(ID3D11SamplerState *samplerState); //todo: сделать вар. с несколькими сэмплерами!
     void IASetInputLayout(ID3D11InputLayout* inputLayout);
+
+    inline void VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
+    inline void PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
+
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;

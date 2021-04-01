@@ -746,3 +746,11 @@ void Game::IASetInputLayout(ID3D11InputLayout* inputLayout)
 {
     g_d3dDeviceContext->IASetInputLayout(inputLayout);
 }
+
+inline void Game::VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers)
+{
+}
+
+inline void Game::PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers)
+{
+}
