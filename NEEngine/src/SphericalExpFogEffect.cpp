@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SphericalExpFogEffect.h"
+#include "Texture.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -115,6 +116,11 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//pixel shader stage
 	game.PSSetSampler(g_d3dSamplerState);
 	game.PSSetShader(g_d3dPixelShader);
+	if (pTexture != nullptr)
+	{     //Pixel Shader Stafe - unique 4 every stage
+		auto shaderResource = pTexture->GetTexture();
+		//deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+	}
 
 	/*
 	SetMaterialBegin();
