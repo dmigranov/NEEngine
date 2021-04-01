@@ -57,6 +57,7 @@ public:
     inline void VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
     inline void PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
 
+    inline void UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;
