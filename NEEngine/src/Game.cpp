@@ -635,10 +635,9 @@ ID3D11Buffer** const Game::GetVSConstantBuffers()
 
 ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {
-    HRESULT hr;
     ID3D11VertexShader* returnVertexShader = nullptr;
 
-    hr = g_d3dDevice->CreateVertexShader(code, BytecodeLength, nullptr, &returnVertexShader);
+    HRESULT hr = g_d3dDevice->CreateVertexShader(code, BytecodeLength, nullptr, &returnVertexShader);
     if (FAILED(hr))
     {
         int msgboxID = MessageBox(
@@ -656,10 +655,9 @@ ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_
 
 ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {
-    HRESULT hr;
     ID3D11PixelShader* returnPixelShader = nullptr;
 
-    hr = g_d3dDevice->CreatePixelShader(code, BytecodeLength, nullptr, &returnPixelShader);
+    HRESULT hr = g_d3dDevice->CreatePixelShader(code, BytecodeLength, nullptr, &returnPixelShader);
     if (FAILED(hr))
     {
         int msgboxID = MessageBox(
@@ -683,4 +681,17 @@ void Game::SetVertexShader(ID3D11VertexShader* pVertexShader)
 void Game::SetPixelShader(ID3D11PixelShader* pPixelShader)
 {
     g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
+}
+
+ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs, unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength)
+{
+    ID3D11InputLayout* pReturnLayout = nullptr; //после вызова будет уже куда-то указывать!
+    HRESULT hr = g_d3dDevice->CreateInputLayout(inputElementDescs, numElements, bytecode, bytecodeLength, &pReturnLayout);
+    if (FAILED(hr))
+    {
+        //todo
+        return nullptr;
+    }
+
+    return pReturnLayout;
 }
