@@ -662,8 +662,8 @@ ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T 
     {
         int msgboxID = MessageBox(
             NULL,
-            (LPCWSTR)L"Can't create vertex shader",
-            (LPCWSTR)L"Can't create vertex shader",
+            (LPCWSTR)L"Can't create pixel shader",
+            (LPCWSTR)L"Can't create pixel shader",
             MB_ICONERROR
         );
 
@@ -689,7 +689,12 @@ ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* input
     HRESULT hr = g_d3dDevice->CreateInputLayout(inputElementDescs, numElements, bytecode, bytecodeLength, &pReturnLayout);
     if (FAILED(hr))
     {
-        //todo
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create input layout",
+            (LPCWSTR)L"Can't create input layout",
+            MB_ICONERROR
+        );
         return nullptr;
     }
 
