@@ -1,5 +1,9 @@
 #pragma once
 #include "Effect.h"
+
+#include "VertexShader.h" // generated from BasicVertexShader.hlsl
+#include "PixelShader.h" // generated from BasicPixelShader.hlsl
+
 class SphericalExpFogEffect :
     public Effect
 {
