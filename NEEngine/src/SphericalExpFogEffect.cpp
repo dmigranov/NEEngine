@@ -13,6 +13,8 @@ using namespace DirectX::SimpleMath;
 
 bool SphericalExpFogEffect::Initialize()
 {
+	//todo: текстура тоже хранится и загружается в материале!
+
 	auto& game = Game::GetInstance();
 
 	//shaders
@@ -98,7 +100,10 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// после чего в окружающем SetMaterial,
 	// возможно делается что-то еще (вызов отрисовки)
 
-	//todo: заполнить СОДЕРЖИМОЕ буферов
+	//заполнение СОДЕРЖИМОГО буферов 
+	//todo: оптимизировать!
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], nullptr);
+
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);

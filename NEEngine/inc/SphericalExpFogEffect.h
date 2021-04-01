@@ -34,6 +34,9 @@ public:
         float m_edgeThickness = 0.00f;
     };
 
+
+    //todo: CONSTRUCTOR
+
     // ”наследовано через Effect
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
@@ -58,6 +61,8 @@ private:
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
     ID3D11SamplerState* g_d3dSamplerState = nullptr;
+
+    Texture* pTexture = nullptr;
 
     //ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     enum ConstantBuffer
