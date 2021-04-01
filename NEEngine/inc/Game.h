@@ -41,8 +41,8 @@ public:
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
 
-    void SetVertexShader(ID3D11VertexShader* pVertexShader);
-    void SetPixelShader(ID3D11PixelShader* pPixelShader);
+    void VSSetShader(ID3D11VertexShader* pVertexShader);
+    void PSSetShader(ID3D11PixelShader* pPixelShader);
     
     ID3D11InputLayout* CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs,
         unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength);
@@ -51,7 +51,8 @@ public:
 
     ID3D11SamplerState* CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc);
 
-    void SetSampler(ID3D11SamplerState *samplerState);
+    void PSSetSampler(ID3D11SamplerState *samplerState);
+    void IASetInputLayout(ID3D11InputLayout* inputLayout);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;
