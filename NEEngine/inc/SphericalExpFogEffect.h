@@ -9,9 +9,9 @@ class SphericalExpFogEffect :
 {
 public:
     // Унаследовано через Effect
-    virtual void Initialize() override;
-    virtual void Deinitialize() override;
-    virtual void SetMaterial(const Entity* pEntity) override;
+    virtual bool Initialize() override;
+    virtual bool Deinitialize() override;
+    virtual bool SetMaterial(const Entity* pEntity) override;
 
 private:
     std::string		m_vsFileName;

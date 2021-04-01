@@ -23,11 +23,11 @@ public:
 
 	Effect();
 	virtual ~Effect();
-	virtual void Initialize() = 0;
+	virtual bool Initialize() = 0;
 
-	virtual void SetMaterial(const Entity* pEntity) = 0;
+	virtual bool SetMaterial(const Entity* pEntity) = 0;
 
-	virtual void Deinitialize() = 0;
+	virtual bool Deinitialize() = 0;
 
 	bool IsInited();
 

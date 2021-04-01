@@ -1,18 +1,18 @@
 #include "pch.h"
 #include "SphericalExpFogEffect.h"
 
-void SphericalExpFogEffect::Initialize()
+bool SphericalExpFogEffect::Initialize()
 {
 	//тут выдел€етс€ пам€ть на бууферы и подобные штуки, создаютс€ шейдеры
 	//input assembly тоже тут?
 }
 
-void SphericalExpFogEffect::Deinitialize()
+bool SphericalExpFogEffect::Deinitialize()
 {
 	// пон€тно, очистка и удаление всех созданных ресурсов
 }
 
-void SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
+bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
 {
 	// буферы заполн€ютс€ конкретными вещами, 
 	// тут же выставл€ютс€ нужные шейдеры и input assembly
