@@ -1,10 +1,16 @@
 #include "pch.h"
 #include "SphericalExpFogEffect.h"
 
+#include "Game.h"
+
 bool SphericalExpFogEffect::Initialize()
 {
+	//assert(g_d3dDevice);
+	
 	//тут выделяется память на бууферы и подобные штуки, создаются шейдеры
 	//input assembly тоже тут?
+
+	return true;
 }
 
 bool SphericalExpFogEffect::Deinitialize()

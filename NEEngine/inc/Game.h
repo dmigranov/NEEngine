@@ -38,6 +38,8 @@ public:
     ID3D11DeviceContext* const GetDeviceContext();
     ID3D11Buffer** const GetVSConstantBuffers();
 
+    void CreateVertexShader();
+
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;

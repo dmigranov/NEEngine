@@ -632,3 +632,19 @@ ID3D11Buffer** const Game::GetVSConstantBuffers()
 {
     return g_d3dVSConstantBuffers;
 }
+
+void Game::CreateVertexShader()
+{
+    HRESULT hr;
+
+    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
+    if (FAILED(hr))
+    {
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create vertex shader",
+            (LPCWSTR)L"Can't create vertex shader",
+            MB_ICONERROR
+        );
+    }
+}
