@@ -674,3 +674,14 @@ ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T 
 
     return returnPixelShader;
 }
+
+void Game::SetVertexShader(ID3D11VertexShader* pVertexShader)
+{
+    g_d3dDeviceContext->VSSetShader(pVertexShader, nullptr, 0);
+}
+
+void Game::SetPixelShader(ID3D11PixelShader* pPixelShader)
+{
+    g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
+
+}

@@ -41,6 +41,11 @@ public:
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T BytecodeLength);
 
+    void SetVertexShader(ID3D11VertexShader* pVertexShader);
+    void SetPixelShader(ID3D11PixelShader* pPixelShader);
+
+
+    
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
