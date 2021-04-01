@@ -38,7 +38,7 @@ public:
     ID3D11DeviceContext* const GetDeviceContext();
     ID3D11Buffer** const GetVSConstantBuffers();
 
-    void CreateVertexShader();
+    ID3D11VertexShader* CreateVertexShaderFromByteCode();
 
 private:
     Game(unsigned int width, unsigned int height) noexcept;
