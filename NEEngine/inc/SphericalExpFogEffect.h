@@ -13,6 +13,8 @@ public:
     virtual bool SetMaterial(const Entity* pEntity) override;
     ~SphericalExpFogEffect();
 
+    std::string magic = "SphericalExpFog";
+
 private:
     std::string		m_vsFileName;
     std::string		m_psFileName;
