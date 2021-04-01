@@ -19,8 +19,6 @@ SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::Get
 
 bool SphericalExpFogEffect::Initialize()
 {
-	//todo: текстура тоже хранится и загружается в материале!
-
 	//shaders
 	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));

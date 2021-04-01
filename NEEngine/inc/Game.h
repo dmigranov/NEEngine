@@ -58,6 +58,8 @@ public:
     inline void PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
 
     inline void UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData);
+
+    inline void PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;

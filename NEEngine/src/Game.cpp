@@ -761,3 +761,7 @@ inline void Game::UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData)
 {
     g_d3dDeviceContext->UpdateSubresource(buffer, 0, nullptr, pSrcData, 0, 0);
 }
+
+inline void Game::PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews)
+{
+}
