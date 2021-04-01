@@ -14,6 +14,8 @@ bool SphericalExpFogEffect::Initialize()
 	//тут выделяется память на бууферы и подобные штуки, создаются шейдеры
 	//input assembly тоже тут?
 
+	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
+
 	return true;
 }
 

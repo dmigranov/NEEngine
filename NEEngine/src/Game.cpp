@@ -633,7 +633,7 @@ ID3D11Buffer** const Game::GetVSConstantBuffers()
     return g_d3dVSConstantBuffers;
 }
 
-ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(BYTE* code, SIZE_T BytecodeLength)
+ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {
     HRESULT hr;
     ID3D11VertexShader* returnVertexShader = nullptr;
