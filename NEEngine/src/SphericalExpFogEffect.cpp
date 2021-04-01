@@ -48,6 +48,14 @@ bool SphericalExpFogEffect::Initialize()
 bool SphericalExpFogEffect::Deinitialize()
 {
 	// понятно, очистка и удаление всех созданных ресурсов
+
+	//SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
+	//SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
+	//SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
+	//SafeRelease(g_d3dPSConstantBuffer);
+
+	SafeRelease(g_d3dInputLayout);
+
 	SafeRelease(g_d3dVertexShader);
 	SafeRelease(g_d3dPixelShader);
 
