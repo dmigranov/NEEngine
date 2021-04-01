@@ -12,7 +12,7 @@ public:
     virtual bool Deinitialize() override;
     virtual bool SetMaterial(const Entity* pEntity) override;
     ~SphericalExpFogEffect();
-
+protected:
     std::string magic = "SphericalExpFog";
 
 private:

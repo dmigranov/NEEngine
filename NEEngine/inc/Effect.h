@@ -33,6 +33,7 @@ public:
 
 protected: 
 	bool m_isInited = false;
+	std::string magic;
 
 
 
