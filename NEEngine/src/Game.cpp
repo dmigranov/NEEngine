@@ -736,3 +736,8 @@ ID3D11SamplerState* Game::CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc)
     }
     return returnState;
 }
+
+void Game::SetSampler(ID3D11SamplerState* samplerState)
+{
+    g_d3dDeviceContext->PSSetSamplers(0, 1, &samplerState);
+}

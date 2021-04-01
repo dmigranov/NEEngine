@@ -122,10 +122,12 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 void SphericalExpFogEffect::UpdatePerScene()
 {
+	//TODO: for optimisation...
 }
 
 void SphericalExpFogEffect::UpdatePerApplication()
 {
+	//TODO: for optimisation...
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()

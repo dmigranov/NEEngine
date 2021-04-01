@@ -50,6 +50,8 @@ public:
     ID3D11Buffer* CreateBuffer(D3D11_BUFFER_DESC bufferDesc);
 
     ID3D11SamplerState* CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc);
+
+    void SetSampler(ID3D11SamplerState *samplerState);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;
