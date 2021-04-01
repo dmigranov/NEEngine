@@ -719,3 +719,20 @@ ID3D11Buffer* Game::CreateBuffer(D3D11_BUFFER_DESC bufferDesc)
 
     return returnBuffer;
 }
+
+ID3D11SamplerState* Game::CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc)
+{
+    ID3D11SamplerState* returnState = nullptr;
+    HRESULT hr = g_d3dDevice->CreateSamplerState(&samplerDesc, &returnState);
+    if (FAILED(hr))
+    {
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create sampler state",
+            (LPCWSTR)L"Can't create sampler state",
+            MB_ICONERROR
+        );
+        return nullptr;
+    }
+    return returnState;
+}

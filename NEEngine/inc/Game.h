@@ -48,6 +48,8 @@ public:
         unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength);
 
     ID3D11Buffer* CreateBuffer(D3D11_BUFFER_DESC bufferDesc);
+
+    ID3D11SamplerState* CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;
