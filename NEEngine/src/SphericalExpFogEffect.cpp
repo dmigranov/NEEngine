@@ -89,7 +89,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//todo: заполнение СОДЕРЖИМОГО буферов 
 	//todo: оптимизировать!
 	//game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], nullptr);
-	//todo
+	//todo!!
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -104,8 +104,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	if (m_pTexture != nullptr)
 	{     //Pixel Shader Stafe - unique 4 every stage
 		auto shaderResource = m_pTexture->GetTexture();
-		//todo
-		//deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+		game.PSSetShaderResources(1, &shaderResource);
 	}
 
 	/*
