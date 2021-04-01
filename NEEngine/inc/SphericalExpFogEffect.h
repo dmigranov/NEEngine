@@ -2,6 +2,7 @@
 #include "Effect.h"
 
 class Game;
+class Texture;
 
 class SphericalExpFogEffect :
     public Effect
@@ -35,9 +36,10 @@ public:
     };
 
 
-    //todo: CONSTRUCTOR
+    SphericalExpFogEffect(Texture* pTexture);
 
     // ”наследовано через Effect
+
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
 
@@ -62,7 +64,7 @@ private:
 
     ID3D11SamplerState* g_d3dSamplerState = nullptr;
 
-    Texture* pTexture = nullptr;
+    Texture* m_pTexture = nullptr;
 
     //ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     enum ConstantBuffer

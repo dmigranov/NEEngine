@@ -16,8 +16,6 @@ bool SphericalExpFogEffect::Initialize()
 {
 	//todo: текстура тоже хранится и загружается в материале!
 
-	auto& game = Game::GetInstance();
-
 	//shaders
 	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
@@ -116,9 +114,10 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//pixel shader stage
 	game.PSSetSampler(g_d3dSamplerState);
 	game.PSSetShader(g_d3dPixelShader);
-	if (pTexture != nullptr)
+	if (m_pTexture != nullptr)
 	{     //Pixel Shader Stafe - unique 4 every stage
-		auto shaderResource = pTexture->GetTexture();
+		auto shaderResource = m_pTexture->GetTexture();
+		//todo
 		//deviceContext->PSSetShaderResources(0, 1, &shaderResource);
 	}
 
@@ -137,6 +136,11 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	SetMaterialEnd();
 	*/
 
+}
+
+SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::GetInstance())
+{
+	m_pTexture = pTexture;
 }
 
 void SphericalExpFogEffect::UpdatePerScene()
