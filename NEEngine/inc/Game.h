@@ -38,12 +38,14 @@ public:
     ID3D11DeviceContext* const GetDeviceContext();
     ID3D11Buffer** const GetVSConstantBuffers();
 
-    ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength);
-    ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T BytecodeLength);
+    ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
+    ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
 
     void SetVertexShader(ID3D11VertexShader* pVertexShader);
     void SetPixelShader(ID3D11PixelShader* pPixelShader);
-
+    
+    ID3D11InputLayout* CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs,
+        unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength);
 
     
 private:
