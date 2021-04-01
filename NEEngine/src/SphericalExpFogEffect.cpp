@@ -100,10 +100,10 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// после чего в окружающем SetMaterial,
 	// возможно делается что-то еще (вызов отрисовки)
 
-	//заполнение СОДЕРЖИМОГО буферов 
+	//todo: заполнение СОДЕРЖИМОГО буферов 
 	//todo: оптимизировать!
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], nullptr);
-
+	//game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], nullptr);
+	//todo
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
