@@ -50,6 +50,8 @@ bool SphericalExpFogEffect::Initialize()
 
 	constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBuffer);
 	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
+
+
 		
 
 	return true;
