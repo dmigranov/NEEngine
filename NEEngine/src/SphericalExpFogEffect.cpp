@@ -1,12 +1,16 @@
 #include "pch.h"
 #include "SphericalExpFogEffect.h"
 
+//потом вернуть, а пока множ. определение
+//#include "VertexShader.h" // generated from BasicVertexShader.hlsl
+//#include "PixelShader.h" // generated from BasicPixelShader.hlsl
+
 #include "Game.h"
 
 bool SphericalExpFogEffect::Initialize()
 {
 	//assert(g_d3dDevice);
-	
+	auto& game = Game::GetInstance();
 	//тут выделяется память на бууферы и подобные штуки, создаются шейдеры
 	//input assembly тоже тут?
 
@@ -16,6 +20,8 @@ bool SphericalExpFogEffect::Initialize()
 bool SphericalExpFogEffect::Deinitialize()
 {
 	// понятно, очистка и удаление всех созданных ресурсов
+
+	return true;
 }
 
 bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
@@ -39,4 +45,6 @@ bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
 	}
 	SetMaterialEnd();
 	*/
+
+	return true;
 }

@@ -633,12 +633,12 @@ ID3D11Buffer** const Game::GetVSConstantBuffers()
     return g_d3dVSConstantBuffers;
 }
 
-ID3D11VertexShader* Game::CreateVertexShaderFromByteCode()
+ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(BYTE* code, SIZE_T BytecodeLength)
 {
     HRESULT hr;
     ID3D11VertexShader* returnVertexShader = nullptr;
 
-    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &returnVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(code, BytecodeLength, nullptr, &returnVertexShader);
     if (FAILED(hr))
     {
         int msgboxID = MessageBox(
