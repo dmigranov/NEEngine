@@ -98,17 +98,18 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// после чего в окружающем SetMaterial,
 	// возможно делается что-то еще (вызов отрисовки)
 
+	//todo: заполнить СОДЕРЖИМОЕ буферов
+
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
 
 	//vertex shader stage
 	game.VSSetShader(g_d3dVertexShader);
-	//todo: set buffers
+	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
 	//pixel shader stage
 	game.PSSetSampler(g_d3dSamplerState);
 	game.PSSetShader(g_d3dPixelShader);
-	//todo: set buffers
 
 	/*
 	SetMaterialBegin();
