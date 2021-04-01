@@ -703,5 +703,19 @@ ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* input
 
 ID3D11Buffer* Game::CreateBuffer(D3D11_BUFFER_DESC bufferDesc)
 {
-    return nullptr;
+    ID3D11Buffer* returnBuffer = nullptr;
+    HRESULT hr = g_d3dDevice->CreateBuffer(&bufferDesc, nullptr, &returnBuffer);
+
+    if (FAILED(hr))
+    {
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create buffer",
+            (LPCWSTR)L"Can't create buffer",
+            MB_ICONERROR
+        );
+        return nullptr;
+    }
+
+    return returnBuffer;
 }

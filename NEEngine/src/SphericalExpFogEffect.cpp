@@ -39,7 +39,6 @@ bool SphericalExpFogEffect::Initialize()
 	//todo: может, лучше сделать Dynamic, ведь некоторые часто обновл€ютс€?!! ѕќƒ”ћј“№
 
 	constantBufferDesc.ByteWidth = sizeof(Matrix);
-	//hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
 
 
 	return true;
