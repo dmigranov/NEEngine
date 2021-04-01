@@ -700,3 +700,8 @@ ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* input
 
     return pReturnLayout;
 }
+
+ID3D11Buffer* Game::CreateBuffer(D3D11_BUFFER_DESC bufferDesc)
+{
+    return nullptr;
+}

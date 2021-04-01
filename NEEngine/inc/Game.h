@@ -47,6 +47,7 @@ public:
     ID3D11InputLayout* CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs,
         unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength);
 
+    ID3D11Buffer* CreateBuffer(D3D11_BUFFER_DESC bufferDesc);
     
 private:
     Game(unsigned int width, unsigned int height) noexcept;
