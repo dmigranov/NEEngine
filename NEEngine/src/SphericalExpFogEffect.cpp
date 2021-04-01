@@ -69,6 +69,7 @@ bool SphericalExpFogEffect::Initialize()
 	samplerDesc.MinLOD = 0;
 	samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
+	g_d3dSamplerState = game.CreateSamplerState(samplerDesc);
 
 
 	return true;
