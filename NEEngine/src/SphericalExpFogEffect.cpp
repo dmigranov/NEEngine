@@ -15,6 +15,7 @@ bool SphericalExpFogEffect::Initialize()
 	//input assembly тоже тут?
 
 	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
+	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
 	return true;
 }
