@@ -1,6 +1,8 @@
 #pragma once
 #include "Effect.h"
 
+class Game;
+
 class SphericalExpFogEffect :
     public Effect
 {
@@ -21,6 +23,8 @@ private:
     ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     //VS буфер - аналог CB_Object
     ID3D11Buffer* g_d3dPSConstantBuffer;
+
+    Game& game;// = Game::GetInstance();
 
 };
 

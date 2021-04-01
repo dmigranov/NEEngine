@@ -9,7 +9,6 @@
 
 bool SphericalExpFogEffect::Initialize()
 {
-	//assert(g_d3dDevice);
 	auto& game = Game::GetInstance();
 	//тут выдел€етс€ пам€ть на бууферы и подобные штуки, создаютс€ шейдеры
 	//input assembly тоже тут?
@@ -35,6 +34,11 @@ bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
 	// тут же выставл€ютс€ нужные шейдеры и input assembly
 	// после чего в окружающем SetMaterial,
 	// возможно делаетс€ что-то еще (вызов отрисовки)
+
+
+	game.SetVertexShader(g_d3dVertexShader);
+	game.SetPixelShader(g_d3dPixelShader);
+
 
 	/*
 	SetMaterialBegin();

@@ -683,5 +683,4 @@ void Game::SetVertexShader(ID3D11VertexShader* pVertexShader)
 void Game::SetPixelShader(ID3D11PixelShader* pPixelShader)
 {
     g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
-
 }
