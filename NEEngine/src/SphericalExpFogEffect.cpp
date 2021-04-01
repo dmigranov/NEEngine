@@ -12,6 +12,11 @@ using namespace DirectX::SimpleMath;
 
 #include "Game.h"
 
+SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::GetInstance())
+{
+	m_pTexture = pTexture;
+}
+
 bool SphericalExpFogEffect::Initialize()
 {
 	//todo: текстура тоже хранится и загружается в материале!
@@ -75,22 +80,6 @@ bool SphericalExpFogEffect::Initialize()
 	return true;
 }
 
-void SphericalExpFogEffect::Deinitialize()
-{
-	// понятно, очистка и удаление всех созданных ресурсов
-
-	SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
-	SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
-	SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
-	SafeRelease(g_d3dPSConstantBuffer);
-
-	SafeRelease(g_d3dSamplerState);
-
-	SafeRelease(g_d3dInputLayout);
-
-	SafeRelease(g_d3dVertexShader);
-	SafeRelease(g_d3dPixelShader);
-}
 
 void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 {
@@ -138,11 +127,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 }
 
-SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::GetInstance())
-{
-	m_pTexture = pTexture;
-}
-
 void SphericalExpFogEffect::UpdatePerScene()
 {
 	//TODO: for optimisation...
@@ -156,4 +140,21 @@ void SphericalExpFogEffect::UpdatePerApplication()
 SphericalExpFogEffect::~SphericalExpFogEffect()
 {
 	Deinitialize();
+}
+
+void SphericalExpFogEffect::Deinitialize()
+{
+	// понятно, очистка и удаление всех созданных ресурсов
+
+	SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
+	SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
+	SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
+	SafeRelease(g_d3dPSConstantBuffer);
+
+	SafeRelease(g_d3dSamplerState);
+
+	SafeRelease(g_d3dInputLayout);
+
+	SafeRelease(g_d3dVertexShader);
+	SafeRelease(g_d3dPixelShader);
 }
