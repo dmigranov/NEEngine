@@ -13,6 +13,28 @@ public:
         DirectX::XMFLOAT2 TexCoord;
     };
 
+    struct PerApplicationVSConstantBuffer
+    {
+        DirectX::SimpleMath::Matrix proj;
+    };
+
+    struct PerFrameVSConstantBuffer
+    {
+        DirectX::SimpleMath::Matrix proj;
+    };
+
+    struct PerObjectVSConstantBuffer
+    {
+        DirectX::SimpleMath::Matrix proj;
+    };
+
+    struct PerApplicationPSConstantBuffer
+    {
+        DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
+        float m_edgeThickness = 0.00f;
+    };
+
+
     // Унаследовано через Effect
     virtual bool Initialize() override;
     virtual bool Deinitialize() override;
