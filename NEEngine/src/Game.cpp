@@ -653,3 +653,24 @@ ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_
 
     return returnVertexShader;
 }
+
+ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
+{
+    HRESULT hr;
+    ID3D11PixelShader* returnPixelShader = nullptr;
+
+    hr = g_d3dDevice->CreatePixelShader(code, BytecodeLength, nullptr, &returnPixelShader);
+    if (FAILED(hr))
+    {
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create vertex shader",
+            (LPCWSTR)L"Can't create vertex shader",
+            MB_ICONERROR
+        );
+
+        return nullptr;
+    }
+
+    return returnPixelShader;
+}
