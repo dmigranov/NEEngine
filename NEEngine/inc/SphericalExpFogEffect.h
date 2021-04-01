@@ -9,6 +9,7 @@ public:
     virtual bool Initialize() override;
     virtual bool Deinitialize() override;
     virtual bool SetMaterial(const Entity* pEntity) override;
+    ~SphericalExpFogEffect();
 
 private:
     std::string		m_vsFileName;

@@ -23,6 +23,8 @@ bool SphericalExpFogEffect::Initialize()
 bool SphericalExpFogEffect::Deinitialize()
 {
 	// понятно, очистка и удаление всех созданных ресурсов
+	SafeRelease(g_d3dVertexShader);
+	SafeRelease(g_d3dPixelShader);
 
 	return true;
 }
@@ -50,4 +52,9 @@ bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
 	*/
 
 	return true;
+}
+
+SphericalExpFogEffect::~SphericalExpFogEffect()
+{
+	Deinitialize();
 }
