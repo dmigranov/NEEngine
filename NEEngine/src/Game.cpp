@@ -759,4 +759,5 @@ inline void Game::PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppC
 
 inline void Game::UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData)
 {
+    g_d3dDeviceContext->UpdateSubresource(buffer, 0, nullptr, pSrcData, 0, 0);
 }
