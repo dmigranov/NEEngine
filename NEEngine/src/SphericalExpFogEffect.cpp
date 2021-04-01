@@ -103,11 +103,12 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//vertex shader stage
 	game.VSSetShader(g_d3dVertexShader);
+	//todo: set buffers
 
 	//pixel shader stage
 	game.PSSetSampler(g_d3dSamplerState);
 	game.PSSetShader(g_d3dPixelShader);
-
+	//todo: set buffers
 
 	/*
 	SetMaterialBegin();
