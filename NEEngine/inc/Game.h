@@ -41,8 +41,8 @@ public:
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
 
-    void VSSetShader(ID3D11VertexShader* pVertexShader);
-    void PSSetShader(ID3D11PixelShader* pPixelShader);
+    inline void VSSetShader(ID3D11VertexShader* pVertexShader);
+    inline void PSSetShader(ID3D11PixelShader* pPixelShader);
     
     ID3D11InputLayout* CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs,
         unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength);
@@ -51,8 +51,8 @@ public:
 
     ID3D11SamplerState* CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc);
 
-    void PSSetSampler(ID3D11SamplerState *samplerState); //todo: сделать вар. с несколькими сэмплерами!
-    void IASetInputLayout(ID3D11InputLayout* inputLayout);
+    inline void PSSetSampler(ID3D11SamplerState *samplerState); //todo: сделать вар. с несколькими сэмплерами!
+    inline void IASetInputLayout(ID3D11InputLayout* inputLayout);
 
     inline void VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
     inline void PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);

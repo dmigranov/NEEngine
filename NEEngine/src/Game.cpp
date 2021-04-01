@@ -673,12 +673,12 @@ ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T 
     return returnPixelShader;
 }
 
-void Game::VSSetShader(ID3D11VertexShader* pVertexShader)
+inline void Game::VSSetShader(ID3D11VertexShader* pVertexShader)
 {
     g_d3dDeviceContext->VSSetShader(pVertexShader, nullptr, 0);
 }
 
-void Game::PSSetShader(ID3D11PixelShader* pPixelShader)
+inline void Game::PSSetShader(ID3D11PixelShader* pPixelShader)
 {
     g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
 }
@@ -737,12 +737,12 @@ ID3D11SamplerState* Game::CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc)
     return returnState;
 }
 
-void Game::PSSetSampler(ID3D11SamplerState* samplerState)
+inline void Game::PSSetSampler(ID3D11SamplerState* samplerState)
 {
     g_d3dDeviceContext->PSSetSamplers(0, 1, &samplerState);
 }
 
-void Game::IASetInputLayout(ID3D11InputLayout* inputLayout)
+inline void Game::IASetInputLayout(ID3D11InputLayout* inputLayout)
 {
     g_d3dDeviceContext->IASetInputLayout(inputLayout);
 }
