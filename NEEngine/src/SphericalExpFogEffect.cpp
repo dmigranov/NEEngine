@@ -120,6 +120,14 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 }
 
+void SphericalExpFogEffect::UpdatePerScene()
+{
+}
+
+void SphericalExpFogEffect::UpdatePerApplication()
+{
+}
+
 SphericalExpFogEffect::~SphericalExpFogEffect()
 {
 	Deinitialize();

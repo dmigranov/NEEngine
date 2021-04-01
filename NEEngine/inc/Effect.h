@@ -29,6 +29,9 @@ public:
 	virtual bool Initialize() = 0;
 
 	virtual void UpdatePerObject(const Entity* pEntity) = 0;
+	virtual void UpdatePerScene() = 0;
+	virtual void UpdatePerApplication() = 0; //todo: последние два - для оптимизации
+
 
 	virtual void Deinitialize() = 0;
 

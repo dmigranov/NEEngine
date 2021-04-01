@@ -37,7 +37,13 @@ public:
     // Унаследовано через Effect
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
+
     virtual void UpdatePerObject(const Entity* pEntity) override;
+    virtual void UpdatePerScene() override;
+    virtual void UpdatePerApplication() override;
+
+
+
     ~SphericalExpFogEffect();
 protected:
     std::string magic = "SphericalExpFog";
