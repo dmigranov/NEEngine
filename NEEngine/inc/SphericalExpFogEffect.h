@@ -34,11 +34,10 @@ public:
         float m_edgeThickness = 0.00f;
     };
 
-
     // Унаследовано через Effect
     virtual bool Initialize() override;
-    virtual bool Deinitialize() override;
-    virtual bool SetMaterial(const Entity* pEntity) override;
+    virtual void Deinitialize() override;
+    virtual void UpdatePerObject(const Entity* pEntity) override;
     ~SphericalExpFogEffect();
 protected:
     std::string magic = "SphericalExpFog";

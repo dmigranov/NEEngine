@@ -71,11 +71,10 @@ bool SphericalExpFogEffect::Initialize()
 
 	g_d3dSamplerState = game.CreateSamplerState(samplerDesc);
 
-
 	return true;
 }
 
-bool SphericalExpFogEffect::Deinitialize()
+void SphericalExpFogEffect::Deinitialize()
 {
 	// понятно, очистка и удаление всех созданных ресурсов
 
@@ -90,11 +89,9 @@ bool SphericalExpFogEffect::Deinitialize()
 
 	SafeRelease(g_d3dVertexShader);
 	SafeRelease(g_d3dPixelShader);
-
-	return true;
 }
 
-bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
+void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 {
 	// буферы заполняются конкретными вещами, 
 	// тут же выставляются нужные шейдеры и input assembly
@@ -121,7 +118,6 @@ bool SphericalExpFogEffect::SetMaterial(const Entity* pEntity)
 	SetMaterialEnd();
 	*/
 
-	return true;
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()

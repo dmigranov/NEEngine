@@ -28,9 +28,9 @@ public:
 	virtual ~Effect();
 	virtual bool Initialize() = 0;
 
-	virtual bool SetMaterial(const Entity* pEntity) = 0;
+	virtual void UpdatePerObject(const Entity* pEntity) = 0;
 
-	virtual bool Deinitialize() = 0;
+	virtual void Deinitialize() = 0;
 
 	bool IsInited();
 
