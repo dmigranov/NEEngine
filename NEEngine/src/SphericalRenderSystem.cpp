@@ -66,7 +66,8 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	//(и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
 	{
-		Render(pEntity, pDeviceContext, pConstantBuffer);
+		if(pEntity->IsVisible())
+			Render(pEntity, pDeviceContext, pConstantBuffer);
 	}
 }
 

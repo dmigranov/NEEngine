@@ -35,6 +35,7 @@ public:
 	void SetVisible(bool isVisible);
 	bool IsVisible() const;
 
+	std::string GetName() const;
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
 	template<typename T> void AddComponent(Component* pComponent)		//new

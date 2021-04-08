@@ -83,6 +83,11 @@ bool Entity::IsVisible() const
 	return m_isVisible;
 }
 
+std::string Entity::GetName() const
+{
+return m_name;
+}
+
 
 
 /*Component* Entity::GetComponent(ComponentType type)
