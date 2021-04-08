@@ -27,17 +27,16 @@ bool SphericalExpFogEffect::Initialize()
 	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
-	//input assembly тоже тут:
+	//input assembly:
 	D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
 	{
-		//todo: исправить! четвертую координату надо
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(VertexData, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 	g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs));
 
 
-	//буферы (в тч текстурные):
+	//буферы:
 	D3D11_BUFFER_DESC constantBufferDesc;
 	ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
@@ -88,9 +87,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 {
 	// буферы заполняются конкретными вещами, 
 	// тут же выставляются нужные шейдеры и input assembly
-	//
-	// после чего в окружающем SetMaterial,
-	// возможно делается что-то еще (вызов отрисовки)
 
 	//todo: !!!!!оптимизировать!!!!!
 
@@ -103,8 +99,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
-
-	//todo: установить вертексные и индексные буферы!
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -121,22 +115,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 		auto shaderResource = m_pTexture->GetTexture();
 		game.PSSetShaderResources(1, &shaderResource);
 	}
-
-	/*
-	SetMaterialBegin();
-	{
-		SetVertexShaderBegin();
-		SetVertexShaderMatrix4x4("matrixWorldViewProjT", matWorldViewProjT);
-		SetVertexShaderVector4("constColor", Vector4(1, 1, 1, 1));
-		SetVertexShaderEnd();
-
-		SetPixelShaderBegin();
-		SetPixelShaderTexture2d("texture1", m_pTexture1);
-		SetPixelShaderEnd();
-	}
-	SetMaterialEnd();
-	*/
-
 }
 
 void SphericalExpFogEffect::UpdatePerScene()
@@ -161,7 +139,7 @@ SphericalExpFogEffect::~SphericalExpFogEffect()
 
 void SphericalExpFogEffect::Deinitialize()
 {
-	// понятно, очистка и удаление всех созданных ресурсов
+	// очистка и удаление всех созданных ресурсов
 
 	SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
 	SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);

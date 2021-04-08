@@ -32,11 +32,6 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
 	auto pDevice = game.g_d3dDevice;
 
-	//auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
-
-	//todo: константные буферы перенести в Effect, как и текстуры
-	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
- 
 	//Input Assembler Stage - common
 	//pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
 
@@ -63,8 +58,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 
 
-	//todo: более оптимальный перебор по эффектам
-	//(и вынести может куда-то сам перебор в олтдельынй класс?)
+	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
 	{
 		if(pEntity->IsVisible())
@@ -96,18 +90,9 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	/*if (pMeshComponent->m_pTexture != nullptr)
-	{   //Pixel Shader Stafe - unique 4 every stage
-		auto shaderResource = pMeshComponent->m_pTexture->GetTexture();
-		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
-	}*/
 
-	//где то тут будет обращение к методу эффекта
-	//он все загрузит в буферы и тд что надо
+
 	pEffect->UpdatePerObject(pEntity);
-
-	//const auto& world = pTransformComponent->GetWorld();
-	//pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->indicesCount, 2, 0, 0, 0);
 
