@@ -61,6 +61,9 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	pDeviceContext->OMSetBlendState(game.g_d3dBlendState, 0, 0xffffffff);
 
 
+
+	//todo: более оптимальный перебор по эффектам
+	//(и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
 	{
 		Render(pEntity, pDeviceContext, pConstantBuffer);
@@ -72,6 +75,14 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	//SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
 	AbstractMeshComponent* pMeshComponent = pEntity->GetComponent<AbstractMeshComponent>();
+	auto pEffect = pMeshComponent->GetEffect();
+
+	if (!pEffect)
+	{
+		std::cerr << "No effect found for the entity " << ", won't ber rendered later"  << std::endl;
+
+		//return; //todo
+	}
 
 	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал
 	// Input Assembler Stage - unique for every mesh

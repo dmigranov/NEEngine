@@ -21,7 +21,7 @@ class Game;
 class Entity
 {
 public:
-	Entity(const char* name = nullptr);
+	Entity(bool isVisible = true, const char* name = nullptr);
 	~Entity();
 
 	void Initialize();
@@ -31,6 +31,10 @@ public:
 	TransformComponent* const GetTransform();
 
 	void Render();
+
+	void SetVisible(bool isVisible);
+	bool IsVisible() const;
+
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
 	template<typename T> void AddComponent(Component* pComponent)		//new
@@ -62,6 +66,9 @@ private:
 	std::vector<Component*> m_components;
 
 	bool m_isActive;
+
+	bool m_isVisible;
+
 	std::string m_name;
 
 	//std::bitset<COMPONENT_TYPE_COUNT> m_componentsMask;

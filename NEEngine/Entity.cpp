@@ -6,9 +6,10 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-Entity::Entity(const char* name) : 
+Entity::Entity(bool isVisible, const char* name) :
 	m_isActive(false), m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount()),
-	m_components(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount())
+	m_components(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount()),
+	m_isVisible(isVisible)
 {
 	m_name = (nullptr == name) ? "Object" : name;
 	//m_pTransform = new TransformComponent();
@@ -71,6 +72,18 @@ void Entity::Render()
 		return;
 	//m_pMesh->Render(m_pTransform->GetWorld());
 }
+
+void Entity::SetVisible(bool isVisible)
+{
+	m_isVisible = isVisible;
+}
+
+bool Entity::IsVisible() const
+{
+	return m_isVisible;
+}
+
+
 
 /*Component* Entity::GetComponent(ComponentType type)
 {
