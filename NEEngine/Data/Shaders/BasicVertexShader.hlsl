@@ -16,7 +16,7 @@ cbuffer PerObject : register(b2)
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables
 struct VertexShaderInput
 {
-	float3 position : POSITION;
+	float4 position : POSITION;
 	float2 tex : TEXCOORD0;
 };
 
