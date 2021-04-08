@@ -78,12 +78,11 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	AbstractMeshComponent* pMeshComponent = pEntity->GetComponent<AbstractMeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
 
-	if (!pEffect)
+	if (!pEffect) //для отладки содержимое можно закомм.
 	{
-		//todo: РАССКОММЕНТИРОВАТЬ!
-		//std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!"  << std::endl;
-		//pEntity->SetVisible(false);
-		//return; 
+		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!"  << std::endl;
+		pEntity->SetVisible(false);
+		return; 
 	}
 
 	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал 
