@@ -24,6 +24,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="inc\AbstractMeshComponent.cpp" />
     <ClCompile Include="inc\CameraActionSystem.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="InputSystem.cpp" />

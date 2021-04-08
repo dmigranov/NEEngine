@@ -1,6 +1,9 @@
 #pragma once
 #include "Component.h"
 
+class Effect;
+class Texture;
+
 class AbstractMeshComponent : public Component
 {
 	friend class SphericalRenderSystem; //todo: исправить?
@@ -8,7 +11,10 @@ class AbstractMeshComponent : public Component
 
 public:
 	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-	virtual void Render(DirectX::XMMATRIX world) = 0;
+	//virtual void Render(DirectX::XMMATRIX world) = 0;
+
+	Effect* GetEffect();
+
 protected:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
@@ -19,4 +25,7 @@ protected:
 	int indicesCount;
 
 	Texture* m_pTexture;    //todo: перенести в материал
+
+	Effect* m_pEffect;
+
 };

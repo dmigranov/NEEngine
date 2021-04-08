@@ -3,6 +3,7 @@
 
 class Game;
 
+
 template <class VertexData>
 class MeshComponent : public AbstractMeshComponent
 {
@@ -10,7 +11,7 @@ public:
 
 	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-	virtual void Render(DirectX::XMMATRIX world) override;
+	//virtual void Render(DirectX::XMMATRIX world) override;
 
 	virtual ~MeshComponent();
 
@@ -65,6 +66,20 @@ inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, in
 }
 
 template<class VertexData>
+inline MeshComponent<VertexData>::~MeshComponent()
+{
+	SafeRelease(g_d3dVertexBuffer);
+	SafeRelease(g_d3dIndexBuffer);
+}
+
+template<class VertexData>
+inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
+{
+	this->m_pTexture = texture;
+}
+
+
+/*template<class VertexData>
 inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
 {
 	const UINT vertexStride = sizeof(VertexData);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
@@ -83,17 +98,4 @@ inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
 
 	//DRAW
 	deviceContext->DrawIndexed(indicesCount, 0, 0);
-}
-
-template<class VertexData>
-inline MeshComponent<VertexData>::~MeshComponent()
-{
-	SafeRelease(g_d3dVertexBuffer);
-	SafeRelease(g_d3dIndexBuffer);
-}
-
-template<class VertexData>
-inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
-{
-	this->m_pTexture = texture;
-}
+}*/
