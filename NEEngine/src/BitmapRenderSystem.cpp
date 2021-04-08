@@ -24,6 +24,8 @@ void BitmapRenderSystem::Execute(double)
 		return e1->GetTransform()->GetPosition().z > e2->GetTransform()->GetPosition().z;
 	});	//сортирует по возрастанию: сначала меньшие z...
 
+	/* //todo: restore
+
 	auto& game = Game::GetInstance();
 	auto pDeviceContext = game.GetDeviceContext();
 	auto pDevice = game.GetDevice();
@@ -64,7 +66,7 @@ void BitmapRenderSystem::Execute(double)
 	{
 		Render(pEntity, pDeviceContext, pConstantBuffer);
 	}	
-
+	*/
 }
 
 void BitmapRenderSystem::AddEntity(Entity* pEntity)

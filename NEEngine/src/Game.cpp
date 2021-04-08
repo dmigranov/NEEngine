@@ -242,11 +242,8 @@ int Game::Initialize(HWND window, int width, int height)
     samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
     // Create the texture sampler state.
-    hr = g_d3dDevice->CreateSamplerState(&samplerDesc, &g_d3dSamplerState);
-    if (FAILED(hr))
-    {
-        return -1;
-    }
+    //hr = g_d3dDevice->CreateSamplerState(&samplerDesc, &g_d3dSamplerState);
+    //if (FAILED(hr)) { return -1; }
 
     isInitialized = true;
     m_pScene = new Scene();
@@ -471,7 +468,7 @@ void Game::Cleanup()
     SafeRelease(g_d3dDepthStencilBuffer);
     SafeRelease(g_d3dDepthStencilState);
     SafeRelease(g_d3dRasterizerState);
-    SafeRelease(g_d3dSamplerState);
+    //SafeRelease(g_d3dSamplerState);
     SafeRelease(g_d3dSwapChain);
     SafeRelease(g_d3dDeviceContext);
     SafeRelease(g_d3dDevice);
@@ -569,11 +566,9 @@ void Game::UnloadContent()
 
     SafeRelease(g_d3dInputLayout);
 
-    SafeRelease(g_d3dVertexShader);
-
+    //SafeRelease(g_d3dVertexShader);
     //SafeRelease(g_d3dGeometryShader);
-
-    SafeRelease(g_d3dPixelShader);
+    //SafeRelease(g_d3dPixelShader);
 
     m_pResourceManager->Clean();
     delete m_pResourceManager;

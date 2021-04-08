@@ -127,12 +127,10 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
 
-    // Shader data: standard shaders
-    ID3D11VertexShader* g_d3dVertexShader = nullptr;
-
-    ID3D11PixelShader* g_d3dPixelShader = nullptr;
-
-    ID3D11SamplerState* g_d3dSamplerState = nullptr;
+    // Shader data
+    //ID3D11VertexShader* g_d3dVertexShader = nullptr;
+    //ID3D11PixelShader* g_d3dPixelShader = nullptr;
+    //ID3D11SamplerState* g_d3dSamplerState = nullptr;
 
     // Shader resources
     enum ConstantBuffer
