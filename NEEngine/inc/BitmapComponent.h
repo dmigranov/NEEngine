@@ -10,7 +10,7 @@ class BitmapComponent :
 public:
     struct VertexType
     {
-        DirectX::SimpleMath::Vector3 position;
+        DirectX::SimpleMath::Vector4 position; //todo: исправить на Vector3 снова?
         DirectX::SimpleMath::Vector2 uv;
     };
 

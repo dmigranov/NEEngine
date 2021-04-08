@@ -121,16 +121,18 @@ int main(int argc, char * argv[])
     auto stc = new SphericalTransformComponent();
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
-    VertexPosTex vertices[3] = {
+    VertexPosTex vertices[4] = {
        { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) }, // 2
+       { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
+
 
     };
 
-    WORD indices[3] =
+    WORD indices[6] =
     {
-        0, 1, 2
+        0, 1, 2,
+        //0, 3, 2
     };
     //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
     auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);

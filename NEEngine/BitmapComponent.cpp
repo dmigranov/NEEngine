@@ -88,14 +88,14 @@ bool BitmapComponent::InitializeBuffers(ID3D11Device* device)
 	float widthDiv2 = m_bitmapWidth / 2.f, heightDiv2 = m_bitmapHeight / 2.f;
 
 	// First triangle.
-	vertices[0].position = Vector3(-widthDiv2, heightDiv2, 0.f);  // Top left.
-	vertices[1].position = Vector3(widthDiv2, -heightDiv2, 0.f);  // Bottom right.
-	vertices[2].position = Vector3(-widthDiv2, -heightDiv2, 0.f);  // Bottom left.
+	vertices[0].position = Vector4(-widthDiv2, heightDiv2, 0.f, 1.f);  // Top left.
+	vertices[1].position = Vector4(widthDiv2, -heightDiv2, 0.f, 1.f);  // Bottom right.
+	vertices[2].position = Vector4(-widthDiv2, -heightDiv2, 0.f, 1.f);  // Bottom left.
 
 	// Second triangle.
-	vertices[3].position = Vector3(-widthDiv2, heightDiv2, 0.f);  // Top left.
-	vertices[4].position = Vector3(widthDiv2, heightDiv2, 0.f);  // Top right.
-	vertices[5].position = Vector3(widthDiv2, -heightDiv2, 0.f);  // Bottom right.
+	vertices[3].position = Vector4(-widthDiv2, heightDiv2, 0.f, 1.f);  // Top left.
+	vertices[4].position = Vector4(widthDiv2, heightDiv2, 0.f, 1.f);  // Top right.
+	vertices[5].position = Vector4(widthDiv2, -heightDiv2, 0.f, 1.f);  // Bottom right.
 
 
 	vertices[0].uv = Vector2(0.f, 0.f);
