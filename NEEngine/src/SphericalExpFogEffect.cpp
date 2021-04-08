@@ -90,9 +90,12 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//todo: заполнение СОДЕРЖИМОГО буферов 
 	//todo: оптимизировать!
 
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &(game.GetScene())->GetProj());
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &(game.GetScene())->GetProj());
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &(game.GetScene())->GetProj());
+
+	auto proj = (game.GetScene())->GetProj();
+	auto view = (game.GetScene())->GetView();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &proj);
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
+	//game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], );
 
 
 	//input assembly stage
