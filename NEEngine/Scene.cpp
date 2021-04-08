@@ -11,7 +11,8 @@
 
 
 Scene::Scene() : m_pCamera(nullptr), m_game(Game::GetInstance())
-{}
+{
+}
 
 Scene::~Scene()
 {
@@ -117,9 +118,10 @@ void Scene::UpdateProjMatrix()
 	cc->SetOutputSize(m_width, m_height);
 
 	auto proj = cc->GetProj();
+	m_proj = proj;
 
 	//todo: убрать!
-	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &proj, 0, 0);
+	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
 }
 
 void Scene::Update(double delta)
