@@ -86,10 +86,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		return; 
 	}
 
-	// ЭТО ВСЁ ТОЖЕ перенести потом в ЭФфект/Материал 
 	// Input Assembler Stage - unique for every mesh
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	//unsigned int stride = sizeof(VertexPosTex);
 	unsigned int stride = pEffect->GetVertexBufferSize();
 	unsigned int offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &pMeshComponent->g_d3dVertexBuffer, &stride, &offset);
@@ -108,8 +106,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	//он все загрузит в буферы и тд что надо
 	pEffect->UpdatePerObject(pEntity);
 
-	const auto& world = pTransformComponent->GetWorld();
-	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
+	//const auto& world = pTransformComponent->GetWorld();
+	//pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->indicesCount, 2, 0, 0, 0);
 
