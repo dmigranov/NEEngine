@@ -104,6 +104,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
+	//todo: установить вертексные и индексные буферы!
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -146,6 +147,11 @@ void SphericalExpFogEffect::UpdatePerScene()
 void SphericalExpFogEffect::UpdatePerApplication()
 {
 	//TODO: for optimisation...
+}
+
+unsigned int SphericalExpFogEffect::GetVertexBufferSize() const
+{
+	return sizeof(VertexData);
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()

@@ -47,7 +47,7 @@ public:
     virtual void UpdatePerScene() override;
     virtual void UpdatePerApplication() override;
 
-
+    virtual unsigned int GetVertexBufferSize() const override;
 
     ~SphericalExpFogEffect();
 protected:

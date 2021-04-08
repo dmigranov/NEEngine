@@ -80,7 +80,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 
 	if (!pEffect)
 	{
-		//todo: разкомментировать
+		//todo: РАССКОММЕНТИРОВАТЬ!
 		//std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!"  << std::endl;
 		//pEntity->SetVisible(false);
 		//return; 

@@ -23,7 +23,7 @@ public:
 	//todo: Input assembly - тоже эффект: в эффекте определена нужная стуктура ,
 	//и Mesh создается именно с такой <Struct>
 	//Input assembly соответсвует
-
+	
 	Effect();
 	virtual ~Effect();
 	virtual bool Initialize() = 0;
@@ -32,8 +32,10 @@ public:
 	virtual void UpdatePerScene() = 0;
 	virtual void UpdatePerApplication() = 0; //todo: последние два - для оптимизации
 
+	virtual unsigned int GetVertexBufferSize() const = 0;
 
 	virtual void Deinitialize() = 0;
+
 
 	bool IsInited();
 
