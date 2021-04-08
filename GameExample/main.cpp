@@ -29,6 +29,9 @@
 
 #include "SphericalRenderSystem.h"
 
+//Effect
+#include "SphericalExpFogEffect.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -134,6 +137,7 @@ int main(int argc, char * argv[])
     //todo: сделать конструктор
     //потому что иначе она тоже будет включаться, ведт это наследники
     smc->SetTexture(brickTexture);
+    smc->SetEffect(new SphericalExpFogEffect(brickTexture));
     //test3D->SetMesh(smc);
     //test3D->SetTransform(stc);
     test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
