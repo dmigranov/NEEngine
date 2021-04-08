@@ -72,6 +72,16 @@ Entity* Scene::GetCamera()
 	return m_pCamera;
 }
 
+DirectX::SimpleMath::Matrix Scene::GetProj()
+{
+	return m_proj;
+}
+
+DirectX::SimpleMath::Matrix Scene::GetView()
+{
+	return DirectX::SimpleMath::Matrix();
+}
+
 void Scene::SetCameraOutputSize(double width, double height)
 {
 	m_width = width;
@@ -106,9 +116,10 @@ void Scene::UpdateProjMatrix()
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
-	auto proj = cc->GetProj();
+	m_proj = cc->GetProj();
 
-	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &proj, 0, 0);
+	//todo: убрать!
+	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
 }
 
 void Scene::Update(double delta)

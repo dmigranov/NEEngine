@@ -45,6 +45,9 @@ private:
 
 	double m_width = -1, m_height = -1;
 
+	DirectX::SimpleMath::Matrix m_proj;
+	DirectX::SimpleMath::Matrix m_view;
+
 	Game& m_game;
 	Entity* m_pCamera;
 };
