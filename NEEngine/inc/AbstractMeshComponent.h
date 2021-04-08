@@ -10,9 +10,6 @@ class AbstractMeshComponent : public Component
 
 
 public:
-	//todo: СТАРОЕ! Должно быть потом удалено, так как это должно быть на системе
-	//virtual void Render(DirectX::XMMATRIX world) = 0;
-
 	Effect* GetEffect() const;
 	void SetEffect(Effect * effect);
 
