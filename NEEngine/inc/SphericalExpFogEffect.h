@@ -34,7 +34,7 @@ public:
         DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
         float m_edgeThickness = 0.00f;
     };
-
+    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
     SphericalExpFogEffect(Texture* pTexture);
 

@@ -103,6 +103,8 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
