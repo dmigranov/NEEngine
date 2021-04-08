@@ -673,15 +673,6 @@ ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T 
     return returnPixelShader;
 }
 
-inline void Game::VSSetShader(ID3D11VertexShader* pVertexShader)
-{
-    g_d3dDeviceContext->VSSetShader(pVertexShader, nullptr, 0);
-}
-
-inline void Game::PSSetShader(ID3D11PixelShader* pPixelShader)
-{
-    g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
-}
 
 ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs, unsigned int numElements, const void* bytecode, SIZE_T bytecodeLength)
 {
@@ -737,32 +728,5 @@ ID3D11SamplerState* Game::CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc)
     return returnState;
 }
 
-inline void Game::PSSetSampler(ID3D11SamplerState* samplerState)
-{
-    g_d3dDeviceContext->PSSetSamplers(0, 1, &samplerState);
-}
 
-inline void Game::IASetInputLayout(ID3D11InputLayout* inputLayout)
-{
-    g_d3dDeviceContext->IASetInputLayout(inputLayout);
-}
 
-inline void Game::VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers)
-{
-    g_d3dDeviceContext->VSSetConstantBuffers(0, numBuffers, ppConstantBuffers);
-}
-
-inline void Game::PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers)
-{
-    g_d3dDeviceContext->PSSetConstantBuffers(0, numBuffers, ppConstantBuffers);
-}
-
-inline void Game::UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData)
-{
-    g_d3dDeviceContext->UpdateSubresource(buffer, 0, nullptr, pSrcData, 0, 0);
-}
-
-inline void Game::PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews)
-{
-    g_d3dDeviceContext->PSSetShaderResources(0, NumViews, ppShaderResourceViews);
-}
