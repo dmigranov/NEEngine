@@ -532,23 +532,11 @@ bool Game::LoadContent()
     {
         return false;
     }*/
-    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
-    if (FAILED(hr))
-    {
-        return false;
-    }
+    //hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
+    //if (FAILED(hr)) { return false; }
 
-    /*hr = g_d3dDevice->CreateGeometryShader(g_gs, sizeof(g_gs), nullptr, &g_d3dGeometryShader);
-    if (FAILED(hr))
-    {
-        return false;
-    }*/
-
-    hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
-    if (FAILED(hr))
-    {
-        return false;
-    }
+    //hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
+    //if (FAILED(hr)) { return false; }
 
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
     //todo: перенести в другое место, так как это зависит от того что подается
