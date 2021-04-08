@@ -79,7 +79,7 @@ DirectX::SimpleMath::Matrix Scene::GetProj()
 
 DirectX::SimpleMath::Matrix Scene::GetView()
 {
-	return DirectX::SimpleMath::Matrix();
+	return m_pCamera->GetTransform()->GetView();
 }
 
 void Scene::SetCameraOutputSize(double width, double height)
