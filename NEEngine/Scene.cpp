@@ -116,10 +116,10 @@ void Scene::UpdateProjMatrix()
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
-	m_proj = cc->GetProj();
+	auto proj = cc->GetProj();
 
 	//todo: убрать!
-	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
+	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &proj, 0, 0);
 }
 
 void Scene::Update(double delta)
