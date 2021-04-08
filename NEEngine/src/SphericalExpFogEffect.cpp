@@ -88,6 +88,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 {
 	// буферы заполняются конкретными вещами, 
 	// тут же выставляются нужные шейдеры и input assembly
+	//
 	// после чего в окружающем SetMaterial,
 	// возможно делается что-то еще (вызов отрисовки)
 
