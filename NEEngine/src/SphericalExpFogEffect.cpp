@@ -20,6 +20,7 @@ using namespace DirectX::SimpleMath;
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::GetInstance())
 {
 	m_pTexture = pTexture;
+	Initialize();
 }
 
 bool SphericalExpFogEffect::Initialize()

@@ -98,14 +98,15 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	if (pMeshComponent->m_pTexture != nullptr)
+	/*if (pMeshComponent->m_pTexture != nullptr)
 	{   //Pixel Shader Stafe - unique 4 every stage
 		auto shaderResource = pMeshComponent->m_pTexture->GetTexture();
 		pDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
-	}
+	}*/
 
 	//где то тут будет обращение к методу эффекта
 	//он все загрузит в буферы и тд что надо
+	pEffect->UpdatePerObject(pEntity);
 
 	const auto& world = pTransformComponent->GetWorld();
 	pDeviceContext->UpdateSubresource(pMeshComponent->d3dConstantBuffer, 0, nullptr, &world, 0, 0);
