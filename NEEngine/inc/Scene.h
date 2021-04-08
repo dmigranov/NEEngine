@@ -25,6 +25,10 @@ public:
 	void SetCamera(Entity* pCamera);
 	Entity* GetCamera();
 
+	DirectX::SimpleMath::Matrix GetProj();
+	DirectX::SimpleMath::Matrix GetView();
+
+
 	void SetCameraOutputSize(double width, double height);
 
 	//в текущей реализации вызывается только один раз,
