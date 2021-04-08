@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SphericalExpFogEffect.h"
 #include "Texture.h"
+#include "Scene.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -88,7 +89,10 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//todo: çàïîëíåíèå ÑÎÄÅĞÆÈÌÎÃÎ áóôåğîâ 
 	//todo: îïòèìèçèğîâàòü!
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], game.GetScene());
+
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &(game.GetScene())->GetProj());
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &(game.GetScene())->GetProj());
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &(game.GetScene())->GetProj());
 
 
 	//input assembly stage
