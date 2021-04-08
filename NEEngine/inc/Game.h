@@ -2,10 +2,6 @@
 #include <sstream>
 #include <iomanip>
 
-//Shaders: должны переехать в эфффект TODO
-#include "VertexShader.h" // generated from BasicVertexShader.hlsl
-#include "PixelShader.h" // generated from BasicPixelShader.hlsl
-
 #include "FPSCounter.h"
 
 class Scene;
@@ -36,7 +32,6 @@ public:
 
     ID3D11Device* const GetDevice();
     ID3D11DeviceContext* const GetDeviceContext();
-    //ID3D11Buffer** const GetVSConstantBuffers();
 
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
@@ -141,12 +136,7 @@ private:
 
     FPSCounter                            fpsCounter;
 
-    struct PerApplicationPSConstantBuffer
-    {
-        DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
-        float m_edgeThickness = 0.00f;
-    };
-    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
+    DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
 
     bool isInitialized = false;
 

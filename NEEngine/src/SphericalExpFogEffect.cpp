@@ -6,14 +6,12 @@
 #include "SphericalTransformComponent.h"
 #include "Entity.h"
 
+#include "VertexShader.h" // generated from BasicVertexShader.hlsl
+#include "PixelShader.h" // generated from BasicPixelShader.hlsl
+
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
-
-
-//потом вернуть, а пока множ. определение
-//#include "VertexShader.h" // generated from BasicVertexShader.hlsl
-//#include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
 #include "Game.h"
 

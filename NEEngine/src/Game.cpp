@@ -429,7 +429,7 @@ void Game::StartDrawing()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
-    Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
+    Clear(mistColor, 1.0f, 0);
 }
 
 void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil)
@@ -592,7 +592,7 @@ ComponentTypeManager* Game::GetComponentTypeManager()
 
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
 {
-    perApplicationPSConstantBuffer.mistColor = color;
+    mistColor = color;
     //g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
 
