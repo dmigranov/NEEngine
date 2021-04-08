@@ -118,7 +118,7 @@ void Scene::UpdateProjMatrix()
 	cc->SetOutputSize(m_width, m_height);
 
 	auto proj = cc->GetProj();
-	m_proj = proj;
+	m_proj = proj; //тут что то с типами...
 
 	//todo: убрать!
 	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);

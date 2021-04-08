@@ -46,7 +46,7 @@ public:
 	}
 
 	//Component* GetComponent(ComponentType type);	//old
-	template<typename T> T* GetComponent()			//new
+	template<typename T> T* GetComponent() const	//new; const - can't modify the object it's invoked on
 	{
 		return static_cast<T*>(m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()]);
 	}

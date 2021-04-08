@@ -3,6 +3,10 @@
 #include "Texture.h"
 #include "Scene.h"
 
+#include "SphericalTransformComponent.h"
+#include "Entity.h"
+
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -93,9 +97,11 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	auto proj = (game.GetScene())->GetProj();
 	auto view = (game.GetScene())->GetView();
+	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+	const auto & world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &proj);
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
-	//game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], );
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
 
 	//input assembly stage
