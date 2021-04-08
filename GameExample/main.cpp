@@ -115,36 +115,53 @@ int main(int argc, char * argv[])
     character->AddComponent<InputComponent>(charInputComponent);
     
     scene->AddEntity(character); 
-    //cameraTransform->SetParent(charTransform);
+
 
     Entity* test3D = new Entity();
     auto stc = new SphericalTransformComponent();
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
-    VertexPosTex vertices[4] = {
+    VertexPosTex vertices[3] = {
        { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
-
-
     };
 
-    WORD indices[6] =
+    WORD indices[3] =
     {
         0, 1, 2,
-        //0, 3, 2
     };
     //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
+    
+    auto effect = new SphericalExpFogEffect(brickTexture);
+    
     auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
-    //todo: сделать конструктор
-    //потому что иначе она тоже будет включаться, ведт это наследники
     smc->SetTexture(brickTexture);
-    smc->SetEffect(new SphericalExpFogEffect(brickTexture));
-    //test3D->SetMesh(smc);
-    //test3D->SetTransform(stc);
+    smc->SetEffect(effect);
     test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
-
     scene->AddEntity(test3D);
+
+
+
+    Entity* test3D_2 = new Entity();
+    test3D_2->AddComponent<SphericalTransformComponent>(stc);
+
+    VertexPosTex vertices2[3] = {
+       { XMFLOAT4(-5.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(15.0f,  -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(15.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
+    };
+
+    WORD indices2[3] =
+    {
+        0, 2, 1,
+    };
+
+    auto smc2 = new SphericalMeshComponent<VertexPosTex>(3, vertices2, 3, indices2);
+    smc2->SetTexture(brickTexture);
+    smc2->SetEffect(effect);
+    test3D_2->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc2);
+    scene->AddEntity(test3D_2);
 
     return game.StartGame();
 }

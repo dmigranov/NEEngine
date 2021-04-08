@@ -399,28 +399,28 @@ void Game::Update(double deltaTime)
 void Game::Render()
 {
     //Input Assembler Stage - common
-    g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
+    //g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
 
     //Vertex Shader Stage
-    g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
-    g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dVSConstantBuffers);
+    //g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
+    //g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dVSConstantBuffers);
 
     //Geometry Shader Stage
     //g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
 
     //Rasterizer Stage
-    g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
-    g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);
-
+    //g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
+    //g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);
+    
     //Pixel Shader Stage
-    g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
+    //g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
     //g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
-    g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
+    //g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
-    g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
-    g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
-    g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
+    //g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
+    //g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
+    //g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
 
     m_pScene->Render();
 

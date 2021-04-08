@@ -38,11 +38,11 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
  
 	//Input Assembler Stage - common
-	pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
+	//pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
 
 	//Vertex Shader Stage
-	pDeviceContext->VSSetShader(game.g_d3dVertexShader, nullptr, 0);
-	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
+	//pDeviceContext->VSSetShader(game.g_d3dVertexShader, nullptr, 0);
+	//pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
 
 	//Geometry Shader Stage
 	//pDeviceContext->GSSetShader(game.g_d3dGeometryShader, nullptr, 0);
@@ -52,9 +52,9 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	pDeviceContext->RSSetViewports(1, &game.g_Viewport);
 
 	//Pixel Shader Stage
-	pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
-	pDeviceContext->PSSetConstantBuffers(0, 1, &game.g_d3dPSConstantBuffer);
-	pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
+	///pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
+	//pDeviceContext->PSSetConstantBuffers(0, 1, &game.g_d3dPSConstantBuffer);
+	//pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
 
 	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
 	pDeviceContext->OMSetRenderTargets(1, &game.g_d3dRenderTargetView, game.g_d3dDepthStencilView);
