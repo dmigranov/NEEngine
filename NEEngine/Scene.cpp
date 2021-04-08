@@ -137,13 +137,8 @@ void Scene::Update(double delta)
 
 void Scene::Render()
 {
-	m_game.StartDrawing();
-
-	const auto view = m_pCamera->GetTransform()->GetView();
+	m_game.StartDrawing();	
 	
-	
-	//m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Frame], 0, nullptr, &view, 0, 0);
-
 	for (auto pSystem : m_drawingSystems)
 	{
 		if (pSystem != nullptr)
@@ -153,13 +148,9 @@ void Scene::Render()
 	}
 
 	{	
-		//todo: стара€ система рендера, переделать:
-		//несимметрично, рендеритс€ не с помощью системы
-		//на данный момент код внутри Render вообще закомментрирован,
-		//потому отрисовыватьс€ с помощью этого ничего не будет
 		//(стара€ система рендеринга отключена)
-		for (auto p_entity : m_entities)
-			p_entity->Render();
+		//for (auto p_entity : m_entities)
+		//	p_entity->Render();
 	}
 
 	m_game.FinishDrawing();

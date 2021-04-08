@@ -78,6 +78,7 @@ int main(int argc, char * argv[])
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
+        Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
 
         if (kbs.D)
@@ -88,6 +89,10 @@ int main(int argc, char * argv[])
             pTransform->Move(up);
         if (kbs.S)
             pTransform->Move(-up);
+        if (kbs.R)
+            pTransform->Move(fwd);
+        if (kbs.F)
+            pTransform->Move(-fwd);
 
     }));
 

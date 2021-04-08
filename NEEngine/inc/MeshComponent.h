@@ -8,7 +8,6 @@ template <class VertexData>
 class MeshComponent : public AbstractMeshComponent
 {
 public:
-
 	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 
 	virtual ~MeshComponent();
