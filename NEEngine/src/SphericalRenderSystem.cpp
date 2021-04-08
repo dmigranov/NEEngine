@@ -32,7 +32,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
 	auto pDevice = game.g_d3dDevice;
 
-	auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
+	//auto pConstantBuffer = game.g_d3dVSConstantBuffers[2];
 
 	//todo: константные буферы перенести в Effect, как и текстуры
 	//по существу, надо все эти этапы настраивать там, а создавать буферы - в его конструкторе
@@ -68,11 +68,11 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		if(pEntity->IsVisible())
-			Render(pEntity, pDeviceContext, pConstantBuffer);
+			Render(pEntity, pDeviceContext);
 	}
 }
 
-void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer)
+void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	//SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();

@@ -77,7 +77,7 @@ SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
     auto& game = Game::GetInstance();
     auto device = game.g_d3dDevice;
     deviceContext = game.g_d3dDeviceContext;
-    d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
+    //d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
     g_Indices = indices;
 
     indicesCount = _countof(indices);

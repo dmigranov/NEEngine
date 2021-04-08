@@ -121,7 +121,7 @@ void Scene::UpdateProjMatrix()
 	m_proj = proj; //тут что то с типами...
 
 	//todo: убрать!
-	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
+	//m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
 }
 
 void Scene::Update(double delta)
@@ -142,7 +142,7 @@ void Scene::Render()
 	const auto view = m_pCamera->GetTransform()->GetView();
 	
 	
-	m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Frame], 0, nullptr, &view, 0, 0);
+	//m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Frame], 0, nullptr, &view, 0, 0);
 
 	for (auto pSystem : m_drawingSystems)
 	{

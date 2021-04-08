@@ -36,7 +36,7 @@ public:
 
     ID3D11Device* const GetDevice();
     ID3D11DeviceContext* const GetDeviceContext();
-    ID3D11Buffer** const GetVSConstantBuffers();
+    //ID3D11Buffer** const GetVSConstantBuffers();
 
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
@@ -125,7 +125,7 @@ private:
     D3D11_VIEWPORT g_Viewport = { 0 };                                      //The g_Viewport variable defines the size of the viewport rectangle. The viewport rectangle is also used by the rasterizer stage to determine the renderable area on screen.
 
     // Vertex buffer data
-    ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
+    //ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
 
     // Shader data
     //ID3D11VertexShader* g_d3dVertexShader = nullptr;
@@ -133,7 +133,7 @@ private:
     //ID3D11SamplerState* g_d3dSamplerState = nullptr;
 
     // Shader resources
-    enum ConstantBuffer
+    /*enum ConstantBuffer
     {
         CB_Application, //The application level constant buffer stores variables that rarely change. 
         CB_Frame,       //The frame level constant buffer stores variables that change each frame. An example of a frame level shader variable would be the cameraТs view matrix which changes whenever the camera moves
@@ -146,6 +146,7 @@ private:
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи дл€ каждого этапа
 
     ID3D11Buffer* g_d3dPSConstantBuffer;
+    */
 
     Scene* m_pScene;
     ResourceManager* m_pResourceManager;

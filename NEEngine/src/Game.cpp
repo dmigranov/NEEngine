@@ -254,7 +254,7 @@ int Game::Initialize(HWND window, int width, int height)
     }
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
-    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
+    //g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
@@ -488,7 +488,7 @@ bool Game::LoadContent()
     constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
     //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
-    
+    /*
     constantBufferDesc.ByteWidth = sizeof(Matrix);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
     if (FAILED(hr))
@@ -516,6 +516,7 @@ bool Game::LoadContent()
     {
         return false;
     }
+    */
 
     //loading shaders from global variables 
     /*hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
@@ -546,11 +547,8 @@ bool Game::LoadContent()
         { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
     };
 
-    hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
-    if (FAILED(hr))
-    {
-        return false;
-    }
+    //hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
+    //if (FAILED(hr)) { return false; }
 
     CreateResources();
 
@@ -559,13 +557,12 @@ bool Game::LoadContent()
 
 void Game::UnloadContent()
 {
-    SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
-    SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
-    SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
-    SafeRelease(g_d3dPSConstantBuffer);
+    //SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
+    //SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
+    //SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
+    //SafeRelease(g_d3dPSConstantBuffer);
 
-    SafeRelease(g_d3dInputLayout);
-
+    //SafeRelease(g_d3dInputLayout);
     //SafeRelease(g_d3dVertexShader);
     //SafeRelease(g_d3dGeometryShader);
     //SafeRelease(g_d3dPixelShader);
@@ -596,7 +593,7 @@ ComponentTypeManager* Game::GetComponentTypeManager()
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
 {
     perApplicationPSConstantBuffer.mistColor = color;
-    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
+    //g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
 
 ID3D11Device* const Game::GetDevice()
@@ -609,10 +606,10 @@ ID3D11DeviceContext* const Game::GetDeviceContext()
     return g_d3dDeviceContext;
 }
 
-ID3D11Buffer** const Game::GetVSConstantBuffers()
+/*ID3D11Buffer** const Game::GetVSConstantBuffers()
 {
     return g_d3dVSConstantBuffers;
-}
+}*/
 
 ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {

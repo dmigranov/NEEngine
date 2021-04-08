@@ -85,7 +85,7 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
     auto& game = Game::GetInstance();
     auto device = game.g_d3dDevice;
     deviceContext = game.g_d3dDeviceContext;
-    d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
+    //d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
 
     // Create and initialize the vertex buffer.
     D3D11_BUFFER_DESC vertexBufferDesc;

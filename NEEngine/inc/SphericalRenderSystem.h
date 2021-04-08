@@ -7,6 +7,6 @@ public:
     SphericalRenderSystem();
     virtual void Execute(double deltaTime) override;
 private:
-    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer);
+    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext);
 };
 
