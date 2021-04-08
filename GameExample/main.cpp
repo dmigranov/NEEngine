@@ -65,15 +65,16 @@ int main(int argc, char * argv[])
     scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new BitmapRenderSystem());
 
-    auto cameraTransform = new TransformComponent(0, 0, -1, 0, 0, 0);
+    auto cameraTransform = new TransformComponent(0, 0, -20, 0, 0, 0);
 
 
-    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {
-        auto pTransform = pEntity->GetTransform();
+    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {
+        auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
         auto pInput = pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
         auto ms = pInput->GetMouseState();
         auto pWalk = pEntity->GetComponent<WalkComponent>();
+
 
         Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
@@ -91,7 +92,7 @@ int main(int argc, char * argv[])
     }));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraComponent = new CameraComponent(false);
+    auto cameraComponent = new CameraComponent(true);
     cameraComponent->SetOrthogonalWidth(30.);
 
     cameraEntity->SetTransform(cameraTransform);
@@ -102,20 +103,9 @@ int main(int argc, char * argv[])
     scene->SetCamera(cameraEntity);
 
 
-    auto charBitmap = new BitmapComponent(1, 1, characterTexture, false);
-    auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
+    //auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
-
-    Entity* character = new Entity();
-
-    character->SetTransform(charTransform);
-    character->AddComponent<BitmapComponent>(charBitmap);
-    character->AddComponent<WalkComponent>(charWalkComponent);
-    character->AddComponent<InputComponent>(charInputComponent);
-    
-    scene->AddEntity(character); 
-
 
     Entity* test3D = new Entity();
     auto stc = new SphericalTransformComponent();
@@ -144,12 +134,13 @@ int main(int argc, char * argv[])
 
 
     Entity* test3D_2 = new Entity();
-    test3D_2->AddComponent<SphericalTransformComponent>(stc);
+    auto stc_2 = new SphericalTransformComponent();
+    test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
     VertexPosTex vertices2[3] = {
-       { XMFLOAT4(-5.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
-       { XMFLOAT4(15.0f,  -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(15.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
+       { XMFLOAT4(-5.0f, -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(15.0f,  -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(15.0f,  10.0f, 0.5f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
     };
 
     WORD indices2[3] =
@@ -161,7 +152,10 @@ int main(int argc, char * argv[])
     smc2->SetTexture(brickTexture);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc2);
+    test3D_2->AddComponent<WalkComponent>(charWalkComponent);
+    test3D_2->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(test3D_2);
+
 
     return game.StartGame();
 }

@@ -15,7 +15,9 @@ InputSystem::InputSystem() : System()
 	m_mouse->SetWindow(Game::GetInstance().m_hwnd);
 
 	//todo: RELATIVE AND ABSOLUTE
-	m_mouse->SetMode(Mouse::MODE_RELATIVE);
+	//m_mouse->SetMode(Mouse::MODE_RELATIVE);
+	m_mouse->SetMode(Mouse::MODE_ABSOLUTE);
+
 }
 
 void InputSystem::Execute(double deltaTime)
