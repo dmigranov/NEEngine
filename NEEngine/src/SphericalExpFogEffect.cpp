@@ -91,9 +91,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// после чего в окружающем SetMaterial,
 	// возможно делается что-то еще (вызов отрисовки)
 
-	//todo: заполнение СОДЕРЖИМОГО буферов 
-	//todo: оптимизировать!
-
+	//todo: !!!!!оптимизировать!!!!!
 
 	auto proj = (game.GetScene())->GetProj();
 	auto view = (game.GetScene())->GetView();
