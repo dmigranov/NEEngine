@@ -570,8 +570,6 @@ void Game::UnloadContent()
     SafeRelease(g_d3dInputLayout);
 
     SafeRelease(g_d3dVertexShader);
-    SafeRelease(g_d3dEllipticalVertexShader);
-    SafeRelease(g_d3dSphericalVertexShader);
 
     //SafeRelease(g_d3dGeometryShader);
 

@@ -126,17 +126,9 @@ private:
 
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
-    
-    Scene* m_pScene;
-    ResourceManager* m_pResourceManager;
-    ComponentTypeManager* m_pComponentTypeManager;
 
-    // Shader data
-    //ID3D11VertexShader* g_d3dVertexShader = nullptr;
-    //ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
-    //ID3D11VertexShader* g_d3dEllipticalVertexShader = nullptr;
-
-    ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+    // Shader data: standard shaders
+    ID3D11VertexShader* g_d3dVertexShader = nullptr;
 
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
@@ -156,6 +148,10 @@ private:
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
     ID3D11Buffer* g_d3dPSConstantBuffer;
+
+    Scene* m_pScene;
+    ResourceManager* m_pResourceManager;
+    ComponentTypeManager* m_pComponentTypeManager;
 
     // Timer
     DWORD                                           previousTime = timeGetTime();

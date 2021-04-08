@@ -37,9 +37,6 @@ void BitmapRenderSystem::Execute(double)
 	pDeviceContext->VSSetShader(game.g_d3dVertexShader, nullptr, 0);
 	pDeviceContext->VSSetConstantBuffers(0, 3, game.g_d3dVSConstantBuffers);
 
-	//Geometry Shader Stage
-	//g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
-
 	//Rasterizer Stage
 	pDeviceContext->RSSetState(game.g_d3dRasterizerState);
 	pDeviceContext->RSSetViewports(1, &game.g_Viewport);
