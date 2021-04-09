@@ -195,14 +195,14 @@
     <ClCompile Include="Effect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalExpFogEffect.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="inc\AbstractMeshComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalCameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\AbstractMeshComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalExpFogEffect.cpp">
+      <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
