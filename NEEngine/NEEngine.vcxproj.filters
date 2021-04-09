@@ -202,7 +202,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalCameraComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

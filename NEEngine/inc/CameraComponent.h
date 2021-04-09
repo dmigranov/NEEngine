@@ -6,9 +6,9 @@ class CameraComponent :
 public:
 	CameraComponent(bool isPerspective = true);
 	CameraComponent(double nearPlane, double farPlane, double aspect = 1., double fovY = 90., bool isPerspective = true);
-	const DirectX::XMMATRIX& GetProj();
+	virtual const DirectX::XMMATRIX& GetProj();
 
-	void SetFovY(double fovY);
+	virtual void SetFovY(double fovY);
 	void SetAspect(double aspect);
 	void SetOutputSize(double width, double height);
 
