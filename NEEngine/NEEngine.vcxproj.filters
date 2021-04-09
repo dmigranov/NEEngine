@@ -204,6 +204,9 @@
     <ClCompile Include="src\SphericalExpFogEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
+    <ClCompile Include="src\MeshComponentFactory.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -331,6 +334,9 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalCameraComponent.h">
       <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MeshComponentFactory.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
