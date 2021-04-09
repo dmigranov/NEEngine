@@ -12,9 +12,6 @@ public:
 	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
 
 	virtual ~MeshComponent();
-
-	//todo: потом убрать
-	void SetTexture(Texture* texture);
 protected:
 	VertexData* g_Vertices;
 	int verticesCount;
@@ -68,10 +65,4 @@ inline MeshComponent<VertexData>::~MeshComponent()
 {
 	SafeRelease(g_d3dVertexBuffer);
 	SafeRelease(g_d3dIndexBuffer);
-}
-
-template<class VertexData>
-inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
-{
-	this->m_pTexture = texture;
 }

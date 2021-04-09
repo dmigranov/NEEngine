@@ -141,7 +141,6 @@ int main(int argc, char * argv[])
 
 
     auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
-    smc->SetTexture(brickTexture);
     smc->SetEffect(effect);
     test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
     scene->AddEntity(test3D);
@@ -164,7 +163,6 @@ int main(int argc, char * argv[])
     };
 
     auto smc2 = new SphericalMeshComponent<VertexPosTex>(3, vertices2, 3, indices2);
-    smc2->SetTexture(brickTexture);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);

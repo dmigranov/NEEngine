@@ -270,8 +270,7 @@ void Game::Tick()
 {
     //todo: перенести в таймер 
 
-    //todo: чё-то на первом кадре много времени, после стабилизируется.
-    //проверить и исправить?
+    //на первом кадре много времени, после стабилизируется. проверить и исправить?
 
     DWORD currentTime = timeGetTime();
     double deltaTime = (currentTime - previousTime) / 1000.;
@@ -288,7 +287,7 @@ void Game::Tick()
 // Properties
 void Game::GetDefaultSize(int& width, int& height)
 {
-    // TODO: Change to desired default window size (note minimum size is 320x200).
+    // Change to desired default window size (note minimum size is 320x200).
     width = m_outputWidth;
     height = m_outputHeight;
 }
@@ -537,9 +536,6 @@ bool Game::LoadContent()
     //if (FAILED(hr)) { return false; }
 
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
-    //todo: перенести в другое место, так как это зависит от того что подается
-    //todo: вместе с этим перенести и IASetInputLayout
-    //тк он может быть разным у разных мешей
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(VertexPosTex, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },

@@ -22,8 +22,6 @@ protected:
 
 	int indicesCount;
 
-	Texture* m_pTexture;    //todo: перенести в материал
-
 	Effect* m_pEffect;
 
 };

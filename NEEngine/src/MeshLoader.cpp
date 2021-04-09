@@ -10,7 +10,7 @@ VertexTexMeshComponent* MeshLoader::LoadMesh(const char* filepath)
 	if (!infile)
 	{
 		std::cerr << "Unable to open file " << filepath << std::endl;
-		exit(1); //todo?
+		exit(1); 
 	}
 
 	std::string str;

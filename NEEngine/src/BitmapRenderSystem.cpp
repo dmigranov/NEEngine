@@ -24,7 +24,7 @@ void BitmapRenderSystem::Execute(double)
 		return e1->GetTransform()->GetPosition().z > e2->GetTransform()->GetPosition().z;
 	});	//сортирует по возрастанию: сначала меньшие z...
 
-	/* //todo: restore
+	/* //todo: восстановить в новой версии "евклидова" движка
 
 	auto& game = Game::GetInstance();
 	auto pDeviceContext = game.GetDeviceContext();
