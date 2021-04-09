@@ -16,9 +16,8 @@ public:
 protected:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
-	ID3D11DeviceContext* deviceContext;
 
-	ID3D11Resource* d3dConstantBuffer;     //todo: константные буфферы должны быть в классе для Effect!
+	ID3D11DeviceContext* deviceContext;
 
 	int indicesCount;
 

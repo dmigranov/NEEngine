@@ -78,8 +78,6 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 		}*/
 	}
 
-	//todo form Vertices and VertexIndices
-
 	for (int i = 0; i < positionIndices.size(); i++)
 	{
 		auto posIndex = positionIndices[i];

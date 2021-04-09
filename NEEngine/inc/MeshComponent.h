@@ -25,7 +25,6 @@ inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, in
 	auto& game = Game::GetInstance();
 	auto device = game.GetDevice();
 	deviceContext = game.GetDeviceContext();
-	//d3dConstantBuffer = game.GetVSConstantBuffers()[2];
 	g_Indices = indices;
 	g_Vertices = vertices;
 	verticesCount = nv;

@@ -24,7 +24,7 @@ DWORD Timer::GetMillisFromStart()
 
 DWORD Timer::GetDelta()
 {
-	//todo
+	//todo: implement
 	return 0;
 }
 
