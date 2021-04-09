@@ -8,14 +8,14 @@ public:
 	CameraComponent(double nearPlane, double farPlane, double aspect = 1., double fovY = 90., bool isPerspective = true);
 	virtual const DirectX::XMMATRIX& GetProj();
 
-	virtual void SetFovY(double fovY);
+	void SetFovY(double fovY);
 	void SetAspect(double aspect);
 	void SetOutputSize(double width, double height);
 
 	void SetPerspective(bool isPerspective);
 	void SetOrthogonalWidth(double width);
 private:
-	void RecalculateProj();
+	virtual void RecalculateProj();
 
 	double m_fovY;
 	double m_nearPlane,  m_farPlane;

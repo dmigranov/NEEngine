@@ -8,3 +8,7 @@ const DirectX::XMMATRIX& SphericalCameraComponent::GetProj()
     // TODO: возвращать эллиптическую матрицу
     return Matrix();
 }
+
+void SphericalCameraComponent::RecalculateProj()
+{
+}
