@@ -73,6 +73,18 @@
     <Filter Include="Исходные файлы\Effects">
       <UniqueIdentifier>{49cd65a7-a232-4915-8d81-577000e59d51}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Components\Spherical &amp; Elliptic">
+      <UniqueIdentifier>{c706869a-0562-46ab-aaf0-3ca17071815a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Effects">
+      <UniqueIdentifier>{2ec17076-a743-4e67-ab01-25bb486079fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Effects\Spherical">
+      <UniqueIdentifier>{91b31f4c-0bd7-4785-b406-acdc14f4df20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Effects\Elliptic">
+      <UniqueIdentifier>{fe0855a2-2a7d-4bce-b86c-925f8464414e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -189,6 +201,9 @@
     <ClCompile Include="inc\AbstractMeshComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalCameraComponent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -296,23 +311,26 @@
     <ClInclude Include="inc\VertexTexMeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalMeshComponent.h">
-      <Filter>Файлы заголовков\Components\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalTransformComponent.h">
-      <Filter>Файлы заголовков\Components\Transform</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Effect.h">
-      <Filter>Файлы заголовков\Components\Mesh</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="inc\AbstractMeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="inc\SphericalMeshComponent.h">
+      <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalTransformComponent.h">
+      <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Effect.h">
+      <Filter>Файлы заголовков\Effects</Filter>
+    </ClInclude>
     <ClInclude Include="inc\SphericalExpFogEffect.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Effects\Spherical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalCameraComponent.h">
+      <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
