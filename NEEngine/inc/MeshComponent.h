@@ -3,6 +3,7 @@
 
 class Game;
 
+//todo: убрать шаблон, сгрузить работу на MeshComponentFactory
 
 template <class VertexData>
 class MeshComponent : public AbstractMeshComponent
@@ -74,25 +75,3 @@ inline void MeshComponent<VertexData>::SetTexture(Texture* texture)
 {
 	this->m_pTexture = texture;
 }
-
-
-/*template<class VertexData>
-inline void MeshComponent<VertexData>::Render(DirectX::XMMATRIX world)
-{
-	const UINT vertexStride = sizeof(VertexData);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
-	const UINT offset = 0;
-	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
-	deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
-
-	if (m_pTexture != nullptr)
-	{     //Pixel Shader Stafe - unique 4 every stage
-		auto shaderResource = m_pTexture->GetTexture();
-		deviceContext->PSSetShaderResources(0, 1, &shaderResource);
-	}
-
-	deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &world, 0, 0);
-
-	//DRAW
-	deviceContext->DrawIndexed(indicesCount, 0, 0);
-}*/
