@@ -112,16 +112,11 @@ void Scene::SynchronizeSystemsWithEntities()
 
 void Scene::UpdateProjMatrix()
 {
-	//todo: оптимизировать: сохранить в поле?
-
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
 	auto proj = cc->GetProj();
 	m_proj = proj; //тут что то с типами...
-
-	//todo: убрать!
-	//m_game.g_d3dDeviceContext->UpdateSubresource(m_game.g_d3dVSConstantBuffers[m_game.CB_Application], 0, nullptr, &m_proj, 0, 0);
 }
 
 void Scene::Update(double delta)

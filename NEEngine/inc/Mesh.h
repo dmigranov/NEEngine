@@ -2,6 +2,8 @@
 
 #include "Texture.h"
 
+//todo" ”ƒјЋ»“№!
+
 class Mesh
 {
 public:
@@ -53,7 +55,7 @@ protected:
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
-    ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе дл€ Shader'а
+    ID3D11Resource* d3dConstantBuffer;
 
     VertexPosColor* g_Vertices;
     int verticesCount;
