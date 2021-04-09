@@ -49,7 +49,6 @@ int main(int argc, char * argv[])
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<BitmapComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
@@ -68,7 +67,7 @@ int main(int argc, char * argv[])
     auto cameraTransform = new TransformComponent(0, 0, -20, 0, 0, 0);
 
 
-    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {
+    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
         auto pInput = pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
@@ -130,6 +129,17 @@ int main(int argc, char * argv[])
     
     auto effect = new SphericalExpFogEffect(brickTexture);
     
+    //всё-таки с шаблонами плохо вышло!
+    //todo: убрать систему шаблонов для мешей
+    //в Game.cpp:
+    //m_pComponentTypeManager->RegisterComponentType<VertexTexMeshComponent>();
+    //если заменить на Abstract - не рабоает, тк суем подкласс...
+    //как сделать: сделать ФАБРИКУ мешей
+    //метод Create этой фабрики будет шаблонизированным
+    //можно сделать разные фабрики для евклидова меша, сферического/эллиптического,
+    //гиперболического
+
+
     auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
     smc->SetTexture(brickTexture);
     smc->SetEffect(effect);
