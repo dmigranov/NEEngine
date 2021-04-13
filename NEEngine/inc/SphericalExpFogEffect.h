@@ -36,7 +36,7 @@ public:
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
-    SphericalExpFogEffect(Texture* pTexture);
+    SphericalExpFogEffect(Texture* pTexture, double fogDensity);
 
     // ”наследовано через Effect
 
@@ -65,6 +65,7 @@ private:
     ID3D11SamplerState* g_d3dSamplerState = nullptr;
 
     Texture* m_pTexture = nullptr;
+    double m_fogDensity = 0;
 
     //ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     enum ConstantBuffer

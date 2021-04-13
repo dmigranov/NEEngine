@@ -16,9 +16,10 @@ using namespace DirectX::SimpleMath;
 
 #include "Game.h"
 
-SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture) : game(Game::GetInstance())
+SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity) : game(Game::GetInstance())
 {
 	m_pTexture = pTexture;
+	m_fogDensity = fogDensity;
 	Initialize();
 }
 
