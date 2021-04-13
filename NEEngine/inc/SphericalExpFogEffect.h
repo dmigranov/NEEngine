@@ -21,12 +21,12 @@ public:
 
     struct PerFrameVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix proj;
+        DirectX::SimpleMath::Matrix view;
     };
 
     struct PerObjectVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix proj;
+        DirectX::SimpleMath::Matrix world;
     };
 
     struct PerApplicationPSConstantBuffer
