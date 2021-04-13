@@ -46,6 +46,8 @@ int main(int argc, char * argv[])
     auto resourceManager = game.GetResourceManager();
 
     {
+        //todo: наследники - subscribe?
+
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
