@@ -127,7 +127,7 @@ int main(int argc, char * argv[])
     };
     //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
     
-    auto effect = new SphericalExpFogEffect(brickTexture);
+    auto effect = new SphericalExpFogEffect(brickTexture, 0.5);
     
     //всё-таки с шаблонами плохо вышло!
     //todo: убрать систему шаблонов для мешей
