@@ -9,6 +9,7 @@
 #include "VertexShader.h" // generated from BasicVertexShader.hlsl
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
+#include "SphExpVertexShader.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
