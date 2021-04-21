@@ -8,6 +8,8 @@ class Game;
 //template <class VertexData>
 class MeshComponent : public Component
 {
+	friend class MeshComponentFactory;
+
 public:
 
 	Effect* GetEffect() const;
@@ -19,7 +21,9 @@ protected:
 
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
-	WORD* g_Indices;
+
+	Effect* m_pEffect;
+
 
 	const std::type_info& vertexDataType;
 
