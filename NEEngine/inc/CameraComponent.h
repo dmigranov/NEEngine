@@ -14,7 +14,7 @@ public:
 
 	void SetPerspective(bool isPerspective);
 	void SetOrthogonalWidth(double width);
-private:
+protected:
 	virtual void RecalculateProj();
 
 	double m_fovY;
