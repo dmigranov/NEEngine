@@ -38,6 +38,13 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+struct MyVertexData
+{
+    DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
+    DirectX::XMFLOAT2 TexCoord;
+};
+
+
 int main(int argc, char * argv[])
 {
     //todo: Component* -> Component&  ?
@@ -113,7 +120,6 @@ int main(int argc, char * argv[])
     scene->SetCamera(cameraEntity);
 
 
-    //auto charTransform = new TransformComponent(1, 3, 0, 0, 0, 0, 1, 1, 1);
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
@@ -156,7 +162,7 @@ int main(int argc, char * argv[])
     auto stc_2 = new SphericalTransformComponent();
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
-    SphericalExpFogEffect::VertexData vertices2[3] = {
+    MyVertexData vertices2[3] = {
        { XMFLOAT4(-5.0f, -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(15.0f,  -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(15.0f,  10.0f, 0.5f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
@@ -167,7 +173,7 @@ int main(int argc, char * argv[])
         0, 2, 1,
     };
 
-    auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices2, 3, indices2);
+    auto smc2 = MeshComponentFactory::CreateMeshComponent<MyVertexData>(3, vertices2, 3, indices2);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
