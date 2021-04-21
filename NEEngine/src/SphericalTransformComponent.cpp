@@ -38,14 +38,16 @@ void SphericalTransformComponent::RecalculateView()
 
 void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& world)
 {
+	//todo: проверить - правильно?
+
 	auto realWorld = world;
 	if (m_pParent != nullptr)
 		realWorld = realWorld * m_pParent->GetWorld();
 	m_world = realWorld;
 
-	//m_view = 
+	m_view = m_world.Transpose();
 
 	m_shouldRecalcWorld = false;
-	//m_shouldRecalcView = false;
+	m_shouldRecalcView = false;
 }
 
