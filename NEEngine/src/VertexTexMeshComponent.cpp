@@ -3,10 +3,10 @@
 
 #include "Game.h"
 
-
+/*
 VertexTexMeshComponent::VertexTexMeshComponent(int nv, VertexPosTex* vertices, int ni, WORD* indices) : MeshComponent<VertexPosTex>(nv, vertices, ni, indices)
 {
-	/*
+
 	
 	
 	auto& game = Game::GetInstance();
@@ -47,9 +47,9 @@ VertexTexMeshComponent::VertexTexMeshComponent(int nv, VertexPosTex* vertices, i
 	device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
 
-	*/
-}
 
+}
+	*/
 
 /*
 
