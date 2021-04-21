@@ -24,7 +24,7 @@ protected:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
 	unsigned int m_indicesCount = 0;
-	Effect* m_pEffect = nullptr;
+	Effect* m_pEffect;
 
 	const std::type_info& m_vertexDataType;
 

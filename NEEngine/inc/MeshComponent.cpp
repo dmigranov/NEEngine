@@ -6,6 +6,7 @@ MeshComponent::MeshComponent(ID3D11Buffer* d3dVertexBuffer, ID3D11Buffer* d3dInd
 {
     g_d3dVertexBuffer = d3dVertexBuffer;
     g_d3dIndexBuffer = d3dIndexBuffer;
+    m_pEffect = nullptr;
 }
 
 Effect* MeshComponent::GetEffect() const
