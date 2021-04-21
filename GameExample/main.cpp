@@ -8,6 +8,7 @@
 #include "InputComponent.h"
 #include "Entity.h"
 
+
 // Components
 #include "ComponentTypeManager.h"
 
@@ -18,6 +19,8 @@
 #include "WalkComponent.h"
 
 #include "SphericalTransformComponent.h"
+
+#include "MeshComponentFactory.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -141,12 +144,11 @@ int main(int argc, char * argv[])
     //можно сделать разные фабрики для евклидова меша, сферического/эллиптического,
     //гиперболического
 
-    /*
-    auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
+    
+    auto smc = MeshComponentFactory::CreateMeshComponent<VertexPosTex>(3, vertices, 3, indices);
     smc->SetEffect(effect);
-    test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
+    test3D->AddComponent<MeshComponent>(smc);
     scene->AddEntity(test3D);
-
 
 
     Entity* test3D_2 = new Entity();
@@ -164,14 +166,14 @@ int main(int argc, char * argv[])
         0, 2, 1,
     };
 
-    auto smc2 = new SphericalMeshComponent<VertexPosTex>(3, vertices2, 3, indices2);
+    auto smc2 = MeshComponentFactory::CreateMeshComponent<VertexPosTex>(3, vertices2, 3, indices2);
     smc2->SetEffect(effect);
-    test3D_2->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc2);
+    test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
     test3D_2->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(test3D_2);
 
-    */
+    
 
     return game.StartGame();
 }

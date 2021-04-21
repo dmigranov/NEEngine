@@ -15,18 +15,16 @@ public:
 	Effect* GetEffect() const;
 	void SetEffect(Effect* effect);
 
-	const ID3D11Buffer* GetVertexBuffer();
-	const ID3D11Buffer* GetIndexBuffer();
-
+	ID3D11Buffer * const GetVertexBuffer();
+	ID3D11Buffer * const GetIndexBuffer();
+	unsigned int GetIndicesCount();
 	virtual ~MeshComponent();
 protected:
-	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType);
-
+	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount);
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
-
-	Effect* m_pEffect;
-
+	unsigned int m_indicesCount = 0;
+	Effect* m_pEffect = nullptr;
 
 	const std::type_info& m_vertexDataType;
 

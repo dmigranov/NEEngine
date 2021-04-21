@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "MeshComponent.h"
 
-MeshComponent::MeshComponent(ID3D11Buffer* d3dVertexBuffer, ID3D11Buffer* d3dIndexBuffer, const std::type_info& vertexDataType)
-    : m_vertexDataType(vertexDataType)
+MeshComponent::MeshComponent(ID3D11Buffer* d3dVertexBuffer, ID3D11Buffer* d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount)
+    : m_vertexDataType(vertexDataType), m_indicesCount(indicesCount)
 {
     g_d3dVertexBuffer = d3dVertexBuffer;
     g_d3dIndexBuffer = d3dIndexBuffer;
@@ -18,14 +18,19 @@ void MeshComponent::SetEffect(Effect* effect)
     m_pEffect = effect;
 }
 
-const ID3D11Buffer* MeshComponent::GetVertexBuffer()
+ID3D11Buffer * const MeshComponent::GetVertexBuffer()
 {
     return g_d3dVertexBuffer;
 }
 
-const ID3D11Buffer* MeshComponent::GetIndexBuffer()
+ID3D11Buffer * const MeshComponent::GetIndexBuffer()
 {
     return g_d3dIndexBuffer;
+}
+
+unsigned int MeshComponent::GetIndicesCount()
+{
+    return m_indicesCount;
 }
 
 MeshComponent::~MeshComponent()
