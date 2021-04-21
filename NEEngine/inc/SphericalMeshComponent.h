@@ -1,8 +1,6 @@
 #pragma once
 #include "MeshComponent.h"
-template <class VertexData>
-class SphericalMeshComponent :
-    public MeshComponent<VertexData>
+class SphericalMeshComponent : public MeshComponent
 {
 
 public:

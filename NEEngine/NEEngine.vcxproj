@@ -95,7 +95,6 @@
     <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalEllipsoid.h" />
-    <ClInclude Include="inc\SphericalMeshComponent.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
     <ClInclude Include="inc\SphericalMesh.h" />
     <ClInclude Include="inc\pch.h" />

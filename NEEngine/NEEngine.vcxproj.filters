@@ -323,9 +323,6 @@
     <ClInclude Include="inc\AbstractMeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalMeshComponent.h">
-      <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalTransformComponent.h">
       <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
     </ClInclude>

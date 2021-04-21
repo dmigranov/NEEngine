@@ -261,7 +261,7 @@ int Game::Initialize(HWND window, int width, int height)
     m_pResourceManager = new ResourceManager(g_d3dDevice);
     m_pComponentTypeManager = new ComponentTypeManager();
     m_pComponentTypeManager->RegisterComponentType<TransformComponent>();
-    m_pComponentTypeManager->RegisterComponentType<VertexTexMeshComponent>();
+    m_pComponentTypeManager->RegisterComponentType<MeshComponent>();
 
     return 0;
 }
