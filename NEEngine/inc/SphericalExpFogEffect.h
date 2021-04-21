@@ -50,6 +50,7 @@ public:
     virtual void UpdatePerApplication() override;
 
     virtual unsigned int GetVertexBufferSize() const override;
+    virtual const std::type_info& GetVertexDataType() override;
 
     ~SphericalExpFogEffect();
 protected:

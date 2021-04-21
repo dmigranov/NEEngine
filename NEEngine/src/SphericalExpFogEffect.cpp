@@ -135,6 +135,11 @@ unsigned int SphericalExpFogEffect::GetVertexBufferSize() const
 	return sizeof(VertexData);
 }
 
+const std::type_info& SphericalExpFogEffect::GetVertexDataType()
+{
+	return typeid(VertexData);
+}
+
 SphericalExpFogEffect::~SphericalExpFogEffect()
 {
 	Deinitialize();
