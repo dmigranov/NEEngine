@@ -27,13 +27,13 @@ void SphericalTransformComponent::Recalculate()
 {
 	TransformComponent::Recalculate(); //todo: временно, для того чтобы все работало
 
-
-
+	std::cerr << "SphericalTransformComponent::Recalculate()" << std::endl;
 }
 
 void SphericalTransformComponent::RecalculateView()
 {
-
+	//todo 
+	std::cerr << "SphericalTransformComponent::RecalculateView()" << std::endl;
 }
 
 void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& world)
@@ -50,4 +50,3 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 	m_shouldRecalcWorld = false;
 	m_shouldRecalcView = false;
 }
-
