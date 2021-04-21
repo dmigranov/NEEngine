@@ -11,7 +11,7 @@ public:
     virtual void Rotate(double rx, double ry, double rz) override;
 
 
-    void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод?
+    void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
 };
 
