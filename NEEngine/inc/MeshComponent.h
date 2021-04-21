@@ -17,7 +17,7 @@ public:
 
 	virtual ~MeshComponent();
 protected:
-	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, Effect* effect = nullptr);
+	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType);
 
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
@@ -25,7 +25,7 @@ protected:
 	Effect* m_pEffect;
 
 
-	const std::type_info& vertexDataType;
+	const std::type_info& m_vertexDataType;
 
 };
 
