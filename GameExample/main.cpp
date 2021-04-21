@@ -18,7 +18,6 @@
 #include "WalkComponent.h"
 
 #include "SphericalTransformComponent.h"
-#include "SphericalMeshComponent.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -54,7 +53,8 @@ int main(int argc, char * argv[])
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
-        componentTypeManager->RegisterComponentType<SphericalMeshComponent<VertexPosTex>>();
+
+        //mesh comp зарегистр по умолчанию 
 
         componentTypeManager->SetTypeAdditionEnded();
     }
@@ -141,7 +141,7 @@ int main(int argc, char * argv[])
     //можно сделать разные фабрики для евклидова меша, сферического/эллиптического,
     //гиперболического
 
-
+    /*
     auto smc = new SphericalMeshComponent<VertexPosTex>(3, vertices, 3, indices);
     smc->SetEffect(effect);
     test3D->AddComponent<SphericalMeshComponent<VertexPosTex>>(smc);
@@ -171,6 +171,7 @@ int main(int argc, char * argv[])
     test3D_2->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(test3D_2);
 
+    */
 
     return game.StartGame();
 }

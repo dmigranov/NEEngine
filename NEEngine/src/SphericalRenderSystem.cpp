@@ -4,7 +4,6 @@
 #include "Entity.h"
 #include "MeshComponent.h"
 #include "SphericalTransformComponent.h"
-#include "SphericalMeshComponent.h"
 
 #include "Effect.h"
 

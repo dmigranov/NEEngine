@@ -1,0 +1,11 @@
+#pragma once
+#include "MeshComponent.h"
+class SphericalMeshComponent : public MeshComponent
+{
+
+public:
+    SphericalMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
+
+
+};
+
