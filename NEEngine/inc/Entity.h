@@ -6,9 +6,10 @@
 #include <boost/dynamic_bitset.hpp>
 
 #include "ComponentTypeManager.h"
+#include "Component.h"
+
 
 class Game;
-class Component;
 class TransformComponent;
 class MeshComponent;
 
