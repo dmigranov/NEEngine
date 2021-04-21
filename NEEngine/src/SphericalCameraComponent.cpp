@@ -7,15 +7,28 @@ using namespace DirectX::SimpleMath;
 
 const DirectX::XMMATRIX& SphericalCameraComponent::GetProj()
 {
-    // TODO: возвращать эллиптическую матрицу
-    return Matrix();
+    return GetEllipticProj();
 }
 
-const DirectX::XMMATRIX& SphericalCameraComponent::GetFrontSphericalProj() const
+const DirectX::XMMATRIX& SphericalCameraComponent::GetFrontSphericalProj() 
 {
     if (m_shouldRecalc)
         RecalculateProj();
     return m_frontProj;
+}
+
+const DirectX::XMMATRIX& SphericalCameraComponent::GetBackSphericalProj()
+{
+    if (m_shouldRecalc)
+        RecalculateProj();
+    return m_backProj;
+}
+
+const DirectX::XMMATRIX& SphericalCameraComponent::GetEllipticProj()
+{
+    if (m_shouldRecalc)
+        RecalculateProj();
+    return m_ellProj;
 }
 
 void SphericalCameraComponent::RecalculateProj()
