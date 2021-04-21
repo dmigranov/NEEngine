@@ -2,7 +2,8 @@
 #include "TransformComponent.h"
 class SphericalTransformComponent :
     public TransformComponent
-{
+{ 
+    //todo
 public:
     virtual void Move(DirectX::SimpleMath::Vector3 v) override;
     virtual void Move(double x, double y, double z) override;

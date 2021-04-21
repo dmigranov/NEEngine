@@ -11,6 +11,9 @@ public:
 private:
     virtual void RecalculateProj() override;
 
+    DirectX::SimpleMath::Matrix backProj;
+    DirectX::SimpleMath::Matrix frontProj;
+    DirectX::SimpleMath::Matrix ellProj;
 
 };
 
