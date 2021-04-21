@@ -22,3 +22,8 @@ void SphericalTransformComponent::Rotate(double rx, double ry, double rz)
 {
 	//todo
 }
+
+void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& world)
+{
+	m_world = world;
+}

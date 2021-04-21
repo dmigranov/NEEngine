@@ -23,9 +23,7 @@ public:
     const DirectX::SimpleMath::Vector3& GetRight();
     const DirectX::SimpleMath::Vector3& GetPosition();
 
-
-
-private:
+protected:
     void Recalculate();
     void RecalculateView();
 
