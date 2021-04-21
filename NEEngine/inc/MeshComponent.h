@@ -5,21 +5,27 @@ class Game;
 
 //todo: убрать шаблон, сгрузить работу на MeshComponentFactory
 
-template <class VertexData>
-class MeshComponent : public AbstractMeshComponent
+//template <class VertexData>
+class MeshComponent : public Component
 {
 public:
-	MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices);
+
+	Effect* GetEffect() const;
+	void SetEffect(Effect* effect);
 
 	virtual ~MeshComponent();
 protected:
-	VertexData* g_Vertices;
-	int verticesCount;
+	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, Effect* effect = nullptr);
+
+	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
+	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
 	WORD* g_Indices;
+
+	const std::type_info& vertexDataType;
 
 };
 
-template<class VertexData>
+/*
 inline MeshComponent<VertexData>::MeshComponent(int nv, VertexData* vertices, int ni, WORD* indices)
 {
 	auto& game = Game::GetInstance();
@@ -65,3 +71,5 @@ inline MeshComponent<VertexData>::~MeshComponent()
 	SafeRelease(g_d3dVertexBuffer);
 	SafeRelease(g_d3dIndexBuffer);
 }
+
+*/
