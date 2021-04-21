@@ -13,7 +13,7 @@ Effect::~Effect()
 
 std::string Effect::GetName()
 {
-	return magic;
+	return m_magic;
 }
 
 bool Effect::IsInited()
