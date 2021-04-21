@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "InputComponent.h"
 #include "SphericalTransformComponent.h"
+#include "SphericalCameraComponent.h"
 
 SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed](Entity* pEntity, double deltaTime) {
 

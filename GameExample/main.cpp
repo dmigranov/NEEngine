@@ -141,16 +141,14 @@ int main(int argc, char * argv[])
     
     auto effect = new SphericalExpFogEffect(brickTexture, 0.5);
     
-    //всё-таки с шаблонами плохо вышло!
-    //todo: убрать систему шаблонов для мешей
-    //в Game.cpp:
-    //m_pComponentTypeManager->RegisterComponentType<VertexTexMeshComponent>();
-    //если заменить на Abstract - не рабоает, тк суем подкласс...
-    //как сделать: сделать ФАБРИКУ мешей
-    //метод Create этой фабрики будет шаблонизированным
+   
     //можно сделать разные фабрики для евклидова меша, сферического/эллиптического,
     //гиперболического
 
+
+    // todo: первым делом в эффекте все заменить на нужное: шейдеры, буферы
+    // посмотреть как рендерится
+    // потом - камера (сначала просто путем установки матрицы SetWorld())
     
     auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
     smc->SetEffect(effect);
