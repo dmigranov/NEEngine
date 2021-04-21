@@ -91,7 +91,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-
+	if (pEffect->GetVertexDataType() != pMeshComponent->GetVertexDataType())
+		;
 
 	pEffect->UpdatePerObject(pEntity);
 
