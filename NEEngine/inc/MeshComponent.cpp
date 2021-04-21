@@ -34,6 +34,11 @@ unsigned int MeshComponent::GetIndicesCount()
     return m_indicesCount;
 }
 
+const std::type_info& MeshComponent::GetVertexDataType()
+{
+    return m_vertexDataType;
+}
+
 MeshComponent::~MeshComponent()
 {
     SafeRelease(g_d3dVertexBuffer);
