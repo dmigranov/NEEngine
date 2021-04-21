@@ -16,16 +16,16 @@ public:
 
     void SetParent(TransformComponent* pParent);
 
-    virtual const DirectX::SimpleMath::Matrix& GetWorld();
-    virtual const DirectX::SimpleMath::Matrix& GetView();
+    const DirectX::SimpleMath::Matrix& GetWorld();
+    const DirectX::SimpleMath::Matrix& GetView();
     virtual const DirectX::SimpleMath::Vector3& GetRotation();
     virtual const DirectX::SimpleMath::Vector3& GetForward();
     virtual const DirectX::SimpleMath::Vector3& GetRight();
     virtual const DirectX::SimpleMath::Vector3& GetPosition();
 
 protected:
-    void Recalculate();
-    void RecalculateView();
+    virtual void Recalculate();
+    virtual void RecalculateView();
 
 
     TransformComponent* m_pParent;

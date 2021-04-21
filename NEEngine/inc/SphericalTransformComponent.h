@@ -10,6 +10,8 @@ public:
     virtual void Rotate(DirectX::SimpleMath::Vector3 r) override;
     virtual void Rotate(double rx, double ry, double rz) override;
 
+    virtual void Recalculate() override;
+    virtual void RecalculateView() override;
 
     void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
