@@ -3,6 +3,8 @@
 #include "BitmapComponent.h"
 #include "Entity.h"
 #include "TransformComponent.h"
+#include "Texture.h"
+
 
 #include "Game.h"
 

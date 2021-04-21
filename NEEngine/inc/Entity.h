@@ -5,14 +5,12 @@
 #include <typeindex>
 #include <boost/dynamic_bitset.hpp>
 
-#include "VertexTexMeshComponent.h"
 #include "ComponentTypeManager.h"
 
+class Game;
 class Component;
 class TransformComponent;
-class RenderComponent;
-class Game;
-
+class MeshComponent;
 
 /**
 * @brief Basic class for all entities (objects) in the scene.
@@ -26,7 +24,7 @@ public:
 
 	void Initialize();
 
-	void SetMesh(AbstractMeshComponent* pMesh);
+	void SetMesh(MeshComponent* pMesh);
 	void SetTransform(TransformComponent* pTransform);
 	TransformComponent* const GetTransform();
 
@@ -61,7 +59,7 @@ public:
 private:
 
 	//EffectComponent* m_pEffect; //todo
-	AbstractMeshComponent* m_pMesh = nullptr;
+	MeshComponent* m_pMesh = nullptr;
 	TransformComponent* m_pTransform = nullptr;
 	//std::map<ComponentType, Component*> m_components;	
 	std::vector<Component*> m_components;

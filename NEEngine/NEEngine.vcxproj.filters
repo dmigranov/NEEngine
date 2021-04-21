@@ -147,9 +147,6 @@
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\VertexTexMeshComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
     <ClCompile Include="CameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
@@ -313,9 +310,6 @@
     </ClInclude>
     <ClInclude Include="inc\TransformComponent.h">
       <Filter>Файлы заголовков\Components\Transform</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\VertexTexMeshComponent.h">
-      <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>

@@ -17,6 +17,7 @@
 #include "BitmapComponent.h"
 #include "CameraComponent.h"
 #include "WalkComponent.h"
+#include "MeshComponent.h"
 
 #include "SphericalTransformComponent.h"
 
@@ -120,7 +121,7 @@ int main(int argc, char * argv[])
     auto stc = new SphericalTransformComponent();
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
-    VertexPosTex vertices[3] = {
+    SphericalExpFogEffect::VertexData vertices[3] = {
        { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
@@ -145,7 +146,7 @@ int main(int argc, char * argv[])
     //гиперболического
 
     
-    auto smc = MeshComponentFactory::CreateMeshComponent<VertexPosTex>(3, vertices, 3, indices);
+    auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
     smc->SetEffect(effect);
     test3D->AddComponent<MeshComponent>(smc);
     scene->AddEntity(test3D);
@@ -155,7 +156,7 @@ int main(int argc, char * argv[])
     auto stc_2 = new SphericalTransformComponent();
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
-    VertexPosTex vertices2[3] = {
+    SphericalExpFogEffect::VertexData vertices2[3] = {
        { XMFLOAT4(-5.0f, -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(15.0f,  -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(15.0f,  10.0f, 0.5f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
@@ -166,7 +167,7 @@ int main(int argc, char * argv[])
         0, 2, 1,
     };
 
-    auto smc2 = MeshComponentFactory::CreateMeshComponent<VertexPosTex>(3, vertices2, 3, indices2);
+    auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices2, 3, indices2);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);

@@ -6,6 +6,9 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
+#include "MeshComponent.h"
+
+
 Entity::Entity(bool isVisible, const char* name) :
 	m_isActive(false), m_componentsMask(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount()),
 	m_components(Game::GetInstance().GetComponentTypeManager()->GetComponentTypesCount()),
@@ -47,11 +50,11 @@ void Entity::Initialize()
 	m_componentsMask |= add;
 }*/
 
-void Entity::SetMesh(AbstractMeshComponent* pMesh)
+void Entity::SetMesh(MeshComponent* pMesh)
 {
 	m_pMesh = pMesh;
 	//AddComponent(ComponentType::MeshComponentType, pMesh);
-	AddComponent<AbstractMeshComponent>(pMesh);
+	AddComponent<MeshComponent>(pMesh);
 }
 
 void Entity::SetTransform(TransformComponent* pTransform)
