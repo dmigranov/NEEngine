@@ -9,10 +9,10 @@ public:
     TransformComponent(DirectX::SimpleMath::Vector3 position);
     TransformComponent(double x, double y, double z, double rx, double ry, double rz, double sx = 1, double sy = 1, double sz = 1);
     TransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);
-    void Move(DirectX::SimpleMath::Vector3 v);
-    void Move(double x, double y, double z);
-    void Rotate(DirectX::SimpleMath::Vector3 r);
-    void Rotate(double rx, double ry, double rz);
+    virtual void Move(DirectX::SimpleMath::Vector3 v);
+    virtual void Move(double x, double y, double z);
+    virtual void Rotate(DirectX::SimpleMath::Vector3 r);
+    virtual void Rotate(double rx, double ry, double rz);
 
     void SetParent(TransformComponent* pParent);
 
