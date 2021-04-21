@@ -35,7 +35,7 @@ public:
 	virtual void Deinitialize() = 0;
 
 	virtual const std::type_info& GetVertexDataType() = 0;
-	std::string GetName();
+	virtual std::string GetName();
 	bool IsInited();
 
 protected: 

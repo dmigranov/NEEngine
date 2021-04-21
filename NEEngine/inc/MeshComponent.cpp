@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MeshComponent.h"
+#include "Effect.h"
 
 MeshComponent::MeshComponent(ID3D11Buffer* d3dVertexBuffer, ID3D11Buffer* d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount)
     : m_vertexDataType(vertexDataType), m_indicesCount(indicesCount)
@@ -16,6 +17,8 @@ Effect* MeshComponent::GetEffect() const
 
 void MeshComponent::SetEffect(Effect* effect)
 {
+    if (effect->GetVertexDataType() != this->GetVertexDataType())
+        std::cerr << "Different (perhaps incompatible, but maybe not) data type for effect " << effect->GetName() << "; perhaps you should check it out!" << std::endl; //todo: имя entity?
     m_pEffect = effect;
 }
 

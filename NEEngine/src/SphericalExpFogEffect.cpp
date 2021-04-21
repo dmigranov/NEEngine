@@ -18,6 +18,7 @@ using namespace DirectX::SimpleMath;
 
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity) : game(Game::GetInstance())
 {
+	magic = "SphericalExpFog";
 	m_pTexture = pTexture;
 	m_fogDensity = fogDensity;
 	Initialize();

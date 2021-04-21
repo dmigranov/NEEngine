@@ -53,8 +53,6 @@ public:
     virtual const std::type_info& GetVertexDataType() override;
 
     ~SphericalExpFogEffect();
-protected:
-    std::string magic = "SphericalExpFog";
 
 private:
     //std::string		m_vsFileName;
