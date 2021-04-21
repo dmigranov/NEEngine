@@ -15,6 +15,9 @@ public:
 	Effect* GetEffect() const;
 	void SetEffect(Effect* effect);
 
+	const ID3D11Buffer* GetVertexBuffer();
+	const ID3D11Buffer* GetIndexBuffer();
+
 	virtual ~MeshComponent();
 protected:
 	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType);

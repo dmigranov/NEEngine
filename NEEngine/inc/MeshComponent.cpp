@@ -18,6 +18,16 @@ void MeshComponent::SetEffect(Effect* effect)
     m_pEffect = effect;
 }
 
+const ID3D11Buffer* MeshComponent::GetVertexBuffer()
+{
+    return g_d3dVertexBuffer;
+}
+
+const ID3D11Buffer* MeshComponent::GetIndexBuffer()
+{
+    return g_d3dIndexBuffer;
+}
+
 MeshComponent::~MeshComponent()
 {
     SafeRelease(g_d3dVertexBuffer);

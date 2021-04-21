@@ -20,7 +20,7 @@ SphericalRenderSystem::SphericalRenderSystem()
 	SubscribeToComponentType<SphericalTransformComponent>();
 	//SubscribeToComponentType<SphericalMeshComponent>();
 
-	SubscribeToComponentType<AbstractMeshComponent>();
+	SubscribeToComponentType<MeshComponent>();
 
 	m_isDrawing = true;
 }
@@ -69,7 +69,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	//SphericalMeshComponent* pMeshComponent = pEntity->GetComponent<SphericalMeshComponent>();
-	AbstractMeshComponent* pMeshComponent = pEntity->GetComponent<AbstractMeshComponent>();
+	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
 
 	if (!pEffect) //для отладки содержимое можно закомм.
