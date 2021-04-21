@@ -6,11 +6,9 @@ class InputComponent;
 class SphericalTransformComponent;
 class SphericalCameraComponent;
 
-
-
 class SphericalControlSystem 
 	: public ActionSystem<InputComponent, SphericalTransformComponent, SphericalCameraComponent>
 {
-
+	SphericalControlSystem(double movementSpeed, double rotationSpeed);
 };
 
