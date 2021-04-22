@@ -34,6 +34,7 @@ public:
 
     struct PerApplicationPSConstantBuffer
     {
+        //todo: цвет дымки и фона!
         DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
         float m_edgeThickness = 0.00f;
     };
