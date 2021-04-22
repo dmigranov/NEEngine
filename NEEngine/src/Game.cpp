@@ -261,7 +261,6 @@ int Game::Initialize(HWND window, int width, int height)
 void Game::Tick()
 {
     //todo: перенести в таймер 
-
     //на первом кадре много времени, после стабилизируется. проверить и исправить?
 
     DWORD currentTime = timeGetTime();
@@ -453,37 +452,6 @@ bool Game::LoadContent()
     constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
     constantBufferDesc.CPUAccessFlags = 0;
     constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-
-    //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
-    /*
-    constantBufferDesc.ByteWidth = sizeof(Matrix);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
-    if (FAILED(hr))
-    {
-        return false;
-    }
-
-    constantBufferDesc.ByteWidth = sizeof(Matrix);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
-    if (FAILED(hr))
-    {
-        return false;
-    }
-
-    constantBufferDesc.ByteWidth = sizeof(Matrix);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
-    if (FAILED(hr))
-    {
-        return false;
-    }
-
-    constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBuffer);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dPSConstantBuffer);
-    if (FAILED(hr))
-    {
-        return false;
-    }
-    */
 
     //loading shaders from global variables 
     /*hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
