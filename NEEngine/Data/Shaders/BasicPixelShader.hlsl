@@ -10,6 +10,7 @@ cbuffer PerApplication : register(b0)
 struct PixelShaderInput
 {
 	float2 tex : TEXCOORD0;
+	float fogFactor : FOG_FACTOR;
 };
  
 float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
