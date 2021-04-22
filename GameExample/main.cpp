@@ -138,7 +138,7 @@ int main(int argc, char * argv[])
         0, 1, 2,
     };
     
-    auto effect = new SphericalExpFogEffect(brickTexture, 0.5);
+    auto effect = new SphericalExpFogEffect(brickTexture, 0.1, DirectX::Colors::PowderBlue);
    
     //можно сделать разные фабрики для евклидова меша, сферического/эллиптического, гиперболического
     // 

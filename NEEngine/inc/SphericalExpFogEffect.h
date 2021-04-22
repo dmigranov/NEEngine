@@ -35,11 +35,11 @@ public:
     struct PerApplicationPSConstantBuffer
     {
         //todo: цвет дымки и фона!
-        DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
+        DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
         float m_edgeThickness = 0.00f;
     };
 
-    SphericalExpFogEffect(Texture* pTexture, double fogDensity);
+    SphericalExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
 
     // ”наследовано через Effect
 
@@ -69,7 +69,6 @@ private:
     ID3D11SamplerState* g_d3dSamplerState = nullptr;
 
     Texture* m_pTexture = nullptr;
-    double m_fogDensity = 0;
 
     //ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     enum ConstantBuffer
