@@ -5,9 +5,9 @@
 
 using namespace DirectX::SimpleMath;
 
-SphericalCameraComponent::SphericalCameraComponent()
+SphericalCameraComponent::SphericalCameraComponent() 
 {
-
+    m_shouldRecalc = true;
 }
 
 const DirectX::XMMATRIX& SphericalCameraComponent::GetProj()
