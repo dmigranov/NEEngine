@@ -8,7 +8,6 @@ cbuffer PerApplication : register(b0)
 cbuffer PerFrame : register(b1)
 {
 	matrix viewMatrixFront;
-	//matrix viewMatrixBack; 
 }
 
 cbuffer PerObject : register(b2)
