@@ -4,6 +4,8 @@ class SphericalCameraComponent :
     public CameraComponent
 {
 public:
+    SphericalCameraComponent();
+
     virtual const DirectX::XMMATRIX& GetProj() override;
     const DirectX::XMMATRIX& GetFrontSphericalProj();
     const DirectX::XMMATRIX& GetBackSphericalProj();

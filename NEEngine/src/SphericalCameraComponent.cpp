@@ -5,6 +5,11 @@
 
 using namespace DirectX::SimpleMath;
 
+SphericalCameraComponent::SphericalCameraComponent()
+{
+
+}
+
 const DirectX::XMMATRIX& SphericalCameraComponent::GetProj()
 {
     return GetEllipticProj();

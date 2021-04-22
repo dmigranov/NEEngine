@@ -77,7 +77,7 @@ int main(int argc, char * argv[])
     scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new BitmapRenderSystem());
 
-    auto cameraTransform = new TransformComponent(0, 0, -20, 0, 0, 0);
+    auto cameraTransform = new SphericalTransformComponent();
 
 
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {        
@@ -109,8 +109,8 @@ int main(int argc, char * argv[])
     }));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraComponent = new SphericalCameraComponent(true);
-    cameraComponent->SetOrthogonalWidth(30.);
+    auto cameraComponent = new SphericalCameraComponent();
+    //cameraComponent->S
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
