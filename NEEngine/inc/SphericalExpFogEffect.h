@@ -58,7 +58,7 @@ private:
     static bool isSpherical;
 
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
-    //PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
+    PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
     double density = 0.5;
 
     ID3D11InputLayout* g_d3dInputLayout = nullptr;
