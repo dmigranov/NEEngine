@@ -18,7 +18,7 @@ public:
     {
         DirectX::XMMATRIX projFront;
         DirectX::XMMATRIX projBack;
-        double density = 0.01;
+        double density = 0.1;
         double pad;
     };
 
