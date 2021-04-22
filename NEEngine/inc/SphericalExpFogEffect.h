@@ -36,7 +36,6 @@ public:
         DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
         float m_edgeThickness = 0.00f;
     };
-    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
     SphericalExpFogEffect(Texture* pTexture, double fogDensity);
 
@@ -55,8 +54,8 @@ public:
     ~SphericalExpFogEffect();
 
 private:
-    //std::string		m_vsFileName;
-    //std::string		m_psFileName;
+    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
+    PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
     ID3D11InputLayout* g_d3dInputLayout = nullptr;
 
