@@ -453,37 +453,6 @@ bool Game::LoadContent()
     constantBufferDesc.CPUAccessFlags = 0;
     constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
-    //loading shaders from global variables 
-    /*hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
-    if (FAILED(hr))
-    {
-        return false;
-    }
-
-    hr = g_d3dDevice->CreateVertexShader(g_ellexp2vs, sizeof(g_ellexp2vs), nullptr, &g_d3dEllipticalVertexShader);
-    if (FAILED(hr))
-    {
-        return false;
-    }*/
-    //hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
-    //if (FAILED(hr)) { return false; }
-
-    //hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
-    //if (FAILED(hr)) { return false; }
-
-    //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
-    /*
-    D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
-    {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(VertexPosTex, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        //{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-    }; 
-    */
-
-    //hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
-    //if (FAILED(hr)) { return false; }
-
     CreateResources();
 
     return true;
@@ -491,15 +460,7 @@ bool Game::LoadContent()
 
 void Game::UnloadContent()
 {
-    //SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
-    //SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
-    //SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
-    //SafeRelease(g_d3dPSConstantBuffer);
-
-    //SafeRelease(g_d3dInputLayout);
-    //SafeRelease(g_d3dVertexShader);
-    //SafeRelease(g_d3dGeometryShader);
-    //SafeRelease(g_d3dPixelShader);
+    //SafeRelease(...);
 
     m_pResourceManager->Clean();
     delete m_pResourceManager;
