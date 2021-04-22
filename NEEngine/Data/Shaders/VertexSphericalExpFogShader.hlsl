@@ -3,7 +3,6 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
 	double density;
-	double pad;
 }
 
 cbuffer PerFrame : register(b1)
@@ -28,7 +27,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
-	float4 position : SV_POSITION; //должно быть последним!
+	float4 position : SV_POSITION; //должно быть последним, если в пиксельном шейдере не будем его брать (иначе всё сместится)
 };
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
