@@ -94,12 +94,15 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//todo: !!!!!оптимизировать!!!!!
 
-	auto proj = (game.GetScene())->GetProj();
+
+	perApplicationVSConstantBuffer.proj = (game.GetScene())->GetProj();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
+
 	auto view = (game.GetScene())->GetView();
-	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
-	const auto & world = pTransformComponent->GetWorld();
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &proj);
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
+
+	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
