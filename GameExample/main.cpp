@@ -137,18 +137,13 @@ int main(int argc, char * argv[])
     {
         0, 1, 2,
     };
-    //на данный момент дефолтная система рендеринга отключена (тк рендерит все с не-null VertexTexMeshComponent)
     
     auto effect = new SphericalExpFogEffect(brickTexture, 0.5);
-    
    
-    //можно сделать разные фабрики для евклидова меша, сферического/эллиптического,
-    //гиперболического
+    //можно сделать разные фабрики для евклидова меша, сферического/эллиптического, гиперболического
 
 
-    // todo: первым делом в эффекте все заменить на нужное: шейдеры, буферы
-    // посмотреть как рендерится
-    // потом - камера (сначала просто путем установки матрицы SetWorld())
+    // todo: камера (сначала просто путем установки матрицы SetWorld()) ,потом transfornm
     
     auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
     smc->SetEffect(effect);
