@@ -16,20 +16,20 @@ public:
 
     struct PerApplicationVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix projFront;
-        DirectX::SimpleMath::Matrix projBack;
+        DirectX::XMMATRIX projFront;
+        DirectX::XMMATRIX projBack;
         double density = 0.5;
         double pad;
     };
 
     struct PerFrameVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix view;
+        DirectX::XMMATRIX view;
     };
 
     struct PerObjectVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix world;
+        DirectX::XMMATRIX world;
     };
 
     struct PerApplicationPSConstantBuffer
@@ -58,7 +58,8 @@ private:
     static bool isSpherical;
 
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
-    PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
+    //PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
+    double density = 0.5;
 
     ID3D11InputLayout* g_d3dInputLayout = nullptr;
 
