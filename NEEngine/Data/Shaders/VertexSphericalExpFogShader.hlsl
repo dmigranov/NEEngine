@@ -21,14 +21,12 @@ cbuffer PerObject : register(b2)
 struct VertexShaderInput
 {
 	float4 position : POSITION;
-	float4 color : COLOR;
 	float2 tex : TEXCOORD0;
 };
 
 struct VertexShaderOutput
 {
 	float4 position : SV_POSITION;
-	float4 color : COLOR;
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
 };
@@ -53,7 +51,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	
-	OUT.color = IN.color;
+	//OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
