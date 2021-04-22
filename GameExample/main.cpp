@@ -26,9 +26,7 @@
 // Systems
 #include "TransformUpdateSystem.h"
 #include "InputSystem.h"
-#include "BitmapRenderSystem.h"
 #include "ActionSystem.h"
-#include "CameraActionSystem.h"
 
 #include "SphericalRenderSystem.h"
 
@@ -38,17 +36,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-struct MyVertexData
-{
-    DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-    DirectX::XMFLOAT2 TexCoord;
-};
-
-
 int main(int argc, char * argv[])
 {
-    //todo: Component* -> Component&  ?
-
     Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
@@ -56,8 +45,6 @@ int main(int argc, char * argv[])
     auto resourceManager = game.GetResourceManager();
 
     {
-        //todo: наследники - subscribe?
-
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
@@ -65,7 +52,7 @@ int main(int argc, char * argv[])
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
 
-        //mesh comp зарегистр по умолчанию 
+        //transfcomp и meshcom зарегистр по умолчанию...
 
         componentTypeManager->SetTypeAdditionEnded();
     }
@@ -75,10 +62,8 @@ int main(int argc, char * argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new SphericalRenderSystem());
-    scene->AddSystem(new BitmapRenderSystem());
 
     auto cameraTransform = new SphericalTransformComponent();
-
 
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
@@ -110,7 +95,6 @@ int main(int argc, char * argv[])
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new SphericalCameraComponent();
-    //cameraComponent->S
 
     cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
@@ -139,9 +123,6 @@ int main(int argc, char * argv[])
     };
     
     auto effect = new SphericalExpFogEffect(brickTexture, 0.1, DirectX::Colors::PowderBlue);
-   
-    //можно сделать разные фабрики для евклидова меша, сферического/эллиптического, гиперболического
-    // todo: камера (сначала просто путем установки матрицы SetWorld()) ,потом transfornm
     
     auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
     smc->SetEffect(effect);
@@ -171,7 +152,6 @@ int main(int argc, char * argv[])
     test3D_2->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(test3D_2);
 
-    
 
     return game.StartGame();
 }
