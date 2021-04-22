@@ -9,12 +9,6 @@
 #include "MeshComponent.h"
 #include "TransformComponent.h"
 
-#include "SphericalOctahedron.h"
-#include "SphericalCube.h"
-#include "SphericalSphere.h"
-#include "SphericalAsteroid.h"
-#include "SphericalEllipsoid.h"
-
 #include "Scene.h"
 #include "ResourceManager.h"
 #include "ComponentTypeManager.h"
@@ -500,11 +494,6 @@ ID3D11DeviceContext* const Game::GetDeviceContext()
     return g_d3dDeviceContext;
 }
 
-/*ID3D11Buffer** const Game::GetVSConstantBuffers()
-{
-    return g_d3dVSConstantBuffers;
-}*/
-
 ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {
     ID3D11VertexShader* returnVertexShader = nullptr;
@@ -599,6 +588,3 @@ ID3D11SamplerState* Game::CreateSamplerState(D3D11_SAMPLER_DESC samplerDesc)
     }
     return returnState;
 }
-
-
-
