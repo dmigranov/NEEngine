@@ -141,8 +141,7 @@ int main(int argc, char * argv[])
     auto effect = new SphericalExpFogEffect(brickTexture, 0.5);
    
     //можно сделать разные фабрики для евклидова меша, сферического/эллиптического, гиперболического
-
-
+    // 
     // todo: камера (сначала просто путем установки матрицы SetWorld()) ,потом transfornm
     
     auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
