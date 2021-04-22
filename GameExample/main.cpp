@@ -15,11 +15,11 @@
 #include "TransformComponent.h"
 #include "InputComponent.h"
 #include "BitmapComponent.h"
-#include "CameraComponent.h"
 #include "WalkComponent.h"
 #include "MeshComponent.h"
 
 #include "SphericalTransformComponent.h"
+#include "SphericalCameraComponent.h"
 
 #include "MeshComponentFactory.h"
 
@@ -109,11 +109,11 @@ int main(int argc, char * argv[])
     }));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraComponent = new CameraComponent(true);
+    auto cameraComponent = new SphericalCameraComponent(true);
     cameraComponent->SetOrthogonalWidth(30.);
 
     cameraEntity->SetTransform(cameraTransform);
-    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
+    cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
 
     scene->AddEntity(cameraEntity);
@@ -161,9 +161,9 @@ int main(int argc, char * argv[])
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
     SphericalExpFogEffect::VertexData vertices2[3] = {
-       { XMFLOAT4(-5.0f, -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
-       { XMFLOAT4(15.0f,  -10.0f, 0.5f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(15.0f,  10.0f, 0.5f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
+       { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(0.f,  0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
     };
 
     WORD indices2[3] =
