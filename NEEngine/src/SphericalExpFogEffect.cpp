@@ -97,7 +97,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//todo: !!!!!оптимизировать!!!!!
 
-
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
 	perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetBackSphericalProj(); 

@@ -128,9 +128,9 @@ int main(int argc, char * argv[])
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
     SphericalExpFogEffect::VertexData vertices[3] = {
-       { XMFLOAT4(-10.0f, -10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) }, // 0
-       { XMFLOAT4(-10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(10.0f,  10.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) }, // 2
+       { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
+       { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
+       { XMFLOAT4(0.f,  -0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
     };
 
     WORD indices[3] =
