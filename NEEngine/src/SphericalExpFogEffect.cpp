@@ -16,6 +16,8 @@ using namespace DirectX::SimpleMath;
 
 #include "Game.h"
 
+bool SphericalExpFogEffect::isSpherical = true;
+
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity) : game(Game::GetInstance())
 {
 	m_magic = "SphericalExpFog";

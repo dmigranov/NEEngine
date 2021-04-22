@@ -55,6 +55,8 @@ public:
     ~SphericalExpFogEffect();
 
 private:
+    static bool isSpherical;
+
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
