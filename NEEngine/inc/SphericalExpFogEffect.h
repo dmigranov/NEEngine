@@ -35,7 +35,7 @@ public:
     struct PerApplicationPSConstantBuffer
     {
         //todo: цвет дымки и фона!
-        DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
+        DirectX::XMVECTORF32 fogColor = DirectX::Colors::PowderBlue;
         float m_edgeThickness = 0.00f;
     };
 

@@ -590,7 +590,6 @@ ComponentTypeManager* Game::GetComponentTypeManager()
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
 {
     mistColor = color;
-    //g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
 
 ID3D11Device* const Game::GetDevice()
