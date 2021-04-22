@@ -28,6 +28,7 @@ struct VertexShaderOutput
 	float fogFactor : FOG_FACTOR;
 	float4 position : SV_POSITION; //должно быть последним, если в пиксельном шейдере не будем его брать (иначе всё сместится)
 };
+
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
@@ -49,7 +50,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	
-	//OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
