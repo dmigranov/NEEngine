@@ -210,6 +210,9 @@
     <ClCompile Include="inc\MeshComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalMeshComponentFactory.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalControlSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMeshComponentFactory.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

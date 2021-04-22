@@ -38,6 +38,7 @@
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\SphericalMath.cpp" />
+    <ClCompile Include="src\SphericalMeshComponentFactory.cpp" />
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\SphericalTransformComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalEllipsoid.h" />
+    <ClInclude Include="inc\SphericalMeshComponentFactory.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
     <ClInclude Include="inc\SphericalMesh.h" />
     <ClInclude Include="inc\pch.h" />
