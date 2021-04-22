@@ -2,13 +2,14 @@ cbuffer PerApplication : register(b0)
 {
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
-	float density;
+	double density;
+	double pad;
 }
 
 cbuffer PerFrame : register(b1)
 {
 	matrix viewMatrixFront;
-	matrix viewMatrixBack;
+	//matrix viewMatrixBack;
 }
 
 cbuffer PerObject : register(b2)
@@ -34,6 +35,7 @@ struct VertexShaderOutput
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
+	matrix viewMatrixBack = -viewMatrixFront;
 	VertexShaderOutput OUT;
  
 	matrix viewMatrix, projectionMatrix;

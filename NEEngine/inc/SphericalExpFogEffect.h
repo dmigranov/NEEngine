@@ -16,7 +16,8 @@ public:
 
     struct PerApplicationVSConstantBuffer
     {
-        DirectX::SimpleMath::Matrix proj;
+        DirectX::SimpleMath::Matrix projFront;
+        DirectX::SimpleMath::Matrix projBack;
         double density = 0.5;
         double pad;
     };

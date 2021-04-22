@@ -95,7 +95,8 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//todo: !!!!!оптимизировать!!!!!
 
 
-	perApplicationVSConstantBuffer.proj = (game.GetScene())->GetProj();
+	perApplicationVSConstantBuffer.projFront = (game.GetScene())->GetProj(); //todo 
+	perApplicationVSConstantBuffer.projBack = (game.GetScene())->GetProj();  //todo
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
 	auto view = (game.GetScene())->GetView();
