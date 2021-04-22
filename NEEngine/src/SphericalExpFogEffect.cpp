@@ -101,6 +101,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// очищение фона Clear(mistColor, 1.0f, 0) теоретически можно производить тут, но это проблематично:
 	// а если эффектов несколько? потому пусть лучше пользователь сам следит
 
+	//When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
@@ -113,6 +114,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
+
 
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 

@@ -240,10 +240,6 @@ int Game::Initialize(HWND window, int width, int height)
     samplerDesc.MinLOD = 0;
     samplerDesc.MaxLOD = D3D11_FLOAT32_MAX;
 
-    // Create the texture sampler state.
-    //hr = g_d3dDevice->CreateSamplerState(&samplerDesc, &g_d3dSamplerState);
-    //if (FAILED(hr)) { return -1; }
-
     isInitialized = true;
     m_pScene = new Scene();
 
@@ -251,9 +247,6 @@ int Game::Initialize(HWND window, int width, int height)
     {
         return -1;
     }
-
-    //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
-    //g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext);
     m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
@@ -393,33 +386,9 @@ void Game::Update(double deltaTime)
 
 void Game::Render()
 {
-    //Input Assembler Stage - common
-    //g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
-
-    //Vertex Shader Stage
-    //g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
-    //g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dVSConstantBuffers);
-
-    //Geometry Shader Stage
-    //g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
-
-    //Rasterizer Stage
-    //g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
-    //g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);
-    
-    //Pixel Shader Stage
-    //g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
-    //g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
-    //g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
-
-    //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
-    //g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
-    //g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
-    //g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
-
     m_pScene->Render();
 
-    //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
+    //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0); 
 }
 
 void Game::StartDrawing()
@@ -443,7 +412,7 @@ void Game::FinishDrawing()
     /*float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
     m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
-    */
+    */ //вынести в систему?
 
     Present();
 }
