@@ -32,8 +32,8 @@ void SphericalTransformComponent::Recalculate()
 
 void SphericalTransformComponent::RecalculateView()
 {
-	//todo 
-	std::cerr << "SphericalTransformComponent::RecalculateView()" << std::endl;
+	//todo: вызывется на каждом кадре - некомильфо
+	//std::cerr << "SphericalTransformComponent::RecalculateView()" << std::endl;
 }
 
 void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& world)

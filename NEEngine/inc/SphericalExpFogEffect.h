@@ -59,7 +59,7 @@ private:
 
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
-    double density = 0.1;
+    double density = 0.01;
 
     ID3D11InputLayout* g_d3dInputLayout = nullptr;
 
