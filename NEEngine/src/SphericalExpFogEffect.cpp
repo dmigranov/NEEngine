@@ -98,7 +98,8 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//todo: !!!!!оптимизировать!!!!!
 
-	//todo: перенести очищение цвета ...
+	// очищение фона Clear(mistColor, 1.0f, 0) теоретически можно производить тут, но это проблематично:
+	// а если эффектов несколько? потому пусть лучше пользователь сам следит
 
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
