@@ -4,6 +4,7 @@
 #include "Scene.h"
 
 #include "SphericalTransformComponent.h"
+#include "SphericalCameraComponent.h"
 #include "Entity.h"
 
 #include "VertexShader.h" // generated from BasicVertexShader.hlsl
@@ -97,7 +98,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//todo: !!!!!оптимизировать!!!!!
 
 
-	auto camera = game.GetScene()->GetCamera();
+	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = (game.GetScene())->GetProj(); //todo 
 	perApplicationVSConstantBuffer.projBack = (game.GetScene())->GetProj();  //todo
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
