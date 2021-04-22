@@ -27,7 +27,7 @@ SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensit
 bool SphericalExpFogEffect::Initialize()
 {
 	//shaders
-	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_vs, sizeof(g_vs));
+	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sphexpvs, sizeof(g_sphexpvs));
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
 	//input assembly:
@@ -108,7 +108,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.IASetInputLayout(g_d3dInputLayout);
 
 	//vertex shader stage
-	game.VSSetShader(g_d3dVertexShader);
+	game.VSSetShader(g_d3dVertexShaderSph);
 	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
 	//pixel shader stage
@@ -159,6 +159,6 @@ void SphericalExpFogEffect::Deinitialize()
 
 	SafeRelease(g_d3dInputLayout);
 
-	SafeRelease(g_d3dVertexShader);
+	SafeRelease(g_d3dVertexShaderSph);
 	SafeRelease(g_d3dPixelShader);
 }
