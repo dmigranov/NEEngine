@@ -28,8 +28,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
-	float4 position : SV_POSITION;
-
+	float4 position : SV_POSITION; //должно быть последним!
 };
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
