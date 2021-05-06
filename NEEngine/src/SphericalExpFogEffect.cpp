@@ -177,6 +177,7 @@ void SphericalExpFogEffect::Deinitialize()
 
 	SafeRelease(g_d3dInputLayout);
 
+	SafeRelease(g_d3dVertexShaderEll);
 	SafeRelease(g_d3dVertexShaderSph);
 	SafeRelease(g_d3dPixelShader);
 }
