@@ -70,7 +70,8 @@ int main(int argc, char * argv[])
 
     auto cameraTransform = new SphericalTransformComponent();
 
-    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>([](Entity* pEntity, double deltaTime) {        
+    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
+    [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
         auto pInput = pEntity->GetComponent<InputComponent>();
         auto kbs = pInput->GetKeyboardState();
@@ -126,6 +127,18 @@ int main(int argc, char * argv[])
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
     test3D_2->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(test3D_2);
+
+    scene->AddSystem(new ActionSystem<InputComponent>(
+    [effect](Entity* pEntity, double deltaTime) {
+        auto pInput = pEntity->GetComponent<InputComponent>();
+        auto kbs = pInput->GetKeyboardState();
+        auto sphEff = (SphericalExpFogEffect*)effect;
+
+        if (kbs.D1)
+            sphEff->SetMode(true);
+        else if (kbs.D2)
+            sphEff->SetMode(false);
+    }));
 
 
     return game.StartGame();
