@@ -22,7 +22,7 @@ using namespace DirectX::SimpleMath;
 
 #include "Game.h"
 
-bool SphericalExpFogEffect::isSpherical = true;
+bool SphericalExpFogEffect::m_isSpherical = true;
 
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : game(Game::GetInstance())
 {
@@ -35,7 +35,8 @@ SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensit
 
 bool SphericalExpFogEffect::Initialize()
 {
-	//shaders
+	// shaders
+	// vertex shaders have to have the same signature
 	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sphexpvs, sizeof(g_sphexpvs));
 	g_d3dVertexShaderEll = game.CreateVertexShaderFromBytecode(g_ellexpvs, sizeof(g_ellexpvs));
 	g_d3dVertexShaderCurrent = g_d3dVertexShaderSph;
@@ -162,6 +163,11 @@ unsigned int SphericalExpFogEffect::GetVertexBufferSize() const
 const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 {
 	return typeid(SphericalMeshComponentFactory::VertexData);
+}
+
+void SphericalExpFogEffect::SetMode(bool isSpherical)
+{
+	m_isSpherical = isSpherical;
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()

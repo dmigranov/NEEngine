@@ -48,10 +48,12 @@ public:
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 
+    static void SetMode(bool isSpherical);
+
     ~SphericalExpFogEffect();
 
 private:
-    static bool isSpherical;
+    static bool m_isSpherical;
 
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
