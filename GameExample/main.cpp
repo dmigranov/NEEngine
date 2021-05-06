@@ -83,17 +83,19 @@ int main(int argc, char * argv[])
 
 
         if (kbs.D)
-            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationXW(deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.A)
-            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationXW(-deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(SphericalRotationXW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.W)
-            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationYW(deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.S)
-            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationYW(-deltaTime * pWalk->m_movementGain));
-        //if (kbs.R)
-        //    pTransform->Move(fwd);
-        //if (kbs.F)
-        //    pTransform->Move(-fwd);
+            pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+        if (kbs.R)
+            pTransform->SetWorld(SphericalRotationZW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+        if (kbs.F)
+            pTransform->SetWorld(SphericalRotationZW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+       
+        //pTransform->Move(-fwd); //должно быть так todo
 
     }));
 
@@ -128,7 +130,8 @@ int main(int argc, char * argv[])
         0, 2, 1,
     };
 
-    auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices2, 3, indices2);
+    //auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices2, 3, indices2);
+    auto smc2 = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 6, 6);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
