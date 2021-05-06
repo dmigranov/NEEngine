@@ -84,11 +84,11 @@ int main(int argc, char * argv[])
         if (kbs.D)
             pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationXW(deltaTime * pWalk->m_movementGain));
         if (kbs.A)
-            pTransform->SetWorld(SphericalRotationXW(-deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationXW(-deltaTime * pWalk->m_movementGain));
         if (kbs.W)
-            pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationYW(deltaTime * pWalk->m_movementGain));
         if (kbs.S)
-            pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain));
+            pTransform->SetWorld(pTransform->GetWorld() * SphericalRotationYW(-deltaTime * pWalk->m_movementGain));
         //if (kbs.R)
         //    pTransform->Move(fwd);
         //if (kbs.F)
