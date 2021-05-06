@@ -62,6 +62,7 @@ int main(int argc, char * argv[])
     }
 
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
+    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
@@ -113,7 +114,7 @@ int main(int argc, char * argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto effect = new SphericalExpFogEffect(brickTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
    
     auto test3D_2 = new Entity();
     auto stc_2 = new SphericalTransformComponent();
@@ -131,7 +132,7 @@ int main(int argc, char * argv[])
     };
 
     //auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices2, 3, indices2);
-    auto smc2 = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 6, 6);
+    auto smc2 = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
