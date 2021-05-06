@@ -4,7 +4,15 @@ class SphericalMeshComponentFactory :
     public MeshComponentFactory
 {
 public:
-    static MeshComponent* CreateSphericalSphere(double radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color = {1.f, 1.f, 1.f, 1.f});
+
+    struct VertexData
+    {
+        DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
+        //DirectX::XMFLOAT4 Normal;
+        DirectX::XMFLOAT2 TexCoord;
+    };
+
+    static MeshComponent* CreateSphericalSphere(double radius, int sliceCount, int stackCount);
     static MeshComponent* CreateSphericalMeshFromFile(); //todo
     //todo: создание из списка вершин и индексов, но с проверкой корректности вершин
 };

@@ -8,11 +8,6 @@ class SphericalExpFogEffect :
     public Effect
 {
 public:
-    struct VertexData
-    {
-        DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        DirectX::XMFLOAT2 TexCoord;
-    };
 
     struct PerApplicationVSConstantBuffer
     {
