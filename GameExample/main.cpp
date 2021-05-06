@@ -120,18 +120,6 @@ int main(int argc, char * argv[])
     auto stc_2 = new SphericalTransformComponent();
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
-    SphericalMeshComponentFactory::VertexData vertices2[3] = {
-       { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
-       { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(0.f,  0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
-    };
-
-    WORD indices2[3] =
-    {
-        0, 2, 1,
-    };
-
-    //auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices2, 3, indices2);
     auto smc2 = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
