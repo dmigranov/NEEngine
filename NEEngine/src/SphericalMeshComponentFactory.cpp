@@ -5,3 +5,8 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 {
     return nullptr;
 }
+
+MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile()
+{
+    return nullptr;
+}
