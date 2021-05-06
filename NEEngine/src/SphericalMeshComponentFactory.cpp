@@ -13,6 +13,8 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
 	std::vector<VertexData> vertices;
 	std::vector<WORD> indices;
+
+	return nullptr;
 }
 
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile()

@@ -25,6 +25,7 @@
 #include "SphericalCameraComponent.h"
 
 #include "MeshComponentFactory.h"
+#include "SphericalMeshComponentFactory.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -114,7 +115,7 @@ int main(int argc, char * argv[])
     auto stc = new SphericalTransformComponent();
     test3D->AddComponent<SphericalTransformComponent>(stc);
 
-    SphericalExpFogEffect::VertexData vertices[3] = {
+    SphericalMeshComponentFactory::VertexData vertices[3] = {
        { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(0.f,  -0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
@@ -127,7 +128,7 @@ int main(int argc, char * argv[])
     
     auto effect = new SphericalExpFogEffect(brickTexture, 0.1, DirectX::Colors::PowderBlue);
     
-    auto smc = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices, 3, indices);
+    auto smc = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices, 3, indices);
     smc->SetEffect(effect);
     test3D->AddComponent<MeshComponent>(smc);
     scene->AddEntity(test3D);
@@ -137,7 +138,7 @@ int main(int argc, char * argv[])
     auto stc_2 = new SphericalTransformComponent();
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
-    SphericalExpFogEffect::VertexData vertices2[3] = {
+    SphericalMeshComponentFactory::VertexData vertices2[3] = {
        { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
        { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
        { XMFLOAT4(0.f,  0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
@@ -148,7 +149,7 @@ int main(int argc, char * argv[])
         0, 2, 1,
     };
 
-    auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalExpFogEffect::VertexData>(3, vertices2, 3, indices2);
+    auto smc2 = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices2, 3, indices2);
     smc2->SetEffect(effect);
     test3D_2->AddComponent<MeshComponent>(smc2);
     test3D_2->AddComponent<WalkComponent>(charWalkComponent);
