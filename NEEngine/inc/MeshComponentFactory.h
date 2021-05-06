@@ -42,10 +42,6 @@ public:
 
 		MeshComponent* returnMesh = new MeshComponent(g_d3dVertexBuffer, g_d3dIndexBuffer, typeid(VertexData), ni);
 
-		//todo: создать класс SphericalMeshComponentFactory 
-		//его методы: создание по списку вершин и индексов,
-		//но также и создание предопределнных объектов
-
 		return returnMesh;
 	}
 };
