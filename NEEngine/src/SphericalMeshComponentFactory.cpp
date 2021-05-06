@@ -72,6 +72,12 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         triCount++;
     }
 
+    auto g_Vertices = &vertices[0];
+    auto verticesCount = vertices.size();
+
+    auto g_Indices = &indices[0];
+    auto indicesCount = indices.size();
+
 
 
 
