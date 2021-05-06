@@ -32,10 +32,9 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
             vertices.push_back({ pos, uv });
         }
-
     }
 
-
+    vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, height), XMFLOAT2(0.f, 1.f) });
 
 
 
