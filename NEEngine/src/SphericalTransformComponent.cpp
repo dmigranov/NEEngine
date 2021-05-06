@@ -44,7 +44,6 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 	if (m_pParent != nullptr)
 		realWorld = realWorld * m_pParent->GetWorld();
 	m_world = realWorld;
-	std::cout << m_world._14 << std::endl;
 
 	m_view = m_world.Transpose();
 

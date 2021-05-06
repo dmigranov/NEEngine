@@ -111,30 +111,9 @@ int main(int argc, char * argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    Entity* test3D = new Entity();
-    auto stc = new SphericalTransformComponent();
-    test3D->AddComponent<SphericalTransformComponent>(stc);
-
-    SphericalMeshComponentFactory::VertexData vertices[3] = {
-       { XMFLOAT4(-0.5f, 0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 0.0f) }, // 0
-       { XMFLOAT4(0.5f,  0.f, -0.5f, 0.7071f), XMFLOAT2(0.0f, 1.0f) }, // 1
-       { XMFLOAT4(0.f,  -0.5f, -0.5f, 0.7071f), XMFLOAT2(1.0f, 1.0f) }, // 2
-    };
-
-    WORD indices[3] =
-    {
-        0, 1, 2,
-    };
-    
     auto effect = new SphericalExpFogEffect(brickTexture, 0.1, DirectX::Colors::PowderBlue);
-    
-    auto smc = MeshComponentFactory::CreateMeshComponent<SphericalMeshComponentFactory::VertexData>(3, vertices, 3, indices);
-    smc->SetEffect(effect);
-    test3D->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(test3D);
-
-
-    Entity* test3D_2 = new Entity();
+   
+    auto test3D_2 = new Entity();
     auto stc_2 = new SphericalTransformComponent();
     test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
 
