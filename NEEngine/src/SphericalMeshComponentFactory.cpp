@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "SphericalMeshComponentFactory.h"
 
+#include "MeshComponent.h"
+#include "Game.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -78,10 +81,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     auto g_Indices = &indices[0];
     auto indicesCount = indices.size();
 
-
-
-
-	return nullptr;
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);
 }
 
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile()
