@@ -19,7 +19,9 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
 	double height = sqrt(1.f - (radius * radius));
 
-	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height), XMFLOAT2(0.f, 0.f) });	//North pole
+	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height),
+        XMFLOAT4(0.f, 1.f, 0.f, 0.f),
+        XMFLOAT2(0.f, 0.f) });	//North pole
 
     for (int i = 1; i <= stackCount - 1; i++) {
         auto phi = i * phiStep;
@@ -33,11 +35,15 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             );
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
-            vertices.push_back({ pos, uv });
+            vertices.push_back({ pos, 
+
+                uv });
         }
     }
 
-    vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, height), XMFLOAT2(0.f, 1.f) }); //south pole
+    vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, height), 
+        XMFLOAT4(0.f, -1.f, 0.f, 0.f),
+        XMFLOAT2(0.f, 1.f) }); //south pole
 
     //INDICES
 
