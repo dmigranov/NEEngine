@@ -39,7 +39,6 @@ bool SphericalExpFogEffect::Initialize()
 	// vertex shaders have to have the same signature
 	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sphexpvs, sizeof(g_sphexpvs));
 	g_d3dVertexShaderEll = game.CreateVertexShaderFromBytecode(g_ellexpvs, sizeof(g_ellexpvs));
-	g_d3dVertexShaderCurrent = g_d3dVertexShaderSph;
 
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
@@ -132,7 +131,11 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.IASetInputLayout(g_d3dInputLayout);
 
 	//vertex shader stage
-	game.VSSetShader(g_d3dVertexShaderCurrent);
+	//game.VSSetShader(g_d3dVertexShaderCurrent);
+	if(m_isSpherical)
+		game.VSSetShader(g_d3dVertexShaderSph);
+	else
+		game.VSSetShader(g_d3dVertexShaderEll);
 	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
 	//pixel shader stage
