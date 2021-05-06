@@ -9,6 +9,9 @@
 #include "Entity.h"
 
 
+#include "SphericalMath.h" //todo: убрать
+
+
 // Components
 #include "ComponentTypeManager.h"
 
@@ -79,17 +82,17 @@ int main(int argc, char * argv[])
 
 
         if (kbs.D)
-            pTransform->Move(right);
+            pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain));
         if (kbs.A)
-            pTransform->Move(-right);
+            pTransform->SetWorld(SphericalRotationXW(-deltaTime * pWalk->m_movementGain));
         if (kbs.W)
-            pTransform->Move(up);
+            pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain));
         if (kbs.S)
-            pTransform->Move(-up);
-        if (kbs.R)
-            pTransform->Move(fwd);
-        if (kbs.F)
-            pTransform->Move(-fwd);
+            pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain));
+        //if (kbs.R)
+        //    pTransform->Move(fwd);
+        //if (kbs.F)
+        //    pTransform->Move(-fwd);
 
     }));
 
