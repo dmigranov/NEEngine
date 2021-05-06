@@ -131,7 +131,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.IASetInputLayout(g_d3dInputLayout);
 
 	//vertex shader stage
-	game.VSSetShader(g_d3dVertexShaderSph);
+	game.VSSetShader(g_d3dVertexShaderCurrent);
 	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
 	//pixel shader stage
