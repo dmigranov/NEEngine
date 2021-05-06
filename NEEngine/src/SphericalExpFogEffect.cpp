@@ -38,6 +38,7 @@ bool SphericalExpFogEffect::Initialize()
 	//shaders
 	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sphexpvs, sizeof(g_sphexpvs));
 	g_d3dVertexShaderEll = game.CreateVertexShaderFromBytecode(g_ellexpvs, sizeof(g_ellexpvs));
+	g_d3dVertexShaderCurrent = g_d3dVertexShaderSph;
 
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 

@@ -58,7 +58,7 @@ private:
 
     ID3D11InputLayout* g_d3dInputLayout = nullptr;
 
-    ID3D11VertexShader* g_d3dVertexShader = nullptr;
+    ID3D11VertexShader* g_d3dVertexShaderCurrent = nullptr;
     ID3D11VertexShader* g_d3dVertexShaderSph = nullptr;
     ID3D11VertexShader* g_d3dVertexShaderEll = nullptr;
 
