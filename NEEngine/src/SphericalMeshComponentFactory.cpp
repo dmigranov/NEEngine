@@ -20,7 +20,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 	double height = sqrt(1.f - (radius * radius));
 
 	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height),
-        XMFLOAT4(0.f, 1.f, 0.f, 0.f),
+        //XMFLOAT4(0.f, 1.f, 0.f, 0.f),     //normal
         XMFLOAT2(0.f, 0.f) });	//North pole
 
     for (int i = 1; i <= stackCount - 1; i++) {
@@ -36,13 +36,13 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
             vertices.push_back({ pos,
-                pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус 1
+                //pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус пространства 1 (но если сферическое пространство произвольного радиуса, то нужно)
                 uv });
         }
     }
 
     vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, height), 
-        XMFLOAT4(0.f, -1.f, 0.f, 0.f),
+        //XMFLOAT4(0.f, -1.f, 0.f, 0.f),    //normal
         XMFLOAT2(0.f, 1.f) }); //south pole
 
     //INDICES

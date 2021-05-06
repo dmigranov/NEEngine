@@ -8,8 +8,8 @@ public:
     struct VertexData
     {
         DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        DirectX::XMFLOAT4 Normal;
-        //DirectX::XMFLOAT4 Tangent; //?
+        //DirectX::XMFLOAT4 Normal;
+        //DirectX::XMFLOAT4 Tangent; //нужно ли?
         DirectX::XMFLOAT2 TexCoord;
     };
 
