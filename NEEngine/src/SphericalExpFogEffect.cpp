@@ -13,6 +13,8 @@
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
 #include "SphExpVertexShader.h"
+#include "EllExpVertexShader.h"
+
 
 
 using namespace DirectX;
