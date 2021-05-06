@@ -35,8 +35,8 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             );
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
-            vertices.push_back({ pos, 
-
+            vertices.push_back({ pos,
+                pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус 1
                 uv });
         }
     }
