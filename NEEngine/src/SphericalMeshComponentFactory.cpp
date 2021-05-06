@@ -3,10 +3,10 @@
 
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color)
 {
-    return nullptr;
+	return nullptr;
 }
 
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile()
 {
-    return nullptr;
+	return nullptr;
 }
