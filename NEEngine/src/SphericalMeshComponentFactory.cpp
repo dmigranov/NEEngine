@@ -14,6 +14,15 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 	std::vector<VertexData> vertices;
 	std::vector<WORD> indices;
 
+	double height = sqrt(1.f - (radius * radius));
+
+	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height), XMFLOAT2(0.f, 0.f) });	//North pole
+
+
+
+
+
+
 	return nullptr;
 }
 
