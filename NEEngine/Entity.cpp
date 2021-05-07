@@ -50,6 +50,7 @@ void Entity::Initialize()
 	m_componentsMask |= add;
 }*/
 
+/*
 void Entity::SetMesh(MeshComponent* pMesh)
 {
 	m_pMesh = pMesh;
@@ -68,6 +69,7 @@ TransformComponent* const Entity::GetTransform()
 {
 	return m_pTransform;
 }
+*/
 
 void Entity::Render()
 {

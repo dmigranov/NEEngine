@@ -25,9 +25,9 @@ public:
 
 	void Initialize();
 
-	void SetMesh(MeshComponent* pMesh);
-	void SetTransform(TransformComponent* pTransform);
-	TransformComponent* const GetTransform();
+	//void SetMesh(MeshComponent* pMesh);
+	//void SetTransform(TransformComponent* pTransform);
+	//TransformComponent* const GetTransform();
 
 	void Render();
 
