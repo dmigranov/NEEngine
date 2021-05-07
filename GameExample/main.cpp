@@ -128,16 +128,16 @@ int main(int argc, char * argv[])
 
     auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
    
-    auto test3D_2 = new Entity();
-    auto stc_2 = new SphericalTransformComponent();
-    test3D_2->AddComponent<SphericalTransformComponent>(stc_2);
+    auto testEntity = new Entity();
+    auto stc = new SphericalTransformComponent();
 
-    auto smc2 = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
-    smc2->SetEffect(effect);
-    test3D_2->AddComponent<MeshComponent>(smc2);
-    test3D_2->AddComponent<WalkComponent>(charWalkComponent);
-    test3D_2->AddComponent<InputComponent>(charInputComponent);
-    scene->AddEntity(test3D_2);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
+    smc->SetEffect(effect);
+    testEntity->AddComponent<SphericalTransformComponent>(stc);
+    testEntity->AddComponent<MeshComponent>(smc);
+    testEntity->AddComponent<WalkComponent>(charWalkComponent);
+    testEntity->AddComponent<InputComponent>(charInputComponent);
+    scene->AddEntity(testEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
     [effect](Entity* pEntity, double deltaTime) {

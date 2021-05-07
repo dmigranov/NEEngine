@@ -12,9 +12,6 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed, this](Entity* pEntity, double deltaTime) {
-
-    std::cout << "here" << std::endl;
-
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
     auto pInput = pEntity->GetComponent<InputComponent>();
     auto kbs = pInput->GetKeyboardState();
@@ -40,8 +37,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = movementSpeed * deltaTime;
     if (kbs.D)
         dx = -movementSpeed * deltaTime;
-    std::cout << dz << std::endl;
-    Matrix dT =  SphericalRotationZW(-dz) * SphericalRotationYW(-dy) * SphericalRotationXW(-dx);
+
+    Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(-dx);
 
     //T = T * RYaw * dT * RYaw.Transpose();	//матрица T^1 для вычисления view = T^-1 * R^-1
     T = RYaw.Transpose() * dT * RYaw * T;
