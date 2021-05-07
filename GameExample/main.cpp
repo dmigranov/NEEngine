@@ -33,6 +33,7 @@
 #include "ActionSystem.h"
 
 #include "SphericalRenderSystem.h"
+#include "SphericalControlSystem"
 
 //Effect
 #include "SphericalExpFogEffect.h"
@@ -67,8 +68,9 @@ int main(int argc, char * argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new SphericalRenderSystem());
+    scene->AddSystem(new SphericalControlSystem());
 
-    auto cameraTransform = new SphericalTransformComponent();
+
 
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
@@ -102,6 +104,8 @@ int main(int argc, char * argv[])
         //pTransform->Move(-fwd); //должно быть так todo
 
     }));
+
+    auto cameraTransform = new SphericalTransformComponent();
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraComponent = new SphericalCameraComponent();
