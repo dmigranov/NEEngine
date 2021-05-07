@@ -83,7 +83,6 @@ int main(int argc, char * argv[])
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
         Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
-
         /*
         if (kbs.D)
             pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
@@ -100,7 +99,6 @@ int main(int argc, char * argv[])
             pTransform->SetWorld(SphericalRotationZW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
        
         //pTransform->Move(-fwd); //должно быть так todo
-
     }));
 
 
@@ -114,10 +112,11 @@ int main(int argc, char * argv[])
     scene->AddEntity(cameraEntity);
 
 
+    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+
+
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
-
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
    
     auto testEntity = new Entity();
     auto stc = new SphericalTransformComponent();
@@ -141,7 +140,6 @@ int main(int argc, char * argv[])
         else if (kbs.D2)
             sphEff->SetMode(false);
     }));
-
 
     return game.StartGame();
 }
