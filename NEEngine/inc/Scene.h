@@ -25,8 +25,8 @@ public:
 	void SetCamera(Entity* pCamera);
 	Entity* GetCamera();
 
-	DirectX::SimpleMath::Matrix GetProj();
-	DirectX::SimpleMath::Matrix GetView();
+	//DirectX::SimpleMath::Matrix GetProj();
+	//DirectX::SimpleMath::Matrix GetView();
 
 
 	void SetCameraOutputSize(double width, double height);
@@ -35,7 +35,7 @@ public:
 	//потому добавление новых энтитей в ходе работы программы невозможно
 	void SynchronizeSystemsWithEntities();
 private:
-	void UpdateProjMatrix();
+	//void UpdateProjMatrix();
 
 	std::vector<Entity *>	m_entities;
 	std::vector<System *>	m_nonDrawingSystems;
@@ -45,7 +45,7 @@ private:
 
 	double m_width = -1, m_height = -1;
 
-	DirectX::SimpleMath::Matrix m_proj;
+	//DirectX::SimpleMath::Matrix m_proj;
 
 	Game& m_game;
 	Entity* m_pCamera;

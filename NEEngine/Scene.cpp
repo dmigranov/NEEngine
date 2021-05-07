@@ -73,6 +73,7 @@ Entity* Scene::GetCamera()
 	return m_pCamera;
 }
 
+/*			//Оставить для евклидова случая: там все единообразно...
 DirectX::SimpleMath::Matrix Scene::GetProj()
 {
 	return m_proj;
@@ -82,6 +83,7 @@ DirectX::SimpleMath::Matrix Scene::GetView()
 {
 	return m_pCamera->GetTransform()->GetView();
 }
+*/
 
 void Scene::SetCameraOutputSize(double width, double height)
 {
@@ -110,6 +112,7 @@ void Scene::SynchronizeSystemsWithEntities()
 	}
 }
 
+/*
 void Scene::UpdateProjMatrix()
 {
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
@@ -120,6 +123,7 @@ void Scene::UpdateProjMatrix()
 	auto proj = cc->GetProj();
 	m_proj = proj; //тут что то с типами...
 }
+*/
 
 void Scene::Update(double delta)
 {
