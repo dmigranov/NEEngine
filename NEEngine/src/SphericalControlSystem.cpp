@@ -6,6 +6,11 @@
 #include "SphericalTransformComponent.h"
 #include "SphericalCameraComponent.h"
 
+#include "SphericalMath.h"
+
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
 SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed](Entity* pEntity, double deltaTime) {
 
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
@@ -13,11 +18,18 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     auto kbs = pInput->GetKeyboardState();
     auto ms = pInput->GetMouseState();
 
+    //todo: переделать так, чтобы использовался метод Move Transform'а, а не вручную сформированыне матрицы
+
+    double m_dx = 0, m_dy = 0;
+
     if (ms.leftButton)
     {
-        double dx = ms.x * rotationSpeed * deltaTime, dy = ms.y * rotationSpeed * deltaTime;
+        m_dx = ms.x * rotationSpeed * deltaTime;
+        m_dy = ms.y * rotationSpeed * deltaTime;
     }
      
+
+
     if (kbs.W)
         ;
     if (kbs.S)
@@ -26,6 +38,9 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         ;
     if (kbs.D)
         ;
+
+    Matrix dT = SphericalRotationXW(-dx) * SphericalRotationYW(-dy) * SphericalRotationZW(-dz);
+
 
 })
 { }
