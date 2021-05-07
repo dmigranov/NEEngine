@@ -28,16 +28,16 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         m_dy = ms.y * rotationSpeed * deltaTime;
     }
      
-
+    double dx = 0, dy = 0, dz = 0;
 
     if (kbs.W)
-        ;
+        dz = movementSpeed * deltaTime;
     if (kbs.S)
-        ;
+        dz = -movementSpeed * deltaTime;
     if (kbs.A)
-        ;
+        dx = movementSpeed * deltaTime;
     if (kbs.D)
-        ;
+        dx = -movementSpeed * deltaTime;
 
     Matrix dT = SphericalRotationXW(-dx) * SphericalRotationYW(-dy) * SphericalRotationZW(-dz);
 
