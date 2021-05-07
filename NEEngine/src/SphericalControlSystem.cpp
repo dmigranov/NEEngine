@@ -41,9 +41,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     Matrix dT = SphericalRotationXW(-dx) * SphericalRotationYW(-dy) * SphericalRotationZW(-dz);
 
-    T = T * RYaw * dT * RYaw.Transpose();	//движение в одной плоскости
-
-    m_view = T * R;
+    //T = T * RYaw * dT * RYaw.Transpose();	//матрица T^1 для вычисления view = T^-1 * R^-1
+    T = 
 
 })
 { }
