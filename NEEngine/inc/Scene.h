@@ -38,7 +38,7 @@ public:
 	double GetWidth();
 	double GetHeight();
 private:
-	//void UpdateProjMatrix();
+	void UpdateProjMatrix();
 
 	std::vector<Entity *>	m_entities;
 	std::vector<System *>	m_nonDrawingSystems;

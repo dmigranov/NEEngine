@@ -64,7 +64,7 @@ void Scene::SetCamera(Entity* pCamera)
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;
-		//UpdateProjMatrix();
+		UpdateProjMatrix();
 	}
 }
 
@@ -89,10 +89,10 @@ void Scene::SetCameraOutputSize(double width, double height)
 {
 	m_width = width;
 	m_height = height;
-	/*if(m_pCamera != nullptr)
+	if(m_pCamera != nullptr)
 	{
 		UpdateProjMatrix();
-	}*/
+	}
 
 	//todo: передать? или наоборот из камеры получить!
 }
@@ -124,18 +124,16 @@ double Scene::GetHeight()
 	return m_height;
 }
 
-/*
+
 void Scene::UpdateProjMatrix()
 {
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
-	//тут ошибка!
-
-	auto proj = cc->GetProj();
-	m_proj = proj; //тут что то с типами...
+	//auto proj = cc->GetProj();
+	//m_proj = proj; //тут что то с типами...
 }
-*/
+
 
 void Scene::Update(double delta)
 {
