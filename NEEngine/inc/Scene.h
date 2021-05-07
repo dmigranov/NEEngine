@@ -22,7 +22,7 @@ public:
 	void Update(double delta);
 	void Render();
 
-	void SetCamera(Entity* pCamera);
+	void SetCamera(Entity* pCamera, CameraComponent * pCameraComponent);
 	Entity* GetCamera();
 
 	//DirectX::SimpleMath::Matrix GetProj();

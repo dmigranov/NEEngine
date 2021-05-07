@@ -57,12 +57,11 @@ void Scene::AddSystem(System* pSystem)
 		m_nonDrawingSystems.push_back(pSystem);
 }
 
-void Scene::SetCamera(Entity* pCamera)
+void Scene::SetCamera(Entity* pCamera, CameraComponent* pCameraComponent)
 {
-	//todo: сделать всякие проверки на то, есть ли компонент...
-
 	if (pCamera != nullptr)
 	{
+		pCamera->AddComponent<CameraComponent>(pCameraComponent);
 		m_pCamera = pCamera;
 		UpdateProjMatrix();
 	}
