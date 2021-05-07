@@ -84,6 +84,7 @@ int main(int argc, char * argv[])
         Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
 
+        /*
         if (kbs.D)
             pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.A)
@@ -92,6 +93,7 @@ int main(int argc, char * argv[])
             pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.S)
             pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+        */
         if (kbs.R)
             pTransform->SetWorld(SphericalRotationZW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.F)
