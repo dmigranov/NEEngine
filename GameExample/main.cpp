@@ -56,6 +56,7 @@ int main(int argc, char * argv[])
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
+        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
 
@@ -69,9 +70,6 @@ int main(int argc, char * argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
-
-
-
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
