@@ -15,7 +15,6 @@
 // Components
 #include "ComponentTypeManager.h"
 
-#include "TransformComponent.h"
 #include "InputComponent.h"
 #include "BitmapComponent.h"
 #include "WalkComponent.h"
@@ -110,7 +109,7 @@ int main(int argc, char * argv[])
     auto cameraTransform = new SphericalTransformComponent();
     auto cameraComponent = new SphericalCameraComponent();
 
-    cameraEntity->SetTransform(cameraTransform);
+    //cameraEntity->SetTransform(cameraTransform);
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
 
