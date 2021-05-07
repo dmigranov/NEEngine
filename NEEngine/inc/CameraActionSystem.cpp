@@ -10,7 +10,7 @@ using namespace DirectX::SimpleMath;
 
 CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, double deltaTime)  {
 
-    auto pTransform = pEntity->GetComponent<TransformComponent>();
+    auto pTransform = pEntity->GetComponent<TransformComponent>(); //GetTransform
     auto pInput = pEntity->GetComponent<InputComponent>();
     auto kbs = pInput->GetKeyboardState();
     auto ms = pInput->GetMouseState();
