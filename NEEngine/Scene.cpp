@@ -115,6 +115,8 @@ void Scene::UpdateProjMatrix()
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
 	cc->SetOutputSize(m_width, m_height);
 
+	//тут ошибка!
+
 	auto proj = cc->GetProj();
 	m_proj = proj; //тут что то с типами...
 }
