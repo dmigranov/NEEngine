@@ -34,6 +34,9 @@ public:
 	//в текущей реализации вызывается только один раз,
 	//потому добавление новых энтитей в ходе работы программы невозможно
 	void SynchronizeSystemsWithEntities();
+
+	double GetWidth();
+	double GetHeight();
 private:
 	//void UpdateProjMatrix();
 

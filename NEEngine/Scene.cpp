@@ -64,7 +64,7 @@ void Scene::SetCamera(Entity* pCamera)
 	if (pCamera != nullptr)
 	{
 		m_pCamera = pCamera;
-		UpdateProjMatrix();
+		//UpdateProjMatrix();
 	}
 }
 
@@ -89,10 +89,12 @@ void Scene::SetCameraOutputSize(double width, double height)
 {
 	m_width = width;
 	m_height = height;
-	if(m_pCamera != nullptr)
+	/*if(m_pCamera != nullptr)
 	{
 		UpdateProjMatrix();
-	}
+	}*/
+
+	//todo: передать? или наоборот из камеры получить!
 }
 
 void Scene::SynchronizeSystemsWithEntities()
