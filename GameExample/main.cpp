@@ -33,7 +33,7 @@
 #include "ActionSystem.h"
 
 #include "SphericalRenderSystem.h"
-#include "SphericalControlSystem"
+#include "SphericalControlSystem.h"
 
 //Effect
 #include "SphericalExpFogEffect.h"
@@ -68,7 +68,7 @@ int main(int argc, char * argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new SphericalRenderSystem());
-    scene->AddSystem(new SphericalControlSystem());
+    scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
 
 
 
