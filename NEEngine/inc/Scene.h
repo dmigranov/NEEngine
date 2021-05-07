@@ -7,7 +7,6 @@ class System;
 class CameraComponent;
 class Game;
 
-
 class Scene
 {
 public:

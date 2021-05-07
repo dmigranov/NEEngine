@@ -105,16 +105,12 @@ int main(int argc, char * argv[])
 
 
     Entity* cameraEntity = new Entity("camera1");
-
     auto cameraTransform = new SphericalTransformComponent();
     auto cameraComponent = new SphericalCameraComponent();
-
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
-    scene->SetCamera(cameraEntity, cameraComponent); 
-
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
-
+    scene->SetCamera(cameraEntity, cameraComponent); 
     scene->AddEntity(cameraEntity);
 
 
