@@ -38,7 +38,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = movementSpeed * deltaTime;
     if (kbs.D)
         dx = -movementSpeed * deltaTime;
-
+    std::cout << dz << std::endl;
     Matrix dT =  SphericalRotationZW(-dz) * SphericalRotationYW(-dy) * SphericalRotationXW(-dx);
 
     //T = T * RYaw * dT * RYaw.Transpose();	//матрица T^1 для вычисления view = T^-1 * R^-1
