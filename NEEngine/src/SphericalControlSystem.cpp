@@ -11,7 +11,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed, this](Entity* pEntity, double deltaTime) {
+SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem<InputComponent, SphericalTransformComponent, SphericalCameraComponent>([movementSpeed, rotationSpeed, this](Entity* pEntity, double deltaTime) {
 
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
     auto pInput = pEntity->GetComponent<InputComponent>();
