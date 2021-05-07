@@ -4,7 +4,7 @@
 class Entity;
 class Light;
 class System;
-class Camera;
+class CameraComponent;
 class Game;
 
 

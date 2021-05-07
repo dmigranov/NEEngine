@@ -111,7 +111,7 @@ int main(int argc, char * argv[])
 
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
-    scene->SetCamera(cameraEntity, cameraComponent); //некрасиво. перенести AddComponent сюда?
+    scene->SetCamera(cameraEntity, cameraComponent); 
 
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
 
