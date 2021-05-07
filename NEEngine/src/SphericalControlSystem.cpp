@@ -17,7 +17,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     {
         double dx = ms.x * rotationSpeed * deltaTime, dy = ms.y * rotationSpeed * deltaTime;
     }
-
+     
     if (kbs.W)
         ;
     if (kbs.S)
