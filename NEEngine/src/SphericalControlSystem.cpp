@@ -11,7 +11,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed](Entity* pEntity, double deltaTime) {
+SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rotationSpeed) : ActionSystem([movementSpeed, rotationSpeed, this](Entity* pEntity, double deltaTime) {
 
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
     auto pInput = pEntity->GetComponent<InputComponent>();
@@ -41,6 +41,9 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     Matrix dT = SphericalRotationXW(-dx) * SphericalRotationYW(-dy) * SphericalRotationZW(-dz);
 
+    T = T * RYaw * dT * RYaw.Transpose();	//движение в одной плоскости
+
+    m_view = T * R;
 
 })
 { }
