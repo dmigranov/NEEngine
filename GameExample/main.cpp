@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
-        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
 
@@ -104,12 +104,14 @@ int main(int argc, char * argv[])
 
     }));
 
-    auto cameraTransform = new SphericalTransformComponent();
 
     Entity* cameraEntity = new Entity("camera1");
+
+    auto cameraTransform = new SphericalTransformComponent();
     auto cameraComponent = new SphericalCameraComponent();
 
     cameraEntity->SetTransform(cameraTransform);
+    cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
 
