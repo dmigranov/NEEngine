@@ -114,6 +114,16 @@ void Scene::SynchronizeSystemsWithEntities()
 	}
 }
 
+double Scene::GetWidth()
+{
+	return m_width;
+}
+
+double Scene::GetHeight()
+{
+	return m_height;
+}
+
 /*
 void Scene::UpdateProjMatrix()
 {
