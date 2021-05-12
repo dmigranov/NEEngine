@@ -3,6 +3,7 @@
 class EuclideanMeshComponentFactory :
     public MeshComponentFactory
 {
+public:
     struct VertexData
     {
         DirectX::XMFLOAT4 Position;
