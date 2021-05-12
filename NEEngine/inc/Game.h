@@ -56,6 +56,11 @@ public:
 
     inline void PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews);
     
+
+
+    inline void SetupRasterizer();
+    inline void SetupOutputMerger();
+
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
@@ -187,6 +192,19 @@ inline void Game::UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData)
 inline void Game::PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews)
 {
     g_d3dDeviceContext->PSSetShaderResources(0, NumViews, ppShaderResourceViews);
+}
+
+inline void Game::SetupRasterizer()
+{
+    g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
+    g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);
+}
+
+inline void Game::SetupOutputMerger()
+{
+    g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
+    g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
+    g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
 }
 
 inline void Game::VSSetShader(ID3D11VertexShader* pVertexShader)

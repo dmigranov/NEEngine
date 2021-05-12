@@ -42,8 +42,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	//pDeviceContext->GSSetShader(game.g_d3dGeometryShader, nullptr, 0);
 
 	//Rasterizer Stage
-	pDeviceContext->RSSetState(game.g_d3dRasterizerState);
-	pDeviceContext->RSSetViewports(1, &game.g_Viewport);
+	game.SetupRasterizer();
 
 	//Pixel Shader Stage
 	///pDeviceContext->PSSetShader(game.g_d3dPixelShader, nullptr, 0);
@@ -51,9 +50,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	//pDeviceContext->PSSetSamplers(0, 1, &game.g_d3dSamplerState);
 
 	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
-	pDeviceContext->OMSetRenderTargets(1, &game.g_d3dRenderTargetView, game.g_d3dDepthStencilView);
-	pDeviceContext->OMSetDepthStencilState(game.g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
-	pDeviceContext->OMSetBlendState(game.g_d3dBlendState, 0, 0xffffffff);
+	game.SetupOutputMerger();
 
 
 
