@@ -41,4 +41,9 @@ void ToricRenderSystem::Execute(double deltaTime)
 
 void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
+	TransformComponent* pTransformComponent = pEntity->GetComponent<TransformComponent>();
+	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
+	auto pEffect = pMeshComponent->GetEffect();
+
+
 }
