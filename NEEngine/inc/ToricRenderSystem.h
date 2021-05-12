@@ -4,6 +4,12 @@ class ToricRenderSystem :
     public System
 {
 public:
+    struct InstanceType
+    {
+        DirectX::SimpleMath::Vector3 position;
+    };
+
+
     ToricRenderSystem(unsigned int replicationCount, double torX, double torY, double torZ);
     virtual void Execute(double deltaTime) override;
 private:

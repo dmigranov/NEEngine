@@ -45,5 +45,12 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
 
+	if (!pEffect) //для отладки содержимое можно закомментировать
+	{
+		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!" << std::endl;
+		pEntity->SetVisible(false);
+		return;
+	}
+
 
 }
