@@ -31,6 +31,10 @@ void ToricRenderSystem::Execute(double deltaTime)
 	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
 	game.SetupOutputMerger();
 
+	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
+	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
+
+
 	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
 	{
@@ -52,5 +56,5 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 		return;
 	}
 
-
+	//todo: в старой версии не учитывается смещение, чтобы объект был по центру!
 }
