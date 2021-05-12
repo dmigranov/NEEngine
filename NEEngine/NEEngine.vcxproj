@@ -43,6 +43,7 @@
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\SphericalTransformComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />
+    <ClCompile Include="src\ToricRenderSystem.cpp" />
     <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -111,6 +112,7 @@
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\Timer.h" />
+    <ClInclude Include="inc\ToricRenderSystem.h" />
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
     <ClInclude Include="inc\WalkComponent.h" />
