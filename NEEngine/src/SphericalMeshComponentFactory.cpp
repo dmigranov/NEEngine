@@ -90,7 +90,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);
 }
 
-MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile()
+MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile(std::string fileName)
 {
 	return nullptr;
 }
