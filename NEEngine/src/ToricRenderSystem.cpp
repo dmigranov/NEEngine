@@ -9,6 +9,11 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	SubscribeToComponentType<TransformComponent>();
 	SubscribeToComponentType<MeshComponent>();
 
+	m_replicationCount = replicationCount;
+	m_torX = torX;
+	m_torY = torY;
+	m_torZ = torZ;
+
 	m_isDrawing = true;
 }
 
