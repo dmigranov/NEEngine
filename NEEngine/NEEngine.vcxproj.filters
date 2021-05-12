@@ -217,7 +217,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\ToricRenderSystem.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -354,7 +354,7 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\ToricRenderSystem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
