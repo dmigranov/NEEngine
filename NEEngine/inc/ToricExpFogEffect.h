@@ -26,5 +26,8 @@ public:
     {
         DirectX::XMMATRIX world;
     };
+
+    ToricExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
+
 };
 
