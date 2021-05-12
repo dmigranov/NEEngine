@@ -11,12 +11,9 @@
 
 #include "Game.h"
 
-#include "VertexShader.h" // generated from BasicVertexShader.hlsl
-#include "PixelShader.h" // generated from BasicPixelShader.hlsl
-
 #include "SphExpVertexShader.h"
 #include "EllExpVertexShader.h"
-
+#include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
 
 using namespace DirectX;
@@ -49,7 +46,8 @@ bool SphericalExpFogEffect::Initialize()
 		{ "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(SphericalMeshComponentFactory::VertexData, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
-	g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs));
+	//TODO: compare ell & sph shaders input structure (have to be same)
+	g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_sphexpvs, sizeof(g_sphexpvs));
 
 
 	//буферы:

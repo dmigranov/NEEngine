@@ -35,6 +35,8 @@ public:
 
     ToricExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
 
+    virtual bool Initialize() override;
+
 
 private:
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;

@@ -25,3 +25,11 @@ ToricExpFogEffect::ToricExpFogEffect(Texture* pTexture, double fogDensity, Direc
 	perApplicationPSConstantBuffer.fogColor = fogColor;
 	Initialize();
 }
+
+bool ToricExpFogEffect::Initialize()
+{
+
+	//g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
+
+	return false;
+}
