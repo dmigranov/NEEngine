@@ -37,7 +37,11 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphere(double radius, int sl
         }
     }
 
+    vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, 1.f),
+        //XMFLOAT4(0.f, -1.f, 0.f, 0.f),    //normal
+        XMFLOAT2(0.f, 1.f) }); //south pole
 
+    //INDICES
 
     return nullptr;
 }
