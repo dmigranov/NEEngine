@@ -219,6 +219,9 @@
     <ClCompile Include="src\ToricRenderSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="src\ToricExpFogEffect.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="inc\ToricRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ToricExpFogEffect.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
