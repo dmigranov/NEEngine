@@ -31,6 +31,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\ComponentTypeManager.cpp" />
+    <ClCompile Include="src\EuclideanMeshComponentFactory.cpp" />
     <ClCompile Include="src\MeshComponentFactory.cpp" />
     <ClCompile Include="src\SphericalCameraComponent.cpp" />
     <ClCompile Include="src\SphericalControlSystem.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="inc\Drawer2D.h" />
     <ClInclude Include="inc\Effect.h" />
     <ClInclude Include="inc\Entity.h" />
+    <ClInclude Include="inc\EuclideanMeshComponentFactory.h" />
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
