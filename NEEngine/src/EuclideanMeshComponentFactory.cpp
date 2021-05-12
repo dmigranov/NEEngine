@@ -78,5 +78,5 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphere(double radius, int sl
     auto g_Indices = &indices[0];
     auto indicesCount = indices.size();
 
-    return nullptr;
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);;
 }
