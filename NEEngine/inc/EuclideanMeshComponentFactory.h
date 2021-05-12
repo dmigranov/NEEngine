@@ -11,6 +11,7 @@ class EuclideanMeshComponentFactory :
         DirectX::XMFLOAT2 TexCoord;
     };
 
+    static MeshComponent* CreateSphere(double radius, int sliceCount = 30, int stackCount = 30);
     static MeshComponent* CreateSphericalMeshFromFile(std::string fileName);
 };
 
