@@ -80,3 +80,8 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphere(double radius, int sl
 
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);;
 }
+
+MeshComponent* EuclideanMeshComponentFactory::CreateCube(double side)
+{
+    return CreateRectangularCuboid(side, side, side);
+}
