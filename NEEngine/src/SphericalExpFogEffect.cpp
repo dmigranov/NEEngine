@@ -9,6 +9,8 @@
 #include "SphericalCameraComponent.h"
 #include "Entity.h"
 
+#include "Game.h"
+
 #include "VertexShader.h" // generated from BasicVertexShader.hlsl
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
@@ -20,7 +22,6 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-#include "Game.h"
 
 bool SphericalExpFogEffect::m_isSpherical = true;
 
