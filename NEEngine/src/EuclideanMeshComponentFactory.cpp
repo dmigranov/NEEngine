@@ -19,5 +19,25 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphere(double radius, int sl
         //XMFLOAT4(0.f, 1.f, 0.f, 0.f),     //normal
         XMFLOAT2(0.f, 0.f) });	//North pole
 
+    for (int i = 1; i <= stackCount - 1; i++) {
+        auto phi = i * phiStep;
+        for (int j = 0; j <= sliceCount; j++) {
+            auto theta = j * thetaStep;
+            XMFLOAT4 pos(
+                (radius * sinf(phi) * cosf(theta)),
+                (radius * cosf(phi)),
+                (radius * sinf(phi) * sinf(theta)),
+                1.f
+            );
+
+            auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
+            vertices.push_back({ pos,
+                //pos.Normalize(псевдокод)
+                uv });
+        }
+    }
+
+
+
     return nullptr;
 }
