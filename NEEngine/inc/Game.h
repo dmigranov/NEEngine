@@ -154,7 +154,6 @@ private:
     friend class Scene;
 
     friend class BitmapRenderSystem;
-    friend class SphericalRenderSystem;
     friend class InputSystem;
 };
 

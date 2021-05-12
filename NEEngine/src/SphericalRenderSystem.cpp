@@ -28,8 +28,8 @@ SphericalRenderSystem::SphericalRenderSystem()
 void SphericalRenderSystem::Execute(double deltaTime)
 {
 	auto& game = Game::GetInstance();
-	ID3D11DeviceContext* pDeviceContext = game.g_d3dDeviceContext;
-	auto pDevice = game.g_d3dDevice;
+	ID3D11DeviceContext* pDeviceContext = game.GetDeviceContext();
+	auto pDevice = game.GetDevice();
 
 	//Input Assembler Stage - common
 	//pDeviceContext->IASetInputLayout(game.g_d3dInputLayout);
