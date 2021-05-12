@@ -79,11 +79,11 @@
     <Filter Include="Файлы заголовков\Effects">
       <UniqueIdentifier>{2ec17076-a743-4e67-ab01-25bb486079fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Effects\Spherical">
-      <UniqueIdentifier>{91b31f4c-0bd7-4785-b406-acdc14f4df20}</UniqueIdentifier>
+    <Filter Include="Исходные файлы\Meshes\Factories">
+      <UniqueIdentifier>{a46cb8c9-ba69-4959-953e-20a6c8003771}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Effects\Elliptic">
-      <UniqueIdentifier>{fe0855a2-2a7d-4bce-b86c-925f8464414e}</UniqueIdentifier>
+    <Filter Include="Файлы заголовков\Meshes\Factories">
+      <UniqueIdentifier>{a7a67af3-8b7c-4b68-9fed-760b232a7fec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,26 +201,26 @@
     <ClCompile Include="src\SphericalExpFogEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
-    <ClCompile Include="src\MeshComponentFactory.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalControlSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
     <ClCompile Include="inc\MeshComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalMeshComponentFactory.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\EuclideanMeshComponentFactory.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\ToricRenderSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
     <ClCompile Include="src\ToricExpFogEffect.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMeshComponentFactory.cpp">
+      <Filter>Исходные файлы\Meshes\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MeshComponentFactory.cpp">
+      <Filter>Исходные файлы\Meshes\Factories</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EuclideanMeshComponentFactory.cpp">
+      <Filter>Исходные файлы\Meshes\Factories</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,29 +338,29 @@
     <ClInclude Include="inc\Effect.h">
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalExpFogEffect.h">
-      <Filter>Файлы заголовков\Effects\Spherical</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalCameraComponent.h">
       <Filter>Файлы заголовков\Components\Spherical &amp; Elliptic</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\MeshComponentFactory.h">
-      <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalControlSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalMeshComponentFactory.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\EuclideanMeshComponentFactory.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ToricRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="inc\EuclideanMeshComponentFactory.h">
+      <Filter>Файлы заголовков\Meshes\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMeshComponentFactory.h">
+      <Filter>Файлы заголовков\Meshes\Factories</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\MeshComponentFactory.h">
+      <Filter>Файлы заголовков\Meshes\Factories</Filter>
+    </ClInclude>
     <ClInclude Include="inc\ToricExpFogEffect.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalExpFogEffect.h">
+      <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
