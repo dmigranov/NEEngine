@@ -43,5 +43,34 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphere(double radius, int sl
 
     //INDICES
 
+    WORD northPoleIndex = 0;
+    for (int i = 1; i <= sliceCount; i++) {
+        indices.push_back(northPoleIndex);
+        indices.push_back(i + 1);
+        indices.push_back(i);
+    }
+
+    WORD baseIndex = 1;
+    WORD ringVertexCount = sliceCount + 1;
+    for (int i = 0; i < stackCount - 2; i++) {
+        for (int j = 0; j < sliceCount; j++) {
+            indices.push_back(baseIndex + i * ringVertexCount + j);
+            indices.push_back(baseIndex + i * ringVertexCount + j + 1);
+            indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);
+
+            indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);
+            indices.push_back(baseIndex + i * ringVertexCount + j + 1);
+            indices.push_back(baseIndex + (i + 1) * ringVertexCount + j + 1);
+        }
+    }
+
+    WORD southPoleIndex = vertices.size() - 1;
+    baseIndex = southPoleIndex - ringVertexCount;
+    for (int i = 0; i < sliceCount; i++) {
+        indices.push_back(southPoleIndex);
+        indices.push_back(baseIndex + i);
+        indices.push_back(baseIndex + i + 1);
+    }
+
     return nullptr;
 }
