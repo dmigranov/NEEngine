@@ -114,7 +114,6 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
-
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	//input assembly stage

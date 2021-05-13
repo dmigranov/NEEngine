@@ -29,7 +29,6 @@ public:
     struct PerApplicationPSConstantBuffer
     {
         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
-        float m_edgeThickness = 0.00f;
     };
 
     ToricExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);

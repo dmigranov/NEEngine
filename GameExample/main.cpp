@@ -66,7 +66,7 @@ int main(int argc, char * argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
-    scene->AddSystem(new ToricRenderSystem(5, 20, 20, 20));
+    scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
     /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
@@ -99,7 +99,7 @@ int main(int argc, char * argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.01, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.005, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);

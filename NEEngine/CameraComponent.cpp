@@ -4,7 +4,7 @@
 using namespace DirectX::SimpleMath;
 
 CameraComponent::CameraComponent(bool isPerspective) :
-	m_fovY(90.), m_shouldRecalc(true), m_nearPlane(0.001), m_farPlane(100.), m_aspect(1.), m_isPerspective(isPerspective)
+	m_fovY(90.), m_shouldRecalc(true), m_nearPlane(0.001), m_farPlane(500.), m_aspect(1.), m_isPerspective(isPerspective)
 {}
 
 CameraComponent::CameraComponent(double nearPlane, double farPlane, double aspect, double fovY, bool isPerspective) :
