@@ -88,5 +88,9 @@ MeshComponent* EuclideanMeshComponentFactory::CreateCube(double side)
 
 MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSide, double ySide, double zSide)
 {
+    auto xCoord = xSide / 2;
+    auto yCoord = ySide / 2;
+    auto zCoord = zSide / 2;
+
     return nullptr;
 }
