@@ -6,6 +6,8 @@
 #include "MeshComponent.h"
 #include "Effect.h"
 
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX, double torY, double torZ)
 {
@@ -38,6 +40,23 @@ void ToricRenderSystem::Execute(double deltaTime)
 	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
 	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
 
+	auto instances = new InstanceType[m_instanceCount];
+	for (int Xi = -m_replicationCount; Xi <= m_replicationCount; Xi++)
+	{
+		double x = Xi * TorX;
+		for (int Yi = -m_replicationCount; Yi <= m_replicationCount; Yi++)
+		{
+			double y = Yi * TorY;
+			for (int Zi = -m_replicationCount; Zi <= m_replicationCount; Zi++)
+			{
+				double z = Zi * TorZ;
+
+				instances[(Zi + m_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
+					(Yi + m_replicationCount) * m_instanceCountPerDimension +
+					(Xi + m_replicationCount)].position = Vector3(x, y, z);
+			}
+		}
+	}
 
 	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
