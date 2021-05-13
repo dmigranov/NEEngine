@@ -553,7 +553,7 @@ ID3D11InputLayout* Game::CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* input
     return pReturnLayout;
 }
 
-ID3D11Buffer* Game::CreateBuffer(D3D11_BUFFER_DESC bufferDesc)
+ID3D11Buffer* Game::CreateBuffer(D3D11_BUFFER_DESC bufferDesc, const D3D11_SUBRESOURCE_DATA* pInitialData = nullptr)
 {
     ID3D11Buffer* returnBuffer = nullptr;
     HRESULT hr = g_d3dDevice->CreateBuffer(&bufferDesc, nullptr, &returnBuffer);
