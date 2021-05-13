@@ -34,8 +34,13 @@
 #include "SphericalRenderSystem.h"
 #include "SphericalControlSystem.h"
 
+#include "ToricRenderSystem.h"
+
+
 //Effect
 #include "SphericalExpFogEffect.h"
+#include "ToricExpFogEffect.h"
+
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
