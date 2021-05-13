@@ -70,7 +70,10 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-
-
 	//todo: в старой версии не учитывается смещение, чтобы объект был по центру!
+
+	pEffect->UpdatePerObject(pEntity);
+
+	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), m_instanceCount, 0, 0, 0);
+
 }
