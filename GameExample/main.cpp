@@ -36,6 +36,8 @@
 
 #include "ToricRenderSystem.h"
 
+#include "CameraActionSystem.h"
+
 
 //Effect
 #include "SphericalExpFogEffect.h"
@@ -73,6 +75,7 @@ int main(int argc, char * argv[])
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
+    scene->AddSystem(new CameraActionSystem());
     scene->AddSystem(new ToricRenderSystem(10, 10, 10, 10));
     //scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
     /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
