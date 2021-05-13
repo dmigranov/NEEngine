@@ -61,8 +61,6 @@ int main(int argc, char * argv[])
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
-        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
-        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
@@ -73,10 +71,11 @@ int main(int argc, char * argv[])
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
+    Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
-    scene->AddSystem(new ToricRenderSystem(10, 10, 10, 10));
+    scene->AddSystem(new ToricRenderSystem(0, 10, 10, 10));
     //scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
     /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
@@ -110,7 +109,7 @@ int main(int argc, char * argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.1, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
@@ -119,7 +118,7 @@ int main(int argc, char * argv[])
     auto testEntity = new Entity();
     auto stc = new TransformComponent();
 
-    auto smc = EuclideanMeshComponentFactory::CreateSphere(5, 20, 20);
+    auto smc = EuclideanMeshComponentFactory::CreateCube(3);
     smc->SetEffect(effect);
     testEntity->AddComponent<TransformComponent>(stc);
     testEntity->AddComponent<MeshComponent>(smc);
