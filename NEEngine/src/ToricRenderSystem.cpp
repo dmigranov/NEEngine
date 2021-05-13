@@ -39,6 +39,8 @@ void ToricRenderSystem::Execute(double deltaTime)
 
 	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
 	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
+	//снизу - вообще все инстансы одинаковые в рамках кадра
+	//но может сделать зависимыми от камеры? или оптимизировать?
 
 	auto instances = new InstanceType[m_instanceCount];
 	for (int Xi = -m_replicationCount; Xi <= m_replicationCount; Xi++)
@@ -76,6 +78,9 @@ void ToricRenderSystem::Execute(double deltaTime)
 	instanceData.SysMemSlicePitch = 0;
 
 	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData);
+
+	delete[] instances; //можно удалить - см. документацию CreateBuffer
+	instances = nullptr;
 
 	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
