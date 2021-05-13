@@ -137,6 +137,16 @@ void ToricExpFogEffect::UpdatePerApplication()
 	//todo: for optimisation
 }
 
+unsigned int ToricExpFogEffect::GetVertexBufferSize() const
+{
+	return sizeof(EuclideanMeshComponentFactory::VertexData);
+}
+
+const std::type_info& ToricExpFogEffect::GetVertexDataType()
+{
+	return typeid(EuclideanMeshComponentFactory::VertexData);
+}
+
 ToricExpFogEffect::~ToricExpFogEffect()
 {
 	Deinitialize();
