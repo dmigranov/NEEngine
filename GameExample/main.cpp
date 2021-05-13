@@ -38,7 +38,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-int main(int argc, char * argv[])
+int main(int argc, char* argv[])
 {
     Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
@@ -74,16 +74,16 @@ int main(int argc, char * argv[])
     cameraEntity->AddComponent<TransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
-    scene->SetCamera(cameraEntity, cameraComponent); 
+    scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.008, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.2, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
-   
+
     auto testEntity = new Entity();
     auto stc = new TransformComponent();
 
@@ -98,54 +98,3 @@ int main(int argc, char * argv[])
 
     return game.StartGame();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    VertexTexMeshComponent::VertexPosTex vertices[8] = {
-        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(0, 0) }, // 0
-        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(0, 1) }, // 1
-        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT2(1, 1)}, // 2
-        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT2(1, 0)}, // 3
-        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f),  XMFLOAT2(0, 0) }, // 4
-        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1)}, // 5
-        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT2(1, 1) }, // 6
-        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT2(0, 1) }  // 7
-    };
-
-    WORD indices[36] =
-    {
-        0, 1, 2, 0, 2, 3,
-        4, 6, 5, 4, 7, 6,
-        4, 5, 1, 4, 1, 0,
-        3, 2, 6, 3, 6, 7,
-        1, 5, 6, 1, 6, 2,
-        3, 4, 0, 7, 4, 3
-    };
-    auto m = new VertexTexMeshComponent(8, vertices, 36, indices);
-*/
