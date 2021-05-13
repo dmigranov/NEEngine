@@ -279,6 +279,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Data\Shaders\VertexToricExpFogShader.hlsl" />
     <FxCompile Include="GeometryShader.hlsl">
       <FileType>Document</FileType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Geometry</ShaderType>
