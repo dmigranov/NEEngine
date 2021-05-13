@@ -110,7 +110,7 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 
 	auto vertexBuffer = pMeshComponent->GetVertexBuffer();
 	auto indexBuffer = pMeshComponent->GetIndexBuffer();
-	pDeviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset);
+	pDeviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset); //todo: исправить - добавить инстанс
 	// Set the index buffer to active in the input assembler so it can be rendered.
 	pDeviceContext->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R16_UINT, 0);
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
