@@ -12,7 +12,7 @@
 
 #include "Game.h"
 
-//todo: include shaders 
+#include "TorExpVertexShader.h"
 #include "PixelShader.h" 
 
 using namespace DirectX;
@@ -30,7 +30,7 @@ ToricExpFogEffect::ToricExpFogEffect(Texture* pTexture, double fogDensity, Direc
 bool ToricExpFogEffect::Initialize()
 {
 	//shaders
-	//todo: vertex
+	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_torexpvs, sizeof(g_torexpvs));
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
 	//input assembly:
