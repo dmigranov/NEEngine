@@ -85,3 +85,8 @@ MeshComponent* EuclideanMeshComponentFactory::CreateCube(double side)
 {
     return CreateRectangularCuboid(side, side, side);
 }
+
+MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSide, double ySide, double zSide)
+{
+    return nullptr;
+}

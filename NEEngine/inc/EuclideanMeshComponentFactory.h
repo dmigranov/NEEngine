@@ -14,7 +14,7 @@ public:
 
     static MeshComponent* CreateSphere(double radius, int sliceCount = 30, int stackCount = 30);
     static MeshComponent* CreateCube(double side);
-    static MeshComponent* CreateRectangularCuboid(double a, double b, double c);
+    static MeshComponent* CreateRectangularCuboid(double xSide, double ySide, double zSide);
 
     static MeshComponent* CreateSphericalMeshFromFile(std::string fileName);
 };
