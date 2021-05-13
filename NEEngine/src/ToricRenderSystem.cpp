@@ -75,7 +75,7 @@ void ToricRenderSystem::Execute(double deltaTime)
 	instanceData.SysMemPitch = 0;
 	instanceData.SysMemSlicePitch = 0;
 
-	game.CreateBuffer(instanceBufferDesc);
+	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData);
 
 	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)

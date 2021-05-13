@@ -19,5 +19,7 @@ private:
     double m_torX, m_torY, m_torZ;
 
     unsigned int m_instanceCount, m_instanceCountPerDimension;
+
+    ID3D11Buffer* m_d3dInstanceBuffer = nullptr;
 };
 
