@@ -129,6 +129,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
         { XMFLOAT4(-xCoord,  -yCoord, zCoord, 1),  XMFLOAT2(1.f, 1.f)  }, // 22
         { XMFLOAT4(xCoord,  -yCoord, zCoord, 1),  XMFLOAT2(2.f / 3, 1.f)   }, // 23
     };
+
     auto verticesCount = _countof(vertices);
 
     WORD indices[] = {
@@ -151,7 +152,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
             23, 20, 22 
     };
 
+    auto indicesCount = _countof(indices);
 
-
-    return nullptr;
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, vertices, indicesCount, indices);
 }
