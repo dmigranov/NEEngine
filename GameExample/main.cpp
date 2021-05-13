@@ -73,9 +73,9 @@ int main(int argc, char * argv[])
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new SphericalRenderSystem());
-    scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
-    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
+    scene->AddSystem(new ToricRenderSystem(10, 10, 10, 10));
+    //scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
+    /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
         auto pInput = pEntity->GetComponent<InputComponent>();
@@ -88,36 +88,26 @@ int main(int argc, char * argv[])
         Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
         Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
-        /*
-        if (kbs.D)
-            pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-        if (kbs.A)
-            pTransform->SetWorld(SphericalRotationXW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-        if (kbs.W)
-            pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-        if (kbs.S)
-            pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-        */
         if (kbs.R)
             pTransform->SetWorld(SphericalRotationZW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
         if (kbs.F)
             pTransform->SetWorld(SphericalRotationZW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
        
         //pTransform->Move(-fwd); //должно быть так todo
-    }));
+    }));*/
 
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new SphericalTransformComponent();
-    auto cameraComponent = new SphericalCameraComponent();
-    cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
-    cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
+    auto cameraTransform = new TransformComponent();
+    auto cameraComponent = new CameraComponent();
+    cameraEntity->AddComponent<TransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent); 
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
