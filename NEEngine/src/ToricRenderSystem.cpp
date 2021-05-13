@@ -105,10 +105,12 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 
 	// Input Assembler Stage - unique for every mesh
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
-	unsigned int stride = pEffect->GetVertexBufferSize();
-	unsigned int offset = 0;
 
-	auto vertexBuffer = pMeshComponent->GetVertexBuffer();
+	////Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+	const unsigned int vertexStrides[2] = { pEffect->GetVertexBufferSize(), sizeof(InstanceType) };
+	const unsigned int offsets[2] = { 0, 0 };
+	ID3D11Buffer* bufferPointers[2] = { pMeshComponent->GetVertexBuffer(), m_d3dInstanceBuffer };
+
 	auto indexBuffer = pMeshComponent->GetIndexBuffer();
 	pDeviceContext->IASetVertexBuffers(0, 1, &vertexBuffer, &stride, &offset); //todo: исправить - добавить инстанс
 	// Set the index buffer to active in the input assembler so it can be rendered.
