@@ -40,8 +40,6 @@ void ToricRenderSystem::Execute(double deltaTime)
 	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
 	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
 
-	//todo: в старой версии не учитывается смещение, чтобы объект был по центру!
-
 	auto instances = new InstanceType[m_instanceCount];
 	for (int Xi = -m_replicationCount; Xi <= m_replicationCount; Xi++)
 	{
@@ -59,6 +57,23 @@ void ToricRenderSystem::Execute(double deltaTime)
 			}
 		}
 	}
+	D3D11_BUFFER_DESC instanceBufferDesc;
+	ZeroMemory(&instanceBufferDesc, sizeof(D3D11_BUFFER_DESC));
+	D3D11_SUBRESOURCE_DATA instanceData;
+	HRESULT result;
+
+	instanceBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	//instanceBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	instanceBufferDesc.ByteWidth = sizeof(InstanceType) * m_instanceCount;
+	instanceBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	instanceBufferDesc.CPUAccessFlags = 0;
+	//instanceBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	instanceBufferDesc.MiscFlags = 0;
+	instanceBufferDesc.StructureByteStride = 0;
+
+	instanceData.pSysMem = instances;
+	instanceData.SysMemPitch = 0;
+	instanceData.SysMemSlicePitch = 0;
 
 	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
