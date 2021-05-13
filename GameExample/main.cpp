@@ -67,27 +67,6 @@ int main(int argc, char * argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
     scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
-    /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
-    [](Entity* pEntity, double deltaTime) {        
-        auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
-        auto pInput = pEntity->GetComponent<InputComponent>();
-        auto kbs = pInput->GetKeyboardState();
-        auto ms = pInput->GetMouseState();
-        auto pWalk = pEntity->GetComponent<WalkComponent>();
-
-
-        Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
-        Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-        Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
-
-        if (kbs.R)
-            pTransform->SetWorld(SphericalRotationZW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-        if (kbs.F)
-            pTransform->SetWorld(SphericalRotationZW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-       
-        //pTransform->Move(-fwd); //должно быть так todo
-    }));*/
-
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new TransformComponent();
