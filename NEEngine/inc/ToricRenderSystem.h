@@ -17,5 +17,7 @@ private:
 
     unsigned int m_replicationCount;
     double m_torX, m_torY, m_torZ;
+
+    unsigned int m_instanceCount;
 };
 
