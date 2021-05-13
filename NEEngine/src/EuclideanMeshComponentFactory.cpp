@@ -131,6 +131,26 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
     };
     auto verticesCount = _countof(vertices);
 
+    WORD indices[] = {
+            0, 1, 2,
+            2, 1, 3, 
+
+            4, 5, 6,
+            7, 6, 5, 
+
+            8, 9, 10,
+            8, 11, 9,
+
+            12, 13, 14,
+            12, 14, 15, 
+
+            16, 17, 18,
+            16, 18, 19, 
+
+            20, 21, 22,
+            23, 20, 22 
+    };
+
 
 
     return nullptr;
