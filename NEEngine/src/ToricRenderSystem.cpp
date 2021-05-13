@@ -40,16 +40,18 @@ void ToricRenderSystem::Execute(double deltaTime)
 	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
 	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
 
+	//todo: в старой версии не учитывается смещение, чтобы объект был по центру!
+
 	auto instances = new InstanceType[m_instanceCount];
 	for (int Xi = -m_replicationCount; Xi <= m_replicationCount; Xi++)
 	{
-		double x = Xi * TorX;
+		double x = Xi * m_torX;
 		for (int Yi = -m_replicationCount; Yi <= m_replicationCount; Yi++)
 		{
-			double y = Yi * TorY;
+			double y = Yi * m_torY;
 			for (int Zi = -m_replicationCount; Zi <= m_replicationCount; Zi++)
 			{
-				double z = Zi * TorZ;
+				double z = Zi * m_torZ;
 
 				instances[(Zi + m_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
 					(Yi + m_replicationCount) * m_instanceCountPerDimension +
@@ -91,8 +93,6 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	pDeviceContext->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R16_UINT, 0);
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-	//todo: в старой версии не учитывается смещение, чтобы объект был по центру!
 
 	pEffect->UpdatePerObject(pEntity);
 
