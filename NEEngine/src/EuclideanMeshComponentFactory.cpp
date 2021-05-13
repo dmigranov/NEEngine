@@ -92,5 +92,46 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
     auto yCoord = ySide / 2;
     auto zCoord = zSide / 2;
 
+    VertexData vertices[] = {
+        //front:
+        { XMFLOAT4(-xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(1.f / 3, 1.f) }, // 0
+        { XMFLOAT4(-xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(1.f / 3, 0.5f)  }, // 1
+        { XMFLOAT4(xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(2.f / 3, 1.f)   }, // 2
+        { XMFLOAT4(xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.5f)  }, // 3
+
+        //left:
+        { XMFLOAT4(-xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.5f) }, // 4
+        { XMFLOAT4(-xCoord,  -cubeCoord, cubeCoord, 1),   XMFLOAT2(1.f / 3, 0.5f) }, // 5
+        { XMFLOAT4(-xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.f)}, // 6
+        { XMFLOAT4(-xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f / 3, 0.f)  }, // 7
+
+        //right:
+        { XMFLOAT4(xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(0.f, 0.5f)   }, // 8
+        { XMFLOAT4(xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f / 3, 0.f)   }, // 9
+        { XMFLOAT4(xCoord,  -cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f / 3, 0.5f)  }, // 10
+        { XMFLOAT4(xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(0.f, 0.f)  }, // 11
+
+        //top:
+        { XMFLOAT4(-xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.5f)  }, // 12
+        { XMFLOAT4(-xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.f)  }, // 13
+        { XMFLOAT4(xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f, 0.f)   }, // 14
+        { XMFLOAT4(xCoord,  cubeCoord, -cubeCoord, 1),  XMFLOAT2(1.f, 0.5f)  }, // 15
+
+        //bottom:
+        { XMFLOAT4(-xCoord,  -cubeCoord, cubeCoord, 1),  XMFLOAT2(0.f, 1.f)   }, // 16
+        { XMFLOAT4(-xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(0.f, 0.5f) }, // 17
+        { XMFLOAT4(xCoord,  -cubeCoord, -cubeCoord, 1),  XMFLOAT2(1.f / 3, 0.5f) }, // 18
+        { XMFLOAT4(xCoord,  -cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f / 3, 1.f)  }, // 19
+
+        //back:
+        { XMFLOAT4(xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(2.f / 3, 0.5f)  }, // 20
+        { XMFLOAT4(-xCoord,  cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f, 0.5f)  }, // 21
+        { XMFLOAT4(-xCoord,  -cubeCoord, cubeCoord, 1),  XMFLOAT2(1.f, 1.f)  }, // 22
+        { XMFLOAT4(xCoord,  -cubeCoord, cubeCoord, 1),  XMFLOAT2(2.f / 3, 1.f)   }, // 23
+    };
+    auto verticesCount = _countof(vertices);
+
+
+
     return nullptr;
 }
