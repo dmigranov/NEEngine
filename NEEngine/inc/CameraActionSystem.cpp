@@ -18,11 +18,11 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, doub
     if (ms.leftButton)
     {
         Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
-        pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * 0.3);
+        pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * 1.9);
     }
 
-    Vector3 fwd = pTransform->GetForward() * deltaTime * 4;
-    Vector3 right = pTransform->GetRight() * deltaTime * 4;
+    Vector3 fwd = pTransform->GetForward() * deltaTime * 5;
+    Vector3 right = pTransform->GetRight() * deltaTime * 5;
 
     if (kbs.W)
         pTransform->Move(fwd);
