@@ -66,7 +66,7 @@ int main(int argc, char * argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
-    scene->AddSystem(new ToricRenderSystem(0, 10, 10, 10));
+    scene->AddSystem(new ToricRenderSystem(5, 20, 20, 20));
     /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
