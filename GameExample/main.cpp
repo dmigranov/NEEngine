@@ -8,10 +8,6 @@
 #include "InputComponent.h"
 #include "Entity.h"
 
-
-#include "SphericalMath.h" //todo: убрать
-
-
 // Components
 #include "ComponentTypeManager.h"
 
@@ -19,9 +15,8 @@
 #include "BitmapComponent.h"
 #include "WalkComponent.h"
 #include "MeshComponent.h"
+#include "TransformComponent.h"
 
-#include "SphericalTransformComponent.h"
-#include "SphericalCameraComponent.h"
 
 #include "MeshComponentFactory.h"
 #include "EuclideanMeshComponentFactory.h"
@@ -31,16 +26,12 @@
 #include "InputSystem.h"
 #include "ActionSystem.h"
 
-#include "SphericalRenderSystem.h"
-#include "SphericalControlSystem.h"
-
 #include "ToricRenderSystem.h"
 
 #include "CameraActionSystem.h"
 
 
 //Effect
-#include "SphericalExpFogEffect.h"
 #include "ToricExpFogEffect.h"
 
 
@@ -76,7 +67,6 @@ int main(int argc, char * argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
     scene->AddSystem(new ToricRenderSystem(0, 10, 10, 10));
-    //scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
     /*scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
     [](Entity* pEntity, double deltaTime) {        
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
