@@ -37,6 +37,7 @@ public:
 	std::string GetName() const;
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
+	//todo: T* pComponent, чтобы была проверка типов?
 	template<typename T> void AddComponent(Component* pComponent)		//new
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();

@@ -24,7 +24,7 @@
 #include "SphericalCameraComponent.h"
 
 #include "MeshComponentFactory.h"
-#include "SphericalMeshComponentFactory.h"
+#include "EuclideanMeshComponentFactory.h"
 
 // Systems
 #include "TransformUpdateSystem.h"
@@ -114,11 +114,11 @@ int main(int argc, char * argv[])
     auto charInputComponent = new InputComponent();
    
     auto testEntity = new Entity();
-    auto stc = new SphericalTransformComponent();
+    auto stc = new TransformComponent();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
+    auto smc = EuclideanMeshComponentFactory::CreateSphere(5, 20, 20);
     smc->SetEffect(effect);
-    testEntity->AddComponent<SphericalTransformComponent>(stc);
+    testEntity->AddComponent<TransformComponent>(stc);
     testEntity->AddComponent<MeshComponent>(smc);
     testEntity->AddComponent<WalkComponent>(charWalkComponent);
     testEntity->AddComponent<InputComponent>(charInputComponent);
