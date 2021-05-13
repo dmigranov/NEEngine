@@ -173,6 +173,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="main_sphere.cpp_" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\NEEngine\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\NEEngine\packages\boost.1.72.0.0\build\boost.targets')" />
