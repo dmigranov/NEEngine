@@ -100,6 +100,25 @@ void ToricExpFogEffect::Deinitialize()
 	SafeRelease(g_d3dPixelShader);
 }
 
+void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
+{
+	auto pCameraComponent = game.GetScene()->GetCamera()->GetComponent<CameraComponent>();
+	perApplicationVSConstantBuffer.proj = pCameraComponent->GetProj();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
+
+
+}
+
+void ToricExpFogEffect::UpdatePerScene()
+{
+	//todo: for optimisation
+}
+
+void ToricExpFogEffect::UpdatePerApplication()
+{
+	//todo: for optimisation
+}
+
 ToricExpFogEffect::~ToricExpFogEffect()
 {
 	Deinitialize();

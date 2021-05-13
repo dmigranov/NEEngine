@@ -11,8 +11,7 @@ public:
 
     struct PerApplicationVSConstantBuffer
     {
-        DirectX::XMMATRIX projFront;
-        DirectX::XMMATRIX projBack;
+        DirectX::XMMATRIX proj;
         double density = 0.1;
         double pad;
     };
@@ -38,7 +37,9 @@ public:
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
 
-
+    virtual void UpdatePerObject(const Entity* pEntity) override;
+    virtual void UpdatePerScene() override;             //todo: impl
+    virtual void UpdatePerApplication() override;       //todo: impl
 
     ~ToricExpFogEffect();
 
