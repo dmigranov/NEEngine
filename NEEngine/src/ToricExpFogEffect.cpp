@@ -109,6 +109,9 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	const auto& view = (game.GetScene())->GetCamera()->GetComponent<TransformComponent>()->GetView();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
 
+	auto pTransformComponent = pEntity->GetComponent<TransformComponent>();
+	const auto& world = pTransformComponent->GetWorld();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
 }
 
