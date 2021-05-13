@@ -113,11 +113,18 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
+	//vertex shader stage
+	game.VSSetShader(g_d3dVertexShader);
+	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
-
-	//input assembly stage
-	game.IASetInputLayout(g_d3dInputLayout);
+	//pixel shader stage
+	game.PSSetSampler(g_d3dSamplerState);
+	game.PSSetShader(g_d3dPixelShader);
+	if (m_pTexture != nullptr)
+	{
+		auto shaderResource = m_pTexture->GetTexture();
+		game.PSSetShaderResources(1, &shaderResource);
+	}
 }
 
 void ToricExpFogEffect::UpdatePerScene()
