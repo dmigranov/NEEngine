@@ -103,5 +103,43 @@
       <FileName>inc\ToricExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SphericalRenderSystem">
+    <Position X="11.75" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAABAAIAAAAAA=</HashCode>
+      <FileName>inc\SphericalRenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToricRenderSystem">
+    <Position X="14.25" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ToricRenderSystem::InstanceType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricRenderSystem.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIEAAAAAAAAAAAQAAAAACAAQAAAAAAAAAFAAAAACAAA=</HashCode>
+      <FileName>inc\ToricRenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Protected" Collapsed="true" />
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEIAAAAQAAAAAABAAAABAgAAAEIAAAAAAAAA=</HashCode>
+      <FileName>inc\System.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
