@@ -2,6 +2,12 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
   <Class Name="Effect">
     <Position X="4" Y="0.5" Width="2.75" />
+    <Members>
+      <Method Name="GetVertexBufferSize" Hidden="true" />
+      <Method Name="GetVertexDataType" Hidden="true" />
+      <Method Name="UpdatePerApplication" Hidden="true" />
+      <Method Name="UpdatePerScene" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Protected" Collapsed="true" />
       <Compartment Name="Fields" Collapsed="true" />
@@ -11,15 +17,87 @@
       <FileName>inc\Effect.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SphericalExpFogEffect" Collapsed="true">
-    <Position X="6.25" Y="4.25" Width="1.75" />
+  <Class Name="SphericalExpFogEffect">
+    <Position X="6.75" Y="4.25" Width="3" />
+    <Members>
+      <Method Name="GetVertexBufferSize" Hidden="true" />
+      <Method Name="GetVertexDataType" Hidden="true" />
+      <Method Name="UpdatePerApplication" Hidden="true" />
+      <Method Name="UpdatePerScene" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="SphericalExpFogEffect::PerApplicationVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SphericalExpFogEffect::PerFrameVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SphericalExpFogEffect::PerObjectVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SphericalExpFogEffect::PerApplicationPSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="SphericalExpFogEffect::ConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAAgwQAAAIAwCAAABIAAoAYgAQAAgAAAAA=</HashCode>
       <FileName>inc\SphericalExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ToricExpFogEffect" Collapsed="true">
-    <Position X="3.75" Y="4.25" Width="1.75" />
+  <Class Name="ToricExpFogEffect">
+    <Position X="3.25" Y="4.25" Width="3" />
+    <Members>
+      <Method Name="GetVertexBufferSize" Hidden="true" />
+      <Method Name="GetVertexDataType" Hidden="true" />
+      <Method Name="UpdatePerApplication" Hidden="true" />
+      <Method Name="UpdatePerScene" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="ToricExpFogEffect::PerApplicationVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ToricExpFogEffect::PerFrameVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ToricExpFogEffect::PerObjectVSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="ToricExpFogEffect::PerApplicationPSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="ToricExpFogEffect::ConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\ToricExpFogEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAQgQAAAAIAwGAAABIAAAAYgAQAAAAAAAA=</HashCode>
       <FileName>inc\ToricExpFogEffect.h</FileName>
