@@ -11,5 +11,19 @@
       <FileName>inc\Effect.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="SphericalExpFogEffect" Collapsed="true">
+    <Position X="6.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGCAAIAAgwQAAAIAwCAAABIAAoAYgAQAAgAAAAA=</HashCode>
+      <FileName>inc\SphericalExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToricExpFogEffect" Collapsed="true">
+    <Position X="3.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGCAAIAQgQAAAAIAwGAAABIAAAAYgAQAAAAAAAA=</HashCode>
+      <FileName>inc\ToricExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
