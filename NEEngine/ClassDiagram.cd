@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
   <Class Name="Effect">
-    <Position X="2.5" Y="1" Width="2.75" />
+    <Position X="8" Y="0.5" Width="3.25" />
     <Members>
       <Method Name="GetVertexBufferSize" Hidden="true" />
       <Method Name="GetVertexDataType" Hidden="true" />
@@ -18,10 +18,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogEffect">
-    <Position X="6.75" Y="4.75" Width="3" />
+    <Position X="9.5" Y="3.75" Width="3.25" />
     <Members>
       <Method Name="GetVertexBufferSize" Hidden="true" />
       <Method Name="GetVertexDataType" Hidden="true" />
+      <Method Name="SphericalExpFogEffect" Hidden="true" />
       <Method Name="UpdatePerApplication" Hidden="true" />
       <Method Name="UpdatePerScene" Hidden="true" />
     </Members>
@@ -61,10 +62,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ToricExpFogEffect">
-    <Position X="0.5" Y="4.75" Width="3" />
+    <Position X="6" Y="3.75" Width="3.25" />
     <Members>
       <Method Name="GetVertexBufferSize" Hidden="true" />
       <Method Name="GetVertexDataType" Hidden="true" />
+      <Method Name="ToricExpFogEffect" Hidden="true" />
       <Method Name="UpdatePerApplication" Hidden="true" />
       <Method Name="UpdatePerScene" Hidden="true" />
     </Members>
@@ -104,7 +106,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalRenderSystem">
-    <Position X="2.25" Y="7.75" Width="2" />
+    <Position X="0.5" Y="5.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Private" Collapsed="true" />
     </Compartments>
@@ -114,7 +116,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ToricRenderSystem">
-    <Position X="4.5" Y="7.75" Width="2" />
+    <Position X="3.25" Y="5.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Private" Collapsed="true" />
     </Compartments>
@@ -131,7 +133,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="System">
-    <Position X="4" Y="5.25" Width="1.5" />
+    <Position X="1.5" Y="3" Width="3" />
     <Compartments>
       <Compartment Name="Protected" Collapsed="true" />
       <Compartment Name="Private" Collapsed="true" />
@@ -142,35 +144,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MeshComponentFactory">
-    <Position X="14.5" Y="0.5" Width="4.25" />
+    <Position X="0.5" Y="0.5" Width="6.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>inc\MeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalMeshComponentFactory" Collapsed="true">
-    <Position X="13.5" Y="2" Width="2.75" />
-    <NestedTypes>
-      <Struct Name="SphericalMeshComponentFactory::VertexData" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>inc\SphericalMeshComponentFactory.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
+    <Position X="0.5" Y="2" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>inc\SphericalMeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EuclideanMeshComponentFactory" Collapsed="true">
-    <Position X="17" Y="2" Width="2.75" />
-    <NestedTypes>
-      <Struct Name="EuclideanMeshComponentFactory::VertexData" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>inc\EuclideanMeshComponentFactory.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
+    <Position X="4.5" Y="2" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
       <FileName>inc\EuclideanMeshComponentFactory.h</FileName>
