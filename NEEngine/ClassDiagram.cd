@@ -18,7 +18,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogEffect">
-    <Position X="9.5" Y="3.75" Width="3.25" />
+    <Position X="9.5" Y="3.5" Width="3.25" />
     <Members>
       <Method Name="GetVertexBufferSize" Hidden="true" />
       <Method Name="GetVertexDataType" Hidden="true" />
@@ -62,7 +62,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ToricExpFogEffect">
-    <Position X="6" Y="3.75" Width="3.25" />
+    <Position X="6" Y="3.5" Width="3.25" />
     <Members>
       <Method Name="GetVertexBufferSize" Hidden="true" />
       <Method Name="GetVertexDataType" Hidden="true" />
@@ -133,7 +133,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="System">
-    <Position X="1.5" Y="3" Width="3" />
+    <Position X="1.75" Y="3.25" Width="3" />
     <Compartments>
       <Compartment Name="Protected" Collapsed="true" />
       <Compartment Name="Private" Collapsed="true" />
