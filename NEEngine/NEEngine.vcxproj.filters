@@ -198,9 +198,6 @@
     <ClCompile Include="src\SphericalCameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="inc\AbstractMeshComponent.cpp">
-      <Filter>Исходные файлы\Components</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalExpFogEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
@@ -330,9 +327,6 @@
       <Filter>Файлы заголовков\Components\Transform</Filter>
     </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
-      <Filter>Файлы заголовков\Components\Mesh</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\AbstractMeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalTransformComponent.h">

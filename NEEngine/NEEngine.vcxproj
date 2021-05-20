@@ -24,7 +24,6 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="inc\AbstractMeshComponent.cpp" />
     <ClCompile Include="inc\CameraActionSystem.cpp" />
     <ClCompile Include="inc\MeshComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
@@ -72,7 +71,6 @@
     <ClCompile Include="TransformUpdateSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\AbstractMeshComponent.h" />
     <ClInclude Include="inc\ActionSystem.h" />
     <ClInclude Include="inc\BitmapComponent.h" />
     <ClInclude Include="inc\BitmapRenderSystem.h" />
