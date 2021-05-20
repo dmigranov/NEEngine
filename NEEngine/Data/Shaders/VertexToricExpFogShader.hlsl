@@ -36,7 +36,7 @@ struct VertexShaderOutput
 float4x4 translate(float4x4 m, float3 v)
 {
 	float x = v.x, y = v.y, z = v.z;
-	m[0][3] = x; //было равно, но я исправлю на +=. проверить!
+	m[0][3] = x; 
 	m[1][3] = y;
 	m[2][3] = z;
 	return m;

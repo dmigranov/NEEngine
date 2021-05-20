@@ -59,7 +59,6 @@ private:
 
     Texture* m_pTexture = nullptr;
 
-    //ID3D11Buffer* g_d3dVSConstantBuffer; //тк у каждого объекта свой эффект то только один
     enum ConstantBuffer
     {
         CB_Application, //The application level constant buffer stores variables that rarely change. 
@@ -73,6 +72,5 @@ private:
 
     ID3D11Buffer* g_d3dPSConstantBuffer = nullptr;
 
-    Game& game;// = Game::GetInstance();
+    Game& game;
 };
-
