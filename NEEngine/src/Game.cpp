@@ -389,7 +389,7 @@ void Game::StartDrawing()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
-    Clear(mistColor, 1.0f, 0);
+    Clear(m_backgroundColor, 1.0f, 0);
 }
 
 void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil)
@@ -481,7 +481,7 @@ ComponentTypeManager* Game::GetComponentTypeManager()
 
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
 {
-    mistColor = color;
+    m_backgroundColor = color;
 }
 
 ID3D11Device* const Game::GetDevice()

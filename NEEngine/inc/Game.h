@@ -141,7 +141,7 @@ private:
 
     FPSCounter                            fpsCounter;
 
-    DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
+    DirectX::XMVECTORF32 m_backgroundColor = DirectX::Colors::CadetBlue;
 
     bool isInitialized = false;
 
