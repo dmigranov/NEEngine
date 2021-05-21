@@ -157,6 +157,12 @@ const std::type_info& ToricExpFogEffect::GetVertexDataType()
 	return typeid(EuclideanMeshComponentFactory::VertexData);
 }
 
+void ToricExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
+{
+	perApplicationPSConstantBuffer.fogColor = fogColor;
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+}
+
 ToricExpFogEffect::~ToricExpFogEffect()
 {
 	Deinitialize();
