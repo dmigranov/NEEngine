@@ -64,6 +64,8 @@ bool ToricExpFogEffect::Initialize()
 
 	//todo: instance buffer
 
+	//обнаружена ошибка: fog color нулевой
+
 	//sampler (for texture)
 	D3D11_SAMPLER_DESC samplerDesc;
 	ZeroMemory(&samplerDesc, sizeof(D3D11_SAMPLER_DESC));
