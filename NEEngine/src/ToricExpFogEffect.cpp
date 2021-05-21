@@ -134,7 +134,8 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 		auto shaderResource = m_pTexture->GetTexture();
 		game.PSSetShaderResources(1, &shaderResource);
 	}
-	//TODO: PSSetConstantBuffers
+
+	game.PSSetConstantBuffers(1, &g_d3dPSConstantBuffer);
 }
 
 void ToricExpFogEffect::UpdatePerScene()

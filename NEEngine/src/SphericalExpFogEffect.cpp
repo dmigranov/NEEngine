@@ -146,7 +146,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 		game.PSSetShaderResources(1, &shaderResource);
 	}
 
-
 	game.PSSetConstantBuffers(1, &g_d3dPSConstantBuffer);
 
 }
