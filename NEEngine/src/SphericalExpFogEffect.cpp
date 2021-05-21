@@ -145,7 +145,10 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 		auto shaderResource = m_pTexture->GetTexture();
 		game.PSSetShaderResources(1, &shaderResource);
 	}
-	PSSetConstantBuffers! ЗАБЫЛ ДОБАВИТЬ! И в торе тоже!
+
+	//TODO
+	PSSetConstantBuffers! ЗАБЫЛ ДОБАВИТЬ! И в торе тоже!!! 
+
 }
 
 void SphericalExpFogEffect::UpdatePerScene()
