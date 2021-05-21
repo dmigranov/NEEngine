@@ -50,6 +50,8 @@ public:
 
     static void SetMode(bool isSpherical);
 
+    void SetFogColor(DirectX::XMVECTORF32 fogColor);
+
     ~SphericalExpFogEffect();
 
 private:
