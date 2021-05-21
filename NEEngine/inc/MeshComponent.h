@@ -20,6 +20,7 @@ public:
 	const std::type_info& GetVertexDataType();
 
 	virtual ~MeshComponent();
+
 protected:
 	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount);
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
@@ -28,5 +29,4 @@ protected:
 	Effect* m_pEffect;
 
 	const std::type_info& m_vertexDataType;
-
 };

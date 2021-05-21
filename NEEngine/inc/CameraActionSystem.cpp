@@ -21,8 +21,8 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, doub
         pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * 1.9);
     }
 
-    Vector3 fwd = pTransform->GetForward() * deltaTime * 5;
-    Vector3 right = pTransform->GetRight() * deltaTime * 5;
+    Vector3 fwd = pTransform->GetForward() * deltaTime * 10;
+    Vector3 right = pTransform->GetRight() * deltaTime * 10;
 
     if (kbs.W)
         pTransform->Move(fwd);
