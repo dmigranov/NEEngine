@@ -172,6 +172,12 @@ void SphericalExpFogEffect::SetMode(bool isSpherical)
 	m_isSpherical = isSpherical;
 }
 
+void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
+{
+	perApplicationPSConstantBuffer.fogColor = fogColor;
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+}
+
 SphericalExpFogEffect::~SphericalExpFogEffect()
 {
 	Deinitialize();
