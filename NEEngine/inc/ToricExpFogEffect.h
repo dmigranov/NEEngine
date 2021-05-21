@@ -43,6 +43,8 @@ public:
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 
+    void SetFogColor(DirectX::XMVECTORF32 fogColor);
+
     ~ToricExpFogEffect();
 
 private:
