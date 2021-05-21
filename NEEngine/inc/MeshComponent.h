@@ -1,8 +1,7 @@
 #pragma once
-#include "AbstractMeshComponent.h"
 
 class Game;
-
+class Effect;
 //todo: убрать шаблон, сгрузить работу на MeshComponentFactory
 
 //template <class VertexData>
