@@ -394,7 +394,7 @@ void Game::StartDrawing()
 
 void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil)
 {
-    g_d3dDeviceContext->ClearRenderTargetView(g_d3dRenderTargetView, clearColor);   //clear the back buffer to a particlular color
+    g_d3dDeviceContext->ClearRenderTargetView(g_d3dRenderTargetView, clearColor);    //clear the back buffer to a particlular color
     g_d3dDeviceContext->ClearDepthStencilView(g_d3dDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, clearDepth, clearStencil);        //method is used to clear the depth and stencil buffer to a particular depth value and stencil value.
 }
 
