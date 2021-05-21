@@ -62,6 +62,8 @@ bool ToricExpFogEffect::Initialize()
 	constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBuffer);
 	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
 
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+
 	//todo: instance buffer
 
 	//обнаружена ошибка: fog color нулевой
@@ -115,9 +117,6 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	auto pTransformComponent = pEntity->GetComponent<TransformComponent>();
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
-
-	//todo: only update on change!
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
