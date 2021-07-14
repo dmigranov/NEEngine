@@ -113,6 +113,7 @@
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\Timer.h" />
     <ClInclude Include="inc\ToricExpFogEffect.h" />
+    <ClInclude Include="inc\ToricGeometry.h" />
     <ClInclude Include="inc\ToricRenderSystem.h" />
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />

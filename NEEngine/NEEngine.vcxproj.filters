@@ -365,6 +365,9 @@
     <ClInclude Include="inc\SphericalEllipticGeometry.h">
       <Filter>Файлы заголовков\Geometries</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ToricGeometry.h">
+      <Filter>Файлы заголовков\Geometries</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">
