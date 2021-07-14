@@ -91,6 +91,7 @@
     <ClInclude Include="inc\MeshComponentFactory.h" />
     <ClInclude Include="inc\SphericalCameraComponent.h" />
     <ClInclude Include="inc\SphericalControlSystem.h" />
+    <ClInclude Include="inc\SphericalEllipticGeometry.h" />
     <ClInclude Include="inc\SphericalExpFogEffect.h" />
     <ClInclude Include="inc\MeshLoader.h" />
     <ClInclude Include="inc\RenderSystem.h" />

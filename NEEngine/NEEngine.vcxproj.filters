@@ -88,6 +88,9 @@
     <Filter Include="Data\Shaders\Toric">
       <UniqueIdentifier>{c744593e-ca0d-4d3b-b860-a40f8364e4a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Geometries">
+      <UniqueIdentifier>{840cbfd8-0475-4c2b-8722-c3ee4f6558b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -358,6 +361,9 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalExpFogEffect.h">
       <Filter>Файлы заголовков\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalEllipticGeometry.h">
+      <Filter>Файлы заголовков\Geometries</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
