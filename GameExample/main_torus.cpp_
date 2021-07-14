@@ -1,39 +1,8 @@
 ﻿#pragma once
 
-#include <pch.h>
-
-#include "Game.h"
-#include "Scene.h"
-#include "ResourceManager.h"
-#include "InputComponent.h"
-#include "Entity.h"
-
-// Components
-#include "ComponentTypeManager.h"
-
-#include "InputComponent.h"
-#include "BitmapComponent.h"
+#include "ToricGeometry.h"
 #include "WalkComponent.h"
-#include "MeshComponent.h"
-#include "TransformComponent.h"
-
-
-#include "MeshComponentFactory.h"
-#include "EuclideanMeshComponentFactory.h"
-
-// Systems
-#include "TransformUpdateSystem.h"
 #include "InputSystem.h"
-#include "ActionSystem.h"
-
-#include "ToricRenderSystem.h"
-
-#include "CameraActionSystem.h"
-
-
-//Effect
-#include "ToricExpFogEffect.h"
-
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
