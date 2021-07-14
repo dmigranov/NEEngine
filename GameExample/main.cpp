@@ -1,41 +1,8 @@
 ﻿#pragma once
 
-#include <pch.h>
-
-#include "Game.h"
-#include "Scene.h"
-#include "ResourceManager.h"
-#include "InputComponent.h"
-#include "Entity.h"
-
-
-#include "SphericalMath.h" //todo: убрать
-
-
-// Components
-#include "ComponentTypeManager.h"
-
-#include "InputComponent.h"
-#include "BitmapComponent.h"
+#include "SphericalEllipticGeometry.h"
 #include "WalkComponent.h"
-#include "MeshComponent.h"
-
-#include "SphericalTransformComponent.h"
-#include "SphericalCameraComponent.h"
-
-#include "MeshComponentFactory.h"
-#include "SphericalMeshComponentFactory.h"
-
-// Systems
-#include "TransformUpdateSystem.h"
 #include "InputSystem.h"
-#include "ActionSystem.h"
-
-#include "SphericalRenderSystem.h"
-#include "SphericalControlSystem.h"
-
-//Effect
-#include "SphericalExpFogEffect.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
