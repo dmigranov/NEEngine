@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+//TODO: Correct toric rendering - movement!
+
 #include "ToricGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
