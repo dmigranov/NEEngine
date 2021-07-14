@@ -2,7 +2,7 @@
 
 //TODO: Correct toric rendering - movement!
 
-#include "ToricGeometry.h"
+#include "Geometries/ToricGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
 

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "SphericalEllipticGeometry.h"
+#include "Geometries/SphericalEllipticGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
 

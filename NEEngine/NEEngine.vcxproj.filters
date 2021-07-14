@@ -362,10 +362,10 @@
     <ClInclude Include="inc\SphericalExpFogEffect.h">
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalEllipticGeometry.h">
+    <ClInclude Include="inc\Geometries\SphericalEllipticGeometry.h">
       <Filter>Файлы заголовков\Geometries</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ToricGeometry.h">
+    <ClInclude Include="inc\Geometries\ToricGeometry.h">
       <Filter>Файлы заголовков\Geometries</Filter>
     </ClInclude>
   </ItemGroup>
