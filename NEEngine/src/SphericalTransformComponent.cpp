@@ -6,8 +6,13 @@ using namespace DirectX::SimpleMath;
 
 //todo: реализовать
 
+SphericalTransformComponent::SphericalTransformComponent()
+{
+}
+
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
+	//todo: multiply matrices...
 	TransformComponent::Move(v); //todo: временно, для того чтобы все работало
 }
 

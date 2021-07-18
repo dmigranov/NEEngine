@@ -79,6 +79,7 @@ int main(int argc, char* argv[])
     auto testEntity = new Entity();
     auto stc = new SphericalTransformComponent();
 
+
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc->SetEffect(effect);
     testEntity->AddComponent<SphericalTransformComponent>(stc);
