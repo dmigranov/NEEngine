@@ -14,18 +14,18 @@ SphericalTransformComponent::SphericalTransformComponent()
 
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
-	//todo: multiply matrices...
-	TransformComponent::Move(v); //todo: временно, для того чтобы все работало
+	this->Move(v.x, v.y, v.z);
 }
 
 void SphericalTransformComponent::Move(double x, double y, double z)
 {
-	this->Move(Vector3(x, y, z));
+	//todo: multiply matrices...
+	TransformComponent::Move(x, y, z); //todo: временно, для того чтобы все работало
 }
 
 void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
 {
-	//todo
+	this->Rotate(r.x, r.y, r.z);
 }
 
 void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, double deltaRoll) //x y z
