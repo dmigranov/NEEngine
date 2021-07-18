@@ -42,8 +42,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         RYaw = SphericalRotationXZ(-m_yaw);
         RPitch = SphericalRotationYZ(-m_pitch);
 
-        RInv = SphericalRotationYZ(m_pitch) * SphericalRotationXZ(m_yaw);
-        R = RYaw * RPitch;
+        R = RPitch * RYaw;
     }
 
      

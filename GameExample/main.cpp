@@ -76,17 +76,26 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto testEntity = new Entity();
-    auto stc = new SphericalTransformComponent();
-
+    auto entity1 = new Entity(), entity2 = new Entity();
 
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc->SetEffect(effect);
-    testEntity->AddComponent<SphericalTransformComponent>(stc);
-    testEntity->AddComponent<MeshComponent>(smc);
-    testEntity->AddComponent<WalkComponent>(charWalkComponent);
-    testEntity->AddComponent<InputComponent>(charInputComponent);
-    scene->AddEntity(testEntity);
+
+    auto tc1 = new SphericalTransformComponent();
+    auto tc2 = new SphericalTransformComponent();
+    tc2->SetWorld(SphericalRotationXW(1.));
+
+
+
+    entity1->AddComponent<SphericalTransformComponent>(tc1);
+    entity1->AddComponent<MeshComponent>(smc);
+    entity1->AddComponent<WalkComponent>(charWalkComponent);
+    entity1->AddComponent<InputComponent>(charInputComponent);
+    scene->AddEntity(entity1);
+
+    entity2->AddComponent<SphericalTransformComponent>(tc2);
+    entity2->AddComponent<MeshComponent>(smc);
+    scene->AddEntity(entity2);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect](Entity* pEntity, double deltaTime) {

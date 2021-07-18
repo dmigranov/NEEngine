@@ -21,7 +21,6 @@ private:
 
 	DirectX::SimpleMath::Matrix T = DirectX::SimpleMath::Matrix::Identity; // represents the translation of the camera in world space
 	DirectX::SimpleMath::Matrix R = DirectX::SimpleMath::Matrix::Identity, 
-								RInv = DirectX::SimpleMath::Matrix::Identity, 
 								RYaw = DirectX::SimpleMath::Matrix::Identity, 
 								RPitch = DirectX::SimpleMath::Matrix::Identity, 
 								RRoll = DirectX::SimpleMath::Matrix::Identity; // represents camera orientation
