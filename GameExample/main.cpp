@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
 
-        //transfcomp и meshcom зарегистр по умолчанию...
+        //transfcomp и meshcom зарегистр по умолчанию... 
 
         componentTypeManager->SetTypeAdditionEnded();
     }
