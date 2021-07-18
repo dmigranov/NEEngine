@@ -17,10 +17,16 @@ void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 	this->Move(v.x, v.y, v.z);
 }
 
-void SphericalTransformComponent::Move(double x, double y, double z)
+void SphericalTransformComponent::Move(double dx, double dy, double dz)
 {
-	//todo: multiply matrices...
-	TransformComponent::Move(x, y, z); //todo: временно, для того чтобы все работало
+	Matrix dT = SphericalRotationZW(dz) * SphericalRotationYW(dy) * SphericalRotationXW(dx);
+	T = R.Transpose() * dT * R * T;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+
+	//
+	TransformComponent::Move(dx, dy, dz); //todo: временно, для того чтобы все работало
 }
 
 void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
@@ -44,6 +50,9 @@ void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, dou
 	RPitch = SphericalRotationYZ(-m_pitch);
 
 	R = RPitch * RYaw;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
 }
 
 void SphericalTransformComponent::Recalculate()
