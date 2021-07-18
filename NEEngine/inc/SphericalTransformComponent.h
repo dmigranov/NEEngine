@@ -19,6 +19,8 @@ public:
     void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
 private:
+    double m_yaw = 0., m_pitch = 0.;
+
     DirectX::SimpleMath::Matrix T = DirectX::SimpleMath::Matrix::Identity; // represents the translation of the camera in world space
     DirectX::SimpleMath::Matrix R = DirectX::SimpleMath::Matrix::Identity,
         RYaw = DirectX::SimpleMath::Matrix::Identity,
