@@ -26,7 +26,7 @@ void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
 	//todo
 }
 
-void SphericalTransformComponent::Rotate(double rx, double ry, double rz)
+void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, double deltaRoll)
 {
 	//todo
 }
