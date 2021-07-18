@@ -50,20 +50,11 @@ int main(int argc, char* argv[])
             Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
             Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
-            /*
-            if (kbs.D)
-                pTransform->SetWorld(SphericalRotationXW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-            if (kbs.A)
-                pTransform->SetWorld(SphericalRotationXW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-            if (kbs.W)
-                pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-            if (kbs.S)
-                pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
-            */
+           
             if (kbs.R)
-                pTransform->SetWorld(SphericalRotationZW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+                pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
             if (kbs.F)
-                pTransform->SetWorld(SphericalRotationZW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+                pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
 
             //pTransform->Move(-fwd); //должно быть так todo
         }));
@@ -100,12 +91,11 @@ int main(int argc, char* argv[])
         [effect](Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
-            auto sphEff = (SphericalExpFogEffect*)effect;
 
             if (kbs.D1)
-                sphEff->SetMode(true);
+                effect->SetMode(true);
             else if (kbs.D2)
-                sphEff->SetMode(false);
+                effect->SetMode(false);
         }));
 
     return game.StartGame();
