@@ -52,11 +52,12 @@ int main(int argc, char* argv[])
 
            
             if (kbs.R)
-                pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+                pTransform->Move(up);
+                //pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
             if (kbs.F)
-                pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+                pTransform->Move(-up);
+                //pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
 
-            //pTransform->Move(-fwd); //должно быть так todo
         }));
 
 
