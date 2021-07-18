@@ -54,8 +54,6 @@ void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, dou
 
 void SphericalTransformComponent::Recalculate()
 {
-	//TransformComponent::Recalculate(); //todo: временно, для того чтобы все работало
-
 	R = RPitch * RYaw;
 	m_world = R * T;
 
@@ -66,6 +64,8 @@ void SphericalTransformComponent::Recalculate()
 	}
 
 	m_position = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
+
+	m_shouldRecalcWorld = false;
 
 	std::cerr << "SphericalTransformComponent::Recalculate()" << std::endl;
 }
