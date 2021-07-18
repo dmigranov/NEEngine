@@ -23,8 +23,21 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     if (ms.leftButton)
     {
+        //pitch - around x, yaw - around y
         m_dx = ms.x * rotationSpeed * deltaTime;
         m_dy = ms.y * rotationSpeed * deltaTime;
+
+        m_pitch += m_dx;
+        m_yaw += m_dy;
+
+        m_pitch = std::max<double>(-m_pitchLimit, m_pitch);
+        m_pitch = std::min<double>(+m_pitchLimit, m_pitch);
+
+        // keep longitude in sane range by wrapping
+        if (m_yaw > DirectX::XM_PI)
+            m_yaw -= DirectX::XM_2PI;
+        else if (m_yaw < -DirectX::XM_PI)
+            m_yaw += DirectX::XM_2PI;
     }
      
     double dx = 0, dy = 0, dz = 0;
