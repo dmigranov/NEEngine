@@ -6,10 +6,9 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-//todo: реализовать
-
 SphericalTransformComponent::SphericalTransformComponent()
 {
+	//todo
 }
 
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
@@ -24,8 +23,6 @@ void SphericalTransformComponent::Move(double dx, double dy, double dz)
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
-
-	//TransformComponent::Move(dx, dy, dz); //todo: временно, для того чтобы все работало
 }
 
 void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
