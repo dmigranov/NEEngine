@@ -33,7 +33,7 @@ void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
 	this->Rotate(r.x, r.y, r.z);
 }
 
-void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, double deltaRoll) //x y z
+void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, double deltaRoll) //x y z
 {
 	m_pitch += deltaPitch;
 	m_yaw += deltaYaw;

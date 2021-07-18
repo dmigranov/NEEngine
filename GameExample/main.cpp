@@ -53,10 +53,11 @@ int main(int argc, char* argv[])
            
             if (kbs.R)
                 pTransform->Move(up);
-                //pTransform->SetWorld(SphericalRotationYW(deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
             if (kbs.F)
                 pTransform->Move(-up);
-                //pTransform->SetWorld(SphericalRotationYW(-deltaTime * pWalk->m_movementGain) * pTransform->GetWorld());
+
+            if (kbs.T)
+                pTransform->Rotate(deltaTime, 0, 0);
 
         }));
 
