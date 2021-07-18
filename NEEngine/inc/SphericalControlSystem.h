@@ -15,8 +15,9 @@ private:
 	DirectX::SimpleMath::Vector4 spherePos = DirectX::SimpleMath::Vector4(0, 0, 0, 1);
 
 
-	double pitchDelta = 0, yawDelta = 0;
-	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
+	double pitchDelta = 0., yawDelta = 0.;
+	double m_yaw = 0., m_pitch = 0.;
+	double pitchLimit = DirectX::XM_PI / 2.0 - 0.01;
 
 	DirectX::SimpleMath::Matrix T = DirectX::SimpleMath::Matrix::Identity; // represents the translation of the camera in world space
 	DirectX::SimpleMath::Matrix R = DirectX::SimpleMath::Matrix::Identity, 
