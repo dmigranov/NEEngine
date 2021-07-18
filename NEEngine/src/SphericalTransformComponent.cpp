@@ -55,10 +55,18 @@ void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, dou
 
 void SphericalTransformComponent::Recalculate()
 {
-	TransformComponent::Recalculate(); //todo: временно, для того чтобы все работало
+	//TransformComponent::Recalculate(); //todo: временно, для того чтобы все работало
 
 	R = RPitch * RYaw;
 	m_world = R * T;
+
+	if (nullptr != m_pParent)
+	{
+		oldParentMatrix = m_pParent->GetWorld();
+		m_world = m_world * oldParentMatrix;
+	}
+
+	m_position = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
 
 	std::cerr << "SphericalTransformComponent::Recalculate()" << std::endl;
 }
