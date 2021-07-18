@@ -44,7 +44,6 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
         R = RPitch * RYaw;
     }
-
      
     double dx = 0, dy = 0, dz = 0;
 
@@ -59,7 +58,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(dx);
 
-    //T = T * RYaw * dT * RYaw.Transpose();	//матрица T^1 для вычисления view = T^-1 * R^-1
+    //T = T * RYaw * dT * RYaw.Transpose();	//the T^1 matrix that can be used to calculate view = T^-1 * R^-1
     T = RYaw.Transpose() * dT * RYaw * T;
     auto transformMatrix = R * T;
 
