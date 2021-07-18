@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "SphericalTransformComponent.h"
 
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
 //todo: реализовать
 
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
@@ -10,7 +13,7 @@ void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 
 void SphericalTransformComponent::Move(double x, double y, double z)
 {
-	TransformComponent::Move(x, y, z); //todo: временно, для того чтобы все работало
+	this->Move(Vector3(x, y, z));
 }
 
 void SphericalTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
