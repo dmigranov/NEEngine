@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "SphericalTransformComponent.h"
 
+#include "SphericalMath.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -32,7 +34,16 @@ void SphericalTransformComponent::Rotate(double deltaYaw, double deltaPitch, dou
 	m_yaw += deltaYaw;
 	m_roll += deltaRoll;
 
+	// keep longitude in sane range by wrapping
+	if (m_yaw > DirectX::XM_PI)
+		m_yaw -= DirectX::XM_2PI;
+	else if (m_yaw < -DirectX::XM_PI)
+		m_yaw += DirectX::XM_2PI;
 
+	RYaw = SphericalRotationXZ(-m_yaw);
+	RPitch = SphericalRotationYZ(-m_pitch);
+
+	R = RPitch * RYaw;
 }
 
 void SphericalTransformComponent::Recalculate()
