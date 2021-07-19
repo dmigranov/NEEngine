@@ -56,6 +56,11 @@ int main(int argc, char* argv[])
                 pTransform->Move(up);
             if (kbs.F)
                 pTransform->Move(-up);
+
+            if (kbs.T)
+                pTransform->Rotate(deltaTime, 0, 0);
+            if (kbs.Y)
+                pTransform->Rotate(-deltaTime, 0, 0);
         }));
 
     Entity* cameraEntity = new Entity("camera1");
