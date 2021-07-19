@@ -39,6 +39,10 @@ int main(int argc, char* argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
     scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
+    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>(
+        [](Entity* pEntity, double deltaTime) {
+
+        }));
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new TransformComponent();
