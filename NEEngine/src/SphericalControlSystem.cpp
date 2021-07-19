@@ -38,15 +38,14 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
             m_yaw -= DirectX::XM_2PI;
         else if (m_yaw < -DirectX::XM_PI)
             m_yaw += DirectX::XM_2PI;
-
+        
+        // OLD CODE BEGIN
         RYaw = SphericalRotationXZ(-m_yaw);
         RPitch = SphericalRotationYZ(-m_pitch);
-
         R = RPitch * RYaw;
+        // OLD CODE END
 
-        pTransform->Rotate(m_dy, m_dx, 0);
-        //        pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
-
+        pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
     }
      
     double dx = 0, dy = 0, dz = 0;

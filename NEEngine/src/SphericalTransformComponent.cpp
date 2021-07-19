@@ -49,7 +49,12 @@ void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, dou
 
 void SphericalTransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
 {
-	//m_yaw = 
+	m_yaw = yaw;
+	m_roll = roll;
+	m_pitch = pitch;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
 }
 
 void SphericalTransformComponent::Recalculate()
