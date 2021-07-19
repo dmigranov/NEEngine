@@ -6,6 +6,8 @@ class SphericalTransformComponent :
     //todo
 public:
     SphericalTransformComponent();
+    SphericalTransformComponent(double x, double y, double z);
+    SphericalTransformComponent(double x, double y, double z, double rx, double ry, double rz);
     //todo: constructors
 
     virtual void Move(DirectX::SimpleMath::Vector3 v) override;

@@ -59,13 +59,15 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     if (kbs.D)
         dx = movementSpeed * deltaTime;
 
+    //todo: сделать расчет вектора для Move с учетом направления
+
     Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(dx);
 
     //T = T * RYaw * dT * RYaw.Transpose();	//the T^1 matrix that can be used to calculate view = T^-1 * R^-1
     T = RYaw.Transpose() * dT * RYaw * T;
     auto transformMatrix = R * T;
 
-    //pTransform->SetWorld(transformMatrix);
+    pTransform->SetWorld(transformMatrix);
 
 })
 { }

@@ -86,11 +86,8 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc->SetEffect(effect);
 
-    auto tc1 = new SphericalTransformComponent();
-    auto tc2 = new SphericalTransformComponent();
-    tc2->SetWorld(SphericalRotationXW(1.));
-
-
+    auto tc1 = new SphericalTransformComponent(-1, 0, 0);
+    auto tc2 = new SphericalTransformComponent(1, 0, 0);
 
     entity1->AddComponent<SphericalTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);

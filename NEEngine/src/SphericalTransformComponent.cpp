@@ -11,6 +11,17 @@ SphericalTransformComponent::SphericalTransformComponent()
 	//todo
 }
 
+SphericalTransformComponent::SphericalTransformComponent(double x, double y, double z)
+{
+	this->Move(x, y, z);
+}
+
+SphericalTransformComponent::SphericalTransformComponent(double x, double y, double z, double rx, double ry, double rz)
+{
+	this->Rotate(rx, ry, rz);
+	this->Move(x, y, z);
+}
+
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
 	this->Move(v.x, v.y, v.z);
