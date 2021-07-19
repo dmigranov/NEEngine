@@ -45,6 +45,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         R = RPitch * RYaw;
 
         pTransform->Rotate(m_dy, m_dx, 0);
+        //        pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
+
     }
      
     double dx = 0, dy = 0, dz = 0;

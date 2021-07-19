@@ -49,6 +49,13 @@ void TransformComponent::Rotate(double rx, double ry, double rz)
 	this->Rotate(Vector3(rx, ry, rz));
 }
 
+void TransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
+{
+	m_rotation = Vector3(pitch, yaw, roll);
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
 void TransformComponent::SetParent(TransformComponent* pParent)
 {
 	m_pParent = pParent;

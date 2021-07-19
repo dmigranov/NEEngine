@@ -43,16 +43,20 @@ void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, dou
 	else if (m_yaw < -DirectX::XM_PI)
 		m_yaw += DirectX::XM_2PI;
 
-	RYaw = SphericalRotationXZ(-m_yaw);
-	RPitch = SphericalRotationYZ(-m_pitch);
-	RRoll = SphericalRotationXY(-m_roll);
-
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
 }
 
+void SphericalTransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
+{
+	//m_yaw = 
+}
+
 void SphericalTransformComponent::Recalculate()
 {
+	RYaw = SphericalRotationXZ(-m_yaw);
+	RPitch = SphericalRotationYZ(-m_pitch);
+	RRoll = SphericalRotationXY(-m_roll);
 	R = RPitch * RYaw * RRoll; //todo: order? 
 	m_world = R * T;
 

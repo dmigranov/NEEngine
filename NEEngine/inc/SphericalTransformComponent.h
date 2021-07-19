@@ -12,6 +12,8 @@ public:
     virtual void Move(double x, double y, double z) override;
     virtual void Rotate(DirectX::SimpleMath::Vector3 r) override;
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
+    virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
+
 
     virtual void Recalculate() override;
     virtual void RecalculateView() override;

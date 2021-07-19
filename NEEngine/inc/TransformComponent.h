@@ -13,6 +13,7 @@ public:
     virtual void Move(double x, double y, double z);
     virtual void Rotate(DirectX::SimpleMath::Vector3 r);
     virtual void Rotate(double rx, double ry, double rz);
+    virtual void SetPitchYawRoll(double pitch, double yaw, double roll);
 
     void SetParent(TransformComponent* pParent);
 
