@@ -19,7 +19,8 @@ void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 void SphericalTransformComponent::Move(double dx, double dy, double dz)
 {
 	Matrix dT = SphericalRotationZW(dz) * SphericalRotationYW(dy) * SphericalRotationXW(dx);
-	T = R.Transpose() * dT * R * T;
+	//T = R.Transpose() * dT * R * T;
+	T = dT * T;
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
