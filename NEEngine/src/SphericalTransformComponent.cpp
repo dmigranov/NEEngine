@@ -53,7 +53,7 @@ void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, dou
 
 void SphericalTransformComponent::Recalculate()
 {
-	R = RPitch * RYaw * RRoll;
+	R = RPitch * RYaw * RRoll; //todo: order? 
 	m_world = R * T;
 
 	if (nullptr != m_pParent)

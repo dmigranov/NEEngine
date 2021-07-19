@@ -43,6 +43,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         RPitch = SphericalRotationYZ(-m_pitch);
 
         R = RPitch * RYaw;
+
+        pTransform->Rotate(m_dy, m_dx, 0);
     }
      
     double dx = 0, dy = 0, dz = 0;
@@ -62,7 +64,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     T = RYaw.Transpose() * dT * RYaw * T;
     auto transformMatrix = R * T;
 
-    pTransform->SetWorld(transformMatrix);
+    //pTransform->SetWorld(transformMatrix);
 
 })
 { }
