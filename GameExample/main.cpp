@@ -41,7 +41,21 @@ int main(int argc, char* argv[])
     scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
     scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
+            auto pTransform = pEntity->GetComponent<TransformComponent>();
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
+            auto pWalk = pEntity->GetComponent<WalkComponent>();
 
+
+            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
+            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
+            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
+
+            if (kbs.R)
+                pTransform->Move(up);
+            if (kbs.F)
+                pTransform->Move(-up);
         }));
 
     Entity* cameraEntity = new Entity("camera1");
