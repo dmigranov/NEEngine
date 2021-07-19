@@ -58,6 +58,7 @@ int main(int argc, char* argv[])
 
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
+            //неправильное поведение! двигаться должен ГЛОБАЛЬНО, по меридианам, независимо от поворота
 
         }));
 
