@@ -45,6 +45,7 @@ void SphericalTransformComponent::Rotate(double deltaPitch, double deltaYaw, dou
 
 	RYaw = SphericalRotationXZ(-m_yaw);
 	RPitch = SphericalRotationYZ(-m_pitch);
+	RRoll = SphericalRotationXY(-m_roll);
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
