@@ -72,6 +72,9 @@ void SphericalTransformComponent::Recalculate()
 void SphericalTransformComponent::RecalculateView()
 {
 	//todo: вызывется на каждом кадре - некомильфо
+	m_view = m_world.Transpose();
+	m_shouldRecalcView = false;
+	
 	//std::cerr << "SphericalTransformComponent::RecalculateView()" << std::endl;
 }
 
