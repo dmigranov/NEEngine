@@ -60,6 +60,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = movementSpeed * deltaTime;
 
     Vector3 resultingAbsoluteMovement;
+    Vector4 tempVector(dx, 0, dz, 0);
 
     //todo: сделать расчет вектора для Move с учетом направления
 
