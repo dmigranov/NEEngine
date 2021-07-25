@@ -62,8 +62,6 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     Vector3 resultingAbsoluteMovement;
     Vector4 tempVector(dx, 0, dz, 0);
 
-    //todo: сделать расчет вектора для Move с учетом направления
-
     tempVector = Vector4::Transform(tempVector, RYaw);
 
     resultingAbsoluteMovement.x = tempVector.x;
@@ -71,8 +69,10 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     resultingAbsoluteMovement.z = tempVector.z;
 
     pTransform->Move(resultingAbsoluteMovement);
+})
+{ }
 
-    /*
+/*  
     Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(dx);
 
     //T = T * RYaw * dT * RYaw.Transpose();	//the T^1 matrix that can be used to calculate view = T^-1 * R^-1
@@ -80,7 +80,4 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     auto transformMatrix = R * T;
 
     pTransform->SetWorld(transformMatrix);
-    */
-
-})
-{ }
+*/
