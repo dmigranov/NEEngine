@@ -49,7 +49,6 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     }
 
     double dx = 0, dy = 0, dz = 0;
-
     if (kbs.W)
         dz = movementSpeed * deltaTime;
     if (kbs.S)
@@ -59,16 +58,10 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     if (kbs.D)
         dx = movementSpeed * deltaTime;
 
-    Vector3 resultingAbsoluteMovement;
     Vector4 tempVector(dx, 0, dz, 0);
-
     tempVector = Vector4::Transform(tempVector, RYaw);
 
-    resultingAbsoluteMovement.x = tempVector.x;
-    resultingAbsoluteMovement.y = tempVector.y;
-    resultingAbsoluteMovement.z = tempVector.z;
-
-    pTransform->Move(resultingAbsoluteMovement);
+    pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
 })
 { }
 
