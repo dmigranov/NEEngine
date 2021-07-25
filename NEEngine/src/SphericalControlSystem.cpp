@@ -47,7 +47,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
         pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
     }
-     
+
     double dx = 0, dy = 0, dz = 0;
 
     if (kbs.W)
@@ -60,6 +60,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = movementSpeed * deltaTime;
 
     //todo: сделать расчет вектора для Move с учетом направления
+
+    Vector3 resultingAbsoluteMove;
 
     Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(dx);
 
