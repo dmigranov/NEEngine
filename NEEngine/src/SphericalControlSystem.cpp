@@ -17,8 +17,6 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     auto kbs = pInput->GetKeyboardState();
     auto ms = pInput->GetMouseState();
 
-    //todo: переделать так, чтобы использовался метод Move Transform'а, а не вручную сформированыне матрицы
-
     double m_dx = 0, m_dy = 0;
 
     if (ms.leftButton)
