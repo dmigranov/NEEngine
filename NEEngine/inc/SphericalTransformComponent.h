@@ -8,7 +8,8 @@ public:
     SphericalTransformComponent();
     SphericalTransformComponent(double x, double y, double z);
     SphericalTransformComponent(double x, double y, double z, double rx, double ry, double rz);
-    //todo: constructors
+    SphericalTransformComponent(DirectX::SimpleMath::Vector3 position);
+    SphericalTransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation);
 
     virtual void Move(DirectX::SimpleMath::Vector3 v) override;
     virtual void Move(double x, double y, double z) override;
