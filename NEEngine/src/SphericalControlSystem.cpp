@@ -59,9 +59,11 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     if (kbs.D)
         dx = movementSpeed * deltaTime;
 
+    Vector3 resultingAbsoluteMovement;
+
     //todo: сделать расчет вектора для Move с учетом направления
 
-    Vector3 resultingAbsoluteMove;
+    pTransform->Move(resultingAbsoluteMovement);
 
     Matrix dT =  SphericalRotationZW(dz) * SphericalRotationXW(dx);
 
