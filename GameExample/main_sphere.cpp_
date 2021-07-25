@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
             Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
             Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
-           
+
             if (kbs.R)
                 pTransform->Move(up);
             if (kbs.F)
@@ -58,7 +58,10 @@ int main(int argc, char* argv[])
 
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
-
+            if (kbs.G)
+                pTransform->Rotate(0, deltaTime, 0);
+            if (kbs.B)
+                pTransform->Rotate(0, 0, deltaTime);
         }));
 
 
@@ -83,11 +86,8 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
     smc->SetEffect(effect);
 
-    auto tc1 = new SphericalTransformComponent();
-    auto tc2 = new SphericalTransformComponent();
-    tc2->SetWorld(SphericalRotationXW(1.));
-
-
+    auto tc1 = new SphericalTransformComponent(-1, 0, 0);
+    auto tc2 = new SphericalTransformComponent(1, 0, 0);
 
     entity1->AddComponent<SphericalTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
