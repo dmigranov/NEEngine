@@ -6,10 +6,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-SphericalTransformComponent::SphericalTransformComponent()
-{
-	//todo
-}
+SphericalTransformComponent::SphericalTransformComponent() : SphericalTransformComponent(0, 0, 0)
+{}
 
 SphericalTransformComponent::SphericalTransformComponent(double x, double y, double z)
 {
