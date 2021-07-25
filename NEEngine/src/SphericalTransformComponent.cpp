@@ -7,7 +7,7 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 SphericalTransformComponent::SphericalTransformComponent() : SphericalTransformComponent(0, 0, 0)
-{}
+{ }
 
 SphericalTransformComponent::SphericalTransformComponent(double x, double y, double z)
 {
@@ -19,6 +19,12 @@ SphericalTransformComponent::SphericalTransformComponent(double x, double y, dou
 	this->Rotate(rx, ry, rz);
 	this->Move(x, y, z);
 }
+
+SphericalTransformComponent::SphericalTransformComponent(DirectX::SimpleMath::Vector3 position) : SphericalTransformComponent(position.x, position.y, position.z)
+{ }
+
+SphericalTransformComponent::SphericalTransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation) : SphericalTransformComponent(position.x, position.y, position.z, rotation.x, rotation.y, rotation.z)
+{ }
 
 void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
