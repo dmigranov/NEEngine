@@ -368,6 +368,9 @@
     <ClInclude Include="inc\Geometries\ToricGeometry.h">
       <Filter>Файлы заголовков\Geometries</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Geometries\HyperbolicGeometry.h">
+      <Filter>Файлы заголовков\Geometries</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">

@@ -85,6 +85,7 @@
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
     <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\Geometries\HyperbolicGeometry.h" />
     <ClInclude Include="inc\Geometries\SphericalEllipticGeometry.h" />
     <ClInclude Include="inc\Geometries\ToricGeometry.h" />
     <ClInclude Include="inc\InputComponent.h" />
