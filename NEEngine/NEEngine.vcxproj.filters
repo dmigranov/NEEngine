@@ -225,6 +225,9 @@
     <ClCompile Include="src\EuclideanMeshComponentFactory.cpp">
       <Filter>Исходные файлы\Meshes\Factories</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicExpFogEffect.cpp">
+      <Filter>Исходные файлы\Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -370,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="inc\Geometries\HyperbolicGeometry.h">
       <Filter>Файлы заголовков\Geometries</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\HyperbolicExpFogEffect.h">
+      <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

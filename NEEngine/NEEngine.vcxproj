@@ -31,6 +31,7 @@
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\ComponentTypeManager.cpp" />
     <ClCompile Include="src\EuclideanMeshComponentFactory.cpp" />
+    <ClCompile Include="src\HyperbolicExpFogEffect.cpp" />
     <ClCompile Include="src\MeshComponentFactory.cpp" />
     <ClCompile Include="src\SphericalCameraComponent.cpp" />
     <ClCompile Include="src\SphericalControlSystem.cpp" />
@@ -88,6 +89,7 @@
     <ClInclude Include="inc\Geometries\HyperbolicGeometry.h" />
     <ClInclude Include="inc\Geometries\SphericalEllipticGeometry.h" />
     <ClInclude Include="inc\Geometries\ToricGeometry.h" />
+    <ClInclude Include="inc\HyperbolicExpFogEffect.h" />
     <ClInclude Include="inc\InputComponent.h" />
     <ClInclude Include="inc\InputSystem.h" />
     <ClInclude Include="inc\Mesh.h" />
