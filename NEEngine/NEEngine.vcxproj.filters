@@ -231,6 +231,9 @@
     <ClCompile Include="src\HyperbolicMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicRenderSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -379,6 +382,9 @@
     </ClInclude>
     <ClInclude Include="inc\HyperbolicExpFogEffect.h">
       <Filter>Файлы заголовков\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\HyperbolicRenderSystem.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
