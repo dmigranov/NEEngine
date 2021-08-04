@@ -11,6 +11,7 @@
 #include "Entity.h"
 
 // Math
+
 #include "SphericalMath.h" //todo: remove - should be in TransformComponent instead
 
 // Components
@@ -23,8 +24,10 @@
 #include "SphericalMeshComponentFactory.h"
 
 // Systems
+
 #include "SphericalRenderSystem.h"
 #include "SphericalControlSystem.h"
 
 // Effects
+
 #include "SphericalExpFogEffect.h"

@@ -10,9 +10,24 @@
 #include "InputComponent.h"
 #include "Entity.h"
 
+// Math
+
+#include "SphericalMath.h" //todo: remove - should be in TransformComponent instead
+
 // Components
 
 #include "ComponentTypeManager.h"
 
 #include "MeshComponent.h"
-//todo: hyperbolic stuff 
+#include "HyperbolicTransformComponent.h"
+//#include "HyperbolicCameraComponent.h"
+//#include "HyperbolicMeshComponentFactory.h"
+
+// Systems
+
+#include "HyperbolicRenderSystem.h"
+//#include "HyperbolicControlSystem.h"
+
+// Effects
+
+#include "HyperbolicExpFogEffect.h"
