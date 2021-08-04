@@ -13,7 +13,6 @@ SphericalRenderSystem::SphericalRenderSystem()
 
 	SubscribeToComponentType<SphericalTransformComponent>();
 	//SubscribeToComponentType<SphericalMeshComponent>();
-
 	SubscribeToComponentType<MeshComponent>();
 
 	m_isDrawing = true;
