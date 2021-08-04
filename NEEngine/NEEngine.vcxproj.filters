@@ -228,6 +228,9 @@
     <ClCompile Include="src\HyperbolicExpFogEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicMath.cpp">
+      <Filter>Исходные файлы\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
