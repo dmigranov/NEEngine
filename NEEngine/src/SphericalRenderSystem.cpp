@@ -47,7 +47,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 
 
 
-	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
+	//TODO: more optimal per-effect traverse (и вынести может куда-то сам перебор в олтдельынй класс?)
 	for (auto pEntity : m_entities)
 	{
 		if(pEntity->IsVisible())
