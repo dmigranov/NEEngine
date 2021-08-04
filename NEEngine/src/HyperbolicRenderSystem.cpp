@@ -36,5 +36,16 @@ void HyperbolicRenderSystem::Execute(double deltaTime)
 
 void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
-	
+	HyperbolicTransformComponent* pTransformComponent = pEntity->GetComponent<HyperbolicTransformComponent>();
+	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
+	auto pEffect = pMeshComponent->GetEffect();
+
+	if (!pEffect) //for debug: can be commented
+	{
+		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!" << std::endl;
+		pEntity->SetVisible(false);
+		return;
+	}
+
+	//TODO: draw indexed, but without instansing
 }
