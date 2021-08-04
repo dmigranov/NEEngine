@@ -31,6 +31,7 @@
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\ComponentTypeManager.cpp" />
     <ClCompile Include="src\EuclideanMeshComponentFactory.cpp" />
+    <ClCompile Include="src\HyperbolicCameraComponent.cpp" />
     <ClCompile Include="src\HyperbolicExpFogEffect.cpp" />
     <ClCompile Include="src\HyperbolicMath.cpp" />
     <ClCompile Include="src\HyperbolicRenderSystem.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="inc\Geometries\HyperbolicGeometry.h" />
     <ClInclude Include="inc\Geometries\SphericalEllipticGeometry.h" />
     <ClInclude Include="inc\Geometries\ToricGeometry.h" />
+    <ClInclude Include="inc\HyperbolicCameraComponent.h" />
     <ClInclude Include="inc\HyperbolicExpFogEffect.h" />
     <ClInclude Include="inc\HyperbolicRenderSystem.h" />
     <ClInclude Include="inc\HyperbolicTransformComponent.h" />
