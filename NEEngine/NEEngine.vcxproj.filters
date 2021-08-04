@@ -64,9 +64,6 @@
     <Filter Include="Исходные файлы\Math">
       <UniqueIdentifier>{af3b39ef-0bb4-46b0-b44f-53e0b9eb37e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Components\Transform">
-      <UniqueIdentifier>{d773e491-0a34-4cca-9d67-250f10e81b0a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Components\Mesh">
       <UniqueIdentifier>{0b3dd525-b848-42d7-825b-45952270d770}</UniqueIdentifier>
     </Filter>
@@ -90,6 +87,9 @@
     </Filter>
     <Filter Include="Файлы заголовков\Geometries">
       <UniqueIdentifier>{840cbfd8-0475-4c2b-8722-c3ee4f6558b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Components\Hyperbolic">
+      <UniqueIdentifier>{9ad1bb59-9105-487f-8adf-75c3af8601db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -231,11 +231,11 @@
     <ClCompile Include="src\HyperbolicMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
-    <ClCompile Include="src\HyperbolicRenderSystem.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\HyperbolicTransformComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HyperbolicRenderSystem.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +338,6 @@
     <ClInclude Include="inc\SphericalRenderSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TransformComponent.h">
-      <Filter>Файлы заголовков\Components\Transform</Filter>
-    </ClInclude>
     <ClInclude Include="inc\MeshComponent.h">
       <Filter>Файлы заголовков\Components\Mesh</Filter>
     </ClInclude>
@@ -387,10 +384,13 @@
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
     <ClInclude Include="inc\HyperbolicRenderSystem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
     <ClInclude Include="inc\HyperbolicTransformComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components\Hyperbolic</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TransformComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
