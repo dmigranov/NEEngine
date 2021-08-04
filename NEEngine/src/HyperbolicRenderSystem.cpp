@@ -60,8 +60,7 @@ void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevic
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
+	pEffect->UpdatePerObject(pEntity);
 
-	//TODO: draw indexed, but without instansing
-
-
+	pDeviceContext->DrawIndexed(pMeshComponent->GetIndicesCount(), 2, 0);
 }
