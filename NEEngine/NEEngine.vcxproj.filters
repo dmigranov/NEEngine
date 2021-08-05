@@ -237,8 +237,11 @@
     <ClCompile Include="src\HyperbolicRenderSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicMeshComponentFactory.cpp">
+      <Filter>Исходные файлы\Meshes\Factories</Filter>
+    </ClCompile>
     <ClCompile Include="src\HyperbolicCameraComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -395,8 +398,11 @@
     <ClInclude Include="inc\TransformComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
+    <ClInclude Include="inc\HyperbolicMeshComponentFactory.h">
+      <Filter>Файлы заголовков\Meshes\Factories</Filter>
+    </ClInclude>
     <ClInclude Include="inc\HyperbolicCameraComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components\Hyperbolic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
