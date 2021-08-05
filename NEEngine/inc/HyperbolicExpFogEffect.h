@@ -11,6 +11,11 @@ public:
 
     //todo: structs
 
+    struct PerApplicationPSConstantBuffer
+    {
+        DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
+    };
+
     HyperbolicExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
     
     virtual bool Initialize() override;
@@ -28,6 +33,9 @@ public:
     ~HyperbolicExpFogEffect();
 
 private:
+    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
+
+    Game& game;
 };
 
