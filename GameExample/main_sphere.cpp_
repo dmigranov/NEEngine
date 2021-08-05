@@ -23,7 +23,6 @@ int main(int argc, char* argv[])
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
-        componentTypeManager->RegisterComponentType<CameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию... 
 
