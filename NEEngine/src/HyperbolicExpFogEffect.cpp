@@ -3,6 +3,8 @@
 #include "Texture.h"
 #include "Scene.h"
 
+#include "HyperbolicMeshComponentFactory.h"	//для импорта структуры
+
 
 #include "Game.h"
 
@@ -21,6 +23,16 @@ HyperbolicExpFogEffect::HyperbolicExpFogEffect(Texture* pTexture, double fogDens
 bool HyperbolicExpFogEffect::Initialize()
 {
 	return false;
+}
+
+unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
+{
+	return sizeof(HyperbolicMeshComponentFactory::VertexData);
+}
+
+const std::type_info& HyperbolicExpFogEffect::GetVertexDataType()
+{
+	return typeid(HyperbolicMeshComponentFactory::VertexData);
 }
 
 void HyperbolicExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
