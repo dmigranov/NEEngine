@@ -8,6 +8,9 @@
 
 #include "Game.h"
 
+//#include "HypExpVertexShader.h"
+#include "PixelShader.h" // generated from BasicPixelShader.hlsl
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -22,6 +25,11 @@ HyperbolicExpFogEffect::HyperbolicExpFogEffect(Texture* pTexture, double fogDens
 
 bool HyperbolicExpFogEffect::Initialize()
 {
+	// shaders
+	// vertex shaders have to have the same signature
+	//g_d3dVertexShader = game.CreateVertexShaderFromBytecode(///////////); //todo
+	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
+
 	return false;
 }
 
