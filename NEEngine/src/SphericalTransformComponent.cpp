@@ -90,12 +90,11 @@ void SphericalTransformComponent::Recalculate()
 
 	m_shouldRecalcWorld = false;
 
-	std::cerr << "SphericalTransformComponent::Recalculate()" << std::endl;
+	//std::cerr << "SphericalTransformComponent::Recalculate()" << std::endl;
 }
 
 void SphericalTransformComponent::RecalculateView()
 {
-	//todo: вызывется на каждом кадре - некомильфо
 	m_view = m_world.Transpose();
 	m_shouldRecalcView = false;
 	
