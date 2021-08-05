@@ -72,7 +72,7 @@ Entity* Scene::GetCamera()
 	return m_pCamera;
 }
 
-/*			//Оставить для евклидова случая: там все единообразно...
+/*			//Оставить для евклидова случая (обычный, евклидов, движок): там все единообразно...
 DirectX::SimpleMath::Matrix Scene::GetProj()
 {
 	return m_proj;
