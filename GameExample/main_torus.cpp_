@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 //TODO: Correct toric rendering - movement!
-//For that purpose - ToricTransformComponent - все время держать координаты в нужных пределах
+//For that purpose - ToricTransformComponent - все время держать координаты в нужных пределах (fmod)
 
 #include "Geometries/ToricGeometry.h"
 #include "WalkComponent.h"

@@ -16,6 +16,4 @@ private:
     DirectX::SimpleMath::Matrix m_backProj;
     DirectX::SimpleMath::Matrix m_frontProj;
     DirectX::SimpleMath::Matrix m_ellProj;
-
 };
-
