@@ -51,7 +51,7 @@ bool SphericalExpFogEffect::Initialize()
 	g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_sphexpvs, sizeof(g_sphexpvs));
 
 
-	//буферы:
+	//buffers:
 	D3D11_BUFFER_DESC constantBufferDesc;
 	ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
