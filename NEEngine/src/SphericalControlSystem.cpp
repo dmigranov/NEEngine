@@ -36,7 +36,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
             m_yaw -= DirectX::XM_2PI;
         else if (m_yaw < -DirectX::XM_PI)
             m_yaw += DirectX::XM_2PI;
-        
+
         // OLD CODE BEGIN
         RYaw = SphericalRotationXZ(-m_yaw);
         RPitch = SphericalRotationYZ(-m_pitch);
@@ -56,10 +56,14 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     if (kbs.D)
         dx = movementSpeed * deltaTime;
 
-    Vector4 tempVector(dx, 0, dz, 0);
-    tempVector = Vector4::Transform(tempVector, RYaw);
+    if (dx != 0 || dz != 0)
+    {
+        Vector4 tempVector(dx, 0, dz, 0);
+        tempVector = Vector4::Transform(tempVector, RYaw);
 
-    pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
+        pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
+    }
+
 })
 { }
 
