@@ -13,10 +13,18 @@ public:
     {
         DirectX::XMMATRIX proj;
         double density = 0.1;
-        double pad;
+        //double pad;
     };
 
-    //todo: structs
+    struct PerFrameVSConstantBuffer
+    {
+        DirectX::XMMATRIX view;
+    };
+
+    struct PerObjectVSConstantBuffer
+    {
+        DirectX::XMMATRIX world;
+    };
 
     struct PerApplicationPSConstantBuffer
     {
