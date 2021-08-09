@@ -28,7 +28,10 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
-float4 main( float4 pos : POSITION ) : SV_POSITION
+//entry point
+VertexShaderOutput main(VertexShaderInput IN)
 {
-	return pos;
+	VertexShaderOutput OUT;
+
+	return OUT;
 }
