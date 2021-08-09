@@ -11,7 +11,7 @@
 
 #include "Game.h"
 
-//#include "HypExpVertexShader.h"
+#include "HypExpVertexShader.h"
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
 using namespace DirectX;
@@ -30,7 +30,7 @@ bool HyperbolicExpFogEffect::Initialize()
 {
 	// shaders
 	// vertex shaders have to have the same signature
-	//g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_hypexpvs, sizeof(g_hypexpvs)); //TODO: –¿—— ŒÃ≈Õ“»–Œ¬¿“‹
+	g_d3dVertexShader = game.CreateVertexShaderFromBytecode(g_hypexpvs, sizeof(g_hypexpvs)); 
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_ps, sizeof(g_ps));
 
 	//input assembly:
@@ -40,7 +40,7 @@ bool HyperbolicExpFogEffect::Initialize()
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 	//Once an input-layout object is created from a shader signature, the input-layout object can be reused with any other shader that has an identical input signature (semantics included). 
-	//g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_hypexpvs, sizeof(g_hypexpvs)); //TODO: –¿—— ŒÃ≈Õ“»–Œ¬¿“‹
+	g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_hypexpvs, sizeof(g_hypexpvs)); 
 
 	//buffers:
 	D3D11_BUFFER_DESC constantBufferDesc;
