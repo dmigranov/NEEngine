@@ -48,7 +48,6 @@ VertexShaderOutput main(VertexShaderInput IN)
 	VertexShaderOutput OUT;
 
 	//float3 cameraPosition = float3(viewMatrix[0][3], viewMatrix[1][3], viewMatrix[2][3]);
-	//todo: перенести вычисление умных позиций в шейдере и избавится от дин буферов
 
 	matrix viewWorld;
 
