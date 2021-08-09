@@ -91,6 +91,9 @@
     <Filter Include="Файлы заголовков\Components\Hyperbolic">
       <UniqueIdentifier>{9ad1bb59-9105-487f-8adf-75c3af8601db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\Shaders\Hyperbolic">
+      <UniqueIdentifier>{70e5c9ce-d2bc-45b7-9a89-11948757e1de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
@@ -432,6 +435,9 @@
     </FxCompile>
     <FxCompile Include="Data\Shaders\VertexToricExpFogShader.hlsl">
       <Filter>Data\Shaders\Toric</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexHyperbolicExpFogShader.hlsl">
+      <Filter>Data\Shaders\Hyperbolic</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
