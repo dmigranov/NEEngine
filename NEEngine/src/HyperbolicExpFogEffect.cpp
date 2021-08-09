@@ -5,6 +5,9 @@
 
 #include "HyperbolicMeshComponentFactory.h"	//для импорта структуры
 
+#include "HyperbolicTransformComponent.h"
+#include "HyperbolicCameraComponent.h"
+#include "Entity.h"
 
 #include "Game.h"
 
@@ -78,6 +81,13 @@ void HyperbolicExpFogEffect::Deinitialize()
 
 	SafeRelease(g_d3dVertexShader);
 	SafeRelease(g_d3dPixelShader);
+}
+
+void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
+{
+	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<HyperbolicCameraComponent>();
+	perApplicationVSConstantBuffer.proj = pSphCameraComponent->GetProj();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 }
 
 unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
