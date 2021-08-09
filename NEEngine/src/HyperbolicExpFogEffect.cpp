@@ -107,6 +107,17 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	perApplicationVSConstantBuffer.proj = pSphCameraComponent->GetProj();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
+	const auto& view = game.GetScene()->GetCamera()->GetComponent<HyperbolicTransformComponent>()->GetView();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
+
+	HyperbolicTransformComponent* pTransformComponent = pEntity->GetComponent<HyperbolicTransformComponent>();
+	const auto& world = pTransformComponent->GetWorld();
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
+
+	//TODO: update the three subresourses sim-ly (by sending an array)
+
+	//input assembly stage
+	game.IASetInputLayout(g_d3dInputLayout);
 
 }
 
