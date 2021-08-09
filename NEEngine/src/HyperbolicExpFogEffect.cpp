@@ -43,8 +43,29 @@ bool HyperbolicExpFogEffect::Initialize()
 	//g_d3dInputLayout = game.CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_hypexpvs, sizeof(g_hypexpvs)); //TODO: ÐÀÑÑÊÎÌÅÍÒÈÐÎÂÀÒÜ
 
 	//buffers:
-	//todo
+	D3D11_BUFFER_DESC constantBufferDesc;
+	ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
+	constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+	constantBufferDesc.CPUAccessFlags = 0;
+	constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	//we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
+	//TODO: ìîæåò, ëó÷øå ñäåëàòü Dynamic, âåäü íåêîòîðûå ÷àñòî îáíîâëÿþòñÿ?!! ÏÎÄÓÌÀÒÜ
+
+	constantBufferDesc.ByteWidth = sizeof(PerObjectVSConstantBuffer);
+	g_d3dVSConstantBuffers[CB_Object] = game.CreateBuffer(constantBufferDesc);
+
+	constantBufferDesc.ByteWidth = sizeof(PerFrameVSConstantBuffer);
+	g_d3dVSConstantBuffers[CB_Frame] = game.CreateBuffer(constantBufferDesc);
+
+	constantBufferDesc.ByteWidth = sizeof(PerApplicationVSConstantBuffer);
+	g_d3dVSConstantBuffers[CB_Application] = game.CreateBuffer(constantBufferDesc);
+
+
+	constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBuffer);
+	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
+
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	//sampler (for texture)
 	D3D11_SAMPLER_DESC samplerDesc;
@@ -88,6 +109,8 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<HyperbolicCameraComponent>();
 	perApplicationVSConstantBuffer.proj = pSphCameraComponent->GetProj();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
+
+
 }
 
 unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
