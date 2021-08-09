@@ -21,7 +21,7 @@
 #include "MeshComponent.h"
 #include "HyperbolicTransformComponent.h"
 #include "HyperbolicCameraComponent.h"
-//#include "HyperbolicMeshComponentFactory.h"
+#include "HyperbolicMeshComponentFactory.h"
 
 // Systems
 

@@ -114,7 +114,7 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
-	//TODO: update the three subresourses sim-ly (by sending an array)
+	//TODO: update the three subresourses simultaneously (by providing an array)
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -131,6 +131,16 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 		game.PSSetShaderResources(1, &shaderResource);
 	}
 	game.PSSetConstantBuffers(1, &g_d3dPSConstantBuffer);
+}
+
+void HyperbolicExpFogEffect::UpdatePerScene()
+{
+	//todo
+}
+
+void HyperbolicExpFogEffect::UpdatePerApplication()
+{
+	//todo
 }
 
 unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
