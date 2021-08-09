@@ -119,6 +119,18 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
 
+	//vertex shader stage
+	game.VSSetShader(g_d3dVertexShader);
+
+	//pixel shader stage
+	game.PSSetSampler(g_d3dSamplerState);
+	game.PSSetShader(g_d3dPixelShader);
+	if (m_pTexture != nullptr)
+	{     //Pixel Shader Stafe - unique 4 every stage
+		auto shaderResource = m_pTexture->GetTexture();
+		game.PSSetShaderResources(1, &shaderResource);
+	}
+	game.PSSetConstantBuffers(1, &g_d3dPSConstantBuffer);
 }
 
 unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
