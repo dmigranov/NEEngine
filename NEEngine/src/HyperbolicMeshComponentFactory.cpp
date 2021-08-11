@@ -82,5 +82,11 @@ MeshComponent* HyperbolicMeshComponentFactory::CreateHyperbolicSphere(double rad
         triCount++;
     }
 
-    return nullptr;
+    auto g_Vertices = &vertices[0];
+    auto verticesCount = vertices.size();
+
+    auto g_Indices = &indices[0];
+    auto indicesCount = indices.size();
+
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);
 }
