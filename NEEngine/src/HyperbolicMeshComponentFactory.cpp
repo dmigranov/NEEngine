@@ -17,5 +17,8 @@ MeshComponent* HyperbolicMeshComponentFactory::CreateHyperbolicSphere(double rad
 	std::vector<VertexData> vertices;
 	std::vector<WORD> indices;
 
+	double height = sqrt(1.f - (radius * radius)); //x^2 + y^2 + z^2 -w^2 = 1; x^2 + y^2 + z^2 = r^2
+	//нам нужна только положительная (работаем с w > 0)
+
     return nullptr;
 }
