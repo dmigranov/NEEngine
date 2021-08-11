@@ -1,8 +1,8 @@
 #pragma once
 
-DirectX::SimpleMath::Matrix HyperbolicRotationZW(float d);
-DirectX::SimpleMath::Matrix HyperbolicRotationXW(float d);
-DirectX::SimpleMath::Matrix HyperbolicRotationYW(float d);
-DirectX::SimpleMath::Matrix HyperbolicRotationYZ(float d);
-DirectX::SimpleMath::Matrix HyperbolicRotationXZ(float d);
-DirectX::SimpleMath::Matrix HyperbolicRotationXY(float d);
+DirectX::SimpleMath::Matrix HyperbolicTranslationZW(double d);
+DirectX::SimpleMath::Matrix HyperbolicTranslationXW(double d);
+DirectX::SimpleMath::Matrix HyperbolicTranslationYW(double d);
+DirectX::SimpleMath::Matrix HyperbolicRotationYZ(double d);
+DirectX::SimpleMath::Matrix HyperbolicRotationXZ(double d);
+DirectX::SimpleMath::Matrix HyperbolicRotationXY(double d);
