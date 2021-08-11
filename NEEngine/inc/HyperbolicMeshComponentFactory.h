@@ -11,5 +11,7 @@ public:
         //DirectX::XMFLOAT4 Tangent; //нужно ли?
         DirectX::XMFLOAT2 TexCoord;
     };
+
+    static MeshComponent* CreateHyperbolicSphere(double radius, int sliceCount, int stackCount);
 };
 
