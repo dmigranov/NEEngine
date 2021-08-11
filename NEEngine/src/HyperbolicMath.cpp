@@ -5,6 +5,14 @@ using namespace DirectX::SimpleMath;
 using namespace DirectX;
 
 
+DirectX::SimpleMath::Matrix HyperbolicTranslationZW(float d)
+{
+	return Matrix(	1.f, 0.f, 0.f, 0.f,
+					0.f, 1.f, 0.f, 0.f,
+					0.f, 0.f, coshf(d), sinhf(d),
+					0.f, 0.f, sinhf(d), coshf(d));
+}
+
 DirectX::SimpleMath::Matrix HyperbolicTranslationXW(float d)
 {
 	return Matrix(	coshf(d), 0.f, 0.f, coshf(d),
@@ -12,6 +20,15 @@ DirectX::SimpleMath::Matrix HyperbolicTranslationXW(float d)
 					0.f, 0.f, 1.f, 0.f,
 					sinhf(d), 0.f, 0.f, coshf(d));
 }
+
+DirectX::SimpleMath::Matrix HyperbolicTranslationYW(float d)
+{
+	return Matrix(	1.f, 0.f, 0.f, 0.f,
+					0.f, coshf(d), 0.f, sinhf(d),
+					0.f, 0.f, 1.f, 0.f,
+					0.f, sinhf(d), 0.f, coshf(d));
+}
+
 
 DirectX::SimpleMath::Matrix HyperbolicRotationYZ(float d)
 {
