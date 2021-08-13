@@ -3,7 +3,6 @@
 class SphericalTransformComponent :
     public TransformComponent
 { 
-    //todo
 public:
     SphericalTransformComponent();
     SphericalTransformComponent(double x, double y, double z);
