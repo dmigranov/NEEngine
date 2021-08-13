@@ -71,3 +71,31 @@ void HyperbolicTransformComponent::SetPitchYawRoll(double pitch, double yaw, dou
 	m_shouldRecalcView = true;
 }
 
+void HyperbolicTransformComponent::Recalculate()
+{
+	RYaw = HyperbolicRotationXZ(-m_yaw);
+	RPitch = HyperbolicRotationYZ(-m_pitch);
+	RRoll = HyperbolicRotationXY(-m_roll);
+	R = RPitch * RYaw * RRoll; //todo: order? 
+	m_world = R * T;
+
+	if (nullptr != m_pParent)
+	{
+		oldParentMatrix = m_pParent->GetWorld();
+		m_world = m_world * oldParentMatrix;
+	}
+
+	m_position = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
+
+	m_shouldRecalcWorld = false;
+
+	//std::cerr << "HyperbolicTransformComponent::Recalculate()" << std::endl;
+}
+
+void HyperbolicTransformComponent::RecalculateView()
+{
+	m_view = m_world.Transpose();
+	m_shouldRecalcView = false;
+
+	//std::cerr << "HyperbolicTransformComponent::RecalculateView()" << std::endl;
+}
