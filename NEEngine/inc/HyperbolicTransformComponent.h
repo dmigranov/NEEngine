@@ -16,6 +16,10 @@ public:
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
 
+protected:
+    virtual void Recalculate() override;
+    virtual void RecalculateView() override;
+
 private:
     double m_yaw = 0., m_pitch = 0., m_roll = 0.;
 

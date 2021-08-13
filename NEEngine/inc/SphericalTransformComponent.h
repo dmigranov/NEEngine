@@ -16,11 +16,11 @@ public:
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
 
+    void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
+protected:
     virtual void Recalculate() override;
     virtual void RecalculateView() override;
-
-    void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
 private:
     double m_yaw = 0., m_pitch = 0., m_roll = 0.;

@@ -39,3 +39,14 @@ void HyperbolicTransformComponent::Move(double dx, double dy, double dz) //абсол
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
 }
+
+void HyperbolicTransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
+{
+	m_yaw = yaw;
+	m_roll = roll;
+	m_pitch = pitch;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
