@@ -40,6 +40,27 @@ void HyperbolicTransformComponent::Move(double dx, double dy, double dz) //абсол
 	m_shouldRecalcView = true;
 }
 
+void HyperbolicTransformComponent::Rotate(DirectX::SimpleMath::Vector3 r)
+{
+	this->Rotate(r.x, r.y, r.z);
+}
+
+void HyperbolicTransformComponent::Rotate(double deltaPitch, double deltaYaw, double deltaRoll)
+{
+	m_pitch += deltaPitch;
+	m_yaw += deltaYaw;
+	m_roll += deltaRoll;
+
+	// keep longitude in sane range by wrapping
+	if (m_yaw > DirectX::XM_PI)
+		m_yaw -= DirectX::XM_2PI;
+	else if (m_yaw < -DirectX::XM_PI)
+		m_yaw += DirectX::XM_2PI;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
 void HyperbolicTransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
 {
 	m_yaw = yaw;
