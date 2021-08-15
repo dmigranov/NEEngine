@@ -121,6 +121,7 @@ void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	//vertex shader stage
 	game.VSSetShader(g_d3dVertexShader);
+	game.VSSetConstantBuffers(3, g_d3dVSConstantBuffers);
 
 	//pixel shader stage
 	game.PSSetSampler(g_d3dSamplerState);
