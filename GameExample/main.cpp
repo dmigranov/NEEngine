@@ -61,32 +61,21 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
+    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 20, 20);
     smc->SetEffect(effect);
 
-    auto tc1 = new SphericalTransformComponent(-1, 0, 0);
-    auto tc2 = new SphericalTransformComponent(1, 0, 0);
+    auto tc1 = new HyperbolicTransformComponent(-1, 0, 0);
+    auto tc2 = new HyperbolicTransformComponent(1, 0, 0);
 
-    entity1->AddComponent<SphericalTransformComponent>(tc1);
+    entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
     entity1->AddComponent<WalkComponent>(charWalkComponent);
     entity1->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(entity1);
 
-    entity2->AddComponent<SphericalTransformComponent>(tc2);
+    entity2->AddComponent<HyperbolicTransformComponent>(tc2);
     entity2->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity2);
-
-    scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect](Entity* pEntity, double deltaTime) {
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-
-            if (kbs.D1)
-                effect->SetMode(true);
-            else if (kbs.D2)
-                effect->SetMode(false);
-        }));
 
     return game.StartGame();
 }
