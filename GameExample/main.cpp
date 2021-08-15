@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new HyperbolicRenderSystem());
-    //scene->AddSystem(new HyperbolicControlSystem(0.3, 1.3));
+    scene->AddSystem(new HyperbolicControlSystem(0.3, 1.3));
     scene->AddSystem(new ActionSystem<InputComponent, HyperbolicTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
             auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
@@ -49,17 +49,6 @@ int main(int argc, char* argv[])
             Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
             Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
             Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
-
-
-            if (kbs.W)
-                pTransform->Move(fwd);
-            if (kbs.S)
-                pTransform->Move(-fwd);
-
-            if (kbs.A)
-                pTransform->Move(-right);
-            if (kbs.D)
-                pTransform->Move(right);
 
             if (kbs.R)
                 pTransform->Move(up);

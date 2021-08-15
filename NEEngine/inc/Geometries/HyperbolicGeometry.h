@@ -26,7 +26,7 @@
 // Systems
 
 #include "HyperbolicRenderSystem.h"
-//#include "HyperbolicControlSystem.h"
+#include "HyperbolicControlSystem.h"
 
 // Effects
 
