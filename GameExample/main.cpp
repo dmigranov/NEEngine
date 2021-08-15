@@ -76,23 +76,26 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto entity1 = new Entity(), entity2 = new Entity();
+    auto entity1 = new Entity(), entity2 = new Entity(), entity3 = new Entity();
 
     auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 10, 10);
     smc->SetEffect(effect);
 
-    auto tc1 = new HyperbolicTransformComponent(0, 0, 2);
+    auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
     auto tc2 = new HyperbolicTransformComponent(1, 0, 0);
+    auto tc3 = new HyperbolicTransformComponent(2, 0, 0);
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
-    entity1->AddComponent<InputComponent>(new InputComponent());
-    entity1->AddComponent<WalkComponent>(new WalkComponent(3, 4));
     scene->AddEntity(entity1);
 
     entity2->AddComponent<HyperbolicTransformComponent>(tc2);
     entity2->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity2);
+
+    entity3->AddComponent<HyperbolicTransformComponent>(tc3);
+    entity3->AddComponent<MeshComponent>(smc);
+    scene->AddEntity(entity3);
 
     return game.StartGame();
 }

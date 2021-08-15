@@ -58,7 +58,7 @@ HyperbolicControlSystem::HyperbolicControlSystem(double movementSpeed, double ro
 
     if (dx != 0 || dz != 0)
     {
-        Vector4 tempVector(dx, 0, dz, 0);
+        Vector4 tempVector(-dx, 0, -dz, 0);
         tempVector = Vector4::Transform(tempVector, RYaw);
 
         pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
