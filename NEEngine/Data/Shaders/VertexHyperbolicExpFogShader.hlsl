@@ -37,8 +37,7 @@ VertexShaderOutput main(VertexShaderInput IN)
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	//todo: distance...
 
-	//OUT.position = mul(projectionMatrix, cameraSpacePosition);
-	OUT.position = mul(viewMatrix, IN.position);
+	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
 	OUT.fogFactor = 1;
 	//todo: fogFactor
