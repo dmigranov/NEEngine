@@ -1,10 +1,9 @@
 #pragma once
 #include "ActionSystem.h"
 
-#include "Entity.h"
-#include "InputComponent.h"
-#include "HyperbolicTransformComponent.h"
-#include "HyperbolicCameraComponent.h"
+class InputComponent;
+class HyperbolicTransformComponent;
+class HyperbolicCameraComponent;
 
 class HyperbolicControlSystem :
     public ActionSystem<InputComponent, HyperbolicTransformComponent, HyperbolicCameraComponent>

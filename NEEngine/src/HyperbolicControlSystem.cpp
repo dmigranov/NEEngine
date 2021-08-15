@@ -1,6 +1,13 @@
 #include "pch.h"
 #include "HyperbolicControlSystem.h"
 
+#include "Entity.h"
+#include "InputComponent.h"
+#include "HyperbolicTransformComponent.h"
+#include "HyperbolicCameraComponent.h"
+
+#include "HyperbolicMath.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -29,6 +36,12 @@ HyperbolicControlSystem::HyperbolicControlSystem(double movementSpeed, double ro
             m_yaw -= DirectX::XM_2PI;
         else if (m_yaw < -DirectX::XM_PI)
             m_yaw += DirectX::XM_2PI;
+
+        // OLD CODE BEGIN
+        RYaw = HyperbolicRotationXZ(-m_yaw);
+        RPitch = HyperbolicRotationYZ(-m_pitch);
+        R = RPitch * RYaw;
+        // OLD CODE END
 
         pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
     }
