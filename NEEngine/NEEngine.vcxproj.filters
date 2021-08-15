@@ -246,6 +246,9 @@
     <ClCompile Include="src\HyperbolicCameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicControlSystem.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -406,6 +409,9 @@
     </ClInclude>
     <ClInclude Include="inc\HyperbolicCameraComponent.h">
       <Filter>Файлы заголовков\Components\Hyperbolic</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\HyperbolicControlSystem.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
