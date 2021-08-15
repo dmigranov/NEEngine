@@ -93,8 +93,6 @@ int main(int argc, char* argv[])
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
-    //entity1->AddComponent<WalkComponent>(charWalkComponent);
-    //entity1->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(entity1);
 
     entity2->AddComponent<HyperbolicTransformComponent>(tc2);

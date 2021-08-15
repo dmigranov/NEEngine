@@ -15,7 +15,7 @@ DirectX::SimpleMath::Matrix HyperbolicTranslationZW(float d)
 
 DirectX::SimpleMath::Matrix HyperbolicTranslationXW(float d)
 {
-	return Matrix(	coshf(d), 0.f, 0.f, coshf(d),
+	return Matrix(	coshf(d), 0.f, 0.f, sinhf(d),
 					0.f, 1.f, 0.f, 0.f,
 					0.f, 0.f, 1.f, 0.f,
 					sinhf(d), 0.f, 0.f, coshf(d));
