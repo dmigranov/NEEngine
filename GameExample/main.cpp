@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Geometries/SphericalEllipticGeometry.h"
+#include "Geometries/HyperbolicGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
 
@@ -21,8 +21,8 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
-        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
-        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
+        componentTypeManager->RegisterComponentType<HyperbolicTransformComponent>();
+        componentTypeManager->RegisterComponentType<HyperbolicCameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию... 
 
@@ -34,11 +34,11 @@ int main(int argc, char* argv[])
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
 
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new SphericalRenderSystem());
-    scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
-    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
+    scene->AddSystem(new HyperbolicRenderSystem());
+    //scene->AddSystem(new HyperbolicControlSystem(0.3, 1.3));
+    scene->AddSystem(new ActionSystem<InputComponent, HyperbolicTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+            auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
