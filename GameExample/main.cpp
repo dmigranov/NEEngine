@@ -3,6 +3,7 @@
 #include "Geometries/HyperbolicGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
+#include "ActionSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -38,43 +39,21 @@ int main(int argc, char* argv[])
     //scene->AddSystem(new HyperbolicControlSystem(0.3, 1.3));
     scene->AddSystem(new ActionSystem<InputComponent, HyperbolicTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-            auto pWalk = pEntity->GetComponent<WalkComponent>();
-
-
-            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
-            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
-
-
-            if (kbs.R)
-                pTransform->Move(up);
-            if (kbs.F)
-                pTransform->Move(-up);
-
-            if (kbs.T)
-                pTransform->Rotate(deltaTime, 0, 0);
-            if (kbs.G)
-                pTransform->Rotate(0, deltaTime, 0);
-            if (kbs.B)
-                pTransform->Rotate(0, 0, deltaTime);
+            //todo
         }));
 
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new SphericalTransformComponent();
-    auto cameraComponent = new SphericalCameraComponent();
-    cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
-    cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
+    auto cameraTransform = new HyperbolicTransformComponent();
+    auto cameraComponent = new HyperbolicCameraComponent();
+    cameraEntity->AddComponent<HyperbolicTransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<HyperbolicCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
