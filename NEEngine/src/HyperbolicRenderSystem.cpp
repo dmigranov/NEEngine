@@ -62,5 +62,5 @@ void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevic
 
 	pEffect->UpdatePerObject(pEntity);
 
-	pDeviceContext->DrawIndexed(pMeshComponent->GetIndicesCount(), 2, 0);
+	pDeviceContext->DrawIndexed(pMeshComponent->GetIndicesCount(), 0, 0);
 }
