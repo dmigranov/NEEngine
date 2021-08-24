@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.5, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
