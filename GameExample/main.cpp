@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity(), entity3 = new Entity();
 
-    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 10, 10);
+    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 20, 20);
     smc->SetEffect(effect);
 
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
