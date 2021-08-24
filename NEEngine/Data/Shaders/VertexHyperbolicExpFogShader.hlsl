@@ -28,6 +28,11 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
+float asinh(float z)
+{
+	return log(z + sqrt(z*z + 1));
+}
+
 //entry point
 VertexShaderOutput main(VertexShaderInput IN)
 {
@@ -35,7 +40,8 @@ VertexShaderOutput main(VertexShaderInput IN)
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
-	//todo: distance...
+	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
+	float distance = 2 * asinh(chordLength / 2.);
 
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
