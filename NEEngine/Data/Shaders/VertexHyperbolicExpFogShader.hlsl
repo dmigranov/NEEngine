@@ -41,6 +41,8 @@ VertexShaderOutput main(VertexShaderInput IN)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
+	//float chordLength = sqrt(cameraSpacePosition.x * cameraSpacePosition.x + cameraSpacePosition.y * cameraSpacePosition.y + cameraSpacePosition.z * cameraSpacePosition.z - (cameraSpacePosition.w - 1) * (cameraSpacePosition.w - 1));
+
 	float distance = 2 * asinh(chordLength / 2.);
 
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
