@@ -41,10 +41,11 @@ VertexShaderOutput main(VertexShaderInput IN)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	//float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
-	float chordLength = sqrt(cameraSpacePosition.x * cameraSpacePosition.x + cameraSpacePosition.y * cameraSpacePosition.y + cameraSpacePosition.z * cameraSpacePosition.z - (cameraSpacePosition.w - 1) * (cameraSpacePosition.w - 1));
-	//float chordLength = //тетрадка
+	//float chordLength = sqrt(cameraSpacePosition.x * cameraSpacePosition.x + cameraSpacePosition.y * cameraSpacePosition.y + cameraSpacePosition.z * cameraSpacePosition.z - (cameraSpacePosition.w - 1) * (cameraSpacePosition.w - 1));
+	float chordLength = 2 * sqrt(cameraSpacePosition.x * cameraSpacePosition.x + cameraSpacePosition.y * cameraSpacePosition.y + cameraSpacePosition.z * cameraSpacePosition.z);
 
-	float distance = 2 * asinh(chordLength / 2.);
+	//float distance = 2 * asinh(chordLength / 2.); 
+	float distance = asinh(chordLength / 2.); //according to the theory,  but coefficients don't really matter much - speed
 
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
