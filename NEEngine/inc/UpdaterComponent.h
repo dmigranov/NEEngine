@@ -4,8 +4,9 @@ class UpdaterComponent :
     public Component
 {
 public:
-    UpdaterComponent(std::function<void(float delta)> func);
+    UpdaterComponent(std::function<void(double delta)> func);
+    void operator()(double delta);
 private:
-    std::function<void(float delta)> m_func;
+    std::function<void(double delta)> m_func;
 };
 

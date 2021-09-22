@@ -7,3 +7,8 @@ UpdaterSystem::UpdaterSystem() : System()
 {
 	SubscribeToComponentType<UpdaterComponent>();
 }
+
+void UpdaterSystem::Execute(double deltaTime)
+{
+
+}
