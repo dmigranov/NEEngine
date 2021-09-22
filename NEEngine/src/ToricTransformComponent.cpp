@@ -4,6 +4,10 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+double ToricTransformComponent::m_torX = 0;
+double ToricTransformComponent::m_torY = 0;
+double ToricTransformComponent::m_torZ = 0;
+
 ToricTransformComponent::ToricTransformComponent() : TransformComponent()
 { }
 
