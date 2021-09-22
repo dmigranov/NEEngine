@@ -144,7 +144,7 @@ void ToricRenderSystem::NormalizeTransformComponent(TransformComponent* pTransfo
 
 	while (z > m_torZ)
 		dz -= m_torZ;
-	while (y < 0)
+	while (z < 0)
 		dz += m_torZ;
 
 	pTransformComponent->Move(dx, dy, dz);
