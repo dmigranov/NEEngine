@@ -127,4 +127,14 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 
 void ToricRenderSystem::NormalizeTransformComponent(TransformComponent* pTransformComponent)
 {
+	auto pos = pTransformComponent->GetPosition();
+
+	double dx = 0, dy = 0, dz = 0;
+
+	while (pos.x > m_torX)
+		;
+	while (pos.x < 0)
+		;
+
+	pTransformComponent->Move(dx, dy, dz);
 }
