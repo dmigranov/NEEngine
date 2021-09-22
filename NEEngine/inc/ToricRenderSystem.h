@@ -1,5 +1,8 @@
 #pragma once
 #include "System.h"
+
+class TransformComponent;
+
 class ToricRenderSystem :
     public System
 {
