@@ -68,19 +68,19 @@ void ToricTransformComponent::Normalize()
 	double dx = 0, dy = 0, dz = 0;
 
 	while (x > m_torX)
-		dx -= m_torX;
+		x -= m_torX;
 	while (x < 0)
-		dx += m_torX;
+		x += m_torX;
 
 	while (y > m_torY)
-		dy -= m_torY;
+		y -= m_torY;
 	while (y < 0)
-		dy += m_torY;
+		y += m_torY;
 
 	while (z > m_torZ)
-		dz -= m_torZ;
+		z -= m_torZ;
 	while (z < 0)
-		dz += m_torZ;
+		z += m_torZ;
 
-	m_position += Vector3(dx, dy, dz);
+	m_position += Vector3(x - pos.x, y - pos.y, z - pos.z);
 }
