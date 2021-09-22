@@ -34,7 +34,9 @@ void TransformComponent::Move(Vector3 v)
 
 void TransformComponent::Move(double x, double y, double z)
 {
-	this->Move(Vector3(x, y, z));
+	m_positionLocal += Vector3(x, y, z);
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
 }
 
 void TransformComponent::Rotate(Vector3 r)

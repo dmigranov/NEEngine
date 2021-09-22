@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
     auto effect = new ToricExpFogEffect(cubemapTexture, 0.01, DirectX::Colors::PowderBlue);
 
 
-    auto charWalkComponent = new WalkComponent(3, 4);
+    auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
     auto testEntity = new Entity();
