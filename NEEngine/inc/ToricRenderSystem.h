@@ -21,5 +21,7 @@ private:
     unsigned int m_instanceCount, m_instanceCountPerDimension;
 
     ID3D11Buffer* m_d3dInstanceBuffer = nullptr;
+
+    void NormalizeTransformComponent(TransformComponent* pTransformComponent);
 };
 
