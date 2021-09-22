@@ -4,6 +4,9 @@
 #include "WalkComponent.h"
 #include "InputSystem.h"
 
+#include "UpdaterSystem.h"
+#include "UpdaterComponent.h"
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
