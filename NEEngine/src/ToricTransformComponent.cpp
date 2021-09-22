@@ -24,6 +24,7 @@ ToricTransformComponent::ToricTransformComponent(DirectX::SimpleMath::Vector3 po
 { }
 
 
+/*
 void ToricTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
 	TransformComponent::Move(v);
@@ -34,6 +35,19 @@ void ToricTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 void ToricTransformComponent::Move(double x, double y, double z)
 {
 	this->Move(Vector3(x, y, z));
+}
+*/
+
+void ToricTransformComponent::Recalculate()
+{
+	TransformComponent::Recalculate();
+	Normalize();
+}
+
+void ToricTransformComponent::RecalculateView()
+{
+	TransformComponent::RecalculateView();
+	Normalize();
 }
 
 void ToricTransformComponent::SetTorusDimensions(double tX, double tY, double tZ)
@@ -48,7 +62,7 @@ void ToricTransformComponent::Normalize()
 	if (m_pParent != nullptr)
 		return; //todo
 
-	auto pos = GetPosition();
+	auto pos = m_position;
 
 	float x = pos.x, y = pos.y, z = pos.z;
 	double dx = 0, dy = 0, dz = 0;
@@ -68,5 +82,5 @@ void ToricTransformComponent::Normalize()
 	while (z < 0)
 		dz += m_torZ;
 
-	TransformComponent::Move(Vector3(dx, dy, dz));
+	m_position += Vector3(dx, dy, dz);
 }

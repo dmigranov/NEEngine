@@ -18,6 +18,7 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	m_torX = torX;
 	m_torY = torY;
 	m_torZ = torZ;
+	ToricTransformComponent::SetTorusDimensions(torX, torY, torZ);
 
 	m_instanceCountPerDimension = (2 * m_replicationCount + 1);
 	m_instanceCount = m_instanceCountPerDimension * m_instanceCountPerDimension * m_instanceCountPerDimension;
