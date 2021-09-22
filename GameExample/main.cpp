@@ -82,27 +82,31 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
-    auto testEntity = new Entity();
+    auto entity1 = new Entity();
     auto ttc1 = new ToricTransformComponent();
-
-    auto smc = EuclideanMeshComponentFactory::CreateCube(3);
-    smc->SetEffect(effect);
-    testEntity->AddComponent<ToricTransformComponent>(ttc1);
-    testEntity->AddComponent<MeshComponent>(smc);
-    testEntity->AddComponent<WalkComponent>(charWalkComponent);
-    testEntity->AddComponent<InputComponent>(charInputComponent);
-    scene->AddEntity(testEntity);
-
-
-    auto child = new Entity();
-    auto ttc2 = new ToricTransformComponent(3, 0, 0);
-    ttc2->SetParent(ttc1);
-    auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
-    tmc2->SetEffect(effect);
-    child->AddComponent<ToricTransformComponent>(ttc2);
-    child->AddComponent<MeshComponent>(tmc2);
+    {
+        auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
+        tmc1->SetEffect(effect);
+        entity1->AddComponent<ToricTransformComponent>(ttc1);
+        entity1->AddComponent<MeshComponent>(tmc1);
+        entity1->AddComponent<WalkComponent>(charWalkComponent);
+        entity1->AddComponent<InputComponent>(charInputComponent);
+        scene->AddEntity(entity1);
+    }
     
-    scene->AddEntity(child);
+
+    {
+        auto childEntity = new Entity();
+        auto ttc2 = new ToricTransformComponent(3, 0, 0);
+        ttc2->SetParent(ttc1);
+        auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
+        tmc2->SetEffect(effect);
+        childEntity->AddComponent<ToricTransformComponent>(ttc2);
+        childEntity->AddComponent<MeshComponent>(tmc2);
+        scene->AddEntity(childEntity);
+
+
+    }
 
     return game.StartGame();
 }
