@@ -54,6 +54,7 @@
     <ClCompile Include="src\ToricRenderSystem.cpp" />
     <ClCompile Include="src\ToricTransformComponent.cpp" />
     <ClCompile Include="src\UpdaterComponent.cpp" />
+    <ClCompile Include="src\UpdaterSystem.cpp" />
     <ClCompile Include="src\WalkComponent.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="inc\TransformComponent.h" />
     <ClInclude Include="inc\TransformUpdateSystem.h" />
     <ClInclude Include="inc\UpdaterComponent.h" />
+    <ClInclude Include="inc\UpdaterSystem.h" />
     <ClInclude Include="inc\WalkComponent.h" />
   </ItemGroup>
   <ItemGroup>
