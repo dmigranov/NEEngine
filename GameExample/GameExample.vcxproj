@@ -75,7 +75,7 @@
     <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
     <LibraryPath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\x64\Release;..\NEEngine\bin64;$(LibraryPath)</LibraryPath>
     <OutDir>bin64\</OutDir>
-    <TargetName>DXSphEll</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -96,7 +96,7 @@
     <IncludePath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\include;..\NEEngine\inc;$(IncludePath)</IncludePath>
     <LibraryPath>..\NEEngine\packages\directxtk_desktop_2017.2020.9.30.1\native\lib\Win32\Release;..\NEEngine\bin;$(LibraryPath)</LibraryPath>
     <OutDir>bin</OutDir>
-    <TargetName>DXSphEll</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

@@ -31,9 +31,6 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
 
-    Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
-    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
-    Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
