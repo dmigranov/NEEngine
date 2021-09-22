@@ -93,7 +93,6 @@ void ToricRenderSystem::Execute(double deltaTime)
 void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
 	TransformComponent* pTransformComponent = pEntity->GetComponent<TransformComponent>();
-	NormalizeTransformComponent(pTransformComponent);
 
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
@@ -123,29 +122,4 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	pEffect->UpdatePerObject(pEntity);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), m_instanceCount, 0, 0, 0);
-}
-
-void ToricRenderSystem::NormalizeTransformComponent(TransformComponent* pTransformComponent)
-{
-	auto pos = pTransformComponent->GetPosition();
-
-	float x = pos.x, y = pos.y, z = pos.z;
-	double dx = 0, dy = 0, dz = 0;
-
-	while (x > m_torX)
-		dx -= m_torX;
-	while (x < 0)
-		dx += m_torX;
-
-	while (y > m_torY)
-		dy -= m_torY;
-	while (y < 0)
-		dy += m_torY;
-
-	while (z > m_torZ)
-		dz -= m_torZ;
-	while (z < 0)
-		dz += m_torZ;
-
-	pTransformComponent->Move(dx, dy, dz);
 }
