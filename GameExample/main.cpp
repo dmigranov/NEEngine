@@ -83,16 +83,26 @@ int main(int argc, char* argv[])
     auto charInputComponent = new InputComponent();
 
     auto testEntity = new Entity();
-    auto stc = new ToricTransformComponent();
+    auto ttc1 = new ToricTransformComponent();
 
     auto smc = EuclideanMeshComponentFactory::CreateCube(3);
     smc->SetEffect(effect);
-    testEntity->AddComponent<ToricTransformComponent>(stc);
+    testEntity->AddComponent<ToricTransformComponent>(ttc1);
     testEntity->AddComponent<MeshComponent>(smc);
     testEntity->AddComponent<WalkComponent>(charWalkComponent);
     testEntity->AddComponent<InputComponent>(charInputComponent);
     scene->AddEntity(testEntity);
 
+
+    auto child = new Entity();
+    auto ttc2 = new ToricTransformComponent(3, 0, 0);
+    ttc2->SetParent(ttc1);
+    auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
+    tmc2->SetEffect(effect);
+    child->AddComponent<ToricTransformComponent>(ttc2);
+    child->AddComponent<MeshComponent>(tmc2);
+    
+    scene->AddEntity(child);
 
     return game.StartGame();
 }
