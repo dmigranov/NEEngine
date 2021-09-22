@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new CameraActionSystem());
+    scene->AddSystem(new ToricControlSystem(10., 0.9));
     scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
     scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {

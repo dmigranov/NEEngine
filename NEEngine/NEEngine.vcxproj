@@ -49,6 +49,7 @@
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\SphericalTransformComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />
+    <ClCompile Include="src\ToricControlSystem.cpp" />
     <ClCompile Include="src\ToricExpFogEffect.cpp" />
     <ClCompile Include="src\ToricRenderSystem.cpp" />
     <ClCompile Include="src\ToricTransformComponent.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\Timer.h" />
+    <ClInclude Include="inc\ToricControlSystem.h" />
     <ClInclude Include="inc\ToricExpFogEffect.h" />
     <ClInclude Include="inc\ToricRenderSystem.h" />
     <ClInclude Include="inc\ToricTransformComponent.h" />
