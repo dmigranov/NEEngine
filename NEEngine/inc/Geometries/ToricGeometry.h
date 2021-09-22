@@ -15,7 +15,7 @@
 #include "ComponentTypeManager.h"
 
 #include "MeshComponent.h"
-#include "TransformComponent.h"
+#include "ToricTransformComponent.h"
 #include "EuclideanMeshComponentFactory.h"
 
 // Systems

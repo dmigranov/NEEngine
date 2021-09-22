@@ -1,8 +1,5 @@
 ﻿#pragma once
 
-//TODO: Correct toric rendering - movement!
-//For that purpose - ToricTransformComponent - все время держать координаты в нужных пределах (fmod)
-
 #include "Geometries/ToricGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
@@ -18,12 +15,13 @@ int main(int argc, char* argv[])
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
 
+    //todo: вынести в функцию в заголовке пространства
     {
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
-
+        componentTypeManager->RegisterComponentType<ToricTransformComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
@@ -36,9 +34,9 @@ int main(int argc, char* argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new CameraActionSystem());
     scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
-    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>(
+    scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<TransformComponent>();
+            auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
@@ -69,9 +67,9 @@ int main(int argc, char* argv[])
         }));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new TransformComponent();
+    auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
-    cameraEntity->AddComponent<TransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
@@ -85,11 +83,11 @@ int main(int argc, char* argv[])
     auto charInputComponent = new InputComponent();
 
     auto testEntity = new Entity();
-    auto stc = new TransformComponent();
+    auto stc = new ToricTransformComponent();
 
     auto smc = EuclideanMeshComponentFactory::CreateCube(3);
     smc->SetEffect(effect);
-    testEntity->AddComponent<TransformComponent>(stc);
+    testEntity->AddComponent<ToricTransformComponent>(stc);
     testEntity->AddComponent<MeshComponent>(smc);
     testEntity->AddComponent<WalkComponent>(charWalkComponent);
     testEntity->AddComponent<InputComponent>(charInputComponent);
