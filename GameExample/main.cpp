@@ -1,9 +1,11 @@
 ﻿#pragma once
 
-#include "Geometries/HyperbolicGeometry.h"
+//TODO: Correct toric rendering - movement!
+//For that purpose - ToricTransformComponent - все время держать координаты в нужных пределах (fmod)
+
+#include "Geometries/ToricGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
-#include "ActionSystem.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -22,10 +24,9 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
 
-        componentTypeManager->RegisterComponentType<HyperbolicTransformComponent>();
-        componentTypeManager->RegisterComponentType<HyperbolicCameraComponent>();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
 
-        //transfcomp и meshcom зарегистр по умолчанию... 
+        //transfcomp и meshcom зарегистр по умолчанию...
 
         componentTypeManager->SetTypeAdditionEnded();
     }
@@ -33,13 +34,14 @@ int main(int argc, char* argv[])
     Texture* brickTexture = resourceManager->CreateTexture(L"brick.dds");
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* characterTexture = resourceManager->CreateTexture(L"char2.dds");
+    Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new HyperbolicRenderSystem());
-    scene->AddSystem(new HyperbolicControlSystem(0.3, 1.3));
-    scene->AddSystem(new ActionSystem<InputComponent, HyperbolicTransformComponent, WalkComponent>(
+    scene->AddSystem(new CameraActionSystem());
+    scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
+    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
+            auto pTransform = pEntity->GetComponent<TransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
@@ -55,52 +57,47 @@ int main(int argc, char* argv[])
             if (kbs.F)
                 pTransform->Move(-up);
 
+            if (kbs.T)
+                pTransform->Rotate(deltaTime, 0, 0);
+            if (kbs.Y)
+                pTransform->Rotate(-deltaTime, 0, 0);
+            if (kbs.G)
+                pTransform->Rotate(0, deltaTime, 0);
+            if (kbs.H)
+                pTransform->Rotate(0, -deltaTime, 0);
+            if (kbs.B)
+                pTransform->Rotate(0, 0, deltaTime);
+            if (kbs.N)
+                pTransform->Rotate(0, 0, -deltaTime);
         }));
 
-
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new HyperbolicTransformComponent();
-    auto cameraComponent = new HyperbolicCameraComponent();
-    cameraEntity->AddComponent<HyperbolicTransformComponent>(cameraTransform);
-    cameraEntity->AddComponent<HyperbolicCameraComponent>(cameraComponent);
+    auto cameraTransform = new TransformComponent();
+    auto cameraComponent = new CameraComponent();
+    cameraEntity->AddComponent<TransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
-    //cameraEntity->AddComponent<WalkComponent>(new WalkComponent(3, 4));
-
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.5, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.02, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto entity1 = new Entity(), entity2 = new Entity(), entity3 = new Entity(), entity4 = new Entity();
+    auto testEntity = new Entity();
+    auto stc = new TransformComponent();
 
-    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 20, 20);
+    auto smc = EuclideanMeshComponentFactory::CreateCube(3);
     smc->SetEffect(effect);
+    testEntity->AddComponent<TransformComponent>(stc);
+    testEntity->AddComponent<MeshComponent>(smc);
+    testEntity->AddComponent<WalkComponent>(charWalkComponent);
+    testEntity->AddComponent<InputComponent>(charInputComponent);
+    scene->AddEntity(testEntity);
 
-    auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
-    auto tc2 = new HyperbolicTransformComponent(0.7, 0, 0);
-    auto tc3 = new HyperbolicTransformComponent(1.4, 0, 0);
-    auto tc4 = new HyperbolicTransformComponent(2.1, 0, 0);
-
-    entity1->AddComponent<HyperbolicTransformComponent>(tc1);
-    entity1->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity1);
-
-    entity2->AddComponent<HyperbolicTransformComponent>(tc2);
-    entity2->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity2);
-
-    entity3->AddComponent<HyperbolicTransformComponent>(tc3);
-    entity3->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity3);
-
-    entity4->AddComponent<HyperbolicTransformComponent>(tc4);
-    entity4->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity4);
 
     return game.StartGame();
 }
