@@ -16,7 +16,10 @@ public:
     virtual void Recalculate() override;
     virtual void RecalculateView() override;
 
+    static void SetTorusDimensions(double tX, double tY, double tZ);
 private:
     void Normalize();
+
+    static double torX, torY, torZ;
 };
 

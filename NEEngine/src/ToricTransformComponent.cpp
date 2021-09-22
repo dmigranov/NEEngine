@@ -43,6 +43,13 @@ void ToricTransformComponent::RecalculateView()
 	TransformComponent::RecalculateView();
 }
 
+void ToricTransformComponent::SetTorusDimensions(double tX, double tY, double tZ)
+{
+	torX = tX;
+	torY = tY;
+	torZ = tZ;
+}
+
 void ToricTransformComponent::Normalize()
 {
 }
