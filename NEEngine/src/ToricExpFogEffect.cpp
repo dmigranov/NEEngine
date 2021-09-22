@@ -6,8 +6,8 @@
 
 #include "EuclideanMeshComponentFactory.h"	//для импорта структуры
 
-#include "SphericalTransformComponent.h"
-#include "SphericalCameraComponent.h"
+#include "ToricTransformComponent.h"
+#include "CameraComponent.h"
 #include "Entity.h"
 
 #include "Game.h"
@@ -113,10 +113,10 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	perApplicationVSConstantBuffer.proj = pCameraComponent->GetProj();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
-	const auto& view = (game.GetScene())->GetCamera()->GetComponent<TransformComponent>()->GetView();
+	const auto& view = (game.GetScene())->GetCamera()->GetComponent<ToricTransformComponent>()->GetView();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Frame], &view);
 
-	auto pTransformComponent = pEntity->GetComponent<TransformComponent>();
+	auto pTransformComponent = pEntity->GetComponent<ToricTransformComponent>();
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
