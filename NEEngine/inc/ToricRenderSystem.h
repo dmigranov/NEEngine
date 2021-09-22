@@ -15,6 +15,8 @@ public:
 private:
     void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext);
 
+    void NormalizeTransformComponent(TransformComponent* pTransformComponent);
+
     int m_replicationCount;
     double m_torX, m_torY, m_torZ;
 
@@ -22,6 +24,5 @@ private:
 
     ID3D11Buffer* m_d3dInstanceBuffer = nullptr;
 
-    void NormalizeTransformComponent(TransformComponent* pTransformComponent);
 };
 

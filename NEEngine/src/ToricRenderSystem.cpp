@@ -93,6 +93,8 @@ void ToricRenderSystem::Execute(double deltaTime)
 void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
 	TransformComponent* pTransformComponent = pEntity->GetComponent<TransformComponent>();
+	NormalizeTransformComponent(pTransformComponent);
+
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
 
@@ -121,4 +123,8 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	pEffect->UpdatePerObject(pEntity);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), m_instanceCount, 0, 0, 0);
+}
+
+void ToricRenderSystem::NormalizeTransformComponent(TransformComponent* pTransformComponent)
+{
 }
