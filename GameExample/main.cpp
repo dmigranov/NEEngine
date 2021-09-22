@@ -56,6 +56,7 @@ int main(int argc, char* argv[])
             if (kbs.F)
                 pTransform->Move(-up);
 
+            /*
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
             if (kbs.Y)
@@ -68,6 +69,7 @@ int main(int argc, char* argv[])
                 pTransform->Rotate(0, 0, deltaTime);
             if (kbs.N)
                 pTransform->Rotate(0, 0, -deltaTime);
+            */
         }));
 
     Entity* cameraEntity = new Entity("camera1");
@@ -110,8 +112,12 @@ int main(int argc, char* argv[])
         scene->AddEntity(childEntity);
 
         childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta) {
-            ttc2
-            ttc2->Rotate(0, delta, 0);
+            auto pos = ttc2->GetPosition();
+
+            //todo: combined rotations
+            ttc2->Move(pos);
+            ttc2->Rotate(0, 3 * delta, 0);
+            ttc2->Move(-Vector3::Transform(pos, Matrix::CreateRotationY(delta)));
             }));
     }
 
