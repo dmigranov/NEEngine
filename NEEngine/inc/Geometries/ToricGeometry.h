@@ -26,3 +26,5 @@
 
 // Effects
 #include "ToricExpFogEffect.h"
+
+//todo: вынести в функцию в заголовке пространства для RegisterComponentType всего нужного!

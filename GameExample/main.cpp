@@ -15,7 +15,6 @@ int main(int argc, char* argv[])
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
 
-    //todo: вынести в функцию в заголовке пространства
     {
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
