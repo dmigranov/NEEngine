@@ -4,6 +4,7 @@ cbuffer PerApplication : register(b0)
 {
 	matrix projectionMatrix;
 	double density;
+	double pad;
 }
 
 cbuffer PerFrame : register(b1)
