@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<WalkComponent>();
         componentTypeManager->RegisterComponentType<ToricTransformComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<UpdaterComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
 
@@ -34,6 +35,7 @@ int main(int argc, char* argv[])
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
+    scene->AddSystem(new UpdaterSystem());
     scene->AddSystem(new ToricControlSystem(10., 0.9));
     scene->AddSystem(new ToricRenderSystem(8, 30, 30, 30));
     scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
@@ -107,7 +109,10 @@ int main(int argc, char* argv[])
         childEntity->AddComponent<MeshComponent>(tmc2);
         scene->AddEntity(childEntity);
 
-
+        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta) {
+            ttc2
+            ttc2->Rotate(0, delta, 0);
+            }));
     }
 
     return game.StartGame();

@@ -3,6 +3,7 @@
 class UpdaterComponent :
     public Component
 {
+    //todo: продумать дизайн (может, просто передавать саму энтити?)
 public:
     UpdaterComponent(std::function<void(double delta)> func);
     void operator()(double delta);
