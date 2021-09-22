@@ -1,11 +1,11 @@
 ﻿#pragma once
 
-//TODO: Correct toric rendering - movement!
-//For that purpose - ToricTransformComponent - все время держать координаты в нужных пределах (fmod)
-
 #include "Geometries/ToricGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
+
+#include "UpdaterSystem.h"
+#include "UpdaterComponent.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -23,8 +23,9 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
         componentTypeManager->RegisterComponentType<WalkComponent>();
-
+        componentTypeManager->RegisterComponentType<ToricTransformComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<UpdaterComponent>();
 
         //transfcomp и meshcom зарегистр по умолчанию...
 
@@ -34,11 +35,12 @@ int main(int argc, char* argv[])
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new CameraActionSystem());
-    scene->AddSystem(new ToricRenderSystem(5, 30, 30, 30));
-    scene->AddSystem(new ActionSystem<InputComponent, TransformComponent, WalkComponent>(
+    scene->AddSystem(new UpdaterSystem());
+    scene->AddSystem(new ToricControlSystem(10., 0.9));
+    scene->AddSystem(new ToricRenderSystem(8, 30, 30, 30));
+    scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<TransformComponent>();
+            auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
@@ -54,6 +56,7 @@ int main(int argc, char* argv[])
             if (kbs.F)
                 pTransform->Move(-up);
 
+            /*
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
             if (kbs.Y)
@@ -66,35 +69,57 @@ int main(int argc, char* argv[])
                 pTransform->Rotate(0, 0, deltaTime);
             if (kbs.N)
                 pTransform->Rotate(0, 0, -deltaTime);
+            */
         }));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new TransformComponent();
+    auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
-    cameraEntity->AddComponent<TransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.02, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.015, DirectX::Colors::PowderBlue);
 
 
-    auto charWalkComponent = new WalkComponent(3, 4);
+    auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
-    auto testEntity = new Entity();
-    auto stc = new TransformComponent();
+    auto entity1 = new Entity();
+    auto ttc1 = new ToricTransformComponent();
+    {
+        auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
+        tmc1->SetEffect(effect);
+        entity1->AddComponent<ToricTransformComponent>(ttc1);
+        entity1->AddComponent<MeshComponent>(tmc1);
+        entity1->AddComponent<WalkComponent>(charWalkComponent);
+        entity1->AddComponent<InputComponent>(charInputComponent);
+        scene->AddEntity(entity1);
+    }
+    
 
-    auto smc = EuclideanMeshComponentFactory::CreateCube(3);
-    smc->SetEffect(effect);
-    testEntity->AddComponent<TransformComponent>(stc);
-    testEntity->AddComponent<MeshComponent>(smc);
-    testEntity->AddComponent<WalkComponent>(charWalkComponent);
-    testEntity->AddComponent<InputComponent>(charInputComponent);
-    scene->AddEntity(testEntity);
+    {
+        auto childEntity = new Entity();
+        auto ttc2 = new ToricTransformComponent(3, 0, 0);
+        ttc2->SetParent(ttc1);
+        auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
+        tmc2->SetEffect(effect);
+        childEntity->AddComponent<ToricTransformComponent>(ttc2);
+        childEntity->AddComponent<MeshComponent>(tmc2);
+        scene->AddEntity(childEntity);
 
+        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta) {
+            auto pos = ttc2->GetPosition();
+
+            //todo: combined rotations
+            ttc2->Move(pos);
+            ttc2->Rotate(0, 3 * delta, 0);
+            ttc2->Move(-Vector3::Transform(pos, Matrix::CreateRotationY(delta)));
+            }));
+    }
 
     return game.StartGame();
 }
