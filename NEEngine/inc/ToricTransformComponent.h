@@ -20,6 +20,6 @@ public:
 private:
     void Normalize();
 
-    static double torX, torY, torZ;
+    static double m_torX, m_torY, m_torZ;
 };
 

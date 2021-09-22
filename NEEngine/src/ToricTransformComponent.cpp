@@ -45,14 +45,14 @@ void ToricTransformComponent::RecalculateView()
 
 void ToricTransformComponent::SetTorusDimensions(double tX, double tY, double tZ)
 {
-	torX = tX;
-	torY = tY;
-	torZ = tZ;
+	m_torX = tX;
+	m_torY = tY;
+	m_torZ = tZ;
 }
 
 void ToricTransformComponent::Normalize()
 {
-	auto pos = pTransformComponent->GetPosition();
+	auto pos = this->GetPosition();
 
 	float x = pos.x, y = pos.y, z = pos.z;
 	double dx = 0, dy = 0, dz = 0;
@@ -72,5 +72,5 @@ void ToricTransformComponent::Normalize()
 	while (z < 0)
 		dz += m_torZ;
 
-	pTransformComponent->Move(dx, dy, dz);
+	this->Move(dx, dy, dz);
 }
