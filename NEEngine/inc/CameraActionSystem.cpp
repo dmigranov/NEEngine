@@ -8,7 +8,7 @@
 
 using namespace DirectX::SimpleMath;
 
-CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, double deltaTime)  {
+CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, double deltaTime) {
 
     auto pTransform = pEntity->GetComponent<TransformComponent>(); //GetTransform
     auto pInput = pEntity->GetComponent<InputComponent>();
@@ -23,6 +23,12 @@ CameraActionSystem::CameraActionSystem() : ActionSystem([](Entity* pEntity, doub
 
     Vector3 fwd = pTransform->GetForward() * deltaTime * 10;
     Vector3 right = pTransform->GetRight() * deltaTime * 10;
+
+    if (kbs.LeftShift || kbs.RightShift)
+    {
+        fwd *= 5;
+        right *= 5;
+    }
 
     if (kbs.W)
         pTransform->Move(fwd);
