@@ -246,17 +246,17 @@
     <ClCompile Include="src\HyperbolicCameraComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\HyperbolicControlSystem.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="src\UpdaterComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\ToricTransformComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
     <ClCompile Include="src\ToricControlSystem.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="src\UpdaterComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="src\HyperbolicControlSystem.cpp">
+      <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
