@@ -19,6 +19,7 @@ ToricTransformComponent::ToricTransformComponent(double x, double y, double z, d
 ToricTransformComponent::ToricTransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale) : TransformComponent(position, rotation, scale)
 { }
 
+/*
 void ToricTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 {
 	TransformComponent::Move(v);
@@ -28,7 +29,20 @@ void ToricTransformComponent::Move(double x, double y, double z)
 {
 	this->Move(Vector3(x, y, z));
 }
+*/
 
-void ToricTransformComponent::NormalizeTransformComponent()
+void ToricTransformComponent::Recalculate()
+{
+	Normalize();
+	TransformComponent::Recalculate();
+}
+
+void ToricTransformComponent::RecalculateView()
+{
+	Normalize();
+	TransformComponent::RecalculateView();
+}
+
+void ToricTransformComponent::Normalize()
 {
 }

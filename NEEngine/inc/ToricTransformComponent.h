@@ -13,10 +13,10 @@ public:
     //virtual void Move(DirectX::SimpleMath::Vector3 v) override;
     //virtual void Move(double x, double y, double z) override;
 
-    virtual void Recalculate();
-    virtual void RecalculateView();
+    virtual void Recalculate() override;
+    virtual void RecalculateView() override;
 
 private:
-    void NormalizeTransformComponent();
+    void Normalize();
 };
 
