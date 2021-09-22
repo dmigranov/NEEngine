@@ -3,5 +3,14 @@
 class ToricTransformComponent :
     public TransformComponent
 {
+public:
+    ToricTransformComponent();
+    ToricTransformComponent(double x, double y, double z);
+    ToricTransformComponent(DirectX::SimpleMath::Vector3 position);
+    ToricTransformComponent(double x, double y, double z, double rx, double ry, double rz, double sx = 1, double sy = 1, double sz = 1);
+    ToricTransformComponent(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);
+
+
+
 };
 
