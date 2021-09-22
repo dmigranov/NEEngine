@@ -419,17 +419,17 @@
     <ClInclude Include="inc\HyperbolicCameraComponent.h">
       <Filter>Файлы заголовков\Components\Hyperbolic</Filter>
     </ClInclude>
-    <ClInclude Include="inc\HyperbolicControlSystem.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="inc\UpdaterComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\ToricTransformComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\ToricControlSystem.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\UpdaterComponent.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="inc\HyperbolicControlSystem.h">
+      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
