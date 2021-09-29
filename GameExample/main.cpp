@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
         childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta) {
             auto pos = ttc2->GetPosition();
 
-            ttc2->RotateGlobal(0, 5 * delta, 0);
+            ttc2->RotateGlobal(0, 2 * delta, 0);
             }));
     }
 
