@@ -51,6 +51,18 @@ void TransformComponent::Rotate(double rx, double ry, double rz)
 	this->Rotate(Vector3(rx, ry, rz));
 }
 
+void TransformComponent::RotateGlobal(DirectX::SimpleMath::Vector3 r)
+{
+	m_rotationGlobal += r;
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
+void TransformComponent::RotateGlobal(double rx, double ry, double rz)
+{
+	this->RotateGlobal(Vector3(rx, ry, rz));
+}
+
 void TransformComponent::SetPitchYawRoll(double pitch, double yaw, double roll)
 {
 	m_rotation = Vector3(pitch, yaw, roll);
@@ -123,6 +135,11 @@ void TransformComponent::Recalculate()
 	Matrix matScale = Matrix::CreateScale(m_scale);
 
 	m_world = matScale * matRotLocal * matTransLocal;
+
+	//
+	Matrix matRotGlobal = Matrix::CreateRotationX(m_rotationGlobal.x) * Matrix::CreateRotationY(m_rotationGlobal.y) * Matrix::CreateRotationZ(m_rotationGlobal.z);
+	m_world = m_world * matRotGlobal;
+	//
 
 	if (nullptr != m_pParent)
 	{

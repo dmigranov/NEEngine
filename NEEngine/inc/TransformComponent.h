@@ -13,6 +13,8 @@ public:
     virtual void Move(double x, double y, double z);
     virtual void Rotate(DirectX::SimpleMath::Vector3 r);
     virtual void Rotate(double rx, double ry, double rz);
+    virtual void RotateGlobal(DirectX::SimpleMath::Vector3 r);
+    virtual void RotateGlobal(double rx, double ry, double rz);
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll);
 
     void SetParent(TransformComponent* pParent);
@@ -35,6 +37,7 @@ protected:
     DirectX::SimpleMath::Matrix m_world;
     DirectX::SimpleMath::Vector3 m_positionLocal;
     DirectX::SimpleMath::Vector3 m_rotation;
+    DirectX::SimpleMath::Vector3 m_rotationGlobal;
     DirectX::SimpleMath::Vector3 m_scale;
     DirectX::SimpleMath::Vector3 m_position;
 
