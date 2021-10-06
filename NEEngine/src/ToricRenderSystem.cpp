@@ -56,6 +56,8 @@ void ToricRenderSystem::Execute(double deltaTime)
 	auto Z_replicationCount = m_torZ > 0 ? m_replicationCount : 0;
 
 	auto X_instanceCountPerDimension = m_torX > 0 ? m_instanceCountPerDimension : 1;
+	auto Y_instanceCountPerDimension = m_torY > 0 ? m_instanceCountPerDimension : 1;
+	auto Z_instanceCountPerDimension = m_torZ > 0 ? m_instanceCountPerDimension : 1;
 
 	auto instances = new InstanceType[m_instanceCount];
 	for (int Xi = -X_replicationCount; Xi <= X_replicationCount; Xi++)
@@ -68,9 +70,9 @@ void ToricRenderSystem::Execute(double deltaTime)
 			{
 				double z = Zi * m_torZ;
 
-				instances[(Zi + Z_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
-					(Yi + Y_replicationCount) * m_instanceCountPerDimension +
-					(Xi + X_replicationCount)].position = Vector3(x, y, z); 
+				instances[(Zi + Z_replicationCount) * X_instanceCountPerDimension * Y_instanceCountPerDimension +
+					(Yi + Y_replicationCount) * X_instanceCountPerDimension +
+					(Xi + X_replicationCount)].position = Vector3(x, y, z);
 			}
 		}
 	}
