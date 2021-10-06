@@ -28,3 +28,8 @@
 #include "ToricExpFogEffect.h"
 
 //todo: вынести в функцию в заголовке пространства для RegisterComponentType всего нужного!
+
+Scene * InitializeToricGeometry(const wchar_t * windowName, bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
+{
+
+}
