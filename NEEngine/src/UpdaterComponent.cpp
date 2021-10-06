@@ -2,12 +2,12 @@
 #include "UpdaterComponent.h"
 
 
-UpdaterComponent::UpdaterComponent(std::function<void(double delta, TransformComponent* pTransform)> func)
+UpdaterComponent::UpdaterComponent(std::function<void(double delta, Entity* pEntity)> func)
 {
 	m_func = func;
 }
 
-void UpdaterComponent::operator()(double delta, TransformComponent* pTransform)
+void UpdaterComponent::operator()(double delta, Entity* pEntity)
 {
-	m_func(delta, pTransform);
+	m_func(delta, pEntity);
 }

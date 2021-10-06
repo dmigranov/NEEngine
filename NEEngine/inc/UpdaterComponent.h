@@ -6,11 +6,10 @@ class TransformComponent;
 class UpdaterComponent :
     public Component
 {
-    //todo: ещё продумать дизайн (может, тоже на шаблонах сделать?)
 public:
-    UpdaterComponent(std::function<void(double delta, TransformComponent * pTransform)> func);
-    void operator()(double delta, TransformComponent* pTransform);
+    UpdaterComponent(std::function<void(double delta, Entity * pEntity)> func);
+    void operator()(double delta, Entity* pEntity);
 private:
-    std::function<void(double delta, TransformComponent* transform)> m_func;
+    std::function<void(double delta, Entity* pEntity)> m_func;
 };
 
