@@ -13,20 +13,22 @@
 // Components
 
 #include "ComponentTypeManager.h"
-
+#include "UpdaterComponent.h"
 #include "MeshComponent.h"
+
 #include "CameraComponent.h"
 #include "ToricTransformComponent.h"
-#include "InputSystem.h"
-#include "UpdaterComponent.h"
-
 #include "EuclideanMeshComponentFactory.h"
 
 // Systems
-#include "ToricRenderSystem.h"
-#include "ToricControlSystem.h"
 #include "UpdaterSystem.h"
 #include "ActionSystem.h"
+#include "InputSystem.h"
+
+#include "ToricRenderSystem.h"
+#include "ToricControlSystem.h"
+
+
 
 // Effects
 #include "ToricExpFogEffect.h"
