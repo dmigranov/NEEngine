@@ -21,7 +21,15 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	ToricTransformComponent::SetTorusDimensions(torX, torY, torZ);
 
 	m_instanceCountPerDimension = (2 * m_replicationCount + 1);
-	m_instanceCount = m_instanceCountPerDimension * m_instanceCountPerDimension * m_instanceCountPerDimension;
+	//m_instanceCount = m_instanceCountPerDimension * m_instanceCountPerDimension * m_instanceCountPerDimension;
+
+	m_instanceCount = 1;
+	if (m_torX != 0)
+		m_instanceCount *= m_instanceCountPerDimension;
+	if (m_torY != 0)
+		m_instanceCount *= m_instanceCountPerDimension;
+	if (m_torZ != 0)
+		m_instanceCount *= m_instanceCountPerDimension;
 
 	m_isDrawing = true;
 }
