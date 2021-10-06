@@ -15,6 +15,7 @@ void UpdaterSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		UpdaterComponent* pUpdater = pEntity->GetComponent<UpdaterComponent>();
-		(*pUpdater)(deltaTime);
+		TransformComponent* pTransform = pEntity->GetComponent<TransformComponent>();
+		(*pUpdater)(deltaTime, pTransform);
 	}
 }
