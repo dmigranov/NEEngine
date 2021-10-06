@@ -76,6 +76,7 @@ void ToricRenderSystem::Execute(double deltaTime)
 			}
 		}
 	}
+
 	D3D11_BUFFER_DESC instanceBufferDesc;
 	ZeroMemory(&instanceBufferDesc, sizeof(D3D11_BUFFER_DESC));
 	D3D11_SUBRESOURCE_DATA instanceData;
@@ -96,10 +97,10 @@ void ToricRenderSystem::Execute(double deltaTime)
 
 	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData);
 
-	delete[] instances; //можно удалить - см. документацию CreateBuffer
+	delete[] instances; //can be safely deleted - accorirding to the CreateBuffer specification
 	instances = nullptr;
 
-	//todo: более оптимальный перебор по эффектам (и вынести может куда-то сам перебор в олтдельынй класс?)
+	//TODO: more optimal effect-wise traversal (and maybe create some dedicated claas for this traversal?)
 	for (auto pEntity : m_entities)
 	{
 		if (pEntity->IsVisible())
@@ -114,7 +115,7 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	auto pEffect = pMeshComponent->GetEffect();
 
-	if (!pEffect) //для отладки содержимое можно закомментировать
+	if (!pEffect) //can be commented for debug purposes
 	{
 		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't be rendered further!" << std::endl;
 		pEntity->SetVisible(false);
