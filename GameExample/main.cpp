@@ -8,38 +8,12 @@ using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
-    /*Game& game = Game::GetInstance();
-    game.InitializeEngine(L"Test game", true, false, false);
-    game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
-    Scene* scene = game.GetScene();
-    auto resourceManager = game.GetResourceManager();
-
-    {
-        auto componentTypeManager = game.GetComponentTypeManager();
-        componentTypeManager->RegisterComponentType<CameraComponent>();
-        componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
-        componentTypeManager->RegisterComponentType<ToricTransformComponent>();
-        componentTypeManager->RegisterComponentType<CameraComponent>();
-        componentTypeManager->RegisterComponentType<UpdaterComponent>();
-
-        //transfcomp и meshcom зарегистр по умолчанию...
-
-        componentTypeManager->SetTypeAdditionEnded();
-    }
-    */
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue, 
         8, DirectX::SimpleMath::Vector3(30, 30, 30), 10, 0.9,
         true, false, false);
+
     auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
-
-    /*
-    scene->AddSystem(new InputSystem());
-    scene->AddSystem(new UpdaterSystem());
-    scene->AddSystem(new ToricControlSystem(10., 0.9));
-    scene->AddSystem(new ToricRenderSystem(8, 30, 30, 30));
-    */
 
     scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
@@ -48,7 +22,6 @@ int main(int argc, char* argv[])
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
             auto pWalk = pEntity->GetComponent<WalkComponent>();
-
 
             Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
             Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
@@ -59,7 +32,6 @@ int main(int argc, char* argv[])
             if (kbs.F)
                 pTransform->Move(-up);
 
-            
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
             if (kbs.Y)
@@ -85,9 +57,7 @@ int main(int argc, char* argv[])
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
-
     auto effect = new ToricExpFogEffect(cubemapTexture, 0.015, DirectX::Colors::PowderBlue);
-
 
     auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
@@ -95,7 +65,6 @@ int main(int argc, char* argv[])
     auto entity1 = new Entity();
     auto ttc1 = new ToricTransformComponent();
     {
-        //auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
         auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
         tmc1->SetEffect(effect);
         entity1->AddComponent<ToricTransformComponent>(ttc1);
