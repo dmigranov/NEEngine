@@ -27,13 +27,18 @@
 #include "ToricRenderSystem.h"
 #include "ToricControlSystem.h"
 #include "UpdaterSystem.h"
+#include "ActionSystem.h"
 
 // Effects
 #include "ToricExpFogEffect.h"
 
-//todo: вынести в функцию в заголовке пространства дл€ RegisterComponentType всего нужного!
 
-Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32 color, bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
+
+//TODO: может, вместе dimensions - специальный класс, определ€ющий геометрию пространства?
+
+Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32 color, 
+                                double movementSpeed, double rotationSpeed, unsigned int replicationCount, DirectX::SimpleMath::Vector3 dimensions,
+                                bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
 {
     Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
@@ -52,6 +57,11 @@ Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32
         //meshcomp registered by default
         componentTypeManager->SetTypeAdditionEnded();
     }
+
+    scene->AddSystem(new InputSystem());
+    scene->AddSystem(new UpdaterSystem());
+    scene->AddSystem(new ToricControlSystem(movementSpeed, rotationSpeed));
+    scene->AddSystem(new ToricRenderSystem(replicationCount, dimensions.x, dimensions.y, dimensions.z));
 
     return scene;
 }
