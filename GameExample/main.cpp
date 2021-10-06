@@ -84,9 +84,7 @@ int main(int argc, char* argv[])
         childEntity->AddComponent<MeshComponent>(tmc2);
         scene->AddEntity(childEntity);
 
-        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta) {
-            auto pos = ttc2->GetPosition();
-
+        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([ttc2](double delta, TransformComponent * pTransform) {
             ttc2->RotateGlobal(0, 2 * delta, 0);
             }));
     }

@@ -3,6 +3,7 @@
 
 #include "Entity.h"
 #include "UpdaterComponent.h"
+#include "TransformComponent.h"
 
 UpdaterSystem::UpdaterSystem() : System()
 {
