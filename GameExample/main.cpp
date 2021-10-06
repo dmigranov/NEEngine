@@ -2,7 +2,6 @@
 
 #include "Geometries/ToricGeometry.h"
 
-
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 

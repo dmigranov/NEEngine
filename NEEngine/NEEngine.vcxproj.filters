@@ -437,6 +437,9 @@
     <ClInclude Include="inc\UpdaterSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Common.h">
+      <Filter>Файлы заголовков\Geometries</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">

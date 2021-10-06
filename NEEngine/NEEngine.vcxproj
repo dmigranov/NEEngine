@@ -87,6 +87,7 @@
     <ClInclude Include="inc\BitmapRenderSystem.h" />
     <ClInclude Include="inc\CameraActionSystem.h" />
     <ClInclude Include="inc\CameraComponent.h" />
+    <ClInclude Include="inc\Common.h" />
     <ClInclude Include="inc\Component.h" />
     <ClInclude Include="inc\ComponentTypeManager.h" />
     <ClInclude Include="inc\Drawer2D.h" />
