@@ -51,20 +51,26 @@ void ToricRenderSystem::Execute(double deltaTime)
 	//снизу - вообще все инстансы одинаковые в рамках кадра
 	//но может сделать зависимыми от камеры? или оптимизировать?
 
+	auto X_replicationCount = m_torX > 0 ? m_replicationCount : 0;
+	auto Y_replicationCount = m_torY > 0 ? m_replicationCount : 0;
+	auto Z_replicationCount = m_torZ > 0 ? m_replicationCount : 0;
+
+	auto X_instanceCountPerDimension = m_torX > 0 ? m_instanceCountPerDimension : 1;
+
 	auto instances = new InstanceType[m_instanceCount];
-	for (int Xi = -m_replicationCount; Xi <= m_replicationCount; Xi++)
+	for (int Xi = -X_replicationCount; Xi <= X_replicationCount; Xi++)
 	{
 		double x = Xi * m_torX;
-		for (int Yi = -m_replicationCount; Yi <= m_replicationCount; Yi++)
+		for (int Yi = -Y_replicationCount; Yi <= Y_replicationCount; Yi++)
 		{
 			double y = Yi * m_torY;
-			for (int Zi = -m_replicationCount; Zi <= m_replicationCount; Zi++)
+			for (int Zi = -Z_replicationCount; Zi <= Z_replicationCount; Zi++)
 			{
 				double z = Zi * m_torZ;
 
-				instances[(Zi + m_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
-					(Yi + m_replicationCount) * m_instanceCountPerDimension +
-					(Xi + m_replicationCount)].position = Vector3(x, y, z);
+				instances[(Zi + Z_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
+					(Yi + Y_replicationCount) * m_instanceCountPerDimension +
+					(Xi + X_replicationCount)].position = Vector3(x, y, z);
 			}
 		}
 	}
