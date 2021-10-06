@@ -5,7 +5,7 @@ class CameraComponent :
 {
 public:
 	CameraComponent(bool isPerspective = true);
-	CameraComponent(double nearPlane, double farPlane, double aspect = 1., double fovY = XM_PIDIV2, bool isPerspective = true);
+	CameraComponent(double nearPlane, double farPlane, double aspect = 1., double fovY = DirectX::XM_PIDIV2, bool isPerspective = true);
 	virtual const DirectX::XMMATRIX& GetProj();
 
 	void SetFovY(double fovY);
