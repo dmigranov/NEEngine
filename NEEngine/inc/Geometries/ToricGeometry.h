@@ -17,7 +17,6 @@
 #include "MeshComponent.h"
 #include "CameraComponent.h"
 #include "ToricTransformComponent.h"
-#include "WalkComponent.h"
 #include "InputSystem.h"
 #include "UpdaterComponent.h"
 
@@ -48,7 +47,6 @@ Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
         componentTypeManager->RegisterComponentType<ToricTransformComponent>();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<UpdaterComponent>();

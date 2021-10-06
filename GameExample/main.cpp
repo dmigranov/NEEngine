@@ -14,38 +14,6 @@ int main(int argc, char* argv[])
     auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
-    scene->AddSystem(new ActionSystem<InputComponent, ToricTransformComponent, WalkComponent>(
-        [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-            auto pWalk = pEntity->GetComponent<WalkComponent>();
-
-            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
-            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
-
-            if (kbs.R)
-                pTransform->Move(up);
-            if (kbs.F)
-                pTransform->Move(-up);
-
-            if (kbs.T)
-                pTransform->Rotate(deltaTime, 0, 0);
-            if (kbs.Y)
-                pTransform->Rotate(-deltaTime, 0, 0);
-            if (kbs.G)
-                pTransform->Rotate(0, deltaTime, 0);
-            if (kbs.H)
-                pTransform->Rotate(0, -deltaTime, 0);
-            if (kbs.B)
-                pTransform->Rotate(0, 0, deltaTime);
-            if (kbs.N)
-                pTransform->Rotate(0, 0, -deltaTime);
-            
-        }));
-
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
@@ -56,9 +24,10 @@ int main(int argc, char* argv[])
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
+
     auto effect = new ToricExpFogEffect(cubemapTexture, 0.015, DirectX::Colors::PowderBlue);
 
-    auto charWalkComponent = new WalkComponent(200, 4);
+    //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
     auto entity1 = new Entity();
@@ -68,11 +37,39 @@ int main(int argc, char* argv[])
         tmc1->SetEffect(effect);
         entity1->AddComponent<ToricTransformComponent>(ttc1);
         entity1->AddComponent<MeshComponent>(tmc1);
-        entity1->AddComponent<WalkComponent>(charWalkComponent);
         entity1->AddComponent<InputComponent>(charInputComponent);
         scene->AddEntity(entity1);
-    }
 
+        entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
+                auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
+                auto pInput = pEntity->GetComponent<InputComponent>();
+                auto kbs = pInput->GetKeyboardState();
+                auto ms = pInput->GetMouseState();
+
+                Vector3 up(0, deltaTime * 200, 0);
+                Vector3 right(deltaTime * 200, 0, 0);
+                Vector3 fwd(0, 0, deltaTime * 200);
+
+                if (kbs.R)
+                    pTransform->Move(up);
+                if (kbs.F)
+                    pTransform->Move(-up);
+
+                if (kbs.T)
+                    pTransform->Rotate(deltaTime, 0, 0);
+                if (kbs.Y)
+                    pTransform->Rotate(-deltaTime, 0, 0);
+                if (kbs.G)
+                    pTransform->Rotate(0, deltaTime, 0);
+                if (kbs.H)
+                    pTransform->Rotate(0, -deltaTime, 0);
+                if (kbs.B)
+                    pTransform->Rotate(0, 0, deltaTime);
+                if (kbs.N)
+                    pTransform->Rotate(0, 0, -deltaTime);
+
+            }));
+    }
 
     {
         auto childEntity = new Entity();
