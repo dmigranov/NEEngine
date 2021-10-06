@@ -70,7 +70,7 @@ void ToricRenderSystem::Execute(double deltaTime)
 
 				instances[(Zi + Z_replicationCount) * m_instanceCountPerDimension * m_instanceCountPerDimension +
 					(Yi + Y_replicationCount) * m_instanceCountPerDimension +
-					(Xi + X_replicationCount)].position = Vector3(x, y, z);
+					(Xi + X_replicationCount)].position = Vector3(x, y, z); 
 			}
 		}
 	}
