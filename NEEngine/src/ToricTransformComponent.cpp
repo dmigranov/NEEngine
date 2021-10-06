@@ -68,20 +68,29 @@ void ToricTransformComponent::Normalize()
 	float x = pos.x, y = pos.y, z = pos.z;
 	double dx = 0, dy = 0, dz = 0;
 
-	while (x > m_torX)
-		x -= m_torX;
-	while (x < 0)
-		x += m_torX;
+	if (m_torX > 0)
+	{
+		while (x > m_torX)
+			x -= m_torX;
+		while (x < 0)
+			x += m_torX;
+	}
 
-	while (y > m_torY)
-		y -= m_torY;
-	while (y < 0)
-		y += m_torY;
-
-	while (z > m_torZ)
-		z -= m_torZ;
-	while (z < 0)
-		z += m_torZ;
+	if (m_torY > 0)
+	{
+		while (y > m_torY)
+			y -= m_torY;
+		while (y < 0)
+			y += m_torY;
+	}
+	
+	if (m_torZ > 0)
+	{
+		while (z > m_torZ)
+			z -= m_torZ;
+		while (z < 0)
+			z += m_torZ;
+	}
 
 	//m_position += Vector3(x - pos.x, y - pos.y, z - pos.z);
 	TransformComponent::Move(x - pos.x, y - pos.y, z - pos.z);
