@@ -34,6 +34,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new SphericalRenderSystem());
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
+    /*
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
             auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
@@ -60,7 +61,7 @@ int main(int argc, char* argv[])
             if (kbs.B)
                 pTransform->Rotate(0, 0, deltaTime);
         }));
-
+        */
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new SphericalTransformComponent();
@@ -80,21 +81,29 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.3, 20, 20);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
     smc->SetEffect(effect);
 
-    auto tc1 = new SphericalTransformComponent(-1, 0, 0);
-    auto tc2 = new SphericalTransformComponent(1, 0, 0);
+    cameraComponent->SetFovY(XM_PI/2 - 0.2); //эксперимент с видимостью
 
-    entity1->AddComponent<SphericalTransformComponent>(tc1);
-    entity1->AddComponent<MeshComponent>(smc);
-    entity1->AddComponent<WalkComponent>(charWalkComponent);
-    entity1->AddComponent<InputComponent>(charInputComponent);
-    scene->AddEntity(entity1);
 
-    entity2->AddComponent<SphericalTransformComponent>(tc2);
-    entity2->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity2);
+    int sphereCount = 6;
+    for (int i = 1; i < sphereCount; i++)
+    {
+        auto transformComponent = new SphericalTransformComponent(0, i * XM_PI / sphereCount, 0);
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+        entity->AddComponent<MeshComponent>(smc);
+        scene->AddEntity(entity);
+    }
+    for (int i = 1; i < sphereCount; i++)
+    {
+        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / sphereCount);
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+        entity->AddComponent<MeshComponent>(smc);
+        scene->AddEntity(entity);
+    }
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect](Entity* pEntity, double deltaTime) {
