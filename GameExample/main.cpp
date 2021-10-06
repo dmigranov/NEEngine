@@ -1,18 +1,14 @@
 ﻿#pragma once
 
 #include "Geometries/ToricGeometry.h"
-#include "WalkComponent.h"
-#include "InputSystem.h"
 
-#include "UpdaterSystem.h"
-#include "UpdaterComponent.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
-    Game& game = Game::GetInstance();
+    /*Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
@@ -31,7 +27,9 @@ int main(int argc, char* argv[])
 
         componentTypeManager->SetTypeAdditionEnded();
     }
-
+    */
+    auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue, true, false, false);
+    auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 
     scene->AddSystem(new InputSystem());
@@ -71,6 +69,7 @@ int main(int argc, char* argv[])
                 pTransform->Rotate(0, 0, -deltaTime);
             
         }));
+
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
@@ -119,5 +118,5 @@ int main(int argc, char* argv[])
             }));
     }
 
-    return game.StartGame();
+    return Game::GetInstance().StartGame();
 }

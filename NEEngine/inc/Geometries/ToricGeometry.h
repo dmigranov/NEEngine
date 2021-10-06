@@ -17,19 +17,41 @@
 #include "MeshComponent.h"
 #include "CameraComponent.h"
 #include "ToricTransformComponent.h"
+#include "WalkComponent.h"
+#include "InputSystem.h"
+#include "UpdaterComponent.h"
 
 #include "EuclideanMeshComponentFactory.h"
 
 // Systems
 #include "ToricRenderSystem.h"
 #include "ToricControlSystem.h"
+#include "UpdaterSystem.h"
 
 // Effects
 #include "ToricExpFogEffect.h"
 
 //todo: вынести в функцию в заголовке пространства для RegisterComponentType всего нужного!
 
-Scene * InitializeToricGeometry(const wchar_t * windowName, bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
+Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32 color, bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
 {
+    Game& game = Game::GetInstance();
+    game.InitializeEngine(L"Test game", true, false, false);
+    game.SetBackgroundColor(color);   //TODO: other place?
+    Scene* scene = game.GetScene();
+    auto resourceManager = game.GetResourceManager();
 
+    {
+        auto componentTypeManager = game.GetComponentTypeManager();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<InputComponent>();
+        componentTypeManager->RegisterComponentType<WalkComponent>();
+        componentTypeManager->RegisterComponentType<ToricTransformComponent>();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<UpdaterComponent>();
+        //meshcomp registered by default
+        componentTypeManager->SetTypeAdditionEnded();
+    }
+
+    return scene;
 }
