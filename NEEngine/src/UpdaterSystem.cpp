@@ -6,6 +6,7 @@
 
 UpdaterSystem::UpdaterSystem() : System()
 {
+	SubscribeToComponentType<TransformComponent>();
 	SubscribeToComponentType<UpdaterComponent>();
 }
 

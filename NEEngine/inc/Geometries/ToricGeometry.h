@@ -32,8 +32,6 @@
 // Effects
 #include "ToricExpFogEffect.h"
 
-
-
 //TODO: может, вместе dimensions - специальный класс, определяющий геометрию пространства?
 
 Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32 color, 
