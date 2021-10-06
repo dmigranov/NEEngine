@@ -11,5 +11,10 @@
 // Components
 
 #include "ComponentTypeManager.h"
+#include "UpdaterComponent.h"
+#include "MeshComponent.h"
 
-// TODO ...
+// Systems
+#include "UpdaterSystem.h"
+#include "ActionSystem.h"
+#include "InputSystem.h"
