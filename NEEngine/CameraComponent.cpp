@@ -51,6 +51,7 @@ void CameraComponent::SetOrthogonalWidth(double width)
 
 void CameraComponent::RecalculateProj()
 {
+	//”гол в радианах!
 	if (m_isPerspective)
 		m_proj = DirectX::XMMatrixPerspectiveFovLH(m_fovY, m_aspect, m_nearPlane, m_farPlane);
 	else

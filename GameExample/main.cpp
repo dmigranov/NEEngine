@@ -91,6 +91,7 @@ int main(int argc, char* argv[])
     auto entity1 = new Entity();
     auto ttc1 = new ToricTransformComponent();
     {
+        //auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
         auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
         tmc1->SetEffect(effect);
         entity1->AddComponent<ToricTransformComponent>(ttc1);
