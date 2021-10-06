@@ -28,7 +28,9 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
     */
-    auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue, true, false, false);
+    auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue, 
+        8, DirectX::SimpleMath::Vector3(30, 30, 30), 10, 0.9,
+        true, false, false);
     auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
 

@@ -37,7 +37,7 @@
 //TODO: может, вместе dimensions - специальный класс, определяющий геометрию пространства?
 
 Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32 color, 
-                                double movementSpeed, double rotationSpeed, unsigned int replicationCount, DirectX::SimpleMath::Vector3 dimensions,
+                                unsigned int replicationCount, DirectX::SimpleMath::Vector3 dimensions, double movementSpeed = 10., double rotationSpeed = 0.9,
                                 bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
 {
     Game& game = Game::GetInstance();
