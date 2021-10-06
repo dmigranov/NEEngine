@@ -64,8 +64,6 @@ bool ToricExpFogEffect::Initialize()
 
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
-	//todo: instance buffer
-
 	//обнаружена ошибка: fog color нулевой
 
 	//sampler (for texture)
