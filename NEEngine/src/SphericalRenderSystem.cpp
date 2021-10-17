@@ -9,11 +9,14 @@
 
 SphericalRenderSystem::SphericalRenderSystem(double radius)
 {
-	//todo: remember radius and set other classes' corresponding fields
 	SubscribeToComponentType<SphericalTransformComponent>();
 	SubscribeToComponentType<MeshComponent>();
 
 	m_isDrawing = true;
+
+
+	m_radius = radius;
+	//todo: set other classes' fields corresponding to the radius
 }
 
 void SphericalRenderSystem::Execute(double deltaTime)
