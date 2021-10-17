@@ -88,7 +88,7 @@ void SphericalTransformComponent::Recalculate()
 		m_world = m_world * oldParentMatrix;
 	}
 
-	m_position = Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
+	m_position = m_radius * Vector4::Transform(Vector4(0, 0, 0, 1), m_world);
 
 	m_shouldRecalcWorld = false;
 
