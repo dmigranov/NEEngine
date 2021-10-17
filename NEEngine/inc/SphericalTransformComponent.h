@@ -16,7 +16,7 @@ public:
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
 
-    void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
+    //void SetWorld(const DirectX::SimpleMath::Matrix& world); //temporary method, for debug only
 
     static void SetRadius(double radius);
 protected:

@@ -103,6 +103,7 @@ void SphericalTransformComponent::RecalculateView()
 	//std::cerr << "SphericalTransformComponent::RecalculateView()" << std::endl;
 }
 
+/*
 void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& world)
 {
 	//todo: проверить - правильно?
@@ -117,6 +118,7 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 	m_shouldRecalcWorld = false;
 	m_shouldRecalcView = false;
 }
+*/
 
 void SphericalTransformComponent::SetRadius(double radius)
 {
