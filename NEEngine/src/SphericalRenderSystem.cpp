@@ -7,12 +7,10 @@
 
 #include "Effect.h"
 
-SphericalRenderSystem::SphericalRenderSystem()
+SphericalRenderSystem::SphericalRenderSystem(double radius)
 {
-	//MeshComponent у всех общий!!!
-
+	//todo: remember radius and set other classes' corresponding fields
 	SubscribeToComponentType<SphericalTransformComponent>();
-	//SubscribeToComponentType<SphericalMeshComponent>();
 	SubscribeToComponentType<MeshComponent>();
 
 	m_isDrawing = true;
