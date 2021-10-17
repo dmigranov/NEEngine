@@ -18,12 +18,14 @@ public:
 
     void SetWorld(const DirectX::SimpleMath::Matrix& world); //временный метод
 
+    static void SetRadius(double radius);
 protected:
     virtual void Recalculate() override;
     virtual void RecalculateView() override;
 
 private:
     double m_yaw = 0., m_pitch = 0., m_roll = 0.;
+    static double m_radius;
 
     DirectX::SimpleMath::Matrix T = DirectX::SimpleMath::Matrix::Identity; // represents the translation of the camera in world space
     DirectX::SimpleMath::Matrix R = DirectX::SimpleMath::Matrix::Identity,

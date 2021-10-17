@@ -6,6 +6,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+double SphericalTransformComponent::m_radius = 0;
+
 SphericalTransformComponent::SphericalTransformComponent() : SphericalTransformComponent(0, 0, 0)
 { }
 
@@ -114,4 +116,9 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 
 	m_shouldRecalcWorld = false;
 	m_shouldRecalcView = false;
+}
+
+void SphericalTransformComponent::SetRadius(double radius)
+{
+	m_radius = radius;
 }
