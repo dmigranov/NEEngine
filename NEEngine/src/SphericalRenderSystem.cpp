@@ -16,6 +16,7 @@ SphericalRenderSystem::SphericalRenderSystem(double radius)
 
 
 	m_radius = radius;
+	SphericalTransformComponent::SetRadius(m_radius);
 	//todo: set other classes' fields corresponding to the radius
 }
 
