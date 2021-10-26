@@ -84,4 +84,5 @@ private:
 
     Game& game;
 
+    static double m_radius;
 };

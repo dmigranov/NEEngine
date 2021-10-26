@@ -21,6 +21,7 @@ using namespace DirectX::SimpleMath;
 
 
 bool SphericalExpFogEffect::m_isSpherical = true;
+double SphericalExpFogEffect::m_radius = 0;
 
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : game(Game::GetInstance())
 {
