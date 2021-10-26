@@ -41,6 +41,7 @@
     <ClCompile Include="src\MeshComponentFactory.cpp" />
     <ClCompile Include="src\SphericalCameraComponent.cpp" />
     <ClCompile Include="src\SphericalControlSystem.cpp" />
+    <ClCompile Include="src\SphericalEffect.cpp" />
     <ClCompile Include="src\SphericalExpFogEffect.cpp" />
     <ClCompile Include="src\MeshLoader.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="inc\MeshComponentFactory.h" />
     <ClInclude Include="inc\SphericalCameraComponent.h" />
     <ClInclude Include="inc\SphericalControlSystem.h" />
+    <ClInclude Include="inc\SphericalEffect.h" />
     <ClInclude Include="inc\SphericalExpFogEffect.h" />
     <ClInclude Include="inc\MeshLoader.h" />
     <ClInclude Include="inc\RenderSystem.h" />

@@ -261,6 +261,9 @@
     <ClCompile Include="src\UpdaterSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalEffect.cpp">
+      <Filter>Исходные файлы\Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -439,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="inc\Common.h">
       <Filter>Файлы заголовков\Geometries</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalEffect.h">
+      <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
