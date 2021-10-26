@@ -1,11 +1,11 @@
 #pragma once
-#include "Effect.h"
+#include "SphericalEffect.h"
 
 class Game;
 class Texture;
 
 class SphericalExpFogEffect :
-    public Effect
+    public SphericalEffect
 {
 public:
 
@@ -44,15 +44,15 @@ public:
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 
-    static void SetMode(bool isSpherical);
-    static void SetRadius(double radius);
+
 
     void SetFogColor(DirectX::XMVECTORF32 fogColor);
 
     ~SphericalExpFogEffect();
 
 private:
-    static bool m_isSpherical;
+    //static bool m_isSpherical;
+    //static double m_radius;
 
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
@@ -83,6 +83,4 @@ private:
     ID3D11Buffer* g_d3dPSConstantBuffer = nullptr;
 
     Game& game;
-
-    static double m_radius;
 };

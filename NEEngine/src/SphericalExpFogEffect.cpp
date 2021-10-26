@@ -19,8 +19,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-bool SphericalExpFogEffect::m_isSpherical = true;
-double SphericalExpFogEffect::m_radius = 0;
+//bool SphericalExpFogEffect::m_isSpherical = true;
+//double SphericalExpFogEffect::m_radius = 0;
 
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : game(Game::GetInstance())
 {
@@ -168,6 +168,7 @@ const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 	return typeid(SphericalMeshComponentFactory::VertexData);
 }
 
+/*
 void SphericalExpFogEffect::SetMode(bool isSpherical)
 {
 	m_isSpherical = isSpherical;
@@ -178,7 +179,7 @@ void SphericalExpFogEffect::SetRadius(double radius)
 	m_radius = radius;
 	//TODO: do load to shader + do something else?
 }
-
+*/
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
