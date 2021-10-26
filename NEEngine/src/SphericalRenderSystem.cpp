@@ -16,8 +16,7 @@ SphericalRenderSystem::SphericalRenderSystem(double radius)
 
 
 	m_radius = radius;
-	SphericalTransformComponent::SetRadius(m_radius);
-	//todo: set other classes' fields corresponding to the radius
+	UpdateOnRadiusChange();
 }
 
 void SphericalRenderSystem::Execute(double deltaTime)
@@ -97,4 +96,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 
 void SphericalRenderSystem::UpdateOnRadiusChange()
 {
+	SphericalTransformComponent::SetRadius(m_radius);
+	//todo: set other classes' fields corresponding to the radius
 }
