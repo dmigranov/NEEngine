@@ -97,6 +97,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 void SphericalRenderSystem::UpdateOnRadiusChange()
 {
 	SphericalTransformComponent::SetRadius(m_radius);
-	//SphericalExpFogEffect::SetRadius(m_radius); - can't be called as of yet
-	//todo: set other classes' fields corresponding to the radius
+	//TODO: update all objects' effects by calling SphericalEffect::SetRadius (maybe not here, in the main cycle?)
+	//TODO: set other classes' fields corresponding to the radius
 }
