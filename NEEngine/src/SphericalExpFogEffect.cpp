@@ -105,7 +105,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// We will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
 	// When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
 
-	//todo: обновлять CB_Application только если что-то изменилось? (то есть в UpdatePerApplication?)
+	//todo: !!! обновлять CB_Application только если что-то изменилось? (то есть в UpdatePerApplication?)
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
@@ -163,7 +163,10 @@ const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 void SphericalExpFogEffect::SetRadius(double radius)
 {
 	m_radius = radius;
-	//TODO: do load to shader + do something else?
+	//TODO: load radius to shader via constant buffer: PerApplicationVSConstantBuffer or maybe PerApplicationVSFrameBuffer?
+	//although that doesn't really matter: they all are updated simultaneously 
+	//others things in the class don't have to be changed
+	//in shader, calculate distance acc. to the radius + recalculate coordinated accordingly (in the case they don't lie on the sphere)
 }
 
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
