@@ -19,7 +19,6 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-
 bool SphericalExpFogEffect::m_isSpherical = true;
 double SphericalExpFogEffect::m_radius = 0;
 
@@ -176,7 +175,7 @@ void SphericalExpFogEffect::SetMode(bool isSpherical)
 
 void SphericalExpFogEffect::SetRadius(double radius)
 {
-
+	m_radius = radius;
 	//TODO: do load to shader + do something else?
 }
 
