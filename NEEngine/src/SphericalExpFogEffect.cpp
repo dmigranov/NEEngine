@@ -173,6 +173,10 @@ void SphericalExpFogEffect::SetMode(bool isSpherical)
 	m_isSpherical = isSpherical;
 }
 
+void SphericalExpFogEffect::SetRadius(double radius)
+{
+}
+
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;

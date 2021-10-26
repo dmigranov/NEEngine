@@ -45,6 +45,7 @@ public:
     virtual const std::type_info& GetVertexDataType() override;
 
     static void SetMode(bool isSpherical);
+    static void SetRadius(double radius);
 
     void SetFogColor(DirectX::XMVECTORF32 fogColor);
 
