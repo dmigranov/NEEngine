@@ -57,8 +57,10 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	}
 }
 
-void SphericalRenderSystem::SetRadius()
+void SphericalRenderSystem::SetRadius(double radius)
 {
+	m_radius = radius;
+	UpdateOnRadiusChange();
 }
 
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
