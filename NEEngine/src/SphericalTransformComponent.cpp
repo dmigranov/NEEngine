@@ -123,4 +123,5 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 void SphericalTransformComponent::SetRadius(double radius)
 {
 	m_radius = radius;
+	//matrices won't change if the radius is modified - therefore, we don't need to recalculate anything!
 }
