@@ -57,6 +57,10 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	}
 }
 
+void SphericalRenderSystem::SetRadius()
+{
+}
+
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
