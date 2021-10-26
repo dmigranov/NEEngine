@@ -15,12 +15,8 @@
 #include "EllExpVertexShader.h"
 #include "PixelShader.h" // generated from BasicPixelShader.hlsl
 
-
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
-
-//bool SphericalExpFogEffect::m_isSpherical = true;
-//double SphericalExpFogEffect::m_radius = 0;
 
 SphericalExpFogEffect::SphericalExpFogEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : game(Game::GetInstance())
 {
@@ -101,10 +97,7 @@ bool SphericalExpFogEffect::Initialize()
 
 void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 {
-	// буферы заполняются конкретными вещами, 
-	// тут же выставляются нужные шейдеры и input assembly
-
-	//todo: !!!!!оптимизировать!!!!!
+	// буферы заполняются конкретными вещами, тут же выставляются нужные шейдеры и input assembly
 
 	// очищение фона Clear(m_backgroundColor, 1.0f, 0) теоретически можно производить тут, но это проблематично:
 	// а если эффектов несколько? потому пусть лучше пользователь сам следит
@@ -112,7 +105,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	// We will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
 	// When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
 
-	//todo: только обновлять CB_Application если что-то изменилось? (то есть в UpdatePerApplication?)
+	//todo: обновлять CB_Application только если что-то изменилось? (то есть в UpdatePerApplication?)
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
@@ -130,7 +123,6 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.IASetInputLayout(g_d3dInputLayout);
 
 	//vertex shader stage
-	//game.VSSetShader(g_d3dVertexShaderCurrent);
 	if(m_isSpherical)
 		game.VSSetShader(g_d3dVertexShaderSph);
 	else
@@ -141,7 +133,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	game.PSSetSampler(g_d3dSamplerState);
 	game.PSSetShader(g_d3dPixelShader);
 	if (m_pTexture != nullptr)
-	{     //Pixel Shader Stafe - unique 4 every stage
+	{     //Pixel Shader Stafe - unique for every stage
 		auto shaderResource = m_pTexture->GetTexture();
 		game.PSSetShaderResources(1, &shaderResource);
 	}
@@ -173,9 +165,6 @@ void SphericalExpFogEffect::SetRadius(double radius)
 	m_radius = radius;
 	//TODO: do load to shader + do something else?
 }
-
-
-
 
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
