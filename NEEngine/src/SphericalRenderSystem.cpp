@@ -88,3 +88,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), 2, 0, 0, 0);
 
 }
+
+void SphericalRenderSystem::UpdateOnRadiusChange()
+{
+}
