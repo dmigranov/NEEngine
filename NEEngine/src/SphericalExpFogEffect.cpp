@@ -175,6 +175,8 @@ void SphericalExpFogEffect::SetMode(bool isSpherical)
 
 void SphericalExpFogEffect::SetRadius(double radius)
 {
+
+	//TODO: do load to shader + do something else?
 }
 
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
