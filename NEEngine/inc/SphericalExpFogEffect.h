@@ -44,16 +44,13 @@ public:
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 
-
+    virtual void SetRadius(double radius) override;
 
     void SetFogColor(DirectX::XMVECTORF32 fogColor);
 
     ~SphericalExpFogEffect();
 
 private:
-    //static bool m_isSpherical;
-    //static double m_radius;
-
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 

@@ -168,18 +168,15 @@ const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 	return typeid(SphericalMeshComponentFactory::VertexData);
 }
 
-/*
-void SphericalExpFogEffect::SetMode(bool isSpherical)
-{
-	m_isSpherical = isSpherical;
-}
-
 void SphericalExpFogEffect::SetRadius(double radius)
 {
 	m_radius = radius;
 	//TODO: do load to shader + do something else?
 }
-*/
+
+
+
+
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
