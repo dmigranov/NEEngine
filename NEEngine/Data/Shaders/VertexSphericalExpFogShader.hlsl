@@ -51,8 +51,9 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//IN.position: должно давать в сумме 1!
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
+	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	float4 objectCenter = mul(viewWorld, float4(0, 0, 0, 1)); //координаты центра объекта
-	float4 position = radius * IN.position; 	//todo: перерасчЄт позиции (это неправильно: не сохран€ютс€ размеры, смотри в тетради)
+	float4 position = radius * position1; 	//todo: перерасчЄт позиции (это неправильно: не сохран€ютс€ размеры, смотри в тетради)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
