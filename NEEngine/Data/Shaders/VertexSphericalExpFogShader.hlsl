@@ -57,7 +57,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float distance = 2 * asin(chordLength / 2.);
 	if (instanceID == 1)
 		distance += 3.14159265;
-	OUT.fogFactor = saturate(exp(-density * distance));
+	OUT.fogFactor = saturate(exp(-density * distance * radius));
 	OUT.tex = IN.tex;
 
 	return OUT;

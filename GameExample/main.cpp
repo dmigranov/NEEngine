@@ -31,8 +31,10 @@ int main(int argc, char* argv[])
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
 
+    auto renderSystem = new SphericalRenderSystem();
+    //renderSystem->SetRadius(200);
     scene->AddSystem(new InputSystem());
-    scene->AddSystem(new SphericalRenderSystem());
+    scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
     /*
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
