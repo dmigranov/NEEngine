@@ -32,7 +32,8 @@ struct VertexShaderOutput
 
 float distance(float4 vec1, float4 vec2, double radius)
 {
-
+	float chordLength = distance(vec1, vec2); //длина хорды
+	return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 }
 
 //entry point
