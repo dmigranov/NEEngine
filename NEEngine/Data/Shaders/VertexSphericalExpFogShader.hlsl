@@ -3,6 +3,7 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
 	double density;
+	double radius;
 }
 
 cbuffer PerFrame : register(b1)

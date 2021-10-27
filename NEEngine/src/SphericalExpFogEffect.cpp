@@ -164,6 +164,8 @@ void SphericalExpFogEffect::SetRadius(double radius)
 {
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
+	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationVSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
+
 	//TODO: load radius to shader via constant buffer: PerApplicationVSConstantBuffer or maybe PerApplicationVSFrameBuffer?
 	//although that doesn't really matter: they all are updated simultaneously 
 	//others things in the class don't have to be changed
@@ -173,7 +175,7 @@ void SphericalExpFogEffect::SetRadius(double radius)
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()
