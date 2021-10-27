@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
 
     auto renderSystem = new SphericalRenderSystem();
-    renderSystem->SetRadius(100);
+    renderSystem->SetRadius(1);
     scene->AddSystem(new InputSystem());
     scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
@@ -118,9 +118,14 @@ int main(int argc, char* argv[])
                 effect->SetMode(false);
 
             if (kbs.I)
-                renderSystem->SetRadius(renderSystem->GetRadius() + 1);
-            else if(kbs.O)
-                renderSystem->SetRadius(renderSystem->GetRadius() - 1);
+                renderSystem->SetRadius(renderSystem->GetRadius() + 0.1);
+            else if (kbs.O)
+            {
+                auto radius = renderSystem->GetRadius();
+                if (radius > 0.1)
+                    renderSystem->SetRadius(-0.11);
+            }
+                
         }));
 
 
