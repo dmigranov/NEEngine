@@ -56,7 +56,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
 	float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 	if (instanceID == 1)
-		distance += 3.14159265;
+		distance += 3.14159265 * radius;
 	OUT.fogFactor = saturate(exp(-density * distance));
 	OUT.tex = IN.tex;
 
