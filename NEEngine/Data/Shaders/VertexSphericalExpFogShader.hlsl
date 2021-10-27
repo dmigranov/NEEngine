@@ -48,13 +48,16 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 
+	//IN.position: должно давать в сумме 1!
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
-	float4 position = radius * IN.position; 	//todo: перерасчЄт позиции
+	float4 objectCenter = mul(viewWorld, (0, 0, 0, 1)); //координаты центра объекта
+	float4 position = radius * IN.position; 	//todo: перерасчЄт позиции (это неправильно: не сохран€ютс€ размеры, смотри в тетради)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
+
 	
 	float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
 	float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
