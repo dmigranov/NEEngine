@@ -5,7 +5,7 @@
 #include "MeshComponent.h"
 #include "SphericalTransformComponent.h"
 
-#include "Effect.h"
+#include "SphericalEffect.h"
 
 SphericalRenderSystem::SphericalRenderSystem(double radius)
 {
@@ -97,6 +97,15 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 void SphericalRenderSystem::UpdateOnRadiusChange()
 {
 	SphericalTransformComponent::SetRadius(m_radius);
-	//TODO: update all objects' effects by calling SphericalEffect::SetRadius (maybe not here, in the main cycle?)
+
+	for (auto pEntity : m_entities) //(maybe not here, in the main Execute cycle?)
+	{
+		auto* pEffect = pEntity->GetComponent<MeshComponent>()->GetEffect();
+		auto* pSphEffect = dynamic_cast<SphericalEffect*>(pEffect);
+		if (pSphEffect != nullptr) {
+			pSphEffect->SetRadius(m_radius);
+		}
+	}
+
 	//TODO: set other classes' fields corresponding to the radius
 }
