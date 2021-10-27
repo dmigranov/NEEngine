@@ -59,9 +59,13 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
-	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1);
+	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
 
-	float4 position = radius * position1; 	//todo: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
+	//todo: расстояние должно сохраняться.
+	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
+	//и записать его в position
+
+	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
