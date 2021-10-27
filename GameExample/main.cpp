@@ -118,5 +118,6 @@ int main(int argc, char* argv[])
                 effect->SetMode(false);
         }));
 
+
     return game.StartGame();
 } 

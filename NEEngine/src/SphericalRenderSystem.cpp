@@ -60,6 +60,11 @@ void SphericalRenderSystem::SetRadius(double radius)
 	UpdateOnRadiusChange();
 }
 
+double SphericalRenderSystem::GetRadius()
+{
+	return m_radius;
+}
+
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();

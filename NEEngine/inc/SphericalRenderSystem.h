@@ -8,6 +8,7 @@ public:
     virtual void Execute(double deltaTime) override;
 
     void SetRadius(double radius);
+    double GetRadius();
 private:
     void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext);
 
