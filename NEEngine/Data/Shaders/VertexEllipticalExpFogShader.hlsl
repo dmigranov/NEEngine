@@ -30,7 +30,7 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION;
 };
 
-float distance(float4 vec1, float4 vec2, double radius)
+float SphericalDistance(float4 vec1, float4 vec2, double radius)
 {
 	float chordLength = distance(vec1, vec2); //длина хорды
 	return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
@@ -60,13 +60,15 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
-	float4 objectCenter1 = mul(viewWorld, float4(0, 0, 0, 1)); //координаты центра объекта дл€ единичной гиперсферы
+	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта дл€ единичной гиперсферы в координатах world
+	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1);
 
 	float4 position = radius * position1; 	//todo: перерасчЄт позиции (это неправильно: не сохран€ютс€ размеры, смотри в тетради)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
-	float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
-	float distance = 2 * radius * asin(chordLength / (2. * radius));
+	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
+	//float distance = 2 * radius * asin(chordLength / (2. * radius));
+	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
