@@ -14,9 +14,7 @@ SphericalRenderSystem::SphericalRenderSystem(double radius)
 
 	m_isDrawing = true;
 
-
-	m_radius = radius;
-	UpdateOnRadiusChange();
+	SetRadius(radius);
 }
 
 void SphericalRenderSystem::Execute(double deltaTime)
@@ -59,7 +57,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 void SphericalRenderSystem::SetRadius(double radius)
 {
 	m_radius = radius;
-	//UpdateOnRadiusChange();
+	UpdateOnRadiusChange();
 }
 
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
@@ -74,7 +72,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		pEntity->SetVisible(false);
 		return; 
 	}
-
 	
 	if (auto * pSphEffect = dynamic_cast<SphericalEffect*>(pEffect)) {
 		pSphEffect->SetRadius(m_radius);
@@ -108,15 +105,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 void SphericalRenderSystem::UpdateOnRadiusChange()
 {
 	SphericalTransformComponent::SetRadius(m_radius);
-
-	for (auto pEntity : m_entities) //(maybe not here, in the main Execute cycle?)
-	{
-		auto* pEffect = pEntity->GetComponent<MeshComponent>()->GetEffect();
-		auto* pSphEffect = dynamic_cast<SphericalEffect*>(pEffect);
-		if (pSphEffect != nullptr) {
-			pSphEffect->SetRadius(m_radius);
-		}
-	}
 
 	//TODO: set other classes' fields corresponding to the radius
 }
