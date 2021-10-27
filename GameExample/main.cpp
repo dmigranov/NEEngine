@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     }
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect](Entity* pEntity, double deltaTime) {
+        [effect, renderSystem](Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
 
@@ -116,6 +116,11 @@ int main(int argc, char* argv[])
                 effect->SetMode(true);
             else if (kbs.D2)
                 effect->SetMode(false);
+
+            if (kbs.I)
+                renderSystem->SetRadius(renderSystem->GetRadius() + 1);
+            else if(kbs.O)
+                renderSystem->SetRadius(renderSystem->GetRadius() - 1);
         }));
 
 
