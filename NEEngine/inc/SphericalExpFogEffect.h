@@ -14,7 +14,7 @@ public:
         DirectX::XMMATRIX projFront;
         DirectX::XMMATRIX projBack;
         double density = 0.1;
-        double pad;
+        double radius = 1.;
     };
 
     struct PerFrameVSConstantBuffer
