@@ -163,6 +163,7 @@ const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 void SphericalExpFogEffect::SetRadius(double radius)
 {
 	m_radius = radius;
+	perApplicationVSConstantBuffer.radius = m_radius;
 	//TODO: load radius to shader via constant buffer: PerApplicationVSConstantBuffer or maybe PerApplicationVSFrameBuffer?
 	//although that doesn't really matter: they all are updated simultaneously 
 	//others things in the class don't have to be changed
