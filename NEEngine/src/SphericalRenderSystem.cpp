@@ -59,7 +59,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 void SphericalRenderSystem::SetRadius(double radius)
 {
 	m_radius = radius;
-	UpdateOnRadiusChange();
+	//UpdateOnRadiusChange();
 }
 
 void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
@@ -70,9 +70,20 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 
 	if (!pEffect) //for debug: can be commented
 	{
-		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't ber rendered further!"  << std::endl;
+		std::cerr << "No effect found for the entity " << pEntity->GetName() << ", won't be rendered further!"  << std::endl;
 		pEntity->SetVisible(false);
 		return; 
+	}
+
+	
+	if (auto * pSphEffect = dynamic_cast<SphericalEffect*>(pEffect)) {
+		pSphEffect->SetRadius(m_radius);
+	}
+	else
+	{
+		std::cerr << "Effect supplied found for the entity " << pEntity->GetName() << "does not support spherical rendering, won't be rendered further!" << std::endl;
+		pEntity->SetVisible(false);
+		return;
 	}
 
 	// Input Assembler Stage - unique for every mesh
