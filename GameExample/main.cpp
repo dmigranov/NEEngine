@@ -112,10 +112,11 @@ int main(int argc, char* argv[])
 
     //равномерное распределение
    
+    RandomSphericalGenerator generator(radius);
     int sphereCount = 20;
     for (int i = 0; i < sphereCount; i++)
     {
-        //auto point = GeneratePoint();
+        auto point = generator.GeneratePoint();
         //if(пересекаются сферы с уже добавленными)
             //переген.
     }
