@@ -2,13 +2,13 @@
 #include "RandomSpherical.h"
 
 
-RandomSpherical::RandomSpherical(double radius) : m_gen(rd()), m_distr(-radius, radius)
+RandomSphericalGenerator::RandomSphericalGenerator(double radius) : m_gen(rd()), m_distr(-radius, radius)
 {
 	m_radius = radius;
 	m_radius_square = radius * radius;
 }
 
-DirectX::SimpleMath::Vector4 RandomSpherical::GeneratePoint()
+DirectX::SimpleMath::Vector4 RandomSphericalGenerator::GeneratePoint()
 {
 generate:
 	double x = m_distr(m_gen);

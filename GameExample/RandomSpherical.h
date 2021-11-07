@@ -1,10 +1,10 @@
 #pragma once
 #include <random>
 
-class RandomSpherical
+class RandomSphericalGenerator
 {
 public:
-	RandomSpherical(double radius);
+	RandomSphericalGenerator(double radius);
 	DirectX::SimpleMath::Vector4 GeneratePoint();
 private: 
 	double m_radius, m_radius_square;

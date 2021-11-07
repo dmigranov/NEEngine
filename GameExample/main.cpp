@@ -111,6 +111,7 @@ int main(int argc, char* argv[])
     */
 
     //равномерное распределение
+   
     int sphereCount = 20;
     for (int i = 0; i < sphereCount; i++)
     {
