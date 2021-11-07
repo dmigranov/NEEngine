@@ -117,6 +117,9 @@ int main(int argc, char* argv[])
     for (int i = 0; i < sphereCount; i++)
     {
         auto point = generator.GeneratePoint();
+        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
+        //имеем x, y, z, w. надо переместить туда сферы!
+        // 
         //if(пересекаются сферы с уже добавленными)
             //переген.
     }
