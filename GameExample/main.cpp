@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent("HELLO", 10, 10, Alignment::UpLeft));
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform](double delta) {return ""; }, 10, 10, Alignment::UpLeft));
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
