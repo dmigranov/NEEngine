@@ -28,19 +28,21 @@ void TextPrintingSystem::Execute(double deltaTime)
 		auto text = pTextComponent->GetText(deltaTime);
 		auto pos = pTextComponent->GetPosition();
 
+		auto c_str = text.c_str();
+
 		switch (align)
 		{
 		case Alignment::UpRight:
-			m_textDrawer->DrawTextUpRightAlign(text, pos.x, pos.y);
+			m_textDrawer->DrawTextUpRightAlign(c_str, pos.x, pos.y);
 			break;
 		case Alignment::UpLeft:
-			m_textDrawer->DrawTextUpLeftAlign(text, pos.x, pos.y);
+			m_textDrawer->DrawTextUpLeftAlign(c_str, pos.x, pos.y);
 			break;
 		case Alignment::DownRight:
-			m_textDrawer->DrawTextDownRightAlign(text, pos.x, pos.y);
+			m_textDrawer->DrawTextDownRightAlign(c_str, pos.x, pos.y);
 			break;
 		case Alignment::DownLeft:
-			m_textDrawer->DrawTextDownLeftAlign(text, pos.x, pos.y);
+			m_textDrawer->DrawTextDownLeftAlign(c_str, pos.x, pos.y);
 			break;
 		}
 	}

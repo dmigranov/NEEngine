@@ -122,7 +122,6 @@ int main(int argc, char* argv[])
     for (int i = 0; i < sphereCount; i++)
     {
         auto point = generator.GeneratePoint();
-        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
@@ -137,16 +136,17 @@ int main(int argc, char* argv[])
     
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform, &str, &ss](double delta) {
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform](double delta) {
         auto pos = cameraTransform->GetSphericalPosition();
         auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
+        std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
         ss << "X: " << pos.x << std::endl;
         ss << "Y: " << pos.y << std::endl;
         ss << "Z: " << pos.z << std::endl;
         ss << "W: " << pos.w << std::endl;
-        std::stringstream ss;
+
         return ss.str();
 
     }, 10, 10, Alignment::UpLeft));
