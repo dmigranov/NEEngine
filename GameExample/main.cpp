@@ -143,13 +143,13 @@ int main(int argc, char* argv[])
     //равномерное распределение
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 200;
+    int sphereCount = 3;
     for (int i = 0; i < sphereCount; i++)
     {
         auto point = generator.GeneratePoint();
-        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
+        //std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
         auto point_sph = GetSphericalFromCartesian(point.x, point.y, point.z, point.w);
-        std::cout << point_sph.x << " " << point_sph.y << " " << point_sph.z << std::endl;
+        //std::cout << point_sph.x << " " << point_sph.y << " " << point_sph.z << std::endl;
         auto transformComponent = new SphericalTransformComponent(point_sph.y, point_sph.x, point_sph.z);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
@@ -160,6 +160,10 @@ int main(int argc, char* argv[])
             //переген.
     }
 
+    auto transformComponent = new SphericalTransformComponent();
+    transformComponent->Move(XM_PIDIV2, 0, 0);
+    auto pos = transformComponent->GetSphericalPosition();
+    std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem](Entity* pEntity, double deltaTime) {

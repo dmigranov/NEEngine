@@ -15,7 +15,7 @@ public:
     virtual void Rotate(DirectX::SimpleMath::Vector3 r) override;
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
-
+    virtual DirectX::SimpleMath::Vector4 GetSphericalPosition();
     //void SetWorld(const DirectX::SimpleMath::Matrix& world); //temporary method, for debug only
 
     static void SetRadius(double radius);

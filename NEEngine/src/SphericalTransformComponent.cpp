@@ -9,7 +9,9 @@ using namespace DirectX::SimpleMath;
 double SphericalTransformComponent::m_radius = 0;
 
 SphericalTransformComponent::SphericalTransformComponent() : SphericalTransformComponent(0, 0, 0)
-{ }
+{
+	m_position = Vector4(0, 0, 0, 1);
+}
 
 SphericalTransformComponent::SphericalTransformComponent(double x, double y, double z)
 {
@@ -72,6 +74,13 @@ void SphericalTransformComponent::SetPitchYawRoll(double pitch, double yaw, doub
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
+}
+
+DirectX::SimpleMath::Vector4 SphericalTransformComponent::GetSphericalPosition()
+{
+	if (m_shouldRecalcWorld)
+		Recalculate();
+	return m_position;
 }
 
 void SphericalTransformComponent::Recalculate()
