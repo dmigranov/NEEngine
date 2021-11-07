@@ -1,3 +1,5 @@
 #pragma once
+class RandomSpherical
+{
+};
 
-DirectX::SimpleMath::Vector4 GeneratePoint(double radius);
