@@ -10,6 +10,12 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
+{
+    float chordLength = distance(vec1, vec2); //длина хорды
+    return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
+}
+
 int main(int argc, char* argv[])
 {
     double radius = 1.;
@@ -119,9 +125,24 @@ int main(int argc, char* argv[])
    
     RandomSphericalGenerator generator(radius);
     int sphereCount = 20;
+    auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
+    again:
         auto point = generator.GeneratePoint();
+
+        for (int j = 0; j < i; j++)
+        {
+            auto otherPoint = randomPoints[j];
+            auto dx = otherPoint.x - point.x;
+            auto dy = otherPoint.y - point.y;
+            auto dx = otherPoint.x - point.x;
+            auto dx = otherPoint.x - point.x;
+
+            if (randomPoints[j])
+        }
+
+        randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
@@ -132,6 +153,7 @@ int main(int argc, char* argv[])
         //if(пересекаются сферы с уже добавленными)
             //переген.
     }
+    delete randomPoints;
 
     
     scene->AddSystem(new TextPrintingSystem());
