@@ -27,6 +27,14 @@ void TextDrawer::DrawTextUpRightAlign(const char* output, float x, float y)
 
 void TextDrawer::DrawTextUpLeftAlign(const char* output, float x, float y)
 {
+	m_spriteBatch->Begin();
+
+	Vector2 pos = Vector2(x, y);
+	Vector2 origin(0.f, 0.f); // = m_font->MeasureString(output);
+	m_font->DrawString(m_spriteBatch.get(), output,
+		pos, Colors::Black, 0.f, origin);
+
+	m_spriteBatch->End();
 }
 
 void TextDrawer::DrawTextDownLeftAlign(const char* output, float x, float y)
