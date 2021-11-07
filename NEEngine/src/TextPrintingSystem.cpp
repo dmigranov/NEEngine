@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "TextPrintingSystem.h"
 
+#include "Entity.h"
 #include "TextComponent.h"
 #include "TextDrawer.h"
 
@@ -13,4 +14,8 @@ TextPrintingSystem::TextPrintingSystem()
 
 void TextPrintingSystem::Execute(double deltaTime)
 {
+	for (auto pEntity : m_entities)
+	{
+		auto * pTextComponent = pEntity->GetComponent<TextComponent>();
+	}
 }
