@@ -12,7 +12,7 @@ using namespace DirectX::SimpleMath;
 
 float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
 {
-    float chordLength = distance(vec1, vec2); //длина хорды
+    float chordLength = Vector4::Distance(vec1, vec2); //длина хорды
     return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 }
 
@@ -97,7 +97,8 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
+    double objectRadius = 0.1;
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
     smc->SetEffect(effect);
 
     /*
@@ -124,7 +125,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 20;
+    int sphereCount = 10;
     auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
@@ -134,12 +135,10 @@ int main(int argc, char* argv[])
         for (int j = 0; j < i; j++)
         {
             auto otherPoint = randomPoints[j];
-            auto dx = otherPoint.x - point.x;
-            auto dy = otherPoint.y - point.y;
-            auto dx = otherPoint.x - point.x;
-            auto dx = otherPoint.x - point.x;
+            auto distance = SphericalDistance(point, otherPoint, radius);
 
-            if (randomPoints[j])
+            if (distance < 2 * objectRadius)
+                goto again;
         }
 
         randomPoints[i] = point;
@@ -149,11 +148,8 @@ int main(int argc, char* argv[])
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
         entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
-
-        //if(пересекаются сферы с уже добавленными)
-            //переген.
     }
-    delete randomPoints;
+    delete[] randomPoints;
 
     
     scene->AddSystem(new TextPrintingSystem());
