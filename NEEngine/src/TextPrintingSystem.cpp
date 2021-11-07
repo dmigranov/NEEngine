@@ -31,14 +31,16 @@ void TextPrintingSystem::Execute(double deltaTime)
 		switch (align)
 		{
 		case Alignment::UpRight:
+			m_textDrawer->DrawTextUpRightAlign(text, pos.x, pos.y);
 			break;
 		case Alignment::UpLeft:
 			break;
 		case Alignment::DownRight:
+			m_textDrawer->DrawTextDownRightAlign(text, pos.x, pos.y);
 			break;
 		case Alignment::DownLeft:
+			m_textDrawer->DrawTextDownLeftAlign(text, pos.x, pos.y);
 			break;
-
 		}
 	}
 }
