@@ -3,6 +3,8 @@
 #include "Geometries/SphericalEllipticGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
+#include "TextPrintingSystem.h"
+#include "TextComponent.h"
 #include "RandomSphericalGenerator.h"
 
 using namespace DirectX;
@@ -27,7 +29,9 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
 
-        //transfcomp и meshcom зарегистр по умолчанию... 
+        componentTypeManager->RegisterComponentType<TextComponent>();
+
+        //MeshComponent - registered by default
 
         componentTypeManager->SetTypeAdditionEnded();
     }
@@ -39,6 +43,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
+
     /*
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
@@ -110,7 +115,7 @@ int main(int argc, char* argv[])
     }
     */
 
-    //равномерное распределение
+    // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
     int sphereCount = 20;
@@ -128,6 +133,11 @@ int main(int argc, char* argv[])
         //if(пересекаются сферы с уже добавленными)
             //переген.
     }
+
+    scene->AddSystem(new TextPrintingSystem());
+    auto textEntity = new Entity();
+    textEntity->AddComponent<TextComponent>(new TextComponent("HELLO", 10, 10, Alignment::UpLeft));
+    scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem](Entity* pEntity, double deltaTime) {
