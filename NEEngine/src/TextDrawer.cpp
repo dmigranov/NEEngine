@@ -25,6 +25,10 @@ void TextDrawer::DrawTextUpRightAlign(const char* output, float x, float y)
 	m_spriteBatch->End();
 }
 
+void TextDrawer::DrawTextUpLeftAlign(const char* output, float x, float y)
+{
+}
+
 void TextDrawer::DrawTextDownLeftAlign(const char* output, float x, float y)
 {
 	m_spriteBatch->Begin();
