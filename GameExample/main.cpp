@@ -3,7 +3,7 @@
 #include "Geometries/SphericalEllipticGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
-#include "RandomSpherical.h"
+#include "RandomSphericalGenerator.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;

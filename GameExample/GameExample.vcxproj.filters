@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RandomSpherical.cpp">
+    <ClCompile Include="RandomSphericalGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -39,7 +39,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RandomSpherical.h">
+    <ClInclude Include="RandomSphericalGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

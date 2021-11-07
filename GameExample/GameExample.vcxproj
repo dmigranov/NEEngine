@@ -172,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RandomSpherical.cpp" />
+    <ClCompile Include="RandomSphericalGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="main_hyperb.cpp_" />
@@ -183,7 +183,7 @@
     <Text Include="cube creation code.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RandomSpherical.h" />
+    <ClInclude Include="RandomSphericalGenerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

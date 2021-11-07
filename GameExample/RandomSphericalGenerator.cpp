@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "RandomSpherical.h"
+#include "RandomSphericalGenerator.h"
 
 
 RandomSphericalGenerator::RandomSphericalGenerator(double radius) : m_gen(rd()), m_distr(-radius, radius)
