@@ -34,6 +34,7 @@ void TextPrintingSystem::Execute(double deltaTime)
 			m_textDrawer->DrawTextUpRightAlign(text, pos.x, pos.y);
 			break;
 		case Alignment::UpLeft:
+			m_textDrawer->DrawTextUpLeftAlign(text, pos.x, pos.y);
 			break;
 		case Alignment::DownRight:
 			m_textDrawer->DrawTextDownRightAlign(text, pos.x, pos.y);
