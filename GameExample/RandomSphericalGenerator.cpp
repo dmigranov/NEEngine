@@ -21,7 +21,7 @@ generate:
 	if (norm_square < epsilon || norm_square > m_radius_square) //too close too zero OR outside the sphere
 		goto generate;
 
-	//todo: normalize
+	double coeff = m_radius / sqrt(norm_square);
 
-	return DirectX::SimpleMath::Vector4();
+	return coeff * DirectX::SimpleMath::Vector4(x, y, z, w);
 }
