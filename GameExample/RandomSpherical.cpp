@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "RandomSpherical.h"
+#include <random>
 
 RandomSpherical::RandomSpherical(double radius)
 {
