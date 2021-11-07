@@ -147,10 +147,8 @@ int main(int argc, char* argv[])
     for (int i = 0; i < sphereCount; i++)
     {
         auto point = generator.GeneratePoint();
-        //std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
-        auto point_sph = GetSphericalFromCartesian(point.x, point.y, point.z, point.w);
-        //std::cout << point_sph.x << " " << point_sph.y << " " << point_sph.z << std::endl;
-        auto transformComponent = new SphericalTransformComponent(point_sph.y, point_sph.x, point_sph.z);
+        auto transformComponent = new SphericalTransformComponent();
+        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
         entity->AddComponent<MeshComponent>(smc);

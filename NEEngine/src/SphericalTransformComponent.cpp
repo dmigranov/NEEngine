@@ -48,6 +48,8 @@ void SphericalTransformComponent::Move(double dx, double dy, double dz)
 
 void SphericalTransformComponent::MoveAbsolute(double x, double y, double z, double w)
 {
+	//https://en.wikipedia.org/wiki/Rotations_in_4-dimensional_Euclidean_space
+
 	Matrix T_temp;
 	T_temp._11 = w;
 	T_temp._12 = z;
