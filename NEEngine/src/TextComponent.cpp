@@ -14,7 +14,7 @@ TextComponent::TextComponent(std::function<const char* (double delta)> func, con
 }
 
 
-const DirectX::SimpleMath::Vector2 TextComponent::GetPosition() const
+DirectX::SimpleMath::Vector2 TextComponent::GetPosition() const
 {
 	return DirectX::SimpleMath::Vector2(m_x, m_y);
 }
@@ -22,4 +22,9 @@ const DirectX::SimpleMath::Vector2 TextComponent::GetPosition() const
 const char* TextComponent::GetText(double delta) const
 {
 	return m_func(delta);
+}
+
+Alignment TextComponent::GetAlignment() const
+{
+	return m_align;
 }

@@ -17,5 +17,8 @@ void TextPrintingSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		auto * pTextComponent = pEntity->GetComponent<TextComponent>();
+		auto align = pTextComponent->GetAlignment();
+		auto text = pTextComponent->GetText(deltaTime);
+		auto pos = pTextComponent->GetPosition();
 	}
 }
