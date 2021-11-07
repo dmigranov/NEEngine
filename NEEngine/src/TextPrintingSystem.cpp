@@ -8,6 +8,9 @@ TextPrintingSystem::TextPrintingSystem()
 {
 	SubscribeToComponentType<TextComponent>();
 
-
 	m_isDrawing = true;
+}
+
+void TextPrintingSystem::Execute(double deltaTime)
+{
 }

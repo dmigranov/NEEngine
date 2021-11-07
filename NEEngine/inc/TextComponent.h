@@ -1,5 +1,14 @@
 #pragma once
 #include "Component.h"
+
+enum class Alignment {
+    UpRight,
+    UpLeft,
+    DownRight,
+    DownLeft
+};
+
+
 class TextComponent :
     public Component
 {
