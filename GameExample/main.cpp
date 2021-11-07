@@ -113,10 +113,11 @@ int main(int argc, char* argv[])
     //равномерное распределение
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 3;
+    int sphereCount = 20;
     for (int i = 0; i < sphereCount; i++)
     {
         auto point = generator.GeneratePoint();
+        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
@@ -127,18 +128,6 @@ int main(int argc, char* argv[])
         //if(пересекаются сферы с уже добавленными)
             //переген.
     }
-
-    double x = -0.855854, y = 0.224945, z = -0.464042, w = 0.0397378;
-    auto transformComponent = new SphericalTransformComponent();
-    //первые три к-ты - как бы независимы
-    //transformComponent->Move(0, asin(y), 0);
-    transformComponent->MoveAbsolute(x, y, z, w);
-    auto pos = transformComponent->GetSphericalPosition();
-    std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
-
-    transformComponent->Move(XM_PI, 0, 0);
-    pos = transformComponent->GetSphericalPosition();
-    std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem](Entity* pEntity, double deltaTime) {
@@ -160,7 +149,6 @@ int main(int argc, char* argv[])
             }
                 
         }));
-
 
     return game.StartGame();
 } 
