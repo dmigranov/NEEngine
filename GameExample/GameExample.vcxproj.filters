@@ -37,6 +37,9 @@
     <Text Include="cube creation code.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="experiment visibility.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomSphericalGenerator.h">

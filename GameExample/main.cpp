@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
-#include "WalkComponent.h"
 #include "InputSystem.h"
 #include "TextPrintingSystem.h"
 #include "TextComponent.h"
@@ -30,7 +29,6 @@ int main(int argc, char* argv[])
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
@@ -91,36 +89,9 @@ int main(int argc, char* argv[])
 
     auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
 
-
-    auto charWalkComponent = new WalkComponent(3, 4);
-    auto charInputComponent = new InputComponent();
-
-    auto entity1 = new Entity(), entity2 = new Entity();
-
     double objectRadius = 0.1;
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
     smc->SetEffect(effect);
-
-    /*
-    cameraComponent->SetFovY(XM_PI/2 - 0.2); //эксперимент с видимостью
-    int sphereCount = 6;
-    for (int i = 1; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, i * XM_PI / sphereCount, 0);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    for (int i = 1; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / sphereCount);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    */
 
     // --- Uniform Distribution --- //
    

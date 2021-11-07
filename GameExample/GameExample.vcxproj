@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube creation code.txt" />
+    <Text Include="experiment visibility.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomSphericalGenerator.h" />
