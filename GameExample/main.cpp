@@ -136,7 +136,18 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform](double delta) {return ""; }, 10, 10, Alignment::UpLeft));
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform](double delta) {
+        auto pos = cameraTransform->GetSphericalPosition();
+        auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
+
+        std::stringstream ss;
+        ss << std::fixed << std::setprecision(2);
+        ss << "X: " << pos.x << std::endl;
+        ss << "Y: " << pos.y << std::endl;
+        ss << "Z: " << pos.z << std::endl;
+        ss << "W: " << pos.w << std::endl;
+        return ss.str().c_str();
+    }, 10, 10, Alignment::UpLeft));
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
