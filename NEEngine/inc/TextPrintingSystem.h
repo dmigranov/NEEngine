@@ -6,5 +6,8 @@ class TextPrintingSystem :
 public:
     TextPrintingSystem();
     virtual void Execute(double deltaTime) override;
+    ~TextPrintingSystem();
+private:
+    Drawer2D* m_textDrawer;
 };
 

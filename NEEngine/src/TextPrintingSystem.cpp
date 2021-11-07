@@ -12,6 +12,8 @@ TextPrintingSystem::TextPrintingSystem()
 {
 	SubscribeToComponentType<TextComponent>();
 
+	Drawer2D
+
 	m_isDrawing = true;
 }
 
@@ -37,4 +39,9 @@ void TextPrintingSystem::Execute(double deltaTime)
 
 		}
 	}
+}
+
+TextPrintingSystem::~TextPrintingSystem()
+{
+	delete m_textDrawer;
 }
