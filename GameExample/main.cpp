@@ -160,9 +160,16 @@ int main(int argc, char* argv[])
             //переген.
     }
 
+    double x = -0.855854, y = 0.224945, z = -0.464042, w = 0.0397378;
     auto transformComponent = new SphericalTransformComponent();
-    transformComponent->Move(XM_PIDIV2, 0, 0);
+    //первые три к-ты - как бы независимы
+    //transformComponent->Move(0, asin(y), 0);
+    transformComponent->MoveAbsolute(x, y, z, w);
     auto pos = transformComponent->GetSphericalPosition();
+    std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
+
+    transformComponent->Move(XM_PI, 0, 0);
+    pos = transformComponent->GetSphericalPosition();
     std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
 
     scene->AddSystem(new ActionSystem<InputComponent>(

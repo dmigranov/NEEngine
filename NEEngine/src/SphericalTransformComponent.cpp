@@ -37,9 +37,38 @@ void SphericalTransformComponent::Move(DirectX::SimpleMath::Vector3 v)
 
 void SphericalTransformComponent::Move(double dx, double dy, double dz)
 {
-	Matrix dT = SphericalRotationZW(dz) * SphericalRotationYW(dy) * SphericalRotationXW(dx);
+	//Matrix dT = SphericalRotationZW(dz) * SphericalRotationYW(dy) * SphericalRotationXW(dx);
+	Matrix dT = SphericalRotationXW(dx) * SphericalRotationYW(dy) * SphericalRotationZW(dz);
 	//T = R.Transpose() * dT * R * T;
 	T = dT * T;
+
+	m_shouldRecalcWorld = true;
+	m_shouldRecalcView = true;
+}
+
+void SphericalTransformComponent::MoveAbsolute(double x, double y, double z, double w)
+{
+	Matrix T_temp;
+	T_temp._11 = w;
+	T_temp._12 = z;
+	T_temp._13 = -y;
+	T_temp._14 = x;
+
+	T_temp._21 = -z;
+	T_temp._22 = w;
+	T_temp._23 = x;
+	T_temp._24 = y;
+
+	T_temp._31 = y;
+	T_temp._32 = -x;
+	T_temp._33 = w;
+	T_temp._34 = z;
+
+	T_temp._41 = -x;
+	T_temp._42 = -y;
+	T_temp._43 = -z;
+	T_temp._44 = w;
+	T = T_temp;
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
