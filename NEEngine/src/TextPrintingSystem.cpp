@@ -20,5 +20,18 @@ void TextPrintingSystem::Execute(double deltaTime)
 		auto align = pTextComponent->GetAlignment();
 		auto text = pTextComponent->GetText(deltaTime);
 		auto pos = pTextComponent->GetPosition();
+
+		switch (align)
+		{
+		case Alignment::UpRight:
+			break;
+		case Alignment::UpLeft:
+			break;
+		case Alignment::DownRight:
+			break;
+		case Alignment::DownLeft:
+			break;
+
+		}
 	}
 }
