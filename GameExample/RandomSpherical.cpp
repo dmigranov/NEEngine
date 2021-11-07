@@ -5,6 +5,7 @@
 RandomSpherical::RandomSpherical(double radius) : m_gen(rd()), m_distr(-radius, radius)
 {
 	m_radius = radius;
+	m_radius_square = radius * radius;
 }
 
 DirectX::SimpleMath::Vector4 RandomSpherical::GeneratePoint()
@@ -15,6 +16,8 @@ DirectX::SimpleMath::Vector4 RandomSpherical::GeneratePoint()
 	double w = m_distr(m_gen);
 
 	double norm_square = x * x + y * y + z * z + w * w;
+
+	//if ()
 
 	return DirectX::SimpleMath::Vector4();
 }
