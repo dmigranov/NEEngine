@@ -3,12 +3,15 @@
 #include "Geometries/SphericalEllipticGeometry.h"
 #include "WalkComponent.h"
 #include "InputSystem.h"
+#include "RandomSpherical.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
+    double radius = 1.;
+
     Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
@@ -32,7 +35,7 @@ int main(int argc, char* argv[])
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
 
     auto renderSystem = new SphericalRenderSystem();
-    renderSystem->SetRadius(1);
+    renderSystem->SetRadius(radius);
     scene->AddSystem(new InputSystem());
     scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
@@ -86,9 +89,8 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
     smc->SetEffect(effect);
 
+    /*
     cameraComponent->SetFovY(XM_PI/2 - 0.2); //эксперимент с видимостью
-
-
     int sphereCount = 6;
     for (int i = 1; i < sphereCount; i++)
     {
@@ -106,6 +108,17 @@ int main(int argc, char* argv[])
         entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
+    */
+
+    //равномерное распределение
+    int sphereCount = 20;
+    for (int i = 0; i < sphereCount; i++)
+    {
+        auto point = GeneratePoint(radius);
+        //if(пересекаются сферы с уже добавленными)
+            //переген.
+    }
+
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem](Entity* pEntity, double deltaTime) {
