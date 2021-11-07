@@ -39,7 +39,7 @@
     <ClCompile Include="src\HyperbolicRenderSystem.cpp" />
     <ClCompile Include="src\HyperbolicTransformComponent.cpp" />
     <ClCompile Include="src\MeshComponentFactory.cpp" />
-    <ClCompile Include="src\PrintingSystem.cpp" />
+    <ClCompile Include="src\TextPrintingSystem.cpp" />
     <ClCompile Include="src\SphericalCameraComponent.cpp" />
     <ClCompile Include="src\SphericalControlSystem.cpp" />
     <ClCompile Include="src\SphericalEffect.cpp" />
@@ -50,6 +50,7 @@
     <ClCompile Include="src\SphericalMeshComponentFactory.cpp" />
     <ClCompile Include="src\SphericalRenderSystem.cpp" />
     <ClCompile Include="src\SphericalTransformComponent.cpp" />
+    <ClCompile Include="src\TextComponent.cpp" />
     <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\ToricControlSystem.cpp" />
     <ClCompile Include="src\ToricExpFogEffect.cpp" />
@@ -112,7 +113,7 @@
     <ClInclude Include="inc\InputSystem.h" />
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponentFactory.h" />
-    <ClInclude Include="inc\PrintingSystem.h" />
+    <ClInclude Include="inc\TextPrintingSystem.h" />
     <ClInclude Include="inc\SphericalCameraComponent.h" />
     <ClInclude Include="inc\SphericalControlSystem.h" />
     <ClInclude Include="inc\SphericalEffect.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="inc\SphericalTransformComponent.h" />
     <ClInclude Include="inc\System.h" />
     <ClInclude Include="inc\MeshComponent.h" />
+    <ClInclude Include="inc\TextComponent.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
     <ClInclude Include="inc\Timer.h" />

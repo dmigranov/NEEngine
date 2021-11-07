@@ -264,8 +264,11 @@
     <ClCompile Include="src\SphericalEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
-    <ClCompile Include="src\PrintingSystem.cpp">
+    <ClCompile Include="src\TextPrintingSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextComponent.cpp">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -449,8 +452,11 @@
     <ClInclude Include="inc\SphericalEffect.h">
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
-    <ClInclude Include="inc\PrintingSystem.h">
+    <ClInclude Include="inc\TextPrintingSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TextComponent.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
