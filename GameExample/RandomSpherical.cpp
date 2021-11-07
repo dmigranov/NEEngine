@@ -14,5 +14,7 @@ DirectX::SimpleMath::Vector4 RandomSpherical::GeneratePoint()
 	double z = m_distr(m_gen);
 	double w = m_distr(m_gen);
 
+	double norm_square = x * x + y * y + z * z + w * w;
+
 	return DirectX::SimpleMath::Vector4();
 }
