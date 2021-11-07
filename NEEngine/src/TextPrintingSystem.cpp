@@ -5,6 +5,9 @@
 #include "TextComponent.h"
 #include "TextDrawer.h"
 
+using namespace DirectX::SimpleMath;
+using namespace DirectX;
+
 TextPrintingSystem::TextPrintingSystem()
 {
 	SubscribeToComponentType<TextComponent>();
