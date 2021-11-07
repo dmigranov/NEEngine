@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "TextComponent.h"
 #include "TextDrawer.h"
+#include "Game.h"
 
 using namespace DirectX::SimpleMath;
 using namespace DirectX;
@@ -12,7 +13,8 @@ TextPrintingSystem::TextPrintingSystem()
 {
 	SubscribeToComponentType<TextComponent>();
 
-	Drawer2D
+	auto& game = Game::GetInstance();
+	m_textDrawer = new TextDrawer(game.GetDevice(), game.GetDeviceContext());
 
 	m_isDrawing = true;
 }

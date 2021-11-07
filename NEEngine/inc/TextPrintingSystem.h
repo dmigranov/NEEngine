@@ -1,5 +1,8 @@
 #pragma once
 #include "System.h"
+
+class TextDrawer;
+
 class TextPrintingSystem :
     public System
 {
@@ -8,6 +11,6 @@ public:
     virtual void Execute(double deltaTime) override;
     ~TextPrintingSystem();
 private:
-    Drawer2D* m_textDrawer;
+    TextDrawer* m_textDrawer;
 };
 
