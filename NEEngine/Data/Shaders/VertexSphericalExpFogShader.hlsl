@@ -65,6 +65,11 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//todo: расстояние должно сохраняться.
 	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
 	//и записать его в position
+	// 
+	// 	   Идея: найти уравнение прямой в гиперсфере
+	// 	   Построить согласно этому уравнению точку, лежащую на нужном расстоянии 6
+	// 	   расстояние будет пропорционально углу/параметру в уравнении (он один)
+	// 
 	//окружность лежит в плоскости, образовываемой векторами position1 и objectCenter1
 	//If we find two orthonormal vectors u and v in this plane then the equation of the great circle will be
 	//c = r(u cos ? + v sin ?)
