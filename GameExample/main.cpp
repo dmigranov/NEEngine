@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
 
 
     auto transformComponent = new SphericalTransformComponent();
-    transformComponent->Move(1, 1 , 1);
+    transformComponent->Move(1, 1, 1);
     auto pos = transformComponent->GetSphericalPosition();
     std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
     
