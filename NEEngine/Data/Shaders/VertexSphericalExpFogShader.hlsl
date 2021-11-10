@@ -71,6 +71,10 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//угол надо будет изменить пропорционально расстояния
 	//как найти вектора u и v?
 	//в качестве u возьмем (0, 0, 0, 1)
+	//v = u x (position1 x objectCenter1)
+	//идея: (position1 x objectCenter1) перпендикулярен плоскости
+	//v тогда будет в этой плоскости
+	//но так не получится, так как нет такого произведения в 4d пространстве...
 
 	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
