@@ -32,8 +32,8 @@ struct VertexShaderOutput
 
 float SphericalDistance(float4 vec1, float4 vec2, double radius)
 {
-	float chordLength = distance(vec1, vec2); //длина хорды
-	return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
+	float chordLength = distance(vec1, vec2); //chord length
+	return 2 * radius * asin(chordLength / (2. * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
 //entry point
@@ -65,6 +65,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//todo: расстояние должно сохраняться.
 	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
 	//и записать его в position
+	//окружность лежит в плоскости, образовываемой векторами position1 и objectCenter1
 
 	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
