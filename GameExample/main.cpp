@@ -121,12 +121,6 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
-
-
-    auto transformComponent = new SphericalTransformComponent();
-    transformComponent->Move(1, 1, 1);
-    auto pos = transformComponent->GetSphericalPosition();
-    std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
     
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
