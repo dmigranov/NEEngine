@@ -69,6 +69,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//If we find two orthonormal vectors u and v in this plane then the equation of the great circle will be
 	//c = r(u cos ω + v sin ω)
 	//угол надо будет изменить пропорционально расстояния
+	//как найти вектора u и v?
+	//в качестве u возьмем (0, 0, 0, 1)
 
 	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
