@@ -61,6 +61,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
 	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
 
+
 	//todo: расстояние должно сохраняться.
 	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
 	//и записать его в position
