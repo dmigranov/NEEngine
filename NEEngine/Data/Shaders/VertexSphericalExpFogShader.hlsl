@@ -1,4 +1,4 @@
-cbuffer PerApplication : register(b0)
+п»їcbuffer PerApplication : register(b0)
 {
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
@@ -27,7 +27,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
-	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
+	float4 position : SV_POSITION; //РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РїРѕСЃР»РµРґРЅРёРј РїСЂРё РїРѕСЃС‚СѓРїР»РµРЅРёРё РІ РїРёРєСЃРµР»СЊРЅС‹Р№ С€РµР№РґРµСЂ, РµСЃР»Рё РІ РЅРµРј РЅРµ Р±СѓРґРµРј РµРіРѕ Р±СЂР°С‚СЊ (РёРЅР°С‡Рµ РІСЃС‘ СЃРјРµСЃС‚РёС‚СЃСЏ)
 };
 
 float SphericalDistance(float4 vec1, float4 vec2, double radius)
@@ -54,28 +54,31 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 
-	//IN.position: должно давать в сумме 1!
+	//IN.position: РґРѕР»Р¶РЅРѕ РґР°РІР°С‚СЊ РІ СЃСѓРјРјРµ 1!
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
-	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
-	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
+	float4 position1 = normalize(IN.position); //РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹: Р»РµР¶Р°С‚ РЅР° РµРґРёРЅРёС‡РЅРѕР№ РіРёРїРµСЂСЃС„РµСЂРµ
+	float4 objectCenter1 = float4(0, 0, 0, 1); //РєРѕРѕСЂРґРёРЅР°С‚С‹ С†РµРЅС‚СЂР° РѕР±СЉРµРєС‚Р° РґР»СЏ РµРґРёРЅРёС‡РЅРѕР№ РіРёРїРµСЂСЃС„РµСЂС‹ РІ РєРѕРѕСЂРґРёРЅР°С‚Р°С… world
 	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
 
 
-	//todo: расстояние должно сохраняться.
-	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
-	//и записать его в position
-	//окружность лежит в плоскости, образовываемой векторами position1 и objectCenter1
+	//todo: СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕР»Р¶РЅРѕ СЃРѕС…СЂР°РЅСЏС‚СЊСЃСЏ.
+	//РЅСѓР¶РЅРѕ РїСЂРѕР№С‚Рё СЂР°СЃСЃС‚РѕСЏРЅРёРµ distanceFromPointToCenter РѕС‚ С†РµРЅС‚СЂР° РІ С‚РѕРј Р¶Рµ СЃР°РјРѕРј РЅР°РїСЂР°РІР»РµРЅРёРё
+	//Рё Р·Р°РїРёСЃР°С‚СЊ РµРіРѕ РІ position
+	//РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ Р»РµР¶РёС‚ РІ РїР»РѕСЃРєРѕСЃС‚Рё, РѕР±СЂР°Р·РѕРІС‹РІР°РµРјРѕР№ РІРµРєС‚РѕСЂР°РјРё position1 Рё objectCenter1
+	//If we find two orthonormal vectors u and v in this plane then the equation of the great circle will be
+	//c = r(u cos П‰ + v sin П‰)
+	//СѓРіРѕР» РЅР°РґРѕ Р±СѓРґРµС‚ РёР·РјРµРЅРёС‚СЊ РїСЂРѕРїРѕСЂС†РёРѕРЅР°Р»СЊРЅРѕ СЂР°СЃСЃС‚РѕСЏРЅРёСЏ
 
-	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
+	float4 position = radius * position1; 	//TODO: РїРµСЂРµСЂР°СЃС‡С‘С‚ РїРѕР·РёС†РёРё (СЌС‚Рѕ РЅРµРїСЂР°РІРёР»СЊРЅРѕ: РЅРµ СЃРѕС…СЂР°РЅСЏСЋС‚СЃСЏ СЂР°Р·РјРµСЂС‹, СЃРјРѕС‚СЂРё РІ С‚РµС‚СЂР°РґРё)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 
 	
-	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
-	//float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
+	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //РґР»РёРЅР° С…РѕСЂРґС‹
+	//float distance = 2 * radius * asin(chordLength / (2. * radius)); //СѓРіРѕР» - 2arcsin(L/2R), РґР»РёРЅР° РґСѓРіРё = СѓРіРѕР» * R
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
