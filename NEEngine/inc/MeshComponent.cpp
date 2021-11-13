@@ -22,12 +22,12 @@ void MeshComponent::SetEffect(Effect* effect)
     m_pEffect = effect;
 }
 
-ID3D11Buffer * const MeshComponent::GetVertexBuffer() const
+ID3D11Buffer * MeshComponent::GetVertexBuffer() const
 {
     return g_d3dVertexBuffer;
 }
 
-ID3D11Buffer * const MeshComponent::GetIndexBuffer() const
+ID3D11Buffer * MeshComponent::GetIndexBuffer() const
 {
     return g_d3dIndexBuffer;
 }
