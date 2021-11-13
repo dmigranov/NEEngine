@@ -90,6 +90,13 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);
 }
 
+MeshComponent* SphericalMeshComponentFactory::CreateSphericalPoint()
+{
+    VertexData* g_Vertices = new VertexData[1];
+    g_Vertices[0] = ;
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(1, g_Vertices, indicesCount, g_Indices, D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
+}
+
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile(std::string fileName)
 {
 	return nullptr;
