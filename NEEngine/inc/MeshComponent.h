@@ -25,6 +25,7 @@ protected:
 	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount);
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
+	D3D_PRIMITIVE_TOPOLOGY m_topology;
 	unsigned int m_indicesCount = 0;
 	Effect* m_pEffect;
 

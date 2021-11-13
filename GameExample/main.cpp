@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 10;
+    int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
