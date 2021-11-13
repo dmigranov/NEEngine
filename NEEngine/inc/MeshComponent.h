@@ -13,8 +13,9 @@ public:
 	Effect* GetEffect() const;
 	void SetEffect(Effect* effect);
 
-	ID3D11Buffer * const GetVertexBuffer();
-	ID3D11Buffer * const GetIndexBuffer();
+	ID3D11Buffer * const GetVertexBuffer() const;
+	ID3D11Buffer * const GetIndexBuffer() const;
+	D3D_PRIMITIVE_TOPOLOGY GetTopology() const;
 	unsigned int GetIndicesCount();
 
 	const std::type_info& GetVertexDataType();

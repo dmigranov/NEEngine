@@ -22,14 +22,19 @@ void MeshComponent::SetEffect(Effect* effect)
     m_pEffect = effect;
 }
 
-ID3D11Buffer * const MeshComponent::GetVertexBuffer()
+ID3D11Buffer * const MeshComponent::GetVertexBuffer() const
 {
     return g_d3dVertexBuffer;
 }
 
-ID3D11Buffer * const MeshComponent::GetIndexBuffer()
+ID3D11Buffer * const MeshComponent::GetIndexBuffer() const
 {
     return g_d3dIndexBuffer;
+}
+
+D3D_PRIMITIVE_TOPOLOGY MeshComponent::GetTopology() const
+{
+    return m_topology;
 }
 
 unsigned int MeshComponent::GetIndicesCount()
