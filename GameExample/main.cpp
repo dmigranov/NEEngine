@@ -93,10 +93,13 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
     smc->SetEffect(effect);
 
+
+    auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
+    pointComp->SetEffect(effect);
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100;
+    int sphereCount = 1000;
     auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
@@ -108,8 +111,8 @@ int main(int argc, char* argv[])
             auto otherPoint = randomPoints[j];
             auto distance = SphericalDistance(point, otherPoint, radius);
 
-            if (distance < 2 * objectRadius)
-                goto again;
+            //if (distance < 2 * objectRadius)
+            //    goto again;
         }
 
         randomPoints[i] = point;
@@ -117,7 +120,7 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
+        entity->AddComponent<MeshComponent>(pointComp);
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
