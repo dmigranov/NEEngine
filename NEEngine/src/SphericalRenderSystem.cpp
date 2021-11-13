@@ -69,6 +69,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
+	auto topology = pMeshComponent->GetTopology();
 	auto pEffect = pMeshComponent->GetEffect();
 
 	if (!pEffect) //for debug: can be commented

@@ -93,8 +93,11 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalPoint()
 {
     VertexData* g_Vertices = new VertexData[1];
-    g_Vertices[0] = ;
-    return MeshComponentFactory::CreateMeshComponent<VertexData>(1, g_Vertices, indicesCount, g_Indices, D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
+    g_Vertices[0] = { XMFLOAT4(1.f, 0.f, 0.f, 0.f), XMFLOAT2(0.f, 0.f)};
+
+    WORD* g_Indices = new WORD[1]{0};
+
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(1, g_Vertices, 1, g_Indices, D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
 }
 
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalMeshFromFile(std::string fileName)
