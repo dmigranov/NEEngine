@@ -6,7 +6,7 @@ class Game;
 class MeshComponentFactory
 {
 public:
-	template<class VertexData> static MeshComponent* CreateMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices) {
+	template<class VertexData> static MeshComponent* CreateMeshComponent(int nv, VertexData* vertices, int ni, WORD* indices, D3D_PRIMITIVE_TOPOLOGY topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST) {
 		auto& game = Game::GetInstance();
 		auto device = game.GetDevice();
 		auto deviceContext = game.GetDeviceContext(); //todo: оптимизировать
@@ -40,7 +40,7 @@ public:
 
 		device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
-		MeshComponent* returnMesh = new MeshComponent(g_d3dVertexBuffer, g_d3dIndexBuffer, typeid(VertexData), ni);
+		MeshComponent* returnMesh = new MeshComponent(g_d3dVertexBuffer, g_d3dIndexBuffer, typeid(VertexData), ni, topology);
 
 		return returnMesh;
 	}
