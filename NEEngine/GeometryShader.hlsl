@@ -1,6 +1,3 @@
-//todo: correct structures
-//https://open.gl/geometry
-
 struct VertexInput
 {
 	float4 position : SV_POSITION;

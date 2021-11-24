@@ -1,3 +1,6 @@
+//todo: correct structures
+//https://open.gl/geometry
+
 struct GSOutput
 {
 	float4 pos : SV_POSITION;
