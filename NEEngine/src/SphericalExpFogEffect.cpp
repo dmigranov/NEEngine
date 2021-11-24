@@ -150,6 +150,11 @@ void SphericalExpFogEffect::UpdatePerApplication()
 	//TODO: for optimisation...
 }
 
+void SphericalExpFogEffect::Clean()
+{
+	//TODO: set shaders to nullptr?
+}
+
 unsigned int SphericalExpFogEffect::GetVertexBufferSize() const
 {
 	return sizeof(SphericalMeshComponentFactory::VertexData);
