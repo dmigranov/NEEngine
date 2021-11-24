@@ -214,6 +214,11 @@ inline void Game::VSSetShader(ID3D11VertexShader* pVertexShader)
     g_d3dDeviceContext->VSSetShader(pVertexShader, nullptr, 0);
 }
 
+inline void Game::GSSetShader(ID3D11GeometryShader* pGeometryShader)
+{
+    g_d3dDeviceContext->GSSetShader(pGeometryShader, nullptr, 0);
+}
+
 inline void Game::PSSetShader(ID3D11PixelShader* pPixelShader)
 {
     g_d3dDeviceContext->PSSetShader(pPixelShader, nullptr, 0);
