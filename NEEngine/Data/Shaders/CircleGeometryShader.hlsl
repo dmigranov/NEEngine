@@ -25,11 +25,14 @@ void main(
 {
 	GSInput inputPoint = input[0];
 	
+	float4 centerPoint = inputPoint.position;
+
 	int side_count = 8;
 	for (int i = 0; i <= side_count; i++) {
 		float ang = PI * 2.0 / side_count * i;
 		float4 offset = float4(cos(ang) * 0.1, -sin(ang) * 0.1, 0.0, 0.0);
-		float4 newPoint = inputPoint.position + offset;
+		float4 newPoint = centerPoint + offset;
+
 	}
 
 
