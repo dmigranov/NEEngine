@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
+        entity->AddComponent<MeshComponent>(pointComp);
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
@@ -163,7 +163,6 @@ int main(int argc, char* argv[])
                 if (radius > 0.2)
                     renderSystem->SetRadius(radius -0.1);
             }
-                
         }));
 
     return game.StartGame();
