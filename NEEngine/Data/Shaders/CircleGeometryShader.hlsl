@@ -20,7 +20,7 @@ struct GSOutput
 [maxvertexcount(30)]
 void main(
 	point GSInput input[1], 
-	inout TriangleStream< GSOutput > output
+	inout TriangleStream< GSOutput > outputStream
 )
 {
 	GSInput inputVertex = input[0];
@@ -48,7 +48,11 @@ void main(
 		output.position = points[pointIndex];
 		output.fogFactor = inputVertex.fogFactor;
 		output.tex = inputVertex.tex;
+
+		outputStream.Append(output);
 	}
+
+	outputStream.RestartStrip(); // создаем примитив 
 
 
 	/*
