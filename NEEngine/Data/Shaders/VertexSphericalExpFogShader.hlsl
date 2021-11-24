@@ -80,7 +80,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//ג ךאקוסעגו u גמחüלול (0, 0, 0, 1)
 	
 
-	float4 position = float4(x_new, y_new, z_new, w_new);
+	float4 position = float4(1, 0, 0, 0);
 	//float4 position = radius * position1; 
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
