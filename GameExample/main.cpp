@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
 
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
-    pointComp->SetEffect(effect);
+    pointComp->SetEffect(pointEffect);
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
+        entity->AddComponent<MeshComponent>(pointComp);
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
