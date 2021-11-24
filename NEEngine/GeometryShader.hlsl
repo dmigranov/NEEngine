@@ -1,4 +1,5 @@
 //todo: correct structures
+//https://open.gl/geometry
 
 struct VertexInput
 {
