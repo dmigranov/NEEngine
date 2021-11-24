@@ -68,9 +68,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda;
 	float4 position = float4(x_new, y_new, z_new, w_new);
 
-	//float4 position = radius * position1;
-
-
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
 	//float distance = 2 * radius * asin(chordLength / (2. * radius));
