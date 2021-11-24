@@ -23,16 +23,31 @@ void main(
 	inout TriangleStream< GSOutput > output
 )
 {
-	GSInput inputPoint = input[0];
-	
-	float4 centerPoint = inputPoint.position;
+	GSInput inputVertex = input[0];
 
-	int side_count = 8;
-	for (int i = 0; i <= side_count; i++) {
-		float ang = PI * 2.0 / side_count * i;
-		float4 offset = float4(cos(ang) * 0.1, -sin(ang) * 0.1, 0.0, 0.0);
+	float4 centerPoint = inputVertex.position;
+
+	float4 points[10];
+	points[0] = centerPoint;
+
+	for (int i = 0; i <= 8; i++) {
+		float ang = PI * 2.f / 8 * i;
+		float4 offset = float4(cos(ang) * 0.1f, -sin(ang) * 0.1f, 0.f, 0.f);
 		float4 newPoint = centerPoint + offset;
+		points[i + 1] = newPoint;
+	}
 
+	for (i = 0; i < 10; i++)
+	{
+		int pointIndex;
+		if (i % 2 == 0)
+			pointIndex = i / 2;
+		else
+			pointIndex = 9 - i / 2;
+		GSOutput output;
+		output.position = points[pointIndex];
+		output.fogFactor = inputVertex.fogFactor;
+		output.tex = inputVertex.tex;
 	}
 
 
