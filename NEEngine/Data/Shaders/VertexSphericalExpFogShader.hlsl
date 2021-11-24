@@ -63,6 +63,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
 	float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
+
 	// TODO: формулы ниже не до конца обоснованы теоретически
 	// как это можно проверить: нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
 	// направление - это вектор в касательном пространстве
