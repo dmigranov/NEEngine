@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "SphericalExpFogPointEffect.h"
 
+#include "Game.h"
+
+#include "GeometryShader.h" // generated from BasicPixelShader.hlsl
+
+
 SphericalExpFogPointEffect::SphericalExpFogPointEffect(double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(nullptr, fogDensity, fogColor)
 {
 	m_magic = "SphericalExpFogPoint";
@@ -9,7 +14,9 @@ SphericalExpFogPointEffect::SphericalExpFogPointEffect(double fogDensity, Direct
 
 bool SphericalExpFogPointEffect::Initialize()
 {
-	return false;
+	g_d3dGeometryShader = game.CreateGeometryShaderFromBytecode(g_gs, sizeof(g_gs));
+
+	return true;
 }
 
 void SphericalExpFogPointEffect::Deinitialize()
