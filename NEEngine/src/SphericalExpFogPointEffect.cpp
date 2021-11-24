@@ -3,7 +3,7 @@
 
 #include "Game.h"
 
-#include "GeometryShader.h" // generated from BasicPixelShader.hlsl
+#include "CircleGeometryShader.h" // generated from BasicPixelShader.hlsl
 
 
 SphericalExpFogPointEffect::SphericalExpFogPointEffect(double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(nullptr, fogDensity, fogColor)
@@ -14,7 +14,7 @@ SphericalExpFogPointEffect::SphericalExpFogPointEffect(double fogDensity, Direct
 
 bool SphericalExpFogPointEffect::Initialize()
 {
-	g_d3dGeometryShader = game.CreateGeometryShaderFromBytecode(g_gs, sizeof(g_gs));
+	g_d3dGeometryShader = game.CreateGeometryShaderFromBytecode(g_cgs, sizeof(g_cgs));
 
 	//todo: constant buffer for circles radiuses
 
