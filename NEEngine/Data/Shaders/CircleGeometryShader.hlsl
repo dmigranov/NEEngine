@@ -1,9 +1,18 @@
 //todo: correct structures
 //https://open.gl/geometry
 
+struct GSInput
+{
+	float2 tex : TEXCOORD0;
+	float fogFactor : FOG_FACTOR;
+	float4 position : SV_POSITION;
+};
+
 struct GSOutput
 {
-	float4 pos : SV_POSITION;
+	float2 tex : TEXCOORD0;
+	float fogFactor : FOG_FACTOR;
+	float4 position : SV_POSITION;	//has to be the last before RS
 };
 
 [maxvertexcount(3)]
@@ -15,7 +24,7 @@ void main(
 	for (uint i = 0; i < 3; i++)
 	{
 		GSOutput element;
-		element.pos = input[i];
+		element.position = input[i];
 		output.Append(element);
 	}
 }
