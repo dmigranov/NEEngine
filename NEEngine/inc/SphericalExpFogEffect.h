@@ -50,7 +50,7 @@ public:
 
     ~SphericalExpFogEffect();
 
-private:
+protected:
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
