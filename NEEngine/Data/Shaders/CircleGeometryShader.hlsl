@@ -53,14 +53,4 @@ void main(
 	}
 
 	outputStream.RestartStrip(); // создаем примитив 
-
-
-	/*
-	for (uint i = 0; i < 3; i++)
-	{
-		GSOutput element;
-		element.position = input[i];
-		output.Append(element);
-	}
-	*/
 }
