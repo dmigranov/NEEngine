@@ -55,6 +55,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	}
 
 	//IN.position: sum of squares must be 1!
+
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере

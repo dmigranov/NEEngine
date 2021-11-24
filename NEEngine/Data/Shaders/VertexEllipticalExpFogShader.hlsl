@@ -56,7 +56,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 	
-	//IN.position: должно давать в сумме 1!
+	//IN.position: sum of squares must be 1!
+
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
@@ -65,8 +66,9 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 	float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radius * radius - w_new * w_new));
 	float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda;
+	float4 position = float4(x_new, y_new, z_new, w_new);
 
-	float4 position = radius * position1; 	//todo: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
+	//float4 position = radius * position1;
 
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
