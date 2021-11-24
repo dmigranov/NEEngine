@@ -65,7 +65,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
-	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
+	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1.); //must stay the same!
 	if (distanceFromPointToCenter < epsilon)
 		position = IN.position;
 	else
