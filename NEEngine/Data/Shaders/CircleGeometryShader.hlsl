@@ -28,8 +28,8 @@ void main(
 	int side_count = 8;
 	for (int i = 0; i <= side_count; i++) {
 		float ang = PI * 2.0 / side_count * i;
-		float4 offset = float4(cos(ang) * 0.3, -sin(ang) * 0.4, 0.0, 0.0);
-		gl_Position = gl_in[0].gl_Position + offset;
+		float4 offset = float4(cos(ang) * 0.1, -sin(ang) * 0.1, 0.0, 0.0);
+		float4 newPoint = inputPoint.position + offset;
 	}
 
 
