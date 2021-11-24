@@ -17,6 +17,8 @@ struct GSOutput
 
 #define PI 3.14159265
 
+//TODO: учёт соотношения сторон
+
 [maxvertexcount(10)]
 void main(
 	point GSInput input[1], 
@@ -24,8 +26,12 @@ void main(
 )
 {
 	GSInput inputVertex = input[0];
-	if (inputVertex.position.z < 0)
+	if (inputVertex.position.z < 0) 
 		return;
+	//зачем то, что сверху нужно? мы полагаемся на то, что точки с z < 0 отсекаются.
+	//но это отсечение происходит уже после этого этапа!
+	//мы же полностью теряем эту информацию при делении, если не делаем проверку услови выше.
+
 	float4 centerPoint = inputVertex.position / inputVertex.position.w;
 
 	float4 points[10];
@@ -33,7 +39,7 @@ void main(
 
 	for (int i = 0; i <= 8; i++) {
 		float ang = PI * 2.f / 8 * i;
-		float4 offset = float4(cos(ang) * 0.05f, -sin(ang) * 0.05f, 0.f, 0.f);
+		float4 offset = float4(cos(ang) * 0.015f, -sin(ang) * 0.02f, 0.f, 0.f);
 		float4 newPoint = centerPoint + offset;
 		points[i + 1] = newPoint;
 	}
