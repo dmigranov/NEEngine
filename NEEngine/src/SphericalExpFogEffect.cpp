@@ -109,7 +109,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
-	perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetBackSphericalProj(); 
+	perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetBackSphericalProj(); //TODO: common banana
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
 	const auto &view = (game.GetScene())->GetCamera()->GetComponent<SphericalTransformComponent>()->GetView();
