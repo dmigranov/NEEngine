@@ -1,3 +1,5 @@
+//todo: correct structures
+
 struct VertexInput
 {
 	float4 position : SV_POSITION;
