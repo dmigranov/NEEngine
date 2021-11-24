@@ -12,5 +12,8 @@ public:
     virtual void UpdatePerObject(const Entity* pEntity) override;
 
     virtual void Clean() override;
+private:
+    ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+
 };
 
