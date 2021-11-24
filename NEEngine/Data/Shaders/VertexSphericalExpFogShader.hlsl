@@ -33,7 +33,7 @@ struct VertexShaderOutput
 float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
 	float chordLength = distance(vec1, vec2); //chord length
-	return 2 * radius * asin(chordLength / (2. * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
+	return 2 * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
 //entry point
@@ -80,8 +80,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//ג ךאקוסעגו u גמחüלול (0, 0, 0, 1)
 	
 
-	//float4 position = float4(x_new, y_new, z_new, w_new);
-	float4 position = float4(0, 0, 0, distanceFromPointToCenter);
+	float4 position = float4(x_new, y_new, z_new, w_new);
+	//float4 position = float4(0, 0, 0, distanceFromPointToCenter);
 	
 	//float4 position = radius * position1; 
 
