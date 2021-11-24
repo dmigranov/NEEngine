@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
 
         randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
-        transformComponent->MoveAbsolute(point.x, point.z, point.z, point.w);
+        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
 
