@@ -60,7 +60,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
-	if (abs(position1.w - 1) < 0.01)
+	if (abs(position1.w - 1) < 0.00001)
 		position = position1 * radius;
 	else
 	{
