@@ -15,13 +15,24 @@ struct GSOutput
 	float4 position : SV_POSITION;	//has to be the last before RS
 };
 
-[maxvertexcount(16)]
+#define PI 3.14159265
+
+[maxvertexcount(30)]
 void main(
 	point GSInput input[1], 
 	inout TriangleStream< GSOutput > output
 )
 {
 	GSInput inputPoint = input[0];
+	
+	int side_count = 8;
+	for (int i = 0; i <= side_count; i++) {
+		float ang = PI * 2.0 / side_count * i;
+		float4 offset = float4(cos(ang) * 0.3, -sin(ang) * 0.4, 0.0, 0.0);
+		gl_Position = gl_in[0].gl_Position + offset;
+	}
+
+
 	/*
 	for (uint i = 0; i < 3; i++)
 	{
