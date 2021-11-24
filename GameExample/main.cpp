@@ -160,10 +160,11 @@ int main(int argc, char* argv[])
             else if (kbs.O)
             {
                 auto radius = renderSystem->GetRadius();
-                if (radius > 0.1)
+                if (radius > 0.2)
                     renderSystem->SetRadius(radius -0.1);
             }
                 
+            //todo: сделать чтобы изменение радиуса сразу сказывалось на выводимых координатах
         }));
 
     return game.StartGame();

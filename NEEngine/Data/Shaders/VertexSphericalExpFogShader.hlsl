@@ -36,8 +36,6 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 	return 2 * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
-const float epsilon = 0.001;
-
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
@@ -61,14 +59,14 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
 	float4 position; //итоговая позиция
-	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
-	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
-	float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
-
-	if (distanceFromPointToCenter < epsilon)
+	if (abs(IN.position.w - radius) < 0.01)
 		position = IN.position;
 	else
 	{
+		float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
+		float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
+		float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
+
 		float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
 		// TODO: формулы ниже не до конца обоснованы теоретически

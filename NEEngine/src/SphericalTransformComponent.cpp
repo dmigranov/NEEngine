@@ -109,7 +109,7 @@ void SphericalTransformComponent::SetPitchYawRoll(double pitch, double yaw, doub
 
 DirectX::SimpleMath::Vector4 SphericalTransformComponent::GetSphericalPosition()
 {
-	if (m_shouldRecalcWorld)
+	//if (m_shouldRecalcWorld)
 		Recalculate();
 	return m_position;
 }
@@ -164,4 +164,5 @@ void SphericalTransformComponent::SetRadius(double radius)
 {
 	m_radius = radius;
 	//matrices won't change if the radius is modified - therefore, we don't need to recalculate anything!
+	//but the position will change!
 }
