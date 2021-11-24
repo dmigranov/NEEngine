@@ -38,6 +38,7 @@ public:
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
 
     inline void VSSetShader(ID3D11VertexShader* pVertexShader);
+    inline void GSSetShader(ID3D11GeometryShader* pGeometryShader);
     inline void PSSetShader(ID3D11PixelShader* pPixelShader);
     
     ID3D11InputLayout* CreateInputLayout(const D3D11_INPUT_ELEMENT_DESC* inputElementDescs,
