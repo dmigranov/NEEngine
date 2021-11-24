@@ -122,8 +122,8 @@ int main(int argc, char* argv[])
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
 
-        //entity->AddComponent<MeshComponent>(smc);
-        entity->AddComponent<MeshComponent>(pointComp);
+        entity->AddComponent<MeshComponent>(smc);
+        //entity->AddComponent<MeshComponent>(pointComp);
 
         scene->AddEntity(entity);
     }
@@ -159,12 +159,12 @@ int main(int argc, char* argv[])
                 effect->SetMode(false);
 
             if (kbs.I)
-                renderSystem->SetRadius(renderSystem->GetRadius() + 0.1);
+                renderSystem->SetRadius(renderSystem->GetRadius() + 0.01);
             else if (kbs.O)
             {
                 auto radius = renderSystem->GetRadius();
                 if (radius > 0.2)
-                    renderSystem->SetRadius(radius -0.1);
+                    renderSystem->SetRadius(radius -0.01);
             }
         }));
 
