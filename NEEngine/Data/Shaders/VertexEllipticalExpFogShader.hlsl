@@ -30,10 +30,10 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION;
 };
 
-float SphericalDistance(float4 vec1, float4 vec2, double radius)
+float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
 	float chordLength = distance(vec1, vec2); //длина хорды
-	return 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
+	return 2 * radius * asin(chordLength / (2.f * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 }
 
 //entry point
@@ -62,6 +62,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
 	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
+	float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
 	float4 position = radius * position1; 	//todo: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
