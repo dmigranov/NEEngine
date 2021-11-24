@@ -493,6 +493,9 @@
     <FxCompile Include="Data\Shaders\VertexHyperbolicExpFogShader.hlsl">
       <Filter>Data\Shaders\Hyperbolic</Filter>
     </FxCompile>
+    <FxCompile Include="Data\Shaders\CircleGeometryShader.hlsl">
+      <Filter>Data\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
