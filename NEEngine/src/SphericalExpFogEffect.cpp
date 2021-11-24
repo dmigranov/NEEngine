@@ -108,8 +108,17 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
 	//todo: !!! обновлять CB_Application только если что-то изменилось? (то есть в UpdatePerApplication?)
 
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
-	perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
-	perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetBackSphericalProj(); //TODO: common banana
+	if (m_isSpherical)
+	{
+		perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetFrontSphericalProj();
+		perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetBackSphericalProj(); 
+	}
+	else
+	{
+		perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetEllipticProj();
+		perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetEllipticProj();
+	}
+
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
 	const auto &view = (game.GetScene())->GetCamera()->GetComponent<SphericalTransformComponent>()->GetView();
