@@ -32,7 +32,7 @@ void main(
 
 	for (int i = 0; i <= 8; i++) {
 		float ang = PI * 2.f / 8 * i;
-		float4 offset = float4(cos(ang) * 0.1f, -sin(ang) * 0.1f, 0.f, 0.f);
+		float4 offset = float4(cos(ang) * 0.01f, -sin(ang) * 0.01f, 0.f, 0.f);
 		float4 newPoint = centerPoint + offset;
 		points[i + 1] = newPoint;
 	}
