@@ -21,6 +21,7 @@ void main(
 	inout TriangleStream< GSOutput > output
 )
 {
+	GSInput inputPoint = input[0];
 	/*
 	for (uint i = 0; i < 3; i++)
 	{
