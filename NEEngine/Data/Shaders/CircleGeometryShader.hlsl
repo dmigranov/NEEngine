@@ -17,7 +17,7 @@ struct GSOutput
 
 #define PI 3.14159265
 
-[maxvertexcount(30)]
+[maxvertexcount(10)]
 void main(
 	point GSInput input[1], 
 	inout TriangleStream< GSOutput > outputStream
@@ -32,7 +32,7 @@ void main(
 
 	for (int i = 0; i <= 8; i++) {
 		float ang = PI * 2.f / 8 * i;
-		float4 offset = float4(cos(ang) * 0.01f, -sin(ang) * 0.01f, 0.f, 0.f);
+		float4 offset = float4(cos(ang) * 0.05f, -sin(ang) * 0.05f, 0.f, 0.f);
 		float4 newPoint = centerPoint + offset;
 		points[i + 1] = newPoint;
 	}

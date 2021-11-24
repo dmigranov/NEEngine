@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100;
+    int sphereCount = 1;
     auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
@@ -121,7 +121,10 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(pointComp);
+
+        entity->AddComponent<MeshComponent>(smc);
+        //entity->AddComponent<MeshComponent>(pointComponent);
+
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
