@@ -40,7 +40,7 @@ void main(
 	for (i = 0; i < 10; i++)
 	{
 		int pointIndex;
-		if (i % 2 == 0)
+		if (i % 2 != 0)
 			pointIndex = i / 2;
 		else
 			pointIndex = 9 - i / 2;
