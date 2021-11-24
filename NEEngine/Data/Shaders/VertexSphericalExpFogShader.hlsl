@@ -72,18 +72,9 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	// 	   Построить согласно этому уравнению точку, лежащую на нужном расстоянии 6
 	// 	   расстояние будет пропорционально углу/параметру в уравнении (он один)
 	// 
-	//окружность лежит в плоскости, образовываемой векторами position1 и objectCenter1
-	//If we find two orthonormal vectors u and v in this plane then the equation of the great circle will be
-	//c = r(u cos ? + v sin ?)
-	//угол надо будет изменить пропорционально расстояния
-	//как найти вектора u и v?
-	//в качестве u возьмем (0, 0, 0, 1)
 	
 
 	float4 position = float4(x_new, y_new, z_new, w_new);
-	//float4 position = float4(0, 0, 0, distanceFromPointToCenter);
-	
-	//float4 position = radius * position1; 
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
