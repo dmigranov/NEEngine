@@ -54,26 +54,21 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 
-	//IN.position: сумма квадратов должна быть 1!
+	//IN.position: sum of squares must be 1!
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
 	float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
 	float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
+
+	// TODO: формулы ниже не до конца обоснованы теоретически
+	// как это можно проверить: нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
+	// направление - это вектор в касательном пространстве
+	// Идея: найти уравнение прямой в гиперсфере
+
 	float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radius * radius - w_new * w_new));
 	float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda;
-
-	//todo: расстояние должно сохраняться.
-	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
-	//и записать его в position
-	// 
-	// 	   Идея: найти уравнение прямой в гиперсфере
-	// 	   Построить согласно этому уравнению точку, лежащую на нужном расстоянии 6
-	// 	   расстояние будет пропорционально углу/параметру в уравнении (он один)
-	// 
-	
-
 	float4 position = float4(x_new, y_new, z_new, w_new);
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
