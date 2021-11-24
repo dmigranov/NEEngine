@@ -167,5 +167,3 @@ int main(int argc, char* argv[])
 
     return game.StartGame();
 }
-
-//todo: проверить неправильный рендеринг эллиптического пространства
