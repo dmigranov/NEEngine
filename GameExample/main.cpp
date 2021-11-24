@@ -118,12 +118,12 @@ int main(int argc, char* argv[])
 
         randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
-        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
+        transformComponent->MoveAbsolute(point.x, 0, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
 
-        entity->AddComponent<MeshComponent>(smc);
-        //entity->AddComponent<MeshComponent>(pointComponent);
+        //entity->AddComponent<MeshComponent>(smc);
+        entity->AddComponent<MeshComponent>(pointComp);
 
         scene->AddEntity(entity);
     }
