@@ -34,4 +34,5 @@ void SphericalExpFogPointEffect::UpdatePerObject(const Entity* pEntity)
 
 void SphericalExpFogPointEffect::Clean()
 {
+	game.GSSetShader(nullptr);
 }
