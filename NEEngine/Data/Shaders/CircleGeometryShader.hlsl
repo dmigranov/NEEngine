@@ -15,16 +15,18 @@ struct GSOutput
 	float4 position : SV_POSITION;	//has to be the last before RS
 };
 
-[maxvertexcount(3)]
+[maxvertexcount(16)]
 void main(
-	triangle float4 input[3] : SV_POSITION, 
+	point GSInput input[1], 
 	inout TriangleStream< GSOutput > output
 )
 {
+	/*
 	for (uint i = 0; i < 3; i++)
 	{
 		GSOutput element;
 		element.position = input[i];
 		output.Append(element);
 	}
+	*/
 }
