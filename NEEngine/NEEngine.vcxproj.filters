@@ -267,6 +267,9 @@
     <ClCompile Include="src\TextComponent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalExpFogPointEffect.cpp">
+      <Filter>Исходные файлы\Effects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -454,6 +457,9 @@
     </ClInclude>
     <ClInclude Include="inc\TextComponent.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalExpFogPointEffect.h">
+      <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
