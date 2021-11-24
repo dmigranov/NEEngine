@@ -93,7 +93,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 MeshComponent* SphericalMeshComponentFactory::CreateSphericalPoint()
 {
     VertexData* g_Vertices = new VertexData[1];
-    g_Vertices[0] = { XMFLOAT4(1.f, 0.f, 0.f, 0.f), XMFLOAT2(0.f, 0.f)}; 
+    g_Vertices[0] = { XMFLOAT4(0.f, 0.f, 0.f, 1.f), XMFLOAT2(0.f, 0.f)}; 
 
     WORD* g_Indices = new WORD[1]{0};
 
