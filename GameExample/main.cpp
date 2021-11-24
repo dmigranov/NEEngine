@@ -164,7 +164,6 @@ int main(int argc, char* argv[])
                     renderSystem->SetRadius(radius -0.1);
             }
                 
-            //todo: сделать чтобы изменение радиуса сразу сказывалось на выводимых координатах
         }));
 
     return game.StartGame();
