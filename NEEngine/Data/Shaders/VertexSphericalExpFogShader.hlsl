@@ -62,6 +62,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float distanceFromPointToCenter = SphericalDistance(position1, objectCenter1, 1); //must stay the same!
 	float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 	float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radius * radius - w_new * w_new));
+	float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda;
 
 	//todo: расстояние должно сохраняться.
 	//нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
@@ -79,7 +80,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//в качестве u возьмем (0, 0, 0, 1)
 	
 
-	float4 position = radius * position1; 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
+	float4 position = radius * float4(position1.x/lamda); 	//TODO: перерасчёт позиции (это неправильно: не сохраняются размеры, смотри в тетради)
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
