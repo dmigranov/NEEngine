@@ -18,3 +18,4 @@
 // Effects
 
 #include "SphericalExpFogEffect.h"
+#include "SphericalExpFogPointEffect.h"

@@ -4,7 +4,7 @@ class SphericalExpFogPointEffect :
     public SphericalExpFogEffect
 {
 public:
-    SphericalExpFogPointEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
+    SphericalExpFogPointEffect(double fogDensity, DirectX::XMVECTORF32 fogColor);
 
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
