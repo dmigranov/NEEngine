@@ -16,6 +16,8 @@ cbuffer PerObject : register(b2)
 	matrix worldMatrix;
 }
 
+const float = 0.001;
+
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables
 struct VertexShaderInput
 {

@@ -36,6 +36,8 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 	return 2 * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
 }
 
+const float = 0.001;
+
 //entry point
 VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
