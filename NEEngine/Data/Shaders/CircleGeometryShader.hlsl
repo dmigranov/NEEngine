@@ -25,7 +25,7 @@ void main(
 {
 	GSInput inputVertex = input[0];
 
-	float4 centerPoint = inputVertex.position;
+	float4 centerPoint = inputVertex.position / inputVertex.position.w;
 
 	float4 points[10];
 	points[0] = centerPoint;
