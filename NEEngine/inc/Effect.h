@@ -29,6 +29,7 @@ public:
 	virtual void UpdatePerObject(const Entity* pEntity) = 0;
 	virtual void UpdatePerScene() = 0;
 	virtual void UpdatePerApplication() = 0; //todo: последние два - для оптимизации
+	virtual void Clean() = 0;
 
 	virtual unsigned int GetVertexBufferSize() const = 0;
 
