@@ -46,7 +46,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
  
 	matrix viewMatrix, projectionMatrix;
 
-
+	//PROJECTION ” Õ»’ ŒƒÕ¿!
 	if (instanceID % 2 == 0)
 	{
 		projectionMatrix = projectionMatrixFront;

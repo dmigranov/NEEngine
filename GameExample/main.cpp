@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(pointComp);
+        entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
@@ -167,3 +167,5 @@ int main(int argc, char* argv[])
 
     return game.StartGame();
 }
+
+//todo: проверить неправильный рендеринг эллиптического пространства
