@@ -34,6 +34,7 @@ public:
     ID3D11DeviceContext* const GetDeviceContext();
 
     ID3D11VertexShader* CreateVertexShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
+    ID3D11GeometryShader* CreateGeometryShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
     ID3D11PixelShader* CreatePixelShaderFromBytecode(const void* code, SIZE_T bytecodeLength);
 
     inline void VSSetShader(ID3D11VertexShader* pVertexShader);

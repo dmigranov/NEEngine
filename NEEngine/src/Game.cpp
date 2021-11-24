@@ -514,6 +514,26 @@ ID3D11VertexShader* Game::CreateVertexShaderFromBytecode(const void* code, SIZE_
     return returnVertexShader;
 }
 
+ID3D11GeometryShader* Game::CreateGeometryShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
+{
+    ID3D11GeometryShader* returnGeometryShader = nullptr;
+
+    HRESULT hr = g_d3dDevice->CreateGeometryShader(code, BytecodeLength, nullptr, &returnGeometryShader);
+    if (FAILED(hr))
+    {
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create geometry shader",
+            (LPCWSTR)L"Can't create geometry shader",
+            MB_ICONERROR
+        );
+
+        return nullptr;
+    }
+
+    return returnGeometryShader;
+}
+
 ID3D11PixelShader* Game::CreatePixelShaderFromBytecode(const void* code, SIZE_T BytecodeLength)
 {
     ID3D11PixelShader* returnPixelShader = nullptr;
