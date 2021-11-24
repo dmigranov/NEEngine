@@ -10,5 +10,7 @@ public:
     virtual void Deinitialize() override;
 
     virtual void UpdatePerObject(const Entity* pEntity) override;
+
+    virtual void Clean() override;
 };
 
