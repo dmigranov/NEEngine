@@ -38,6 +38,16 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             vertices.push_back({ pos,
                 //pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус пространства 1 (но если сферическое пространство произвольного радиуса, то нужно)
                 uv });
+
+            /*
+            if (j == sliceCount)
+            {
+                uv = XMFLOAT2(0, phi / XM_PI);
+                vertices.push_back({ pos,
+                    //pos,       //так как это сфера! нормализовывать не нужно, так как и так радиус пространства 1 (но если сферическое пространство произвольного радиуса, то нужно)
+                    uv });
+            }
+            */
         }
     }
 
