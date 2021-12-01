@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     }
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
-    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow1.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow2.dds");
 
 
