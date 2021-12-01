@@ -41,6 +41,8 @@ int main(int argc, char* argv[])
     }
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
+
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
