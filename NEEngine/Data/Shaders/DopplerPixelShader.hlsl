@@ -83,6 +83,8 @@ double getFrequency(double hue)
 double getHue(double frequency)
 {
 	double lambda = 2. * PI * C / frequency;
+	double hue = (650. - lambda) * 270 / 250;
+	return hue;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
@@ -92,10 +94,10 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	float3 rgb = float3(sourceColor.x, sourceColor.y, sourceColor.z);
 	float3 hsv = rgb2hsv(rgb);
 	double hue = hsv.x;
-	double freq = getFrequncy(hue);
+	double freq = getFrequency(hue);
 
 	double new_freq = freq * (1 - velocity / C);
-	double new_hue = 
+	double new_hue = getHue(new_freq);
 
 
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
