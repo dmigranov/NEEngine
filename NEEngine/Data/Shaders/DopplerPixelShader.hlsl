@@ -28,13 +28,30 @@ float3 rgb2hsv(float3 rgb)
 
 	delta = max - min;
 
-	v = max; //! v
+	//! v
+	v = max; 
 	if (delta < 0.00001)
 	{
 		s = 0;
-		h = 0; // undefined, maybe nan?
+		h = 0; 
 		return float3(h, s, v);
 	}
+
+
+	//! s
+	if (max > 0.0)
+		s = (delta / max); 
+	else
+	{
+		// max is 0 -> r = g = b = 
+		s = 0.0;
+		h = 0.0; // in fact, undefined
+		return float3(h, s, v);
+	}
+
+
+	//! h
+
 
 	hsv.x = h;
 	hsv.y = s;
