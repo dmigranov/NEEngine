@@ -17,6 +17,7 @@ float3 rgb2hsv(float3 rgb)
 {
 	float r = rgb.x, g = rgb.y, b = rgb.z;
 	float min, max, delta;
+	float3 hsv;
 
 	min = r < g ? r : g;
 	min = min < b ? min : b;
@@ -26,7 +27,10 @@ float3 rgb2hsv(float3 rgb)
 
 	delta = max - min;
 
-	v = max;
+	hsv.v = max; //! v
+
+
+	return hsv;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
