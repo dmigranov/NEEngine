@@ -18,6 +18,7 @@ float3 rgb2hsv(float3 rgb)
 	float r = rgb.x, g = rgb.y, b = rgb.z;
 	float min, max, delta;
 	float3 hsv;
+	float h, s, v;
 
 	min = r < g ? r : g;
 	min = min < b ? min : b;
@@ -27,9 +28,17 @@ float3 rgb2hsv(float3 rgb)
 
 	delta = max - min;
 
-	hsv.v = max; //! v
+	v = max; //! v
+	if (delta < 0.00001)
+	{
+		s = 0;
+		h = 0; // undefined, maybe nan?
+		return float3(h, s, v);
+	}
 
-
+	hsv.x = h;
+	hsv.y = s;
+	hsv.z = v;
 	return hsv;
 }
 
