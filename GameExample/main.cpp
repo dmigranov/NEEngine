@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     }
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
-    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow1.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow2.dds");
 
 
@@ -83,6 +83,7 @@ int main(int argc, char* argv[])
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new SphericalTransformComponent();
     auto cameraComponent = new SphericalCameraComponent();
+    cameraComponent->SetFovY(XM_PI/3);
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());

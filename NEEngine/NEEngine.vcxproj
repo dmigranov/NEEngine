@@ -39,6 +39,7 @@
     <ClCompile Include="src\HyperbolicRenderSystem.cpp" />
     <ClCompile Include="src\HyperbolicTransformComponent.cpp" />
     <ClCompile Include="src\MeshComponentFactory.cpp" />
+    <ClCompile Include="src\SphericalDopplerEffect.cpp" />
     <ClCompile Include="src\SphericalExpFogPointEffect.cpp" />
     <ClCompile Include="src\TextPrintingSystem.cpp" />
     <ClCompile Include="src\SphericalCameraComponent.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="inc\InputSystem.h" />
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\MeshComponentFactory.h" />
+    <ClInclude Include="inc\SphericalDopplerEffect.h" />
     <ClInclude Include="inc\SphericalExpFogPointEffect.h" />
     <ClInclude Include="inc\TextPrintingSystem.h" />
     <ClInclude Include="inc\SphericalCameraComponent.h" />
