@@ -73,11 +73,16 @@ float3 rgb2hsv(float3 rgb)
 #define PI 3.14159265
 #define C 299792458
 
-float getFrequency(float hue)
+double getFrequency(double hue)
 {
-	float lambda = 650.f - 250.f / 270.f * hue;
-	float frequency = 2 * PI * C / lambda;
+	double lambda = 650. - 250. / 270. * hue;
+	double frequency = 2. * PI * C / lambda;
 	return frequency;
+}
+
+double getHue(double frequency)
+{
+
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
@@ -86,10 +91,11 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	float3 rgb = float3(sourceColor.x, sourceColor.y, sourceColor.z);
 	float3 hsv = rgb2hsv(rgb);
-	float hue = hsv.x;
-	float freq = getFrequncy(hue);
+	double hue = hsv.x;
+	double freq = getFrequncy(hue);
 
-	float new_freq = freq * (1 - velocity / C);
+	double new_freq = freq * (1 - velocity / C);
+	double new_hue = 
 
 
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
