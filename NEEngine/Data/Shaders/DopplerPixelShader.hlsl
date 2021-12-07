@@ -4,6 +4,7 @@ SamplerState SampleType;
 cbuffer PerApplication : register(b0)
 {
 	float4 fogColor;
+	double distance;
 }
 
 struct PixelShaderInput
