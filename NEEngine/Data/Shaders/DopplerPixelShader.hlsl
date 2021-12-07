@@ -74,6 +74,8 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 {
 	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 
+	float3 rgb = float3(sourceColor.x, sourceColor.y, sourceColor.z);
+
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
 	return retColor;
 }
