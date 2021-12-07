@@ -135,7 +135,7 @@ int main(int argc, char* argv[])
     
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform](double delta) {
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform, renderSystem](double delta) {
         auto pos = cameraTransform->GetSphericalPosition();
         auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
         std::stringstream ss;
@@ -145,6 +145,7 @@ int main(int argc, char* argv[])
         ss << "Y: " << pos.y << std::endl;
         ss << "Z: " << pos.z << std::endl;
         ss << "W: " << pos.w << std::endl;
+        ss << "R: " << renderSystem->GetRadius() << std::endl;
 
         return ss.str();
 
@@ -173,7 +174,7 @@ int main(int argc, char* argv[])
 
             if (kbs.M)
                 effect->SetVelocity(effect->GetVelocity() + 100000);
-            else if (kbs.N)     
+            else if (kbs.N)
                 effect->SetVelocity(effect->GetVelocity() - 100000);
 
         }));
