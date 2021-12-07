@@ -41,6 +41,10 @@ void SphericalDopplerEffect::Deinitialize()
 	SphericalExpFogEffect::Deinitialize();
 }
 
+void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity)
+{
+}
+
 void SphericalDopplerEffect::Clean()
 {
 	//not really neccessary but maybe set shaders to nullptr
