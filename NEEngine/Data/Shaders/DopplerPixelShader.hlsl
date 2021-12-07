@@ -82,7 +82,7 @@ double getFrequency(double hue)
 
 double getHue(double frequency)
 {
-
+	double lambda = 2. * PI * C / frequency;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
