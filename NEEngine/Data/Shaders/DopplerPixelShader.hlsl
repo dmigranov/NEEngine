@@ -32,26 +32,37 @@ float3 rgb2hsv(float3 rgb)
 	v = max; 
 	if (delta < 0.00001)
 	{
-		s = 0;
-		h = 0; 
+		s = 0.f;
+		h = 0.f; 
 		return float3(h, s, v);
 	}
 
 
 	//! s
-	if (max > 0.0)
+	if (max > 0.f)
 		s = (delta / max); 
 	else
 	{
 		// max is 0 -> r = g = b = 
-		s = 0.0;
-		h = 0.0; // in fact, undefined
+		s = 0.f;
+		h = 0.f; // in fact, undefined
 		return float3(h, s, v);
 	}
 
 
 	//! h
+	if (r >= max)                          
+		h = (g - b) / delta;
+	else
+		if (g >= max)
+			h = 2.f + (b - r) / delta; 
+		else
+			h = 4.f + (r - g) / delta;  
 
+	out.h *= 60.f;                              // degrees
+
+	if (out.h < 0.0)
+		out.h += 360.0;
 
 	hsv.x = h;
 	hsv.y = s;
