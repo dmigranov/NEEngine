@@ -51,3 +51,8 @@ void SphericalDopplerEffect::Clean()
 {
 	//not really neccessary but maybe set shaders to nullptr
 }
+
+void SphericalDopplerEffect::ChangeVelocity(double velocity)
+{
+	perApplicationPSConstantBuffer.velocity = velocity;
+}
