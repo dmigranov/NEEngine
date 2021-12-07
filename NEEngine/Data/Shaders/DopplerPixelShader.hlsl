@@ -23,6 +23,10 @@ float3 rgb2hsv(float3 rgb)
 
 	max = r > g ? r : g;
 	max = max > b ? max : b;
+
+	delta = max - min;
+
+	v = max;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
