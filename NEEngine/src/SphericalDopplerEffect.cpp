@@ -35,3 +35,13 @@ bool SphericalDopplerEffect::Initialize()
 
 	return true;
 }
+
+void SphericalDopplerEffect::Deinitialize()
+{
+	SphericalExpFogEffect::Deinitialize();
+}
+
+void SphericalDopplerEffect::Clean()
+{
+	//not really neccessary but maybe set shaders to nullptr
+}
