@@ -116,8 +116,8 @@ int main(int argc, char* argv[])
             auto otherPoint = randomPoints[j];
             auto distance = SphericalDistance(point, otherPoint, radius);
 
-            //if (distance < 2 * objectRadius)
-            //    goto again;
+            if (distance < 2 * objectRadius)
+                goto again;
         }
 
         randomPoints[i] = point;
