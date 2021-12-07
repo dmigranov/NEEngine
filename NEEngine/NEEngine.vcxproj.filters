@@ -502,6 +502,9 @@
     <FxCompile Include="Data\Shaders\GeometryShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="Data\Shaders\DopplerPixelShader.hlsl">
+      <Filter>Data\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
