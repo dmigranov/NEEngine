@@ -70,9 +70,14 @@ float3 rgb2hsv(float3 rgb)
 	return hsv;
 }
 
+#define PI 3.14159265
+#define C 299792458
+
 float getFrequency(float hue)
 {
-
+	float lambda = 650.f - 250.f / 270.f * hue;
+	float frequency = 2 * PI * C / lambda;
+	return frequency;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
