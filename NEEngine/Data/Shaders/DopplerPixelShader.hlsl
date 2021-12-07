@@ -4,7 +4,7 @@ SamplerState SampleType;
 cbuffer PerApplication : register(b0)
 {
 	float4 fogColor;
-	double distance;
+	double velocity;
 }
 
 struct PixelShaderInput
@@ -88,6 +88,9 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	float3 hsv = rgb2hsv(rgb);
 	float hue = hsv.x;
 	float freq = getFrequncy(hue);
+
+	float new_freq = freq * (1 - velocity / C);
+
 
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
 	return retColor;
