@@ -87,6 +87,12 @@ double getHue(double frequency)
 	return hue;
 }
 
+float3 hsv2rgb(float3 hsv)
+{
+	float h = hsv.x, s = hsv.y, z = hsv.z;
+}
+
+
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
 	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
