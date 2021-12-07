@@ -64,7 +64,7 @@ void SphericalDopplerEffect::SetRadius(double radius)
 	perApplicationVSConstantBuffer.radius = m_radius;
 	if (old_radius != m_radius)
 	{
-		//todo
+		//todo: с увеличением радиуса в k раз расстояние увеличится в k раз (вне зависимости от координат объекта
 	}
 
 }
