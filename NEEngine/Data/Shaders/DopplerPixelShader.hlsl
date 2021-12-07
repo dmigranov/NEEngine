@@ -87,6 +87,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	float3 rgb = float3(sourceColor.x, sourceColor.y, sourceColor.z);
 	float3 hsv = rgb2hsv(rgb);
 	float hue = hsv.x;
+	float freq = getFrequncy(hue);
 
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
 	return retColor;
