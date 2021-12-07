@@ -90,6 +90,16 @@ double getHue(double frequency)
 float3 hsv2rgb(float3 hsv)
 {
 	float h = hsv.x, s = hsv.y, z = hsv.z;
+	float r, g, b;
+
+	if (s <= 0.0) {       // < is bogus, just shuts up warnings
+		r = v;
+		g = v;
+		b = v;
+		return float3(r, g, b);
+	}
+
+
 }
 
 
