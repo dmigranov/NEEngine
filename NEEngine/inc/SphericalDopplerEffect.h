@@ -7,7 +7,7 @@ public:
     struct PerApplicationPSConstantBufferDoppler
     {
         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
-        double velocity = 0; // 200000000.;
+        double velocity = 300000000.;
     };
 
     SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
