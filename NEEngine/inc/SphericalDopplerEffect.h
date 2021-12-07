@@ -30,5 +30,6 @@ class SphericalDopplerEffect :
     SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
 
 
+
 };
 
