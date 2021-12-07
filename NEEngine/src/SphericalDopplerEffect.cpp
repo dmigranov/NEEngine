@@ -43,6 +43,7 @@ void SphericalDopplerEffect::Deinitialize()
 
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity)
 {
+	SphericalExpFogEffect::UpdatePerObject(pEntity);
 }
 
 void SphericalDopplerEffect::Clean()
