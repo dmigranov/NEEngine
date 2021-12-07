@@ -19,3 +19,4 @@
 
 #include "SphericalExpFogEffect.h"
 #include "SphericalExpFogPointEffect.h"
+#include "SphericalDopplerEffect.h"

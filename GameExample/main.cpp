@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(rainbowTexture1, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
 
     double objectRadius = 0.1;
