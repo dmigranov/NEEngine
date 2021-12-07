@@ -21,6 +21,9 @@ public:
 
     void ChangeVelocity(double velocity);
 
+    void SetRadius(double radius) override;
+
+
 private:
     PerApplicationPSConstantBufferDoppler perApplicationPSConstantBuffer;
 };

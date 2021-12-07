@@ -56,3 +56,9 @@ void SphericalDopplerEffect::ChangeVelocity(double velocity)
 {
 	perApplicationPSConstantBuffer.velocity = velocity;
 }
+
+void SphericalDopplerEffect::SetRadius(double radius)
+{
+	SphericalExpFogEffect::SetRadius(radius);
+
+}
