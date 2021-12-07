@@ -89,7 +89,7 @@ double getHue(double frequency)
 
 float3 hsv2rgb(float3 hsv)
 {
-	float h = hsv.x, s = hsv.y, z = hsv.z;
+	float h = hsv.x, s = hsv.y, v = hsv.z;
 	float r, g, b;
 
 	if (s <= 0.0) {       // < is bogus, just shuts up warnings
@@ -99,13 +99,52 @@ float3 hsv2rgb(float3 hsv)
 		return float3(r, g, b);
 	}
 
-	//todo ff
-
-
+	float hh, ff, p, q, t;
+	hh = h;
+	if (hh >= 360.f) hh = 0.f;
+	hh /= 60.f;
+	int i = (int)hh;
+	ff = hh - i;
 	p = v * (1.0 - s);
 	q = v * (1.0 - (s * ff));
 	t = v * (1.0 - (s * (1.0 - ff)));
 
+	switch (i) {
+	case 0:
+		r = v;
+		g = t;
+		b = p;
+		break;
+	case 1:
+		r = q;
+		g = v;
+		b = p;
+		break;
+	case 2:
+		r = p;
+		g = v;
+		b = t;
+		break;
+
+	case 3:
+		r = p;
+		g = q;
+		b = v;
+		break;
+	case 4:
+		r = t;
+		g = p;
+		b = v;
+		break;
+	case 5:
+	default:
+		r = v;
+		g = p;
+		b = q;
+		break;
+	}
+
+	return float3(r, g, b);
 }
 
 
