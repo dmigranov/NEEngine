@@ -102,10 +102,12 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	double hue = hsv.x;
 	double freq = getFrequency(hue);
 
-	double new_freq = freq * (1 - velocity / C);
-	double new_hue = getHue(new_freq);
-	float3 new_hsv = float3((float)new_hue, hsv.y, hsv.z);
+	double freqNew = freq * (1 - velocity / C);
+	double hueNew = getHue(freqNew);
+	float3 hsvNew = float3((float)hueNew, hsv.y, hsv.z);
+	float3 rgbNew = hsv2rgb(hsvNew);
 
+	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 
 	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
 	return retColor;
