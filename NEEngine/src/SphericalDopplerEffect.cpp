@@ -62,7 +62,9 @@ void SphericalDopplerEffect::SetRadius(double radius)
 	double old_radius = m_radius;
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
-	if(old_radius != m_radius)
-		std::cout << old_radius << " " << m_radius << std::endl;
+	if (old_radius != m_radius)
+	{
+		//todo
+	}
 
 }
