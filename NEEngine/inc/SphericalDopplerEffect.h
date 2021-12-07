@@ -20,6 +20,7 @@ public:
     virtual void Clean() override;
 
     void SetVelocity(double velocity);
+    double GetVelocity();
 
     void SetRadius(double radius) override;
 

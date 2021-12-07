@@ -171,14 +171,11 @@ int main(int argc, char* argv[])
                     renderSystem->SetRadius(radius -0.01);
             }
 
-            if (kbs.N)
-                effect->SetVelocity(renderSystem->GetRadius() + 0.01);
-            else if (kbs.M)
-            {
-                auto radius = renderSystem->GetRadius();
-                if (radius > 0.2)
-                    renderSystem->SetRadius(radius - 0.01);
-            }
+            if (kbs.M)
+                effect->SetVelocity(effect->GetVelocity() + 100000);
+            else if (kbs.N)     
+                effect->SetVelocity(effect->GetVelocity() - 100000);
+
         }));
 
     return game.StartGame();
