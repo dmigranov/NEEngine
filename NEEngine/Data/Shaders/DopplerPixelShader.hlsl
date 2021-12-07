@@ -15,7 +15,14 @@ struct PixelShaderInput
 
 float3 rgb2hsv(float3 rgb)
 {
+	float r = rgb.x, g = rgb.y, b = rgb.z;
+	float min, max, delta;
 
+	min = r < g ? r : g;
+	min = min < b ? min : b;
+
+	max = r > g ? r : g;
+	max = max > b ? max : b;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
