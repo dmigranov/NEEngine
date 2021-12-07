@@ -11,3 +11,8 @@
 
 #include "Game.h"
 
+SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
+{
+	m_magic = "SphericalExpFogPoint";
+	Initialize(); //parent Initialize already called
+}
