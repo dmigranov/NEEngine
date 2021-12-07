@@ -59,6 +59,10 @@ void SphericalDopplerEffect::ChangeVelocity(double velocity)
 
 void SphericalDopplerEffect::SetRadius(double radius)
 {
-	SphericalExpFogEffect::SetRadius(radius);
+	double old_radius = m_radius;
+	m_radius = radius;
+	perApplicationVSConstantBuffer.radius = m_radius;
+	if(old_radius != m_radius)
+		std::cout << old_radius << " " << m_radius << std::endl;
 
 }
