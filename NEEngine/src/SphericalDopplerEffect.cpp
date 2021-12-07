@@ -3,13 +3,15 @@
 #include "Texture.h"
 #include "Scene.h"
 
-#include "SphericalMeshComponentFactory.h"	//для импорта структуры
+#include "SphericalMeshComponentFactory.h"	//to be able to import the struct
 
 #include "SphericalTransformComponent.h"
 #include "SphericalCameraComponent.h"
 #include "Entity.h"
 
 #include "Game.h"
+
+#include "PixelShaderDoppler.h"
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {

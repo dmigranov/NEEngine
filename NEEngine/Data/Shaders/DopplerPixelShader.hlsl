@@ -1,4 +1,21 @@
-float4 main() : SV_TARGET
+Texture2D shaderTexture;
+SamplerState SampleType;
+
+cbuffer PerApplication : register(b0)
 {
-	return float4(1.0f, 1.0f, 1.0f, 1.0f);
+	float4 fogColor;
+}
+
+struct PixelShaderInput
+{
+	float2 tex : TEXCOORD0;
+	float fogFactor : FOG_FACTOR;
+};
+
+float4 main(PixelShaderInput IN) : SV_TARGET
+{
+	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
+	float4 retColor = IN.fogFactor * sourceColor + (1.0 - IN.fogFactor) * fogColor;
+
+	return retColor;
 }
