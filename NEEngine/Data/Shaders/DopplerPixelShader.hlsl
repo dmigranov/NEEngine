@@ -99,6 +99,12 @@ float3 hsv2rgb(float3 hsv)
 		return float3(r, g, b);
 	}
 
+	//todo ff
+
+
+	p = v * (1.0 - s);
+	q = v * (1.0 - (s * ff));
+	t = v * (1.0 - (s * (1.0 - ff)));
 
 }
 
