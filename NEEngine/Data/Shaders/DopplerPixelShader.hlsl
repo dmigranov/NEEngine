@@ -84,7 +84,7 @@ double getHue(double frequency)
 {
 	double lambda = 2. * PI * C / frequency;
 	if (lambda > 650)
-		lambda = 650.;
+		lambda = 650.; //ключевой вопрос - что делать со значениями на границе! //TODO
 	double hue = (650. - lambda) * 270 / 250;
 	return hue;
 }
