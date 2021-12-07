@@ -20,6 +20,6 @@ public:
     virtual void Clean() override;
 
 private:
-
+    PerApplicationPSConstantBufferDoppler perApplicationPSConstantBuffer;
 };
 
