@@ -52,7 +52,7 @@ void SphericalDopplerEffect::Clean()
 	//not really neccessary but maybe set shaders to nullptr
 }
 
-void SphericalDopplerEffect::ChangeVelocity(double velocity)
+void SphericalDopplerEffect::SetVelocity(double velocity)
 {
 	perApplicationPSConstantBuffer.velocity = velocity;
 }
@@ -65,6 +65,8 @@ void SphericalDopplerEffect::SetRadius(double radius)
 	if (old_radius != m_radius)
 	{
 		//todo: с увеличением радиуса в k раз расстояние увеличится в k раз (вне зависимости от координат объекта
+		//new_dist = new_radius/old_radius * old_dist
+		//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
 	}
 
 }
