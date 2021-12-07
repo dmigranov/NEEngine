@@ -59,10 +59,10 @@ float3 rgb2hsv(float3 rgb)
 		else
 			h = 4.f + (r - g) / delta;  
 
-	out.h *= 60.f;                              // degrees
+	h *= 60.f;  //degrees
 
-	if (out.h < 0.0)
-		out.h += 360.0;
+	if (h < 0.f)
+		h += 360.f;
 
 	hsv.x = h;
 	hsv.y = s;
