@@ -58,14 +58,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 {
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 			
-	//todo: с увеличением радиуса в k раз расстояние увеличится в k раз (вне зависимости от координат объекта
-	//new_dist = new_radius/old_radius * old_dist
-	//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
-	//это можно сделать в шейдере!
-	//и если мы примем старый радиус за 1, то формула примет вид 
-	//new_dist - old_dist = (new_radius - 1) * old_dist, где old_dist - расстояние в пространстве с радиусом 1!
-	//но нужен другой вертексный шейдер (пара: для сф. и элл пространств)
-	//new_dist - old_dist = (new_radius - 1) * new_dist / new_radius = new_dist * (1 - 1/new_radius)
+	//todo: 
 }
 
 void SphericalDopplerEffect::Clean()
