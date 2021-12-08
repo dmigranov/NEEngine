@@ -19,7 +19,7 @@ public:
 
 
 	void Update(double delta);
-	void Render();
+	void Render(double delta);
 
 	void SetCamera(Entity* pCamera, CameraComponent * pCameraComponent);
 	Entity* GetCamera();

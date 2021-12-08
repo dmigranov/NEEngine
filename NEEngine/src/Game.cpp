@@ -266,7 +266,7 @@ void Game::Tick()
     deltaTime = std::min<double>(deltaTime, maxTimeStep);
 
     Update(deltaTime);
-    Render();
+    Render(deltaTime);
 }
 
 // Properties
@@ -377,9 +377,9 @@ void Game::Update(double deltaTime)
     m_pScene->Update(deltaTime);
 }
 
-void Game::Render()
+void Game::Render(double deltaTime)
 {
-    m_pScene->Render();
+    m_pScene->Render(deltaTime);
 
     //g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0); 
 }

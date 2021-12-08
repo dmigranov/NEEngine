@@ -87,7 +87,7 @@ private:
     void CreateResources();
 
     void Update(double deltaTime);
-    void Render();
+    void Render(double deltaTime);
     void Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil);
     void Present();
 

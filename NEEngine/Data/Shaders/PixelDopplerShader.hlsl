@@ -155,7 +155,7 @@ float3 hsv2rgb(float3 hsv)
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
-	float velocity = (float)velocity_coeff;
+	float velocity = (float)velocity_coeff * IN.velocity;
 
 	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 

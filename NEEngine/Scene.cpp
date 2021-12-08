@@ -145,7 +145,7 @@ void Scene::Update(double delta)
 	}
 }
 
-void Scene::Render()
+void Scene::Render(double delta)
 {
 	m_game.StartDrawing();	
 	
@@ -153,7 +153,7 @@ void Scene::Render()
 	{
 		if (pSystem != nullptr)
 		{
-			pSystem->Execute(0);
+			pSystem->Execute(delta);
 		}
 	}
 
