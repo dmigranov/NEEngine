@@ -71,6 +71,8 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.radius = m_radius;
 	perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
 	//m_radius_old = m_radius;
+
+	//todo: разобраться со всем этим
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
@@ -94,7 +96,9 @@ double SphericalDopplerEffect::GetVelocity()
 
 void SphericalDopplerEffect::SetRadius(double radius)
 {
-	m_radius_old = m_radius;
+	//todo: разобраться со старым и новым радиусом. Возможно, метод StopRadiusChange - тогда приравниваем старый и новый
+	if(m_radius != radius)
+		m_radius_old = m_radius;
 	m_radius = radius;
 }
 

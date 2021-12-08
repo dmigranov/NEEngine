@@ -169,7 +169,7 @@ int main(int argc, char* argv[])
             {
                 auto radius = renderSystem->GetRadius();
                 if (radius > 0.2)
-                    renderSystem->SetRadius(radius -0.01);
+                    renderSystem->SetRadius(radius - 0.01);
             }
 
             if (kbs.M)
