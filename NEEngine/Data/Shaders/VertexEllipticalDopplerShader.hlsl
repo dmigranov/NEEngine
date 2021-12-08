@@ -29,7 +29,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
-	double velocity : VELOCITY;
+	float velocity : VELOCITY;
 	float4 position : SV_POSITION;
 };
 
