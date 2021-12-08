@@ -104,11 +104,11 @@ void ToricRenderSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		if (pEntity->IsVisible())
-			Render(pEntity, pDeviceContext);
+			Render(pEntity, pDeviceContext, deltaTime);
 	}
 }
 
-void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
+void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, double deltaTime)
 {
 	//TransformComponent* pTransformComponent = pEntity->GetComponent<TransformComponent>();
 
@@ -137,7 +137,7 @@ void ToricRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceCont
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	pEffect->UpdatePerObject(pEntity);
+	pEffect->UpdatePerObject(pEntity, deltaTime);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), m_instanceCount, 0, 0, 0);
 }

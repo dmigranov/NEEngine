@@ -16,7 +16,7 @@ public:
     ToricRenderSystem(unsigned int replicationCount, double torX, double torY, double torZ);
     virtual void Execute(double deltaTime) override;
 private:
-    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext);
+    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, double deltaTime);
 
     int m_replicationCount;
     double m_torX, m_torY, m_torZ;
