@@ -101,7 +101,7 @@ void HyperbolicExpFogEffect::Deinitialize()
 	SafeRelease(g_d3dPixelShader);
 }
 
-void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity)
+void HyperbolicExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
 	auto pSphCameraComponent = game.GetScene()->GetCamera()->GetComponent<HyperbolicCameraComponent>();
 	perApplicationVSConstantBuffer.proj = pSphCameraComponent->GetProj();
