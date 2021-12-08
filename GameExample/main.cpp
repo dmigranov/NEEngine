@@ -91,7 +91,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(rainbowTexture2, 0.9, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.9, DirectX::Colors::PowderBlue);
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
 
     double objectRadius = 0.1;
@@ -172,10 +172,10 @@ int main(int argc, char* argv[])
                     renderSystem->SetRadius(radius -0.01);
             }
 
-            //if (kbs.M)
-            //    effect->SetVelocity(effect->GetVelocity() + 100000);
-            //else if (kbs.N)
-             //   effect->SetVelocity(effect->GetVelocity() - 100000);
+            if (kbs.M)
+                effect->SetVelocity(effect->GetVelocity() + 100000);
+            else if (kbs.N)
+                effect->SetVelocity(effect->GetVelocity() - 100000);
 
         }));
 
