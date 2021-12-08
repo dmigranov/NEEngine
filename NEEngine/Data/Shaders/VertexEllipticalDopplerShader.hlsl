@@ -91,7 +91,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	OUT.fogFactor = saturate(exp(-density * distance));
 
-	OUT.velocity = distDiff / deltaTime;
+	OUT.velocity = distDiff / deltaTime; //разная для разных точек объекта!
 	
 	return OUT;
 }
