@@ -19,9 +19,6 @@
     <Filter Include="Data\Shaders">
       <UniqueIdentifier>{669cf216-e848-4e5c-9bf6-1b5c483e2299}</UniqueIdentifier>
     </Filter>
-    <Filter Include="pch">
-      <UniqueIdentifier>{726c6ec4-e5fa-4e02-9628-13f96c518afd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\Meshes">
       <UniqueIdentifier>{17af7417-b7da-4ccd-a134-ef90d8f0d0d1}</UniqueIdentifier>
     </Filter>
@@ -91,13 +88,16 @@
     <Filter Include="Data\Shaders\Hyperbolic">
       <UniqueIdentifier>{70e5c9ce-d2bc-45b7-9a89-11948757e1de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\pch">
+      <UniqueIdentifier>{726c6ec4-e5fa-4e02-9628-13f96c518afd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
-      <Filter>pch</Filter>
+      <Filter>Исходные файлы\pch</Filter>
     </ClCompile>
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
@@ -279,7 +279,7 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\pch.h">
-      <Filter>pch</Filter>
+      <Filter>Исходные файлы\pch</Filter>
     </ClInclude>
     <ClInclude Include="inc\TextDrawer.h">
       <Filter>Файлы заголовков</Filter>
@@ -504,6 +504,12 @@
     </FxCompile>
     <FxCompile Include="Data\Shaders\DopplerPixelShader.hlsl">
       <Filter>Data\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexEllipticalDopplerShader.hlsl">
+      <Filter>Data\Shaders\Elliptical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexSphericalDopplerShader.hlsl">
+      <Filter>Data\Shaders\Spherical</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
