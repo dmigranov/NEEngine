@@ -128,7 +128,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaT
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -181,17 +181,12 @@ void SphericalExpFogEffect::SetRadius(double radius)
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
 	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationVSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
-
-	//TODO: load radius to shader via constant buffer: PerApplicationVSConstantBuffer or maybe PerApplicationVSFrameBuffer?
-	//although that doesn't really matter: they all are updated simultaneously 
-	//others things in the class don't have to be changed
-	//in shader, calculate distance acc. to the radius + recalculate coordinated accordingly (in the case they don't lie on the sphere)
 }
 
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
-	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()
