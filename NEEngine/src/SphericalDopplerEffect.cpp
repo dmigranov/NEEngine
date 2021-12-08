@@ -70,10 +70,10 @@ double SphericalDopplerEffect::GetVelocity()
 
 void SphericalDopplerEffect::SetRadius(double radius)
 {
-	double old_radius = m_radius;
+	m_old_radius = m_radius;
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
-	if (old_radius != m_radius)
+	if (m_old_radius != m_radius)
 	{
 
 	}
