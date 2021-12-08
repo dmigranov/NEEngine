@@ -37,6 +37,7 @@ bool SphericalDopplerEffect::Initialize()
 
 
 	D3D11_BUFFER_DESC constantBufferDesc;
+
 	ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 	constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	constantBufferDesc.CPUAccessFlags = 0;
@@ -45,6 +46,11 @@ bool SphericalDopplerEffect::Initialize()
 	SafeRelease(g_d3dPSConstantBuffer);
 	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+
+	constantBufferDesc.ByteWidth = sizeof(PerApplicationVSConstantBufferDoppler);
+	SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
+	g_d3dVSConstantBuffers[CB_Application] = game.CreateBuffer(constantBufferDesc);
+	game.UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], &perApplicationVSConstantBuffer);
 
 	return true;
 }
@@ -57,8 +63,13 @@ void SphericalDopplerEffect::Deinitialize()
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
+
+	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
+	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
+	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
+	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 			
-	//todo: 
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 }
 
 void SphericalDopplerEffect::Clean()
@@ -79,9 +90,8 @@ double SphericalDopplerEffect::GetVelocity()
 
 void SphericalDopplerEffect::SetRadius(double radius)
 {
-	m_old_radius = m_radius;
 	m_radius = radius;
-	perApplicationVSConstantBuffer.radius = m_radius;
+	perApplicationVSConstantBufferDoppler.radius = m_radius;
 }
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)

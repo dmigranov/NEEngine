@@ -39,6 +39,6 @@ public:
 
 private:
     PerApplicationPSConstantBufferDoppler perApplicationPSConstantBuffer;
-    double m_old_radius;
+    PerApplicationVSConstantBufferDoppler perApplicationVSConstantBufferDoppler;
 };
 
