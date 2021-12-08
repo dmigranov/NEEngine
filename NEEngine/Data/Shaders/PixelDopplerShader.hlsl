@@ -155,6 +155,8 @@ float3 hsv2rgb(float3 hsv)
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
+	float velocity = (float)velocity_coeff;
+
 	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 
 	float3 rgb = float3(sourceColor.x, sourceColor.y, sourceColor.z);
@@ -162,7 +164,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	double hue = hsv.x;
 	double freq = getFrequency(hue);
 
-	double freqNew = freq * (1 - velocity_coeff * IN.velocity / C);
+	double freqNew = freq * (1 - velocity  / C);
 	double hueNew = getHue(freqNew);
 	float3 hsvNew = float3((float)hueNew, hsv.y, hsv.z);
 	float3 rgbNew = hsv2rgb(hsvNew);

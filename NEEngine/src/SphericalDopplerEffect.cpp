@@ -75,8 +75,9 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
 	//todo: с увеличением радиуса в k раз расстояние увеличится в k раз (вне зависимости от координат объекта
-	//new_dist = new_radius/old_radius * old_dist
-	//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
+	//new_dist = new_radius/old_radius * old_dist; old_dist = new_dist * old_radius/new_radius
+	//new_dist - old_dist = new_dist * (1 - old_radius/new_radius)
+	// 							
 	//это можно сделать в шейдере!
 }
 
