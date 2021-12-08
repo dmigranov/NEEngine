@@ -28,9 +28,9 @@ void SphericalExpFogPointEffect::Deinitialize()
 	SafeRelease(g_d3dGeometryShader);
 }
 
-void SphericalExpFogPointEffect::UpdatePerObject(const Entity* pEntity)
+void SphericalExpFogPointEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
-	SphericalExpFogEffect::UpdatePerObject(pEntity);
+	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 
 	game.GSSetShader(g_d3dGeometryShader);
 }
