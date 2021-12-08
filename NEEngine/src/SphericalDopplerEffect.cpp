@@ -69,7 +69,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
 	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 			
-	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
+	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 }
 
 void SphericalDopplerEffect::Clean()
