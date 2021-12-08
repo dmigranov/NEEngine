@@ -51,7 +51,9 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	//new_dist = new_radius/old_radius * old_dist
 	//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
 	//это можно сделать в шейдере!
-	//нужно передавать два радиуса, старый и новый!
+	//и если мы примем старый радиус за 1, то формула примет вид 
+	//new_dist - old_dist = (new_radius - 1) * old_dist, где old_dist - расстояние в пространстве с радиусом 1!
+	//но нужен другой вертексный шейдер (пара: для сф. и элл пространств)
 }
 
 void SphericalDopplerEffect::Clean()
