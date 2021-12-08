@@ -10,7 +10,7 @@ public:
     void SetRadius(double radius);
     double GetRadius();
 private:
-    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext);
+    void Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, double deltaTime);
 
     void UpdateOnRadiusChange();
     double m_radius;

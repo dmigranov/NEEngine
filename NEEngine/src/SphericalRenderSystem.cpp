@@ -50,7 +50,7 @@ void SphericalRenderSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		if(pEntity->IsVisible())
-			Render(pEntity, pDeviceContext);
+			Render(pEntity, pDeviceContext, deltaTime);
 	}
 }
 
@@ -65,7 +65,7 @@ double SphericalRenderSystem::GetRadius()
 	return m_radius;
 }
 
-void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
+void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, double deltaTime)
 {
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
@@ -102,7 +102,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(topology);
 
-	pEffect->UpdatePerObject(pEntity);
+	pEffect->UpdatePerObject(pEntity, deltaTime);
 
 	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), 2, 0, 0, 0);
 
