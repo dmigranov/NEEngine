@@ -28,6 +28,7 @@ bool SphericalDopplerEffect::Initialize()
 	//todo: проинициализировать вершинные шейдеры
 	SafeRelease(g_d3dVertexShaderSph);
 	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sph_dop, sizeof(g_sph_dop));
+
 	SafeRelease(g_d3dVertexShaderEll);
 	g_d3dVertexShaderEll = game.CreateVertexShaderFromBytecode(g_ell_dop, sizeof(g_ell_dop));
 
@@ -64,6 +65,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	//и если мы примем старый радиус за 1, то формула примет вид 
 	//new_dist - old_dist = (new_radius - 1) * old_dist, где old_dist - расстояние в пространстве с радиусом 1!
 	//но нужен другой вертексный шейдер (пара: для сф. и элл пространств)
+	//new_dist - old_dist = (new_radius - 1) * new_dist / new_radius = new_dist * (1 - 1/new_radius)
 }
 
 void SphericalDopplerEffect::Clean()

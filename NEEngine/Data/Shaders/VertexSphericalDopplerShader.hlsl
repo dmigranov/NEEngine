@@ -27,6 +27,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
+	double velocity : VELOCITY;
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
@@ -87,6 +88,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
 	//float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
+	double distDiff = distance * (1. - 1. / radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
 	OUT.fogFactor = saturate(exp(-density * distance));
