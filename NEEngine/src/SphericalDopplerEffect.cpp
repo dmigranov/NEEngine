@@ -97,6 +97,8 @@ double SphericalDopplerEffect::GetVelocity()
 void SphericalDopplerEffect::SetRadius(double radius)
 {
 	//todo: разобраться со старым и новым радиусом. Возможно, метод StopRadiusChange - тогда приравниваем старый и новый
+	//todo: или лучше так - каждому обхекту свой эффект, чего экомномить (тектсура общая)
+	
 	if(m_radius != radius)
 		m_radius_old = m_radius;
 	m_radius = radius;

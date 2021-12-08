@@ -44,4 +44,3 @@ private:
 
     double m_radius_old = 1.;
 };
-
