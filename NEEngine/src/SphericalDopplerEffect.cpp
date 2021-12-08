@@ -50,6 +50,8 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	//todo: с увеличением радиуса в k раз расстояние увеличится в k раз (вне зависимости от координат объекта
 	//new_dist = new_radius/old_radius * old_dist
 	//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
+	//это можно сделать в шейдере!
+	//нужно передавать два радиуса, старый и новый!
 }
 
 void SphericalDopplerEffect::Clean()
@@ -73,10 +75,6 @@ void SphericalDopplerEffect::SetRadius(double radius)
 	m_old_radius = m_radius;
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
-	if (m_old_radius != m_radius)
-	{
-
-	}
 }
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
