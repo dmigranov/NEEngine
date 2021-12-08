@@ -47,7 +47,7 @@ public:
 
     virtual void SetRadius(double radius) override;
 
-    void SetFogColor(DirectX::XMVECTORF32 fogColor);
+    virtual void SetFogColor(DirectX::XMVECTORF32 fogColor);
 
     ~SphericalExpFogEffect();
 

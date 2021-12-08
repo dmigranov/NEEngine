@@ -128,7 +128,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaT
 	const auto& world = pTransformComponent->GetWorld();
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Object], &world);
 
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
+	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	//input assembly stage
 	game.IASetInputLayout(g_d3dInputLayout);
@@ -186,7 +186,7 @@ void SphericalExpFogEffect::SetRadius(double radius)
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
-	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()

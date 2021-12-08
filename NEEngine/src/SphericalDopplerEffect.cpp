@@ -44,7 +44,7 @@ void SphericalDopplerEffect::Deinitialize()
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //todo: перенести
+	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //todo: перенести
 }
 
 void SphericalDopplerEffect::Clean()
@@ -55,6 +55,7 @@ void SphericalDopplerEffect::Clean()
 void SphericalDopplerEffect::SetVelocity(double velocity)
 {
 	perApplicationPSConstantBuffer.velocity = velocity;
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 }
 
 double SphericalDopplerEffect::GetVelocity()
@@ -74,4 +75,10 @@ void SphericalDopplerEffect::SetRadius(double radius)
 		//new_dist - old_dist = (new_radius/old_radius - 1) * old_dist
 	}
 
+}
+
+void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
+{
+	perApplicationPSConstantBuffer.fogColor = fogColor;
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 }

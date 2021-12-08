@@ -24,6 +24,9 @@ public:
 
     void SetRadius(double radius) override;
 
+    virtual void SetFogColor(DirectX::XMVECTORF32 fogColor) override;
+
+
 
 private:
     PerApplicationPSConstantBufferDoppler perApplicationPSConstantBuffer;
