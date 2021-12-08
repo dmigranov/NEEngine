@@ -16,6 +16,7 @@ public:
         DirectX::XMMATRIX projBack;
         double density = 0.1;
         double radius = 1.;
+        double radius_old = 1.;
         double deltaTime = 0.;
     };
 
@@ -31,7 +32,7 @@ public:
     void SetVelocity(double velocity);
     double GetVelocity();
 
-    void SetRadius(double radius) override;
+    virtual void SetRadius(double radius) override;
 
     virtual void SetFogColor(DirectX::XMVECTORF32 fogColor) override;
 
@@ -40,5 +41,7 @@ public:
 private:
     PerApplicationPSConstantBufferDoppler perApplicationPSConstantBuffer;
     PerApplicationVSConstantBufferDoppler perApplicationVSConstantBufferDoppler;
+
+    double m_radius_old;
 };
 

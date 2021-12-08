@@ -68,6 +68,9 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
 	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
+	perApplicationVSConstantBufferDoppler.radius = m_radius;
+	perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
+	m_radius_old = m_radius;
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
@@ -95,8 +98,8 @@ double SphericalDopplerEffect::GetVelocity()
 
 void SphericalDopplerEffect::SetRadius(double radius)
 {
+	m_radius_old = m_radius;
 	m_radius = radius;
-	perApplicationVSConstantBufferDoppler.radius = m_radius;
 }
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
