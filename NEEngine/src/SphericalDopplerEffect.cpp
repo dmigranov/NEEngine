@@ -26,10 +26,10 @@ SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDens
 bool SphericalDopplerEffect::Initialize()
 {
 	//todo: проинициализировать вершинные шейдеры
-	//SafeRelease(g_d3dPixelShader);
-	// = game.CreateVertexShaderFromBytecode(g_sph_dop, sizeof(g_sph_dop));
-	//SafeRelease(g_d3dPixelShader);
-	//g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_psd, sizeof(g_psd));
+	SafeRelease(g_d3dVertexShaderSph);
+	g_d3dVertexShaderSph = game.CreateVertexShaderFromBytecode(g_sph_dop, sizeof(g_sph_dop));
+	SafeRelease(g_d3dVertexShaderEll);
+	g_d3dVertexShaderEll = game.CreateVertexShaderFromBytecode(g_ell_dop, sizeof(g_ell_dop));
 
 	SafeRelease(g_d3dPixelShader);
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_psd, sizeof(g_psd));
