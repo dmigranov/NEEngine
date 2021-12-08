@@ -502,7 +502,7 @@
     <FxCompile Include="Data\Shaders\GeometryShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
-    <FxCompile Include="Data\Shaders\DopplerPixelShader.hlsl">
+    <FxCompile Include="Data\Shaders\PixelDopplerShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
     <FxCompile Include="Data\Shaders\VertexEllipticalDopplerShader.hlsl">
