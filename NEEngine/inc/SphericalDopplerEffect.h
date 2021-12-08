@@ -4,7 +4,7 @@ class SphericalDopplerEffect :
     public SphericalExpFogEffect
 {
 public:
-    struct PerApplicationPSConstantBufferDoppler
+    struct PerApplicationPSConstantBufferDoppler 
     {
         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
         double velocity = 0.;
