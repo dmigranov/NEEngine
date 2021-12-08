@@ -103,7 +103,7 @@ void ToricExpFogEffect::Deinitialize()
 	SafeRelease(g_d3dPixelShader);
 }
 
-void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity)
+void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
 	//todo: только обновлять CB_Application если что-то изменилось? (то есть в UpdatePerApplication?)
 

@@ -41,9 +41,9 @@ void SphericalDopplerEffect::Deinitialize()
 	SphericalExpFogEffect::Deinitialize();
 }
 
-void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity)
+void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
-	SphericalExpFogEffect::UpdatePerObject(pEntity);
+	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //todo: перенести
 }
 

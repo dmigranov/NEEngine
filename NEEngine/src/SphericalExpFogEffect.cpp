@@ -95,7 +95,7 @@ bool SphericalExpFogEffect::Initialize()
 }
 
 
-void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity)
+void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
 	// буферы заполн€ютс€ конкретными вещами, тут же выставл€ютс€ нужные шейдеры и input assembly
 

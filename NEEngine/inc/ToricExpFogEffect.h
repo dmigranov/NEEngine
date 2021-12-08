@@ -36,7 +36,7 @@ public:
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
 
-    virtual void UpdatePerObject(const Entity* pEntity) override;
+    virtual void UpdatePerObject(const Entity* pEntity, double deltaTime) override;
     virtual void UpdatePerScene() override;             //todo: impl
     virtual void UpdatePerApplication() override;       //todo: impl
 
