@@ -50,7 +50,7 @@ bool SphericalDopplerEffect::Initialize()
 	constantBufferDesc.ByteWidth = sizeof(PerApplicationVSConstantBufferDoppler);
 	SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
 	g_d3dVSConstantBuffers[CB_Application] = game.CreateBuffer(constantBufferDesc);
-	game.UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], &perApplicationVSConstantBuffer);
+	game.UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], &perApplicationVSConstantBufferDoppler);
 
 	return true;
 }
