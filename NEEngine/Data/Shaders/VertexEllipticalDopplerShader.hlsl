@@ -4,6 +4,7 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixBack;
 	double density;
 	double radius;
+	double deltaTime;
 }
 
 cbuffer PerFrame : register(b1)

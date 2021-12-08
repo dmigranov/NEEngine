@@ -10,6 +10,15 @@ public:
         double velocity = 0.;
     };
 
+    struct PerApplicationVSConstantBufferDoppler
+    {
+        DirectX::XMMATRIX projFront;
+        DirectX::XMMATRIX projBack;
+        double density = 0.1;
+        double radius = 1.;
+        double deltaTime = 0.;
+    };
+
     SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
 
     virtual bool Initialize() override;
