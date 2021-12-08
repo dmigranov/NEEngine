@@ -12,6 +12,9 @@
 #include "Game.h"
 
 #include "PixelShaderDoppler.h"
+#include "SphDopplerVertexShader.h"
+#include "EllDopplerVertexShader.h"
+
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {
@@ -22,15 +25,22 @@ SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDens
 
 bool SphericalDopplerEffect::Initialize()
 {
+	//todo: проинициализировать вершинные шейдеры
+	//SafeRelease(g_d3dPixelShader);
+	// = game.CreateVertexShaderFromBytecode(g_sph_dop, sizeof(g_sph_dop));
+	//SafeRelease(g_d3dPixelShader);
+	//g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_psd, sizeof(g_psd));
+
 	SafeRelease(g_d3dPixelShader);
 	g_d3dPixelShader = game.CreatePixelShaderFromBytecode(g_psd, sizeof(g_psd));
+
+
 	D3D11_BUFFER_DESC constantBufferDesc;
 	ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 	constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	constantBufferDesc.CPUAccessFlags = 0;
 	constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBufferDoppler);
-
 	SafeRelease(g_d3dPSConstantBuffer);
 	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
