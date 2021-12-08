@@ -30,11 +30,11 @@ void HyperbolicRenderSystem::Execute(double deltaTime)
 	for (auto pEntity : m_entities)
 	{
 		if (pEntity->IsVisible())
-			Render(pEntity, pDeviceContext);
+			Render(pEntity, pDeviceContext, deltaTime);
 	}
 }
 
-void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext)
+void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDeviceContext, double deltaTime)
 {
 	HyperbolicTransformComponent* pTransformComponent = pEntity->GetComponent<HyperbolicTransformComponent>();
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
@@ -60,7 +60,7 @@ void HyperbolicRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevic
 	// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
 	pDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-	pEffect->UpdatePerObject(pEntity);
+	pEffect->UpdatePerObject(pEntity, deltaTime);
 
 	pDeviceContext->DrawIndexed(pMeshComponent->GetIndicesCount(), 0, 0);
 }
