@@ -16,6 +16,7 @@
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {
 	m_magic = "SphericalDoppler";
+	perApplicationPSConstantBuffer.fogColor = fogColor;
 	Initialize(); //parent Initialize already called
 }
 
@@ -32,6 +33,7 @@ bool SphericalDopplerEffect::Initialize()
 
 	SafeRelease(g_d3dPSConstantBuffer);
 	g_d3dPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 
 	return true;
 }

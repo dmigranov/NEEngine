@@ -186,7 +186,7 @@ void SphericalExpFogEffect::SetRadius(double radius)
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;
-	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
+	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer); 
 }
 
 SphericalExpFogEffect::~SphericalExpFogEffect()
