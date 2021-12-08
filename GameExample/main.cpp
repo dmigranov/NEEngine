@@ -163,7 +163,7 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
-            if (kbs.I)
+            if (kbs.I) 
                 renderSystem->SetRadius(renderSystem->GetRadius() + 0.01);
             else if (kbs.O)
             {
