@@ -167,7 +167,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	double freqNew = freq * (1 - velocity  / C);
 	double hueNew = getHue(freqNew);
-	float3 hsvNew = float3((float)hueNew, hsv.y, hsv.z);
+	float3 hsvNew = float3((float)hueNew, 1, 1);
 	float3 rgbNew = hsv2rgb(hsvNew);
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
