@@ -92,6 +92,8 @@ int main(int argc, char* argv[])
 
 
     auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
+    //auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
 
     double objectRadius = 0.1;
@@ -101,6 +103,14 @@ int main(int argc, char* argv[])
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
     pointComp->SetEffect(pointEffect);
+
+    /*
+    auto transformComponent = new SphericalTransformComponent();
+    auto entity = new Entity();
+    entity->AddComponent<SphericalTransformComponent>(transformComponent);
+    entity->AddComponent<MeshComponent>(smc);
+    scene->AddEntity(entity);
+    */
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
@@ -164,18 +174,18 @@ int main(int argc, char* argv[])
                 effect->SetMode(false);
 
             if (kbs.I) 
-                renderSystem->SetRadius(renderSystem->GetRadius() + 0.01);
+                renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
             else if (kbs.O)
             {
                 auto radius = renderSystem->GetRadius();
                 if (radius > 0.2)
-                    renderSystem->SetRadius(radius - 0.01);
+                    renderSystem->SetRadius(radius - 0.003);
             }
 
             if (kbs.M)
-                effect->SetVelocity(effect->GetVelocity() + 100000);
+                effect->SetVelocity(effect->GetVelocity() + 50000);
             else if (kbs.N)
-                effect->SetVelocity(effect->GetVelocity() - 100000);
+                effect->SetVelocity(effect->GetVelocity() - 50000);
 
         }));
 
