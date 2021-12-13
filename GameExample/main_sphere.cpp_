@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
-#include "WalkComponent.h"
 #include "InputSystem.h"
 #include "TextPrintingSystem.h"
 #include "TextComponent.h"
@@ -9,6 +8,12 @@
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
+
+float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
+{
+    float chordLength = Vector4::Distance(vec1, vec2); //chord length
+    return 2 * radius * asin(chordLength / (2. * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
+}
 
 int main(int argc, char* argv[])
 {
@@ -18,13 +23,12 @@ int main(int argc, char* argv[])
     game.InitializeEngine(L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
-    auto resourceManager = game.GetResourceManager();
+    auto resourceManager = game.GetResourceManager(); 
 
     {
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
@@ -37,6 +41,9 @@ int main(int argc, char* argv[])
     }
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
+    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow2.dds");
+
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -76,6 +83,7 @@ int main(int argc, char* argv[])
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new SphericalTransformComponent();
     auto cameraComponent = new SphericalCameraComponent();
+    cameraComponent->SetFovY(XM_PI/3);
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
@@ -83,60 +91,76 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
+    //auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
 
+    auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
 
-    auto charWalkComponent = new WalkComponent(3, 4);
-    auto charInputComponent = new InputComponent();
-
-    auto entity1 = new Entity(), entity2 = new Entity();
-
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
+    double objectRadius = 0.1;
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
     smc->SetEffect(effect);
 
-    /*
-    cameraComponent->SetFovY(XM_PI/2 - 0.2); //эксперимент с видимостью
-    int sphereCount = 6;
-    for (int i = 1; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, i * XM_PI / sphereCount, 0);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    for (int i = 1; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / sphereCount);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    */
 
+    auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
+    pointComp->SetEffect(pointEffect);
+
+    /*
+    auto transformComponent = new SphericalTransformComponent();
+    auto entity = new Entity();
+    entity->AddComponent<SphericalTransformComponent>(transformComponent);
+    entity->AddComponent<MeshComponent>(smc);
+    scene->AddEntity(entity);
+    */
     // --- Uniform Distribution --- //
    
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 20;
+    int sphereCount = 100;
+    auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
+    again:
         auto point = generator.GeneratePoint();
-        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
+
+        for (int j = 0; j < i; j++)
+        {
+            auto otherPoint = randomPoints[j];
+            auto distance = SphericalDistance(point, otherPoint, radius);
+
+            if (distance < 2 * objectRadius)
+                goto again;
+        }
+
+        randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
+
         entity->AddComponent<MeshComponent>(smc);
+        //entity->AddComponent<MeshComponent>(pointComp);
+
         scene->AddEntity(entity);
-
-        //if(пересекаются сферы с уже добавленными)
-            //переген.
     }
-
+    delete[] randomPoints;
+    
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent("HELLO", 10, 10, Alignment::UpLeft));
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform, renderSystem](double delta) {
+        auto pos = cameraTransform->GetSphericalPosition();
+        auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
+        std::stringstream ss;
+
+        ss << std::fixed << std::setprecision(2);
+        ss << "X: " << pos.x << std::endl;
+        ss << "Y: " << pos.y << std::endl;
+        ss << "Z: " << pos.z << std::endl;
+        ss << "W: " << pos.w << std::endl;
+        ss << "R: " << renderSystem->GetRadius() << std::endl;
+
+        return ss.str();
+
+    }, 10, 10, Alignment::UpLeft));
+
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
@@ -149,16 +173,21 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
-            if (kbs.I)
-                renderSystem->SetRadius(renderSystem->GetRadius() + 0.1);
+            if (kbs.I) 
+                renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
             else if (kbs.O)
             {
                 auto radius = renderSystem->GetRadius();
-                if (radius > 0.1)
-                    renderSystem->SetRadius(radius -0.1);
+                if (radius > 0.2)
+                    renderSystem->SetRadius(radius - 0.003);
             }
-                
+
+            if (kbs.M)
+                effect->SetVelocity(effect->GetVelocity() + 50000);
+            else if (kbs.N)
+                effect->SetVelocity(effect->GetVelocity() - 50000);
+
         }));
 
     return game.StartGame();
-} 
+}
