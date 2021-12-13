@@ -167,3 +167,8 @@ ToricExpFogEffect::~ToricExpFogEffect()
 {
 	Deinitialize();
 }
+
+void ToricExpFogEffect::Clean()
+{
+	//TODO: set shaders to nullptr?
+}

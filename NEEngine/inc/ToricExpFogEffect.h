@@ -47,6 +47,9 @@ public:
 
     ~ToricExpFogEffect();
 
+    virtual void Clean() override;
+
+
 private:
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
