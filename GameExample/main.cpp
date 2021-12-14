@@ -91,8 +91,8 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
-    //auto effect = new SphericalExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    //auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::PowderBlue);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
 
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100;
+    int sphereCount = 0;
     auto randomPoints = new Vector4[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
@@ -142,6 +142,17 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
     }
     delete[] randomPoints;
+
+    int smallSphereCount = 6;
+
+    for (int i = 0; i < smallSphereCount; i++)
+    {
+        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / smallSphereCount);
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+        entity->AddComponent<MeshComponent>(smc);
+        scene->AddEntity(entity);
+    }
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
@@ -182,10 +193,10 @@ int main(int argc, char* argv[])
                     renderSystem->SetRadius(radius - 0.003);
             }
 
-            if (kbs.M)
-                effect->SetVelocity(effect->GetVelocity() + 50000);
-            else if (kbs.N)
-                effect->SetVelocity(effect->GetVelocity() - 50000);
+            //if (kbs.M)
+            //    effect->SetVelocity(effect->GetVelocity() + 50000);
+            //else if (kbs.N)
+            //    effect->SetVelocity(effect->GetVelocity() - 50000);
 
         }));
 
