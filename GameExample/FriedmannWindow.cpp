@@ -115,7 +115,7 @@ void DrawFriedmann(HDC hdc)
     int numberOfPoints = 200;
     for (int i = 0; i < numberOfPoints; i++)
     {
-        double x = XM_2PI / (numberOfPoints - 1) * i;
+        double x = (double)XM_2PI / (numberOfPoints - 1) * i;
         double y = 1 - cos(x);
     }
 }
