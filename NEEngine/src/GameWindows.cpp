@@ -91,13 +91,14 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
 
         HWND hwnd;
 
+        //вместо 20 были CW_USEDEFAULT, но это слишком рандомно
         if(isFullscreenEnabled)
             hwnd = CreateWindowExW(WS_EX_TOPMOST, L"Direct3DGameWindowClass", windowName, WS_POPUP,
-                CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+                20, 20, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
                 nullptr);
         else
             hwnd = CreateWindowExW(0, L"Direct3DGameWindowClass", windowName, WS_OVERLAPPEDWINDOW,
-                CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+                20, 20, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
                 nullptr);
 
         if (!hwnd)
