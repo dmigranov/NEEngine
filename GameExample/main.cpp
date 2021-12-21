@@ -42,6 +42,23 @@ int main(int argc, char* argv[])
 
     // creating new windows
     {
+        auto hInstance = GetModuleHandle(nullptr);
+
+        WNDCLASSEXW wcex = {};
+        wcex.cbSize = sizeof(WNDCLASSEXW);
+        wcex.style = CS_HREDRAW | CS_VREDRAW;
+        wcex.lpfnWndProc = WndProc;
+        wcex.hInstance = hInstance;
+        wcex.hIcon = LoadIconW(hInstance, L"IDI_ICON");
+        wcex.hCursor = LoadCursorW(nullptr, IDC_ARROW);
+        wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+        wcex.lpszClassName = L"Direct3DGameWindowClass";
+        wcex.hIconSm = LoadIconW(wcex.hInstance, L"IDI_ICON");
+        if (!RegisterClassExW(&wcex))
+            return 1;
+
+        // Create window
+        int w = 200, h = 50;
 
 
 
