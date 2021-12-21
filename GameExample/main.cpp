@@ -42,11 +42,7 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
 
-    // creating new windows
-    {
-        CreateFriedmannWindow();
-
-    }
+    CreateFriedmannWindow();
 
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
