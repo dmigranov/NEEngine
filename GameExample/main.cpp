@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     RandomSphericalGenerator generator(radius);
     int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
-    auto entities = new Entity[sphereCount];
+    auto entities = new Entity*[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
     again:
@@ -145,16 +145,16 @@ int main(int argc, char* argv[])
                 int count = 0;
                 for (int i = 0; i < sphereCount; i++)
                 {
-                    auto entity = entities[i];
-                    auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+                    Entity* sphere = entities[i];
+                    auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                     auto pos = pTransform->GetSphericalPosition();
                     auto dist = SphericalDistance(pos/radius, cameraPos/radius, 1.);
-                    //if (dist < mu - 1)
-                    //    pEntity->SetVisible(true);
-                    //else
+                    if (dist < mu)
+                        sphere->SetVisible(true);
+                    else
                     {
                         count++;
-                        pEntity->SetVisible(false);
+                        sphere->SetVisible(false);
                     }
                 }
                 std::cout << count << std::endl;
