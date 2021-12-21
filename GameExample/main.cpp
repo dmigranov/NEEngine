@@ -115,7 +115,7 @@ int main(int argc, char* argv[])
 
         HWND hwnd;
 
-        hwnd = CreateWindowExW(0, L"Direct3DGameWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW,
+        hwnd = CreateWindowExW(0, L"FriedmannWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
             nullptr);
 
