@@ -163,13 +163,6 @@ int main(int argc, char* argv[])
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
     pointComp->SetEffect(pointEffect);
 
-    /*
-    auto transformComponent = new SphericalTransformComponent();
-    auto entity = new Entity();
-    entity->AddComponent<SphericalTransformComponent>(transformComponent);
-    entity->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity);
-    */
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
@@ -251,6 +244,8 @@ int main(int argc, char* argv[])
 
     return game.StartGame();
 }
+
+
 
 
 
