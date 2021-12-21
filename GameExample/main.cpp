@@ -132,6 +132,16 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem](Entity* pEntity, double deltaTime) {
+
+            static double time = 3;
+            double radius = 2 * (1 - cos(time / 3.));
+            if (radius > 0.5)
+            {
+                renderSystem->SetRadius(radius);
+                time += deltaTime;
+            }
+
+
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
 
@@ -140,6 +150,7 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
+            /*
             if (kbs.I)
                 renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
             else if (kbs.O)
@@ -148,6 +159,7 @@ int main(int argc, char* argv[])
                 if (radius > 0.2)
                     renderSystem->SetRadius(radius - 0.003);
             }
+            */
 
             if (kbs.M)
                 effect->SetVelocity(effect->GetVelocity() + 50000);
