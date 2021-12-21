@@ -147,7 +147,10 @@ int main(int argc, char* argv[])
                     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
                     auto pos = pTransform->GetSphericalPosition();
                     auto dist = SphericalDistance(pos/radius, cameraPos/radius, 1.);
-                    
+                    if (dist < time / 3)
+                        pEntity->SetVisible(true);
+                    else
+                        pEntity->SetVisible(false);
                 }
 
                 time += deltaTime;
