@@ -135,23 +135,29 @@ int main(int argc, char* argv[])
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
-            static double time = 3;
-            double radius = 2 * (1 - cos(time / 3.));
+            static double time = 2.;
+            double mu = time / 3.;
+            double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
-            if (radius > 0.5)
+            if (radius > 0.3)
             {
                 renderSystem->SetRadius(radius);
+                int count = 0;
                 for (int i = 0; i < sphereCount; i++)
                 {
                     auto entity = entities[i];
                     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
                     auto pos = pTransform->GetSphericalPosition();
                     auto dist = SphericalDistance(pos/radius, cameraPos/radius, 1.);
-                    if (dist < time / 3)
-                        pEntity->SetVisible(true);
-                    else
+                    //if (dist < mu - 1)
+                    //    pEntity->SetVisible(true);
+                    //else
+                    {
+                        count++;
                         pEntity->SetVisible(false);
+                    }
                 }
+                std::cout << count << std::endl;
 
                 time += deltaTime;
             }
