@@ -110,4 +110,10 @@ void DrawFriedmann(HDC hdc)
     Pen      pen(Gdiplus::Color(255, 0, 0, 255));
     graphics.DrawLine(&pen, 5, friedmann_h - 5, friedmann_w - 5, friedmann_h - 5);
     graphics.DrawLine(&pen, 5, 5, 5, friedmann_h - 5);
+
+
+    for (int i = 0; i <= 200; i++)
+    {
+
+    }
 }
