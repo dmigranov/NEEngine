@@ -52,3 +52,41 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
+
+int CreateFriedmannWindow()
+{
+    Game& game = Game::GetInstance();
+
+
+    auto hInstance = GetModuleHandle(nullptr);
+
+    WNDCLASSEXW wcex = {};
+    wcex.cbSize = sizeof(WNDCLASSEXW);
+    wcex.style = CS_HREDRAW | CS_VREDRAW;
+    wcex.lpfnWndProc = WndProcFriedmann;
+    wcex.hInstance = hInstance;
+    wcex.hIcon = LoadIconW(hInstance, L"IDI_ICON");
+    wcex.hCursor = LoadCursorW(nullptr, IDC_ARROW);
+    wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wcex.lpszClassName = L"FriedmannWindowClass";
+    wcex.hIconSm = LoadIconW(wcex.hInstance, L"IDI_ICON");
+    if (!RegisterClassExW(&wcex))
+        return 1;
+
+    // Create window
+    int w = 300, h = 90;
+    RECT rc = { 0, 0, static_cast<LONG>(w), static_cast<LONG>(h) };
+
+    AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); //чтобы это были соотношения рабочей области!
+
+    auto gameRect = game.GetGameWindowRect();
+    HWND hwnd = CreateWindowExW(0, L"FriedmannWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW,
+        gameRect.right + 20, gameRect.top, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+        nullptr);
+
+    if (!hwnd)
+        return 1;
+
+    ShowWindow(hwnd, SW_SHOWNORMAL);
+    GetClientRect(hwnd, &rc);
+}
