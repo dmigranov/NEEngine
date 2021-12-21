@@ -133,17 +133,18 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem](Entity* pEntity, double deltaTime) {
+        [effect, renderSystem, entities, sphereCount](Entity* pEntity, double deltaTime) {
 
             static double time = 3;
             double radius = 2 * (1 - cos(time / 3.));
             if (radius > 0.5)
             {
                 renderSystem->SetRadius(radius);
-                for (auto entity : entities)
+                for (int i = 0; i < sphereCount; i++)
                 {
-
+                    auto entity = entities[i];
                 }
+
                 time += deltaTime;
             }
 
