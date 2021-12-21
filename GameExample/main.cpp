@@ -82,6 +82,7 @@ int main(int argc, char* argv[])
     RandomSphericalGenerator generator(radius);
     int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
+    auto entities = new Entity[sphereCount];
     for (int i = 0; i < sphereCount; i++)
     {
     again:
@@ -106,6 +107,7 @@ int main(int argc, char* argv[])
         //entity->AddComponent<MeshComponent>(pointComp);
 
         scene->AddEntity(entity);
+        entities[i] = entity;
     }
     //delete[] randomPoints;
 
@@ -138,6 +140,10 @@ int main(int argc, char* argv[])
             if (radius > 0.5)
             {
                 renderSystem->SetRadius(radius);
+                for (auto entity : entities)
+                {
+
+                }
                 time += deltaTime;
             }
 
