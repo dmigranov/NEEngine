@@ -133,10 +133,11 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem, entities, sphereCount](Entity* pEntity, double deltaTime) {
+        [effect, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
             static double time = 3;
             double radius = 2 * (1 - cos(time / 3.));
+            auto cameraPos = cameraTransform->GetSphericalPosition();
             if (radius > 0.5)
             {
                 renderSystem->SetRadius(radius);
@@ -145,6 +146,7 @@ int main(int argc, char* argv[])
                     auto entity = entities[i];
                     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
                     auto pos = pTransform->GetSphericalPosition();
+                    auto dist = SphericalDistance(pos/radius, cameraPos/radius, 1.);
                     
                 }
 
