@@ -143,6 +143,9 @@ int main(int argc, char* argv[])
                 for (int i = 0; i < sphereCount; i++)
                 {
                     auto entity = entities[i];
+                    auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+                    auto pos = pTransform->GetSphericalPosition();
+                    
                 }
 
                 time += deltaTime;
