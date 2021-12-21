@@ -40,6 +40,14 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
 
+    // creating new windows
+    {
+
+
+
+    }
+
+
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow2.dds");
