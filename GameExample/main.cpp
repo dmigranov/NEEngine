@@ -37,18 +37,14 @@ int main(int argc, char* argv[])
 
         componentTypeManager->RegisterComponentType<TextComponent>();
 
-        //MeshComponent - registered by default
-
-        componentTypeManager->SetTypeAdditionEnded();
+        componentTypeManager->SetTypeAdditionEnded();         //MeshComponent - registered by default
     }
 
     CreateFriedmannWindow();
 
-
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow2.dds");
-
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
