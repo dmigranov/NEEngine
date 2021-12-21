@@ -87,7 +87,7 @@ int CreateFriedmannWindow()
         return 1;
 
     // Create window
-    int w = 300, h = 90;
+    int w = friedmann_w, h = friedmann_h;
     RECT rc = { 0, 0, static_cast<LONG>(w), static_cast<LONG>(h) };
 
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); //чтобы это были соотношения рабочей области!
@@ -108,5 +108,6 @@ void DrawFriedmann(HDC hdc)
 {
     Graphics graphics(hdc);
     Pen      pen(Gdiplus::Color(255, 0, 0, 255));
-    graphics.DrawLine(&pen, 0, 0, 200, 100);
+    graphics.DrawLine(&pen, 5, friedmann_h - 5, friedmann_w - 5, friedmann_h - 5);
+    graphics.DrawLine(&pen, 5, 5, 5, friedmann_h - 5);
 }
