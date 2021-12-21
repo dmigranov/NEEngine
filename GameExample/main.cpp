@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
 
         scene->AddEntity(entity);
     }
-    delete[] randomPoints;
+    //delete[] randomPoints;
 
 
     scene->AddSystem(new TextPrintingSystem());
