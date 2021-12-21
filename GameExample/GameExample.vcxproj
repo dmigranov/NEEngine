@@ -171,6 +171,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FriedmannWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandomSphericalGenerator.cpp" />
   </ItemGroup>
