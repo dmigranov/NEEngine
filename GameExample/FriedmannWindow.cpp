@@ -113,9 +113,21 @@ void DrawFriedmann(HDC hdc)
 
 
     int numberOfPoints = 200;
+    double x_prev, y_prev;
     for (int i = 0; i < numberOfPoints; i++)
     {
         double x = (double)XM_2PI / (numberOfPoints - 1) * i;
         double y = 1 - cos(x);
+
+        x = x / XM_2PI * (friedmann_w - 10) + 5;
+        y = y / 2 * (friedmann_h - 10) + 5;
+
+        if (i != 0)
+        {
+            //graphics.DrawLine(&pen, x_prev, y_prev, x, y);
+        }
+
+        x_prev = x;
+        y_prev = y;
     }
 }
