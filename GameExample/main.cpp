@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "main.h"
 
 #include "Geometries/SphericalEllipticGeometry.h"
 #include "InputSystem.h"
@@ -21,7 +22,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     switch (message)
     {
-    case WM_PAINT:          
+    case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
         EndPaint(hWnd, &ps);
         break;
@@ -29,7 +30,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
         Keyboard::ProcessMessage(message, wParam, lParam);
         Mouse::ProcessMessage(message, wParam, lParam);
         break;
- 
+
     case WM_INPUT:
     case WM_MOUSEMOVE:
     case WM_LBUTTONDOWN:
@@ -58,6 +59,8 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
+
+
 
 float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
 {

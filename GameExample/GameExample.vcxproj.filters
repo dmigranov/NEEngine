@@ -45,5 +45,8 @@
     <ClInclude Include="RandomSphericalGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
