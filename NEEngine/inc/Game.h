@@ -30,6 +30,8 @@ public:
 
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
+    RECT GetWindowRect();
+
     ID3D11Device* const GetDevice();
     ID3D11DeviceContext* const GetDeviceContext();
 
