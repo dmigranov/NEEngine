@@ -108,14 +108,14 @@ int main(int argc, char* argv[])
             return 1;
 
         // Create window
-        int w = 200, h = 50;
+        int w = 300, h = 90;
         RECT rc = { 0, 0, static_cast<LONG>(w), static_cast<LONG>(h) };
 
         AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); //чтобы это были соотношения рабочей области!
 
         auto gameRect = game.GetGameWindowRect();
         HWND hwnd = CreateWindowExW(0, L"FriedmannWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW,
-            CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
+            gameRect.right + 20, gameRect.top, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
             nullptr);
 
         if (!hwnd)
