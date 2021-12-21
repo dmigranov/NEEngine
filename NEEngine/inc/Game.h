@@ -30,7 +30,7 @@ public:
 
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
-    RECT GetWindowRect();
+    RECT GetGameWindowRect();
 
     ID3D11Device* const GetDevice();
     ID3D11DeviceContext* const GetDeviceContext();
@@ -148,9 +148,6 @@ private:
     DirectX::XMVECTORF32 m_backgroundColor = DirectX::Colors::CadetBlue;
 
     bool isInitialized = false;
-
-
-
 
     friend class Mesh;
 

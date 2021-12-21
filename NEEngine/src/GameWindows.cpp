@@ -241,7 +241,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-RECT Game::GetWindowRect()
+RECT Game::GetGameWindowRect()
 {
-    return RECT();
+    RECT rect;
+    GetWindowRect(m_hwnd, &rect);
+    return rect;
 }
