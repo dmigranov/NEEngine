@@ -1,4 +1,7 @@
 #include "main.h"
+#include <gdiplus.h>
+using namespace Gdiplus;
+#pragma comment (lib,"Gdiplus.lib")
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
@@ -13,10 +16,15 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     static bool s_minimized = false;
     static bool s_fullscreen = false; // TODO: Set s_fullscreen to true if defaulting to fullscreen
 
+    
+
     switch (message)
     {
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
+
+        DrawFriedmann(hdc);
+
         EndPaint(hWnd, &ps);
         break;
     case WM_ACTIVATEAPP:
@@ -57,6 +65,11 @@ int CreateFriedmannWindow()
 {
     Game& game = Game::GetInstance();
 
+    GdiplusStartupInput gdiplusStartupInput;
+    ULONG_PTR           gdiplusToken;
+
+    // Initialize GDI+.
+    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
     auto hInstance = GetModuleHandle(nullptr);
 
@@ -89,4 +102,11 @@ int CreateFriedmannWindow()
 
     ShowWindow(hwnd, SW_SHOWNORMAL);
     GetClientRect(hwnd, &rc);
+}
+
+void DrawFriedmann(HDC hdc)
+{
+    Graphics graphics(hdc);
+    Pen      pen(Gdiplus::Color(255, 0, 0, 255));
+    graphics.DrawLine(&pen, 0, 0, 200, 100);
 }
