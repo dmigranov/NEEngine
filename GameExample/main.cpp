@@ -138,34 +138,6 @@ int main(int argc, char* argv[])
     scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
 
-    /*
-    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
-        [](Entity* pEntity, double deltaTime) {
-            auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-            auto pWalk = pEntity->GetComponent<WalkComponent>();
-
-
-            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
-            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
-            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
-
-
-            if (kbs.R)
-                pTransform->Move(up);
-            if (kbs.F)
-                pTransform->Move(-up);
-
-            if (kbs.T)
-                pTransform->Rotate(deltaTime, 0, 0);
-            if (kbs.G)
-                pTransform->Rotate(0, deltaTime, 0);
-            if (kbs.B)
-                pTransform->Rotate(0, 0, deltaTime);
-        }));
-        */
 
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new SphericalTransformComponent();
@@ -279,3 +251,37 @@ int main(int argc, char* argv[])
 
     return game.StartGame();
 }
+
+
+
+
+
+
+/*
+    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
+        [](Entity* pEntity, double deltaTime) {
+            auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
+            auto pWalk = pEntity->GetComponent<WalkComponent>();
+
+
+            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
+            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
+            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
+
+
+            if (kbs.R)
+                pTransform->Move(up);
+            if (kbs.F)
+                pTransform->Move(-up);
+
+            if (kbs.T)
+                pTransform->Rotate(deltaTime, 0, 0);
+            if (kbs.G)
+                pTransform->Rotate(0, deltaTime, 0);
+            if (kbs.B)
+                pTransform->Rotate(0, 0, deltaTime);
+        }));
+        */
