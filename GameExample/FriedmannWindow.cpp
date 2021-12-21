@@ -107,10 +107,12 @@ int CreateFriedmannWindow()
 void DrawFriedmann(HDC hdc)
 {
     Graphics graphics(hdc);
-    Pen      pen(Gdiplus::Color(255, 0, 0, 255));
-    graphics.DrawLine(&pen, 5, friedmann_h - 5, friedmann_w - 5, friedmann_h - 5);
-    graphics.DrawLine(&pen, 5, 5, 5, friedmann_h - 5);
+    Pen      penBlue(Gdiplus::Color(255, 0, 0, 255));
+    graphics.DrawLine(&penBlue, 5, friedmann_h - 5, friedmann_w - 5, friedmann_h - 5);
+    graphics.DrawLine(&penBlue, 5, 5, 5, friedmann_h - 5);
 
+
+    Pen      pen(Gdiplus::Color(255, 255, 0, 0));
 
     int numberOfPoints = 200;
     double x_prev, y_prev;
@@ -124,7 +126,7 @@ void DrawFriedmann(HDC hdc)
 
         if (i != 0)
         {
-            //graphics.DrawLine(&pen, x_prev, y_prev, x, y);
+            graphics.DrawLine(&pen, (int)x_prev, (int)y_prev, (int)x, (int)y);
         }
 
         x_prev = x;
