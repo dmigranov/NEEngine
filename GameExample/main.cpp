@@ -171,7 +171,7 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
-            /*
+            
             if (kbs.I)
                 renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
             else if (kbs.O)
@@ -180,7 +180,7 @@ int main(int argc, char* argv[])
                 if (radius > 0.2)
                     renderSystem->SetRadius(radius - 0.003);
             }
-            */
+            
 
             if (kbs.M)
                 effect->SetVelocity(effect->GetVelocity() + 50000);
