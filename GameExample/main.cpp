@@ -65,6 +65,7 @@ int main(int argc, char* argv[])
 
 
     auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
+    auto effectEarth = new SphericalDopplerEffect(rainbowTexture1, 0.1, DirectX::Colors::PowderBlue);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::PowderBlue);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
@@ -72,6 +73,10 @@ int main(int argc, char* argv[])
     double objectRadius = 0.1;
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
     smc->SetEffect(effect);
+
+    auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
+    earth_mc->SetEffect(effectEarth);
+
 
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
@@ -83,7 +88,7 @@ int main(int argc, char* argv[])
     int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity*[sphereCount];
-    for (int i = 0; i < sphereCount; i++)
+    for (int i = 0; i < sphereCount - 1; i++)
     {
     again:
         auto point = generator.GeneratePoint();
@@ -109,7 +114,16 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
         entities[i] = entity;
     }
-    //delete[] randomPoints;
+
+    auto transformComponent = new SphericalTransformComponent();
+    auto entity = new Entity();
+    entity->AddComponent<SphericalTransformComponent>(transformComponent);
+    entity->AddComponent<MeshComponent>(earth_mc);
+
+    scene->AddEntity(entity);
+    entities[sphereCount - 1] = entity;
+
+    delete[] randomPoints;
 
 
     scene->AddSystem(new TextPrintingSystem());
@@ -133,7 +147,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
             static double time = 2.;
             double mu = time / 3.;
@@ -183,9 +197,15 @@ int main(int argc, char* argv[])
             
 
             if (kbs.M)
+            {
                 effect->SetVelocity(effect->GetVelocity() + 50000);
+                effectEarth->SetVelocity(effect->GetVelocity() + 50000);
+            }
             else if (kbs.N)
+            {
                 effect->SetVelocity(effect->GetVelocity() - 50000);
+                effectEarth->SetVelocity(effect->GetVelocity() - 50000);
+            }
 
         }));
 
