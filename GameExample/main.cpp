@@ -171,7 +171,7 @@ int main(int argc, char* argv[])
                         sphere->SetVisible(false);
                     }
                 }
-                std::cout << count << std::endl;
+                //std::cout << count << std::endl;
 
                 time += deltaTime;
             }
