@@ -6,7 +6,7 @@ using namespace Gdiplus;
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-bool isInit = true;
+bool isFriedannWindowInit = true;
 
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -30,10 +30,10 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     */
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
-        if (isInit)
+        if (isFriedannWindowInit)
         {
             DrawFriedmann(hdc);
-            isInit = false;
+            isFriedannWindowInit = false;
         }
         //else
         DrawFriedmannPoint(hdc);
@@ -163,6 +163,13 @@ void DrawFriedmann(HDC hdc)
         x_prev = x;
         y_prev = y;
     }
+}
+
+
+void UpdateFriedmannWindow(double time)
+{
+    RECT rect{ 5, 5, 40, 40 };
+    InvalidateRect(friedmannHwnd, &rect, FALSE);
 }
 
 void DrawFriedmannPoint(HDC hdc)
