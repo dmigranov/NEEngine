@@ -23,11 +23,15 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     {
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
-        //if (isFriedannWindowInit)
+
+        /*
+        if (isFriedannWindowInit)
         {
             DrawFriedmann(hdc);
             isFriedannWindowInit = false;
         }
+        */
+        DrawFriedmann(hdc);
         DrawFriedmannPoint(hdc);
 
         EndPaint(hWnd, &ps);
