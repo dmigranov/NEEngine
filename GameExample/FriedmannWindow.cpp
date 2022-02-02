@@ -166,15 +166,9 @@ void DrawFriedmann(HDC hdc)
     }
 }
 
-void DrawFriedmannPoint(HWND hWnd)
+void DrawFriedmannPoint(HDC hdc)
 {
-    PAINTSTRUCT ps;
-
-    auto hdc = BeginPaint(hWnd, &ps);
-
     Graphics graphics(hdc);
     Pen      penGreen(Gdiplus::Color(0, 255, 0, 255));
     graphics.DrawLine(&penGreen, 5, 5, 40, 40);
-
-    EndPaint(hWnd, &ps);
 }
