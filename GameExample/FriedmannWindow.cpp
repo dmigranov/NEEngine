@@ -16,20 +16,28 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     static bool s_minimized = false;
     static bool s_fullscreen = false; // TODO: Set s_fullscreen to true if defaulting to fullscreen
 
-    
+    bool isInit = true;
 
     switch (message)
     {
+    /*
     case WM_CREATE:
         SetTimer(hWnd, NULL, 1000, nullptr);
         break;
     case WM_TIMER:
         InvalidateRect(hWnd, NULL, FALSE);
         break;
+    */
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
-
-        DrawFriedmann(hdc);
+        std::cout << "e";
+        if (isInit)
+        {
+            DrawFriedmann(hdc);
+            isInit = false;
+        }
+        else
+            ;
 
         EndPaint(hWnd, &ps);
 

@@ -149,6 +149,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, friedmannHwnd](Entity* pEntity, double deltaTime) {
 
+            static double frameTime = 0;
             static double time = 2.;
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
@@ -172,11 +173,18 @@ int main(int argc, char* argv[])
                     }
                 }
                 //std::cout << count << std::endl;
-                //InvalidateRect(friedmannHwnd, NULL, FALSE);
-                DrawFriedmannPoint(friedmannHwnd);
+
+                //DrawFriedmannPoint(friedmannHwnd);
 
 
                 time += deltaTime;
+                frameTime += deltaTime;
+                if (frameTime >= 0.1)
+                {
+                    RECT rect{ 5, 5, 40, 40 };
+                    InvalidateRect(friedmannHwnd, &rect, FALSE);
+                    frameTime = 0;
+                }
             }
 
 
