@@ -20,9 +20,6 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     switch (message)
     {
-    case WM_CREATE:
-        //SetTimer(hWnd, 1, 20, NULL);
-        break;
     case WM_TIMER:
         InvalidateRect(hWnd, NULL, FALSE);
         break;
@@ -163,7 +160,9 @@ void DrawFriedmannPoint(HWND hWnd)
 
     auto hdc = BeginPaint(hWnd, &ps);
 
-    DrawFriedmann(hdc);
+    Graphics graphics(hdc);
+    Pen      penGreen(Gdiplus::Color(0, 255, 0, 255));
+    graphics.DrawLine(&penGreen, 5, 5, 100, 100);
 
     EndPaint(hWnd, &ps);
 }
