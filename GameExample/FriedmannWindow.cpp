@@ -195,5 +195,5 @@ void DrawFriedmannPoint(HDC hdc)
     x = x / XM_2PI * (friedmann_w - 10) + 5;
     y = y / 2 * (friedmann_h - 10) + 5;
 
-    graphics.FillEllipse(&brushGreen, x, y, 5, 5);
+    graphics.FillEllipse(&brushGreen, x-5, y-5, 10, 10);
 }
