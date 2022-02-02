@@ -175,6 +175,7 @@ int main(int argc, char* argv[])
                 //InvalidateRect(friedmannHwnd, NULL, FALSE);
                 DrawFriedmannPoint(friedmannHwnd);
 
+
                 time += deltaTime;
             }
 

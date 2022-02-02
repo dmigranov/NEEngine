@@ -20,6 +20,9 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     switch (message)
     {
+    case WM_CREATE:
+        SetTimer(hWnd, NULL, 1000, nullptr);
+        break;
     case WM_TIMER:
         InvalidateRect(hWnd, NULL, FALSE);
         break;
@@ -29,6 +32,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
         DrawFriedmann(hdc);
 
         EndPaint(hWnd, &ps);
+
         break;
     case WM_ACTIVATEAPP:
         Keyboard::ProcessMessage(message, wParam, lParam);
