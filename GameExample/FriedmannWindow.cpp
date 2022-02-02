@@ -72,27 +72,17 @@ DWORD WINAPI CreateFriedmannWindowThread(LPVOID lpParam);
 int CreateFriedmannWindow()
 {
     auto hThread = CreateThread(NULL, 0, CreateFriedmannWindowThread,
-        Message2, 0, &dwThreadId);
-}
+        nullptr, 0, nullptr);
 
-int CreateFriedmannWindowThread(LP)
-{
     if (hThread == NULL)
     {
-        cout << "Create thread filed";
+        std::cout << "Create thread failed";
         exit(10);
     }
+}
 
-
-    while (GetMessage(&msg, NULL, 0, 0)) {
-
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-
-    }
-
-    return msg.wParam;
-
+DWORD CreateFriedmannWindowThread(LPVOID lpParam)
+{
     Game& game = Game::GetInstance();
 
     GdiplusStartupInput gdiplusStartupInput;
@@ -132,6 +122,10 @@ int CreateFriedmannWindowThread(LP)
 
     ShowWindow(hwnd, SW_SHOWNORMAL);
     GetClientRect(hwnd, &rc);
+
+    std::cout << "here";
+
+
 }
 
 void DrawFriedmann(HDC hdc)
