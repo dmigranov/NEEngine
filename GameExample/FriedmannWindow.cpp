@@ -35,8 +35,8 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
             DrawFriedmann(hdc);
             isInit = false;
         }
-        else
-            DrawFriedmannPoint(hdc);
+        //else
+        DrawFriedmannPoint(hdc);
 
         EndPaint(hWnd, &ps);
 
