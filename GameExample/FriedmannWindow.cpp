@@ -160,6 +160,7 @@ void DrawFriedmann(HDC hdc)
     {
         double x = (double)XM_2PI / (numberOfPoints - 1) * i;
         double y = 1 - cos(x);
+        y = 2 - y;
 
         x = x / XM_2PI * (friedmann_w - 10) + 5;
         y = y / 2 * (friedmann_h - 10) + 5;
@@ -190,7 +191,7 @@ void DrawFriedmannPoint(HDC hdc)
     Gdiplus::SolidBrush brushGreen(Gdiplus::Color(255, 0, 255, 0));
 
     double x = currentFriedmannTime;
-    double y = 1 - cos(x);
+    double y = cos(x) + 1; //2 - (1 - cosx)
 
     x = x / XM_2PI * (friedmann_w - 10) + 5;
     y = y / 2 * (friedmann_h - 10) + 5;
