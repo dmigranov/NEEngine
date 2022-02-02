@@ -155,7 +155,6 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             if (radius > 0.3)
             {
-
                 renderSystem->SetRadius(radius);
                 int count = 0;
                 for (int i = 0; i < sphereCount; i++)
@@ -173,6 +172,7 @@ int main(int argc, char* argv[])
                     }
                 }
                 //std::cout << count << std::endl;
+                InvalidateRect(friedmannHwnd, NULL, FALSE);
 
                 time += deltaTime;
             }
