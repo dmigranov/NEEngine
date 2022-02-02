@@ -23,7 +23,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     {
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
-        if (isFriedannWindowInit)
+        //if (isFriedannWindowInit)
         {
             DrawFriedmann(hdc);
             isFriedannWindowInit = false;
@@ -165,7 +165,7 @@ void UpdateFriedmannWindow(double time)
     currentFriedmannTime = time;
     //RECT rect{ 5, 5, 40, 40 };
     //InvalidateRect(friedmannHwnd, &rect, FALSE);
-    InvalidateRect(friedmannHwnd, nullptr, FALSE);
+    InvalidateRect(friedmannHwnd, nullptr, TRUE);
 }
 
 void DrawFriedmannPoint(HDC hdc)
