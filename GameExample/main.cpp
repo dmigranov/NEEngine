@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();         //MeshComponent - registered by default
     }
 
-    CreateFriedmannWindow();
+    auto friedmannHwnd = CreateFriedmannWindow();
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
@@ -147,7 +147,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, friedmannHwnd](Entity* pEntity, double deltaTime) {
 
             static double time = 2.;
             double mu = time / 3.;
@@ -155,6 +155,7 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             if (radius > 0.3)
             {
+
                 renderSystem->SetRadius(radius);
                 int count = 0;
                 for (int i = 0; i < sphereCount; i++)
