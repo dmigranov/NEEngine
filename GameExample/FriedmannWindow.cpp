@@ -122,10 +122,6 @@ DWORD CreateFriedmannWindowThread(LPVOID lpParam)
 
     ShowWindow(hwnd, SW_SHOWNORMAL);
     GetClientRect(hwnd, &rc);
-
-    std::cout << "here";
-
-
 }
 
 void DrawFriedmann(HDC hdc)
