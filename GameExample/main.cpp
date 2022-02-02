@@ -182,7 +182,7 @@ int main(int argc, char* argv[])
                
                 if (frameTime >= 0.1)
                 {
-                    UpdateFriedmannWindow(time);
+                    UpdateFriedmannWindow(mu);
 
                     frameTime = 0;
                 }

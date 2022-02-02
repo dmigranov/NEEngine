@@ -163,13 +163,21 @@ double currentFriedmannTime = -1.;
 void UpdateFriedmannWindow(double time)
 {
     currentFriedmannTime = time;
-    RECT rect{ 5, 5, 40, 40 };
-    InvalidateRect(friedmannHwnd, &rect, FALSE);
+    //RECT rect{ 5, 5, 40, 40 };
+    //InvalidateRect(friedmannHwnd, &rect, FALSE);
+    InvalidateRect(friedmannHwnd, nullptr, FALSE);
 }
 
 void DrawFriedmannPoint(HDC hdc)
 {
     Graphics graphics(hdc);
     Gdiplus::SolidBrush brushGreen(Gdiplus::Color(255, 0, 255, 0));
-    graphics.FillEllipse(&brushGreen, 40, 40, 5, 5);
+
+    double x = currentFriedmannTime;
+    double y = 1 - cos(x);
+
+    x = x / XM_2PI * (friedmann_w - 10) + 5;
+    y = y / 2 * (friedmann_h - 10) + 5;
+
+    graphics.FillEllipse(&brushGreen, x, y, 5, 5);
 }
