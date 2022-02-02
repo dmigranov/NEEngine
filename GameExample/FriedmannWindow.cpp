@@ -67,9 +67,8 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-DWORD WINAPI CreateFriedmannWindowThread(LPVOID lpParam);
 
-int CreateFriedmannWindow()
+void CreateFriedmannWindowOld()
 {
     /*
     auto hThread = CreateThread(NULL, 0, CreateFriedmannWindowThread,
@@ -81,11 +80,9 @@ int CreateFriedmannWindow()
         exit(10);
     }
     */
-
-    return CreateFriedmannWindowThread(nullptr);
 }
 
-DWORD CreateFriedmannWindowThread(LPVOID lpParam)
+HWND CreateFriedmannWindow()
 {
     Game& game = Game::GetInstance();
 
@@ -108,7 +105,7 @@ DWORD CreateFriedmannWindowThread(LPVOID lpParam)
     wcex.lpszClassName = L"FriedmannWindowClass";
     wcex.hIconSm = LoadIconW(wcex.hInstance, L"IDI_ICON");
     if (!RegisterClassExW(&wcex))
-        return 1;
+        return nullptr;
 
     // Create window
     int w = friedmann_w, h = friedmann_h;
@@ -122,10 +119,12 @@ DWORD CreateFriedmannWindowThread(LPVOID lpParam)
         nullptr);
 
     if (!hwnd)
-        return 1;
+        return nullptr;
 
     ShowWindow(hwnd, SW_SHOWNORMAL);
     GetClientRect(hwnd, &rc);
+
+    return hwnd;
 }
 
 void DrawFriedmann(HDC hdc)
