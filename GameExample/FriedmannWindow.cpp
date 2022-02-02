@@ -3,6 +3,9 @@
 using namespace Gdiplus;
 #pragma comment (lib,"Gdiplus.lib")
 
+#include <uxtheme.h>
+#pragma comment (lib, "uxtheme.lib")
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -22,6 +25,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     switch (message)
     {
     case WM_PAINT:
+    {
         hdc = BeginPaint(hWnd, &ps);
 
         /*
@@ -30,18 +34,26 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
             DrawFriedmann(hdc);
             isFriedannWindowInit = false;
         }
-        */
-        DrawFriedmann(hdc);
         DrawFriedmannPoint(hdc);
+        */
+        HDC memdc;
+        RECT rc;
+        GetClientRect(hWnd, &rc);
+        auto hbuff = BeginBufferedPaint(hdc, &rc, BPBF_COMPATIBLEBITMAP, NULL, &memdc);
+        FillRect(memdc, &rc, GetSysColorBrush(COLOR_WINDOW));
+        DrawFriedmann(memdc);
+        DrawFriedmannPoint(memdc);
+        EndBufferedPaint(hbuff, TRUE);
 
         EndPaint(hWnd, &ps);
-
+    }
         break;
     case WM_ACTIVATEAPP:
         Keyboard::ProcessMessage(message, wParam, lParam);
         Mouse::ProcessMessage(message, wParam, lParam);
         break;
-
+    case WM_ERASEBKGND:
+        return 1;
     case WM_INPUT:
     case WM_MOUSEMOVE:
     case WM_LBUTTONDOWN:
