@@ -170,6 +170,6 @@ void DrawFriedmannPoint(HDC hdc)
     std::cout << "here" << std::endl;
 
     Graphics graphics(hdc);
-    Pen      penRed(Gdiplus::Color(255, 0, 0, 255));
-    graphics.DrawLine(&penRed, 40, 40, 5, 5);
+    Pen      penGreen(Gdiplus::Color(255, 0, 255, 0));
+    graphics.DrawLine(&penGreen, 40, 40, 5, 5);
 }
