@@ -181,7 +181,7 @@ int main(int argc, char* argv[])
                 frameTime += deltaTime;
                 if (frameTime >= 0.1)
                 {
-                    RECT rect{ 5, 5, 40, 40 };
+                    RECT rect{ 5, 5, 40, 40};
                     InvalidateRect(friedmannHwnd, &rect, FALSE);
                     frameTime = 0;
                 }
