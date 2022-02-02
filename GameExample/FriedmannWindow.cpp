@@ -21,7 +21,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     switch (message)
     {
     case WM_CREATE:
-        SetTimer(hWnd, 1, 20, NULL);
+        //SetTimer(hWnd, 1, 20, NULL);
         break;
     case WM_TIMER:
         InvalidateRect(hWnd, NULL, FALSE);
@@ -71,6 +71,7 @@ DWORD WINAPI CreateFriedmannWindowThread(LPVOID lpParam);
 
 int CreateFriedmannWindow()
 {
+    /*
     auto hThread = CreateThread(NULL, 0, CreateFriedmannWindowThread,
         nullptr, 0, nullptr);
 
@@ -79,6 +80,9 @@ int CreateFriedmannWindow()
         std::cout << "Create thread failed";
         exit(10);
     }
+    */
+
+    return CreateFriedmannWindowThread(nullptr);
 }
 
 DWORD CreateFriedmannWindowThread(LPVOID lpParam)
