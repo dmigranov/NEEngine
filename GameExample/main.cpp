@@ -150,11 +150,11 @@ int main(int argc, char* argv[])
         [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
             static double frameTime = 0;
-            static double time = 2.;
+            static double time = 2.3;
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
-            if (radius > 0.3)
+            if (radius > 0.5)
             {
                 renderSystem->SetRadius(radius);
                 int count = 0;
