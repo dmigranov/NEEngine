@@ -159,8 +159,7 @@ void DrawFriedmann(HDC hdc)
     for (int i = 0; i < numberOfPoints; i++)
     {
         double x = (double)XM_2PI / (numberOfPoints - 1) * i;
-        double y = 1 - cos(x);
-        y = 2 - y;
+        double y = cos(x) + 1; //2 - (1 - cosx) - для инвертирования, так для Windows y идет вниз
 
         x = x / XM_2PI * (friedmann_w - 10) + 5;
         y = y / 2 * (friedmann_h - 10) + 5;
