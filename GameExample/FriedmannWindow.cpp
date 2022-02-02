@@ -6,6 +6,8 @@ using namespace Gdiplus;
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+bool isInit = true;
+
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     PAINTSTRUCT ps;
@@ -15,8 +17,6 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     static bool s_in_suspend = false;
     static bool s_minimized = false;
     static bool s_fullscreen = false; // TODO: Set s_fullscreen to true if defaulting to fullscreen
-
-    bool isInit = true;
 
     switch (message)
     {
