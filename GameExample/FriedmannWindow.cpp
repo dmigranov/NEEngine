@@ -146,7 +146,7 @@ void DrawFriedmann(HDC hdc)
 
     Pen      pen(Gdiplus::Color(255, 255, 0, 0));
 
-    int numberOfPoints = 200;
+    int numberOfPoints = 20;
     double x_prev, y_prev;
     for (int i = 0; i < numberOfPoints; i++)
     {
@@ -174,7 +174,7 @@ void DrawFriedmannPoint(HWND hWnd)
 
     Graphics graphics(hdc);
     Pen      penGreen(Gdiplus::Color(0, 255, 0, 255));
-    graphics.DrawLine(&penGreen, 5, 5, 100, 100);
+    graphics.DrawLine(&penGreen, 5, 5, 40, 40);
 
     EndPaint(hWnd, &ps);
 }
