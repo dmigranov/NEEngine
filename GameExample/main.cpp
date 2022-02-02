@@ -172,7 +172,8 @@ int main(int argc, char* argv[])
                     }
                 }
                 //std::cout << count << std::endl;
-                InvalidateRect(friedmannHwnd, NULL, FALSE);
+                //InvalidateRect(friedmannHwnd, NULL, FALSE);
+                DrawFriedmannPoint(friedmannHwnd);
 
                 time += deltaTime;
             }

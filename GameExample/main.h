@@ -7,6 +7,8 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 HWND CreateFriedmannWindow();
 
 void DrawFriedmann(HDC hdc);
+void DrawFriedmannPoint(HWND hWnd);
+
 
 
 const int friedmann_w = 300, friedmann_h = 90;

@@ -156,3 +156,14 @@ void DrawFriedmann(HDC hdc)
         y_prev = y;
     }
 }
+
+void DrawFriedmannPoint(HWND hWnd)
+{
+    PAINTSTRUCT ps;
+
+    auto hdc = BeginPaint(hWnd, &ps);
+
+    DrawFriedmann(hdc);
+
+    EndPaint(hWnd, &ps);
+}
