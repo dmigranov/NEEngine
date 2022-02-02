@@ -147,7 +147,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, friedmannHwnd](Entity* pEntity, double deltaTime) {
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
             static double frameTime = 0;
             static double time = 2.;

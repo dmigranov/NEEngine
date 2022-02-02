@@ -7,6 +7,7 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 bool isFriedannWindowInit = true;
+HWND friedmannHwnd = nullptr;
 
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -132,6 +133,7 @@ HWND CreateFriedmannWindow()
     ShowWindow(hwnd, SW_SHOWNORMAL);
     GetClientRect(hwnd, &rc);
 
+    friedmannHwnd = hwnd;
     return hwnd;
 }
 
