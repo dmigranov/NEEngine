@@ -20,6 +20,12 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
     switch (message)
     {
+    case WM_CREATE:
+        SetTimer(hWnd, 1, 20, NULL);
+        break;
+    case WM_TIMER:
+        InvalidateRect(hWnd, NULL, FALSE);
+        break;
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
 
@@ -61,8 +67,32 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
+DWORD WINAPI CreateFriedmannWindowThread(LPVOID lpParam);
+
 int CreateFriedmannWindow()
 {
+    auto hThread = CreateThread(NULL, 0, CreateFriedmannWindowThread,
+        Message2, 0, &dwThreadId);
+}
+
+int CreateFriedmannWindowThread(LP)
+{
+    if (hThread == NULL)
+    {
+        cout << "Create thread filed";
+        exit(10);
+    }
+
+
+    while (GetMessage(&msg, NULL, 0, 0)) {
+
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+
+    }
+
+    return msg.wParam;
+
     Game& game = Game::GetInstance();
 
     GdiplusStartupInput gdiplusStartupInput;
