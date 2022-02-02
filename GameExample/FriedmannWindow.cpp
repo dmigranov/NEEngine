@@ -158,9 +158,11 @@ void DrawFriedmann(HDC hdc)
     }
 }
 
+double currentFriedmannTime = -1.;
 
 void UpdateFriedmannWindow(double time)
 {
+    currentFriedmannTime = time;
     RECT rect{ 5, 5, 40, 40 };
     InvalidateRect(friedmannHwnd, &rect, FALSE);
 }
