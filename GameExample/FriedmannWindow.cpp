@@ -30,14 +30,13 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
     */
     case WM_PAINT:
         hdc = BeginPaint(hWnd, &ps);
-        std::cout << "e";
         if (isInit)
         {
             DrawFriedmann(hdc);
             isInit = false;
         }
         else
-            ;
+            DrawFriedmannPoint(hdc);
 
         EndPaint(hWnd, &ps);
 
@@ -168,7 +167,9 @@ void DrawFriedmann(HDC hdc)
 
 void DrawFriedmannPoint(HDC hdc)
 {
+    std::cout << "here" << std::endl;
+
     Graphics graphics(hdc);
-    Pen      penGreen(Gdiplus::Color(0, 255, 0, 255));
-    graphics.DrawLine(&penGreen, 5, 5, 40, 40);
+    Pen      penRed(Gdiplus::Color(255, 0, 0, 255));
+    graphics.DrawLine(&penRed, 40, 40, 5, 5);
 }
