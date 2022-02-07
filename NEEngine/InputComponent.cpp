@@ -12,6 +12,13 @@ MouseState InputComponent::GetMouseState()
 	return m_mouseState;
 }
 
+void InputComponent::SetState(bool isRelative)
+{
+	if (m_mouse == nullptr)
+		return;
+
+}
+
 void InputComponent::SetInputData(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState)
 {
 	this->m_keyboardState = keyboardState;

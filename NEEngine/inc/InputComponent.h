@@ -11,6 +11,7 @@ class InputComponent :
 public:
 	KeyboardState GetKeyboardState();
 	MouseState GetMouseState();
+	void SetState(bool isRelative);
 	InputComponent();
 private:
 	friend class InputSystem;
