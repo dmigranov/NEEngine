@@ -1,13 +1,13 @@
 #include "pch.h"
 #include "TextComponent.h"
 
-TextComponent::TextComponent(const std::string text, const float x, const float y, Alignment align) : m_x(x), m_y(y)
+TextComponent::TextComponent(const std::string text, const float x, const float y, Alignment align, DirectX::XMVECTOR color) : m_x(x), m_y(y), m_color(color)
 {
 	m_func = [text](double delta) { return text; };
 	m_align = align;
 }
 
-TextComponent::TextComponent(std::function<const std::string(double delta)> func, const float x, const float y, Alignment align) : m_x(x), m_y(y)
+TextComponent::TextComponent(std::function<const std::string(double delta)> func, const float x, const float y, Alignment align, DirectX::XMVECTOR color) : m_x(x), m_y(y), m_color(color)
 {
 	m_func = func;
 	m_align = align;
