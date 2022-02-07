@@ -27,6 +27,7 @@ void TextPrintingSystem::Execute(double deltaTime)
 		auto align = pTextComponent->GetAlignment();
 		auto text = pTextComponent->GetText(deltaTime);
 		auto pos = pTextComponent->GetPosition();
+		auto color = pTextComponent->GetColor();
 
 		auto c_str = text.c_str();
 
