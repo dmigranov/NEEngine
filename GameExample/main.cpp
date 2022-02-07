@@ -146,6 +146,7 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity);
 
+    //double 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
 
@@ -173,14 +174,9 @@ int main(int argc, char* argv[])
                         sphere->SetVisible(false);
                     }
                 }
-                //std::cout << count << std::endl;
-
-                //DrawFriedmannPoint(friedmannHwnd);
-
 
                 time += deltaTime;
                 frameTime += deltaTime;
-               
             }
 
 
