@@ -12,7 +12,7 @@ public:
 	KeyboardState GetKeyboardState();
 	MouseState GetMouseState();
 	void SetRelative(bool isRelative);
-	void IsRelative();
+
 	InputComponent();
 private:
 	friend class InputSystem;
