@@ -400,7 +400,7 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::FinishDrawing()
 {
-    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
+    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20, Colors::White);
 
     /*float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
