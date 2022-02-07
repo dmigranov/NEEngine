@@ -19,7 +19,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
 	double height = sqrt(1.f - (radius * radius));
 
-
+    /*
 	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height),
         //XMFLOAT4(0.f, 1.f, 0.f, 0.f),     //normal
         XMFLOAT2(0.f, 0.f) });	//North pole
@@ -81,6 +81,45 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         indices.push_back(baseIndex + i);
         indices.push_back(baseIndex + i + 1);
         triCount++;
+    }
+    */
+
+    auto verticalSegments = stackCount;
+    auto horizontalSegments = sliceCount;
+
+
+    for (size_t i = 0; i <= verticalSegments; i++)
+    {
+        float v = 1 - float(i) / float(verticalSegments);
+
+        float latitude = (float(i) * XM_PI / float(verticalSegments)) - XM_PIDIV2;
+        float dy, dxz;
+
+        XMScalarSinCos(&dy, &dxz, latitude);
+
+        // Create a single ring of vertices at this latitude.
+        for (size_t j = 0; j <= horizontalSegments; j++)
+        {
+            float u = float(j) / float(horizontalSegments);
+
+            float longitude = float(j) * XM_2PI / float(horizontalSegments);
+            float dx, dz;
+
+            XMScalarSinCos(&dx, &dz, longitude);
+
+            dx *= dxz;
+            dz *= dxz;
+
+            XMFLOAT4 pos(
+                radius * dx,
+                radius * dy,
+                radius * dz,
+                height
+            );
+
+            auto uv = XMFLOAT2(u, v);
+            vertices.push_back({ pos, uv });
+        }
     }
 
     auto g_Vertices = &vertices[0];
