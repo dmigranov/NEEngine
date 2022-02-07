@@ -19,7 +19,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     double m_dx = 0, m_dy = 0;
 
-    if (ms.leftButton)
+    //if (ms.leftButton)
+    if(pInput->IsRelative())
     {
         //pitch - around x, yaw - around y
         m_dx = -ms.x * rotationSpeed * deltaTime;
