@@ -85,9 +85,11 @@ double getHue(double frequency)
 {
 	double lambda = 2. * PI * C / frequency;
 	if (lambda > 650)
-		lambda = 650.; //ключевой вопрос - что делать со значениями на границе! //TODO
+		return -1; //ключевой вопрос - что делать со значениями на границе!
+		//lambda = 650.; 
 	if (lambda < 400)
-		lambda = 400; //ключевой вопрос - что делать со значениями на границе! //TODO
+		return -1; //ключевой вопрос - что делать со значениями на границе!
+		//lambda = 400; 
 	double hue = (650. - lambda) * 270 / 250;
 	return hue;
 }
@@ -167,8 +169,14 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	double freqNew = freq * (1 - velocity  / C);
 	double hueNew = getHue(freqNew);
-	float3 hsvNew = float3((float)hueNew, 1, 1);
-	float3 rgbNew = hsv2rgb(hsvNew);
+	float3 rgbNew;
+	if (hueNew > 0)
+	{
+		float3 hsvNew = float3((float)hueNew, 1, 1);
+		rgbNew = hsv2rgb(hsvNew);
+	}
+	else
+		rgbNew = float3(0., 0., 0.);
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 
