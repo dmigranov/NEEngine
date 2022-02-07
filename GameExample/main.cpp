@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
     auto friedmannHwnd = CreateFriedmannWindow();
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
-    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
 
     auto renderSystem = new SphericalRenderSystem();
