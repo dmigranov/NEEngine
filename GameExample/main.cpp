@@ -174,7 +174,7 @@ int main(int argc, char* argv[])
                 }
             }
 
-            if (radius > 0.5)
+            if (isAnimation && radius > 0.5)
             {
                 time += deltaTime;
                 frameTime += deltaTime;
