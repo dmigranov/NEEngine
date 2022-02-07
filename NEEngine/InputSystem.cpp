@@ -16,7 +16,6 @@ InputSystem::InputSystem() : System()
 
 	//m_mouse->SetMode(Mouse::MODE_RELATIVE);
 	m_mouse->SetMode(Mouse::MODE_ABSOLUTE);
-
 }
 
 void InputSystem::Execute(double deltaTime)
