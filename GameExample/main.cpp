@@ -154,6 +154,7 @@ int main(int argc, char* argv[])
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
+
             if (radius > 0.5)
             {
                 renderSystem->SetRadius(radius);
@@ -180,12 +181,6 @@ int main(int argc, char* argv[])
                 time += deltaTime;
                 frameTime += deltaTime;
                
-                if (frameTime >= 0.1)
-                {
-                    UpdateFriedmannWindow(mu);
-
-                    frameTime = 0;
-                }
             }
 
 
@@ -219,6 +214,13 @@ int main(int argc, char* argv[])
             {
                 effect->SetVelocity(effect->GetVelocity() - 50000);
                 effectEarth->SetVelocity(effect->GetVelocity() - 50000);
+            }
+
+            if (frameTime >= 0.1)
+            {
+                UpdateFriedmannWindow(mu);
+
+                frameTime = 0;
             }
 
         }));
