@@ -185,8 +185,6 @@ int main(int argc, char* argv[])
                     isAnimation = false;
             }
 
-
-
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
 
@@ -198,20 +196,15 @@ int main(int argc, char* argv[])
             
             if (kbs.I)
             {
-                //renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
                 time -= deltaTime;
                 frameTime -= deltaTime;
             }
             else if (kbs.O)
             {
-                //auto radius = renderSystem->GetRadius();
-                //if (radius > 0.2)
-                //    renderSystem->SetRadius(radius - 0.003);
                 time += deltaTime;
                 frameTime += deltaTime;
             }
             
-
             if (kbs.M)
             {
                 effect->SetVelocity(effect->GetVelocity() + 50000);
@@ -226,7 +219,6 @@ int main(int argc, char* argv[])
             if (frameTime >= 0.1 || frameTime <= -0.1)
             {
                 UpdateFriedmannWindow(mu);
-
                 frameTime = 0;
             }
 
