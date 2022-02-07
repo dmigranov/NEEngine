@@ -191,13 +191,16 @@ int main(int argc, char* argv[])
             
             if (kbs.I)
             {
-                renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
+                //renderSystem->SetRadius(renderSystem->GetRadius() + 0.003);
+
             }
             else if (kbs.O)
             {
-                auto radius = renderSystem->GetRadius();
-                if (radius > 0.2)
-                    renderSystem->SetRadius(radius - 0.003);
+                //auto radius = renderSystem->GetRadius();
+                //if (radius > 0.2)
+                //    renderSystem->SetRadius(radius - 0.003);
+                time += deltaTime;
+                frameTime += deltaTime;
             }
             
 
