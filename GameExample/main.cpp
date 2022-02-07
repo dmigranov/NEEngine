@@ -174,11 +174,17 @@ int main(int argc, char* argv[])
                 }
             }
 
-            if (isAnimation && radius > 0.5)
+            if (isAnimation)
             {
-                time += deltaTime;
-                frameTime += deltaTime;
+                if (radius > 0.5)
+                {
+                    time += deltaTime;
+                    frameTime += deltaTime;
+                }
+                else
+                    isAnimation = false;
             }
+
 
 
             auto pInput = pEntity->GetComponent<InputComponent>();
