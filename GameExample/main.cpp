@@ -156,25 +156,25 @@ int main(int argc, char* argv[])
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
+            renderSystem->SetRadius(radius);
+            int count = 0;
+            for (int i = 0; i < sphereCount; i++)
+            {
+                Entity* sphere = entities[i];
+                auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto pos = pTransform->GetSphericalPosition();
+                auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
+                if (dist < mu)
+                    sphere->SetVisible(true);
+                else
+                {
+                    count++;
+                    sphere->SetVisible(false);
+                }
+            }
+
             if (radius > 0.5)
             {
-                renderSystem->SetRadius(radius);
-                int count = 0;
-                for (int i = 0; i < sphereCount; i++)
-                {
-                    Entity* sphere = entities[i];
-                    auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
-                    auto pos = pTransform->GetSphericalPosition();
-                    auto dist = SphericalDistance(pos/radius, cameraPos/radius, 1.);
-                    if (dist < mu)
-                        sphere->SetVisible(true);
-                    else
-                    {
-                        count++;
-                        sphere->SetVisible(false);
-                    }
-                }
-
                 time += deltaTime;
                 frameTime += deltaTime;
             }
