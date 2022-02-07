@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 
     Game& game = Game::GetInstance();
     game.InitializeEngine(L"Test game", true, false, false);
-    game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
+    game.SetBackgroundColor(DirectX::Colors::Black);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
 
@@ -64,11 +64,11 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::PowderBlue);
-    auto effectEarth = new SphericalDopplerEffect(rainbowTexture1, 0.1, DirectX::Colors::PowderBlue);
-    //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::Black);
+    auto effectEarth = new SphericalDopplerEffect(rainbowTexture1, 0.1, DirectX::Colors::Black);
+    //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
-    auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::PowderBlue);
+    auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
     double objectRadius = 0.1;
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 20);
