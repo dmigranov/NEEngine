@@ -16,7 +16,7 @@ void InputComponent::SetState(bool isRelative)
 {
 	if (m_mouse == nullptr)
 		return;
-
+	m_mouse->SetMode(isRelative ? DirectX::Mouse::MODE_RELATIVE : DirectX::Mouse::MODE_ABSOLUTE);
 }
 
 void InputComponent::SetInputData(DirectX::Keyboard::State keyboardState, DirectX::Mouse::State mouseState)

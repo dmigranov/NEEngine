@@ -29,5 +29,7 @@ void InputSystem::Execute(double deltaTime)
 	{
 		InputComponent* inputComponent = pEntity->GetComponent<InputComponent>();
 		inputComponent->SetInputData(pKeyboardState, pMouseState);
+		inputComponent->SetMouse(m_mouse.get());
+
 	}
 }
