@@ -12,7 +12,7 @@ MouseState InputComponent::GetMouseState()
 	return m_mouseState;
 }
 
-void InputComponent::SetState(bool isRelative)
+void InputComponent::SetRelative(bool isRelative)
 {
 	if (m_mouse == nullptr)
 		return;
