@@ -146,6 +146,17 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity);
 
+    auto FPSTextEntity = new Entity();
+    FPSTextEntity->AddComponent<TextComponent>(new TextComponent([](double delta) {
+        
+
+        return std::to_string(fpsCounter.GetFPS()).c_str();
+
+        }, 10, 10, Alignment::UpRight, DirectX::Colors::White));
+
+    scene->AddEntity(textEntity);
+    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20, Colors::White);
+
     //double 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {

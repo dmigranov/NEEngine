@@ -28,6 +28,8 @@ public:
     ResourceManager* GetResourceManager();
     ComponentTypeManager* GetComponentTypeManager();
 
+    unsigned int GetFPS();
+
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
     RECT GetGameWindowRect();
