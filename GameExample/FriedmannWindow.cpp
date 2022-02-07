@@ -130,7 +130,7 @@ HWND CreateFriedmannWindow()
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE); //чтобы это были соотношения рабочей области!
 
     auto gameRect = game.GetGameWindowRect();
-    HWND hwnd = CreateWindowExW(0, L"FriedmannWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW | WS_HSCROLL,
+    HWND hwnd = CreateWindowExW(0, L"FriedmannWindowClass", L"Friedmann", WS_OVERLAPPEDWINDOW /* | WS_HSCROLL*/,
         gameRect.right + 20, gameRect.top, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
         nullptr);
 
