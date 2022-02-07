@@ -18,5 +18,10 @@ void InputComponent::SetInputData(DirectX::Keyboard::State keyboardState, Direct
 	this->m_mouseState = mouseState;
 }
 
+void InputComponent::SetMouse(DirectX::Mouse* mouse)
+{
+	m_mouse = mouse;
+}
+
 InputComponent::InputComponent()
 {}

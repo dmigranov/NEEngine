@@ -64,6 +64,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
     }
 
+    //m_mouse->SetMode(ms.leftButton ? Mouse::MODE_RELATIVE : Mouse::MODE_ABSOLUTE);
+
 })
 { }
 
