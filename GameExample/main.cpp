@@ -194,12 +194,12 @@ int main(int argc, char* argv[])
                 effect->SetMode(false);
 
             
-            if (kbs.I)
+            if (kbs.Left)
             {
                 time -= deltaTime;
                 frameTime -= deltaTime;
             }
-            else if (kbs.O)
+            else if (kbs.Right)
             {
                 time += deltaTime;
                 frameTime += deltaTime;
