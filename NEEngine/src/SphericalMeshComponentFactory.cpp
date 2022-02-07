@@ -131,12 +131,12 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             size_t nextI = i + 1;
             size_t nextJ = (j + 1) % stride;
 
+            indices.push_back(nextI * stride + j);
             indices.push_back(i * stride + j);
+            indices.push_back(i * stride + nextJ);
+            
             indices.push_back(nextI * stride + j);
             indices.push_back(i * stride + nextJ);
-
-            indices.push_back(i * stride + nextJ);
-            indices.push_back(nextI * stride + j);
             indices.push_back(nextI * stride + nextJ);
         } 
     }
