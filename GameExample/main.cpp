@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
 
         return ss.str();
 
-        }, 10, 10, Alignment::UpLeft));
+        }, 10, 10, Alignment::UpLeft, DirectX::Colors::White));
 
     scene->AddEntity(textEntity);
 
