@@ -138,7 +138,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             indices.push_back(i * stride + nextJ);
             indices.push_back(nextI * stride + j);
             indices.push_back(nextI * stride + nextJ);
-        }
+        } 
     }
 
     auto g_Vertices = &vertices[0];
