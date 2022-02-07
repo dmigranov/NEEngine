@@ -19,6 +19,7 @@ public:
     DirectX::SimpleMath::Vector2 GetPosition() const;
     const std::string GetText(double delta = 0) const;
     Alignment GetAlignment() const;
+    DirectX::XMVECTOR GetColor();
 private:
     const std::string m_text;
     const float m_x, m_y;

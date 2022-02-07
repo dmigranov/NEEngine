@@ -28,3 +28,8 @@ Alignment TextComponent::GetAlignment() const
 {
 	return m_align;
 }
+
+DirectX::XMVECTOR TextComponent::GetColor()
+{
+	return m_color;
+}
