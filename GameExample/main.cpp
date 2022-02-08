@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
     RandomSphericalGenerator generator(radius);
     int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
-    auto entities = new Entity*[sphereCount];
+    auto entities = new Entity * [sphereCount];
     for (int i = 0; i < sphereCount - 1; i++)
     {
     again:
@@ -194,7 +194,7 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
-            
+
             if (kbs.Left)
             {
                 time -= deltaTime;
@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
                 time += deltaTime;
                 frameTime += deltaTime;
             }
-            
+
             if (kbs.M)
             {
                 effect->SetVelocity(effect->GetVelocity() + 100000);
