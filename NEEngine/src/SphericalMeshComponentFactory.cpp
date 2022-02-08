@@ -90,7 +90,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
     for (size_t i = 0; i <= verticalSegments; i++)
     {
-        float v = 1 - float(i) / float(verticalSegments);
+        float v = /*1 -*/ float(i) / float(verticalSegments);
 
         float latitude = (float(i) * XM_PI / float(verticalSegments)) - XM_PIDIV2;
         float dy, dxz;
@@ -100,8 +100,38 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         // Create a single ring of vertices at this latitude.
         for (size_t j = 0; j <= horizontalSegments; j++)
         {
+
             float u = float(j) / float(horizontalSegments);
 
+            /*
+            if (i == 0)
+            {
+                XMFLOAT4 pos(
+                    0,
+                    radius,
+                    0,
+                    height
+                );
+
+                auto uv = XMFLOAT2(u, v);
+                vertices.push_back({ pos, uv });
+                continue;
+            }
+
+            if (i == verticalSegments)
+            {
+                XMFLOAT4 pos(
+                    0,
+                    radius,
+                    0,
+                    height
+                );
+
+                auto uv = XMFLOAT2(u, v);
+                vertices.push_back({ pos, uv });
+                continue;
+            }
+            */
             float longitude = float(j) * XM_2PI / float(horizontalSegments);
             float dx, dz;
 
@@ -109,6 +139,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
             dx *= dxz;
             dz *= dxz;
+            std::cout << dx << " " << dy << " " << dz << std::endl;
 
             XMFLOAT4 pos(
                 radius * dx,
