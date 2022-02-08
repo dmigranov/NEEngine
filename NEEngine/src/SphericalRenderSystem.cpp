@@ -84,7 +84,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	}
 	else
 	{
-		std::cerr << "Effect supplied found for the entity " << pEntity->GetName() << "does not support spherical rendering, won't be rendered further!" << std::endl;
+		std::cerr << "Effect supplied for the entity " << pEntity->GetName() << "does not support spherical rendering, won't be rendered further!" << std::endl;
 		pEntity->SetVisible(false);
 		return;
 	}
