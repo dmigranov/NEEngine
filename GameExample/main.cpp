@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
     double objectRadius = 0.1;
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 4);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 3);
     smc->SetEffect(effect);
 
     auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);

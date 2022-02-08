@@ -118,7 +118,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 height
             );
 
-            /*
+            
             if (i == 0)
             {
                 pos.x = 0;
@@ -132,7 +132,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 pos.y = radius;
                 pos.z = 0;
             }
-            */
+            
 
             auto uv = XMFLOAT2(u, v);
             vertices.push_back({ pos, uv });
@@ -140,6 +140,15 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     }
 
     size_t stride = horizontalSegments + 1;
+
+    //i = 0 
+    for (size_t j = 1; j <= horizontalSegments; j++)
+    {
+        indices.push_back(j);
+        indices.push_back(0);
+        indices.push_back(j + 1);
+    }
+
 
     for (size_t i = 0; i < verticalSegments; i++)
     {
