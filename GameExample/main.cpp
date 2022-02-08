@@ -45,6 +45,8 @@ int main(int argc, char* argv[])
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
+    Texture* greenTexture = resourceManager->CreateTexture(L"green.dds");
+
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -65,7 +67,7 @@ int main(int argc, char* argv[])
 
 
     auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::Black);
-    auto effectEarth = new SphericalDopplerEffect(rainbowTexture1, 0.1, DirectX::Colors::Black);
+    auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
@@ -206,13 +208,13 @@ int main(int argc, char* argv[])
             
             if (kbs.M)
             {
-                effect->SetVelocity(effect->GetVelocity() + 50000);
-                effectEarth->SetVelocity(effect->GetVelocity() + 50000);
+                effect->SetVelocity(effect->GetVelocity() + 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() + 100000);
             }
             else if (kbs.N)
             {
-                effect->SetVelocity(effect->GetVelocity() - 50000);
-                effectEarth->SetVelocity(effect->GetVelocity() - 50000);
+                effect->SetVelocity(effect->GetVelocity() - 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() - 100000);
             }
 
             if (frameTime >= 0.1 || frameTime <= -0.1)
