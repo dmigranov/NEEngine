@@ -89,7 +89,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     auto horizontalSegments = sliceCount;
 
 
-    for (size_t i = 4; i < verticalSegments - 3; i++)
+    for (size_t i = 1; i <= verticalSegments - 1; i++)
     {
         float v = 1 - float(i) / float(verticalSegments);
 
