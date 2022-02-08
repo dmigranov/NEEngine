@@ -89,7 +89,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     auto horizontalSegments = sliceCount;
 
 
-    for (size_t i = 1; i <= verticalSegments - 1; i++)
+    for (size_t i = 0; i <= verticalSegments; i++)
     {
         float v = 1 - float(i) / float(verticalSegments);
 
@@ -122,12 +122,12 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             auto uv = XMFLOAT2(u, v);
 
             //todo: fix this hack
-            if (uv.y < 0.1)
+            if (radius - pos.y < 0.1)
             {
                 uv.x = 0.5;
-                uv.y = 0.1;
+                uv.y = 0.9;
             }
-            if (uv.y > 0.9)
+            else if (pos.y - radius < 0.1)
             {
                 uv.x = 0.5;
                 uv.y = 0.9;
@@ -139,6 +139,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
     size_t stride = horizontalSegments + 1;
 
+    /*
     //i = 0
     for (size_t j = 1; j <= horizontalSegments - 1; j++)
     {
@@ -156,9 +157,9 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         indices.push_back(imulstr + j);
         indices.push_back(imulstr + (j + 1));
     }
-
+    */
     
-    for (size_t i = 0; i < verticalSegments - 2; i++)
+    for (size_t i = 0; i < verticalSegments; i++)
     {
         for (size_t j = 0; j <= horizontalSegments; j++)
         {
