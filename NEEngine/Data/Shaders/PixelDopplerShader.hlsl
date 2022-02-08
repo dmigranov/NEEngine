@@ -179,7 +179,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		rgbNew = float3(0., 0., 0.);
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
-	sourceColorNew = sourceColor;
+	//sourceColorNew = sourceColor;
 	float4 retColor = IN.fogFactor * sourceColorNew + (1.0 - IN.fogFactor) * fogColor; //בûכמ sourceColor גלוסעמ sourceColorNew
 	return retColor;
 }
