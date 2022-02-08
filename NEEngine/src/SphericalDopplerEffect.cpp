@@ -63,12 +63,16 @@ void SphericalDopplerEffect::Deinitialize()
 
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
-	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
-
 	if (m_radius_set)
 	{
+		m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
 		m_radius_set = false;
+		std::cout << m_radius << " " << m_radius_old << std::endl;
 	}
+
+	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
+
+
 
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
@@ -76,7 +80,6 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 	perApplicationVSConstantBufferDoppler.radius = m_radius;
 	perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
-	//std::cout << m_radius << " " << m_radius_old << std::endl;
 	//m_radius_old = m_radius;
 
 	//todo: разобраться со всем этим (статический радиус)
