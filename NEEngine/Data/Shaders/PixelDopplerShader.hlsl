@@ -85,11 +85,11 @@ double getHue(double frequency)
 {
 	double lambda = 2. * PI * C / frequency;
 	if (lambda > 650)
-		//return -1; //ключевой вопрос - что делать со значениями на границе!
-		lambda = 650.; 
+		return -1; //ключевой вопрос - что делать со значениями на границе!
+		//lambda = 650.; 
 	if (lambda < 400)
-		//return -1; //ключевой вопрос - что делать со значениями на границе!
-		lambda = 400; 
+		return -1; //ключевой вопрос - что делать со значениями на границе!
+		//lambda = 400; 
 	double hue = (650. - lambda) * 270 / 250;
 	return hue;
 }
@@ -179,7 +179,6 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		rgbNew = float3(0., 0., 0.);
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
-	//sourceColorNew = sourceColor;
 	float4 retColor = IN.fogFactor * sourceColorNew + (1.0 - IN.fogFactor) * fogColor; //было sourceColor вместо sourceColorNew
 	return retColor;
 }

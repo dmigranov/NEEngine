@@ -120,6 +120,8 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             );
                  
             auto uv = XMFLOAT2(u, v);
+
+            //todo: fix this hack
             if (uv.y < 0.06)
                 uv.y = 0.06;
             if (uv.y > 0.94)
