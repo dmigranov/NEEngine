@@ -9,5 +9,6 @@ public:
 protected:
     static bool m_isSpherical;
     static double m_radius;
+    static bool m_radius_set;
 };
 
