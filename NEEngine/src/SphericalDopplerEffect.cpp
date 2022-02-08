@@ -70,6 +70,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 	perApplicationVSConstantBufferDoppler.radius = m_radius;
 	perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
+	std::cout << m_radius << " " << m_radius_old << std::endl;
 	//m_radius_old = m_radius;
 
 	//todo: разобраться со всем этим
