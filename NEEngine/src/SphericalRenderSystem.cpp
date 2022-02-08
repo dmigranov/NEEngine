@@ -79,6 +79,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		return; 
 	}
 	
+	/*
 	if (auto * pSphEffect = dynamic_cast<SphericalEffect*>(pEffect)) {
 		pSphEffect->SetRadius(m_radius);
 	}
@@ -88,6 +89,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		pEntity->SetVisible(false);
 		return;
 	}
+	*/
 
 	// Input Assembler Stage - unique for every mesh
 	// Set the vertex buffer to active in the input assembler so it can be rendered.
@@ -112,6 +114,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 void SphericalRenderSystem::UpdateOnRadiusChange()
 {
 	SphericalTransformComponent::SetRadius(m_radius);
-
+	SphericalEffect::SetRadius(m_radius);
 	//TODO: set other classes' fields corresponding to the radius
 }
