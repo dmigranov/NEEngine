@@ -103,7 +103,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
             float u = float(j) / float(horizontalSegments);
 
-            /*
+            
             if (i == 0)
             {
                 XMFLOAT4 pos(
@@ -118,6 +118,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 continue;
             }
 
+            /*
             if (i == verticalSegments)
             {
                 XMFLOAT4 pos(
@@ -139,7 +140,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
             dx *= dxz;
             dz *= dxz;
-            std::cout << dx << " " << dy << " " << dz << std::endl;
+            //std::cout << dx << " " << dy << " " << dz << std::endl;
 
             XMFLOAT4 pos(
                 radius * dx,
