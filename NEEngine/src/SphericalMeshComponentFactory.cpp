@@ -122,17 +122,18 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             auto uv = XMFLOAT2(u, v);
 
             //todo: fix this hack
-            if (radius - pos.y < 0.1)
+            
+            if (radius - pos.y < 0.005)
             {
                 uv.x = 0.5;
-                uv.y = 0.9;
+                uv.y = 0.02;
             }
-            else if (pos.y - radius < 0.1)
+            else if (pos.y + radius < 0.005)
             {
                 uv.x = 0.5;
-                uv.y = 0.9;
+                uv.y = 0.98;
             }
-
+            
             vertices.push_back({ pos, uv });
         }
     }
