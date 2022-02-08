@@ -132,8 +132,26 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     }
 
     size_t stride = horizontalSegments + 1;
-    
-    for (size_t i = 0; i < verticalSegments; i++)
+
+    //i = 0
+    for (size_t j = 1; j <= horizontalSegments - 1; j++)
+    {
+        indices.push_back(j);
+        indices.push_back(1);
+        indices.push_back(j+1);
+    }
+
+    //i = verticalSegments - 2
+    size_t i = verticalSegments - 2;
+    for (size_t j = 1; j <= horizontalSegments - 1; j++)
+    {
+        size_t imulstr = i * stride;
+        indices.push_back(imulstr + 1);
+        indices.push_back(imulstr + j);
+        indices.push_back(imulstr + (j + 1));
+    }
+
+    for (size_t i = 0; i < verticalSegments - 2; i++)
     {
         for (size_t j = 0; j <= horizontalSegments; j++)
         {

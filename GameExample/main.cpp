@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
-    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow5.dds");
+    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
     Texture* greenTexture = resourceManager->CreateTexture(L"green.dds");
 
 
@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
     double objectRadius = 0.1;
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 5);
     smc->SetEffect(effect);
 
     auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
