@@ -101,13 +101,12 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         for (size_t j = 0; j <= horizontalSegments; j++)
         {
             float u = float(j) / float(horizontalSegments);
-
-            /*
+          
             if (i == 0)
             {
                 XMFLOAT4 pos(
                     0,
-                    radius,
+                    -radius,
                     0,
                     height
                 );
@@ -116,8 +115,9 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 vertices.push_back({ pos, uv });
                 continue;
             }
-            */
+            
 
+            /*
             if (i == verticalSegments)
             {
                 XMFLOAT4 pos(
@@ -131,6 +131,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 vertices.push_back({ pos, uv });
                 continue;
             }
+            */
             
             float longitude = float(j) * XM_2PI / float(horizontalSegments);
             float dx, dz;
@@ -147,6 +148,22 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 radius * dz,
                 height
             );
+
+            /*
+            if (i == 0)
+            {
+                pos.x = 0;
+                pos.y = -radius;
+                pos.z = 0;
+            }
+
+            if (i == verticalSegments)
+            {
+                pos.x = 0;
+                pos.y = radius;
+                pos.z = 0;
+            }
+            */
 
             auto uv = XMFLOAT2(u, v);
             vertices.push_back({ pos, uv });
