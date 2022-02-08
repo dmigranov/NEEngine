@@ -67,12 +67,9 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	{
 		m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
 		m_radius_set = false;
-		std::cout << m_radius << " " << m_radius_old << std::endl;
 	}
 
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
-
-
 
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
@@ -95,13 +92,13 @@ void SphericalDopplerEffect::Clean()
 
 void SphericalDopplerEffect::SetVelocity(double velocity)
 {
-	perApplicationPSConstantBuffer.velocity = velocity;
+	perApplicationPSConstantBuffer.velocity_coeff = velocity;
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 }
 
 double SphericalDopplerEffect::GetVelocity()
 {
-	return perApplicationPSConstantBuffer.velocity;
+	return perApplicationPSConstantBuffer.velocity_coeff;
 }
 
 /*

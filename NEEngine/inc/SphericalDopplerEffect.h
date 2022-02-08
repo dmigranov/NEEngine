@@ -7,7 +7,7 @@ public:
     struct PerApplicationPSConstantBufferDoppler 
     {
         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
-        double velocity = 0.;
+        double velocity_coeff = 0.;
     };
 
     struct PerApplicationVSConstantBufferDoppler
