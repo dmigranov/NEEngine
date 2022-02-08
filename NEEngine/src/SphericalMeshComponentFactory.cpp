@@ -120,24 +120,6 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                  
             auto uv = XMFLOAT2(u, v);
 
-            /*
-            if (i == 0)
-            {
-                pos.x = 0;
-                pos.y = -radius;
-                pos.z = 0;
-                uv.x = 0.5;
-            }
-
-            if (i == verticalSegments)
-            {
-                pos.x = 0;
-                pos.y = radius;
-                pos.z = 0;
-                uv.x = 0.5;
-            }
-            */
-
             vertices.push_back({ pos, uv });
         }
     }
