@@ -126,7 +126,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     }
 
     size_t stride = horizontalSegments + 1;
-
+    
     for (size_t i = 0; i < verticalSegments; i++)
     {
         for (size_t j = 0; j <= horizontalSegments; j++)
@@ -143,6 +143,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             indices.push_back(nextI * stride + nextJ);
         } 
     }
+    
 
     auto g_Vertices = &vertices[0];
     auto verticesCount = vertices.size();
