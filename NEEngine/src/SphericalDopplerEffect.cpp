@@ -64,6 +64,11 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 {
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 
+	if (m_radius_set)
+	{
+		m_radius_set = false;
+	}
+
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
