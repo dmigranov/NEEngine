@@ -3,7 +3,7 @@
 
 
 bool SphericalEffect::m_isSpherical = true;
-//double SphericalEffect::m_radius = 0;
+double SphericalEffect::m_radius = 0;
 
 void SphericalEffect::SetMode(bool isSpherical)
 {

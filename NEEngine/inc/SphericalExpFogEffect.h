@@ -45,7 +45,7 @@ public:
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 
-    virtual void SetRadius(double radius) override;
+    //virtual void SetRadius(double radius) override;
 
     virtual void SetFogColor(DirectX::XMVECTORF32 fogColor);
 

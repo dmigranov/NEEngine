@@ -118,6 +118,7 @@ void SphericalExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaT
 		perApplicationVSConstantBuffer.projFront = pSphCameraComponent->GetEllipticProj();
 		perApplicationVSConstantBuffer.projBack = pSphCameraComponent->GetEllipticProj();
 	}
+	perApplicationVSConstantBuffer.radius = m_radius;
 
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
@@ -176,12 +177,14 @@ const std::type_info& SphericalExpFogEffect::GetVertexDataType()
 	return typeid(SphericalMeshComponentFactory::VertexData);
 }
 
+/*
 void SphericalExpFogEffect::SetRadius(double radius)
 {
 	m_radius = radius;
 	perApplicationVSConstantBuffer.radius = m_radius;
 	//game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationVSConstantBuffer); //тут можно пока не обновлять - обеовляется в Update
 }
+*/
 
 void SphericalExpFogEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
