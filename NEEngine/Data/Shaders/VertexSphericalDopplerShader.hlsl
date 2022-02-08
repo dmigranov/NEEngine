@@ -100,6 +100,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	OUT.tex = IN.tex;
 
 	OUT.velocity = distDiff / deltaTime; //разная для разных точек объекта!
+	//todo: velocity меняется при неподвижном объекте (то есть меняется distDiff?)
 
 	return OUT;
 }
