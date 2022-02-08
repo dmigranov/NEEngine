@@ -90,7 +90,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
     for (size_t i = 0; i <= verticalSegments; i++)
     {
-        float v = /*1 -*/ float(i) / float(verticalSegments);
+        float v = 1 - float(i) / float(verticalSegments);
 
         float latitude = (float(i) * XM_PI / float(verticalSegments)) - XM_PIDIV2;
         float dy, dxz;
@@ -102,6 +102,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         {
             float u = float(j) / float(horizontalSegments);
 
+            /*
             if (i == 0)
             {
                 XMFLOAT4 pos(
@@ -115,8 +116,8 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 vertices.push_back({ pos, uv });
                 continue;
             }
+            */
 
-            
             if (i == verticalSegments)
             {
                 XMFLOAT4 pos(
