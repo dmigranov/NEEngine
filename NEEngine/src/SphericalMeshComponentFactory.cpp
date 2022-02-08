@@ -100,38 +100,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         // Create a single ring of vertices at this latitude.
         for (size_t j = 0; j <= horizontalSegments; j++)
         {
-            float u = float(j) / float(horizontalSegments);
-          
-            if (i == 0)
-            {
-                XMFLOAT4 pos(
-                    0,
-                    -radius,
-                    0,
-                    height
-                );
-
-                auto uv = XMFLOAT2(u, v);
-                vertices.push_back({ pos, uv });
-                continue;
-            }
-            
-
-            /*
-            if (i == verticalSegments)
-            {
-                XMFLOAT4 pos(
-                    0,
-                    -radius,
-                    0,
-                    height
-                );
-
-                auto uv = XMFLOAT2(u, v);
-                vertices.push_back({ pos, uv });
-                continue;
-            }
-            */
+            float u = float(j) / float(horizontalSegments);    
             
             float longitude = float(j) * XM_2PI / float(horizontalSegments);
             float dx, dz;
