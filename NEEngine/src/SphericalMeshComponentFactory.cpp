@@ -84,6 +84,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
     }
     */
 
+
     auto verticalSegments = stackCount;
     auto horizontalSegments = sliceCount;
 
