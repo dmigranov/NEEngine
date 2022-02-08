@@ -118,7 +118,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
                 continue;
             }
 
-            /*
+            /* 
             if (i == verticalSegments)
             {
                 XMFLOAT4 pos(
