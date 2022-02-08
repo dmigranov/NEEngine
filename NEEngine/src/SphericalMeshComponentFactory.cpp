@@ -108,7 +108,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             XMScalarSinCos(&dx, &dz, longitude);
 
             dx *= dxz;
-            dz *= dxz;
+            dz *= dxz; 
             //std::cout << dx << " " << dy << " " << dz << std::endl;
 
             XMFLOAT4 pos(
