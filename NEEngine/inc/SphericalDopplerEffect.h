@@ -32,7 +32,7 @@ public:
     void SetVelocity(double velocity);
     double GetVelocity();
 
-    virtual void SetRadius(double radius) override;
+    //virtual void SetRadius(double radius) override;
 
     virtual void SetFogColor(DirectX::XMVECTORF32 fogColor) override;
 

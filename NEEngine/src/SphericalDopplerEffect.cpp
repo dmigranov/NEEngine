@@ -70,7 +70,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 	perApplicationVSConstantBufferDoppler.radius = m_radius;
 	perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
-	std::cout << m_radius << " " << m_radius_old << std::endl;
+	//std::cout << m_radius << " " << m_radius_old << std::endl;
 	//m_radius_old = m_radius;
 
 	//todo: разобратьс€ со всем этим (статический радиус)
@@ -95,6 +95,7 @@ double SphericalDopplerEffect::GetVelocity()
 	return perApplicationPSConstantBuffer.velocity;
 }
 
+/*
 void SphericalDopplerEffect::SetRadius(double radius)
 {
 	//todo: разобратьс€ со старым и новым радиусом. ¬озможно, метод StopRadiusChange - тогда приравниваем старый и новый
@@ -103,6 +104,7 @@ void SphericalDopplerEffect::SetRadius(double radius)
 		m_radius_old = m_radius;
 	m_radius = radius;
 }
+*/
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
