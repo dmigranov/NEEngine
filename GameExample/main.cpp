@@ -122,8 +122,8 @@ int main(int argc, char* argv[])
     auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
     auto entity = new Entity();
     auto updaterComponent = new UpdaterComponent([transformComponent](double delta, Entity* pEntity) {
-        
-        //std::cout << "here" << std::endl;
+        auto pos = transformComponent->GetSphericalPosition();
+        std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << " " << std::endl;
         });
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
