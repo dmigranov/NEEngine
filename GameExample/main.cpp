@@ -161,7 +161,6 @@ int main(int argc, char* argv[])
             static double frameTime = 0;
             static double time = 2.3;
             double mu = time / 3.;
-            static double mu_old = mu;
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
             static auto isAnimation = true;
