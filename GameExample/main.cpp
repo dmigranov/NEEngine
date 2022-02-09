@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
                 auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
                 if (dist < mu)
                     sphere->SetVisible(true);
-                else
+                else 
                 {
                     count++;
                     sphere->SetVisible(false);
