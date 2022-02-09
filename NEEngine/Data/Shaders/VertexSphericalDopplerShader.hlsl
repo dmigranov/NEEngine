@@ -93,12 +93,14 @@ VertexShaderOutput main(VertexShaderInput IN
 	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
 	//float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
-	double distDiff = distance * (1. - radius_old / radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
 	OUT.fogFactor = saturate(exp(-density * distance));
 	OUT.tex = IN.tex;
 
+	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково
+	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), , radius);
+	double distDiff = distance * (1. - radius_old / radius);
 	OUT.velocity = distDiff / deltaTime; //разная для разных точек объекта!
 
 	return OUT;
