@@ -194,13 +194,27 @@ int main(int argc, char* argv[])
 
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
+
+            if (isAnimation)
+            {
+                if (radius > 0.5)
+                {
+                    time += deltaTime;
+                    frameTime += deltaTime;
+                    mu = time / 3.;
+                    radius = 2 * (1 - cos(mu));
+                }
+                else
+                    isAnimation = false;
+            }
+
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
             auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
             auto oldToNewRadius = old_radius / radius;
             oldToNewRadius = (1 - cos(mu - 0.03)) / (1 - cos(mu));;
-            std::cout << mu << std::endl;
+            //std::cout << mu << std::endl;
 
             for (int i = 0; i < sphereCount; i++)
             {
@@ -214,16 +228,6 @@ int main(int argc, char* argv[])
                     sphere->SetVisible(false);
             }
 
-            if (isAnimation)
-            {
-                if (radius > 0.5)
-                {
-                    time += deltaTime;
-                    frameTime += deltaTime;
-                }
-                else
-                    isAnimation = false;
-            }
 
             if (frameTime >= 0.1 || frameTime <= -0.1)
             {
