@@ -165,7 +165,12 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             static auto isAnimation = true;
 
+            auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
+            auto oldToNewRadius = old_radius / radius;
+
+            std::cout << oldToNewRadius << std::endl;;
+
             int count = 0;
             for (int i = 0; i < sphereCount; i++)
             {
