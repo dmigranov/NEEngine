@@ -1,6 +1,5 @@
 ﻿#pragma once
 
-
 #include "main.h"
 
 #include "InputSystem.h"
@@ -37,6 +36,8 @@ int main(int argc, char* argv[])
 
         componentTypeManager->RegisterComponentType<TextComponent>();
 
+        componentTypeManager->RegisterComponentType<UpdaterComponent>();
+
         componentTypeManager->SetTypeAdditionEnded();         //MeshComponent - registered by default
     }
 
@@ -53,6 +54,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(new InputSystem());
     scene->AddSystem(renderSystem);
     scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
+    scene->AddSystem(new UpdaterSystem());
 
 
     Entity* cameraEntity = new Entity("camera1");
