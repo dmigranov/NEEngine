@@ -160,6 +160,7 @@ int main(int argc, char* argv[])
 
             static double frameTime = 0;
             static double time = 2.3;
+            static auto isAnimation = true;
 
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
@@ -194,7 +195,6 @@ int main(int argc, char* argv[])
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
-            static auto isAnimation = true;
 
             auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
