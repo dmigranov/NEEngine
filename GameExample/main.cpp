@@ -202,7 +202,6 @@ int main(int argc, char* argv[])
             oldToNewRadius = (1 - cos(mu - 0.03)) / (1 - cos(mu));;
             std::cout << mu << std::endl;
 
-            int count = 0;
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
@@ -212,10 +211,7 @@ int main(int argc, char* argv[])
                 if (dist < mu)
                     sphere->SetVisible(true);
                 else 
-                {
-                    count++;
                     sphere->SetVisible(false);
-                }
             }
 
             if (isAnimation)
