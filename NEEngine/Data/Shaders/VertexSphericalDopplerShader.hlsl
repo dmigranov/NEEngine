@@ -44,7 +44,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	//, uint instanceID : SV_InstanceID
 )
 {
-	uint instanceID = 0;
+	uint instanceID = 0; //todo: ”¡–¿“‹, Œ“À¿ƒ ¿!
 	matrix viewMatrixBack = -viewMatrixFront;
 	VertexShaderOutput OUT;
  
