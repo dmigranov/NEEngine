@@ -160,6 +160,37 @@ int main(int argc, char* argv[])
 
             static double frameTime = 0;
             static double time = 2.3;
+
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+
+            if (kbs.D1)
+                effect->SetMode(true);
+            else if (kbs.D2)
+                effect->SetMode(false);
+
+            if (kbs.Left)
+            {
+                time -= deltaTime;
+                frameTime -= deltaTime;
+            }
+            else if (kbs.Right)
+            {
+                time += deltaTime;
+                frameTime += deltaTime;
+            }
+
+            if (kbs.M)
+            {
+                effect->SetVelocity(effect->GetVelocity() + 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() + 100000);
+            }
+            else if (kbs.N)
+            {
+                effect->SetVelocity(effect->GetVelocity() - 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() - 100000);
+            }
+
             double mu = time / 3.;
             double radius = 2 * (1 - cos(mu));
             auto cameraPos = cameraTransform->GetSphericalPosition();
@@ -168,7 +199,7 @@ int main(int argc, char* argv[])
             auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
             auto oldToNewRadius = old_radius / radius;
-            oldToNewRadius = (1 - cos(mu - 0.03))/ (1 - cos(mu));;
+            oldToNewRadius = (1 - cos(mu - 0.03)) / (1 - cos(mu));;
             std::cout << mu << std::endl;
 
             int count = 0;
@@ -196,37 +227,6 @@ int main(int argc, char* argv[])
                 }
                 else
                     isAnimation = false;
-            }
-
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-
-            if (kbs.D1)
-                effect->SetMode(true);
-            else if (kbs.D2)
-                effect->SetMode(false);
-
-
-            if (kbs.Left)
-            {
-                time -= deltaTime;
-                frameTime -= deltaTime;
-            }
-            else if (kbs.Right)
-            {
-                time += deltaTime;
-                frameTime += deltaTime;
-            }
-
-            if (kbs.M)
-            {
-                effect->SetVelocity(effect->GetVelocity() + 100000);
-                effectEarth->SetVelocity(effect->GetVelocity() + 100000);
-            }
-            else if (kbs.N)
-            {
-                effect->SetVelocity(effect->GetVelocity() - 100000);
-                effectEarth->SetVelocity(effect->GetVelocity() - 100000);
             }
 
             if (frameTime >= 0.1 || frameTime <= -0.1)
