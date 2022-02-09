@@ -202,7 +202,9 @@ int main(int argc, char* argv[])
                     time += deltaTime;
                     frameTime += deltaTime;
                     mu = time / 3.;
-                    radius = 2 * (1 - cos(mu));
+                    radius = 2 * (1 - cos(mu)); //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
+                    //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
+                    //и из этого как-то вытекает мерцание - todo
                 }
                 else
                     isAnimation = false;
