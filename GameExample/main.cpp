@@ -211,8 +211,6 @@ int main(int argc, char* argv[])
             }
 
             auto cameraPos = cameraTransform->GetSphericalPosition();
-
-            auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
 
             for (int i = 0; i < sphereCount; i++)
@@ -226,7 +224,6 @@ int main(int argc, char* argv[])
                 else 
                     sphere->SetVisible(false);
             }
-
 
             if (frameTime >= 0.1 || frameTime <= -0.1)
             {
