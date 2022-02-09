@@ -169,7 +169,7 @@ int main(int argc, char* argv[])
             renderSystem->SetRadius(radius);
             auto oldToNewRadius = old_radius / radius;
 
-            std::cout << oldToNewRadius << std::endl;;
+            std::cout << oldToNewRadius << std::endl;
 
             int count = 0;
             for (int i = 0; i < sphereCount; i++)
