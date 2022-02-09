@@ -12,5 +12,4 @@ void UpdateFriedmannWindow(double time);
 void DrawFriedmannPoint(HDC hdc);
 
 
-
 const int friedmann_w = 300, friedmann_h = 90;
