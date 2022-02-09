@@ -121,8 +121,12 @@ int main(int argc, char* argv[])
 
     auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
     auto entity = new Entity();
+    auto updaterComponent = new UpdaterComponent([](double delta, Entity* pEntity) {
+        std::cout << "here" << std::endl;
+        });
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
+    entity->AddComponent<UpdaterComponent>(updaterComponent);
 
     scene->AddEntity(entity);
     entities[sphereCount - 1] = entity;
