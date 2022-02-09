@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
         entities[i] = entity;
     }
 
-    auto transformComponent = new SphericalTransformComponent();
+    auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
     auto entity = new Entity();
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
