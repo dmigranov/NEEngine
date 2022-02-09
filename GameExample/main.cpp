@@ -212,9 +212,6 @@ int main(int argc, char* argv[])
 
             auto old_radius = renderSystem->GetRadius();
             renderSystem->SetRadius(radius);
-            auto oldToNewRadius = old_radius / radius;
-            oldToNewRadius = (1 - cos(mu - 0.03)) / (1 - cos(mu));;
-            //std::cout << mu << std::endl;
 
             for (int i = 0; i < sphereCount; i++)
             {
