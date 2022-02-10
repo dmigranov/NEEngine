@@ -41,10 +41,10 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 
 //entry point
 VertexShaderOutput main(VertexShaderInput IN
-	//, uint instanceID : SV_InstanceID
+	, uint instanceID : SV_InstanceID
 )
 {
-	uint instanceID = 0; //todo: ”¡–¿“‹, Œ“À¿ƒ ¿!
+	//uint instanceID = 0; //todo: ”¡–¿“‹, Œ“À¿ƒ ¿!
 	matrix viewMatrixBack = -viewMatrixFront;
 	VertexShaderOutput OUT;
  
