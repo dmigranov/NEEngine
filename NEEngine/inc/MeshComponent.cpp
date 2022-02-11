@@ -53,3 +53,13 @@ MeshComponent::~MeshComponent()
     SafeRelease(g_d3dVertexBuffer);
     SafeRelease(g_d3dIndexBuffer);
 }
+
+void* MeshComponent::GetAdditionalData()
+{
+    return m_additionalData;
+}
+
+void MeshComponent::SetAdditionalData(void* data)
+{
+    m_additionalData = data;
+}
