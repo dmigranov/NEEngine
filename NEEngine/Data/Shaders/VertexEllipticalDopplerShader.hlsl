@@ -92,6 +92,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	OUT.fogFactor = saturate(exp(-density * distance));
 
+	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково
+	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
 	OUT.velocity = distDiff / deltaTime; //разная для разных точек объекта!
 	
 	return OUT;
