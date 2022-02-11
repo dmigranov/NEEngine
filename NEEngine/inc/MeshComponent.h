@@ -31,6 +31,4 @@ protected:
 	Effect* m_pEffect;
 
 	const std::type_info& m_vertexDataType;
-
-	void* m_additionalData = nullptr;
 };
