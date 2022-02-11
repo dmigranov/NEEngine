@@ -264,17 +264,17 @@
     <ClCompile Include="src\TextPrintingSystem.cpp">
       <Filter>Исходные файлы\Systems</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextComponent.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalExpFogPointEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalDopplerEffect.cpp">
       <Filter>Исходные файлы\Effects</Filter>
     </ClCompile>
+    <ClCompile Include="src\TextComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
     <ClCompile Include="src\SphericalRenderingComponent.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -461,9 +461,6 @@
     <ClInclude Include="inc\TextPrintingSystem.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="inc\TextComponent.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalExpFogPointEffect.h">
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
@@ -471,7 +468,10 @@
       <Filter>Файлы заголовков\Effects</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalRenderingComponent.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\TextComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
