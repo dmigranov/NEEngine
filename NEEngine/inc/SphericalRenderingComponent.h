@@ -17,4 +17,3 @@ public:
 private:
 	SphericalVisibility m_sphericalVisibility = SphericalVisibility::VISIBLE_ALL;
 };
-

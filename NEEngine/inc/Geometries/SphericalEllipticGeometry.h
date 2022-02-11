@@ -9,6 +9,7 @@
 #include "SphericalTransformComponent.h"
 #include "SphericalCameraComponent.h"
 #include "SphericalMeshComponentFactory.h"
+#include "SphericalRenderingComponent.h"
 
 // Systems
 
