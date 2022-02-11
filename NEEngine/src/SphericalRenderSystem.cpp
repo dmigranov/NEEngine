@@ -117,8 +117,10 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	pDeviceContext->IASetPrimitiveTopology(topology);
 
 	pEffect->UpdatePerObject(pEntity, deltaTime);
-
-	pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), 2, 0, 0, 0);
+	if(visibility == SphericalVisibility::VISIBLE_ALL)
+		pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), 2, 0, 0, 0);
+	else //VISIBLE_FRONT
+		pDeviceContext->DrawIndexedInstanced(pMeshComponent->GetIndicesCount(), 1, 0, 0, 0);
 
 	pEffect->Clean();
 }
