@@ -243,7 +243,6 @@ int main(int argc, char* argv[])
 
 
 
-
 /*
     scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
         [](Entity* pEntity, double deltaTime) {
