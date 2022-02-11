@@ -53,7 +53,8 @@ public:
 	//Component* GetComponent(ComponentType type);	//old
 	template<typename T> T* GetComponent() const	//new; const - can't modify the object it's invoked on
 	{
-		return static_cast<T*>(m_components[Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>()]);
+		auto index = Game::GetInstance().GetComponentTypeManager()->template GetComponentTypeIndex<T>(); //if such a type doesnt't exist, will return default value
+		return static_cast<T*>(m_components[index]);
 	}
 
 	const boost::dynamic_bitset<>& GetComponentsMask();
