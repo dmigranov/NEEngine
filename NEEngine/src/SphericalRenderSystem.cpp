@@ -78,6 +78,8 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	else
 		visibility = SphericalVisibility::VISIBLE_ALL;
 
+	if (visibility == SphericalVisibility::VISIBLE_NONE)
+		return;
 
 	auto topology = pMeshComponent->GetTopology();
 	auto pEffect = pMeshComponent->GetEffect();
@@ -88,9 +90,6 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 		pEntity->SetVisible(false);
 		return; 
 	}
-	
-	//todo: добавить в SphericalEffect SetVisible с тремя градациями (ничего, instanceID = 0, всё)
-	//и тут в зависмости от этого делать правильные вызовы отрисовки 
 
 	/*
 	if (auto * pSphEffect = dynamic_cast<SphericalEffect*>(pEffect)) {
