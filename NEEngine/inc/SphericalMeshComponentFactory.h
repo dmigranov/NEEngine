@@ -1,5 +1,13 @@
 #pragma once
 #include "MeshComponentFactory.h"
+
+enum class SphericalVisibility {
+    VISIBLE_NONE,
+    VISIBLE_FRONT,
+    VISIBLE_BACK,           //not really necessary but why not
+    VISIBLE_ALL
+};
+
 class SphericalMeshComponentFactory :
     public MeshComponentFactory
 {
@@ -17,5 +25,8 @@ public:
     static MeshComponent* CreateSphericalPoint();
     static MeshComponent* CreateSphericalMeshFromFile(std::string fileName);
     //todo: создание из списка вершин и индексов, но с проверкой корректности вершин
+
+private:
+    static void SetVisibility();
 };
 
