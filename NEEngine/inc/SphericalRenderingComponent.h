@@ -11,5 +11,10 @@ enum class SphericalVisibility {
 class SphericalRenderingComponent :
     public Component
 {
+public:
+	SphericalVisibility GetSphericalVisibility();
+	void SetSphericalVisibility(SphericalVisibility sphVisibility);
+private:
+	SphericalVisibility m_sphericalVisibility = SphericalVisibility::VISIBLE_ALL;
 };
 
