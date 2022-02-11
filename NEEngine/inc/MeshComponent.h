@@ -32,5 +32,5 @@ protected:
 
 	const std::type_info& m_vertexDataType;
 
-	void* m_additionalData;
+	void* m_additionalData = nullptr;
 };
