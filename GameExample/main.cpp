@@ -48,7 +48,6 @@ int main(int argc, char* argv[])
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
     Texture* greenTexture = resourceManager->CreateTexture(L"green.dds");
 
-
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
     scene->AddSystem(new InputSystem());
@@ -67,7 +66,6 @@ int main(int argc, char* argv[])
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
-
     auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::Black);
     auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
@@ -80,8 +78,6 @@ int main(int argc, char* argv[])
 
     auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
     earth_mc->SetEffect(effectEarth);
-
-
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
     pointComp->SetEffect(pointEffect);
@@ -121,19 +117,13 @@ int main(int argc, char* argv[])
 
     auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
     auto entity = new Entity();
-    auto updaterComponent = new UpdaterComponent([transformComponent](double delta, Entity* pEntity) {
-        auto pos = transformComponent->GetSphericalPosition();
-        //std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << " " << std::endl;
-        });
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
-    entity->AddComponent<UpdaterComponent>(updaterComponent);
 
     scene->AddEntity(entity);
     entities[sphereCount - 1] = entity;
 
     delete[] randomPoints;
-
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
@@ -201,10 +191,9 @@ int main(int argc, char* argv[])
                 {
                     time += deltaTime;
                     frameTime += deltaTime;
-                    mu = time / 3.;
-                    radius = 2 * (1 - cos(mu)); //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
-                    //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
-                    //и из этого как-то вытекает мерцание - todo
+                    mu = time / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
+                    radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
+                                                    //и из этого как-то вытекает мерцание - todo
                 }
                 else
                     isAnimation = false;
