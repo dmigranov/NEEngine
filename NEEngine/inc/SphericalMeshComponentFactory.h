@@ -25,8 +25,5 @@ public:
     static MeshComponent* CreateSphericalPoint();
     static MeshComponent* CreateSphericalMeshFromFile(std::string fileName);
     //todo: создание из списка вершин и индексов, но с проверкой корректности вершин
-
-private:
-    static void SetVisibility();
 };
 
