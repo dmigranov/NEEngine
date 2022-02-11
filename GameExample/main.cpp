@@ -213,6 +213,8 @@ int main(int argc, char* argv[])
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                 auto pos = pTransform->GetSphericalPosition();
+                auto renderingComponent = sphere->GetComponent<SphericalRenderingComponent>();
+                auto visibility = renderingComponent->GetSphericalVisibility();
                 auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
                 if (dist < mu)
                     sphere->SetVisible(true);
