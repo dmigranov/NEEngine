@@ -215,11 +215,12 @@ int main(int argc, char* argv[])
                 auto pos = pTransform->GetSphericalPosition();
                 auto renderingComponent = sphere->GetComponent<SphericalRenderingComponent>();
                 auto visibility = renderingComponent->GetSphericalVisibility();
+
                 auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
                 if (dist < mu)
-                    sphere->SetVisible(true);
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL); //sphere->SetVisible(true);
                 else 
-                    sphere->SetVisible(false);
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE); //sphere->SetVisible(false);
             }
 
             if (frameTime >= 0.1 || frameTime <= -0.1)
