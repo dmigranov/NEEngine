@@ -80,7 +80,7 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	}
 	
 	//todo: добавить в SphericalEffect SetVisible с тремя градациями (ничего, instanceID = 0, всё)
-	//и тут в зависмости от этого делать правильные вызовы отрисовки
+	//и тут в зависмости от этого делать правильные вызовы отрисовки 
 
 	/*
 	if (auto * pSphEffect = dynamic_cast<SphericalEffect*>(pEffect)) {
