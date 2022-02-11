@@ -71,6 +71,13 @@ void SphericalRenderSystem::Render(Entity* pEntity, ID3D11DeviceContext* pDevice
 	SphericalTransformComponent* pTransformComponent = pEntity->GetComponent<SphericalTransformComponent>();
 	MeshComponent* pMeshComponent = pEntity->GetComponent<MeshComponent>();
 	SphericalRenderingComponent* pRenderingComponent = pEntity->GetComponent<SphericalRenderingComponent>();
+	
+	SphericalVisibility visibility;
+	if (pRenderingComponent != nullptr)
+		visibility = pRenderingComponent->GetSphericalVisibility();
+	else
+		visibility = SphericalVisibility::VISIBLE_ALL;
+
 
 	auto topology = pMeshComponent->GetTopology();
 	auto pEffect = pMeshComponent->GetEffect();
