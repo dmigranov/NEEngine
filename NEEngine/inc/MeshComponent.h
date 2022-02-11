@@ -22,9 +22,6 @@ public:
 
 	virtual ~MeshComponent();
 
-	void* GetAdditionalData();
-	void SetAdditionalData(void * data);
-
 protected:
 	MeshComponent(ID3D11Buffer* g_d3dVertexBuffer, ID3D11Buffer* g_d3dIndexBuffer, const std::type_info& vertexDataType, unsigned int indicesCount, D3D_PRIMITIVE_TOPOLOGY topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
