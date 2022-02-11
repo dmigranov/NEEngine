@@ -1,5 +1,13 @@
 #pragma once
 #include "Effect.h"
+
+enum class SphericalVisibility {
+    VISIBLE_NONE,
+    VISIBLE_FRONT,
+    VISIBLE_BACK,   //not really necessary but why not
+    VISIBLE_ALL
+};
+
 class SphericalEffect :
     public Effect
 {
