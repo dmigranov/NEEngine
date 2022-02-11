@@ -120,9 +120,11 @@ int main(int argc, char* argv[])
     }
 
     auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
+    auto sphRenderingComponent = new SphericalRenderingComponent();
     auto entity = new Entity();
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
+    entity->AddComponent<SphericalRenderingComponent>(sphRenderingComponent);
 
     scene->AddEntity(entity);
     entities[sphereCount - 1] = entity;
