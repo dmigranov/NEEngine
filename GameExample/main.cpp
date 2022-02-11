@@ -217,10 +217,7 @@ int main(int argc, char* argv[])
                 auto visibility = renderingComponent->GetSphericalVisibility();
 
                 auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
-                //if (dist < mu)
-                //    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL); //sphere->SetVisible(true);
-                //else 
-                //    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE); //sphere->SetVisible(false);
+                
                 if (mu < dist)
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
                 else if (mu >= dist && mu <= (2 * XM_PI - dist))
