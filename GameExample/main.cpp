@@ -160,6 +160,7 @@ int main(int argc, char* argv[])
 
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
 
             if (kbs.D1)
                 effect->SetMode(true);
@@ -231,6 +232,8 @@ int main(int argc, char* argv[])
                 UpdateFriedmannWindow(mu);
                 frameTime = 0;
             }
+
+
 
         }));
 
