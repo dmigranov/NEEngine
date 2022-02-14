@@ -274,7 +274,7 @@ int main(int argc, char* argv[])
 
                     // ray starts outside this sphere
                     float lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
-
+                    //std::cout << lenClosestPoint << std::endl;
                     if (lenClosestPoint < 0)
                     {
                         continue; //ray doesn't intersect
@@ -294,7 +294,9 @@ int main(int argc, char* argv[])
                     }
 
                     //todo: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
-                    //вариант 2: ещё проекция?
+                    //вариант: ещё проекция-другому?
+                    //вариант: закомментировать условие с lenClosestPoint < 0? но там тоже странности на границах между четвертями
+                    
 
                     std::cout << minIndex << std::endl;
                 }
