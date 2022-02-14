@@ -15,7 +15,6 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
     auto posProj_4D = Vector4::Transform(pos, proj);
     posProj_4D = posProj_4D / posProj_4D.w;
     auto posProj = Vector3(posProj_4D.x, posProj_4D.y, posProj_4D.z);
-    std::cout << posProj_4D.x << std::endl;
 
     Vector3 centerToBeginning = posProj - rayStart; // rayStart = 0, so centerToBeginning = posProj
     double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);
