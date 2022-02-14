@@ -267,9 +267,8 @@ int main(int argc, char* argv[])
                 auto r_projected_sq = r_projected * r_projected;
 
                 Vector4 test(0, r_sphere, 0, w_sphere);
-                std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
-                //std::cout <<
-
+                //std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
+                std::cout << r_projected_sq << std::endl;
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
                 Vector3 rayStart(0.f, 0.f, 0.f);
