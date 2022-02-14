@@ -23,17 +23,18 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
 
     // ray starts outside this sphere
     float lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
-    //std::cout << lenClosestPoint << std::endl;
     if (lenClosestPoint < 0)
     {
         return -1; //ray doesn't intersect
     }
 
+    //todo: посмотреть заново радиус
     double thc_sq = r_projected_sq - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
     if (thc_sq < 0)
     {
         return -1; //ray doesn't intersect
     }
+
 
     double thc = sqrt(thc_sq);
     double t = lenClosestPoint - thc; //t is the distance to the intersection point
