@@ -278,6 +278,7 @@ int main(int argc, char* argv[])
                 {
                     Entity* sphere = entities[i];
                     auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                    /*
                     auto pos_world = pTransform->GetSphericalPosition();
                     auto pos = Vector4::Transform(pos_world, view); //pos_view
                     auto pos_w = pos.w;
@@ -310,11 +311,17 @@ int main(int argc, char* argv[])
 
                     double thc = sqrt(thc_sq);
                     double t = lenClosestPoint - thc; //t is the distance to the intersection point
-                    
+                    */
+                    double t = RayTraceSpherePos(pTransform, rayStart, direction, view, r_projected_sq);
+                    if (t < 0)
+                        continue;
+
                     if (t < minDist) {
                         minDist = t;
                         minIndex = i;
                     }
+                    
+
 
                     //TODO: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
                     //вариант: ещё проекция-другому? (c отрицательным w!)
