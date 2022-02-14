@@ -245,8 +245,8 @@ int main(int argc, char* argv[])
                 {
                     Entity* sphere = entities[i];
                     auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
-                    auto pos = pTransform->GetSphericalPosition();
-                    auto pos_view = Vector4::Transform(pos, view);
+                    auto pos_world = pTransform->GetSphericalPosition();
+                    auto pos = Vector4::Transform(pos_world, view); //pos_view
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
                 }
