@@ -18,7 +18,7 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
 
     Vector3 centerToBeginning = posProj - rayStart; // rayStart = 0, so centerToBeginning = posProj
     double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);
-
+    std::cout << lenToCenterOfSphere_sq << std::endl;
     // inside this sphere
     if (lenToCenterOfSphere_sq < r_projected_sq)
     {
