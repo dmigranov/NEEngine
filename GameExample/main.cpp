@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
                 const auto& view = cameraTransform->GetView();
                 const Matrix& proj = cameraComponent->GetFrontSphericalProj();
 
-
+                 
 
                 //radius of spheres in the Euclidean space, after projection
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
