@@ -256,7 +256,7 @@ int main(int argc, char* argv[])
                 frameTime = 0;
             }
 
-            //if (ms.rightButton)
+            
             {
                 const auto& view = cameraTransform->GetView();
 
