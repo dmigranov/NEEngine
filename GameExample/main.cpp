@@ -247,6 +247,11 @@ int main(int argc, char* argv[])
                     auto pos = Vector4::Transform(pos_world, view); //pos_view
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
+
+                    if (i == sphereCount - 1)
+                    {
+                        std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
+                    }
                 }
 
                 //Vector4 test = cameraTransform->GetSphericalPosition();
