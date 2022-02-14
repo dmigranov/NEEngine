@@ -254,11 +254,13 @@ int main(int argc, char* argv[])
                     auto pos_world = pTransform->GetSphericalPosition();
                     auto pos = Vector4::Transform(pos_world, view); //pos_view
                     auto pos_w = pos.w;
-                    auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
+                    auto posProj_4D = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
+                    auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
 
                     // position - always (0, 0, 0)
                     // direction - always (0, 0, 1)
 
+                    Vector3 centerToBeginning;
                     double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
                    
                     // inside this sphere
@@ -266,6 +268,9 @@ int main(int argc, char* argv[])
                     {
                         continue;   //camera is inside of this sphere so no need
                     }
+
+                    
+                    double lenClosestPoint = Vector3::Dot(oc, rd);  //расстояние от начала луча до ближайшей к центру сферы точки
 
                     // ray starts outside this sphere
                     // todo
