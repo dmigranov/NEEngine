@@ -233,7 +233,10 @@ int main(int argc, char* argv[])
                 frameTime = 0;
             }
 
-
+            if (ms.rightButton)
+            {
+                std::cout << "here" << std::endl;
+            }
 
         }));
 
