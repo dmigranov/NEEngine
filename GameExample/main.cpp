@@ -151,13 +151,16 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
     
+    int currentSphereNumber = -1;
+
     auto textEntity2 = new Entity();
-    textEntity2->AddComponent<TextComponent>(new TextComponent([](double delta) {
+    textEntity2->AddComponent<TextComponent>(new TextComponent([currentSphereNumber](double delta) {
         
         std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
-        ss << "Hello" << std::endl;
+        if(currentSphereNumber >= 0)
+            ss << "Sphere №" << currentSphereNumber << std::endl;
 
         return ss.str();
 
@@ -227,6 +230,7 @@ int main(int argc, char* argv[])
 
             //TODO: когда перехожу через антиподальную точку, эффект Допплера начинает слабо сказываться!
             //что-то с вычислением расстояния? !!!
+
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
@@ -310,7 +314,7 @@ int main(int argc, char* argv[])
                         minIndex = i;
                     }
 
-                    //todo: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
+                    //TODO: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
                     //вариант: ещё проекция-другому?
                     //вариант: закомментировать условие с lenClosestPoint < 0? но там тоже странности на границах между четвертями
                     
