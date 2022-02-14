@@ -244,6 +244,8 @@ int main(int argc, char* argv[])
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
                 auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
                 auto r_projected = r_sphere / w_sphere;
+                auto r_projected_sq = r_projected * r_projected;
+
 
                 for (int i = 0; i < sphereCount; i++)
                 {
@@ -258,8 +260,11 @@ int main(int argc, char* argv[])
                     //позиция - всегда (0, 0, 0)
                     //направление - всегда (0, 0, 1)
 
-                    double lenToSphere = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
-                    le
+                    double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
+                    if (lenToCenterOfSphere_sq < r_projected_sq)
+                    {
+                        std::cout << "inside" << std::endl;
+                    }
 
  
                     if (i == sphereCount - 1)
