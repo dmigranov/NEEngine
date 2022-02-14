@@ -310,10 +310,13 @@ int main(int argc, char* argv[])
 
                     double thc = sqrt(thc_sq);
                     double t = lenClosestPoint - thc; //t is the distance to the intersection point
-                    if (t < minDist) {
-                        minDist = t;
-                        minIndex = i;
-                    }
+                    
+                    Vector3 intersectionPointEucl = rayStart + direction * t;
+                    std::cout << intersectionPointEucl.x << " " << intersectionPointEucl.y << " " << intersectionPointEucl.z << " " << std::endl;
+                    //if (t < minDist) {
+                    //    minDist = t;
+                    //    minIndex = i;
+                    //}
 
                     //TODO: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
                     //вариант: ещё проекция-другому?
@@ -321,7 +324,7 @@ int main(int argc, char* argv[])
                     
                 }
                 currentSphereNumber = minIndex;
-                std::cout << minDist << std::endl;
+                //std::cout << minDist << std::endl;
             }
         }));
 
