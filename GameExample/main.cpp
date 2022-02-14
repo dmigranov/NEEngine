@@ -151,7 +151,9 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
 
-    auto rect = game.GetGameWindowRect();
+    int width, height;
+    game.GetDefaultSize(width, height);
+    
     auto textEntity2 = new Entity();
     textEntity2->AddComponent<TextComponent>(new TextComponent([](double delta) {
         
@@ -159,7 +161,6 @@ int main(int argc, char* argv[])
 
         ss << std::fixed << std::setprecision(2);
         ss << "X: " << std::endl;
-
 
         return ss.str();
 
