@@ -39,7 +39,7 @@ void TextPrintingSystem::Execute(double deltaTime)
 		switch (align)
 		{
 		case Alignment::UpRight:
-			m_textDrawer->DrawTextUpRightAlign(c_str, pos.x, pos.y, color);
+			m_textDrawer->DrawTextUpRightAlign(c_str, width - pos.x, pos.y, color);
 			break;
 		case Alignment::UpLeft:
 			m_textDrawer->DrawTextUpLeftAlign(c_str, pos.x, pos.y, color);
@@ -48,7 +48,7 @@ void TextPrintingSystem::Execute(double deltaTime)
 			m_textDrawer->DrawTextDownRightAlign(c_str, width - pos.x, height - pos.y, color);
 			break;
 		case Alignment::DownLeft:
-			m_textDrawer->DrawTextDownLeftAlign(c_str, pos.x, pos.y, color);
+			m_textDrawer->DrawTextDownLeftAlign(c_str, pos.x, height - pos.y, color);
 			break;
 		}
 	}
