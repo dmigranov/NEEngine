@@ -159,6 +159,7 @@ int main(int argc, char* argv[])
         std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
+        std::cout << currentSphereNumber << std::endl;
         if(currentSphereNumber >= 0)
             ss << "Sphere №" << currentSphereNumber << std::endl;
 
@@ -170,7 +171,8 @@ int main(int argc, char* argv[])
 
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, objectRadius]
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
+        &currentSphereNumber]
     (Entity* pEntity, double deltaTime) {
 
             static double frameTime = 0;
@@ -318,8 +320,8 @@ int main(int argc, char* argv[])
                     //вариант: ещё проекция-другому?
                     //вариант: закомментировать условие с lenClosestPoint < 0? но там тоже странности на границах между четвертями
                     
-                    //std::cout << minIndex << std::endl;
                 }
+                currentSphereNumber = minIndex;
             }
         }));
 
