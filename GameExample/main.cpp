@@ -236,6 +236,14 @@ int main(int argc, char* argv[])
             if (ms.rightButton)
             {
                 std::cout << "here" << std::endl;
+
+                for (int i = 0; i < sphereCount; i++)
+                {
+                    Entity* sphere = entities[i];
+                    auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                    auto pos = pTransform->GetSphericalPosition();
+                }
+
             }
 
         }));
