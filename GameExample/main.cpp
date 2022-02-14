@@ -292,7 +292,6 @@ int main(int argc, char* argv[])
                     if (i == sphereCount - 1)
                     {
                         //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
-                        //std::cout << r_projected << std::endl;
                         std::cout << t << std::endl;
                     }
                 }
