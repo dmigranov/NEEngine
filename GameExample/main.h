@@ -11,5 +11,7 @@ void DrawFriedmann(HDC hdc);
 void UpdateFriedmannWindow(double time);
 void DrawFriedmannPoint(HDC hdc);
 
+double RayTraceSphere(SphericalTransformComponent * pTransform);
+
 
 const int friedmann_w = 300, friedmann_h = 90;

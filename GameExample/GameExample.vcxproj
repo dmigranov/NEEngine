@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="FriedmannWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_raytracing.cpp" />
     <ClCompile Include="RandomSphericalGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
