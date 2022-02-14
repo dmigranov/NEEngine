@@ -289,11 +289,13 @@ int main(int argc, char* argv[])
                     double thc = sqrt(thc_sq);
                     double t = lenClosestPoint - thc; //t is the distance to the intersection point
  
+                    /*
                     if (i == sphereCount - 1)
                     {
                         //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
                         std::cout << t << std::endl;
                     }
+                    */
                 }
 
             }
