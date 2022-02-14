@@ -312,7 +312,8 @@ int main(int argc, char* argv[])
                     double t = lenClosestPoint - thc; //t is the distance to the intersection point
                     
                     Vector3 intersectionPointEucl = rayStart + direction * t;
-                    std::cout << intersectionPointEucl.x << " " << intersectionPointEucl.y << " " << intersectionPointEucl.z << " " << std::endl;
+                    Vector4 intersectionPointSph(intersectionPointEucl.x * pos_w, intersectionPointEucl.y * pos_w, intersectionPointEucl.z * pos_w, pos_w);
+                    std::cout << intersectionPointSph.x << " " << intersectionPointSph.y << " " << intersectionPointSph.z << " " << intersectionPointSph.w << std::endl;
                     //if (t < minDist) {
                     //    minDist = t;
                     //    minIndex = i;
