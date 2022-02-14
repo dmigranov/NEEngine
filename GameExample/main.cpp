@@ -271,11 +271,10 @@ int main(int argc, char* argv[])
                         continue;   //camera is inside of this sphere so no need
                     }
 
-                    
+                    // ray starts outside this sphere
                     double lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
 
-                    // ray starts outside this sphere
-                    // todo
+
  
                     if (i == sphereCount - 1)
                     {
