@@ -268,6 +268,7 @@ int main(int argc, char* argv[])
                     // inside this sphere
                     if (lenToCenterOfSphere_sq < r_projected_sq)
                     {
+                        std::cout << "inside" << std::endl;
                         continue;   //camera is inside of this sphere so no need
                     }
 
@@ -279,7 +280,7 @@ int main(int argc, char* argv[])
                         continue; //ray doesn't intersect
                     }
 
-                    double thc_sq = pow(r_projected_sq, 2) - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
+                    double thc_sq = r_projected_sq - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
                     if (thc_sq < 0)
                     {
                         continue;
