@@ -132,8 +132,8 @@ int main(int argc, char* argv[])
     delete[] randomPoints;
 
     scene->AddSystem(new TextPrintingSystem());
-    auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform, renderSystem](double delta) {
+    auto textEntity1 = new Entity();
+    textEntity1->AddComponent<TextComponent>(new TextComponent([cameraTransform, renderSystem](double delta) {
         auto pos = cameraTransform->GetSphericalPosition();
         auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
         std::stringstream ss;
@@ -149,7 +149,24 @@ int main(int argc, char* argv[])
 
         }, 10, 10, Alignment::UpLeft, DirectX::Colors::White));
 
-    scene->AddEntity(textEntity);
+    scene->AddEntity(textEntity1);
+
+    auto rect = game.GetGameWindowRect();
+    auto textEntity2 = new Entity();
+    textEntity2->AddComponent<TextComponent>(new TextComponent([](double delta) {
+        
+        std::stringstream ss;
+
+        ss << std::fixed << std::setprecision(2);
+        ss << "X: " << std::endl;
+
+
+        return ss.str();
+
+        }, game.GetWidth() - 10, 10, Alignment::DownRight, DirectX::Colors::White));
+
+    scene->AddEntity(textEntity2);
+
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, objectRadius]
@@ -299,9 +316,7 @@ int main(int argc, char* argv[])
                     
                     //std::cout << minIndex << std::endl;
                 }
-
             }
-
         }));
 
     return game.StartGame();
