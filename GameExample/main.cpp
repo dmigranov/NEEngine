@@ -234,7 +234,7 @@ int main(int argc, char* argv[])
                 frameTime = 0;
             }
 
-            if (ms.rightButton)
+            //if (ms.rightButton)
             {
                 const auto& view = cameraTransform->GetView();
 
@@ -297,8 +297,7 @@ int main(int argc, char* argv[])
                     //вариант: ещё проекция-другому?
                     //вариант: закомментировать условие с lenClosestPoint < 0? но там тоже странности на границах между четвертями
                     
-
-                    std::cout << minIndex << std::endl;
+                    //std::cout << minIndex << std::endl;
                 }
 
             }
