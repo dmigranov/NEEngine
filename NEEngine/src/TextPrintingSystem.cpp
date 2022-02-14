@@ -29,6 +29,11 @@ void TextPrintingSystem::Execute(double deltaTime)
 		auto pos = pTextComponent->GetPosition();
 		auto color = pTextComponent->GetColor();
 
+		auto& game = Game::GetInstance();
+		int width, height;
+		game.GetWindowSize(width, height);
+
+
 		auto c_str = text.c_str();
 
 		switch (align)
