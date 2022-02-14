@@ -256,8 +256,8 @@ int main(int argc, char* argv[])
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
 
-                    //позиция - всегда (0, 0, 0)
-                    //направление - всегда (0, 0, 1)
+                    // position - always (0, 0, 0)
+                    // direction - always (0, 0, 1)
 
                     double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
                    
@@ -267,6 +267,8 @@ int main(int argc, char* argv[])
                         continue;   //camera is inside of this sphere so no need
                     }
 
+                    // ray starts outside this sphere
+                    // todo
  
                     if (i == sphereCount - 1)
                     {
