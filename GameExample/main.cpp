@@ -150,9 +150,6 @@ int main(int argc, char* argv[])
         }, 10, 10, Alignment::UpLeft, DirectX::Colors::White));
 
     scene->AddEntity(textEntity1);
-
-    int width, height;
-    game.GetDefaultSize(width, height);
     
     auto textEntity2 = new Entity();
     textEntity2->AddComponent<TextComponent>(new TextComponent([](double delta) {
@@ -164,7 +161,7 @@ int main(int argc, char* argv[])
 
         return ss.str();
 
-        }, game.GetWidth() - 10, 10, Alignment::DownRight, DirectX::Colors::White));
+        }, 10, 10, Alignment::DownRight, DirectX::Colors::White));
 
     scene->AddEntity(textEntity2);
 
