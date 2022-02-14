@@ -264,7 +264,7 @@ int main(int argc, char* argv[])
                     // inside this sphere
                     if (lenToCenterOfSphere_sq < r_projected_sq)
                     {
-                        continue;
+                        continue;   //camera is inside of this sphere so no need
                     }
 
  
