@@ -276,11 +276,10 @@ int main(int argc, char* argv[])
 
                     if (lenClosestPoint < 0)
                     {
-                        //std::cout << 
                         continue; //ray doesn't intersect
                     }
 
-                    double thc_sq = pow(radius, 2) - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
+                    double thc_sq = pow(r_projected_sq, 2) - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
                     if (thc_sq < 0)
                     {
                         continue;
