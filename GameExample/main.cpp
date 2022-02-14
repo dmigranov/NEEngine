@@ -249,6 +249,8 @@ int main(int argc, char* argv[])
                 Vector3 rayStart(0.f, 0.f, 0.f);
                 Vector3 direction(0.f, 0.f, 1.f);
 
+                float minDist = -1.;
+                int minIndex = -1;
 
                 for (int i = 0; i < sphereCount; i++)
                 {
