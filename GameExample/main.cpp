@@ -259,7 +259,7 @@ int main(int argc, char* argv[])
             
             {
                 const auto& view = cameraTransform->GetView();
-                const Matrix& proj = cameraComponent->GetFrontSphericalProj();
+                const Matrix& proj = cameraComponent->GetProj();
 
                  
 
