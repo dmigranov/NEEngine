@@ -152,7 +152,8 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, objectRadius]
+    (Entity* pEntity, double deltaTime) {
 
             static double frameTime = 0;
             static double time = 2.3;
@@ -248,11 +249,14 @@ int main(int argc, char* argv[])
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
 
-                    //радиус сферы в еввклидовмо пространстве: 
-
+                    //радиус сферы в евклидовмо пространстве: 
+                    auto w_sphere = radius - 2 * radius * pow(sin(objectRadius/radius/2), 2);
+                    auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
+                    auto r_projected = r_sphere / w_sphere;
                     if (i == sphereCount - 1)
                     {
-                        std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
+                        //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
+                        std::cout << r_projected << std::endl;
                     }
                 }
 
