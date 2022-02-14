@@ -18,7 +18,6 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
     // inside this sphere
     if (lenToCenterOfSphere_sq < r_projected_sq)
     {
-        std::cout << "inside" << std::endl;
         return -1;   //camera is inside of this sphere so no need
     }
 
