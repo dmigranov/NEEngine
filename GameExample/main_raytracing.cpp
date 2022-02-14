@@ -5,7 +5,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-double RayTraceSphere(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view) {
+double RayTraceSphere(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
     auto pos_world = pTransform->GetSphericalPosition();
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto pos_w = pos.w;
@@ -19,7 +19,7 @@ double RayTraceSphere(SphericalTransformComponent * pTransform, DirectX::SimpleM
     if (lenToCenterOfSphere_sq < r_projected_sq)
     {
         std::cout << "inside" << std::endl;
-        continue;   //camera is inside of this sphere so no need
+        return -1;   //camera is inside of this sphere so no need
     }
 
     // ray starts outside this sphere
@@ -27,16 +27,15 @@ double RayTraceSphere(SphericalTransformComponent * pTransform, DirectX::SimpleM
     //std::cout << lenClosestPoint << std::endl;
     if (lenClosestPoint < 0)
     {
-        continue; //ray doesn't intersect
+        return -1; //ray doesn't intersect
     }
 
     double thc_sq = r_projected_sq - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
     if (thc_sq < 0)
     {
-        continue; //ray doesn't intersect
+        return -1; //ray doesn't intersect
     }
 
     double thc = sqrt(thc_sq);
     double t = lenClosestPoint - thc; //t is the distance to the intersection point
-
 }
