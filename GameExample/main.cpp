@@ -265,6 +265,8 @@ int main(int argc, char* argv[])
                 auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
                 auto r_projected = r_sphere / w_sphere;
                 auto r_projected_sq = r_projected * r_projected;
+                std::cout << r_projected_sq << std::endl;
+
 
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
