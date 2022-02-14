@@ -280,11 +280,17 @@ int main(int argc, char* argv[])
                     }
 
                     double thc_sq = pow(radius, 2) - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
+                    if (thc_sq < 0)
+                    {
+                        continue;
+                    }
+
+                    double thc = sqrt(thc_sq);
  
                     if (i == sphereCount - 1)
                     {
-                        std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
-                        std::cout << r_projected << std::endl;
+                        //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
+                        //std::cout << r_projected << std::endl;
                     }
                 }
 
