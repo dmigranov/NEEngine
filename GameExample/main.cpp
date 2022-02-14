@@ -283,7 +283,7 @@ int main(int argc, char* argv[])
                     double thc_sq = r_projected_sq - lenToCenterOfSphere_sq + lenClosestPoint * lenClosestPoint;
                     if (thc_sq < 0)
                     {
-                        continue;
+                        continue; //ray doesn't intersect
                     }
 
                     double thc = sqrt(thc_sq);
