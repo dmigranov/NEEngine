@@ -249,7 +249,7 @@ int main(int argc, char* argv[])
                 Vector3 rayStart(0.f, 0.f, 0.f);
                 Vector3 direction(0.f, 0.f, 1.f);
 
-                float minDist = -1.;
+                float minDist = 100000.;
                 int minIndex = -1;
 
                 for (int i = 0; i < sphereCount; i++)
@@ -288,7 +288,11 @@ int main(int argc, char* argv[])
 
                     double thc = sqrt(thc_sq);
                     double t = lenClosestPoint - thc; //t is the distance to the intersection point
- 
+                    if (t < minDist) {
+                        minDist = t;
+                        minIndex = i;
+                    }
+
                     /*
                     if (i == sphereCount - 1)
                     {
