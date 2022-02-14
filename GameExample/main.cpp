@@ -254,9 +254,7 @@ int main(int argc, char* argv[])
                     }
                 }
 
-                //Vector4 test = cameraTransform->GetSphericalPosition();
-                //auto test2 = Vector4::Transform(test, view); //pos_view
-                //std::cout << test2.x << " " << test2.y << " " << test2.z << " " << test2.w << std::endl;
+              
 
             }
 
