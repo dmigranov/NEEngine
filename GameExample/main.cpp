@@ -259,6 +259,8 @@ int main(int argc, char* argv[])
             
             {
                 const auto& view = cameraTransform->GetView();  
+                const Matrix& proj = cameraComponent->GetProj();
+
 
                 //radius of spheres in the Euclidean space, after projection
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
@@ -268,8 +270,9 @@ int main(int argc, char* argv[])
 
                 Vector4 test(0, r_sphere, 0, w_sphere);
                 Vector4 projected = Vector4::Transform(test, proj);
+                std::cout << projected.x << " " << projected.y << " " << projected.z << " " << projected.w << std::endl;
+
                 //std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
-                //std::cout << projected.x << " " << projected.y << " " << projected.z << " " << projected.w << std::endl;
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
                 Vector3 rayStart(0.f, 0.f, 0.f);
