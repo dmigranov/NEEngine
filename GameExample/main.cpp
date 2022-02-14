@@ -159,9 +159,8 @@ int main(int argc, char* argv[])
         std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
-        std::cout << currentSphereNumber << std::endl;
         if(currentSphereNumber >= 0)
-            ss << "Sphere №" << currentSphereNumber << std::endl;
+            ss << "Sphere " << currentSphereNumber << std::endl;
 
         return ss.str();
 
