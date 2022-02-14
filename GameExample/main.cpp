@@ -258,10 +258,7 @@ int main(int argc, char* argv[])
 
             
             {
-                const auto& view = cameraTransform->GetView();
-                const Matrix& proj = cameraComponent->GetProj();
-
-                 
+                const auto& view = cameraTransform->GetView();  
 
                 //radius of spheres in the Euclidean space, after projection
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
@@ -286,7 +283,7 @@ int main(int argc, char* argv[])
                     Entity* sphere = entities[i];
                     auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
 
-                    double t = RayTraceSpherePos(pTransform, rayStart, direction, view, proj, r_projected_sq);
+                    double t = RayTraceSpherePos(pTransform, rayStart, direction, view, r_projected_sq);
                     if (t < 0)
                     {
                         //t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
