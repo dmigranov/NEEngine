@@ -251,6 +251,11 @@ int main(int argc, char* argv[])
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
                 }
 
+                Vector4 test = cameraTransform->GetSphericalPosition();
+                auto test2 = Vector4::Transform(test, view); //pos_view
+
+                std::cout << test2.x << " " << test2.y << " " << test2.z << " " << test2.w << std::endl;
+
             }
 
         }));
