@@ -249,6 +249,8 @@ int main(int argc, char* argv[])
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
                 Vector3 rayStart(0.f, 0.f, 0.f);
+                Vector3 direction(0.f, 0.f, 1.f);
+
 
                 for (int i = 0; i < sphereCount; i++)
                 {
@@ -260,8 +262,8 @@ int main(int argc, char* argv[])
                     auto posProj_4D = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
                     auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
 
-                    Vector3 centerToBeginning;
-                    double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
+                    Vector3 centerToBeginning = posProj - rayStart; // rayStart = 0, so centerToBeginning = posProj
+                    double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);
                    
                     // inside this sphere
                     if (lenToCenterOfSphere_sq < r_projected_sq)
@@ -270,7 +272,7 @@ int main(int argc, char* argv[])
                     }
 
                     
-                    double lenClosestPoint = Vector3::Dot(oc, rd);  //расстояние от начала луча до ближайшей к центру сферы точки
+                    double lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
 
                     // ray starts outside this sphere
                     // todo
