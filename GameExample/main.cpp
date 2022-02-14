@@ -268,6 +268,7 @@ int main(int argc, char* argv[])
 
                 Vector4 test(0, r_sphere, 0, w_sphere);
                 std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
+                //std::cout <<
 
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
