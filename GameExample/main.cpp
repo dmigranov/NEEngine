@@ -314,7 +314,11 @@ int main(int argc, char* argv[])
                     */
                     double t = RayTraceSpherePos(pTransform, rayStart, direction, view, r_projected_sq);
                     if (t < 0)
-                        continue;
+                    {
+                        t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
+                        if (t < 0)
+                            continue;
+                    }
 
                     if (t < minDist) {
                         minDist = t;
