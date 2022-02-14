@@ -273,6 +273,10 @@ int main(int argc, char* argv[])
                 std::cout << projected.x << " " << projected.y << " " << projected.z << " " << projected.w << std::endl;
                 std::cout << r_projected << std::endl << std::endl;
                 //std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
+                
+                //todo: идея: при проецировании использовать вместо view - произведение view на матрицу, передвигающую её (прямо - просто движение по z) к объекту
+                //это решит проблему нулевого w
+
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
                 Vector3 rayStart(0.f, 0.f, 0.f);
