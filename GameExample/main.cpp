@@ -256,14 +256,15 @@ int main(int argc, char* argv[])
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
 
-                    //проверка того, что внутри сферы
                     //позиция - всегда (0, 0, 0)
                     //направление - всегда (0, 0, 1)
 
                     double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
+                   
+                    // inside this sphere
                     if (lenToCenterOfSphere_sq < r_projected_sq)
                     {
-                        std::cout << "inside" << std::endl;
+                        continue;
                     }
 
  
