@@ -248,13 +248,13 @@ int main(int argc, char* argv[])
                     auto pos_w = pos.w;
                     auto posProj = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
 
+                    //радиус сферы в еввклидовмо пространстве: 
+
                     if (i == sphereCount - 1)
                     {
                         std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
                     }
                 }
-
-              
 
             }
 
