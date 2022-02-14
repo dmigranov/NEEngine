@@ -237,7 +237,7 @@ int main(int argc, char* argv[])
             {
                 std::cout << "here" << std::endl;
 
-                auto cameraPos = nullptr;
+                //camera pos - пусть будет всегда (0, 0, 0, R) -> (0, 0, 0, 1)
 
                 for (int i = 0; i < sphereCount; i++)
                 {
