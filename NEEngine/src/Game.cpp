@@ -270,7 +270,7 @@ void Game::Tick()
 }
 
 // Properties
-void Game::GetDefaultSize(int& width, int& height)
+void Game::GetWindowSize(int& width, int& height)
 {
     // Change to desired default window size (note minimum size is 320x200).
     width = m_outputWidth;

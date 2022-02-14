@@ -33,6 +33,7 @@ public:
     void SetBackgroundColor(DirectX::XMVECTORF32);
 
     RECT GetGameWindowRect();
+    void GetWindowSize(int& width, int& height);
 
     ID3D11Device* const GetDevice();
     ID3D11DeviceContext* const GetDeviceContext();
@@ -81,8 +82,7 @@ private:
 
     // Basic game loop
     void Tick();
-    // Properties
-    void GetDefaultSize(int& width, int& height);
+
     // Messages
     void OnWindowSizeChanged(int width, int height);
 

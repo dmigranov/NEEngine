@@ -83,7 +83,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
 
         // Create window
         int w, h;
-        GetDefaultSize(w, h);
+        GetWindowSize(w, h);
 
         RECT rc = { 0, 0, static_cast<LONG>(w), static_cast<LONG>(h) };
         
