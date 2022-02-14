@@ -5,7 +5,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-double RayTraceSphere(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
+double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
     auto pos_world = pTransform->GetSphericalPosition();
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto pos_w = pos.w;
