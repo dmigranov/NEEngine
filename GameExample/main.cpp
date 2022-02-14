@@ -279,6 +279,7 @@ int main(int argc, char* argv[])
                         continue; //ray doesn't intersect
                     }
 
+                    double thc_sq = pow(radius, 2) - (lenToCenterOfSphere_sq - lenClosestPoint * lenClosestPoint);
  
                     if (i == sphereCount - 1)
                     {
