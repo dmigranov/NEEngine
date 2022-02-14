@@ -237,6 +237,8 @@ int main(int argc, char* argv[])
             {
                 std::cout << "here" << std::endl;
 
+                auto cameraPos = nullptr;
+
                 for (int i = 0; i < sphereCount; i++)
                 {
                     Entity* sphere = entities[i];
