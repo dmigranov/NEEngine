@@ -246,6 +246,9 @@ int main(int argc, char* argv[])
                 auto r_projected = r_sphere / w_sphere;
                 auto r_projected_sq = r_projected * r_projected;
 
+                // position - always (0, 0, 0)
+                // direction - always (0, 0, 1)
+                Vector3 rayStart(0.f, 0.f, 0.f);
 
                 for (int i = 0; i < sphereCount; i++)
                 {
@@ -256,9 +259,6 @@ int main(int argc, char* argv[])
                     auto pos_w = pos.w;
                     auto posProj_4D = Vector4(pos.x/pos_w, pos.y/pos_w, pos.z/pos_w, 1.f);
                     auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
-
-                    // position - always (0, 0, 0)
-                    // direction - always (0, 0, 1)
 
                     Vector3 centerToBeginning;
                     double lenToCenterOfSphere_sq = pow(posProj.x, 2) + pow(posProj.y, 2) + pow(posProj.z, 2);
