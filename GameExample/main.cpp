@@ -274,8 +274,11 @@ int main(int argc, char* argv[])
                     // ray starts outside this sphere
                     float lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
 
-                    if (lenClosestPoint < 0 && i == sphereCount - 1)
-                        std::cout << "nope!" << std::endl;
+                    if (lenClosestPoint < 0)
+                    {
+                        continue; //ray doesn't intersect
+                    }
+
  
                     if (i == sphereCount - 1)
                     {
