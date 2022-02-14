@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100;
+    int sphereCount = 1;
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity * [sphereCount];
     for (int i = 0; i < sphereCount - 1; i++)
@@ -276,6 +276,7 @@ int main(int argc, char* argv[])
 
                     if (lenClosestPoint < 0)
                     {
+                        //std::cout << 
                         continue; //ray doesn't intersect
                     }
 
@@ -286,11 +287,13 @@ int main(int argc, char* argv[])
                     }
 
                     double thc = sqrt(thc_sq);
+                    double t = lenClosestPoint - thc;
  
                     if (i == sphereCount - 1)
                     {
                         //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
                         //std::cout << r_projected << std::endl;
+                        std::cout << t << std::endl;
                     }
                 }
 
