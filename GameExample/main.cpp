@@ -157,7 +157,7 @@ int main(int argc, char* argv[])
         std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
-        ss << "X: " << std::endl;
+        ss << "Hello" << std::endl;
 
         return ss.str();
 
@@ -225,6 +225,8 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             renderSystem->SetRadius(radius);
 
+            //TODO: когда перехожу через антиподальную точку, эффект Допплера начинает слабо сказываться!
+            //что-то с вычислением расстояния? !!!
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
