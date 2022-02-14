@@ -293,13 +293,11 @@ int main(int argc, char* argv[])
                         minIndex = i;
                     }
 
-                    /*
-                    if (i == sphereCount - 1)
-                    {
-                        //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
-                        std::cout << t << std::endl;
-                    }
-                    */
+                    //todo: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
+                    //вариант 1: раздвоить сферу
+                    //вариант 2: ещё проекция?
+
+                    std::cout << minIndex << std::endl;
                 }
 
             }
