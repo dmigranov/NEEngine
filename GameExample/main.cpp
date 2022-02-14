@@ -239,7 +239,7 @@ int main(int argc, char* argv[])
 
                 //camera pos - пусть будет всегда (0, 0, 0, R) -> (0, 0, 0, 1)
                 //и направление всегда одно: (0, 0, 1)
-                auto view = cameraTransform->GetView();
+                const auto& view = cameraTransform->GetView();
 
                 for (int i = 0; i < sphereCount; i++)
                 {
