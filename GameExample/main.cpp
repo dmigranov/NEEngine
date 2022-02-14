@@ -299,7 +299,7 @@ int main(int argc, char* argv[])
                     
                 }
                 currentSphereNumber = minIndex;
-                std::cout << minDist << std::endl;
+                //std::cout << minDist << std::endl;
             }
         }));
 
