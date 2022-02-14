@@ -255,7 +255,7 @@ int main(int argc, char* argv[])
                     auto r_projected = r_sphere / w_sphere;
                     if (i == sphereCount - 1)
                     {
-                        //std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
+                        std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
                         std::cout << r_projected << std::endl;
                     }
                 }
