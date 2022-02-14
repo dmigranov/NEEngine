@@ -8,9 +8,14 @@ using namespace DirectX::SimpleMath;
 double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, double r_projected_sq) {
     auto pos_world = pTransform->GetSphericalPosition();
     auto pos = Vector4::Transform(pos_world, view); //pos_view
-    auto pos_w = pos.w;
-    auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);
-    auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
+    //auto pos_w = pos.w;
+    //auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);
+    //auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
+
+    auto posProj_4D = Vector4::Transform(pos, proj);
+    posProj_4D = posProj_4D / posProj_4D.w;
+    auto posProj = Vector3(posProj_4D.x, posProj_4D.y, posProj_4D.z);
+    std::cout << posProj_4D.x << std::endl;
 
     Vector3 centerToBeginning = posProj - rayStart; // rayStart = 0, so centerToBeginning = posProj
     double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);

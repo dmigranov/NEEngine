@@ -259,7 +259,7 @@ int main(int argc, char* argv[])
             
             {
                 const auto& view = cameraTransform->GetView();
-                const auto& proj = cameraComponent->GetProj();
+                const Matrix& proj = cameraComponent->GetFrontSphericalProj();
 
 
 
@@ -288,8 +288,8 @@ int main(int argc, char* argv[])
                     double t = RayTraceSpherePos(pTransform, rayStart, direction, view, proj, r_projected_sq);
                     if (t < 0)
                     {
-                        t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
-                        if (t < 0)
+                        //t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
+                        //if (t < 0)
                             continue;
                     }
 
