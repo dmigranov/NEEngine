@@ -304,6 +304,11 @@ int main(int argc, char* argv[])
                 }
                 currentSphereNumber = minIndex;
                 //std::cout << minDist << std::endl;
+
+                if (ms.rightButton)
+                {
+                    //todo
+                }
             }
         }));
 
