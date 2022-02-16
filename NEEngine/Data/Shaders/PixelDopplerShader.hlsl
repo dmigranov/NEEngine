@@ -8,6 +8,11 @@ cbuffer PerApplication : register(b0)
 	double velocity_coeff;
 }
 
+cbuffer PerObject : register(b1)
+{
+	int ff;
+}
+
 struct PixelShaderInput
 {
 	float2 tex : TEXCOORD0;

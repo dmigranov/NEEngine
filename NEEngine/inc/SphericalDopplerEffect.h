@@ -13,7 +13,10 @@ public:
 
     struct PerObjectPSConstantBuffer
     {
-        short isSelected = 0;
+        int isSelected = 0;
+        int pad1;
+        int pad2;
+        int pad3;
     };
 
     struct PerApplicationVSConstantBufferDoppler
