@@ -315,13 +315,9 @@ int main(int argc, char* argv[])
                     auto selectedEntity = entities[currentSphereNumber];
                     auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                     if (ms.rightButton)
-                    {
                         dopplerComponent->SetSelected(true);
-                    }
                     else if (kbs.Space)
-                    {
                         dopplerComponent->SetSelected(false);
-                    }
                 }
 
             }
