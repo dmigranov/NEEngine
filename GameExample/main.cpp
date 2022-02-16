@@ -5,6 +5,7 @@
 #include "InputSystem.h"
 #include "TextPrintingSystem.h"
 #include "TextComponent.h"
+#include "DopplerComponent.h"
 #include "RandomSphericalGenerator.h"
 
 using namespace DirectX;
@@ -36,6 +37,8 @@ int main(int argc, char* argv[])
         componentTypeManager->RegisterComponentType<SphericalRenderingComponent>();
 
         componentTypeManager->RegisterComponentType<TextComponent>();
+
+        componentTypeManager->RegisterComponentType<DopplerComponent>();
 
         componentTypeManager->RegisterComponentType<UpdaterComponent>();
 
