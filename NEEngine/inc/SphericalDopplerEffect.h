@@ -7,12 +7,12 @@ public:
     struct PerApplicationPSConstantBufferDoppler 
     {
         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;
+        DirectX::XMVECTORF32 selectionColor = DirectX::Colors::GhostWhite;
         double velocity_coeff = 50000000.; //0
     };
 
     struct PerObjectPSConstantBuffer
     {
-        DirectX::XMVECTORF32 selectionColor = DirectX::Colors::GhostWhite;
         bool isSelected = false;
     };
 
