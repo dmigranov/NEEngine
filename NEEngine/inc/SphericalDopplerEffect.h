@@ -49,5 +49,8 @@ private:
     PerObjectPSConstantBuffer               perObjectPSConstantBuffer;
     PerApplicationVSConstantBufferDoppler   perApplicationVSConstantBufferDoppler;
 
+
+    ID3D11Buffer* g_d3dPerObjectPSConstantBuffer = nullptr;
+
     static double m_radius_old;// = 1.;
 };
