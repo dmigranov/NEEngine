@@ -111,10 +111,11 @@ int main(int argc, char* argv[])
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
 
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
-
+        auto dopplerComponent = new DopplerComponent();
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
         entity->AddComponent<SphericalRenderingComponent>(sphericalRenderingComponent);
+        entity->AddComponent<DopplerComponent>(dopplerComponent);
         entity->AddComponent<MeshComponent>(smc);
         //entity->AddComponent<MeshComponent>(pointComp);
 
@@ -124,10 +125,13 @@ int main(int argc, char* argv[])
 
     auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
     auto sphRenderingComponent = new SphericalRenderingComponent();
+    auto dopplerComponent = new DopplerComponent();
     auto entity = new Entity();
+
     entity->AddComponent<SphericalTransformComponent>(transformComponent);
     entity->AddComponent<MeshComponent>(earth_mc);
     entity->AddComponent<SphericalRenderingComponent>(sphRenderingComponent);
+    entity->AddComponent<DopplerComponent>(dopplerComponent);
 
     scene->AddEntity(entity);
     entities[sphereCount - 1] = entity;
