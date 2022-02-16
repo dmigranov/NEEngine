@@ -12,7 +12,8 @@ public:
 
     struct PerObjectPSConstantBuffer
     {
-
+        DirectX::XMVECTORF32 selectionColor = DirectX::Colors::GhostWhite;
+        bool isSelected = false;
     };
 
     struct PerApplicationVSConstantBufferDoppler
