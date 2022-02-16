@@ -100,9 +100,10 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
 	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
-	//if (instanceID == 1)
-	//	distanceCenter += 3.14159265 * radius;	//я не прибавляю к расстоянию pi, так как
-	//при вычислении разницы это pi устранится, и формула ниже примет вид, как внизу
+	if (instanceID == 1)
+		distanceCenter = 3.14159265 * radius - distanceCenter;
+		//distanceCenter += 3.14159265 * radius;	
+	//казалось бы, при вычислении разницы это pi устранится, и формула ниже примет вид, как внизу
 	//lnew - lold = lnew' + pi - lold' - pi = lnew' - lold' = lnew' (1 - rold/rnew)
 	//lnew', lold' - без прибавления pi.
 
