@@ -10,7 +10,7 @@ cbuffer PerApplication : register(b0)
 
 cbuffer PerObject : register(b1)
 {
-	int ff;
+	int isSelected;
 }
 
 struct PixelShaderInput
