@@ -310,14 +310,16 @@ int main(int argc, char* argv[])
                     
                 }
                 currentSphereNumber = minIndex;
-                //std::cout << minDist << std::endl;
-
-                if (ms.rightButton && !ms.leftButton)
+                if (minIndex >= 0)
                 {
-                    auto selectedEntity = entities[currentSphereNumber];
-                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
-                    dopplerComponent->SetSelected(true);
+                    if (ms.rightButton)
+                    {
+                        auto selectedEntity = entities[currentSphereNumber];
+                        auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                        dopplerComponent->SetSelected(true);
+                    }
                 }
+
             }
         }));
 
