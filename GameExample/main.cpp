@@ -293,18 +293,13 @@ int main(int argc, char* argv[])
                         continue;
                         //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
                         //if (t < 0)
-                        //    continue;
+                        //    continue; //todo: чтобы во всех четвертях работало
                     }
 
                     if (t < minDist) {
                         minDist = t;
                         minIndex = i;
                     }
-                    
-
-
-                    //TODO: сделать так, чтобы работало во всех четвертях сферы, а не только двух.
-                    //вариант: ещё проекция-другому? (c отрицательным w!)
                     
                 }
                 currentSphereNumber = minIndex;
