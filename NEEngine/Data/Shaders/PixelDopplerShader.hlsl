@@ -4,6 +4,7 @@ SamplerState SampleType;
 cbuffer PerApplication : register(b0)
 {
 	float4 fogColor;
+	float4 selectionColor;
 	double velocity_coeff;
 }
 
