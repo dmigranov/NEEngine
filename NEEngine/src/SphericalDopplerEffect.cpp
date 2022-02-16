@@ -64,6 +64,8 @@ bool SphericalDopplerEffect::Initialize()
 void SphericalDopplerEffect::Deinitialize()
 {
 	SphericalExpFogEffect::Deinitialize();
+
+	SafeRelease(g_d3dPerObjectPSConstantBuffer);
 }
 
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
