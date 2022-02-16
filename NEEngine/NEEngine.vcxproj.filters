@@ -276,6 +276,9 @@
     <ClCompile Include="src\SphericalRenderingComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\DopplerComponent.cpp">
+      <Filter>Исходные файлы\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -471,6 +474,9 @@
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\TextComponent.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DopplerComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
