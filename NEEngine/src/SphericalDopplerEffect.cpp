@@ -7,6 +7,7 @@
 
 #include "SphericalTransformComponent.h"
 #include "SphericalCameraComponent.h"
+#include "DopplerComponent.h"
 #include "Entity.h"
 
 #include "Game.h"
@@ -87,7 +88,12 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
-	//todo
+	auto pDoppler = pEntity->GetComponent<DopplerComponent>();
+	if (pDoppler != nullptr && pDoppler->IsSelected())
+		perObjectPSConstantBuffer.isSelected = 1;
+	else
+		perObjectPSConstantBuffer.isSelected = 0;
+
 	game.UpdateSubresource(g_d3dPerObjectPSConstantBuffer, &perObjectPSConstantBuffer);
 	game.PSSetConstantBuffers(1, 1, &g_d3dPerObjectPSConstantBuffer);
 
