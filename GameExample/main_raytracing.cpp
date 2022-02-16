@@ -8,6 +8,10 @@ using namespace DirectX::SimpleMath;
 double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
+
+    if (pos.z < 0)
+        return -1;
+
     auto pos_w = pos.w;
     auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);
     auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
