@@ -312,11 +312,15 @@ int main(int argc, char* argv[])
                 currentSphereNumber = minIndex;
                 if (minIndex >= 0)
                 {
+                    auto selectedEntity = entities[currentSphereNumber];
+                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                     if (ms.rightButton)
                     {
-                        auto selectedEntity = entities[currentSphereNumber];
-                        auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                         dopplerComponent->SetSelected(true);
+                    }
+                    else if (kbs.Space)
+                    {
+                        dopplerComponent->SetSelected(false);
                     }
                 }
 
