@@ -10,6 +10,11 @@ public:
         double velocity_coeff = 50000000.; //0
     };
 
+    struct PerObjectPSConstantBuffer
+    {
+
+    };
+
     struct PerApplicationVSConstantBufferDoppler
     {
         DirectX::XMMATRIX projFront;

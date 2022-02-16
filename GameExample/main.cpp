@@ -317,7 +317,6 @@ int main(int argc, char* argv[])
                     auto selectedEntity = entities[currentSphereNumber];
                     auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                     dopplerComponent->SetSelected(true);
-                    std::cout << "here!" << std::endl;
                 }
             }
         }));
