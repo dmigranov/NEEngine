@@ -314,7 +314,9 @@ int main(int argc, char* argv[])
 
                 if (ms.rightButton)
                 {
-                    //todo
+                    auto selectedEntity = entities[currentSphereNumber];
+                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                    dopplerComponent->SetSelected(true);
                 }
             }
         }));
