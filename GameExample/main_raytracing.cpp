@@ -14,6 +14,7 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
 
     Vector3 centerToBeginning = posProj - rayStart; // rayStart = 0, so centerToBeginning = posProj
     double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);
+    
     // inside this sphere
     if (lenToCenterOfSphere_sq < r_projected_sq)
     {
@@ -24,7 +25,7 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
     float lenClosestPoint = centerToBeginning.Dot(direction);  //расстояние от начала луча до ближайшей к центру сферы точки луча
     if (lenClosestPoint < 0)
     {
-        //return -1; //ray doesn't intersect
+        return -1; //ray doesn't intersect
     }
 
     //todo: посмотреть заново радиус
