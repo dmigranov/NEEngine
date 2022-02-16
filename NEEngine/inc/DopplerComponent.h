@@ -8,4 +8,3 @@ public:
 private:
     bool m_isSelected = false;
 };
-
