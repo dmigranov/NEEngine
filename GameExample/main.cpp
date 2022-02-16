@@ -259,8 +259,6 @@ int main(int argc, char* argv[])
             
             {
                 const auto& view = cameraTransform->GetView();  
-                const Matrix& proj = cameraComponent->GetProj();
-
 
                 //radius of spheres in the Euclidean space, after projection
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
@@ -268,14 +266,12 @@ int main(int argc, char* argv[])
                 auto r_projected = r_sphere / w_sphere;
                 auto r_projected_sq = r_projected * r_projected;
 
-                Vector4 test(0, 0, r_sphere, w_sphere);
-                Vector4 projected = Vector4::Transform(test, proj);
-                std::cout << projected.x << " " << projected.y << " " << projected.z << " " << projected.w << std::endl;
-                std::cout << r_projected << std::endl << std::endl;
+                //std::cout << r_projected << std::endl << std::endl;
                 //std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
                 
-                //todo: идея: при проецировании использовать вместо view - произведение view на матрицу, передвигающую её (прямо - просто движение по z) к объекту
-                //это решит проблему нулевого w
+                // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, 
+                // передвигающую её (прямо - просто движение по z) к объекту
+                // это решит проблему нулевого w
 
                 // position - always (0, 0, 0)
                 // direction - always (0, 0, 1)
