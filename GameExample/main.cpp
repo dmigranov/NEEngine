@@ -262,7 +262,6 @@ int main(int argc, char* argv[])
                 UpdateFriedmannWindow(mu);
                 frameTime = 0;
             }
-
             
             {
                 const auto& view = cameraTransform->GetView();  
@@ -273,9 +272,6 @@ int main(int argc, char* argv[])
                 auto r_projected = r_sphere / w_sphere;
                 auto r_projected_sq = r_projected * r_projected;
 
-                //std::cout << r_projected << std::endl << std::endl;
-                //std::cout << SphericalDistance(test, Vector4(0,0,0,radius), 1) << std::endl; //расстояние остается 0.1. Хорошо!
-                
                 // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, 
                 // передвигающую её (прямо - просто движение по z) к объекту
                 // это решит проблему нулевого w
@@ -309,6 +305,7 @@ int main(int argc, char* argv[])
                     }
                     
                 }
+
                 currentSphereNumber = minIndex;
                 if (minIndex >= 0)
                 {
@@ -319,7 +316,6 @@ int main(int argc, char* argv[])
                     else if (kbs.Space)
                         dopplerComponent->SetSelected(false);
                 }
-
             }
         }));
 
