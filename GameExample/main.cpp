@@ -285,13 +285,15 @@ int main(int argc, char* argv[])
                 {
                     Entity* sphere = entities[i];
                     auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                    auto sphericalPosition = pTransform->GetSphericalPosition();
 
                     double t = RayTraceSpherePos(pTransform, rayStart, direction, view, r_projected_sq);
                     if (t < 0)
                     {
+                        continue;
                         //t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
                         //if (t < 0)
-                            continue;
+                        //    continue;
                     }
 
                     if (t < minDist) {
