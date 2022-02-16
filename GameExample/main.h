@@ -11,8 +11,8 @@ void DrawFriedmann(HDC hdc);
 void UpdateFriedmannWindow(double time);
 void DrawFriedmannPoint(HDC hdc);
 
-double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq);
-double RayTraceSphereNeg(SphericalTransformComponent* pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq);
+double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq);
+double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq);
 
 
 const int friedmann_w = 300, friedmann_h = 90;

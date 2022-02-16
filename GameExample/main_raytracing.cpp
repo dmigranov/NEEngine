@@ -5,8 +5,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
-    auto pos_world = pTransform->GetSphericalPosition();
+double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
+    auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto pos_w = pos.w;
     auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);
@@ -42,8 +42,8 @@ double RayTraceSpherePos(SphericalTransformComponent * pTransform, DirectX::Simp
 }
 
 
-double RayTraceSphereNeg(SphericalTransformComponent* pTransform, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
-    auto pos_world = pTransform->GetSphericalPosition();
+double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq) {
+    auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto pos_w = -pos.w;
     auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);

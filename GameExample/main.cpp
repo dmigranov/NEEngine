@@ -287,11 +287,11 @@ int main(int argc, char* argv[])
                     auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                     auto sphericalPosition = pTransform->GetSphericalPosition();
 
-                    double t = RayTraceSpherePos(pTransform, rayStart, direction, view, r_projected_sq);
+                    double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
                     if (t < 0)
                     {
                         continue;
-                        //t = RayTraceSphereNeg(pTransform, rayStart, direction, view, r_projected_sq);
+                        //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
                         //if (t < 0)
                         //    continue;
                     }
