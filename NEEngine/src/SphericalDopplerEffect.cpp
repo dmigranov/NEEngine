@@ -58,7 +58,6 @@ bool SphericalDopplerEffect::Initialize()
 	g_d3dPerObjectPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
 	game.UpdateSubresource(g_d3dPerObjectPSConstantBuffer, &perObjectPSConstantBuffer);
 
-
 	return true;
 }
 
