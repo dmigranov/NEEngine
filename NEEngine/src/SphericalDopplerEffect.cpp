@@ -53,6 +53,12 @@ bool SphericalDopplerEffect::Initialize()
 	g_d3dVSConstantBuffers[CB_Application] = game.CreateBuffer(constantBufferDesc);
 	game.UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], &perApplicationVSConstantBufferDoppler);
 
+	constantBufferDesc.ByteWidth = sizeof(PerObjectPSConstantBuffer);
+	SafeRelease(g_d3dPerObjectPSConstantBuffer);
+	g_d3dPerObjectPSConstantBuffer = game.CreateBuffer(constantBufferDesc);
+	game.UpdateSubresource(g_d3dPerObjectPSConstantBuffer, &perObjectPSConstantBuffer);
+
+
 	return true;
 }
 
