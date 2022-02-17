@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
         entities[i] = entity;
     }
 
-    auto transformComponent = new SphericalTransformComponent(0, 0, 0.5);
+    auto transformComponent = new SphericalTransformComponent(0, 0, 1);
     auto sphRenderingComponent = new SphericalRenderingComponent();
     auto dopplerComponent = new DopplerComponent();
     auto entity = new Entity();
