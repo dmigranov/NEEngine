@@ -41,6 +41,8 @@ public:
     void SetVelocityCoefficient(double velocity);
     double GetVelocityCoefficient();
 
+    void StopSimulation();
+
     //virtual void SetRadius(double radius) override;
 
     virtual void SetFogColor(DirectX::XMVECTORF32 fogColor) override;

@@ -115,6 +115,10 @@ double SphericalDopplerEffect::GetVelocityCoefficient()
 	return perApplicationPSConstantBuffer.velocity_coeff;
 }
 
+void SphericalDopplerEffect::StopSimulation()
+{
+}
+
 /*
 void SphericalDopplerEffect::SetRadius(double radius)
 {
