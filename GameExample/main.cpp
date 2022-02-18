@@ -239,9 +239,6 @@ int main(int argc, char* argv[])
             auto radius_old_eff = SphericalDopplerEffect::GetOldRadius();
             std::cout << radius_old_eff << " " << radius_eff << std::endl; 
 
-            //TODO: когда перехожу через антиподальную точку, эффект Допплера начинает слабо сказываться!
-            //что-то с вычислением расстояния? !!!
-
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
