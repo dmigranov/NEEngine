@@ -235,8 +235,6 @@ int main(int argc, char* argv[])
 
             auto cameraPos = cameraTransform->GetSphericalPosition();
             renderSystem->SetRadius(radius);
-            auto radius_eff = SphericalDopplerEffect::GetRadius();
-            auto radius_old_eff = SphericalDopplerEffect::GetOldRadius();
 
             for (int i = 0; i < sphereCount; i++)
             {
