@@ -92,7 +92,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
 	if (m_IsSimulationRunning)
 	{
-		perApplicationVSConstantBufferDoppler.deltaTime = abs(deltaTime);
+		perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
 		perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
 	}
