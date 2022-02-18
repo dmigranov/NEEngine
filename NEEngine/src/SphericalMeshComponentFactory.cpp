@@ -140,6 +140,7 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
 
     size_t stride = horizontalSegments + 1;
 
+    /*
     size_t i;
     i = 2;
    for (size_t j = 1; j <= horizontalSegments - 1; j++)
@@ -159,10 +160,9 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         indices.push_back(imulstr + j);
         indices.push_back(imulstr + (j + 1));
     }
-    
-    
-    //for (size_t i = 0; i < verticalSegments; i++)
-    for (size_t i = 1; i < verticalSegments - 1; i++)
+    */
+    //for (size_t i = 1; i < verticalSegments - 1; i++)
+    for (size_t i = 0; i < verticalSegments; i++)
     {
         for (size_t j = 0; j <= horizontalSegments; j++)
         {
