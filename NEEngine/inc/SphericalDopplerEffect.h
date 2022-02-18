@@ -38,8 +38,8 @@ public:
 
     virtual void Clean() override;
 
-    void SetVelocity(double velocity);
-    double GetVelocity();
+    void SetVelocityCoefficient(double velocity);
+    double GetVelocityCoefficient();
 
     //virtual void SetRadius(double radius) override;
 

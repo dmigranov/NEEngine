@@ -104,13 +104,13 @@ void SphericalDopplerEffect::Clean()
 	//not really neccessary but maybe set shaders to nullptr
 }
 
-void SphericalDopplerEffect::SetVelocity(double velocity)
+void SphericalDopplerEffect::SetVelocityCoefficient(double velocity)
 {
 	perApplicationPSConstantBuffer.velocity_coeff = velocity;
 	game.UpdateSubresource(g_d3dPSConstantBuffer, &perApplicationPSConstantBuffer);
 }
 
-double SphericalDopplerEffect::GetVelocity()
+double SphericalDopplerEffect::GetVelocityCoefficient()
 {
 	return perApplicationPSConstantBuffer.velocity_coeff;
 }

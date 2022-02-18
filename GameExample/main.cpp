@@ -207,13 +207,13 @@ int main(int argc, char* argv[])
 
             if (kbs.M)
             {
-                effect->SetVelocity(effect->GetVelocity() + 100000);
-                effectEarth->SetVelocity(effect->GetVelocity() + 100000);
+                effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
+                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
             }
             else if (kbs.N)
             {
-                effect->SetVelocity(effect->GetVelocity() - 100000);
-                effectEarth->SetVelocity(effect->GetVelocity() - 100000);
+                effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
+                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
 
             double mu = time / 3.;
