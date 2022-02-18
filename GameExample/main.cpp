@@ -237,7 +237,7 @@ int main(int argc, char* argv[])
             renderSystem->SetRadius(radius);
             auto radius_eff = SphericalDopplerEffect::GetRadius();
             auto radius_old_eff = SphericalDopplerEffect::GetRadius();
-            std::cout << radius_old_eff << " " << radius_eff << std::endl;
+            std::cout << radius_old_eff << " " << radius_eff << std::endl; 
 
             //TODO: когда перехожу через антиподальную точку, эффект Допплера начинает слабо сказываться!
             //что-то с вычислением расстояния? !!!
