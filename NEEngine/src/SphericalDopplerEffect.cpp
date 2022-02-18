@@ -127,6 +127,11 @@ void SphericalDopplerEffect::StopSimulation()
 
 }
 
+double SphericalDopplerEffect::GetOldRadius()
+{
+	return m_radius_old;
+}
+
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
 	perApplicationPSConstantBuffer.fogColor = fogColor;

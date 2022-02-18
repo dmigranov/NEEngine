@@ -235,7 +235,7 @@ int main(int argc, char* argv[])
 
             auto cameraPos = cameraTransform->GetSphericalPosition();
             renderSystem->SetRadius(radius);
-            SphericalDopplerEffect::GetRadius();
+            auto radius = SphericalDopplerEffect::GetRadius();
 
             //TODO: когда перехожу через антиподальную точку, эффект Допплера начинает слабо сказываться!
             //что-то с вычислением расстояния? !!!

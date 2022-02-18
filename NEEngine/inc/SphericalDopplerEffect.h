@@ -42,6 +42,7 @@ public:
     double GetVelocityCoefficient();
 
     static void StopSimulation();
+    static double GetOldRadius();
 
     //virtual void SetRadius(double radius) override;
 
