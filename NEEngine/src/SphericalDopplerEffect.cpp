@@ -117,18 +117,8 @@ double SphericalDopplerEffect::GetVelocityCoefficient()
 
 void SphericalDopplerEffect::StopSimulation()
 {
-}
 
-/*
-void SphericalDopplerEffect::SetRadius(double radius)
-{
-	//todo: разобратьс€ со старым и новым радиусом. ¬озможно, метод StopRadiusChange - тогда приравниваем старый и новый
-	
-	if(m_radius != radius)
-		m_radius_old = m_radius;
-	m_radius = radius;
 }
-*/
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
 {
