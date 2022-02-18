@@ -41,7 +41,7 @@ public:
     void SetVelocityCoefficient(double velocity);
     double GetVelocityCoefficient();
 
-    void StopSimulation();
+    static void StopSimulation();
 
     //virtual void SetRadius(double radius) override;
 
@@ -58,4 +58,5 @@ private:
     ID3D11Buffer* g_d3dPerObjectPSConstantBuffer = nullptr;
 
     static double m_radius_old;// = 1.;
+    static bool m_IsSimulationRunning = true;
 };
