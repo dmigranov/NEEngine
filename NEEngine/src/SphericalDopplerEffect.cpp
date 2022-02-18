@@ -73,7 +73,7 @@ void SphericalDopplerEffect::Deinitialize()
 
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
-	if (m_radius_set)
+	if (m_radius_set && m_IsSimulationRunning)
 	{
 		m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
 		m_radius_set = false;
