@@ -82,7 +82,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 		}
 
 	}
-	std::cout << m_radius_old << " " << m_radius << std::endl;
+	//std::cout << m_radius_old << " " << m_radius << std::endl;
 
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 
