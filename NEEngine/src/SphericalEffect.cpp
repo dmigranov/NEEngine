@@ -16,3 +16,8 @@ void SphericalEffect::SetRadius(double radius)
 	m_radius = radius;
 	m_radius_set = true;
 }
+
+double SphericalEffect::GetRadius()
+{
+	return m_radius;
+}
