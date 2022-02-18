@@ -17,6 +17,8 @@
 #include "EllDopplerVertexShader.h"
 
 double SphericalDopplerEffect::m_radius_old = 1.;
+bool SphericalDopplerEffect::m_IsSimulationRunning = true;
+
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {
