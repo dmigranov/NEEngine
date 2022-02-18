@@ -78,12 +78,11 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 		if (m_radius != perApplicationVSConstantBufferDoppler.radius)
 		{
 			m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
-			m_radius_set = false;
 			m_IsSimulationRunning = true;
 		}
 		else
 			m_IsSimulationRunning = false;
-
+		m_radius_set = false;
 	}
 	//std::cout << m_radius_old << " " << m_radius << std::endl;
 
