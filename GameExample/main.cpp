@@ -237,7 +237,6 @@ int main(int argc, char* argv[])
             renderSystem->SetRadius(radius);
             auto radius_eff = SphericalDopplerEffect::GetRadius();
             auto radius_old_eff = SphericalDopplerEffect::GetOldRadius();
-            std::cout << radius_old_eff << " " << radius_eff << std::endl; 
 
             for (int i = 0; i < sphereCount; i++)
             {
