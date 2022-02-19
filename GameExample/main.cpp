@@ -198,11 +198,14 @@ int main(int argc, char* argv[])
             {
                 time -= deltaTime;
                 frameTime -= deltaTime;
+                SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
                 time += deltaTime;
                 frameTime += deltaTime;
+                SphericalDopplerEffect::SetBackwards(false);
+
             }
 
             if (kbs.M)
@@ -225,6 +228,7 @@ int main(int argc, char* argv[])
                 {
                     time += deltaTime;
                     frameTime += deltaTime;
+                    SphericalDopplerEffect::SetBackwards(false);
                     mu = time / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
                     radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
                                                     //и из этого как-то вытекает мерцание - todo
