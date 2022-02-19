@@ -17,8 +17,8 @@
 #include "EllDopplerVertexShader.h"
 
 double SphericalDopplerEffect::m_radius_old = 1.;
-bool SphericalDopplerEffect::m_IsSimulationRunning = true;
-bool SphericalDopplerEffect::m_IsBackwards = false;
+bool SphericalDopplerEffect::m_isSimulationRunning = true;
+bool SphericalDopplerEffect::m_isBackwards = false;
 
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
@@ -79,10 +79,10 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 		if (m_radius != perApplicationVSConstantBufferDoppler.radius)
 		{
 			m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
-			m_IsSimulationRunning = true;
+			m_isSimulationRunning = true;
 		}
 		else
-			m_IsSimulationRunning = false;
+			m_isSimulationRunning = false;
 		m_radius_set = false;
 	}
 
@@ -91,7 +91,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
-	if (m_IsSimulationRunning)
+	if (m_isSimulationRunning)
 	{
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
 		perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
