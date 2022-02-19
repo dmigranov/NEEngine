@@ -197,7 +197,7 @@ int main(int argc, char* argv[])
             if (kbs.Left)
             {
                 time -= deltaTime;
-                frameTime -= deltaTime;
+                frameTime -= deltaTime; 
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
