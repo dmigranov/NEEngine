@@ -60,4 +60,5 @@ private:
 
     static double m_radius_old;// = 1.;
     static bool m_IsSimulationRunning;
+    static bool m_IsBackwards;
 };
