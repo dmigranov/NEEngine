@@ -95,7 +95,11 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	{
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
 		perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
-		perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;	//todo: перемотка назад
+		if(!m_isBackwards)
+			perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;	
+		else
+			perApplicationVSConstantBufferDoppler.deltaTime = -deltaTime;
+
 	}
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
