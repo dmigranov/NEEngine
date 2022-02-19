@@ -42,6 +42,7 @@ public:
     double GetVelocityCoefficient();
 
     static double GetOldRadius();
+    static void SetBackwards(bool isBackwards);
 
     //virtual void SetRadius(double radius) override;
 
