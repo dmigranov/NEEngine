@@ -9,7 +9,7 @@
 FriedmannSystem::FriedmannSystem() : ActionSystem([](Entity* pEntity, double deltaTime) {
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
     auto pos = pTransform->GetSphericalPosition();
-    auto renderingComponent = sphere->GetComponent<SphericalRenderingComponent>();
+    auto renderingComponent = pEntity->GetComponent<SphericalRenderingComponent>();
     auto visibility = renderingComponent->GetSphericalVisibility();
 
     auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
