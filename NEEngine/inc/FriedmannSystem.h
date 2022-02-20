@@ -1,7 +1,7 @@
 #pragma once
-#include "System.h"
+#include "ActionSystem.h"
 class FriedmannSystem :
-    public System
+	public ActionSystem<InputComponent, TransformComponent, CameraComponent>
 {
 };
 
