@@ -9,5 +9,7 @@ class FriedmannSystem :
 {
 public:
 	FriedmannSystem(SphericalTransformComponent * pTransform);
+	virtual void Execute(double deltaTime) override;
+
 };
 
