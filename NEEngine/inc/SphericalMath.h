@@ -15,3 +15,5 @@ DirectX::SimpleMath::Matrix SphericalRotationYW(float d);
 DirectX::SimpleMath::Matrix SphericalRotationYZ(float d);
 DirectX::SimpleMath::Matrix SphericalRotationXZ(float d);
 DirectX::SimpleMath::Matrix SphericalRotationXY(float d);
+
+float SphericalDistance(DirectX::SimpleMath::Vector4 vec1, DirectX::SimpleMath::Vector4 vec2, double radius);
