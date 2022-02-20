@@ -32,6 +32,7 @@
     <ClCompile Include="src\ComponentTypeManager.cpp" />
     <ClCompile Include="src\DopplerComponent.cpp" />
     <ClCompile Include="src\EuclideanMeshComponentFactory.cpp" />
+    <ClCompile Include="src\FriedmannSystem.cpp" />
     <ClCompile Include="src\HyperbolicCameraComponent.cpp" />
     <ClCompile Include="src\HyperbolicControlSystem.cpp" />
     <ClCompile Include="src\HyperbolicExpFogEffect.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="inc\EuclideanMeshComponentFactory.h" />
     <ClInclude Include="inc\font.h" />
     <ClInclude Include="inc\FPSCounter.h" />
+    <ClInclude Include="inc\FriedmannSystem.h" />
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\Geometries\HyperbolicGeometry.h" />
     <ClInclude Include="inc\Geometries\SphericalEllipticGeometry.h" />
