@@ -11,6 +11,8 @@ using namespace DirectX::SimpleMath;
 
 
 FriedmannSystem::FriedmannSystem(SphericalTransformComponent * pTransform) : ActionSystem([pTransform](Entity* pEntity, double deltaTime) {
+    //mu - problem!
+    
     auto cameraPos = pTransform->GetSphericalPosition();
     
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
