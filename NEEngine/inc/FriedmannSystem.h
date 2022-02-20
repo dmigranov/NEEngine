@@ -5,7 +5,7 @@ class SphericalRenderingComponent;
 class SphericalTransformComponent;
 
 class FriedmannSystem :
-	public ActionSystem<SphericalTransformComponent, TransformComponent, SphericalRenderingComponent>
+	public System
 {
 public:
 	FriedmannSystem(SphericalTransformComponent * pTransform);
