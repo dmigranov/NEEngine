@@ -1,9 +1,11 @@
 #pragma once
 #include "ActionSystem.h"
 class TransformComponent;
+class SphericalRenderingComponent;
+class SphericalTransformComponent;
 
 class FriedmannSystem :
-	public ActionSystem<InputComponent, TransformComponent, CameraComponent>
+	public ActionSystem<SphericalTransformComponent, TransformComponent, SphericalRenderingComponent>
 {
 };
 
