@@ -279,9 +279,6 @@
     <ClCompile Include="src\DopplerComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
-    <ClCompile Include="src\FriedmannSystem.cpp">
-      <Filter>Исходные файлы\Systems</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -481,9 +478,6 @@
     </ClInclude>
     <ClInclude Include="inc\DopplerComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\FriedmannSystem.h">
-      <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
