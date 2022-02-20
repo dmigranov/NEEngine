@@ -7,11 +7,10 @@
 #include "TextComponent.h"
 #include "DopplerComponent.h"
 #include "RandomSphericalGenerator.h"
+#include "SphericalMath.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
-
-
 
 int main(int argc, char* argv[])
 {
