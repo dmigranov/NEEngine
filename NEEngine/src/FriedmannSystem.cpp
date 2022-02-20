@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "SphericalTransformComponent.h"
 #include "SphericalRenderingComponent.h"
+#include "SphericalMath.h"
 
 
 FriedmannSystem::FriedmannSystem() : ActionSystem([](Entity* pEntity, double deltaTime) {
