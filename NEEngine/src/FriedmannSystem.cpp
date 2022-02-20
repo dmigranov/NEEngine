@@ -6,6 +6,9 @@
 #include "SphericalRenderingComponent.h"
 #include "SphericalMath.h"
 
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
 
 FriedmannSystem::FriedmannSystem() : ActionSystem([](Entity* pEntity, double deltaTime) {
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
