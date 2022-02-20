@@ -10,7 +10,9 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 
-FriedmannSystem::FriedmannSystem(SphericalTransformComponent * pTransform) : ActionSystem([](Entity* pEntity, double deltaTime) {
+FriedmannSystem::FriedmannSystem(SphericalTransformComponent * pTransform) : ActionSystem([pTransform](Entity* pEntity, double deltaTime) {
+    auto cameraPos = pTransform->GetSphericalPosition();
+    
     auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
     auto pos = pTransform->GetSphericalPosition();
     auto renderingComponent = pEntity->GetComponent<SphericalRenderingComponent>();
