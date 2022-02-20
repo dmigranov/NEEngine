@@ -11,11 +11,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
-{
-    float chordLength = Vector4::Distance(vec1, vec2); //chord length
-    return 2 * radius * asin(chordLength / (2. * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
-}
+
 
 int main(int argc, char* argv[])
 {

@@ -108,3 +108,10 @@ Matrix SphericalRotationXY(float d)
 					0.f, 0.f, 1.f, 0.f,
 					0.f, 0.f, 0.f, 1.f);
 }
+
+float SphericalDistance(DirectX::SimpleMath::Vector4 vec1, DirectX::SimpleMath::Vector4 vec2, double radius)
+{
+
+	float chordLength = Vector4::Distance(vec1, vec2); // chord length
+	return 2 * radius * asin(chordLength / (2. * radius)); // angle is 2arcsin(L/2R), length of arc equals angle * R
+}
