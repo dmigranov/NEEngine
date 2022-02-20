@@ -17,4 +17,8 @@ FriedmannSystem::FriedmannSystem(SphericalTransformComponent* pTransform)
 
 void FriedmannSystem::Execute(double deltaTime)
 {
+	for (auto pEntity : m_entities)
+	{
+		
+	}
 }
