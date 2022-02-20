@@ -21,7 +21,3 @@
 #include "SphericalExpFogEffect.h"
 #include "SphericalExpFogPointEffect.h"
 #include "SphericalDopplerEffect.h"
-
-// Math
-
-#include "SphericalMath.h"
