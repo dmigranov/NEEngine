@@ -11,8 +11,8 @@ using namespace DirectX::SimpleMath;
 
 FriedmannSystem::FriedmannSystem(SphericalTransformComponent* pTransform)
 {
-	SubscribeToComponentType<TransformComponent>();
-	//SubscribeToComponentType<BitmapComponent>();
+	SubscribeToComponentType<SphericalTransformComponent>();
+	SubscribeToComponentType<SphericalRenderingComponent>();
 }
 
 void FriedmannSystem::Execute(double deltaTime)
