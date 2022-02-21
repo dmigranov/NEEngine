@@ -203,6 +203,8 @@ int main(int argc, char* argv[])
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
             */
+            std::cout << currentSimulationTime << std::endl;
+
             double mu = currentSimulationTime / 3.;
             double radius = 2 * (1 - cos(mu));
 
