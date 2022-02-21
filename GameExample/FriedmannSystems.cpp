@@ -42,8 +42,13 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
         });
 
 
-    *radiusVisibilitySystem = new ActionSystem<InputComponent>([sphericalEffect, timer]
+    *radiusVisibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([sphericalEffect, timer]
     (Entity* pEntity, double deltaTime) {
+            auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+            auto pos = pTransform->GetSphericalPosition();
+            auto renderingComponent = pEntity->GetComponent<SphericalRenderingComponent>();
+            auto visibility = renderingComponent->GetSphericalVisibility();
+
 
         });
 
