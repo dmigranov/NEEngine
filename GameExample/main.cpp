@@ -159,7 +159,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity2);
 
     System* controlSystem = nullptr;
-    auto timer = CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
+    auto timer = CreateFriedmannSystems(effect, &controlSystem, nullptr);
     scene->AddSystem(controlSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(

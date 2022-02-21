@@ -7,7 +7,8 @@ using namespace DirectX::SimpleMath;
 
 
 
-FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** controlSystem, System** radiusSystem, System** visibilitySystem)
+FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
+    System** controlSystem, System** radiusVisibilitySystem)
 {
     auto timer = new FriedmannTimer(2.3, 0.1);
 
