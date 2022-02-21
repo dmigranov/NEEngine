@@ -166,12 +166,11 @@ int main(int argc, char* argv[])
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
-        &currentSphereNumber, cameraComponent, timer]
+        [timer]
     (Entity* pEntity, double deltaTime) { 
             static auto isAnimation = true;
       
-            double radius = renderSystem->GetRadius();
+            double radius = SphericalEffect::GetRadius();
 
             if (isAnimation)
             {
