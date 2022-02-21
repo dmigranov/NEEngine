@@ -114,9 +114,10 @@ void FriedmannTimer::SetFrameTime(double newTime)
     m_currentFrameTime = newTime;
 }
 
-RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer)
+RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem)
 {
     m_timer = timer;
+    m_renderSystem = renderSystem;
 }
 
 void RadiusUpdateSystem::Execute(double deltaTime)
@@ -124,7 +125,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double mu = m_timer->GetMu();
     double radius = 2 * (1 - cos(mu));
 
-    renderSystem->SetRadius(radius);
+    m_renderSystem->SetRadius(radius);
 
     if (m_timer->IsTimeToRepaint())
     {
