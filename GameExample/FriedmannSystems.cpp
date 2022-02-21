@@ -11,7 +11,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 {
     auto timer = new FriedmannTimer(2.3, 0.1);
 
-    *controlSystem = new ActionSystem<InputComponent>([sphericalEffect]
+    *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer]
     (Entity* pEntity, double deltaTime) {
             
             auto pInput = pEntity->GetComponent<InputComponent>();
@@ -25,14 +25,16 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 
             if (kbs.Left)
             {
-                currentSimulationTime -= deltaTime;
-                currentFrameTime -= deltaTime;
+                //currentSimulationTime -= deltaTime;
+                //currentFrameTime -= deltaTime;
+                timer->AddDelta(-deltaTime);
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
-                currentSimulationTime += deltaTime;
-                currentFrameTime += deltaTime;
+                //currentSimulationTime += deltaTime;
+                //currentFrameTime += deltaTime;
+                timer->AddDelta(deltaTime);
                 SphericalDopplerEffect::SetBackwards(false);
             }
 
