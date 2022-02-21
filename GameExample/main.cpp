@@ -164,6 +164,7 @@ int main(int argc, char* argv[])
     System* animationSystem = nullptr;
 
     auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem);
+    
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(animationSystem);
@@ -179,9 +180,7 @@ int main(int argc, char* argv[])
             auto ms = pInput->GetMouseState();
 
             double radius = SphericalEffect::GetRadius();
-
             auto cameraPos = cameraTransform->GetSphericalPosition();
-
             const auto& view = cameraTransform->GetView();
 
             //radius of spheres in the Euclidean space, after projection
@@ -199,10 +198,9 @@ int main(int argc, char* argv[])
             // осуществляем проецирование, и проверяем близость центра до координат выбранной 
             // курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
 
-            // position - always (0, 0, 0)
-            // direction - always (0, 0, 1)
-            Vector3 rayStart(0.f, 0.f, 0.f);
-            Vector3 direction(0.f, 0.f, 1.f);
+
+            Vector3 rayStart(0.f, 0.f, 0.f);    // position - always (0, 0, 0)
+            Vector3 direction(0.f, 0.f, 1.f);   // direction - always (0, 0, 1)
 
             float minDist = 100000.;
             int minIndex = -1;
@@ -240,7 +238,6 @@ int main(int argc, char* argv[])
                     dopplerComponent->SetSelected(false);
             }
         }));
-
 
     return game.StartGame();
 }
