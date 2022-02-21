@@ -44,7 +44,14 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
         });
 }
 
-FriedmannTimer::FriedmannTimer(double initialSimulationTime)
+FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameTimeLimit)
 {
     m_currentSimulationTime = initialSimulationTime;
+    m_frameTimeLimit = frameTimeLimit;
+}
+
+void FriedmannTimer::AddDelta(double deltaTime)
+{
+    m_currentSimulationTime += deltaTime;
+    m_currentFrameTime += deltaTime;
 }
