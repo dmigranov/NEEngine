@@ -6,17 +6,18 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
 class FriedmannTimer {
 public:
-	FriedmannTimer(double initialSimulationTime, double frameTimeLimit);
+	FriedmannTimer(double initialSimulationTime, double frameTimeLimit, double muCoeff);
 	void AddDelta(double deltaTime);
 	bool IsTimeToRepaint();
 	double GetSimulationTime();
+	double GetMu();
 	double GetFrameTime();
 private:
 	void SetFrameTime(double newTime);
 
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;
-	double m_mu;
+	double m_muCoeff = 1.;
 	double m_frameTimeLimit;
 };
 

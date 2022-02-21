@@ -10,7 +10,7 @@ using namespace DirectX::SimpleMath;
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
     System** controlSystem, System** radiusVisibilitySystem)
 {
-    auto timer = new FriedmannTimer(2.3, 0.1);
+    auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
 
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer]
     (Entity* pEntity, double deltaTime) {
@@ -55,10 +55,11 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     return timer;
 }
 
-FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameTimeLimit)
+FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameTimeLimit, double muCoeff)
 {
     m_currentSimulationTime = initialSimulationTime;
     m_frameTimeLimit = frameTimeLimit;
+    m_muCoeff = muCoeff;
 }
 
 void FriedmannTimer::AddDelta(double deltaTime)
