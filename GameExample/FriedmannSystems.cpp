@@ -58,7 +58,7 @@ void FriedmannTimer::AddDelta(double deltaTime)
 
 bool FriedmannTimer::IsTimeToRepaint()
 {
-    if (m_currentFrameTime >= 0.1 || m_currentFrameTime <= -0.1)
+    if (m_currentFrameTime >= m_frameTimeLimit || m_currentFrameTime <= -m_frameTimeLimit)
     {
         m_currentFrameTime = 0;
         return true;  
