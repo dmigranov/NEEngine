@@ -158,6 +158,9 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
+    System* controlSystem = nullptr;
+    CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
+    scene->AddSystem(controlSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
@@ -306,10 +309,7 @@ int main(int argc, char* argv[])
             }
         }));
 
-    System* controlSystem = nullptr;
-    //System* controlSystem = nullptr;
 
-    CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
 
     return game.StartGame();
 }
