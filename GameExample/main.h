@@ -19,5 +19,6 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System ** c
 const int friedmann_w = 300, friedmann_h = 90;
 
 
-static double currentSimulationTime ;
-static double currentFrameTime;
+class FriedmannTimer {
+
+};
