@@ -9,6 +9,7 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
 {
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect]
     (Entity* pEntity, double deltaTime) {
+            
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();

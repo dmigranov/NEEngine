@@ -168,10 +168,11 @@ int main(int argc, char* argv[])
             //static double time = 2.3;
             static auto isAnimation = true;
 
+
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
-
+            /*
             if (kbs.D1)
                 effect->SetMode(true);
             else if (kbs.D2)
@@ -198,7 +199,7 @@ int main(int argc, char* argv[])
             {
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
-
+            */
             double mu = currentSimulationTime / 3.;
             double radius = 2 * (1 - cos(mu));
 
