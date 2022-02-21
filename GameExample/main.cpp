@@ -159,9 +159,9 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity2);
 
     System* controlSystem = nullptr;
-    System* radiusVisibilitySystem = nullptr;
+    System* visibilitySystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, &controlSystem, &radiusVisibilitySystem);
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, &controlSystem, &visibilitySystem);
     scene->AddSystem(controlSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
@@ -197,6 +197,7 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             renderSystem->SetRadius(radius);
 
+            /*
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
@@ -214,6 +215,7 @@ int main(int argc, char* argv[])
                 else //mu > (2 * XM_PI - dist)
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
             }
+            */
 
             if(timer->IsTimeToRepaint())
             {
