@@ -169,9 +169,8 @@ int main(int argc, char* argv[])
         [timer]
     (Entity* pEntity, double deltaTime) { 
             static auto isAnimation = true;
-      
-            double radius = SphericalEffect::GetRadius();
 
+            double radius = SphericalEffect::GetRadius();
             if (isAnimation)
             {
                 if (radius > 0.5)
@@ -183,6 +182,7 @@ int main(int argc, char* argv[])
                     isAnimation = false;
             }
         }));
+
         scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
         scene->AddSystem(new ActionSystem<InputComponent>(
