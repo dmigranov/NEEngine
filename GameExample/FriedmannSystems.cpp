@@ -21,13 +21,13 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
             if (kbs.Left)
             {
                 currentSimulationTime -= deltaTime;
-                // frameTime -= deltaTime;
+                currentFrameTime -= deltaTime;
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
                 currentSimulationTime += deltaTime;
-                //frameTime += deltaTime;
+                currentFrameTime += deltaTime;
                 SphericalDopplerEffect::SetBackwards(false);
             }
 
