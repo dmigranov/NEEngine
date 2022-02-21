@@ -21,7 +21,7 @@ private:
 	double m_frameTimeLimit;
 };
 
-class RadiusUpdateSystem : System {
+class RadiusUpdateSystem : public System {
 public:
 	RadiusUpdateSystem();
 	virtual void Execute(double deltaTime) override;
