@@ -168,78 +168,78 @@ int main(int argc, char* argv[])
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(animationSystem);
 
-        scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
+    scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
-        scene->AddSystem(new ActionSystem<InputComponent>(
-            [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
-            &currentSphereNumber, cameraComponent, timer]
-        (Entity* pEntity, double deltaTime) {
-                auto pInput = pEntity->GetComponent<InputComponent>();
-                auto kbs = pInput->GetKeyboardState();
-                auto ms = pInput->GetMouseState();
+    scene->AddSystem(new ActionSystem<InputComponent>(
+        [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
+        &currentSphereNumber, cameraComponent, timer]
+    (Entity* pEntity, double deltaTime) {
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
 
-                double radius = SphericalEffect::GetRadius();
+            double radius = SphericalEffect::GetRadius();
 
-                auto cameraPos = cameraTransform->GetSphericalPosition();
+            auto cameraPos = cameraTransform->GetSphericalPosition();
 
-                const auto& view = cameraTransform->GetView();
+            const auto& view = cameraTransform->GetView();
 
-                //radius of spheres in the Euclidean space, after projection
-                auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
-                auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
-                auto r_projected = r_sphere / w_sphere;
-                auto r_projected_sq = r_projected * r_projected;
+            //radius of spheres in the Euclidean space, after projection
+            auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
+            auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
+            auto r_projected = r_sphere / w_sphere;
+            auto r_projected_sq = r_projected * r_projected;
 
-                // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, 
-                // передвигающую её (прямо - просто движение по z) к объекту
-                // это решит проблему нулевого w 
+            // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, 
+            // передвигающую её (прямо - просто движение по z) к объекту
+            // это решит проблему нулевого w 
 
-                // todo: идея: также цикл по всем объектам (можно отбросить все с отрицательным z
-                // после применения view, а может, не надо - копии тоже можно выбирать)
-                // осуществляем проецирование, и проверяем близость центра до координат выбранной 
-                // курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
+            // todo: идея: также цикл по всем объектам (можно отбросить все с отрицательным z
+            // после применения view, а может, не надо - копии тоже можно выбирать)
+            // осуществляем проецирование, и проверяем близость центра до координат выбранной 
+            // курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
 
-                // position - always (0, 0, 0)
-                // direction - always (0, 0, 1)
-                Vector3 rayStart(0.f, 0.f, 0.f);
-                Vector3 direction(0.f, 0.f, 1.f);
+            // position - always (0, 0, 0)
+            // direction - always (0, 0, 1)
+            Vector3 rayStart(0.f, 0.f, 0.f);
+            Vector3 direction(0.f, 0.f, 1.f);
 
-                float minDist = 100000.;
-                int minIndex = -1;
+            float minDist = 100000.;
+            int minIndex = -1;
 
-                for (int i = 0; i < sphereCount; i++)
+            for (int i = 0; i < sphereCount; i++)
+            {
+                Entity* sphere = entities[i];
+                auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto sphericalPosition = pTransform->GetSphericalPosition();
+
+                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
+                if (t < 0)
                 {
-                    Entity* sphere = entities[i];
-                    auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
-                    auto sphericalPosition = pTransform->GetSphericalPosition();
-
-                    double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
-                    if (t < 0)
-                    {
-                        continue;
-                        //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
-                        //if (t < 0)
-                        //    continue; //todo: чтобы во всех четвертях работало
-                    }
-
-                    if (t < minDist) {
-                        minDist = t;
-                        minIndex = i;
-                    }
-
+                    continue;
+                    //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
+                    //if (t < 0)
+                    //    continue; //todo: чтобы во всех четвертях работало
                 }
 
-                currentSphereNumber = minIndex;
-                if (minIndex >= 0)
-                {
-                    auto selectedEntity = entities[currentSphereNumber];
-                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
-                    if (ms.rightButton)
-                        dopplerComponent->SetSelected(true);
-                    else if (kbs.Space)
-                        dopplerComponent->SetSelected(false);
+                if (t < minDist) {
+                    minDist = t;
+                    minIndex = i;
                 }
-            }));
+
+            }
+
+            currentSphereNumber = minIndex;
+            if (minIndex >= 0)
+            {
+                auto selectedEntity = entities[currentSphereNumber];
+                auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                if (ms.rightButton)
+                    dopplerComponent->SetSelected(true);
+                else if (kbs.Space)
+                    dopplerComponent->SetSelected(false);
+            }
+        }));
 
 
     return game.StartGame();
