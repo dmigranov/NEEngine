@@ -25,4 +25,5 @@ public:
 private:
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;
+	double m_mu;
 };

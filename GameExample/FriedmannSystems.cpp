@@ -46,4 +46,5 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
 
 FriedmannTimer::FriedmannTimer(double initialSimulationTime)
 {
+    m_currentSimulationTime = initialSimulationTime;
 }
