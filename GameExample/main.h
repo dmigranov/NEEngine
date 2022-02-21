@@ -24,6 +24,8 @@ public:
 	FriedmannTimer(double initialSimulationTime, double frameTimeLimit);
 	void AddDelta(double deltaTime);
 	bool IsTimeToRepaint();
+	double GetSimulationTime();
+	double GetFrameTime();
 private:
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;

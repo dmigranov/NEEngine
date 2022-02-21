@@ -65,3 +65,13 @@ bool FriedmannTimer::IsTimeToRepaint()
     }
     return false;
 }
+
+double FriedmannTimer::GetSimulationTime()
+{
+    return m_currentSimulationTime;
+}
+
+double FriedmannTimer::GetFrameTime()
+{
+    return m_currentFrameTime;
+}
