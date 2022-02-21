@@ -185,28 +185,14 @@ int main(int argc, char* argv[])
                 {
                     timer->AddDelta(deltaTime);
                     SphericalDopplerEffect::SetBackwards(false);
-
-                    //currentSimulationTime = timer->GetSimulationTime(); //!!!
-                    //mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
-                    double mu = timer->GetMu();
-                    radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
-                                                    //и из этого как-то вытекает мерцание - todo
                 }
                 else
                     isAnimation = false;
             }
 
-            auto cameraPos = cameraTransform->GetSphericalPosition();
-            /*
-            renderSystem->SetRadius(radius);
+            {
+                auto cameraPos = cameraTransform->GetSphericalPosition();
 
-            if(timer->IsTimeToRepaint())
-            {
-                UpdateFriedmannWindow(mu);
-            }
-            */
-            
-            {
                 const auto& view = cameraTransform->GetView();  
 
                 //radius of spheres in the Euclidean space, after projection
@@ -266,7 +252,7 @@ int main(int argc, char* argv[])
                 }
             }
         }));
-        scene->AddSystem(radiusUpdateSystem);
+        scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
 
 
