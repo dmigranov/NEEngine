@@ -170,11 +170,7 @@ int main(int argc, char* argv[])
         &currentSphereNumber, cameraComponent, timer]
     (Entity* pEntity, double deltaTime) { 
             static auto isAnimation = true;
-
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-           
+      
             double radius = renderSystem->GetRadius();
 
             if (isAnimation)
@@ -187,11 +183,22 @@ int main(int argc, char* argv[])
                 else
                     isAnimation = false;
             }
+        }));
+        scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
-            {
+        scene->AddSystem(new ActionSystem<InputComponent>(
+            [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
+            &currentSphereNumber, cameraComponent, timer]
+        (Entity* pEntity, double deltaTime) {
+                auto pInput = pEntity->GetComponent<InputComponent>();
+                auto kbs = pInput->GetKeyboardState();
+                auto ms = pInput->GetMouseState();
+
+                double radius = SphericalEffect::GetRadius();
+
                 auto cameraPos = cameraTransform->GetSphericalPosition();
 
-                const auto& view = cameraTransform->GetView();  
+                const auto& view = cameraTransform->GetView();
 
                 //radius of spheres in the Euclidean space, after projection
                 auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
@@ -235,7 +242,7 @@ int main(int argc, char* argv[])
                         minDist = t;
                         minIndex = i;
                     }
-                    
+
                 }
 
                 currentSphereNumber = minIndex;
@@ -248,12 +255,8 @@ int main(int argc, char* argv[])
                     else if (kbs.Space)
                         dopplerComponent->SetSelected(false);
                 }
-            }
-        }));
-        scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
-
+            }));
 
 
     return game.StartGame();
 }
-
