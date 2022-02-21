@@ -168,11 +168,7 @@ int main(int argc, char* argv[])
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer]
     (Entity* pEntity, double deltaTime) {
-
-            //static double frameTime = 0;
-            //static double time = 2.3;
             static auto isAnimation = true;
-
 
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
