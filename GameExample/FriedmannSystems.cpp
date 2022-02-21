@@ -10,7 +10,7 @@ using namespace DirectX::SimpleMath;
 
 
 
-FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent* cameraTransform,
+FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent* cameraTransform, SphericalRenderSystem* renderSystem,
     System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem)
 {
     auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
@@ -66,7 +66,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
         });
 
-    *radiusUpdateSystem = new RadiusUpdateSystem(timer);
+    *radiusUpdateSystem = new RadiusUpdateSystem(timer, renderSystem);
 
     return timer;
 }
