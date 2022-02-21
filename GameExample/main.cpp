@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
     Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
-    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"test_texture.dds");
+    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
     Texture* greenTexture = resourceManager->CreateTexture(L"green.dds");
 
     auto renderSystem = new SphericalRenderSystem();

@@ -20,26 +20,26 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
 
             if (kbs.Left)
             {
-                time -= deltaTime;
-                frameTime -= deltaTime;
+                //time -= deltaTime;
+               // frameTime -= deltaTime;
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
-                time += deltaTime;
-                frameTime += deltaTime;
+                //time += deltaTime;
+                //frameTime += deltaTime;
                 SphericalDopplerEffect::SetBackwards(false);
             }
 
             if (kbs.M)
             {
-                sphericalEffect->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
-                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
+                sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() + 100000);
+                //effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
             }
             else if (kbs.N)
             {
-                sphericalEffect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
-                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
+                sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
+                //effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
         });
 }
