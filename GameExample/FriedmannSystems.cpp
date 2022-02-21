@@ -121,7 +121,7 @@ RadiusUpdateSystem::RadiusUpdateSystem()
 
 void RadiusUpdateSystem::Execute(double deltaTime)
 {
-
+    std::cout << "he";
 }
 
 // На всякий случай: код без изменений (одна система на всё) - по состоянию на начало 21.02.2022

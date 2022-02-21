@@ -165,6 +165,7 @@ int main(int argc, char* argv[])
     auto timer = CreateFriedmannSystems(effect, cameraTransform, &controlSystem, &visibilitySystem, &radiusUpdateSystem);
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
+    scene->AddSystem(radiusUpdateSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
