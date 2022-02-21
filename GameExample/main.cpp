@@ -218,10 +218,10 @@ int main(int argc, char* argv[])
             }
 
             //todo: исправить   
-            if (timer->GetFrameTime() >= 0.1 || timer->GetFrameTime() <= -0.1)
+            //if (timer->GetFrameTime() >= 0.1 || timer->GetFrameTime() <= -0.1)
+            if(timer->IsTimeToRepaint())
             {
                 UpdateFriedmannWindow(mu);
-                timer->SetFrameTime(0);
             }
             
             {
