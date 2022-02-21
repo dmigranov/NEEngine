@@ -214,8 +214,9 @@ int main(int argc, char* argv[])
             {
                 if (radius > 0.5)
                 {
-                    currentSimulationTime += deltaTime;
-                    currentFrameTime += deltaTime;
+                    //currentSimulationTime += deltaTime;
+                    //currentFrameTime += deltaTime;
+                    timer->AddDelta(deltaTime);
                     SphericalDopplerEffect::SetBackwards(false);
                     mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
                     radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
@@ -246,10 +247,11 @@ int main(int argc, char* argv[])
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
             }
 
-            if (currentFrameTime >= 0.1 || currentFrameTime <= -0.1)
+            //todo: исправить
+            if (timer->GetFrameTime() >= 0.1 || timer->GetFrameTime() <= -0.1)
             {
                 UpdateFriedmannWindow(mu);
-                currentFrameTime = 0;
+                timer->SetFrameTime(0);
             }
             
             {
