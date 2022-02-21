@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
             */
 
             double currentSimulationTime = timer->GetSimulationTime();
-            std::cout << currentSimulationTime << std::endl;
+            //std::cout << currentSimulationTime << std::endl;
 
             double mu = currentSimulationTime / 3.;
             double radius = 2 * (1 - cos(mu));
@@ -218,6 +218,8 @@ int main(int argc, char* argv[])
                     //currentFrameTime += deltaTime;
                     timer->AddDelta(deltaTime);
                     SphericalDopplerEffect::SetBackwards(false);
+
+                    currentSimulationTime = timer->GetSimulationTime(); //!!!
                     mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
                     radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
                                                     //и из этого как-то вытекает мерцание - todo
