@@ -5,8 +5,13 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+
+
 void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** controlSystem, System** radiusSystem, System** visibilitySystem)
 {
+    currentSimulationTime = 2.3;
+    currentFrameTime = 0.;
+
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect]
     (Entity* pEntity, double deltaTime) {
             
