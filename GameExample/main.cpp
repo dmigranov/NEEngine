@@ -201,7 +201,6 @@ int main(int argc, char* argv[])
                 time += deltaTime;
                 frameTime += deltaTime;
                 SphericalDopplerEffect::SetBackwards(false);
-
             }
 
             if (kbs.M)
