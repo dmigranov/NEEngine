@@ -198,12 +198,14 @@ int main(int argc, char* argv[])
             }
 
             auto cameraPos = cameraTransform->GetSphericalPosition();
+            /*
             renderSystem->SetRadius(radius);
 
             if(timer->IsTimeToRepaint())
             {
                 UpdateFriedmannWindow(mu);
             }
+            */
             
             {
                 const auto& view = cameraTransform->GetView();  
