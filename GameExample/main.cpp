@@ -164,8 +164,8 @@ int main(int argc, char* argv[])
         &currentSphereNumber, cameraComponent]
     (Entity* pEntity, double deltaTime) {
 
-            static double frameTime = 0;
-            static double time = 2.3;
+            //static double frameTime = 0;
+            //static double time = 2.3;
             static auto isAnimation = true;
 
             auto pInput = pEntity->GetComponent<InputComponent>();
@@ -179,14 +179,14 @@ int main(int argc, char* argv[])
 
             if (kbs.Left)
             {
-                time -= deltaTime;
-                frameTime -= deltaTime; 
+                currentSimulationTime -= deltaTime;
+                currentFrameTime -= deltaTime;
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
-                time += deltaTime;
-                frameTime += deltaTime;
+                currentSimulationTime += deltaTime;
+                currentFrameTime += deltaTime;
                 SphericalDopplerEffect::SetBackwards(false);
             }
 
@@ -199,17 +199,17 @@ int main(int argc, char* argv[])
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
 
-            double mu = time / 3.;
+            double mu = currentSimulationTime / 3.;
             double radius = 2 * (1 - cos(mu));
 
             if (isAnimation)
             {
                 if (radius > 0.5)
                 {
-                    time += deltaTime;
-                    frameTime += deltaTime;
+                    currentSimulationTime += deltaTime;
+                    currentFrameTime += deltaTime;
                     SphericalDopplerEffect::SetBackwards(false);
-                    mu = time / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
+                    mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
                     radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
                                                     //и из этого как-то вытекает мерцание - todo
                 }
@@ -238,10 +238,10 @@ int main(int argc, char* argv[])
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
             }
 
-            if (frameTime >= 0.1 || frameTime <= -0.1)
+            if (currentFrameTime >= 0.1 || currentFrameTime <= -0.1)
             {
                 UpdateFriedmannWindow(mu);
-                frameTime = 0;
+                currentFrameTime = 0;
             }
             
             {
