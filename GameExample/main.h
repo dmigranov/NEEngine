@@ -27,7 +27,7 @@ public:
 	virtual void Execute(double deltaTime) override;
 private:
 	FriedmannTimer* m_timer;
-	SphericalRenderSystem* m_renderSystem
+	SphericalRenderSystem* m_renderSystem;
 };
 
 
