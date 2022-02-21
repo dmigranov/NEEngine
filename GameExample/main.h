@@ -20,5 +20,9 @@ const int friedmann_w = 300, friedmann_h = 90;
 
 
 class FriedmannTimer {
-
+public:
+	FriedmannTimer(double initialSimulationTime);
+private:
+	double m_currentSimulationTime;
+	double m_currentFrameTime = 0.;
 };

@@ -43,3 +43,7 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
         });
 }
+
+FriedmannTimer::FriedmannTimer(double initialSimulationTime)
+{
+}
