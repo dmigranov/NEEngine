@@ -9,7 +9,7 @@ using namespace DirectX::SimpleMath;
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** controlSystem, System** radiusSystem, System** visibilitySystem)
 {
-
+    auto timer = new FriedmannTimer(2.3, 0.1);
 
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect]
     (Entity* pEntity, double deltaTime) {
