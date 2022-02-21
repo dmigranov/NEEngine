@@ -170,7 +170,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer]
-    (Entity* pEntity, double deltaTime) {
+    (Entity* pEntity, double deltaTime) { 
             static auto isAnimation = true;
 
             auto pInput = pEntity->GetComponent<InputComponent>();
@@ -179,7 +179,8 @@ int main(int argc, char* argv[])
            
             double currentSimulationTime = timer->GetSimulationTime();
             double mu = currentSimulationTime / 3.;
-            double radius = 2 * (1 - cos(mu));
+            //double radius = 2 * (1 - cos(mu));
+            double radius = renderSystem->GetRadius();
 
             if (isAnimation)
             {
