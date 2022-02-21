@@ -159,12 +159,12 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity2);
 
     System* controlSystem = nullptr;
-    CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
+    auto timer = CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
     scene->AddSystem(controlSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
-        &currentSphereNumber, cameraComponent]
+        &currentSphereNumber, cameraComponent, timer]
     (Entity* pEntity, double deltaTime) {
 
             //static double frameTime = 0;
@@ -203,6 +203,8 @@ int main(int argc, char* argv[])
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
             */
+
+            double currentSimulationTime = timer->GetSimulationTime();
             std::cout << currentSimulationTime << std::endl;
 
             double mu = currentSimulationTime / 3.;
