@@ -172,7 +172,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
+        [entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer]
     (Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
