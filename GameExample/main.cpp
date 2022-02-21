@@ -184,8 +184,6 @@ int main(int argc, char* argv[])
             {
                 if (radius > 0.5)
                 {
-                    //currentSimulationTime += deltaTime;
-                    //currentFrameTime += deltaTime;
                     timer->AddDelta(deltaTime);
                     SphericalDopplerEffect::SetBackwards(false);
 

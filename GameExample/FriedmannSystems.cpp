@@ -25,15 +25,11 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 
             if (kbs.Left)
             {
-                //currentSimulationTime -= deltaTime;
-                //currentFrameTime -= deltaTime;
                 timer->AddDelta(-deltaTime);
                 SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
-                //currentSimulationTime += deltaTime;
-                //currentFrameTime += deltaTime;
                 timer->AddDelta(deltaTime);
                 SphericalDopplerEffect::SetBackwards(false);
             }
