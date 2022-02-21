@@ -23,7 +23,7 @@ class FriedmannTimer {
 public:
 	FriedmannTimer(double initialSimulationTime, double frameTimeLimit);
 	void AddDelta(double deltaTime);
-	//bool 
+	bool IsTimeToRepaint();
 private:
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;

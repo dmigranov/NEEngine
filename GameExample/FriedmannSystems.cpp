@@ -55,3 +55,13 @@ void FriedmannTimer::AddDelta(double deltaTime)
     m_currentSimulationTime += deltaTime;
     m_currentFrameTime += deltaTime;
 }
+
+bool FriedmannTimer::IsTimeToRepaint()
+{
+    if (m_currentFrameTime >= 0.1 || m_currentFrameTime <= -0.1)
+    {
+        m_currentFrameTime = 0;
+        return true;  
+    }
+    return false;
+}
