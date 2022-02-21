@@ -198,26 +198,6 @@ int main(int argc, char* argv[])
             auto cameraPos = cameraTransform->GetSphericalPosition();
             renderSystem->SetRadius(radius);
 
-            /*
-            for (int i = 0; i < sphereCount; i++)
-            {
-                Entity* sphere = entities[i];
-                auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
-                auto pos = pTransform->GetSphericalPosition();
-                auto renderingComponent = sphere->GetComponent<SphericalRenderingComponent>();
-                auto visibility = renderingComponent->GetSphericalVisibility();
-
-                auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
-                
-                if (mu < dist)
-                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
-                else if (mu >= dist && mu <= (2 * XM_PI - dist))
-                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
-                else //mu > (2 * XM_PI - dist)
-                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
-            }
-            */
-
             if(timer->IsTimeToRepaint())
             {
                 UpdateFriedmannWindow(mu);
