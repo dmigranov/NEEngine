@@ -121,7 +121,15 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer)
 
 void RadiusUpdateSystem::Execute(double deltaTime)
 {
+    double mu = m_timer->GetMu();
+    double radius = 2 * (1 - cos(mu));
 
+    renderSystem->SetRadius(radius);
+
+    if (m_timer->IsTimeToRepaint())
+    {
+        UpdateFriedmannWindow(mu);
+    }
 }
 
 // На всякий случай: код без изменений (одна система на всё) - по состоянию на начало 21.02.2022
