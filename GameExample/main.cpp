@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
     int sphereCount = 100;
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity * [sphereCount];
-    for (int i = 0; i < sphereCount - 1; i++)
+    for (int i = 0; i < sphereCount; i++)
     {
     again:
         auto point = generator.GeneratePoint();
@@ -118,19 +118,6 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
         entities[i] = entity;
     }
-
-    auto transformComponent = new SphericalTransformComponent(0, 0, 1);
-    auto sphRenderingComponent = new SphericalRenderingComponent();
-    auto dopplerComponent = new DopplerComponent();
-    auto entity = new Entity();
-
-    entity->AddComponent<SphericalTransformComponent>(transformComponent);
-    entity->AddComponent<MeshComponent>(earth_mc);
-    entity->AddComponent<SphericalRenderingComponent>(sphRenderingComponent);
-    entity->AddComponent<DopplerComponent>(dopplerComponent);
-
-    scene->AddEntity(entity);
-    entities[sphereCount - 1] = entity;
 
     delete[] randomPoints;
 
