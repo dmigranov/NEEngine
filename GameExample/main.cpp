@@ -175,8 +175,6 @@ int main(int argc, char* argv[])
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
            
-            double mu = timer->GetMu();
-            //double radius = 2 * (1 - cos(mu));
             double radius = renderSystem->GetRadius();
 
             if (isAnimation)
