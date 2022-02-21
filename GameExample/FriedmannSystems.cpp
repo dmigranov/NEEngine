@@ -41,6 +41,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
             else if (kbs.N)
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
         });
+
+    return timer;
 }
 
 FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameTimeLimit)
