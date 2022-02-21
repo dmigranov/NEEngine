@@ -116,7 +116,7 @@ void FriedmannTimer::SetFrameTime(double newTime)
 
 RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer)
 {
-
+    m_timer = timer;
 }
 
 void RadiusUpdateSystem::Execute(double deltaTime)
