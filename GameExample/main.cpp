@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, &controlSystem, &visibilitySystem, &radiusUpdateSystem);
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, &controlSystem, &visibilitySystem, &radiusUpdateSystem);
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(radiusUpdateSystem);
