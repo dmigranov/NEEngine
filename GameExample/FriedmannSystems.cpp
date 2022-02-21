@@ -83,6 +83,11 @@ double FriedmannTimer::GetSimulationTime()
     return m_currentSimulationTime;
 }
 
+double FriedmannTimer::GetMu()
+{
+    return m_currentSimulationTime * m_muCoeff;
+}
+
 double FriedmannTimer::GetFrameTime()
 {
     return m_currentFrameTime;
