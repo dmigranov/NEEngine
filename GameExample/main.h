@@ -10,7 +10,9 @@ public:
 	void AddDelta(double deltaTime);
 	bool IsTimeToRepaint();
 	double GetSimulationTime();
+	//to delete
 	double GetFrameTime();
+	void SetFrameTime(double newTime);
 private:
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;

@@ -78,3 +78,8 @@ double FriedmannTimer::GetFrameTime()
 {
     return m_currentFrameTime;
 }
+
+void FriedmannTimer::SetFrameTime(double newTime)
+{
+    m_currentFrameTime = newTime;
+}
