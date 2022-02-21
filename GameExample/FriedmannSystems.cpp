@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent* cameraTransform,
-    System** controlSystem, System** radiusVisibilitySystem)
+    System** controlSystem, System** visibilitySystem)
 {
     auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
 
@@ -45,7 +45,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
         });
 
 
-    *radiusVisibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([sphericalEffect, cameraTransform, timer]
+    *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([sphericalEffect, cameraTransform, timer]
     (Entity* pEntity, double deltaTime) {
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
@@ -56,6 +56,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 
             auto radius = SphericalEffect::GetRadius();
             auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
+            auto mu = timer->GetMu();
 
             if (mu < dist)
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
