@@ -30,7 +30,7 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
                 currentSimulationTime += deltaTime;
                 currentFrameTime += deltaTime;
                 SphericalDopplerEffect::SetBackwards(false);
-                std::cout << "debug" << std::endl;
+                std::cout << currentSimulationTime << std::endl;
             }
 
             if (kbs.M)
