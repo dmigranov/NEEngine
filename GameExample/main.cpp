@@ -141,7 +141,7 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
     
-    int currentSphereNumber = 1;
+    int currentSphereNumber = -1;
 
     auto textEntity2 = new Entity();
     textEntity2->AddComponent<TextComponent>(new TextComponent([&currentSphereNumber](double delta) {
