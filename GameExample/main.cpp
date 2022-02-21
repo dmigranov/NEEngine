@@ -321,7 +321,7 @@ int main(int argc, char* argv[])
         }));
 
     System* controlSystem = nullptr;
-    CreateFriedmannSystems(&controlSystem, nullptr, nullptr);
+    CreateFriedmannSystems(effect, &controlSystem, nullptr, nullptr);
 
     return game.StartGame();
 }
