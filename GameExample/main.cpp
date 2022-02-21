@@ -165,8 +165,6 @@ int main(int argc, char* argv[])
     auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, &controlSystem, &visibilitySystem, &radiusUpdateSystem);
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
-    scene->AddSystem(radiusUpdateSystem);
-
     scene->AddSystem(new ActionSystem<InputComponent>(
         [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer]
@@ -177,8 +175,7 @@ int main(int argc, char* argv[])
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
            
-            double currentSimulationTime = timer->GetSimulationTime();
-            double mu = currentSimulationTime / 3.;
+            double mu = timer->GetMu();
             //double radius = 2 * (1 - cos(mu));
             double radius = renderSystem->GetRadius();
 
@@ -189,8 +186,9 @@ int main(int argc, char* argv[])
                     timer->AddDelta(deltaTime);
                     SphericalDopplerEffect::SetBackwards(false);
 
-                    currentSimulationTime = timer->GetSimulationTime(); //!!!
-                    mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
+                    //currentSimulationTime = timer->GetSimulationTime(); //!!!
+                    //mu = currentSimulationTime / 3.;                 //если закомментировать эти две строчки с обновлением mu и radius, то есть мерцание
+                    double mu = timer->GetMu();
                     radius = 2 * (1 - cos(mu));     //то есть, если эти строчки закомментированы, то мы считаем радиус для предыдущего фрейма
                                                     //и из этого как-то вытекает мерцание - todo
                 }
@@ -268,6 +266,7 @@ int main(int argc, char* argv[])
                 }
             }
         }));
+        scene->AddSystem(radiusUpdateSystem);
 
 
 
