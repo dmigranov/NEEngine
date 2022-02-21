@@ -175,38 +175,8 @@ int main(int argc, char* argv[])
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
-            /*
-            if (kbs.D1)
-                effect->SetMode(true);
-            else if (kbs.D2)
-                effect->SetMode(false);
-
-            if (kbs.Left)
-            {
-                currentSimulationTime -= deltaTime;
-                currentFrameTime -= deltaTime;
-                SphericalDopplerEffect::SetBackwards(true);
-            }
-            else if (kbs.Right)
-            {
-                currentSimulationTime += deltaTime;
-                currentFrameTime += deltaTime;
-                SphericalDopplerEffect::SetBackwards(false);
-            }
-
-            if (kbs.M)
-            {
-                effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
-            }
-            else if (kbs.N)
-            {
-                effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
-            }
-            */
-
+           
             double currentSimulationTime = timer->GetSimulationTime();
-            //std::cout << currentSimulationTime << std::endl;
-
             double mu = currentSimulationTime / 3.;
             double radius = 2 * (1 - cos(mu));
 
