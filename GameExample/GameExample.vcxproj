@@ -171,6 +171,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FriedmannSystems.cpp" />
     <ClCompile Include="FriedmannWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main_raytracing.cpp" />
