@@ -66,7 +66,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
         });
 
-    *radiusUpdateSystem = new RadiusUpdateSystem();
+    *radiusUpdateSystem = new RadiusUpdateSystem(timer);
 
     return timer;
 }
