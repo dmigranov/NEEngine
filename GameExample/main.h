@@ -21,6 +21,10 @@ private:
 	double m_frameTimeLimit;
 };
 
+class RadiusUpdateSystem : System {
+
+};
+
 
 HWND CreateFriedmannWindow();
 
