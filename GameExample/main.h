@@ -22,7 +22,9 @@ private:
 };
 
 class RadiusUpdateSystem : System {
-
+public:
+	RadiusUpdateSystem();
+	virtual void Execute(double deltaTime) override;
 };
 
 
