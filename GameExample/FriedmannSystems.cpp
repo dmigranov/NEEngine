@@ -2,6 +2,9 @@
 
 #include "main.h"
 
+#include "SphericalMath.h"
+
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -49,7 +52,15 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto renderingComponent = pEntity->GetComponent<SphericalRenderingComponent>();
             auto visibility = renderingComponent->GetSphericalVisibility();
 
+            auto radius = SphericalEffect::GetRadius();
+            auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
 
+            if (mu < dist)
+                renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
+            else if (mu >= dist && mu <= (2 * XM_PI - dist))
+                renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
+            else //mu > (2 * XM_PI - dist)
+                renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
         });
 
     return timer;
