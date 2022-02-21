@@ -42,7 +42,7 @@ double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
 double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, DirectX::SimpleMath::Vector3 direction, DirectX::SimpleMath::Matrix view, double r_projected_sq);
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent * cameraTransform, SphericalRenderSystem* renderSystem,
-	System ** controlSystem, System ** visibilitySystem, System ** radiusUpdateSystem);
+	System ** controlSystem, System ** visibilitySystem, System ** radiusUpdateSystem, System ** animationSystem);
 
 const int friedmann_w = 300, friedmann_h = 90;
 

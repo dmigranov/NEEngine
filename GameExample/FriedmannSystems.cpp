@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent* cameraTransform, SphericalRenderSystem* renderSystem,
-    System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem)
+    System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem, System** animationSystem)
 {
     auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
 
