@@ -23,8 +23,10 @@ private:
 
 class RadiusUpdateSystem : public System {
 public:
-	RadiusUpdateSystem();
+	RadiusUpdateSystem(FriedmannTimer * timer);
 	virtual void Execute(double deltaTime) override;
+private:
+	FriedmannTimer* m_timer;
 };
 
 
