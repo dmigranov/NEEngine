@@ -159,7 +159,9 @@ int main(int argc, char* argv[])
     scene->AddEntity(textEntity2);
 
     System* controlSystem = nullptr;
-    auto timer = CreateFriedmannSystems(effect, &controlSystem, nullptr);
+    System* radiusVisibilitySystem = nullptr;
+
+    auto timer = CreateFriedmannSystems(effect, &controlSystem, &radiusVisibilitySystem);
     scene->AddSystem(controlSystem);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
