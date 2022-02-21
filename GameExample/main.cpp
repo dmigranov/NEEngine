@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
 
 
     scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
+        [effect, renderSystem, entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent]
     (Entity* pEntity, double deltaTime) {
 
@@ -193,12 +193,10 @@ int main(int argc, char* argv[])
             if (kbs.M)
             {
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
-                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
             }
             else if (kbs.N)
             {
                 effect->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
-                effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
             }
 
             double mu = time / 3.;

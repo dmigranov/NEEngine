@@ -32,14 +32,8 @@ void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** co
             }
 
             if (kbs.M)
-            {
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() + 100000);
-                //effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() + 100000);
-            }
             else if (kbs.N)
-            {
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
-                //effectEarth->SetVelocityCoefficient(effect->GetVelocityCoefficient() - 100000);
-            }
         });
 }
