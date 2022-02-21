@@ -5,17 +5,17 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-void CreateFriedmannSystems(System** ControlSystem, System** RadiusSystem, System** VisibilitySystem)
+void CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, System** controlSystem, System** radiusSystem, System** visibilitySystem)
 {
-    *ControlSystem = new ActionSystem<InputComponent>([]
+    *controlSystem = new ActionSystem<InputComponent>([sphericalEffect]
     (Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
 
             if (kbs.D1)
-                effect->SetMode(true);
+                sphericalEffect->SetMode(true);
             else if (kbs.D2)
-                effect->SetMode(false);
+                sphericalEffect->SetMode(false);
         });
 }
