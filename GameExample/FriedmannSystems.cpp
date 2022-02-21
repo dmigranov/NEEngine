@@ -68,6 +68,23 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 
     *radiusUpdateSystem = new RadiusUpdateSystem(timer, renderSystem);
 
+    *animationSystem = new ActionSystem<InputComponent>(
+        [timer] (Entity* pEntity, double deltaTime) {
+            static auto isAnimation = true;
+
+            double radius = SphericalEffect::GetRadius();
+            if (isAnimation)
+            {
+                if (radius > 0.5)
+                {
+                    timer->AddDelta(deltaTime);
+                    SphericalDopplerEffect::SetBackwards(false);
+                }
+                else
+                    isAnimation = false;
+            }
+        });
+
     return timer;
 }
 

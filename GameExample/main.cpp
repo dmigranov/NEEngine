@@ -166,23 +166,7 @@ int main(int argc, char* argv[])
     auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem);
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
-    scene->AddSystem(new ActionSystem<InputComponent>(
-        [timer]
-    (Entity* pEntity, double deltaTime) { 
-            static auto isAnimation = true;
-
-            double radius = SphericalEffect::GetRadius();
-            if (isAnimation)
-            {
-                if (radius > 0.5)
-                {
-                    timer->AddDelta(deltaTime);
-                    SphericalDopplerEffect::SetBackwards(false);
-                }
-                else
-                    isAnimation = false;
-            }
-        }));
+    scene->AddSystem(animationSystem);
 
         scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
