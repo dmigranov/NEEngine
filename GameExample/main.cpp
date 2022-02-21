@@ -67,17 +67,17 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
     auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::Black);
-    auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
+    //auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
     double objectRadius = 0.1;
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 20, 18);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
     smc->SetEffect(effect);
 
-    auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
-    earth_mc->SetEffect(effectEarth);
+    //auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
+    //earth_mc->SetEffect(effectEarth);
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
     pointComp->SetEffect(pointEffect);
