@@ -17,3 +17,6 @@ double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
 void CreateFriedmannSystems(System ** ControlSystem, System ** RadiusSystem, System ** VisibilitySystem);
 
 const int friedmann_w = 300, friedmann_h = 90;
+
+
+static double currentSimulationTime = 2.3;
