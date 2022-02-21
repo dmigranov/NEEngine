@@ -20,3 +20,4 @@ const int friedmann_w = 300, friedmann_h = 90;
 
 
 static double currentSimulationTime = 2.3;
+static double currentFrameTime = 0.;
