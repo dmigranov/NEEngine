@@ -41,6 +41,12 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
         });
 
+
+    *radiusVisibilitySystem = new ActionSystem<InputComponent>([sphericalEffect, timer]
+    (Entity* pEntity, double deltaTime) {
+
+        });
+
     return timer;
 }
 
