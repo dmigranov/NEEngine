@@ -99,6 +99,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (pos.z < 0)  //!!
         return -1;
 
+    Matrix matrixNegR();
+
     //Vector4 radiusVector1(0, r_sphere, 0, w_sphere);
     Vector4 radiusVector1(r_sphere, 0, 0, w_sphere);
     Vector4 radiusVector2(-r_sphere, 0, 0, w_sphere);
