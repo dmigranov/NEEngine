@@ -111,5 +111,5 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
     if (distFromCursorToCenterSq > r_projected_sq)
         return -1;
 
-    return posProj.z;
+    return posProj.z; 
 }
