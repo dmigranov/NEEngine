@@ -227,9 +227,11 @@ int main(int argc, char* argv[])
                     if (ms.leftButton && !pInput->IsRelative())
                     {
                         //std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
-                        //resVector /= resVector.w;
+                        resVector1 /= resVector1.w;
+                        resVector2 /= resVector2.w;
+
                         std::cout << r_projected << std::endl;
-                        double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) + pow(resVector1.z- resVector2.z, 2);
+                        double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
                         std::cout << sqrt(distance_sq) << std::endl;
                         //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
 
