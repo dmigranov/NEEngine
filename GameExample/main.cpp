@@ -240,6 +240,10 @@ int main(int argc, char* argv[])
                 else if (kbs.Space)
                     dopplerComponent->SetSelected(false);
             }
+
+            if (ms.leftButton)
+                std::cout << ms.x << " " << ms.y << std::endl;
+
         }));
 
     return game.StartGame();
