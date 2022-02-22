@@ -214,30 +214,29 @@ int main(int argc, char* argv[])
                 const auto& world = pTransform->GetWorld();
                 auto sphericalPosition = pTransform->GetSphericalPosition();
 
-                if (i == 0)
-                {
-                    Vector4 testVector1(0, r_sphere, 0, w_sphere);
-                    Vector4 viewVector1 = Vector4::Transform(Vector4::Transform(testVector1, world), view);
-                    Vector4 viewVector2 = Vector4::Transform(sphericalPosition, view);
-                    Vector4 resVector1 = Vector4::Transform(viewVector1, proj);
-                    Vector4 resVector2 = Vector4::Transform(viewVector2, proj);
-                    if (resVector1.w == 0 || resVector2.w == 0)
-                        continue;
-                    
-                    resVector1 /= resVector1.w;
-                    resVector2 /= resVector2.w;
 
-                    if (ms.leftButton && !pInput->IsRelative())
-                    {
-                        //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << " " << resVector2.w << std::endl;
-                        std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
-                        std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
-                        //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
-                        //std::cout << sqrt(distance_sq) << std::endl;
-                        //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
-                    }
-                        
+                Vector4 testVector1(0, r_sphere, 0, w_sphere);
+                Vector4 viewVector1 = Vector4::Transform(Vector4::Transform(testVector1, world), view);
+                Vector4 viewVector2 = Vector4::Transform(sphericalPosition, view);
+                Vector4 resVector1 = Vector4::Transform(viewVector1, proj);
+                Vector4 resVector2 = Vector4::Transform(viewVector2, proj);
+                if (resVector1.w == 0 || resVector2.w == 0)
+                    continue;
+                    
+                resVector1 /= resVector1.w;
+                resVector2 /= resVector2.w;
+
+                if (ms.leftButton && !pInput->IsRelative())
+                {
+                    //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << " " << resVector2.w << std::endl;
+                    std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
+                    std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
+                    //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
+                    //std::cout << sqrt(distance_sq) << std::endl;
+                    //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
                 }
+                        
+                
                 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, r_projected_sq);
                 if (t < 0)
