@@ -252,7 +252,7 @@ int main(int argc, char* argv[])
                 {
                     std::cout << ms.x << " " << ms.y << std::endl;
                     double mouseX = (double)ms.x / width;
-                    double mouseY = (double)ms.y / height;
+                    double mouseY = (double)ms.y / height; // это - от 0 до 1
                     std::cout << mouseX << " " << mouseY << std::endl;
 
                     double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
