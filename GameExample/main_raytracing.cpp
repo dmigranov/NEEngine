@@ -107,7 +107,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
     std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl; 
 
     auto distFromCursorToCenterSq = pow(posProj.x - mouseX, 2) + pow(posProj.y - mouseY, 2);
-    if (distFromCursorToCenterSq > r_projected_sq)
+    if (distFromCursorToCenterSq > 0.5)
         return -1;
 
     return posProj.z; 
