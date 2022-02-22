@@ -102,12 +102,9 @@ double RayTraceSphereMouse(int mouseX, int mouseY, int width, int height, Direct
     auto posProj_4D = Vector4::Transform(pos, proj);
     if (posProj_4D.w == 0)
         return -1;
-
     auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
 
-
-
-    resVector1 /= resVector1.w;
+    std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl;
 
     return 0.0;
 }
