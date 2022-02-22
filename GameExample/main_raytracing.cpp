@@ -94,6 +94,9 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
 
+    Vector4 radiusVector1(0, r_sphere, 0, w_sphere);
+
+
     if (pos.z < 0)  //!!
         return -1;
 
