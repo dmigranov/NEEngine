@@ -248,7 +248,6 @@ int main(int argc, char* argv[])
                 int width, height;
                 game.GetWindowSize(width, height);
 
-
                 double t = RayTraceSphereMouse(ms.x, ms.y, width, height, sphericalPosition, view, proj, distance_sq);
 
 
