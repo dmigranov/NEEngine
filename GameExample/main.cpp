@@ -181,9 +181,6 @@ int main(int argc, char* argv[])
 
             double radius = SphericalEffect::GetRadius();
             auto cameraPos = cameraTransform->GetSphericalPosition();
-            const auto& view = cameraTransform->GetView();
-            const auto& proj = cameraComponent->GetProj();
-
 
             //radius of spheres in the Euclidean space, after projection
             auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
@@ -206,6 +203,9 @@ int main(int argc, char* argv[])
 
             float minDist = 100000.;
             int minIndex = -1;
+
+            const auto& view = cameraTransform->GetView();
+            const auto& proj = cameraComponent->GetProj();
 
             for (int i = 0; i < sphereCount; i++)
             {
