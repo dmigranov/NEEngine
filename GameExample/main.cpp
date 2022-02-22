@@ -220,10 +220,7 @@ int main(int argc, char* argv[])
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
                 if (t < 0)
                 {
-                    continue;
-                    //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
-                    //if (t < 0)
-                    //    continue; //todo: чтобы во всех четвертях работало
+                    continue;  //todo: чтобы во всех четвертях работало
                 }
 
                 if (t < minDist) {
