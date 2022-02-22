@@ -232,7 +232,7 @@ int main(int argc, char* argv[])
 
                         std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
                         std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
-
+                         
 
                         //std::cout << r_projected << std::endl;
                         //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
