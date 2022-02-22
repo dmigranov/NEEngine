@@ -243,8 +243,8 @@ int main(int argc, char* argv[])
 
                 //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 
-                if (pInput->IsRelative())
-                    continue;
+                //if (pInput->IsRelative())
+                //    continue;
 
 
 
