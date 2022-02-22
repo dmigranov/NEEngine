@@ -231,13 +231,11 @@ int main(int argc, char* argv[])
 
                 if (ms.leftButton && !pInput->IsRelative())
                 {
-                    //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << " " << resVector2.w << std::endl;
-                    std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
-                    std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
-                    double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
-                    std::cout << distance_sq << std::endl;
-                    std::cout << r_projected_sq << std::endl;
-                    //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
+                    //std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
+                    //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
+                    //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
+                    //std::cout << distance_sq << std::endl;
+                    //std::cout << r_projected_sq << std::endl;
                 }
                 double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2);
 
@@ -255,6 +253,7 @@ int main(int argc, char* argv[])
                     std::cout << ms.x << " " << ms.y << std::endl;
                     double mouseX = (double)ms.x / width;
                     double mouseY = (double)ms.y / height;
+                    std::cout << mouseX << " " << mouseY << std::endl;
 
                     double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
 
@@ -271,11 +270,6 @@ int main(int argc, char* argv[])
                         minIndex = i;
                     }
                 }
-
-
-
-
-                
 
             }
 
