@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [entities, sphereCount, cameraTransform, objectRadius,
-        &currentSphereNumber, cameraComponent, timer]
+        &currentSphereNumber, cameraComponent, timer, &game]
     (Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
@@ -238,9 +238,21 @@ int main(int argc, char* argv[])
                 }
                 double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2);
 
+
+
+                //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 
-                
-                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
+                if (pInput->IsRelative())
+                    continue;
+
+                int width, height;
+                game.GetWindowSize(width, height);
+
+
+                double t = RayTraceSphereMouse(ms.x, ms.y, width, height, );
+
+
+
                 if (t < 0)
                 {
                     continue;
