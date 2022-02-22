@@ -251,8 +251,8 @@ int main(int argc, char* argv[])
                 if (ms.leftButton && !pInput->IsRelative()) //debug
                 {
                     std::cout << ms.x << " " << ms.y << std::endl;
-                    double mouseX = (double)ms.x / width;
-                    double mouseY = (double)ms.y / height; // это - от 0 до 1
+                    double mouseX = (double)ms.x / width * 2. - 1.;
+                    double mouseY = (double)ms.y / height * 2. - 1; 
                     std::cout << mouseX << " " << mouseY << std::endl;
 
                     double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
