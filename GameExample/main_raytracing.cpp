@@ -98,11 +98,12 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     if (pos.z < 0)  //!!
         return -1;
+    auto radius = SphericalEffect::GetRadius();
 
     //Matrix matrixPosRadius(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
     //Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
-    Matrix matrixPosRadius(w_sphere, 0, 0, r_sphere,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere, 0, 0, w_sphere);
-    Matrix matrixNegRadius(w_sphere, 0, 0, -r_sphere, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere, 0, 0, w_sphere);
+    Matrix matrixPosRadius(w_sphere/ radius, 0, 0, r_sphere/ radius,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere/radius, 0, 0, w_sphere/ radius);
+    Matrix matrixNegRadius(w_sphere/ radius, 0, 0, -r_sphere/ radius, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere/ radius, 0, 0, w_sphere/ radius);
 
 
     /*
@@ -130,7 +131,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     //auto distSq = pow(projectedRadiusVector1.x - projectedRadiusVector2.x, 2) + pow(projectedRadiusVector1.y - projectedRadiusVector2.y, 2) + pow(projectedRadiusVector1.z - projectedRadiusVector2.z, 2);
     //distSq /= 4;
-    auto distSq = (projectedRadiusVector1.y - projectedRadiusVector2.y) / 2;
+    auto distSq = (projectedRadiusVector1.x - projectedRadiusVector2.x) / 2;
     distSq = distSq * distSq;
     //std::cout << distSq << std::endl << std::endl;
 
