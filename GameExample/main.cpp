@@ -215,7 +215,7 @@ int main(int argc, char* argv[])
                 //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 
                 double mouseX = (double)ms.x / width * 2. - 1.;
-                double mouseY = (double)ms.y / height * 2. - 1; 
+                double mouseY = -((double)ms.y / height * 2. - 1); 
 
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
                 if (t < 0)
