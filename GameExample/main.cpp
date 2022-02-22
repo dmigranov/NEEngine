@@ -211,6 +211,7 @@ int main(int argc, char* argv[])
             {
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                const auto& world = pTransform->GetWorld();
                 auto sphericalPosition = pTransform->GetSphericalPosition();
 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
