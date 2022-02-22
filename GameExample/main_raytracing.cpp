@@ -100,6 +100,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
         return -1;
 
     Matrix matrixPosRadius(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
+    Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
 
     //Vector4 radiusVector1(0, r_sphere, 0, w_sphere);
     Vector4 radiusVector1(r_sphere, 0, 0, w_sphere);
