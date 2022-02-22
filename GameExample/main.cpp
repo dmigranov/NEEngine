@@ -229,7 +229,9 @@ int main(int argc, char* argv[])
                         //std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
                         //resVector /= resVector.w;
                         std::cout << r_projected << std::endl;
-                        std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
+                        double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) + pow(resVector1.z- resVector2.z, 2);
+                        std::cout << sqrt(distance_sq) << std::endl;
+                        //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
 
                     }
                         
