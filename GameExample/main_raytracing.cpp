@@ -27,7 +27,7 @@ double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
     double lenToCenterOfSphere_sq = pow(centerToBeginning.x, 2) + pow(centerToBeginning.y, 2) + pow(centerToBeginning.z, 2);
     
     // inside this sphere
-    if (lenToCenterOfSphere_sq < r_projected_sq)
+    if (lenToCenterOfSphere_sq < r_projected_sq) 
     {
         return -1;   //camera is inside of this sphere so no need
     }
