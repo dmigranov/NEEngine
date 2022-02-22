@@ -239,15 +239,7 @@ int main(int argc, char* argv[])
                 }
                 double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2);
 
-
-
                 //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
-                
-                //if (pInput->IsRelative())
-                //    continue;
-
-
-
                 
                 double mouseX = (double)ms.x / width * 2. - 1.;
                 double mouseY = (double)ms.y / height * 2. - 1; 
