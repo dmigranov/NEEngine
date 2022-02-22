@@ -244,7 +244,7 @@ int main(int argc, char* argv[])
                         
                 }
                 
-                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
+                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, r_projected_sq);
                 if (t < 0)
                 {
                     continue;
