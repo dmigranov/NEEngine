@@ -216,9 +216,7 @@ int main(int argc, char* argv[])
 
                 if (i == 0)
                 {
-                    //r_sphere w_sphere 
                     Vector4 testVector1(0, r_sphere, 0, w_sphere);
-                    //Vector4 testVector2(0, 0, 0, radius);
                     Vector4 viewVector1 = Vector4::Transform(Vector4::Transform(testVector1, world), view);
                     Vector4 viewVector2 = Vector4::Transform(sphericalPosition, view);
                     Vector4 resVector1 = Vector4::Transform(viewVector1, proj);
