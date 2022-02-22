@@ -219,7 +219,7 @@ int main(int argc, char* argv[])
                     //r_sphere w_sphere 
                     Vector4 testVector(0, r_sphere, 0, w_sphere);
                     Vector4 viewVector = Vector4::Transform(Vector4::Transform(testVector, world), view);
-                    Vector4 resVector = Vector4::Transform(viewVector, proj);
+                    Vector4 resVector = Vector4::Transform(viewVector, proj); 
                     if (ms.leftButton && !pInput->IsRelative())
                         std::cout << viewVector.x << " " << viewVector.y << " " << viewVector.z << " " << viewVector.w << std::endl;
                 }
