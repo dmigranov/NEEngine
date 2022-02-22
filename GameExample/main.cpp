@@ -245,7 +245,7 @@ int main(int argc, char* argv[])
                 double mouseY = (double)ms.y / height * 2. - 1; 
                 //std::cout << mouseX << " " << mouseY << std::endl;
 
-                double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj);
+                double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, r_sphere, w_sphere);
 
                 if (t < 0)
                 {

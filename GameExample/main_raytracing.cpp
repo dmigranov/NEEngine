@@ -89,7 +89,7 @@ double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
     return t;
 }
 
-double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj)
+double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, double r_sphere, double w_sphere)
 {
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
