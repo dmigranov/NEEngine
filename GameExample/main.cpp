@@ -219,8 +219,8 @@ int main(int argc, char* argv[])
                     //r_sphere w_sphere
                     Vector4 testVector(0, r_sphere, 0, w_sphere);
                     Vector4 resVector = Vector4::Transform(Vector4::Transform(Vector4::Transform(testVector, world), view), proj);
-                    
-                    std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
+                    if (ms.leftButton && !pInput->IsRelative())
+                        std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
                 }
 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
