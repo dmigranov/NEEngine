@@ -88,3 +88,21 @@ double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
     double t = lenClosestPoint - thc; //t is the distance to the intersection point
     return t;
 }
+
+double RayTraceSphereMouse(int mouseX, int mouseY, DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, double r_projected_sq)
+{
+    auto pos_world = sphericalPosition;
+    auto pos = Vector4::Transform(pos_world, view); //pos_view
+
+    if (pos.z < 0)
+        return -1;
+
+    auto pos_w = pos.w;
+    //auto posProj_4D = Vector4(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w, 1.f);
+    //auto posProj = Vector3(pos.x / pos_w, pos.y / pos_w, pos.z / pos_w);
+
+    auto posProj_4D = Vector4::Transform(pos, proj);
+    auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
+
+    return 0.0;
+}
