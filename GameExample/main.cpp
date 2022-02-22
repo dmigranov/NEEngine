@@ -188,15 +188,11 @@ int main(int argc, char* argv[])
             auto r_projected = r_sphere / w_sphere;
             auto r_projected_sq = r_projected * r_projected;
 
-            // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, 
-            // передвигающую её (прямо - просто движение по z) к объекту
+            // todo: идея: при проецировании использовать вместо view - произведение view на матрицу, передвигающую её (прямо - просто движение по z) к объекту
             // это решит проблему нулевого w 
 
-            // todo: идея: также цикл по всем объектам (можно отбросить все с отрицательным z
-            // после применения view, а может, не надо - копии тоже можно выбирать)
-            // осуществляем проецирование, и проверяем близость центра до координат выбранной 
-            // курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
-
+            // todo: идея: также цикл по всем объектам (можно отбросить все с отрицательным z после применения view, а может, не надо - копии тоже можно выбирать)
+            // осуществляем проецирование, и проверяем близость центра до координат выбранной курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
 
             Vector3 rayStart(0.f, 0.f, 0.f);    // position - always (0, 0, 0)
             Vector3 direction(0.f, 0.f, 1.f);   // direction - always (0, 0, 1)
@@ -215,14 +211,6 @@ int main(int argc, char* argv[])
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                 const auto& world = pTransform->GetWorld();
-
-
-                if (ms.leftButton && !pInput->IsRelative())
-                {
-                    //std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
-                    //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
-                    //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
-                }
 
                 //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 
