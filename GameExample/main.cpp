@@ -237,7 +237,7 @@ int main(int argc, char* argv[])
                     //std::cout << distance_sq << std::endl;
                     //std::cout << r_projected_sq << std::endl;
                 }
-                double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2);
+                double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) + pow(resVector1.z - resVector2.z, 2);
 
                 //double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 
@@ -245,7 +245,7 @@ int main(int argc, char* argv[])
                 double mouseY = (double)ms.y / height * 2. - 1; 
                 //std::cout << mouseX << " " << mouseY << std::endl;
 
-                double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
+                double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj);
 
                 if (t < 0)
                 {
