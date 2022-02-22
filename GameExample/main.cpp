@@ -217,6 +217,8 @@ int main(int argc, char* argv[])
                 if (i == 0)
                 {
                     //r_sphere w_sphere
+                    Vector4 testVector(0, r_sphere, 0, w_sphere);
+                    Vector4 resVector = Vector4::Transform(Vector4::Transform(Vector4::Transform(testVector, world), view), proj);
                 }
 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
