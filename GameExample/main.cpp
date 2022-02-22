@@ -205,7 +205,7 @@ int main(int argc, char* argv[])
             int minIndex = -1;
 
             const auto& view = cameraTransform->GetView();
-            const auto& proj = cameraComponent->GetProj();
+            const Matrix& proj = cameraComponent->GetProj();
 
             for (int i = 0; i < sphereCount; i++)
             {
@@ -221,7 +221,7 @@ int main(int argc, char* argv[])
                     Vector4 viewVector = Vector4::Transform(Vector4::Transform(testVector, world), view);
                     Vector4 resVector = Vector4::Transform(viewVector, proj); 
                     if (ms.leftButton && !pInput->IsRelative())
-                        std::cout << viewVector.x << " " << viewVector.y << " " << viewVector.z << " " << viewVector.w << std::endl;
+                        std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
                 }
                 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
