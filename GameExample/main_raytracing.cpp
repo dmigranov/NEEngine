@@ -99,8 +99,11 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (pos.z < 0)  //!!
         return -1;
 
-    Matrix matrixPosRadius(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
-    Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
+    //Matrix matrixPosRadius(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
+    //Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
+    Matrix matrixPosRadius(w_sphere, 0, 0, r_sphere,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere, 0, 0, w_sphere);
+    Matrix matrixNegRadius(w_sphere, 0, 0, -r_sphere, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere, 0, 0, w_sphere);
+
 
     /*
     Vector4 radiusVector1(r_sphere, 0, 0, w_sphere);
@@ -129,7 +132,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     //distSq /= 4;
     auto distSq = (projectedRadiusVector1.y - projectedRadiusVector2.y) / 2;
     distSq = distSq * distSq;
-    std::cout << distSq << std::endl << std::endl;
+    //std::cout << distSq << std::endl << std::endl;
 
 
     auto posProj_4D = Vector4::Transform(pos, proj);
