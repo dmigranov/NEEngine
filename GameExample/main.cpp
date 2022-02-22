@@ -207,6 +207,9 @@ int main(int argc, char* argv[])
             const auto& view = cameraTransform->GetView();
             const Matrix& proj = cameraComponent->GetProj();
 
+            int width, height;
+            game.GetWindowSize(width, height);
+
             for (int i = 0; i < sphereCount; i++)
             {
                 Entity* sphere = entities[i];
@@ -245,8 +248,10 @@ int main(int argc, char* argv[])
                 if (pInput->IsRelative())
                     continue;
 
-                int width, height;
-                game.GetWindowSize(width, height);
+
+
+                if (ms.leftButton && !pInput->IsRelative())
+                    std::cout << ms.x << " " << ms.y << std::endl;
                 double mouseX = (double)ms.x / width;
                 double mouseY = (double)ms.y / height;
 
@@ -280,8 +285,7 @@ int main(int argc, char* argv[])
                     dopplerComponent->SetSelected(false);
             }
 
-            if (ms.leftButton && !pInput->IsRelative())
-                std::cout << ms.x << " " << ms.y << std::endl; 
+
 
         }));
 

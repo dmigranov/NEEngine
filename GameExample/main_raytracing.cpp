@@ -105,7 +105,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
     auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
 
     std::cout << posProj.x << " " << posProj.y << " " << posProj.z << std::endl; 
-    //todo: денормализовать на width и height *делать жто сращу там перед тем как перелавтать
+    if (mouseX != 0)
+        std::cout << mouseX << " " << mouseY << std::endl;
 
     return 0.0;
 }
