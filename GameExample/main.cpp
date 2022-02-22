@@ -221,13 +221,14 @@ int main(int argc, char* argv[])
                     Vector4 viewVector2 = Vector4::Transform(sphericalPosition, view);
                     Vector4 resVector1 = Vector4::Transform(viewVector1, proj);
                     Vector4 resVector2 = Vector4::Transform(viewVector2, proj);
+                    resVector1 /= resVector1.w;
+                    resVector2 /= resVector2.w;
 
                     if (ms.leftButton && !pInput->IsRelative())
                     {
                         //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << " " << resVector2.w << std::endl;
 
-                        resVector1 /= resVector1.w;
-                        resVector2 /= resVector2.w;
+
 
                         std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
                         std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
