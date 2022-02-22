@@ -248,7 +248,7 @@ int main(int argc, char* argv[])
 
 
 
-                if (ms.leftButton && !pInput->IsRelative()) //debug
+                //if (ms.leftButton && !pInput->IsRelative()) //debug
                 {
                     double mouseX = (double)ms.x / width * 2. - 1.;
                     double mouseY = (double)ms.y / height * 2. - 1; 
