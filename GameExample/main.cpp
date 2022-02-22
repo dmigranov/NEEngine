@@ -214,6 +214,11 @@ int main(int argc, char* argv[])
                 const auto& world = pTransform->GetWorld();
                 auto sphericalPosition = pTransform->GetSphericalPosition();
 
+                if (i == 0)
+                {
+                    //r_sphere w_sphere
+                }
+
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
                 if (t < 0)
                 {
