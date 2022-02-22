@@ -250,27 +250,32 @@ int main(int argc, char* argv[])
 
 
 
-                if (ms.leftButton && !pInput->IsRelative())
-                    std::cout << ms.x << " " << ms.y << std::endl;
-                double mouseX = (double)ms.x / width;
-                double mouseY = (double)ms.y / height;
-
-                double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
-
-
-
-                if (t < 0)
+                if (ms.leftButton && !pInput->IsRelative()) //debug
                 {
-                    continue;
-                    //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
-                    //if (t < 0)
-                    //    continue; //todo: чтобы во всех четвертях работало
+                    std::cout << ms.x << " " << ms.y << std::endl;
+                    double mouseX = (double)ms.x / width;
+                    double mouseY = (double)ms.y / height;
+
+                    double t = RayTraceSphereMouse(mouseX, mouseY, sphericalPosition, view, proj, distance_sq);
+
+                    if (t < 0)
+                    {
+                        continue;
+                        //t = RayTraceSphereNeg(sphericalPosition, rayStart, direction, view, r_projected_sq);
+                        //if (t < 0)
+                        //    continue; //todo: чтобы во всех четвертях работало
+                    }
+
+                    if (t < minDist) {
+                        minDist = t;
+                        minIndex = i;
+                    }
                 }
 
-                if (t < minDist) {
-                    minDist = t;
-                    minIndex = i;
-                }
+
+
+
+                
 
             }
 
