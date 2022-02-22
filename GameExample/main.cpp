@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
 
         randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
-        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
+        //transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
 
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
         auto dopplerComponent = new DopplerComponent();
@@ -222,9 +222,10 @@ int main(int argc, char* argv[])
                     Vector4 resVector = Vector4::Transform(viewVector, proj); 
                     if (ms.leftButton && !pInput->IsRelative())
                     {
-                        std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
-                        resVector /= resVector.w;
-                        std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y + resVector.z * resVector.z) << resVector.w << std::endl;
+                        //std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
+                        //resVector /= resVector.w;
+                        std::cout << r_projected << std::endl;
+                        std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
 
                     }
                         
