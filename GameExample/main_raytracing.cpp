@@ -121,14 +121,16 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     projectedRadiusVector1 /= projectedRadiusVector1.w;
     projectedRadiusVector2 /= projectedRadiusVector2.w;
-    std::cout << projectedRadiusVector1.x << " " << projectedRadiusVector1.y << " " << projectedRadiusVector1.z << std::endl;
-    std::cout << projectedRadiusVector2.x << " " << projectedRadiusVector2.y << " " << projectedRadiusVector2.z << std::endl;
-    std::cout << std::endl;
+    //std::cout << projectedRadiusVector1.x << " " << projectedRadiusVector1.y << " " << projectedRadiusVector1.z << std::endl;
+    //std::cout << projectedRadiusVector2.x << " " << projectedRadiusVector2.y << " " << projectedRadiusVector2.z << std::endl;
+    //std::cout << std::endl;
 
     //auto distSq = pow(projectedRadiusVector1.x - projectedRadiusVector2.x, 2) + pow(projectedRadiusVector1.y - projectedRadiusVector2.y, 2) + pow(projectedRadiusVector1.z - projectedRadiusVector2.z, 2);
     //distSq /= 4;
     auto distSq = (projectedRadiusVector1.y - projectedRadiusVector2.y) / 2;
     distSq = distSq * distSq;
+    std::cout << distSq << std::endl << std::endl;
+
 
     auto posProj_4D = Vector4::Transform(pos, proj);
     if (posProj_4D.w == 0)
@@ -138,6 +140,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     double distance_sq = pow(posProj.x - projectedRadiusVector1.x, 2) + pow(posProj.y - projectedRadiusVector1.y, 2) + pow(posProj.z - projectedRadiusVector1.z, 2);
 
     auto distFromCursorToCenterSq = pow(posProj.x - mouseX, 2) + pow(posProj.y - mouseY, 2);
+    std::cout << distFromCursorToCenterSq << std::endl;
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
