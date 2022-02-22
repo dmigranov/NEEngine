@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100;
+    int sphereCount = 1;
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity * [sphereCount];
     for (int i = 0; i < sphereCount; i++)
@@ -221,7 +221,13 @@ int main(int argc, char* argv[])
                     Vector4 viewVector = Vector4::Transform(Vector4::Transform(testVector, world), view);
                     Vector4 resVector = Vector4::Transform(viewVector, proj); 
                     if (ms.leftButton && !pInput->IsRelative())
+                    {
                         std::cout << resVector.x << " " << resVector.y << " " << resVector.z << " " << resVector.w << std::endl;
+                        resVector /= resVector.w;
+                        std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y + resVector.z * resVector.z) << resVector.w << std::endl;
+
+                    }
+                        
                 }
                 
                 double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, r_projected_sq);
