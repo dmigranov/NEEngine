@@ -241,7 +241,7 @@ int main(int argc, char* argv[])
                     dopplerComponent->SetSelected(false);
             }
 
-            if (ms.leftButton)
+            if (ms.leftButton && )
                 std::cout << ms.x << " " << ms.y << std::endl;
 
         }));
