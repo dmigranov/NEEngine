@@ -104,9 +104,11 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     Vector4 projectedRadiusVector1 = Vector4::Transform(viewRadiusVector1, proj);
     Vector4 projectedRadiusVector2 = Vector4::Transform(viewRadiusVector2, proj);
 
-    if (projectedRadiusVector.w == 0)
+    if (projectedRadiusVector1.w == 0 || projectedRadiusVector2.w == 0)
         return -1;
-    projectedRadiusVector /= projectedRadiusVector.w;
+    projectedRadiusVector1 /= projectedRadiusVector1.w;
+    projectedRadiusVector2 /= projectedRadiusVector2.w;
+
 
     //-x +x - 2r! !!!!
     if (pos.z < 0)  //!!
