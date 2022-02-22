@@ -96,6 +96,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
 
     Vector4 radiusVector1(0, r_sphere, 0, w_sphere);
 
+    //-x +x - 2r!
+
 
     if (pos.z < 0)  //!!
         return -1;
