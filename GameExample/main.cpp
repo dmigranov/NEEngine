@@ -231,14 +231,16 @@ int main(int argc, char* argv[])
                     //std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << " " << resVector2.w << std::endl;
                     std::cout << resVector1.x << " " << resVector1.y << " " << resVector1.z << std::endl;
                     std::cout << resVector2.x << " " << resVector2.y << " " << resVector2.z << std::endl;
-                    //double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
-                    //std::cout << sqrt(distance_sq) << std::endl;
+                    double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2) ;
+                    std::cout << distance_sq << std::endl;
+                    std::cout << r_projected_sq << std::endl;
                     //std::cout << sqrt(resVector.x * resVector.x + resVector.y * resVector.y) << std::endl;
                 }
-                        
+                double distance_sq = pow(resVector1.x - resVector2.x, 2) + pow(resVector1.y - resVector2.y, 2);
+
                 
                 
-                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, r_projected_sq);
+                double t = RayTraceSpherePos(sphericalPosition, rayStart, direction, view, proj, distance_sq);
                 if (t < 0)
                 {
                     continue;
