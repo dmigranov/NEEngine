@@ -242,7 +242,7 @@ int main(int argc, char* argv[])
             }
 
             if (ms.leftButton && !pInput->IsRelative())
-                std::cout << ms.x << " " << ms.y << std::endl;
+                std::cout << ms.x << " " << ms.y << std::endl; 
 
         }));
 
