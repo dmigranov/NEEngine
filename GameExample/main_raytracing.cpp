@@ -95,6 +95,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, DirectX::SimpleMath::Ve
     auto pos = Vector4::Transform(pos_world, view); //pos_view
 
     Vector4 radiusVector1(0, r_sphere, 0, w_sphere);
+    Vector4 viewRadiusVector = Vector4::Transform(Vector4::Transform(radiusVector1, world), view);
 
     //-x +x - 2r!
 
