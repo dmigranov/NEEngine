@@ -219,7 +219,8 @@ int main(int argc, char* argv[])
                 if (t < 0)
                     continue; 
                 
-                std::cout << t << std::endl;
+                if (t > 1 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
+                    continue;
 
                 if (t < minDist) {
                     minDist = t;
