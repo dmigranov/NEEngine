@@ -204,6 +204,9 @@ int main(int argc, char* argv[])
             {
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
+                auto visibility = pRendering->GetSphericalVisibility();
+
                 const auto& world = pTransform->GetWorld();
                 
                 double mouseX = (double)ms.x / width * 2. - 1.;
