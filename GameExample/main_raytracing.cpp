@@ -134,7 +134,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     //std::cout << projectedRadiusVector1.x << " " << projectedRadiusVector1.y << " " << projectedRadiusVector1.z << std::endl;
     //std::cout << projectedRadiusVector2.x << " " << projectedRadiusVector2.y << " " << projectedRadiusVector2.z << std::endl << std::endl;
 
-    if (pos.z < 0)  //todo: учесть расстоние
+    if (pos.z < 0)
         posProj.z + 1;
     return posProj.z; 
 }
