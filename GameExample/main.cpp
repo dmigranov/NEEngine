@@ -247,10 +247,8 @@ int main(int argc, char* argv[])
             if (kbs.I)
             {
                 for (int i = 0; i < sphereCount; i++)
-                {
                     if (selectedObjects[i])
                         entities[i]->SetVisible(false);
-                }
             }
 
             if (kbs.T)
@@ -263,6 +261,18 @@ int main(int argc, char* argv[])
                         dopplerComp->SetAlternativeTexture(true);
                     }
             }
+            else if (kbs.Y) 
+            {
+                for (int i = 0; i < sphereCount; i++)
+                    if (selectedObjects[i])
+                    {
+                        auto selectedObject = entities[i];
+                        auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
+                        dopplerComp->SetAlternativeTexture(false);
+                    }
+            }
+
+            //todo: вопрос: остается ли выделение после операций выше?
 
             if (kbs.R) //revert
             {
