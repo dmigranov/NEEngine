@@ -69,7 +69,6 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
     auto effect = new SphericalDopplerEffect(greenTexture, greenWithBlueTexture, 0.1, DirectX::Colors::Black);
-    //auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
