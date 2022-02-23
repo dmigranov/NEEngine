@@ -204,24 +204,22 @@ int main(int argc, char* argv[])
             {
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
-                auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
-                auto visibility = pRendering->GetSphericalVisibility();
-                //if (visibility == SphericalVisibility::VISIBLE_NONE)
-                //    continue;
-
                 const auto& world = pTransform->GetWorld();
+
                 
                 double mouseX = (double)ms.x / width * 2. - 1.;
                 double mouseY = -((double)ms.y / height * 2. - 1); 
 
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
-                //if (t > 1)
-                //   std::cout << "here" << std::endl;
+                if (t < 0)
+                    continue; 
 
-                if (t < minDist) { //ISVIVSIBLE
+                if (t < minDist) {
                     minDist = t;
                     minIndex = i;
                 }
+                
+
             }
 
             currentSphereNumber = minIndex;
