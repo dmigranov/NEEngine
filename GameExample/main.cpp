@@ -175,7 +175,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [entities, sphereCount, cameraTransform, objectRadius,
-        &currentSphereNumber, cameraComponent, timer, &game]
+        &currentSphereNumber, cameraComponent, timer, &game, selectedObjects]
     (Entity* pEntity, double deltaTime) {
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
@@ -233,10 +233,12 @@ int main(int argc, char* argv[])
                 auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                 if (ms.rightButton)
                 {
+                    selectedObjects[currentSphereNumber] = true;
                     dopplerComponent->SetSelected(true);
                 }
                 else if (kbs.Space)
                 {
+                    selectedObjects[currentSphereNumber] = false;
                     dopplerComponent->SetSelected(false);
                 }
             }
