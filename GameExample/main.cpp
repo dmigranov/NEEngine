@@ -207,7 +207,6 @@ int main(int argc, char* argv[])
                     continue;
 
                 const auto& world = pTransform->GetWorld();
-
                 
                 double mouseX = (double)ms.x / width * 2. - 1.;
                 double mouseY = -((double)ms.y / height * 2. - 1); 
@@ -223,8 +222,6 @@ int main(int argc, char* argv[])
                     minDist = t;
                     minIndex = i;
                 }
-                
-
             }
 
             currentSphereNumber = minIndex;
