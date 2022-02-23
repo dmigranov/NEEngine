@@ -48,8 +48,6 @@ public:
 
     virtual void SetFogColor(DirectX::XMVECTORF32 fogColor) override;
 
-    void SetAlternative(bool isAlternative);
-
 private:
     PerApplicationPSConstantBufferDoppler   perApplicationPSConstantBuffer;
     PerObjectPSConstantBuffer               perObjectPSConstantBuffer;
