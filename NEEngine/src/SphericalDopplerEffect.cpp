@@ -21,10 +21,11 @@ bool SphericalDopplerEffect::m_isSimulationRunning = true;
 bool SphericalDopplerEffect::m_isBackwards = false;
 
 
-SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
+SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {
 	m_magic = "SphericalDoppler";
 	perApplicationPSConstantBuffer.fogColor = fogColor;
+	m_pTextureAlt = pTextureAlt;
 	Initialize(); //parent Initialize already called
 }
 

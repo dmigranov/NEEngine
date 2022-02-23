@@ -29,7 +29,7 @@ public:
         double deltaTime = 0.;
     };
 
-    SphericalDopplerEffect(Texture* pTexture, double fogDensity, DirectX::XMVECTORF32 fogColor);
+    SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor);
 
     virtual bool Initialize() override;
     virtual void Deinitialize() override;
@@ -63,5 +63,4 @@ private:
     static bool m_isBackwards;
 
     Texture* m_pTextureAlt = nullptr;
-
 };
