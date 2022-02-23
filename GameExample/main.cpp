@@ -215,6 +215,8 @@ int main(int argc, char* argv[])
                 double mouseY = -((double)ms.y / height * 2. - 1); 
 
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
+                if (t > 1)
+                    std::cout << "here" << std::endl;
 
                 if (t < minDist) { //ISVIVSIBLE
                     minDist = t;
