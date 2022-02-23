@@ -256,14 +256,12 @@ int main(int argc, char* argv[])
             if (kbs.T)
             {
                 for (int i = 0; i < sphereCount; i++)
-                {
                     if (selectedObjects[i])
                     {
                         auto selectedObject = entities[i];
                         auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
                         dopplerComp->SetAlternativeTexture(true);
                     }
-                }
             }
 
             if (kbs.R) //revert
