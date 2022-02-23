@@ -218,6 +218,8 @@ int main(int argc, char* argv[])
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
                 if (t < 0)
                     continue; 
+                
+                std::cout << t << std::endl;
 
                 if (t < minDist) {
                     minDist = t;
