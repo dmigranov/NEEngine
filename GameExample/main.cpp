@@ -204,6 +204,7 @@ int main(int argc, char* argv[])
             {
                 Entity* sphere = entities[i];
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
                 const auto& world = pTransform->GetWorld();
 
                 
