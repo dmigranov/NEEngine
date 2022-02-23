@@ -13,7 +13,7 @@ double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
 
-    if (pos.z < 0)  
+    if (pos.z < 0)
         return -1;
 
     auto pos_w = pos.w;
