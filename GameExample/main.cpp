@@ -243,6 +243,14 @@ int main(int argc, char* argv[])
                 }
             }
 
+            if (kbs.I)
+            {
+                for (int i = 0; i < sphereCount; i++)
+                {
+                    if (selectedObjects[i])
+                        entities[i]->SetVisible(false);
+                }
+            }
 
 
         }));
