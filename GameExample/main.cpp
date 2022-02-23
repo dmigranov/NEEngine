@@ -211,7 +211,7 @@ int main(int argc, char* argv[])
 
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
 
-                if (t < minDist) {
+                if (t < minDist) { //ISVIVSIBLE
                     minDist = t;
                     minIndex = i;
                 }
