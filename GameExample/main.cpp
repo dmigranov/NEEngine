@@ -257,7 +257,11 @@ int main(int argc, char* argv[])
                 for (int i = 0; i < sphereCount; i++)
                 {
                     selectedObjects[i] = false;
-                    entities[i]->SetVisible(true);
+                    //deselect!
+                    auto selectedEntity = entities[i];
+                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                    dopplerComponent->SetSelected(false);
+                    selectedEntity->SetVisible(true);
                 }
             }
 
