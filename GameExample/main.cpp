@@ -171,7 +171,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
-    auto selectedObjects = new bool[sphereCount];
+    auto selectedObjects = new bool[sphereCount] {false};
 
     scene->AddSystem(new ActionSystem<InputComponent>(
         [entities, sphereCount, cameraTransform, objectRadius,
