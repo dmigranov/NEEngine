@@ -182,11 +182,8 @@ int main(int argc, char* argv[])
             double radius = SphericalEffect::GetRadius();
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
-            //radius of spheres in the Euclidean space, after projection
             auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
             auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
-            auto r_projected = r_sphere / w_sphere;
-            auto r_projected_sq = r_projected * r_projected;
 
             Vector3 rayStart(0.f, 0.f, 0.f);    // position - always (0, 0, 0)
             Vector3 direction(0.f, 0.f, 1.f);   // direction - always (0, 0, 1)
