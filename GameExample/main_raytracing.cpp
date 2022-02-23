@@ -6,7 +6,6 @@ using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 
-//todo: исправить для эллиптического случая
 double RayTraceSpherePos(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX::SimpleMath::Vector3 rayStart, 
     DirectX::SimpleMath::Vector3 direction, 
     DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, double r_projected_sq) {
