@@ -47,6 +47,8 @@ int main(int argc, char* argv[])
     Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
     Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
+    Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
+
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -66,7 +68,7 @@ int main(int argc, char* argv[])
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
-    auto effect = new SphericalDopplerEffect(greenTexture, rainbowTexture1, 0.1, DirectX::Colors::Black);
+    auto effect = new SphericalDopplerEffect(greenTexture, greenWithBlueTexture, 0.1, DirectX::Colors::Black);
     //auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
