@@ -258,7 +258,11 @@ int main(int argc, char* argv[])
                 for (int i = 0; i < sphereCount; i++)
                 {
                     if (selectedObjects[i])
-                        entities[i]->SetVisible(false);
+                    {
+                        auto selectedObject = entities[i];
+                        auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
+                        dopplerComp->SetAlternativeTexture(true);
+                    }
                 }
             }
 
