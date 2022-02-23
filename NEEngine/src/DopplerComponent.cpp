@@ -15,3 +15,8 @@ void DopplerComponent::SetAlternativeTexture(bool isAlternative)
 {
 	m_isAlternative = isAlternative;
 }
+
+bool DopplerComponent::IsAlternativeTexture()
+{
+	return m_isAlternative;
+}
