@@ -113,7 +113,14 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 
 	game.UpdateSubresource(g_d3dPerObjectPSConstantBuffer, &perObjectPSConstantBuffer);
 	game.PSSetConstantBuffers(1, 1, &g_d3dPerObjectPSConstantBuffer);
-
+	if (false)
+	{
+		if (m_pTextureAlt != nullptr)
+		{     //Pixel Shader Stafe - unique for every stage
+			auto shaderResource = m_pTextureAlt->GetTexture();
+			game.PSSetShaderResources(1, &shaderResource);
+		}
+	}
 }
 
 void SphericalDopplerEffect::Clean()
