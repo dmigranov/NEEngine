@@ -274,6 +274,7 @@ int main(int argc, char* argv[])
                     auto selectedEntity = entities[i];
                     auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                     dopplerComponent->SetSelected(false);
+                    dopplerComponent->SetAlternativeTexture(false);
                     selectedEntity->SetVisible(true);
                 }
             }
