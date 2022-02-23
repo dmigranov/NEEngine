@@ -206,6 +206,8 @@ int main(int argc, char* argv[])
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                 auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
                 auto visibility = pRendering->GetSphericalVisibility();
+                if (visibility == SphericalVisibility::VISIBLE_NONE)
+                    continue;
 
                 const auto& world = pTransform->GetWorld();
                 
