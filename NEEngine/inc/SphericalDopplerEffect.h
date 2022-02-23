@@ -61,4 +61,7 @@ private:
     static double m_radius_old;// = 1.;
     static bool m_isSimulationRunning;
     static bool m_isBackwards;
+
+    Texture* m_pTextureAlt = nullptr;
+
 };
