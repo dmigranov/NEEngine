@@ -10,3 +10,8 @@ bool DopplerComponent::IsSelected()
 {
 	return m_isSelected;
 }
+
+bool DopplerComponent::SetAlternativeTexture(bool isAlternative)
+{
+	m_isAlternative = isAlternative;
+}
