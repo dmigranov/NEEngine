@@ -96,7 +96,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
 
-    //if (pos.z < 0)  //!!
+    //if (pos.z < 0)  //todo: учесть расстоние
     //    return -1;
 
     auto radius = SphericalEffect::GetRadius();
