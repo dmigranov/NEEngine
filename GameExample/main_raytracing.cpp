@@ -134,5 +134,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
+    std::cout << posProj.z << std::endl;
+
     return posProj.z; 
 }
