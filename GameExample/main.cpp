@@ -171,6 +171,8 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
+    std::list<Entity*> selectedObjects;
+
     scene->AddSystem(new ActionSystem<InputComponent>(
         [entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer, &game]
