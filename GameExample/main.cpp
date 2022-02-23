@@ -185,6 +185,9 @@ int main(int argc, char* argv[])
             auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
             auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
 
+            //Vector3 rayStart(0.f, 0.f, 0.f);    // position - always (0, 0, 0)
+            //Vector3 direction(0.f, 0.f, 1.f);   // direction - always (0, 0, 1)
+
             float minDist = 100000.;
             int minIndex = -1;
 
