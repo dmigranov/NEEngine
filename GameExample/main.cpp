@@ -206,8 +206,8 @@ int main(int argc, char* argv[])
                 auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
                 auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
                 auto visibility = pRendering->GetSphericalVisibility();
-                if (visibility == SphericalVisibility::VISIBLE_NONE)
-                    continue;
+                //if (visibility == SphericalVisibility::VISIBLE_NONE)
+                //    continue;
 
                 const auto& world = pTransform->GetWorld();
                 
@@ -215,8 +215,8 @@ int main(int argc, char* argv[])
                 double mouseY = -((double)ms.y / height * 2. - 1); 
 
                 double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
-                if (t > 1)
-                    std::cout << "here" << std::endl;
+                //if (t > 1)
+                //   std::cout << "here" << std::endl;
 
                 if (t < minDist) { //ISVIVSIBLE
                     minDist = t;
