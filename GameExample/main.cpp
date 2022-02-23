@@ -219,7 +219,7 @@ int main(int argc, char* argv[])
                 if (t < 0)
                     continue; 
                 
-                std::cout << t << std::endl;
+                //std::cout << t << std::endl;
 
                 if (t < minDist) {
                     minDist = t;
