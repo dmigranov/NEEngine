@@ -244,11 +244,14 @@ int main(int argc, char* argv[])
                 }
             }
 
+            static bool oldPressedInvertButton = false;
 
             if (kbs.I)
             {
                 std::cout << "here" << std::endl;
             }
+
+            static bool oldPressedVisibleButton = false;
 
             if (kbs.V)
             {
