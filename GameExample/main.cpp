@@ -250,6 +250,8 @@ int main(int argc, char* argv[])
             {
                 std::cout << "here" << std::endl;
             }
+            else
+                oldPressedInvertButton = false;
 
             static bool oldPressedVisibleButton = false;
 
@@ -259,6 +261,8 @@ int main(int argc, char* argv[])
                     if (selectedObjects[i])
                         entities[i]->SetVisible(false);
             }
+            else
+                oldPressedVisibleButton = false;
 
             if (kbs.T)
             {
