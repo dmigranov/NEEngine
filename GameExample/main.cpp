@@ -251,8 +251,10 @@ int main(int argc, char* argv[])
                 if (!oldPressedInvertButton)
                     for (int i = 0; i < sphereCount; i++)
                     {
+                        auto selectedEntity = entities[currentSphereNumber];
+                        auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                         selectedObjects[i] = !selectedObjects[i];
-                        dopplerComponent->SetSelected(false);
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
                     }
                 oldPressedInvertButton = true;
             }
