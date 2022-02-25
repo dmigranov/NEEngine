@@ -290,7 +290,6 @@ int main(int argc, char* argv[])
             //todo: вопрос: остается ли выделение после операций выше?
 
             if (kbs.R) //revert
-            {
                 for (int i = 0; i < sphereCount; i++)
                 {
                     selectedObjects[i] = false;
@@ -300,9 +299,6 @@ int main(int argc, char* argv[])
                     dopplerComponent->SetAlternativeTexture(false);
                     selectedEntity->SetVisible(true);
                 }
-            }
-
-
         }));
 
     return game.StartGame();
