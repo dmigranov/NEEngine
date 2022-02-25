@@ -40,8 +40,16 @@ void SelectionSystem::Execute(double deltaTime)
 	int minIndex = -1;
 
 	const auto& view = m_pCameraTransform->GetView();
-	const Matrix& proj = cameraComponent->GetProj();
+	const Matrix& proj = m_pCameraComponent->GetProj();
 
 	int width, height;
 	m_game.GetWindowSize(width, height);
+
+	for (auto pEntity : m_entities)
+	{
+		//todo
+		//добавить в doppler component bool - выбран не выбран?
+		//а хотя это и так есть! 
+		//и доп. массив с булями не нужен!
+	}
 }
