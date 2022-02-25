@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
-#include "SelectionSystem.h"
 
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -20,6 +19,21 @@ private:
 	double m_currentFrameTime = 0.;
 	double m_muCoeff = 1.;
 	double m_frameTimeLimit;
+};
+
+class SelectionSystem :
+	public System
+{
+public:
+	SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius);
+	virtual void Execute(double deltaTime) override;
+private:
+	InputComponent* m_pInputComponent;
+	Game& m_game;
+	SphericalTransformComponent* m_pCameraTransform;
+	SphericalCameraComponent* m_pCameraComponent;
+
+	double m_initialObjectRadius;
 };
 
 class RadiusUpdateSystem : public System {

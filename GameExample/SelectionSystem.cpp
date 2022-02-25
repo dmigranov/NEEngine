@@ -1,17 +1,7 @@
-#include "SelectionSystem.h"
-//#include <pch.h>
+#include "main.h"
 
-#include "SphericalTransformComponent.h"
-#include "SphericalCameraComponent.h"
-#include "SphericalRenderingComponent.h"
-#include "InputComponent.h"
-#include "Game.h"
-#include "SphericalEffect.h"
-#include "Scene.h"
-#include "Entity.h"
-
-//using namespace DirectX;
-//using namespace DirectX::SimpleMath;
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
@@ -43,7 +33,7 @@ void SelectionSystem::Execute(double deltaTime)
 	int minIndex = -1;
 
 	const auto& view = m_pCameraTransform->GetView();
-	//const Matrix& proj = m_pCameraComponent->GetProj();
+	const Matrix& proj = m_pCameraComponent->GetProj();
 
 	int width, height;
 	m_game.GetWindowSize(width, height);
