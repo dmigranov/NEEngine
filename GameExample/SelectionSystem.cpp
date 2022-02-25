@@ -1,5 +1,5 @@
 #include "SelectionSystem.h"
-#include <pch.h>
+//#include <pch.h>
 
 #include "SphericalTransformComponent.h"
 #include "SphericalCameraComponent.h"
@@ -10,8 +10,8 @@
 #include "Scene.h"
 #include "Entity.h"
 
-using namespace DirectX;
-using namespace DirectX::SimpleMath;
+//using namespace DirectX;
+//using namespace DirectX::SimpleMath;
 
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
