@@ -237,8 +237,8 @@ int main(int argc, char* argv[])
                 {
                     if (!oldPressedSelectButton)
                     { 
-                        selectedObjects[currentSphereNumber] = true;
-                        dopplerComponent->SetSelected(true);
+                        selectedObjects[currentSphereNumber] = !selectedObjects[currentSphereNumber];
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
                     }
                     oldPressedSelectButton = true;
                 }
