@@ -279,7 +279,7 @@ int main(int argc, char* argv[])
                         {
                             auto selectedObject = entities[i];
                             auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
-                            dopplerComp->SetAlternativeTexture(true);
+                            dopplerComp->SetAlternativeTexture(!dopplerComp->IsAlternativeTexture());
                         }
 
                 oldPressedTextureButton = true;
