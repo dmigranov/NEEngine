@@ -270,6 +270,7 @@ int main(int argc, char* argv[])
                     }
             }
 
+            static bool oldPressedTextureButton = false;
             if (kbs.T)
             {
                 for (int i = 0; i < sphereCount; i++)
@@ -280,7 +281,10 @@ int main(int argc, char* argv[])
                         dopplerComp->SetAlternativeTexture(true);
                     }
             }
-            else if (kbs.Y)  //
+            else
+                ;
+            /*
+            if (kbs.Y)  //
             {
                 for (int i = 0; i < sphereCount; i++)
                     if (selectedObjects[i])
@@ -289,7 +293,7 @@ int main(int argc, char* argv[])
                         auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
                         dopplerComp->SetAlternativeTexture(false);
                     }
-            }
+            }*/
 
             //todo: вопрос: остается ли выделение после операций выше?
 
