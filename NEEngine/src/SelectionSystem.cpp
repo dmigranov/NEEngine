@@ -2,6 +2,8 @@
 
 #include "SphericalTransformComponent.h"
 #include "SphericalRenderingComponent.h"
+#include "InputComponent.h"
+
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent)
 {

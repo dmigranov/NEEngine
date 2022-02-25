@@ -1,5 +1,8 @@
 #pragma once
 #include "System.h"
+
+class InputComponent;
+
 class SelectionSystem :
     public System
 {
