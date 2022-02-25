@@ -3,7 +3,7 @@
 #include "SphericalTransformComponent.h"
 #include "SphericalRenderingComponent.h"
 
-SelectionSystem::SelectionSystem()
+SelectionSystem::SelectionSystem(InputComponent* pInputComponent)
 {
 	SubscribeToComponentType<SphericalTransformComponent>();
 	SubscribeToComponentType<SphericalRenderingComponent>();
@@ -11,4 +11,5 @@ SelectionSystem::SelectionSystem()
 
 void SelectionSystem::Execute(double deltaTime)
 {
+
 }

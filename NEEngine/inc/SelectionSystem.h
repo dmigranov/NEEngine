@@ -4,7 +4,7 @@ class SelectionSystem :
     public System
 {
 public:
-	SelectionSystem();
+	SelectionSystem(InputComponent* pInputComponent);
 	virtual void Execute(double deltaTime) override;
 private:
 
