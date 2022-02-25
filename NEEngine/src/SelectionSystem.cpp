@@ -1,9 +1,9 @@
 #include "SelectionSystem.h"
-#include <pch.h>
+//#include <pch.h>
 
-#include "SphericalTransformComponent.h"
-#include "SphericalCameraComponent.h"
-#include "SphericalRenderingComponent.h"
+//#include "SphericalTransformComponent.h"
+//#include "SphericalCameraComponent.h"
+//#include "SphericalRenderingComponent.h"
 //#include "InputComponent.h"
 //#include "Game.h"
 //#include "SphericalEffect.h"
@@ -17,8 +17,8 @@
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
 {
 	
-	SubscribeToComponentType<SphericalTransformComponent>();
-	SubscribeToComponentType<SphericalRenderingComponent>();
+	//SubscribeToComponentType<SphericalTransformComponent>();
+	//SubscribeToComponentType<SphericalRenderingComponent>();
 
 	/*
 	m_pInputComponent = pInputComponent;
