@@ -244,12 +244,12 @@ int main(int argc, char* argv[])
                 }
             }
 
-            if (ms.middleButton)
+            if (ms.leftButton)
             {
                 std::cout << "here" << std::endl;
             }
 
-            if (kbs.I)
+            if (kbs.V)
             {
                 for (int i = 0; i < sphereCount; i++)
                     if (selectedObjects[i])
