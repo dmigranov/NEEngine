@@ -250,7 +250,10 @@ int main(int argc, char* argv[])
             {
                 if (!oldPressedInvertButton)
                     for (int i = 0; i < sphereCount; i++)
+                    {
                         selectedObjects[i] = !selectedObjects[i];
+                        dopplerComponent->SetSelected(false);
+                    }
                 oldPressedInvertButton = true;
             }
             else
