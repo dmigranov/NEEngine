@@ -235,14 +235,20 @@ int main(int argc, char* argv[])
                 auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                 if (ms.rightButton)
                 {
-                    selectedObjects[currentSphereNumber] = true;
-                    dopplerComponent->SetSelected(true);
+                    if (!oldPressedSelectButton)
+                    { 
+                        selectedObjects[currentSphereNumber] = true;
+                        dopplerComponent->SetSelected(true);
+                    }
+                    oldPressedSelectButton = true;
                 }
-                else if (kbs.Space)
-                {
-                    selectedObjects[currentSphereNumber] = false;
-                    dopplerComponent->SetSelected(false);
-                }
+                else
+                    oldPressedSelectButton = false;
+                //else if (kbs.Space)
+                //{
+                //    selectedObjects[currentSphereNumber] = false;
+                //    dopplerComponent->SetSelected(false);
+                //}
             }
 
             static bool oldPressedInvertButton = false;
