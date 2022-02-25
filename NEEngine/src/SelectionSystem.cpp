@@ -1,31 +1,31 @@
 #include "SelectionSystem.h"
-//#include <pch.h>
+#include <pch.h>
 
-//#include "SphericalTransformComponent.h"
-//#include "SphericalCameraComponent.h"
-//#include "SphericalRenderingComponent.h"
-//#include "InputComponent.h"
-//#include "Game.h"
-//#include "SphericalEffect.h"
-//#include "Scene.h"
-//#include "Entity.h"
+#include "SphericalTransformComponent.h"
+#include "SphericalCameraComponent.h"
+#include "SphericalRenderingComponent.h"
+#include "InputComponent.h"
+#include "Game.h"
+#include "SphericalEffect.h"
+#include "Scene.h"
+#include "Entity.h"
 
-//using namespace DirectX;
-//using namespace DirectX::SimpleMath;
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
 {
 	
-	//SubscribeToComponentType<SphericalTransformComponent>();
-	//SubscribeToComponentType<SphericalRenderingComponent>();
+	SubscribeToComponentType<SphericalTransformComponent>();
+	SubscribeToComponentType<SphericalRenderingComponent>();
 
-	/*
+	
 	m_pInputComponent = pInputComponent;
 	m_initialObjectRadius = initialObjectRadius;
 	m_pCameraTransform = m_game.GetScene()->GetCamera()->GetComponent<SphericalTransformComponent>();
 	m_pCameraComponent = m_game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
-	*/
+	
 }
 
 void SelectionSystem::Execute(double deltaTime)
