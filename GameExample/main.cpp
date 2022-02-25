@@ -244,7 +244,8 @@ int main(int argc, char* argv[])
                 }
             }
 
-            if (ms.leftButton)
+
+            if (kbs.I)
             {
                 std::cout << "here" << std::endl;
             }
