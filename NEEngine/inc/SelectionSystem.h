@@ -10,6 +10,6 @@ public:
 	SelectionSystem(InputComponent* pInputComponent);
 	virtual void Execute(double deltaTime) override;
 private:
-
+	InputComponent* m_pInputComponent
 };
 

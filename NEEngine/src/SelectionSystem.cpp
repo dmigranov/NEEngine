@@ -9,6 +9,8 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent)
 {
 	SubscribeToComponentType<SphericalTransformComponent>();
 	SubscribeToComponentType<SphericalRenderingComponent>();
+
+	m_pInputComponent = pInputComponent;
 }
 
 void SelectionSystem::Execute(double deltaTime)
