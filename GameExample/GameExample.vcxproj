@@ -171,7 +171,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\NEEngine\src\SelectionSystem.cpp" />
     <ClCompile Include="FriedmannSystems.cpp" />
     <ClCompile Include="FriedmannWindow.cpp" />
     <ClCompile Include="main.cpp" />
@@ -188,7 +187,6 @@
     <Text Include="experiment visibility.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\NEEngine\inc\SelectionSystem.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="RandomSphericalGenerator.h" />
   </ItemGroup>

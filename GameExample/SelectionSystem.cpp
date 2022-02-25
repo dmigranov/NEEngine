@@ -30,7 +30,7 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initial
 
 void SelectionSystem::Execute(double deltaTime)
 {
-	/*
+	
 	auto ms = m_pInputComponent->GetMouseState();
 
 	double radius = SphericalEffect::GetRadius();
@@ -55,5 +55,5 @@ void SelectionSystem::Execute(double deltaTime)
 		//а хотя это и так есть! 
 		//и доп. массив с булями не нужен!
 	}
-	*/
+	
 }
