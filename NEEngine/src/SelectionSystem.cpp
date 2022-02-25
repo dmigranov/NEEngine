@@ -3,6 +3,7 @@
 #include <pch.h>
 
 #include "SphericalTransformComponent.h"
+#include "SphericalCameraComponent.h"
 #include "SphericalRenderingComponent.h"
 #include "InputComponent.h"
 #include "SphericalEffect.h"
@@ -22,6 +23,7 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initial
 	m_pInputComponent = pInputComponent;
 	m_initialObjectRadius = initialObjectRadius;
 	m_pCameraTransform = m_game.GetScene()->GetCamera()->GetComponent<SphericalTransformComponent>();
+	m_pCameraComponent = m_game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
 }
 
 void SelectionSystem::Execute(double deltaTime)
