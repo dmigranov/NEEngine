@@ -266,7 +266,7 @@ int main(int argc, char* argv[])
                     if (selectedObjects[i])
                     {
                         entities[i]->SetVisible(false);
-
+                        selectedObjects[i] = false;
                     }
             }
 
