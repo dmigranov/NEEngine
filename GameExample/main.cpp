@@ -248,7 +248,10 @@ int main(int argc, char* argv[])
 
             if (kbs.I)
             {
-                std::cout << "here" << std::endl;
+                if (!oldPressedInvertButton)
+                    for (int i = 0; i < sphereCount; i++)
+                        selectedObjects[i] = !selectedObjects[i];
+                oldPressedInvertButton = true;
             }
             else
                 oldPressedInvertButton = false;
