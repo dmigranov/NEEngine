@@ -11,6 +11,8 @@
 #include "Entity.h"
 
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
 {
