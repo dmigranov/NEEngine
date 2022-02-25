@@ -280,9 +280,11 @@ int main(int argc, char* argv[])
                         auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
                         dopplerComp->SetAlternativeTexture(true);
                     }
+
+                oldPressedTextureButton = true;
             }
             else
-                ;
+                oldPressedTextureButton = false;
             /*
             if (kbs.Y)  //
             {
