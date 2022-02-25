@@ -30,6 +30,9 @@
     <ClCompile Include="FriedmannSystems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\NEEngine\src\SelectionSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="main_sphere.cpp_">
@@ -55,6 +58,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NEEngine\inc\SelectionSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

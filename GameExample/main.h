@@ -21,10 +21,6 @@ private:
 	double m_frameTimeLimit;
 };
 
-class SelectionSystem : public System {
-
-};
-
 class RadiusUpdateSystem : public System {
 public:
 	RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem * renderSystem);
