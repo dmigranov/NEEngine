@@ -227,6 +227,7 @@ int main(int argc, char* argv[])
                 }
             }
 
+            static bool oldPressedSelectButton = false;
             currentSphereNumber = minIndex;
             if (minIndex >= 0)
             {
