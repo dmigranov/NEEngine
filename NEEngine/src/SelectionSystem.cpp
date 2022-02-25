@@ -1,5 +1,7 @@
 #include "SelectionSystem.h"
 
+#include <pch.h>
+
 #include "SphericalTransformComponent.h"
 #include "SphericalRenderingComponent.h"
 #include "InputComponent.h"
