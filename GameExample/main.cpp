@@ -245,7 +245,6 @@ int main(int argc, char* argv[])
             }
 
             static bool oldPressedInvertButton = false;
-
             if (kbs.I)
             {
                 if (!oldPressedInvertButton) 
@@ -268,6 +267,8 @@ int main(int argc, char* argv[])
                 for (int i = 0; i < sphereCount; i++)
                     if (selectedObjects[i])
                         entities[i]->SetVisible(false);
+
+                oldPressedVisibleButton = true;
             }
             else
                 oldPressedVisibleButton = false;
