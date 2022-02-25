@@ -262,6 +262,7 @@ int main(int argc, char* argv[])
 
             if (kbs.V)
             {
+                //todo: вопрос: остается ли выделение после (сейчас - нет)?
                 for (int i = 0; i < sphereCount; i++)
                     if (selectedObjects[i])
                     {
@@ -286,8 +287,6 @@ int main(int argc, char* argv[])
             }
             else
                 oldPressedTextureButton = false;
-
-            //todo: вопрос: остается ли выделение после операций выше?
 
             if (kbs.R) //revert
                 for (int i = 0; i < sphereCount; i++)
