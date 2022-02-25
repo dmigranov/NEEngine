@@ -41,5 +41,5 @@ void SelectionSystem::Execute(double deltaTime)
 	const Matrix& proj = cameraComponent->GetProj();
 
 	int width, height;
-	game.GetWindowSize(width, height);
+	m_game.GetWindowSize(width, height);
 }

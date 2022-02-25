@@ -3,6 +3,7 @@
 
 class InputComponent;
 class SphericalTransformComponent;
+class SphericalCameraComponent;
 
 class SelectionSystem :
     public System
@@ -14,7 +15,8 @@ private:
 	InputComponent* m_pInputComponent;
 	Game& m_game;
 	SphericalTransformComponent* m_pCameraTransform;
-	double m_initialObjectRadius;
+	SphericalCameraComponent* m_pCameraComponent;
 
+	double m_initialObjectRadius;
 };
 
