@@ -9,8 +9,8 @@
 #include "Scene.h"
 #include "Entity.h"
 
-using namespace DirectX;
-using namespace DirectX::SimpleMath;
+//using namespace DirectX;
+//using namespace DirectX::SimpleMath;
 
 
 SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
@@ -26,6 +26,7 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initial
 
 void SelectionSystem::Execute(double deltaTime)
 {
+	/*
 	auto ms = m_pInputComponent->GetMouseState();
 
 	double radius = SphericalEffect::GetRadius();
@@ -38,7 +39,7 @@ void SelectionSystem::Execute(double deltaTime)
 	int minIndex = -1;
 
 	const auto& view = m_pCameraTransform->GetView();
-	const Matrix& proj = m_pCameraComponent->GetProj();
+	//const Matrix& proj = m_pCameraComponent->GetProj();
 
 	int width, height;
 	m_game.GetWindowSize(width, height);
@@ -50,4 +51,5 @@ void SelectionSystem::Execute(double deltaTime)
 		//а хотя это и так есть! 
 		//и доп. массив с булями не нужен!
 	}
+	*/
 }
