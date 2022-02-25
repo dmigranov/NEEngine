@@ -244,11 +244,6 @@ int main(int argc, char* argv[])
                 }
                 else
                     oldPressedSelectButton = false;
-                //else if (kbs.Space)
-                //{
-                //    selectedObjects[currentSphereNumber] = false;
-                //    dopplerComponent->SetSelected(false);
-                //}
             }
 
             static bool oldPressedInvertButton = false;
