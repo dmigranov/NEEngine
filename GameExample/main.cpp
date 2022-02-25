@@ -280,7 +280,7 @@ int main(int argc, char* argv[])
                         dopplerComp->SetAlternativeTexture(true);
                     }
             }
-            else if (kbs.Y) 
+            else if (kbs.Y)  //
             {
                 for (int i = 0; i < sphereCount; i++)
                     if (selectedObjects[i])
