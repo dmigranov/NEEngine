@@ -244,6 +244,11 @@ int main(int argc, char* argv[])
                 }
             }
 
+            if (ms.middleButton)
+            {
+                std::cout << "here" << std::endl;
+            }
+
             if (kbs.I)
             {
                 for (int i = 0; i < sphereCount; i++)
