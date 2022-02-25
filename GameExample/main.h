@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
+#include "SelectionSystem.h"
 
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
