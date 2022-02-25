@@ -248,7 +248,7 @@ int main(int argc, char* argv[])
 
             if (kbs.I)
             {
-                if (!oldPressedInvertButton)
+                if (!oldPressedInvertButton) 
                     for (int i = 0; i < sphereCount; i++)
                     {
                         auto selectedEntity = entities[currentSphereNumber];
