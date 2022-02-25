@@ -10,12 +10,13 @@
 
 
 
-SelectionSystem::SelectionSystem(InputComponent* pInputComponent) : m_game(Game::GetInstance())
+SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius) : m_game(Game::GetInstance())
 {
 	SubscribeToComponentType<SphericalTransformComponent>();
 	SubscribeToComponentType<SphericalRenderingComponent>();
 
 	m_pInputComponent = pInputComponent;
+	m_initialObjectRadius = initialObjectRadius;
 	m_pCameraTransform = m_game.GetScene()->GetCamera()->GetComponent<SphericalTransformComponent>();
 }
 
