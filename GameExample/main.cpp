@@ -286,17 +286,6 @@ int main(int argc, char* argv[])
             }
             else
                 oldPressedTextureButton = false;
-            /*
-            if (kbs.Y)  //
-            {
-                for (int i = 0; i < sphereCount; i++)
-                    if (selectedObjects[i])
-                    {
-                        auto selectedObject = entities[i];
-                        auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
-                        dopplerComp->SetAlternativeTexture(false);
-                    }
-            }*/
 
             //todo: вопрос: остается ли выделение после операций выше?
 
