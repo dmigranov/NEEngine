@@ -273,13 +273,14 @@ int main(int argc, char* argv[])
             static bool oldPressedTextureButton = false;
             if (kbs.T)
             {
-                for (int i = 0; i < sphereCount; i++)
-                    if (selectedObjects[i])
-                    {
-                        auto selectedObject = entities[i];
-                        auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
-                        dopplerComp->SetAlternativeTexture(true);
-                    }
+                if(!oldPressedTextureButton)
+                    for (int i = 0; i < sphereCount; i++)
+                        if (selectedObjects[i])
+                        {
+                            auto selectedObject = entities[i];
+                            auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
+                            dopplerComp->SetAlternativeTexture(true);
+                        }
 
                 oldPressedTextureButton = true;
             }
