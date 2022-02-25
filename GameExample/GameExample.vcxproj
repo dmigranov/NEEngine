@@ -176,6 +176,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main_raytracing.cpp" />
     <ClCompile Include="RandomSphericalGenerator.cpp" />
+    <ClCompile Include="SelectionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="main_hyperb.cpp_" />
@@ -189,6 +190,7 @@
   <ItemGroup>
     <ClInclude Include="main.h" />
     <ClInclude Include="RandomSphericalGenerator.h" />
+    <ClInclude Include="SelectionSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
