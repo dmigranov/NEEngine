@@ -28,8 +28,8 @@ void SelectionSystem::Execute(double deltaTime)
 	auto w_sphere = radius - 2 * radius * pow(sin(m_initialObjectRadius / radius / 2), 2);
 	auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
 
-	float minDist = 100000.;
-	int minIndex = -1;
+	m_minDistance = 1000000.;
+	m_minIndex = -1;
 
 	const auto& view = m_pCameraTransform->GetView();
 	const Matrix& proj = m_pCameraComponent->GetProj();

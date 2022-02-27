@@ -34,6 +34,8 @@ private:
 	SphericalCameraComponent* m_pCameraComponent;
 
 	double m_initialObjectRadius;
+	size_t m_minIndex = -1;
+	double m_minDistance = 1000000.;
 };
 
 class RadiusUpdateSystem : public System {
