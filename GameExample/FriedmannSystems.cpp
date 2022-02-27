@@ -78,6 +78,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             else
                 oldPressedInvertButton = false;
 
+
             if (kbs.V)
             {
                 //todo: вопрос: остается ли выделение после (сейчас - нет)?
@@ -91,6 +92,25 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                     }
                 } 
             }
+
+
+            static bool oldPressedTextureButton = false;
+            if (kbs.T)
+            {
+                if (!oldPressedTextureButton)
+                    for (auto pEntity : entities)
+                    {
+                        if (selectedObjects[i])
+                        {
+                            auto selectedObject = entities[i];
+                            auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
+                            dopplerComp->SetAlternativeTexture(!dopplerComp->IsAlternativeTexture());
+                        }
+                    }
+                oldPressedTextureButton = true;
+            }
+            else
+                oldPressedTextureButton = false;
         });
 
 
