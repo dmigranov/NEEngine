@@ -100,10 +100,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 if (!oldPressedTextureButton)
                     for (auto pEntity : entities)
                     {
-                        if (selectedObjects[i])
+                        auto dopplerComp = pEntity->GetComponent<DopplerComponent>();
+                        if (dopplerComp->IsSelected())
                         {
-                            auto selectedObject = entities[i];
-                            auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
                             dopplerComp->SetAlternativeTexture(!dopplerComp->IsAlternativeTexture());
                         }
                     }
