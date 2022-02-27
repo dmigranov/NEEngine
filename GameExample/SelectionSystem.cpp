@@ -86,3 +86,8 @@ int SelectionSystem::GetSelectedIndex()
 {
 	return m_selectedIndex;
 }
+
+std::vector<Entity*> SelectionSystem::GetEntities()
+{
+	return m_entities;
+}
