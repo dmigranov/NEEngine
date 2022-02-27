@@ -52,6 +52,9 @@
     <Text Include="experiment visibility.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="old_system_selection.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomSphericalGenerator.h">

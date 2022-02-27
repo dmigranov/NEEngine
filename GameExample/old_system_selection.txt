@@ -1,0 +1,129 @@
+/*
+    scene->AddSystem(new ActionSystem<InputComponent>(
+        [entities, sphereCount, cameraTransform, objectRadius,
+        &currentSphereNumber, cameraComponent, timer, &game, selectedObjects]
+    (Entity* pEntity, double deltaTime) {
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
+
+            double radius = SphericalEffect::GetRadius();
+            auto cameraPos = cameraTransform->GetSphericalPosition();
+
+            auto w_sphere = radius - 2 * radius * pow(sin(objectRadius / radius / 2), 2);
+            auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
+
+            //Vector3 rayStart(0.f, 0.f, 0.f);    // position - always (0, 0, 0)
+            //Vector3 direction(0.f, 0.f, 1.f);   // direction - always (0, 0, 1)
+
+            float minDist = 100000.;
+            int minIndex = -1;
+
+            const auto& view = cameraTransform->GetView();
+            const Matrix& proj = cameraComponent->GetProj();
+
+            int width, height;
+            game.GetWindowSize(width, height);
+
+            for (int i = 0; i < sphereCount; i++)
+            {
+                Entity* sphere = entities[i];
+                auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto pRendering = sphere->GetComponent<SphericalRenderingComponent>();
+                auto visibility = pRendering->GetSphericalVisibility();
+                if (visibility == SphericalVisibility::VISIBLE_NONE || !sphere->IsVisible())
+                    continue;
+
+                const auto& world = pTransform->GetWorld();
+                
+                double mouseX = (double)ms.x / width * 2. - 1.;
+                double mouseY = -((double)ms.y / height * 2. - 1); 
+
+                double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
+                if (t < 0)
+                    continue; 
+                
+                if (t > 1 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
+                    continue;
+
+                if (t < minDist) {
+                    minDist = t;
+                    minIndex = i;
+                }
+            }
+
+            static bool oldPressedSelectButton = false;
+            currentSphereNumber = minIndex;
+            if (minIndex >= 0)
+            {
+                auto selectedEntity = entities[currentSphereNumber];
+                auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                if (ms.rightButton)
+                {
+                    if (!oldPressedSelectButton)
+                    { 
+                        selectedObjects[currentSphereNumber] = !selectedObjects[currentSphereNumber];
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
+                    }
+                    oldPressedSelectButton = true;
+                }
+                else
+                    oldPressedSelectButton = false;
+            }
+
+            static bool oldPressedInvertButton = false;
+            if (kbs.I)
+            {
+                if (!oldPressedInvertButton) 
+                    for (int i = 0; i < sphereCount; i++)
+                    {
+                        auto pEntity = entities[i];
+                        auto dopplerComponent = pEntity->GetComponent <DopplerComponent>();
+                        selectedObjects[i] = !selectedObjects[i];
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
+                    }
+                oldPressedInvertButton = true;
+            }
+            else
+                oldPressedInvertButton = false;
+
+            if (kbs.V)
+            {
+                //todo: вопрос: остается ли выделение после (сейчас - нет)?
+                for (int i = 0; i < sphereCount; i++)
+                    if (selectedObjects[i])
+                    {
+                        entities[i]->SetVisible(false);
+                        selectedObjects[i] = false;
+                    }
+            }
+
+            static bool oldPressedTextureButton = false;
+            if (kbs.T)
+            {
+                if(!oldPressedTextureButton)
+                    for (int i = 0; i < sphereCount; i++)
+                        if (selectedObjects[i])
+                        {
+                            auto selectedObject = entities[i];
+                            auto dopplerComp = selectedObject->GetComponent<DopplerComponent>();
+                            dopplerComp->SetAlternativeTexture(!dopplerComp->IsAlternativeTexture());
+                        }
+
+                oldPressedTextureButton = true;
+            }
+            else
+                oldPressedTextureButton = false;
+
+            if (kbs.R) //revert
+                for (int i = 0; i < sphereCount; i++)
+                {
+                    selectedObjects[i] = false;
+                    auto selectedEntity = entities[i];
+                    auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                    dopplerComponent->SetSelected(false);
+                    dopplerComponent->SetAlternativeTexture(false);
+                    selectedEntity->SetVisible(true);
+                }
+        }));
+        */

@@ -186,6 +186,7 @@
   <ItemGroup>
     <Text Include="cube creation code.txt" />
     <Text Include="experiment visibility.txt" />
+    <Text Include="old_system_selection.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
