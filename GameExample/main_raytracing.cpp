@@ -104,6 +104,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     //Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
     Matrix matrixPosRadius(w_sphere/ radius, 0, 0, r_sphere/ radius,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere/radius, 0, 0, w_sphere/ radius);
     Matrix matrixNegRadius(w_sphere/ radius, 0, 0, -r_sphere/ radius, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere/ radius, 0, 0, w_sphere/ radius);
+    //todo: три варианта - по x, y, z и выбирать максимальный
 
     Vector4 viewRadiusVector1 = Vector4::Transform(pos, matrixPosRadius);
     Vector4 viewRadiusVector2 = Vector4::Transform(pos, matrixNegRadius);
