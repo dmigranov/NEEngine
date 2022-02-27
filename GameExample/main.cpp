@@ -176,6 +176,7 @@ int main(int argc, char* argv[])
 
     auto selectedObjects = new bool[sphereCount] {false};
 
+    /*
     scene->AddSystem(new ActionSystem<InputComponent>(
         [entities, sphereCount, cameraTransform, objectRadius,
         &currentSphereNumber, cameraComponent, timer, &game, selectedObjects]
@@ -303,6 +304,6 @@ int main(int argc, char* argv[])
                     selectedEntity->SetVisible(true);
                 }
         }));
-
+        */
     return game.StartGame();
 }
