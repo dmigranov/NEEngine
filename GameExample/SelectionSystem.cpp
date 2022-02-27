@@ -44,6 +44,12 @@ void SelectionSystem::Execute(double deltaTime)
 		//добавить в doppler component bool - выбран не выбран?
 		//а хотя это и так есть! 
 		//и доп. массив с булями не нужен!
+
+		auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+		auto pRendering = pEntity->GetComponent<SphericalRenderingComponent>();
+		auto visibility = pRendering->GetSphericalVisibility();
+		if (visibility == SphericalVisibility::VISIBLE_NONE || !pEntity->IsVisible())
+			continue;
 	}
 	
 }
