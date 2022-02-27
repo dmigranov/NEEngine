@@ -106,18 +106,18 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     Matrix matrixNegRadiusX(w_sphere/ radius, 0, 0, -r_sphere/ radius, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere/ radius, 0, 0, w_sphere/ radius);
     //todo: три варианта - по x, y, z и выбирать максимальный
 
-    Vector4 viewRadiusVector1 = Vector4::Transform(pos, matrixPosRadiusX);
-    Vector4 viewRadiusVector2 = Vector4::Transform(pos, matrixNegRadiusX);
-    Vector4 projectedRadiusVector1 = Vector4::Transform(viewRadiusVector1, proj);
-    Vector4 projectedRadiusVector2 = Vector4::Transform(viewRadiusVector2, proj);
+    Vector4 viewRadiusVectorX1 = Vector4::Transform(pos, matrixPosRadiusX);
+    Vector4 viewRadiusVectorX2 = Vector4::Transform(pos, matrixNegRadiusX);
+    Vector4 projectedRadiusVectorX1 = Vector4::Transform(viewRadiusVectorX1, proj);
+    Vector4 projectedRadiusVectorX2 = Vector4::Transform(viewRadiusVectorX2, proj);
 
-    if (projectedRadiusVector1.w == 0 || projectedRadiusVector2.w == 0)
+    if (projectedRadiusVectorX1.w == 0 || projectedRadiusVectorX2.w == 0)
         return -1;
 
-    projectedRadiusVector1 /= projectedRadiusVector1.w;
-    projectedRadiusVector2 /= projectedRadiusVector2.w;
+    projectedRadiusVectorX1 /= projectedRadiusVectorX1.w;
+    projectedRadiusVectorX2 /= projectedRadiusVectorX2.w;
 
-    auto distSq = (projectedRadiusVector1.x - projectedRadiusVector2.x) / 2;
+    auto distSq = (projectedRadiusVectorX1.x - projectedRadiusVectorX2.x) / 2;
     distSq = distSq * distSq;
 
     auto posProj_4D = Vector4::Transform(pos, proj);
