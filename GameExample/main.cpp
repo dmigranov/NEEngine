@@ -164,7 +164,7 @@ int main(int argc, char* argv[])
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
     System* animationSystem = nullptr;
-    System* selectionSystem = nullptr;
+    SelectionSystem* selectionSystem = nullptr;
 
     auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem);
     

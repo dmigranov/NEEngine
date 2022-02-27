@@ -65,7 +65,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent * cameraTransform, SphericalRenderSystem* renderSystem, InputComponent * inputComponent, double initialObjectRadius,
-	System ** controlSystem, System ** visibilitySystem, System ** radiusUpdateSystem, System ** animationSystem, System ** selectionSystem);
+	System ** controlSystem, System ** visibilitySystem, System ** radiusUpdateSystem, System ** animationSystem, SelectionSystem ** selectionSystem);
 
 const int friedmann_w = 300, friedmann_h = 90;
 
