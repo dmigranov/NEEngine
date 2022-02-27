@@ -176,6 +176,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main_raytracing.cpp" />
     <ClCompile Include="RandomSphericalGenerator.cpp" />
+    <ClCompile Include="SelectionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="main_hyperb.cpp_" />
