@@ -5,7 +5,6 @@
 #include "InputSystem.h"
 #include "TextPrintingSystem.h"
 #include "TextComponent.h"
-#include "DopplerComponent.h"
 #include "RandomSphericalGenerator.h"
 #include "SphericalMath.h"
 

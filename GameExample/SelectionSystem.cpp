@@ -9,6 +9,7 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initial
 	
 	SubscribeToComponentType<SphericalTransformComponent>();
 	SubscribeToComponentType<SphericalRenderingComponent>();
+	SubscribeToComponentType<DopplerComponent>();
 
 	
 	m_pInputComponent = pInputComponent;
