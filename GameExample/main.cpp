@@ -162,6 +162,7 @@ int main(int argc, char* argv[])
 
     auto selectedObjects = new bool[sphereCount] {false};
 
+    //todo: вывод дополнительной инфомрации
     auto textEntity2 = new Entity();
     textEntity2->AddComponent<TextComponent>(new TextComponent([&currentSphereNumber](double delta) {
 
