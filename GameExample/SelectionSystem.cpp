@@ -20,7 +20,6 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, double initial
 
 void SelectionSystem::Execute(double deltaTime)
 {
-	
 	auto ms = m_pInputComponent->GetMouseState();
 
 	double radius = SphericalEffect::GetRadius();
