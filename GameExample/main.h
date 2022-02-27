@@ -29,7 +29,7 @@ public:
 	virtual void Execute(double deltaTime) override;
 
 	Entity* GetSelectedEntity();
-	int getSelectedIndex();
+	int GetSelectedIndex();
 private:
 	InputComponent* m_pInputComponent;
 	Game& m_game;

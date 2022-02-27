@@ -68,6 +68,7 @@ void SelectionSystem::Execute(double deltaTime)
 		if (t < m_minDistance) {
 			m_minDistance = t;
 			m_pSelectedEntity = pEntity;
+			m_selectedIndex = i;
 		}
 
 		;
@@ -80,7 +81,7 @@ Entity* SelectionSystem::GetSelectedEntity()
 	return m_pSelectedEntity;
 }
 
-int SelectionSystem::getSelectedIndex()
+int SelectionSystem::GetSelectedIndex()
 {
 	return m_selectedIndex;
 }
