@@ -117,8 +117,10 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     projectedRadiusVectorX1 /= projectedRadiusVectorX1.w;
     projectedRadiusVectorX2 /= projectedRadiusVectorX2.w;
 
-    auto distSq = (projectedRadiusVectorX1.x - projectedRadiusVectorX2.x) / 2;
-    distSq = distSq * distSq;
+    auto distSqX = (projectedRadiusVectorX1.x - projectedRadiusVectorX2.x) / 2;
+    distSqX = distSqX * distSqX;
+
+    double distSq = distSqX;
 
     auto posProj_4D = Vector4::Transform(pos, proj);
     if (posProj_4D.w == 0)
