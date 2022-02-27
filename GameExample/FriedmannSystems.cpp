@@ -110,6 +110,16 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             }
             else
                 oldPressedTextureButton = false;
+
+
+            if (kbs.R) //revert
+                for (auto pEntity : entities)
+                {
+                    auto dopplerComponent = pEntity->GetComponent <DopplerComponent>();
+                    dopplerComponent->SetSelected(false);
+                    dopplerComponent->SetAlternativeTexture(false);
+                    pEntity->SetVisible(true);
+                }
         });
 
 
