@@ -108,15 +108,17 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     Vector4 viewRadiusVectorX1 = Vector4::Transform(pos, matrixPosRadiusX), viewRadiusVectorX2 = Vector4::Transform(pos, matrixNegRadiusX);
     Vector4 projectedRadiusVectorX1 = Vector4::Transform(viewRadiusVectorX1, proj), projectedRadiusVectorX2 = Vector4::Transform(viewRadiusVectorX2, proj);
-
     if (projectedRadiusVectorX1.w == 0 || projectedRadiusVectorX2.w == 0)
         return -1;
-
     projectedRadiusVectorX1 /= projectedRadiusVectorX1.w;
     projectedRadiusVectorX2 /= projectedRadiusVectorX2.w;
-
     auto distSqX = (projectedRadiusVectorX1.x - projectedRadiusVectorX2.x) / 2;
     distSqX = distSqX * distSqX;
+
+    Vector4 viewRadiusVectorY1 = Vector4::Transform(pos, matrixPosRadiusY), viewRadiusVectorY2 = Vector4::Transform(pos, matrixNegRadiusY);
+    Vector4 projectedRadiusVectorY1 = Vector4::Transform(viewRadiusVectorY1, proj), projectedRadiusVectorY2 = Vector4::Transform(viewRadiusVectorY2, proj);
+    if (projectedRadiusVectorY1.w == 0 || projectedRadiusVectorY2.w == 0)
+        return -1;
 
     double distSq = distSqX;
 
