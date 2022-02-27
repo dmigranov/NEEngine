@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
+#include "DopplerComponent.h"
 
 LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
