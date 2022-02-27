@@ -50,6 +50,25 @@ void SelectionSystem::Execute(double deltaTime)
 		auto visibility = pRendering->GetSphericalVisibility();
 		if (visibility == SphericalVisibility::VISIBLE_NONE || !pEntity->IsVisible())
 			continue;
+
+		const auto& world = pTransform->GetWorld();
+
+		double mouseX = (double)ms.x / width * 2. - 1.;
+		double mouseY = -((double)ms.y / height * 2. - 1);
+
+		double t = RayTraceSphereMouse(mouseX, mouseY, pTransform, view, proj, r_sphere, w_sphere);
+		if (t < 0)
+			continue;
+
+		if (t > 1 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
+			continue;
+
+		if (t < minDist) {
+			minDist = t;
+			minIndex = i;
+		}
+
+		;
 	}
 	
 }
