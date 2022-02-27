@@ -76,3 +76,8 @@ Entity* SelectionSystem::GetSelectedEntity()
 {
 	return m_pSelectedEntity;
 }
+
+unsigned int SelectionSystem::getSelectedIndex()
+{
+	return m_selectedIndex;
+}
