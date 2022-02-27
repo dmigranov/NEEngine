@@ -164,13 +164,18 @@ int main(int argc, char* argv[])
 
     //todo: вывод дополнительной инфомрации
     auto textEntity2 = new Entity();
-    textEntity2->AddComponent<TextComponent>(new TextComponent([](double delta) {
+    textEntity2->AddComponent<TextComponent>(new TextComponent([selectionSystem](double delta) {
+
+        auto pSelectedEntity = selectionSystem->GetSelectedEntity();
 
         std::stringstream ss;
 
         ss << std::fixed << std::setprecision(2);
-        //if (currentSphereNumber >= 0)
-        //    ss << "Sphere " << currentSphereNumber << std::endl;
+        if (pSelectedEntity != nullptr)
+        {
+            //if (currentSphereNumber >= 0)
+            //    ss << "Sphere " << currentSphereNumber << std::endl;
+        }
 
         return ss.str();
 
