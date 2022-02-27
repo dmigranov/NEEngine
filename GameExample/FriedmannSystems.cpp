@@ -46,6 +46,25 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
 
             auto entities = (*selectionSystem)->GetEntities();
+            auto selectedEntity = (*selectionSystem)->GetSelectedEntity();
+            static bool oldPressedSelectButton = false;
+            if (selectedEntity != nullptr)
+            {
+                auto selectedEntity = entities[currentSphereNumber];
+                auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
+                if (ms.rightButton)
+                {
+                    if (!oldPressedSelectButton)
+                    {
+                        selectedObjects[currentSphereNumber] = !selectedObjects[currentSphereNumber];
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
+                    }
+                    oldPressedSelectButton = true;
+                }
+                else
+                    oldPressedSelectButton = false;
+            }
+
 
             static bool oldPressedInvertButton = false;
             if (kbs.I)
