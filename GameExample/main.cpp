@@ -171,14 +171,16 @@ int main(int argc, char* argv[])
         ss << std::fixed << std::setprecision(2);
         if (pSelectedEntity != nullptr)
         {
-            auto view = cameraTransform->GetView();
+            ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
+
+            const auto& view = cameraTransform->GetView();
             auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
             auto sphPosWorld = pSphTransform->GetSphericalPosition();
             auto sphPosView = Vector4::Transform(sphPosWorld, view); //pos_view
-            if (sphPosView.z > 0);
-            else;
-            ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
-            ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
+            if (sphPosView.z > 0)
+                ss << "Front half" << std::endl;
+            else
+                ss << "Back half" << std::endl;
         }
 
         return ss.str();
