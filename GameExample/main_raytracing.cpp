@@ -100,14 +100,14 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     auto radius = SphericalEffect::GetRadius();
 
-    //Matrix matrixPosRadius(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
-    //Matrix matrixNegRadius(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
-    Matrix matrixPosRadius(w_sphere/ radius, 0, 0, r_sphere/ radius,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere/radius, 0, 0, w_sphere/ radius);
-    Matrix matrixNegRadius(w_sphere/ radius, 0, 0, -r_sphere/ radius, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere/ radius, 0, 0, w_sphere/ radius);
+    Matrix matrixPosRadiusY(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
+    Matrix matrixNegRadiusY(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
+    Matrix matrixPosRadiusX(w_sphere/ radius, 0, 0, r_sphere/ radius,  0, 1, 0, 0, 0, 0, 1, 0, -r_sphere/radius, 0, 0, w_sphere/ radius);
+    Matrix matrixNegRadiusX(w_sphere/ radius, 0, 0, -r_sphere/ radius, 0, 1, 0, 0, 0, 0, 1, 0, r_sphere/ radius, 0, 0, w_sphere/ radius);
     //todo: три варианта - по x, y, z и выбирать максимальный
 
-    Vector4 viewRadiusVector1 = Vector4::Transform(pos, matrixPosRadius);
-    Vector4 viewRadiusVector2 = Vector4::Transform(pos, matrixNegRadius);
+    Vector4 viewRadiusVector1 = Vector4::Transform(pos, matrixPosRadiusX);
+    Vector4 viewRadiusVector2 = Vector4::Transform(pos, matrixNegRadiusX);
     Vector4 projectedRadiusVector1 = Vector4::Transform(viewRadiusVector1, proj);
     Vector4 projectedRadiusVector2 = Vector4::Transform(viewRadiusVector2, proj);
 
