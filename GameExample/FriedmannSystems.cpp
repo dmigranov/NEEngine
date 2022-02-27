@@ -44,6 +44,22 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() + 100000);
             else if (kbs.N)
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
+
+            static bool oldPressedInvertButton = false;
+            if (kbs.I)
+            {
+                if (!oldPressedInvertButton)
+                    for (int i = 0; i < sphereCount; i++)
+                    {
+                        auto pEntity = entities[i];
+                        auto dopplerComponent = pEntity->GetComponent <DopplerComponent>();
+                        selectedObjects[i] = !selectedObjects[i];
+                        dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
+                    }
+                oldPressedInvertButton = true;
+            }
+            else
+                oldPressedInvertButton = false;
         });
 
 
