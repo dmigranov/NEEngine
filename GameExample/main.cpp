@@ -181,6 +181,5 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
-    
     return game.StartGame();
 }
