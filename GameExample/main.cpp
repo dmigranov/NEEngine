@@ -162,7 +162,7 @@ int main(int argc, char* argv[])
     auto selectedObjects = new bool[sphereCount] {false};
 
     auto textEntity2 = new Entity();
-    textEntity2->AddComponent<TextComponent>(new TextComponent([selectionSystem](double delta) {
+    textEntity2->AddComponent<TextComponent>(new TextComponent([selectionSystem, cameraTransform](double delta) {
 
         auto pSelectedEntity = selectionSystem->GetSelectedEntity();
 
@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
         {
             auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
             auto sphPos = pSphTransform->GetSphericalPosition();
-            //todo: вывод дополнительной инфомрации
+            ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
             ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
         }
 

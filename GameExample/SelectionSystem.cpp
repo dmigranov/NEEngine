@@ -71,8 +71,6 @@ void SelectionSystem::Execute(double deltaTime)
 			m_pSelectedEntity = pEntity;
 			m_selectedIndex = i;
 		}
-
-		;
 	}
 	
 }
