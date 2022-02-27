@@ -64,7 +64,8 @@ int main(int argc, char* argv[])
     cameraComponent->SetFovY(XM_PI / 3);
     cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
-    cameraEntity->AddComponent<InputComponent>(new InputComponent());
+    auto pInputComponent = new InputComponent();
+    cameraEntity->AddComponent<InputComponent>(pInputComponent);
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
@@ -163,8 +164,9 @@ int main(int argc, char* argv[])
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
     System* animationSystem = nullptr;
+    SelectionSystem* selectionSystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem);
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem);
     
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
