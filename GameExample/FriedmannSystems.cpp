@@ -77,6 +77,19 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             }
             else
                 oldPressedInvertButton = false;
+
+            if (kbs.V)
+            {
+                //todo: вопрос: остается ли выделение после (сейчас - нет)?
+                for (auto pEntity : entities)
+                {
+                    if (selectedObjects[i])
+                    {
+                        entities[i]->SetVisible(false);
+                        selectedObjects[i] = false;
+                    }
+                } 
+            }
         });
 
 
