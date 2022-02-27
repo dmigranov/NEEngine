@@ -15,7 +15,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 {
     auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
 
-    *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer]
+    *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
+
+    *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer, selectionSystem]
     (Entity* pEntity, double deltaTime) {
             
             auto pInput = pEntity->GetComponent<InputComponent>();
@@ -84,8 +86,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                     isAnimation = false;
             }
         });
-
-    *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
 
     return timer;
 }
