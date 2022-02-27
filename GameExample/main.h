@@ -31,6 +31,8 @@ public:
 
 	Entity* GetSelectedEntity();
 	int GetSelectedIndex();
+
+	std::vector<Entity*> GetEntities();
 private:
 	InputComponent* m_pInputComponent;
 	Game& m_game;
