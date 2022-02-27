@@ -29,7 +29,7 @@ void SelectionSystem::Execute(double deltaTime)
 	auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
 
 	m_minDistance = 1000000.;
-	m_minIndex = -1;
+	m_pSelectedEntity = nullptr;
 
 	const auto& view = m_pCameraTransform->GetView();
 	const Matrix& proj = m_pCameraComponent->GetProj();

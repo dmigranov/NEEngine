@@ -34,7 +34,7 @@ private:
 	SphericalCameraComponent* m_pCameraComponent;
 
 	double m_initialObjectRadius;
-	size_t m_minIndex = -1;
+	Entity* m_pSelectedEntity = nullptr;
 	double m_minDistance = 1000000.;
 };
 
