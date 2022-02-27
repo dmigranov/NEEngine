@@ -173,8 +173,7 @@ int main(int argc, char* argv[])
         ss << std::fixed << std::setprecision(2);
         if (pSelectedEntity != nullptr)
         {
-            //if (currentSphereNumber >= 0)
-            //    ss << "Sphere " << currentSphereNumber << std::endl;
+            ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
         }
 
         return ss.str();
