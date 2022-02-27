@@ -29,7 +29,7 @@ public:
 	virtual void Execute(double deltaTime) override;
 
 	Entity* GetSelectedEntity();
-	unsigned int getSelectedIndex();
+	int getSelectedIndex();
 private:
 	InputComponent* m_pInputComponent;
 	Game& m_game;
@@ -37,7 +37,7 @@ private:
 	SphericalCameraComponent* m_pCameraComponent;
 
 	double m_initialObjectRadius;
-	unsigned int m_selectedIndex = -1;
+	int m_selectedIndex = -1;
 	Entity* m_pSelectedEntity = nullptr;
 	double m_minDistance = 1000000.;
 };

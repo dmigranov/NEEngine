@@ -30,6 +30,7 @@ void SelectionSystem::Execute(double deltaTime)
 
 	m_minDistance = 1000000.;
 	m_pSelectedEntity = nullptr;
+	m_selectedIndex = -1;
 
 	const auto& view = m_pCameraTransform->GetView();
 	const Matrix& proj = m_pCameraComponent->GetProj();
@@ -77,7 +78,7 @@ Entity* SelectionSystem::GetSelectedEntity()
 	return m_pSelectedEntity;
 }
 
-unsigned int SelectionSystem::getSelectedIndex()
+int SelectionSystem::getSelectedIndex()
 {
 	return m_selectedIndex;
 }
