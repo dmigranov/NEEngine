@@ -45,6 +45,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             else if (kbs.N)
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
 
+            auto entities = (*selectionSystem)->GetEntities();
+
             static bool oldPressedInvertButton = false;
             if (kbs.I)
             {
