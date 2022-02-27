@@ -162,7 +162,6 @@ int main(int argc, char* argv[])
 
     auto selectedObjects = new bool[sphereCount] {false};
 
-    //todo: вывод дополнительной инфомрации
     auto textEntity2 = new Entity();
     textEntity2->AddComponent<TextComponent>(new TextComponent([selectionSystem](double delta) {
 
@@ -173,6 +172,7 @@ int main(int argc, char* argv[])
         ss << std::fixed << std::setprecision(2);
         if (pSelectedEntity != nullptr)
         {
+            //todo: вывод дополнительной инфомрации
             ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
         }
 
