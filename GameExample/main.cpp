@@ -143,22 +143,7 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
     
-    int currentSphereNumber = -1;
-
-    auto textEntity2 = new Entity();
-    textEntity2->AddComponent<TextComponent>(new TextComponent([&currentSphereNumber](double delta) {
-        
-        std::stringstream ss;
-
-        ss << std::fixed << std::setprecision(2);
-        if(currentSphereNumber >= 0)
-            ss << "Sphere " << currentSphereNumber << std::endl;
-
-        return ss.str();
-
-        }, 10, 10, Alignment::DownRight, DirectX::Colors::White));
-
-    scene->AddEntity(textEntity2);
+    //int currentSphereNumber = -1;
 
     System* controlSystem = nullptr;
     System* visibilitySystem = nullptr;
@@ -176,6 +161,21 @@ int main(int argc, char* argv[])
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
     auto selectedObjects = new bool[sphereCount] {false};
+
+    auto textEntity2 = new Entity();
+    textEntity2->AddComponent<TextComponent>(new TextComponent([&currentSphereNumber](double delta) {
+
+        std::stringstream ss;
+
+        ss << std::fixed << std::setprecision(2);
+        if (currentSphereNumber >= 0)
+            ss << "Sphere " << currentSphereNumber << std::endl;
+
+        return ss.str();
+
+        }, 10, 10, Alignment::DownRight, DirectX::Colors::White));
+
+    scene->AddEntity(textEntity2);
 
     /*
     scene->AddSystem(new ActionSystem<InputComponent>(
