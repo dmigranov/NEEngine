@@ -64,7 +64,7 @@ void SelectionSystem::Execute(double deltaTime)
 
 		if (t < m_minDistance) {
 			m_minDistance = t;
-			m_minIndex = i;
+			m_pSelectedEntity = pEntity;
 		}
 
 		;
