@@ -62,9 +62,9 @@ void SelectionSystem::Execute(double deltaTime)
 		if (t > 1 && visibility == SphericalVisibility::VISIBLE_FRONT) //back copies aren't visible, so we just continue
 			continue;
 
-		if (t < minDist) {
-			minDist = t;
-			minIndex = i;
+		if (t < m_minDistance) {
+			m_minDistance = t;
+			m_minIndex = i;
 		}
 
 		;
