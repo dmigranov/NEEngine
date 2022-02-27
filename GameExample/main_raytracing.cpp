@@ -125,8 +125,6 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
         return -1;
     auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
    
-    double distance_sq = pow(posProj.x - projectedRadiusVector1.x, 2) + pow(posProj.y - projectedRadiusVector1.y, 2) + pow(posProj.z - projectedRadiusVector1.z, 2);
-
     auto distFromCursorToCenterSq = pow(posProj.x - mouseX, 2) + pow(posProj.y - mouseY, 2);
     if (distFromCursorToCenterSq > distSq)
         return -1;
