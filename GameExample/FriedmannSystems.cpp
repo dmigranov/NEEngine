@@ -50,7 +50,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             static bool oldPressedSelectButton = false;
             if (selectedEntity != nullptr)
             {
-                auto selectedEntity = entities[currentSphereNumber];
                 auto dopplerComponent = selectedEntity->GetComponent <DopplerComponent>();
                 if (ms.rightButton)
                 {
