@@ -27,6 +27,8 @@ class SelectionSystem :
 public:
 	SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius);
 	virtual void Execute(double deltaTime) override;
+
+	Entity* GetSelectedEntity();
 private:
 	InputComponent* m_pInputComponent;
 	Game& m_game;

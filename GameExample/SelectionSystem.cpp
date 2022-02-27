@@ -71,3 +71,8 @@ void SelectionSystem::Execute(double deltaTime)
 	}
 	
 }
+
+Entity* SelectionSystem::GetSelectedEntity()
+{
+	return m_pSelectedEntity;
+}
