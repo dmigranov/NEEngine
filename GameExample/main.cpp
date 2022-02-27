@@ -171,6 +171,8 @@ int main(int argc, char* argv[])
         ss << std::fixed << std::setprecision(2);
         if (pSelectedEntity != nullptr)
         {
+            auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
+            auto sphPos = pSphTransform->GetSphericalPosition();
             //todo: вывод дополнительной инфомрации
             ss << "Sphere " << selectionSystem->GetSelectedIndex() << std::endl;
         }
