@@ -83,10 +83,11 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 //todo: вопрос: остается ли выделение после (сейчас - нет)?
                 for (auto pEntity : entities)
                 {
-                    if (selectedObjects[i])
+                    auto dopplerComponent = pEntity->GetComponent <DopplerComponent>();
+                    if (dopplerComponent->IsSelected())
                     {
-                        entities[i]->SetVisible(false);
-                        selectedObjects[i] = false;
+                        pEntity->SetVisible(false);
+                        dopplerComponent->SetSelected(false);
                     }
                 } 
             }
