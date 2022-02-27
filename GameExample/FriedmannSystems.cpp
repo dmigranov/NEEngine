@@ -61,7 +61,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 oldPressedInvertButton = true;
             }
             else
-                oldPressedInvertButton = false;
+                oldPressedInvertButton = false; 
         });
 
 
