@@ -56,10 +56,14 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = -movementSpeed * deltaTime;
     if (kbs.D)
         dx = movementSpeed * deltaTime;
+    if (kbs.Q)
+        dy = -movementSpeed * deltaTime;
+    if (kbs.Z)
+        dy = movementSpeed * deltaTime;
 
-    if (dx != 0 || dz != 0)
+    if (dx != 0 || dz != 0 || dy != 0)
     {
-        Vector4 tempVector(dx, 0, dz, 0);
+        Vector4 tempVector(dx, dy, dz, 0);
         tempVector = Vector4::Transform(tempVector, RYaw);
 
         pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
