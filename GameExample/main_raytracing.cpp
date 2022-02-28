@@ -164,8 +164,9 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
-    //первая координата - близость к центру (z)
-    //вторая и треть
+    // первая координата - близость к центру (z)
+    // вторая x
+    // третья y
     auto sphCoord = GetSphericalFromCartesian(pos.x/ radius, pos.y/ radius, pos.z/ radius, pos.w/ radius);
     std::cout << sphCoord.x << " " << sphCoord.y << " " << sphCoord.y << std::endl;
     //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
