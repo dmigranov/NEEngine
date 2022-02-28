@@ -124,8 +124,9 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto sphericalPosition = pSphericalTransform->GetSphericalPosition();
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
-
     auto radius = SphericalEffect::GetRadius();
+
+    auto sphCoord = GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
 
     Matrix matrixPosRadiusY(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
     Matrix matrixNegRadiusY(1, 0, 0, 0, 0, w_sphere, 0, -r_sphere, 0, 0, 1, 0, 0, r_sphere, 0, w_sphere);
