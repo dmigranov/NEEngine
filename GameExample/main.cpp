@@ -106,6 +106,8 @@ int main(int argc, char* argv[])
         randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
+        const auto& world = transformComponent->GetWorld();
+        Vector4::Transform(pos_world, world); //pos_view
 
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
         auto dopplerComponent = new DopplerComponent();
