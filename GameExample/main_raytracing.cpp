@@ -5,6 +5,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+//xyzw
 XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1)
 {
     float x42 = x4 * x4;
