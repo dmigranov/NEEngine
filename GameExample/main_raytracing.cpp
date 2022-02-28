@@ -98,8 +98,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     // первая координата - близость к центру (z), вторая x, третья y
     auto sphCoord = GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
 
-    //auto viewChanged =  view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y); 
-    auto viewChanged = view * SphericalRotationYZ(sphCoord.z);
+    auto viewChanged =  view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y) * SphericalRotationYZ(-sphCoord.z);
 
     auto posChanged = Vector4::Transform(pos_world, viewChanged); //pos_view
     auto sphCoordChanged = GetSphericalFromCartesian(posChanged.x / radius, posChanged.y / radius, posChanged.z / radius, posChanged.w / radius);
