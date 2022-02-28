@@ -46,10 +46,32 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
 
             auto entities = (*selectionSystem)->GetEntities();
-
+            auto objectRadius = 0.1;
+            auto radius = SphericalEffect::GetRadius();
             if (kbs.P)
                 for (auto pEntity : entities)
-                    pEntity->GetComponent<SphericalTransformComponent>()->Rotate(0, 0, deltaTime);
+                { 
+                    auto transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+                    transformComponent->Rotate(0, 0, deltaTime);
+                    const auto& world = transformComponent->GetWorld();
+                    auto transformed = Vector4::Transform(Vector4(0, objectRadius, 0, sqrt(radius * radius - objectRadius * objectRadius)), world); //pos_view
+                    auto sphCoords = GetSphericalFromCartesian(transformed.x / radius, transformed.y / radius, transformed.z / radius, transformed.w / radius);
+                    //std::cout << transformed.x << " " << transformed.y << " " << transformed.z << " " << transformed.w << std::endl;
+                    std::cout << sphCoords.x << " " << sphCoords.y << " " << sphCoords.z << " " << std::endl;
+                }
+
+            if (kbs.O)
+                for (auto pEntity : entities)
+                {
+                    auto transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
+                    transformComponent->Rotate(deltaTime, 0, 0);
+                    const auto& world = transformComponent->GetWorld();
+                    auto transformed = Vector4::Transform(Vector4(0, objectRadius, 0, sqrt(radius * radius - objectRadius * objectRadius)), world); //pos_view
+                    auto sphCoords = GetSphericalFromCartesian(transformed.x / radius, transformed.y / radius, transformed.z / radius, transformed.w / radius);
+                    //std::cout << transformed.x << " " << transformed.y << " " << transformed.z << " " << transformed.w << std::endl;
+                    std::cout << sphCoords.x << " " << sphCoords.y << " " << sphCoords.z << " " << std::endl;
+                    std::cout << std::endl;
+                }
 
             auto selectedEntity = (*selectionSystem)->GetSelectedEntity();
             static bool oldPressedSelectButton = false;
