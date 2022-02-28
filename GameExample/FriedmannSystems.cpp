@@ -46,6 +46,11 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() - 100000);
 
             auto entities = (*selectionSystem)->GetEntities();
+
+            if (kbs.P)
+                for (auto pEntity : entities)
+                    pEntity->GetComponent<SphericalTransformComponent>()->Rotate(0, 0, deltaTime);
+
             auto selectedEntity = (*selectionSystem)->GetSelectedEntity();
             static bool oldPressedSelectButton = false;
             if (selectedEntity != nullptr)
