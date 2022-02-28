@@ -49,6 +49,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto objectRadius = 0.1;
             auto radius = SphericalEffect::GetRadius();
 
+            /*
             auto r_sphere = objectRadius;
             auto w_sphere = sqrt(radius * radius - objectRadius * objectRadius);
             if (kbs.P)
@@ -88,6 +89,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
                     std::cout << std::endl;
                 }
+                */
 
             auto selectedEntity = (*selectionSystem)->GetSelectedEntity();
             static bool oldPressedSelectButton = false;
