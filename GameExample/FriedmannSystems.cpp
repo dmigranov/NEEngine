@@ -74,7 +74,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 for (auto pEntity : entities)
                 {
                     auto transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
-                    transformComponent->Rotate(deltaTime, 0, 0);
+                    transformComponent->Rotate(0, 0, deltaTime);
                     const auto& world = transformComponent->GetWorld();
                     auto transformed1 = Vector4::Transform(Vector4(0, r_sphere, 0, w_sphere), world); //pos_view
                     auto sphCoords1 = GetSphericalFromCartesian(transformed1.x / radius, transformed1.y / radius, transformed1.z / radius, transformed1.w / radius);
