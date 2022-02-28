@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
         const auto& world = transformComponent->GetWorld();
-        Vector4::Transform(Vector4(0, objectRadius, 0, sqrt(radius * radius - objectRadius * objectRadius)), world); //pos_view
+        auto transformed1 = Vector4::Transform(Vector4(0, objectRadius, 0, sqrt(radius * radius - objectRadius * objectRadius)), world); //pos_view
 
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
         auto dopplerComponent = new DopplerComponent();
