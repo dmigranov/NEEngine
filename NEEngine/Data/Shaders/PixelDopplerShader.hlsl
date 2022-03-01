@@ -183,7 +183,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	if (hueNew < 0.)	
 		isRedshift = true;
 	if (hueNew > 270)
-		isBlueshift = true; /
+		isBlueshift = true; 
 	//todo: затемнение!
 
 	float3 rgbNew;
@@ -199,6 +199,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	}
 	else // if (isBlueshift)
 	{
+		rgbNew = float3(0., 0., 0.);
 
 	}
 
