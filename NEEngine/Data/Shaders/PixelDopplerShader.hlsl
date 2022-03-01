@@ -181,7 +181,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	double hueNew = getHue(freqNew);
 
 	bool isRedshift = false, isBlueshift = false;
-	double originalHueNew = hueNew;
+	float originalHueNew = hueNew;
 	if (hueNew < 0.)
 	{
 		hueNew = 0;
