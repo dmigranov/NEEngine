@@ -196,19 +196,19 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	float3 hsvNew = float3((float)hueNew, 1., 1.);
 	rgbNew = hsv2rgb(hsvNew);
+
+	float4 sourceColorNew;
 	if (!isRedshift && !isBlueshift)
 	{
-
+		sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	}
-	else if (isRedshift)
+	else 
 	{
-
-	}
-	else // if (isBlueshift)
-	{
+		sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	}
 
-	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+
+
 	float4 retColor = IN.fogFactor * sourceColorNew + (1.0 - IN.fogFactor) * fogColor; //בûכמ sourceColor גלוסעמ sourceColorNew
 	
 	if (isSelected != 0)
