@@ -95,6 +95,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto radius = SphericalEffect::GetRadius();
 
+    Vector4 leftReferenceVector, rightReferenceVector;
+
     // первая координата - близость к центру (z), вторая x, третья y
     auto sphCoord = GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
 
