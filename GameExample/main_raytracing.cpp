@@ -108,6 +108,30 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     lrvProjected /= lrvProjected.w;
     rrvProjected /= rrvProjected.w;
 
+    double dist = (rrvProjected.x - lrvProjected.x)/2;
+    double distSq = dist * dist;
+
+    auto posProj_4D = Vector4::Transform(pos, proj);
+    if (posProj_4D.w == 0)
+        return -1;
+    auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
+   
+    auto distFromCursorToCenterSq = pow(posProj.x - mouseX, 2) + pow(posProj.y - mouseY, 2);
+    if (distFromCursorToCenterSq > distSq)
+        return -1;
+
+    std::cout << lrvProjected.x << " " << lrvProjected.y << " " << lrvProjected.z << std::endl;
+
+
+    //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
+    //std::cout << projectedRadiusVectorY2.x << " " << projectedRadiusVectorY2.y << " " << projectedRadiusVectorY2.z << std::endl;
+    //std::cout << posProj.z << " " << pos.z << std::endl;
+
+    if (pos.z < 0)
+        return posProj.z + 1;
+    return posProj.z; 
+}
+
     /*
     auto viewChanged = view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y);
     // *SphericalRotationYZ(sphCoord.z);
@@ -141,39 +165,3 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     double distSq = max(distSqX, distSqY);
 
     */
-
-    double dist = (rrvProjected.x - lrvProjected.x)/2;
-    double distSq = dist * dist;
-
-    auto posProj_4D = Vector4::Transform(pos, proj);
-    if (posProj_4D.w == 0)
-        return -1;
-    auto posProj = Vector3(posProj_4D.x / posProj_4D.w, posProj_4D.y / posProj_4D.w, posProj_4D.z / posProj_4D.w);
-   
-    auto distFromCursorToCenterSq = pow(posProj.x - mouseX, 2) + pow(posProj.y - mouseY, 2);
-    if (distFromCursorToCenterSq > distSq)
-        return -1;
-
-    std::cout << lrvProjected.x << " " << lrvProjected.y << " " << lrvProjected.z << std::endl;
-
-
-    //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
-    //std::cout << projectedRadiusVectorY2.x << " " << projectedRadiusVectorY2.y << " " << projectedRadiusVectorY2.z << std::endl;
-    //std::cout << posProj.z << " " << pos.z << std::endl;
-
-    if (pos.z < 0)
-        return posProj.z + 1;
-    return posProj.z; 
-}
-
-// todo: идея: при проецировании использовать вместо view - произведение view на матрицу, передвигающую её (прямо - просто движение по z) к объекту
-// это решит проблему нулевого w 
-
-// идея: также цикл по всем объектам (можно отбросить все с отрицательным z после применения view, а может, не надо - копии тоже можно выбирать)
-// осуществляем проецирование, и проверяем близость центра до координат выбранной курсором точки. Единственная проблема - подсчитать нужный радиус проецирования
-// (реализовано в RayTraceSphereMouse)
-
-// todo: или вернуться к изначальной идее? изменится только вычисление rayDirection; это можно сделать и по евклидовым правилам
-
-// todo: идея: вычислить заранее расстояние для кружка на определенном расстоянии от камеры в центре и модифицировать его
-// в зависимости от расстояния
