@@ -185,7 +185,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		hueNew = -1;
 
 	float3 rgbNew;
-	if (hueNew > 0)
+	if (hueNew >= 0)
 	{
 		float3 hsvNew = float3((float)hueNew, 1, 1);
 		rgbNew = hsv2rgb(hsvNew);
