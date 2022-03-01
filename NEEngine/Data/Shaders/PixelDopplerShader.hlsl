@@ -179,6 +179,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	double freqNew = freq * (1 - velocity  / C);
 	double hueNew = getHue(freqNew);
+	bool isRedshift = false, isBlueshift = false;
 	if (hueNew < 0.)	
 		hueNew = 0;
 	if (hueNew > 270)
