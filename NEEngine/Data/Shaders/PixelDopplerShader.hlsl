@@ -194,7 +194,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	float3 rgbNew;
 
-	float3 hsvNew = float3((float)hueNew, 1., 1.);
+	float3 hsvNew = float3((float)hueNew, 1.f, 1.f);
 	rgbNew = hsv2rgb(hsvNew);
 
 	float4 sourceColorNew;
@@ -204,7 +204,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	}
 	else 
 	{
-		sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+		sourceColorNew = float4(0.f, 0.f, 0.f, 1.f) + float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	}
 
 
