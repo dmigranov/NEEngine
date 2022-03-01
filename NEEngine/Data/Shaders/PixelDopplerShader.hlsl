@@ -206,7 +206,10 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	}
 	else 
 	{
-		double interpolationCoeff = 0.5; //f(originalHueNew)
+		//originalHueNew = 270: 0; > 270 - приближается к единице
+		double diff = abs(originalHueNew - hueNew);
+		//double interpolationCoeff = 0.5; //discrete
+		double interpolationCoeff = exp(-diff);
 		sourceColorNew = interpolationCoeff * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w); //discrete
 	}
 
