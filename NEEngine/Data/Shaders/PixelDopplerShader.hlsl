@@ -192,7 +192,6 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		hueNew = 270.;
 		isBlueshift = true;
 	}
-	//todo: затемнение!
 
 	float3 rgbNew;
 
