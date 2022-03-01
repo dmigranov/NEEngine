@@ -195,12 +195,12 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	else if (isRedshift)
 	{
 		hueNew = 0;
-		rgbNew = float3(0., 0., 0.);
+		rgbNew = float3((float)hueNew, 1., 0.);
 	}
 	else // if (isBlueshift)
 	{
 		hueNew = 270.;
-		rgbNew = float3(0., 0., 0.);
+		rgbNew = float3((float)hueNew, 1., 0.);
 	}
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
