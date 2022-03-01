@@ -49,30 +49,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto objectRadius = 0.1;
             auto radius = SphericalEffect::GetRadius();
 
-            /*
-            auto r_sphere = objectRadius;
-            auto w_sphere = sqrt(radius * radius - objectRadius * objectRadius);
-            if (kbs.P)
-                for (auto pEntity : entities)
-                { 
-                    auto transformComponent = pEntity->GetComponent<SphericalTransformComponent>();
-                    transformComponent->Rotate(0, deltaTime, 0);
-                    const auto& world = transformComponent->GetWorld();
-                    auto transformed = Vector4::Transform(Vector4(0, r_sphere, 0, w_sphere), world); //pos_view
-                    auto sphCoords = GetSphericalFromCartesian(transformed.x / radius, transformed.y / radius, transformed.z / radius, transformed.w / radius);
-                    //std::cout << transformed.x << " " << transformed.y << " " << transformed.z << " " << transformed.w << std::endl;
-                    std::cout << sphCoords.x << " " << sphCoords.y << " " << sphCoords.z << " " << std::endl;
-
-                    Matrix matrixPosRadiusY(1, 0, 0, 0, 0, w_sphere, 0, r_sphere, 0, 0, 1, 0, 0, -r_sphere, 0, w_sphere);
-                    auto transformed2 = Vector4::Transform(transformComponent->GetSphericalPosition(), matrixPosRadiusY); //pos_view
-                    auto sphCoords2 = GetSphericalFromCartesian(transformed2.x / radius, transformed2.y / radius, transformed2.z / radius, transformed2.w / radius);
-                    std::cout << sphCoords2.x << " " << sphCoords2.y << " " << sphCoords2.z << " " << std::endl;
-
-                    std::cout << std::endl;
-                }
-                */
-
-
             auto selectedEntity = (*selectionSystem)->GetSelectedEntity();
             static bool oldPressedSelectButton = false;
             if (selectedEntity != nullptr)
