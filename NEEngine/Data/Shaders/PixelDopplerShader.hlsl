@@ -183,17 +183,23 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	if (hueNew < 0.)	
 		hueNew = 0;
 	if (hueNew > 270)
-		hueNew = 270; //p-1
+		hueNew = 270; //=-1
 	//todo: затемнение!
 
 	float3 rgbNew;
-	if (hueNew >= 0)
+	if (!isRedshift && !isBlueshift)
 	{
 		float3 hsvNew = float3((float)hueNew, 1, 1);
 		rgbNew = hsv2rgb(hsvNew);
 	}
-	else
+	else if (isRedshift)
+	{
 		rgbNew = float3(0., 0., 0.);
+	}
+	else // if (isBlueshift)
+	{
+
+	}
 
 	float4 sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	float4 retColor = IN.fogFactor * sourceColorNew + (1.0 - IN.fogFactor) * fogColor; //было sourceColor вместо sourceColorNew
