@@ -209,9 +209,11 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		float4 sourceColorDarkened = (1 - darkenCoeff) * float4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 		
 		float interpolationDiff = 50.f; 
+		float interpolationCoeff;
 		if (isBlueshift)
 		{
 			float upperLimit = 270.f + interpolationDiff;
+			interpolationCoeff = (upperLimit - originalHueNew) / interpolationDiff;
 		}
 		else //if (isRedshift)
 		{
