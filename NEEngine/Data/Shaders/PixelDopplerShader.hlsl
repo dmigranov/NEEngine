@@ -189,7 +189,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	float3 rgbNew;
 	if (!isRedshift && !isBlueshift)
 	{
-		float3 hsvNew = float3((float)hueNew, 1, 1);
+		float3 hsvNew = float3((float)hueNew, 1., 1.);
 		rgbNew = hsv2rgb(hsvNew);
 	}
 	else if (isRedshift)
