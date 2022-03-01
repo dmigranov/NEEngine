@@ -186,6 +186,13 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	double freqNew = freq * (1 - velocity  / C);
 	double hueNew = getHue(freqNew);
+	if (lambda > 650)
+		//return -1; 
+		lambda = 650.;
+	if (lambda < 400)
+		//return -1;
+		lambda = 400;
+	*/
 	float3 rgbNew;
 	if (hueNew > 0)
 	{
