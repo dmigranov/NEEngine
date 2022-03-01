@@ -220,7 +220,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		{
 			float lowerLimit = 0.f - interpolationDiff;
 			originalHueNew = clamp(originalHueNew, lowerLimit, 0.f);
-
+			interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
 		}
 
 		float diff = abs(originalHueNew - hueNew);
