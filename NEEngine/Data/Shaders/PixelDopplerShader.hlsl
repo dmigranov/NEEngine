@@ -219,6 +219,8 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		else //if (isRedshift)
 		{
 			float lowerLimit = 0.f - interpolationDiff;
+			originalHueNew = clamp(originalHueNew, lowerLimit, 0.f);
+
 		}
 
 		float diff = abs(originalHueNew - hueNew);
