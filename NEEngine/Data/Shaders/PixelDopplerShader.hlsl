@@ -97,6 +97,8 @@ double getHue(double frequency)
 		return -1; //ключевой вопрос - что делать со значениями на границе!
 		//lambda = 400; 
 	double hue = (650. - lambda) * 270 / 250;
+	//допустим, lambda > 650. тогда hue будет отрицательным - легко проверить!
+	//
 	return hue;
 }
 
