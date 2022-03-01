@@ -183,6 +183,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		hueNew = 0;
 	if (hueNew > 270)
 		hueNew = 270; //p-1
+	//todo: затемнение!
 
 	float3 rgbNew;
 	if (hueNew >= 0)
