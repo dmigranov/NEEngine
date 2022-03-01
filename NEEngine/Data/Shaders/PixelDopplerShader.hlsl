@@ -213,7 +213,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 		if (isBlueshift)
 		{
 			float upperLimit = 270.f + interpolationDiff;
-			interpolationCoeff = (upperLimit - originalHueNew) / interpolationDiff;
+			interpolationCoeff = (upperLimit - originalHueNew) / interpolationDiff; 
 		}
 		else //if (isRedshift)
 		{
