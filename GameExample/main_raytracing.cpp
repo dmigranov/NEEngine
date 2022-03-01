@@ -108,6 +108,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     lrvProjected /= lrvProjected.w;
     rrvProjected /= rrvProjected.w;
 
+    /*
     auto viewChanged = view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y);
     // *SphericalRotationYZ(sphCoord.z);
 
@@ -138,6 +139,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     distSqY = distSqY * distSqY;
 
     double distSq = max(distSqX, distSqY);
+
+    */
 
     auto posProj_4D = Vector4::Transform(pos, proj);
     if (posProj_4D.w == 0)
