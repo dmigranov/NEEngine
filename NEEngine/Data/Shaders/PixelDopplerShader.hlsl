@@ -224,7 +224,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 			interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
 		}
 
-		modifiedColor = (1 - interpolationCoeff) * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+		modifiedColor = (1 - interpolationCoeff) * modifiedColorOriginal + interpolationCoeff * modifiedColorDarkened;
 	}
 
 
