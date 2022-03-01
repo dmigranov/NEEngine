@@ -199,14 +199,14 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	float3 hsvNew = float3((float)hueNew, 1.f, 1.f);
 	rgbNew = hsv2rgb(hsvNew);
 
-	float4 sourceColorNew;
+	float4 modifiedColor;
 	if (!isRedshift && !isBlueshift)
-		sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+		modifiedColor = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	else 
 	{
 		//originalHueNew = 270: 0; > 270 - приближается к единице 
 		float darkenCoeff = 0.3f; //discrete 
-		float4 sourceColorDarkened = (1 - darkenCoeff) * float4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
+		float4 modifiedColorDarkened = (1 - darkenCoeff) * float4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 		
 		float interpolationDiff = 50.f; 
 		float interpolationCoeff;
@@ -223,12 +223,12 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 			interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
 		}
 
-		sourceColorNew = (1 - interpolationCoeff) * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w); 
+		modifiedColor = (1 - interpolationCoeff) * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 	}
 
 
 
-	float4 retColor = IN.fogFactor * sourceColorNew + (1.0 - IN.fogFactor) * fogColor; //было sourceColor вместо sourceColorNew
+	float4 retColor = IN.fogFactor * modifiedColor + (1.0 - IN.fogFactor) * fogColor; //было sourceColor вместо sourceColorNew
 	
 	if (isSelected != 0)
 		retColor = 0.3 * retColor + 0.7 * selectionColor;
