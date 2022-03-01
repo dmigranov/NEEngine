@@ -144,7 +144,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
-    std::cout << rrvChanged.x - lrvChanged.x << std::endl;
+    std::cout << lrvProjected.x/ lrvProjected.w << " " << lrvProjected.y << " " << lrvProjected.z << " " << lrvProjected.w << " " << std::endl;
 
 
     //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
