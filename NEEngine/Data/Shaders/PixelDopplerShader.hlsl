@@ -201,9 +201,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	float4 sourceColorNew;
 	if (!isRedshift && !isBlueshift)
-	{
 		sourceColorNew = float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
-	}
 	else 
 	{
 		//originalHueNew = 270: 0; > 270 - приближается к единице 
