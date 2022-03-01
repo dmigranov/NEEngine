@@ -103,6 +103,10 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto rrvChanged = Vector4::Transform(rightReferenceVector, SphericalRotationZW(sphCoord.x));
     auto lrvProjected = Vector4::Transform(lrvChanged, proj);
     auto rrvProjected = Vector4::Transform(rrvChanged, proj);
+    if (lrvProjected.w == 0 || rrvProjected.w == 0)
+        return -1;
+    lrvProjected /= lrvProjected.w;
+    rrvProjected /= rrvProjected.w;
 
     auto viewChanged = view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y);
     // *SphericalRotationYZ(sphCoord.z);
@@ -144,7 +148,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
-    std::cout << lrvProjected.x/ lrvProjected.w << " " << lrvProjected.y << " " << lrvProjected.z << " " << lrvProjected.w << " " << std::endl;
+    std::cout << lrvProjected.x << " " << lrvProjected.y << " " << lrvProjected.z << std::endl;
 
 
     //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
