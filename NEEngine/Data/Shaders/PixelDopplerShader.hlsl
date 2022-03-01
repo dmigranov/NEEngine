@@ -223,8 +223,6 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 			interpolationCoeff = (originalHueNew - lowerLimit) / interpolationDiff;
 		}
 
-		float diff = abs(originalHueNew - hueNew);
-		float interpolationCoeff = exp(-diff / 170);
 		sourceColorNew = (1 - interpolationCoeff) * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w); 
 	}
 
