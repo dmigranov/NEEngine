@@ -90,12 +90,7 @@ double getFrequency(double hue)
 double getHue(double frequency)
 {
 	double lambda = 2. * PI * C / frequency;
-
-	/*if (lambda > 650)
-		;
-	if (lambda < 400)
-		; 	*/
-
+	// if (lambda > 650); if (lambda < 400); 	
 	double hue = (650. - lambda) * 270 / 250;
 	//ключевой вопрос - что делать со значениями на границе!
 	//допустим, lambda > 650. тогда hue будет отрицательным - легко проверить!
