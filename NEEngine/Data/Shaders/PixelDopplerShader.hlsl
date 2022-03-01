@@ -205,8 +205,8 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	else 
 	{
 		//originalHueNew = 270: 0; > 270 - приближается к единице 
-		float interpolationCoeff = 0.3f; //discrete 
-		float4 sourceColorDarkened = (1 - interpolationCoeff) * float4(0.f, 0.f, 0.f, 1.f) + interpolationCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w); 
+		float darkenCoeff = 0.3f; //discrete 
+		float4 sourceColorDarkened = (1 - darkenCoeff) * float4(0.f, 0.f, 0.f, 1.f) + darkenCoeff * float4(rgbNew.x, rgbNew.y, rgbNew.z, sourceColor.w);
 		
 		float interpolationDiff = 50.f; 
 		if (isBlueshift)
