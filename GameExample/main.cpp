@@ -107,10 +107,6 @@ int main(int argc, char* argv[])
         auto transformComponent = new SphericalTransformComponent();
         //transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w); //!!!
         
-        //const auto& world = transformComponent->GetWorld();
-        //auto transformed = Vector4::Transform(Vector4(0, objectRadius, 0, sqrt(radius * radius - objectRadius * objectRadius)), world); //pos_view
-        //auto sphCoords = GetSphericalFromCartesian(transformed.x / radius, transformed.y / radius, transformed.z / radius, transformed.w / radius);
-
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
         auto dopplerComponent = new DopplerComponent();
         auto entity = new Entity();
