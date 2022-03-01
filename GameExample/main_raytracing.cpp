@@ -99,6 +99,10 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
     // первая координата - близость к центру (z), вторая x, третья y
     auto sphCoord = GetSphericalFromCartesian(pos.x / radius, pos.y / radius, pos.z / radius, pos.w / radius);
+    auto lrvChanged = Vector4::Transform(leftReferenceVector, SphericalRotationZW(sphCoord.x));
+    auto rrvChanged = Vector4::Transform(rightReferenceVector, SphericalRotationZW(sphCoord.x));
+    auto lrvProjected = Vector4::Transform(lrvChanged, proj);
+    auto rrvProjected = Vector4::Transform(rrvChanged, proj);
 
     auto viewChanged = view * SphericalRotationXZ(pos.x > 0 ? -sphCoord.y : sphCoord.y);
     // *SphericalRotationYZ(sphCoord.z);
@@ -140,8 +144,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (distFromCursorToCenterSq > distSq)
         return -1;
 
-    std::cout << sphCoord.x << " " << sphCoord.y << " " << sphCoord.z << std::endl;
-    std::cout << sphCoordChanged.x << " " << sphCoordChanged.y << " " << sphCoordChanged.z << std::endl << std::endl;
+    std::cout << rrvChanged.x - lrvChanged.x << std::endl;
+
 
     //std::cout << projectedRadiusVectorY1.x << " " << projectedRadiusVectorY1.y << " " << projectedRadiusVectorY1.z << std::endl;
     //std::cout << projectedRadiusVectorY2.x << " " << projectedRadiusVectorY2.y << " " << projectedRadiusVectorY2.z << std::endl;
