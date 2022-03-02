@@ -230,7 +230,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double radius = m_radiusFunctiom(mu);
 
     m_renderSystem->SetRadius(radius);
-    SphericalDopplerEffect::SetMu();
+    SphericalDopplerEffect::SetMu(mu);
     /*
     auto cameraPos = m_cameraTransform->GetSphericalPosition();
     const auto& view = m_cameraTransform->GetView();
