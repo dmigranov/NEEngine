@@ -162,7 +162,7 @@ float3 hsv2rgb(float3 hsv)
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
-	float velocity = (float)radiusRatioCoeff * IN.radiusRatio;
+	float radiusRatio = (float)radiusRatioCoeff * IN.radiusRatio;
 
 	//float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 	float4 sourceColor = shaderTexture.Sample(SampleType, IN.tex);
@@ -177,7 +177,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	double hue = hsv.x;
 	double freq = getFrequency(hue);
 
-	double freqNew = freq * (1 - velocity  / C);
+	double freqNew = freq * (1 - radiusRatio / C); //todo: change formula! f(radiusRatio) - landau
 	double hueNew = getHue(freqNew);
 
 	bool isRedshift = false, isBlueshift = false;
