@@ -109,7 +109,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	//lnew', lold' - без прибавления pi.
 
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
-	OUT.velocity = distDiff / deltaTime;
+	OUT.radiusRatio = distDiff / deltaTime;
 
 	return OUT;
 }
