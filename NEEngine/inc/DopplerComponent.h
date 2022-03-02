@@ -6,9 +6,13 @@ class DopplerComponent :
 public:
     void SetSelected(bool isSelected);
     bool IsSelected();
+
     void SetAlternativeTexture(bool isAlternative);
     bool IsAlternativeTexture();
+
+
 private:
     bool m_isSelected = false;
     bool m_isAlternative = false;
+    double m_oldRadius;
 };
