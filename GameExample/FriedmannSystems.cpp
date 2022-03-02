@@ -227,7 +227,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double radius = 2 * (1 - cos(mu));
 
     m_renderSystem->SetRadius(radius);
-    auto cameraPos = m_cameraTransform->GetPosition();
+    auto cameraPos = m_cameraTransform->GetSphericalPosition();
 
     for (auto pEntity : m_entities)
     {
