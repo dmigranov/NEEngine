@@ -4,7 +4,7 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixBack;
 	double density;
 	double radius;
-	double radius_old;
+	double radiusOld;
 	double deltaTime;
 }
 
@@ -108,7 +108,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	//lnew - lold = lnew' + pi - lold' - pi = lnew' - lold' = lnew' (1 - rold/rnew)
 	//lnew', lold' - без прибавления pi.
 
-	double distDiff = distanceCenter * (1. - radius_old / radius);
+	double distDiff = distanceCenter * (1. - radiusOld / radius);
 	OUT.velocity = distDiff / deltaTime;
 
 	return OUT;
