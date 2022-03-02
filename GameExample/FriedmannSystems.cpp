@@ -243,6 +243,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
         auto viewPos = Vector4::Transform(pos, view);
         if (viewPos.z < 0)
             chi = XM_2PI - chi;
+
         auto radiusOld = m_radiusFunctiom(mu - chi);
         pDopplerComponent->SetOldRadius(radiusOld);
     }

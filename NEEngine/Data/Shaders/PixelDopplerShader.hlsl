@@ -177,7 +177,8 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	double hue = hsv.x;
 	double freq = getFrequency(hue);
 
-	double freqNew = freq * (1 - radiusRatio / C); //todo: change formula! f(radiusRatio) - landau
+	//double freqNew = freq * (1 - radiusRatio / C); //todo: change formula! f(radiusRatio) - landau
+	double freqNew = freq * radiusRatio;
 	double hueNew = getHue(freqNew);
 
 	bool isRedshift = false, isBlueshift = false;
