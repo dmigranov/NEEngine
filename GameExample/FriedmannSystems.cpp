@@ -214,7 +214,8 @@ void FriedmannTimer::SetFrameTime(double newTime)
 
 RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem)
 {
-    //todo: подписаться!
+    SubscribeToComponentType<SphericalTransformComponent>();
+    SubscribeToComponentType<DopplerComponent>();
     m_timer = timer;
     m_renderSystem = renderSystem;
 }
