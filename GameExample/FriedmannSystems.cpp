@@ -231,6 +231,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
     m_renderSystem->SetRadius(radius);
     auto cameraPos = m_cameraTransform->GetSphericalPosition();
+    const auto& view = m_cameraTransform->GetView();
 
     for (auto pEntity : m_entities)
     {
