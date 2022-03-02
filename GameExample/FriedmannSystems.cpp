@@ -230,6 +230,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double radius = m_radiusFunctiom(mu);
 
     m_renderSystem->SetRadius(radius);
+    /*
     auto cameraPos = m_cameraTransform->GetSphericalPosition();
     const auto& view = m_cameraTransform->GetView();
 
@@ -255,6 +256,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     {
         UpdateFriedmannWindow(mu);
     }
+    */
 }
 
 // На всякий случай: код без изменений (одна система на всё) - по состоянию на начало 21.02.2022
