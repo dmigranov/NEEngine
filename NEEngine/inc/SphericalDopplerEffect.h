@@ -43,6 +43,7 @@ public:
 
     static double GetOldRadius();
     static void SetBackwards(bool isBackwards);
+    static void SetMu(double mu);
 
     //virtual void SetRadius(double radius) override;
 
@@ -61,4 +62,6 @@ private:
     static bool m_isBackwards;
 
     Texture* m_pTextureAlt = nullptr;
+
+    static double m_mu = -1.;
 };
