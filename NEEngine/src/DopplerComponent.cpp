@@ -20,3 +20,13 @@ bool DopplerComponent::IsAlternativeTexture()
 {
 	return m_isAlternative;
 }
+
+void DopplerComponent::SetOldRadius(double oldRadius)
+{
+	m_oldRadius = oldRadius;
+}
+
+double DopplerComponent::GetOldRadius()
+{
+	return m_oldRadius;
+}
