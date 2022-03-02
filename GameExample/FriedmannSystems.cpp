@@ -216,6 +216,7 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSy
 {
     SubscribeToComponentType<SphericalTransformComponent>();
     SubscribeToComponentType<DopplerComponent>();
+
     m_timer = timer;
     m_renderSystem = renderSystem;
 }
@@ -226,6 +227,11 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double radius = 2 * (1 - cos(mu));
 
     m_renderSystem->SetRadius(radius);
+
+    for (auto pEntity : m_entities)
+    {
+
+    }
 
     if (m_timer->IsTimeToRepaint())
     {
