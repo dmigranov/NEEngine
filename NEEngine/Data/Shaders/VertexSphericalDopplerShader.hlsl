@@ -5,7 +5,7 @@ cbuffer PerApplication : register(b0)
 	double density;
 	double radius;
 	double radiusOld;
-	double deltaTime;
+	double mu;
 }
 
 cbuffer PerFrame : register(b1)
@@ -37,6 +37,11 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
 	float chordLength = distance(vec1, vec2); //chord length
 	return 2 * radius * asin(chordLength / (2.f * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
+}
+
+float RadiusFunction(float mu) 
+{ 
+	return 2 * (1 - cos(mu)); 
 }
 
 //entry point
