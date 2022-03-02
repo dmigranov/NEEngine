@@ -26,7 +26,7 @@ public:
         double density = 0.1;
         double radius = 1.;
         double radiusOld = 1.;
-        double deltaTime = 0.;
+        double mu = 0.;
     };
 
     SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor);
