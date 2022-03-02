@@ -239,7 +239,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
         auto pos = pTransform->GetSphericalPosition();
 
         auto chi = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
-        //auto radiusOld = 
+        auto radiusOld = m_radiusFunctiom(mu - chi);
 
     }
 
