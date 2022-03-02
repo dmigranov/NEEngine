@@ -5,7 +5,7 @@ cbuffer PerApplication : register(b0)
 {
 	float4 fogColor;
 	float4 selectionColor;
-	double velocity_coeff;
+	double radiusRatioCoeff;
 }
 
 cbuffer PerObject : register(b1)
@@ -162,7 +162,7 @@ float3 hsv2rgb(float3 hsv)
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
-	float velocity = (float)velocity_coeff * IN.radiusRatio;
+	float velocity = (float)radiusRatioCoeff * IN.radiusRatio;
 
 	//float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 	float4 sourceColor = shaderTexture.Sample(SampleType, IN.tex);
