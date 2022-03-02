@@ -16,7 +16,7 @@
 #include "SphDopplerVertexShader.h"
 #include "EllDopplerVertexShader.h"
 
-double SphericalDopplerEffect::m_radius_old = 1.;
+double SphericalDopplerEffect::m_radiusOld = 1.;
 bool SphericalDopplerEffect::m_isSimulationRunning = true;
 bool SphericalDopplerEffect::m_isBackwards = false;
 
@@ -79,7 +79,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	{
 		if (m_radius != perApplicationVSConstantBufferDoppler.radius)
 		{
-			m_radius_old = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
+			m_radiusOld = perApplicationVSConstantBufferDoppler.radius; //полагается на то, что радиус устанавливают постоянно
 			m_isSimulationRunning = true;
 		}
 		else
@@ -95,7 +95,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	if (m_isSimulationRunning)
 	{
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
-		perApplicationVSConstantBufferDoppler.radius_old = m_radius_old;
+		perApplicationVSConstantBufferDoppler.radiusOld = m_radiusOld;
 		if(!m_isBackwards)
 			perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;	
 		else
@@ -141,7 +141,7 @@ double SphericalDopplerEffect::GetVelocityCoefficient()
 
 double SphericalDopplerEffect::GetOldRadius()
 {
-	return m_radius_old;
+	return m_radiusOld;
 }
 
 void SphericalDopplerEffect::SetBackwards(bool isBackwards)

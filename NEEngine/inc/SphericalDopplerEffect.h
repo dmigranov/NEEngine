@@ -25,7 +25,7 @@ public:
         DirectX::XMMATRIX projBack;
         double density = 0.1;
         double radius = 1.;
-        double radius_old = 1.;
+        double radiusOld = 1.;
         double deltaTime = 0.;
     };
 
@@ -56,7 +56,7 @@ private:
 
     ID3D11Buffer* g_d3dPerObjectPSConstantBuffer = nullptr;
 
-    static double m_radius_old;// = 1.;
+    static double m_radiusOld;// = 1.;
     static bool m_isSimulationRunning;
     static bool m_isBackwards;
 
