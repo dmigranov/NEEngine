@@ -252,12 +252,12 @@ void RadiusUpdateSystem::Execute(double deltaTime)
         //std::cout << radiusOld << std::endl;
         pDopplerComponent->SetOldRadius(radiusOld);
     }
-
+        */
     if (m_timer->IsTimeToRepaint())
     {
         UpdateFriedmannWindow(mu);
     }
-    */
+
 }
 
 // На всякий случай: код без изменений (одна система на всё) - по состоянию на начало 21.02.2022
