@@ -228,6 +228,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     double mu = m_timer->GetMu();
     //double radius = 2 * (1 - cos(mu));
     double radius = m_radiusFunctiom(mu);
+    std::cout << radius << std::endl;
 
     m_renderSystem->SetRadius(radius);
     auto cameraPos = m_cameraTransform->GetSphericalPosition();
@@ -245,6 +246,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
             chi = XM_2PI - chi;
 
         auto radiusOld = m_radiusFunctiom(mu - chi);
+        std::cout << radiusOld;
         pDopplerComponent->SetOldRadius(radiusOld);
     }
 
