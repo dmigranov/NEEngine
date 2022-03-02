@@ -92,7 +92,9 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
 	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
-	//OUT.radiusRatio = distDiff / deltaTime; //разная для разных точек объекта!
+	//OUT.radiusRatio = distDiff / deltaTime;
+	OUT.radiusRatio = radiusOld / radius;
+
 	
 	return OUT;
 }

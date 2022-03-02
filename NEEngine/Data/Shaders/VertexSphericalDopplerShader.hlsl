@@ -110,7 +110,7 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
 	//OUT.radiusRatio = distDiff / deltaTime;
-	OUT.radiusRatio = radiusOld / deltaTime;
+	OUT.radiusRatio = radiusOld / radius;
 
 	return OUT;
 }
