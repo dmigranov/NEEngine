@@ -214,6 +214,7 @@ void FriedmannTimer::SetFrameTime(double newTime)
 
 RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem)
 {
+    //todo: подписаться!
     m_timer = timer;
     m_renderSystem = renderSystem;
 }
