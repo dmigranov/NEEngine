@@ -226,7 +226,8 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSy
 void RadiusUpdateSystem::Execute(double deltaTime)
 {
     double mu = m_timer->GetMu();
-    double radius = 2 * (1 - cos(mu));
+    //double radius = 2 * (1 - cos(mu));
+    double radius = m_radiusFunctiom(mu);
 
     m_renderSystem->SetRadius(radius);
     auto cameraPos = m_cameraTransform->GetSphericalPosition();
