@@ -17,6 +17,7 @@
 #include "EllDopplerVertexShader.h"
 
 double SphericalDopplerEffect::m_radiusOld = 1.;
+double SphericalDopplerEffect::m_mu = -1.;
 bool SphericalDopplerEffect::m_isSimulationRunning = true;
 bool SphericalDopplerEffect::m_isBackwards = false;
 
@@ -149,6 +150,11 @@ double SphericalDopplerEffect::GetOldRadius()
 void SphericalDopplerEffect::SetBackwards(bool isBackwards)
 {
 	m_isBackwards = isBackwards;
+}
+
+void SphericalDopplerEffect::SetMu(double mu)
+{
+	m_mu = mu;
 }
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)
