@@ -247,7 +247,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
         auto radiusOld = m_radiusFunctiom(mu - chi);
 
         //Я понял, в чем проблема! нельзя устанавливать это снаружи, надо делать это для всех вершин отдельно!
-        std::cout << radiusOld << std::endl;
+        //std::cout << radiusOld << std::endl;
         pDopplerComponent->SetOldRadius(radiusOld);
     }
 
