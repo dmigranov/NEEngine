@@ -230,6 +230,8 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
     for (auto pEntity : m_entities)
     {
+        auto pDopplerComponent = pEntity->GetComponent<DopplerComponent>();
+        auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
 
     }
 
