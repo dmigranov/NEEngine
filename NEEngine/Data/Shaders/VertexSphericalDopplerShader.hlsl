@@ -29,7 +29,7 @@ struct VertexShaderOutput
 {
 	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
-	float velocity : VELOCITY;
+	float radiusRatio : R_RATIO;
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
