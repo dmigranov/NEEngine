@@ -98,7 +98,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
 	//OUT.radiusRatio = distDiff / deltaTime;
-	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);
+	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);  //todo: убрать radius
 
 	return OUT;
 }

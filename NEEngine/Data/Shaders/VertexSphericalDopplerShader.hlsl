@@ -115,7 +115,7 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
 	//OUT.radiusRatio = distDiff / deltaTime;
-	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);
+	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu); //todo: убрать radius
 
 	return OUT;
 }
