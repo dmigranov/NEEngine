@@ -241,6 +241,8 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
         auto chi = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
         auto viewPos = Vector4::Transform(pos, view);
+        if (viewPos.z < 0)
+            chi = XM_2PI - chi;
         auto radiusOld = m_radiusFunctiom(mu - chi);
         pDopplerComponent->SetOldRadius(radiusOld);
     }
