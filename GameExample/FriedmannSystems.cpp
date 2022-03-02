@@ -212,13 +212,14 @@ void FriedmannTimer::SetFrameTime(double newTime)
     m_currentFrameTime = newTime;
 }
 
-RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem)
+RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem, SphericalTransformComponent* cameraTransform)
 {
     SubscribeToComponentType<SphericalTransformComponent>();
     SubscribeToComponentType<DopplerComponent>();
 
     m_timer = timer;
     m_renderSystem = renderSystem;
+    m_cameraTransform = cameraTransform;
 }
 
 void RadiusUpdateSystem::Execute(double deltaTime)
