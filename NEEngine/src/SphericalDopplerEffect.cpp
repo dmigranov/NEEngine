@@ -89,15 +89,16 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 
+	auto pDoppler = pEntity->GetComponent<DopplerComponent>();
+
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
 	if (m_isSimulationRunning)
 	{
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
-		perApplicationVSConstantBufferDoppler.radiusOld = m_radiusOld; //todo тут посчитать для каждого объектп хи
-		//и отнять от обычного радиуса!
-		// а нет, тут это не получится - нет формулы для вычисления радиуса!
+		//perApplicationVSConstantBufferDoppler.radiusOld = m_radiusOld; 
+		perApplicationVSConstantBufferDoppler.radiusOld = pDoppler->GetOldRadius();
 		if(!m_isBackwards)
 			perApplicationVSConstantBufferDoppler.deltaTime = deltaTime;	
 		else
@@ -107,7 +108,6 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
-	auto pDoppler = pEntity->GetComponent<DopplerComponent>();
 	if (pDoppler != nullptr && pDoppler->IsSelected())
 		perObjectPSConstantBuffer.isSelected = 1;
 	else
