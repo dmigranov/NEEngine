@@ -233,6 +233,9 @@ void RadiusUpdateSystem::Execute(double deltaTime)
     {
         auto pDopplerComponent = pEntity->GetComponent<DopplerComponent>();
         auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
+        auto pos = pTransform->GetSphericalPosition();
+
+        auto chi = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
 
     }
 
