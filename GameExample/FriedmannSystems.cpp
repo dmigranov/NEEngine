@@ -240,7 +240,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
         auto chi = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
         auto radiusOld = m_radiusFunctiom(mu - chi);
-
+        pDopplerComponent->SetOldRadius(radiusOld);
     }
 
     if (m_timer->IsTimeToRepaint())
