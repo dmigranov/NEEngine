@@ -162,8 +162,8 @@ float3 hsv2rgb(float3 hsv)
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
-	float radiusRatio = (float)radiusRatioCoeff * IN.radiusRatio;
-
+	//float radiusRatio = (float)radiusRatioCoeff * IN.radiusRatio;
+	float radiusRatio =  IN.radiusRatio;
 	//float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? 1.f : shaderTexture.Sample(SampleType, IN.tex));
 	float4 sourceColor = shaderTexture.Sample(SampleType, IN.tex);
 	if (sourceColor.x < 0.01f && sourceColor.y < 0.01f && sourceColor.z < 0.01f)
