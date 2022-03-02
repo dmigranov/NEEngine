@@ -136,7 +136,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto visibility = renderingComponent->GetSphericalVisibility();
 
             auto radius = SphericalEffect::GetRadius();
-            auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
+            auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
             auto mu = timer->GetMu();
 
             if (mu < dist)
