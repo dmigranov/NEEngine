@@ -52,6 +52,7 @@ public:
 private:
 	FriedmannTimer* m_timer;
 	SphericalRenderSystem* m_renderSystem;
+	SphericalTransformComponent* m_cameraTransform;
 };
 
 

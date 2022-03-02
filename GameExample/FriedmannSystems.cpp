@@ -228,6 +228,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
     m_renderSystem->SetRadius(radius);
 
+
     for (auto pEntity : m_entities)
     {
         auto pDopplerComponent = pEntity->GetComponent<DopplerComponent>();
