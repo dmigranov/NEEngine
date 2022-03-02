@@ -41,7 +41,6 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 	return 2 * radius * asin(chordLength / (2.f * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 }
 
-
 float RadiusFunction(float mu)
 {
 	return 2 * (1 - cos(mu));
