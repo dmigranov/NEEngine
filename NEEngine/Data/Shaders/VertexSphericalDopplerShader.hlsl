@@ -75,7 +75,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	double radius = RadiusFunction(mu);
 
 	double chi; 
-	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, position1), 1);
+	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, position1), 1); //TODO: посмотреть альтернативные варианты
 	if (instanceID == 1)
 		chi += 3.14159265;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
 	double radiusOld = RadiusFunction(mu - chi);
