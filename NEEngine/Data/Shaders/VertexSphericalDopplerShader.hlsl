@@ -109,12 +109,6 @@ VertexShaderOutput main(VertexShaderInput IN
 		distance += 3.14159265 * radius;
 	OUT.fogFactor = saturate(exp(-density * distance));
 	OUT.tex = IN.tex;
-
-	//double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
-	//distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
-	//if (instanceID == 1)
-	//	distanceCenter += 3.14159265 * radius;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
-
 	OUT.radiusRatio = radiusOld / radius; //todo: убрать radius
 
 	return OUT;
