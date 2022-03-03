@@ -67,6 +67,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	}
 	
 	double radius = RadiusFunction(mu);
+	double radiusOld = RadiusFunction(mu - distanceCenter / radius);
 
 	//IN.position: sum of squares must be 1!
 
