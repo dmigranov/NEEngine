@@ -188,7 +188,6 @@ int main(int argc, char* argv[])
             }
             ss << "Chi: " << chi << std::endl;
             //ss << "Chi: " << SphericalDistance(Vector4(0, 0, 0, 1), sphPosView/radius, 1) << std::endl;
-
         }
 
         return ss.str();
