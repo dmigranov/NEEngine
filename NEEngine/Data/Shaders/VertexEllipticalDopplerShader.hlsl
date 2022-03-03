@@ -70,14 +70,15 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
+	float4 position; //итоговая позиция
+	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
+
 	double radius = RadiusFunction(mu);
 
 	double chi; 
 	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, float4(0, 0, 0, 1)), 1);
 	double radiusOld = RadiusFunction(mu - chi);
 
-	float4 position; //итоговая позиция
-	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 	if (abs(position1.w - 1) < 0.00001)
 		position = position1 * radius;
 	else
