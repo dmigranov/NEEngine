@@ -76,7 +76,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	double radius = RadiusFunction(mu);
 
 	double chi; 
-	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, float4(0, 0, 0, 1)), 1);
+	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, position1), 1);
 	double radiusOld = RadiusFunction(mu - chi);
 
 	if (abs(position1.w - 1) < 0.00001)
