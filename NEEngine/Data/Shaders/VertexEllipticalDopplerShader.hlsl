@@ -99,8 +99,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	OUT.fogFactor = saturate(exp(-density * distance));
 
-	
-	//double distDiff = distanceCenter * (1. - radiusOld / radius);
 	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);  //todo: убрать radius
 
 	return OUT;
