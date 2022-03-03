@@ -32,12 +32,10 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             if (kbs.Left)
             {
                 timer->AddDelta(-deltaTime);
-                SphericalDopplerEffect::SetBackwards(true);
             }
             else if (kbs.Right)
             {
                 timer->AddDelta(deltaTime);
-                SphericalDopplerEffect::SetBackwards(false);
             }
 
             if (kbs.M)
@@ -159,7 +157,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 if (radius > 0.5)
                 {
                     timer->AddDelta(deltaTime);
-                    SphericalDopplerEffect::SetBackwards(false);
                 }
                 else
                     isAnimation = false;
