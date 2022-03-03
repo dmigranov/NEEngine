@@ -62,7 +62,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dy = movementSpeed * deltaTime;
 
     if (kbs.Back)
-        ;
+        pTransform->SetPitchYawRoll(m_pitch, m_yaw + XM_PI, 0);
 
     if (dx != 0 || dz != 0 || dy != 0)
     {
