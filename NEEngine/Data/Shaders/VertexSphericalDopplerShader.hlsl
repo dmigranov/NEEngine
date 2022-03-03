@@ -69,11 +69,11 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
-	double chi; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
+	double radius = RadiusFunction(mu);
+	double chi; 
 	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, float4(0, 0, 0, 1)), 1);
 	if (instanceID == 1)
 		chi += 3.14159265;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
-	double radius = RadiusFunction(mu);
 	double radiusOld = RadiusFunction(mu - chi);
 
 	float4 position; //итоговая позиция

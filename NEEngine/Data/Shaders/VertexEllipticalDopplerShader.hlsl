@@ -70,9 +70,10 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 
-	double chi; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
-	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, float4(0, 0, 0, 1)), 1);
 	double radius = RadiusFunction(mu);
+
+	double chi; 
+	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, float4(0, 0, 0, 1)), 1);
 	double radiusOld = RadiusFunction(mu - chi);
 
 	float4 position; //итоговая позиция
