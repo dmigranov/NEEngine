@@ -42,7 +42,6 @@ public:
     double GetVelocityCoefficient();
 
     static double GetOldRadius();
-    static void SetBackwards(bool isBackwards);
     static void SetMu(double mu);
 
     //virtual void SetRadius(double radius) override;
@@ -59,7 +58,6 @@ private:
 
     static double m_radiusOld;// = 1.;
     static bool m_isSimulationRunning;
-    static bool m_isBackwards;
 
     Texture* m_pTextureAlt = nullptr;
 

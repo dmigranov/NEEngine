@@ -19,7 +19,6 @@
 double SphericalDopplerEffect::m_radiusOld = 1.;
 double SphericalDopplerEffect::m_mu = -1.;
 bool SphericalDopplerEffect::m_isSimulationRunning = true;
-bool SphericalDopplerEffect::m_isBackwards = false;
 
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
@@ -142,11 +141,6 @@ double SphericalDopplerEffect::GetVelocityCoefficient()
 double SphericalDopplerEffect::GetOldRadius()
 {
 	return m_radiusOld;
-}
-
-void SphericalDopplerEffect::SetBackwards(bool isBackwards)
-{
-	m_isBackwards = isBackwards;
 }
 
 void SphericalDopplerEffect::SetMu(double mu)
