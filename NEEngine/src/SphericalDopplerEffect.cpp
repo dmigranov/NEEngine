@@ -18,8 +18,6 @@
 
 double SphericalDopplerEffect::m_radiusOld = 1.;
 double SphericalDopplerEffect::m_mu = -1.;
-//bool SphericalDopplerEffect::m_isSimulationRunning = true;
-
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {

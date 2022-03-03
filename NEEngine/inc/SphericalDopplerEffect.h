@@ -57,7 +57,6 @@ private:
     ID3D11Buffer* g_d3dPerObjectPSConstantBuffer = nullptr;
 
     static double m_radiusOld;// = 1.;
-    //static bool m_isSimulationRunning;
 
     Texture* m_pTextureAlt = nullptr;
 
