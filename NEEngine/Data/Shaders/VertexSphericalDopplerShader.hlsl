@@ -106,7 +106,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
 	OUT.fogFactor = saturate(exp(-density * distance));
-	OUT.radiusRatio = radiusOld / radius; //todo: убрать radius
+	OUT.radiusRatio = radiusOld / radius;
 
 	return OUT;
 }
