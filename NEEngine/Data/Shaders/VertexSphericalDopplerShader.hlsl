@@ -99,10 +99,6 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
-
-	
-	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
-	//float distance = 2 * radius * asin(chordLength / (2. * radius)); //угол - 2arcsin(L/2R), длина дуги = угол * R
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
