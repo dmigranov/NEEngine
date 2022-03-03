@@ -3,8 +3,8 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
 	double density;
-	double radius;
-	double radiusOld;
+	double radiusBAD;
+	double radiusOldBAD;
 	double mu;
 }
 
@@ -66,6 +66,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 	
+	double radius = RadiusFunction(mu);
+
 	//IN.position: sum of squares must be 1!
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
@@ -97,7 +99,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
 	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
 	double distDiff = distanceCenter * (1. - radiusOld / radius);
-	//OUT.radiusRatio = distDiff / deltaTime;
 	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);  //todo: убрать radius
 
 	return OUT;
