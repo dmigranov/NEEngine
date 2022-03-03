@@ -184,7 +184,7 @@ int main(int argc, char* argv[])
                 ss << "Front half" << std::endl;
             else {
                 ss << "Back half" << std::endl;
-                chi = XM_2PI - chi;
+                chi = XM_2PI - chi; 
             }
             ss << "Chi: " << chi << std::endl;
             //ss << "Chi: " << SphericalDistance(Vector4(0, 0, 0, 1), sphPosView/radius, 1) << std::endl;
