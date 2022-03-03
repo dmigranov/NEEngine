@@ -66,12 +66,14 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		viewMatrix = viewMatrixBack;
 	}
 	
-	double radius = RadiusFunction(mu);
-	double radiusOld = RadiusFunction(mu - distanceCenter / radius);
-
 	//IN.position: sum of squares must be 1!
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
+
+	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
+	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
+	double radius = RadiusFunction(mu);
+	double radiusOld = RadiusFunction(mu - distanceCenter / radius);
 
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
@@ -97,9 +99,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	OUT.fogFactor = saturate(exp(-density * distance));
 
-	double distanceCenter; //расстояние от наблюдателя до центра объекта, чтобы для всех его точек было одинаково (чтобы было разное - взять distance)
-	distanceCenter = SphericalDistance(float4(0, 0, 0, radius), mul(viewWorld, float4(0, 0, 0, radius)), radius);
-	double distDiff = distanceCenter * (1. - radiusOld / radius);
+	
+	//double distDiff = distanceCenter * (1. - radiusOld / radius);
 	OUT.radiusRatio = RadiusFunction(mu - distanceCenter / radius) / RadiusFunction(mu);  //todo: убрать radius
 
 	return OUT;
