@@ -99,7 +99,6 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	
-	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 
 	
 	//float chordLength = distance(float4(0, 0, 0, radius), cameraSpacePosition); //длина хорды
@@ -107,8 +106,10 @@ VertexShaderOutput main(VertexShaderInput IN
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
-	OUT.fogFactor = saturate(exp(-density * distance));
+
+	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
+	OUT.fogFactor = saturate(exp(-density * distance));
 	OUT.radiusRatio = radiusOld / radius; //todo: убрать radius
 
 	return OUT;
