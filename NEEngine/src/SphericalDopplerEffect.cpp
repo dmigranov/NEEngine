@@ -98,7 +98,6 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	if (m_isSimulationRunning)
 	{
 		perApplicationVSConstantBufferDoppler.radius = m_radius;
-		//perApplicationVSConstantBufferDoppler.radiusOld = m_radiusOld; 
 		perApplicationVSConstantBufferDoppler.radiusOld = pDoppler->GetOldRadius();
 		/*
 		if(!m_isBackwards)

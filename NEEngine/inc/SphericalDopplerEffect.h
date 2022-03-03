@@ -24,8 +24,8 @@ public:
         DirectX::XMMATRIX projFront;
         DirectX::XMMATRIX projBack;
         double density = 0.1;
-        double radius = 1.;
-        double radiusOld = 1.;
+        //double radius = 1.;
+        //double radiusOld = 1.;
         double mu = 0.;
     };
 
