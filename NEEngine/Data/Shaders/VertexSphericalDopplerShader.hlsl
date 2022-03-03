@@ -115,7 +115,6 @@ VertexShaderOutput main(VertexShaderInput IN
 	//if (instanceID == 1)
 	//	distanceCenter += 3.14159265 * radius;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
 
-	//double distDiff = distanceCenter * (1. - radiusOld / radius);
 	OUT.radiusRatio = radiusOld / radius; //todo: убрать radius
 
 	return OUT;
