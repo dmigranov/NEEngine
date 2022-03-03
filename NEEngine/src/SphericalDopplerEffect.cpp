@@ -18,7 +18,7 @@
 
 double SphericalDopplerEffect::m_radiusOld = 1.;
 double SphericalDopplerEffect::m_mu = -1.;
-bool SphericalDopplerEffect::m_isSimulationRunning = true;
+//bool SphericalDopplerEffect::m_isSimulationRunning = true;
 
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
@@ -96,12 +96,11 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 	perApplicationVSConstantBufferDoppler.density = perApplicationVSConstantBuffer.density;
 	perApplicationVSConstantBufferDoppler.projBack = perApplicationVSConstantBuffer.projBack;
 	perApplicationVSConstantBufferDoppler.projFront = perApplicationVSConstantBuffer.projFront;
-	if (m_isSimulationRunning)
-	{
-		//perApplicationVSConstantBufferDoppler.radius = m_radius;
-		//perApplicationVSConstantBufferDoppler.radiusOld = pDoppler->GetOldRadius();
-		perApplicationVSConstantBufferDoppler.mu = m_mu;
-	}
+
+	//perApplicationVSConstantBufferDoppler.radius = m_radius;
+	//perApplicationVSConstantBufferDoppler.radiusOld = pDoppler->GetOldRadius();
+	perApplicationVSConstantBufferDoppler.mu = m_mu;
+
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
 
