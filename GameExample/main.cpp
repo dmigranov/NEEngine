@@ -177,10 +177,12 @@ int main(int argc, char* argv[])
             auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
             auto sphPosWorld = pSphTransform->GetSphericalPosition();
             auto sphPosView = Vector4::Transform(sphPosWorld, view); //pos_view
+            
             if (sphPosView.z > 0)
                 ss << "Front half" << std::endl;
             else
                 ss << "Back half" << std::endl;
+            ss << "W: " << sphPosView.w << std::endl;
         }
 
         return ss.str();
