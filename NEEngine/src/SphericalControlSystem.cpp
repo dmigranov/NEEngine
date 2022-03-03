@@ -61,6 +61,9 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
     if (kbs.Z)
         dy = movementSpeed * deltaTime;
 
+    if (kbs.Back)
+        ;
+
     if (dx != 0 || dz != 0 || dy != 0)
     {
         Vector4 tempVector(dx, dy, dz, 0);
