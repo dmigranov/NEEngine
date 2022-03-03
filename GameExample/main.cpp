@@ -179,12 +179,13 @@ int main(int argc, char* argv[])
             auto sphPosView = Vector4::Transform(sphPosWorld, view); //pos_view
             
             auto radius = SphericalEffect::GetRadius();
+            double chi = acos(sphPosView.w / radius);
             if (sphPosView.z > 0)
                 ss << "Front half" << std::endl;
-            else
+            else {
                 ss << "Back half" << std::endl;
-
-            double chi = acos(sphPosView.w / radius);
+                chi = XM_2PI - chi;
+            }
             ss << "Chi: " << chi << std::endl;
             //ss << "Chi: " << SphericalDistance(Vector4(0, 0, 0, 1), sphPosView/radius, 1) << std::endl;
 
