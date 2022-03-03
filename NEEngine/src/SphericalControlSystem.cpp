@@ -44,7 +44,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         R = RPitch * RYaw;
         // OLD CODE END
 
-        pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
+        //pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0); //set lower
     }
 
     double dx = 0, dy = 0, dz = 0;
@@ -63,6 +63,8 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     if (kbs.Back)
         pTransform->SetPitchYawRoll(m_pitch, m_yaw + XM_PI, 0);
+    else
+        pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
 
     if (dx != 0 || dz != 0 || dy != 0)
     {
