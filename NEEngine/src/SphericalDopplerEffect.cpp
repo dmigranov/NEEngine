@@ -76,6 +76,7 @@ void SphericalDopplerEffect::Deinitialize()
 
 void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 {
+	/*
 	if (m_radius_set)
 	{
 		if (m_radius != perApplicationVSConstantBufferDoppler.radius)
@@ -87,6 +88,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 			m_isSimulationRunning = false;
 		m_radius_set = false;
 	}
+	*/
 
 	SphericalExpFogEffect::UpdatePerObject(pEntity, deltaTime);
 
