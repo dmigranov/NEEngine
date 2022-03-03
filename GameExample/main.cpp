@@ -183,6 +183,8 @@ int main(int argc, char* argv[])
             else
                 ss << "Back half" << std::endl;
             ss << "Chi: " << acosf(sphPosView.w/SphericalEffect::GetRadius()) << std::endl;
+            ss << "Chi: " << acosf(sphPosView.w / SphericalEffect::GetRadius()) << std::endl;
+
         }
 
         return ss.str();
