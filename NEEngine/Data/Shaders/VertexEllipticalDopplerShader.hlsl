@@ -54,7 +54,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
  
 	matrix viewMatrix, projectionMatrix;
 
-	//PROJECTION ” Õ»’ ŒƒÕ¿!
+	//PROJECTION MATRIX IS THE SAME IN THE CASE OF THE ELLIPTIC SPACE!
 	if (instanceID == 0)
 	{
 		projectionMatrix = projectionMatrixFront;
@@ -89,7 +89,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 		float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda;
 		position = float4(x_new, y_new, z_new, w_new);
 	}
-
 
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
