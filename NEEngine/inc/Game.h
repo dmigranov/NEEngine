@@ -171,6 +171,8 @@ private:
 
     friend class BitmapRenderSystem;
     friend class InputSystem;
+
+    friend class Sound;
 };
 
 
