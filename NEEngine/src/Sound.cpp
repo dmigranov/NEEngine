@@ -27,3 +27,8 @@ void Sound::SetVolume(float volume)
 {
 	m_soundEffectInstance->SetVolume(volume);
 }
+
+void Sound::SetPitch(float pitch)
+{
+	m_soundEffectInstance->SetPitch(pitch);
+}
