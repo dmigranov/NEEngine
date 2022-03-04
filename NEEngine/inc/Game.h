@@ -153,7 +153,7 @@ private:
     DirectX::XMVECTORF32 m_backgroundColor = DirectX::Colors::CadetBlue;
 
     // AUDIO
-    DirectX::AudioEngine * m_audEngine = nullptr;
+    std::unique_ptr<DirectX::AudioEngine> m_audEngine;
 
     bool isInitialized = false;
 
