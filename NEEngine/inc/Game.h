@@ -89,6 +89,7 @@ private:
 
     // Messages
     void OnWindowSizeChanged(int width, int height);
+    void OnNewAudioDevice() noexcept { m_retryAudio = true; }
 
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
