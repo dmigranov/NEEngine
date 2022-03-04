@@ -388,7 +388,7 @@ void Game::Update(double deltaTime)
         m_retryAudio = false;
         if (m_audEngine->Reset())
         {
-            std::cout << "Switched to another device!" << std::endl;
+            std::cout << "Switched to another device!" << std::endl; // works 
             // TODO: restart any looped sounds here
         }
     }
@@ -399,6 +399,8 @@ void Game::Update(double deltaTime)
             m_retryAudio = true;
         }
     }
+
+    //todo: detecting new device!
 
     m_pScene->Update(deltaTime);
 }
