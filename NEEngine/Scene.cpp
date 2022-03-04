@@ -139,7 +139,7 @@ void Scene::UpdateProjMatrix()
 	//m_proj = proj; //тут что то с типами...
 }
 
-void Scene::ResetLoopedSounds()
+void Scene::ResetLoopedSounds() 
 {
 	for (auto pSound : m_loopingSounds)
 	{
