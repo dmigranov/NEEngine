@@ -27,6 +27,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "SimpleMath.h"
+#include "Audio.h"
 
 // Safely release a COM object. The function can be used to safely release a COM object and set the COM pointer to NULL. This function allows us to safely release a COM object even if it has already been released before. 
 template<typename T>
