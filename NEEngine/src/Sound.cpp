@@ -25,4 +25,5 @@ void Sound::Play(bool loop)
 
 void Sound::SetVolume(float volume)
 {
+	m_soundEffectInstance->SetVolume(volume);
 }
