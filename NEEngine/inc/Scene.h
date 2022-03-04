@@ -6,6 +6,7 @@ class Light;
 class System;
 class CameraComponent;
 class Game;
+class Sound;
 
 class Scene
 {
@@ -36,12 +37,16 @@ public:
 
 	double GetWidth();
 	double GetHeight();
+
+	void AddLoopingSound(Sound* sound);
 private:
 	void UpdateProjMatrix();
 
 	std::vector<Entity *>	m_entities;
 	std::vector<System *>	m_nonDrawingSystems;
 	std::vector<System*>	m_drawingSystems;
+
+	std::vector<Sound*>	m_loopingSounds;
 
 	//std::list<const Light*>	m_lights;
 

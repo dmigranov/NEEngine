@@ -8,6 +8,7 @@
 #include "CameraComponent.h"
 
 #include "Game.h"
+#include "Sound.h"
 
 
 Scene::Scene() : m_pCamera(nullptr), m_game(Game::GetInstance())
@@ -121,6 +122,11 @@ double Scene::GetWidth()
 double Scene::GetHeight()
 {
 	return m_height;
+}
+
+void Scene::AddLoopingSound(Sound* sound)
+{
+	m_loopingSounds.push_back(sound);
 }
 
 
