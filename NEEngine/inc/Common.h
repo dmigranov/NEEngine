@@ -7,6 +7,7 @@
 #include "ResourceManager.h"
 #include "InputComponent.h"
 #include "Entity.h"
+#include "Sound.h"
 
 // Components
 
