@@ -23,6 +23,14 @@ Game::Game(unsigned int width, unsigned int height) noexcept :
 {
 }
 
+Game::~Game()
+{
+    if (m_audEngine)
+    {
+        m_audEngine->Suspend();
+    }
+}
+
 Game& Game::GetInstance()
 {
     static Game game(800, 600);
