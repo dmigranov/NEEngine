@@ -263,6 +263,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             //|| wParam == DBT_DEVNODES_CHANGED
             )
         {
+            //TODO: подключение нового девайса? Тупо по DBT_DEVNODES_CHANGED?
             auto pDev = reinterpret_cast<PDEV_BROADCAST_HDR>(lParam);
             if (pDev)
             {
