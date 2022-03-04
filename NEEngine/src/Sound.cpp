@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Sound.h"
 
+#include "Game.h"
+
 using namespace DirectX;
 
 Sound::Sound(const wchar_t* waveFileName)
