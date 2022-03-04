@@ -182,6 +182,7 @@
     <None Include="main_hyperb.cpp_" />
     <None Include="main_sphere.cpp_" />
     <None Include="main_torus.cpp_" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube creation code.txt" />
@@ -195,11 +196,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\NEEngine\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\NEEngine\packages\boost.1.72.0.0\build\boost.targets')" />
+    <Import Project="..\NEEngine\packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets" Condition="Exists('..\NEEngine\packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\NEEngine\packages\boost.1.72.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\NEEngine\packages\boost.1.72.0.0\build\boost.targets'))" />
+    <Error Condition="!Exists('..\NEEngine\packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\NEEngine\packages\Microsoft.XAudio2.Redist.1.2.8\build\native\Microsoft.XAudio2.Redist.targets'))" />
   </Target>
 </Project>

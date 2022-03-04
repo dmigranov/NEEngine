@@ -44,6 +44,7 @@
     <None Include="main_hyperb.cpp_">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube creation code.txt">
