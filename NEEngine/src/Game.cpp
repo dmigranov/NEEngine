@@ -383,11 +383,19 @@ void Game::Update(double deltaTime)
     fpsCounter.Update();
 
     // https://github.com/microsoft/DirectXTK/wiki/Adding-audio-to-your-project
-    if (!m_audEngine->Update())
+    if (m_retryAudio)
+    {
+        m_retryAudio = false;
+        if (m_audEngine->Reset())
+        {
+            // TODO: restart any looped sounds here
+        }
+    }
+    else if (!m_audEngine->Update())
     {
         if (m_audEngine->IsCriticalError())
         {
-            // We lost the audio device!
+            m_retryAudio = true;
         }
     }
 
