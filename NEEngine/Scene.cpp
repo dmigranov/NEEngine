@@ -126,7 +126,7 @@ double Scene::GetHeight()
 
 void Scene::AddAndPlayLoopedSound(Sound* sound)
 {
-	sound->Play(false);
+	sound->Play(true);
 	m_loopingSounds.push_back(sound);
 }
 
@@ -144,7 +144,7 @@ void Scene::ResetLoopedSounds()
 	for (auto pSound : m_loopingSounds)
 	{
 		if (pSound != nullptr)
-			pSound->Play(false);
+			pSound->Play(true);
 	}
 }
 
