@@ -32,3 +32,8 @@ void Sound::SetPitch(float pitch)
 {
 	m_soundEffectInstance->SetPitch(pitch);
 }
+
+void Sound::SetPan(float pan)
+{
+	m_soundEffectInstance->SetPan(pan);
+}
