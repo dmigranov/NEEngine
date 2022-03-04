@@ -115,6 +115,15 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
             MessageBox(nullptr, TEXT("Failed to initialize Direct3D pipeline."), TEXT("Error"), MB_OK);
             return -1;
         }
+
+        // Listen for new audio devices
+        DEV_BROADCAST_DEVICEINTERFACE filter = {};
+        filter.dbcc_size = sizeof(filter);
+        filter.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
+        filter.dbcc_classguid = KSCATEGORY_AUDIO;
+
+        hNewAudio = RegisterDeviceNotification(hwnd, &filter,
+            DEVICE_NOTIFY_WINDOW_HANDLE);
     }
     this->m_isVSyncEnabled = isVSyncEnabled;
 
