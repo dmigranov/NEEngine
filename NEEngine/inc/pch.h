@@ -8,6 +8,9 @@
 
 // System includes
 #include <windows.h>
+#include <winsdkver.h>
+#define _WIN32_WINNT 0x0A00
+#include <sdkddkver.h>
 
 // DirectX includes
 #include <d3d11.h>
