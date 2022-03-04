@@ -11,5 +11,9 @@ Sound::Sound(const wchar_t* waveFileName)
 
 	m_soundEffect = std::make_unique<SoundEffect>(game.m_audEngine.get(), waveFileName);
 	m_soundEffectInstance = m_soundEffect->CreateInstance();
-	m_soundEffectInstance->Play(true); //todo: запускать только после добавления в Game
+}
+
+void Sound::Play(bool loop)
+{
+	m_soundEffectInstance->Play(loop);
 }
