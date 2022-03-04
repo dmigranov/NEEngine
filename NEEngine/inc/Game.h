@@ -152,6 +152,9 @@ private:
 
     DirectX::XMVECTORF32 m_backgroundColor = DirectX::Colors::CadetBlue;
 
+    // AUDIO
+    std::unique_ptr<DirectX::AudioEngine> m_audEngine;
+
     bool isInitialized = false;
 
     friend class Mesh;
