@@ -74,7 +74,6 @@ public:
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
-
     ~Game();
 
     int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
@@ -156,6 +155,7 @@ private:
 
     // AUDIO
     std::unique_ptr<DirectX::AudioEngine> m_audEngine;
+    bool m_retryAudio = false;
 
     bool isInitialized = false;
 
