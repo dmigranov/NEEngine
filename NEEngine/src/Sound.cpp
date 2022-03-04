@@ -13,13 +13,16 @@ Sound::Sound(const wchar_t* waveFileName)
 	m_soundEffectInstance = m_soundEffect->CreateInstance();
 }
 
-void Sound::Play(bool loop)
-{
-	m_soundEffectInstance->Play(loop);
-}
-
 Sound::~Sound()
 {
 	m_soundEffectInstance.reset();
 }
 
+void Sound::Play(bool loop)
+{
+	m_soundEffectInstance->Play(loop);
+}
+
+void Sound::SetVolume(float volume)
+{
+}
