@@ -258,6 +258,24 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+    case WM_DEVICECHANGE:
+        if (wParam == DBT_DEVICEARRIVAL)
+        {
+            auto pDev = reinterpret_cast<PDEV_BROADCAST_HDR>(lParam);
+            if (pDev)
+            {
+                if (pDev->dbch_devicetype == DBT_DEVTYP_DEVICEINTERFACE)
+                {
+                    auto pInter = reinterpret_cast<
+                        const PDEV_BROADCAST_DEVICEINTERFACE>(pDev);
+                    if (pInter->dbcc_classguid == KSCATEGORY_AUDIO)
+                    {
+                        Game::GetInstance().OnNewAudioDevice(); // !!!
+                    }
+                }
+            }
+        }
+        return 0;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
