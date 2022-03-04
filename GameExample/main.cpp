@@ -197,7 +197,6 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
-    ambientSound->Play();
     return game.StartGame();
 }
 

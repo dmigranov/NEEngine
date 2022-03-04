@@ -124,8 +124,9 @@ double Scene::GetHeight()
 	return m_height;
 }
 
-void Scene::AddLoopingSound(Sound* sound)
+void Scene::AddAndPlayLoopingSound(Sound* sound)
 {
+	sound->Play(false);
 	m_loopingSounds.push_back(sound);
 }
 

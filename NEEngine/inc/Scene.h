@@ -38,7 +38,7 @@ public:
 	double GetWidth();
 	double GetHeight();
 
-	void AddLoopingSound(Sound* sound);
+	void AddAndPlayLoopingSound(Sound* sound);
 private:
 	void UpdateProjMatrix();
 
