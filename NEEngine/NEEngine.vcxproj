@@ -559,7 +559,7 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>DirectXTK.lib;DirectXTKAudioWin7.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -604,7 +604,7 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>DirectXTK.lib;DirectXTKAudioWin7.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -627,8 +627,8 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>DirectXTK.lib;DirectXTKAudioWin7.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Denis Learning\repos\NEEngine\NEEngine\packages\directxtk_desktop_2017.2022.3.1.1\native\lib\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
