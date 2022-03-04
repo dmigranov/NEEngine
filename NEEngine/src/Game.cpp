@@ -389,7 +389,7 @@ void Game::Update(double deltaTime)
         if (m_audEngine->Reset())
         {
             std::cout << "Switched to another device!" << std::endl; // works 
-            m_pScene->Reset
+            m_pScene->ResetLoopedSounds();
         }
     }
     else if (!m_audEngine->Update())

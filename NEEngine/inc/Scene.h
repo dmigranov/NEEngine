@@ -39,6 +39,8 @@ public:
 	double GetHeight();
 
 	void AddAndPlayLoopedSound(Sound* sound);
+
+	friend class Game;
 private:
 	void UpdateProjMatrix();
 
@@ -46,7 +48,9 @@ private:
 	std::vector<System *>	m_nonDrawingSystems;
 	std::vector<System*>	m_drawingSystems;
 
+	void ResetLoopedSounds();
 	std::vector<Sound*>	m_loopingSounds;
+
 
 	//std::list<const Light*>	m_lights;
 

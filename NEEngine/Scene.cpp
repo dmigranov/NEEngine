@@ -130,7 +130,6 @@ void Scene::AddAndPlayLoopedSound(Sound* sound)
 	m_loopingSounds.push_back(sound);
 }
 
-
 void Scene::UpdateProjMatrix()
 {
 	auto cc = m_pCamera->GetComponent<CameraComponent>();
