@@ -154,6 +154,7 @@ private:
     // AUDIO
     std::unique_ptr<DirectX::AudioEngine> m_audEngine;
     bool m_retryAudio = false;
+    HDEVNOTIFY m_hNewAudio = nullptr;
 
     bool isInitialized = false;
 

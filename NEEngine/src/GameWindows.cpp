@@ -41,10 +41,10 @@ int Game::StartGame()
 
     Cleanup();
 
-    if (hNewAudio)
+    if (m_hNewAudio)
     {
-        UnregisterDeviceNotification(hNewAudio);
-        hNewAudio = nullptr;
+        UnregisterDeviceNotification(m_hNewAudio);
+        m_hNewAudio = nullptr;
     }
 
     CoUninitialize();
@@ -71,7 +71,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         freopen("CONOUT$", "w", stderr);
     }
 
-    HDEVNOTIFY hNewAudio = nullptr;
+
     // Register class and create window
     {
         // Register class
@@ -128,7 +128,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         filter.dbcc_devicetype = DBT_DEVTYP_DEVICEINTERFACE;
         filter.dbcc_classguid = KSCATEGORY_AUDIO;
 
-        hNewAudio = RegisterDeviceNotification(hwnd, &filter,
+        m_hNewAudio = RegisterDeviceNotification(hwnd, &filter,
             DEVICE_NOTIFY_WINDOW_HANDLE);
     }
     this->m_isVSyncEnabled = isVSyncEnabled;
