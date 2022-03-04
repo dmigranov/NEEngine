@@ -146,7 +146,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>NEEngined.lib;DirectXTK.lib;DirectXTKAudioWin7.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>NEEngined.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/ENTRY:"mainCRTStartup" %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
