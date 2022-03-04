@@ -61,12 +61,9 @@ public:
     inline void VSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
     inline void PSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* const* ppConstantBuffers);
 
-
     inline void UpdateSubresource(ID3D11Buffer* buffer, const void* pSrcData);
 
     inline void PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* const* ppShaderResourceViews);
-    
-
 
     inline void SetupRasterizer();
     inline void SetupOutputMerger();
