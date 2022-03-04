@@ -17,3 +17,9 @@ void Sound::Play(bool loop)
 {
 	m_soundEffectInstance->Play(loop);
 }
+
+Sound::~Sound()
+{
+	m_soundEffectInstance.reset();
+}
+

@@ -34,6 +34,12 @@ Scene::~Scene()
 		delete m_drawingSystems.front();
 		m_drawingSystems.erase(m_drawingSystems.begin());
 	}
+
+	while (!m_loopingSounds.empty())
+	{
+		delete m_loopingSounds.front();
+		m_loopingSounds.erase(m_loopingSounds.begin());
+	}
 }
 
 void Scene::AddEntity(Entity* pEntity)
