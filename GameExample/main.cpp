@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
     Sound* ambientSound = new Sound(L"NightAmbienceSimple_02.wav");;
-    scene->AddAndPlayLoopingSound(ambientSound);
+    scene->AddAndPlayLoopedSound(ambientSound);
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
