@@ -373,6 +373,10 @@ void Game::CreateResources()
 void Game::Update(double deltaTime)
 {
     fpsCounter.Update();
+    if (!m_audEngine->Update())
+    {
+        // TODO: later...
+    }
 
     m_pScene->Update(deltaTime);
 }
