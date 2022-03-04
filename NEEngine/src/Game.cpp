@@ -383,7 +383,10 @@ void Game::Update(double deltaTime)
     fpsCounter.Update();
     if (!m_audEngine->Update())
     {
-        // TODO: later...
+        if (m_audEngine->IsCriticalError())
+        {
+            // We lost the audio device!
+        }
     }
 
     m_pScene->Update(deltaTime);
