@@ -117,6 +117,14 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
     }
     this->m_isVSyncEnabled = isVSyncEnabled;
 
+    
+    AUDIO_ENGINE_FLAGS eflags = AudioEngine_Default;
+#ifdef _DEBUG
+    eflags |= AudioEngine_Debug;
+#endif
+    //m_audEngine = std::make_unique<DirectX::AudioEngine>(eflags);
+    new AudioEngine(eflags);
+    
     return 0;
 }
 
