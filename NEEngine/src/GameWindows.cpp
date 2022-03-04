@@ -258,8 +258,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
-    case WM_DEVICECHANGE: 
-        if (wParam == DBT_DEVICEARRIVAL)
+    case WM_DEVICECHANGE:
+        if (wParam == DBT_DEVICEARRIVAL
+            //|| wParam == DBT_DEVNODES_CHANGED
+            )
         {
             auto pDev = reinterpret_cast<PDEV_BROADCAST_HDR>(lParam);
             if (pDev)
