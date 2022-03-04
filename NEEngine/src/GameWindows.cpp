@@ -41,6 +41,12 @@ int Game::StartGame()
 
     Cleanup();
 
+    if (hNewAudio)
+    {
+        UnregisterDeviceNotification(hNewAudio);
+        hNewAudio = nullptr;
+    }
+
     CoUninitialize();
 
     return (int)msg.wParam;
