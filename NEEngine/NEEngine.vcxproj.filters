@@ -279,6 +279,9 @@
     <ClCompile Include="src\DopplerComponent.cpp">
       <Filter>Исходные файлы\Components</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sound.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -478,6 +481,9 @@
     </ClInclude>
     <ClInclude Include="inc\DopplerComponent.h">
       <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Sound.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
