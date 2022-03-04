@@ -198,6 +198,24 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
+    scene->AddSystem(new ActionSystem<InputComponent>([ambientSound]
+    (Entity* pEntity, double deltaTime) {
+            static float volume = 1.f;
+
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
+
+            if (kbs.U)
+            {
+                volume -= 0.01f;
+                ambientSound->SetVolume(volume);
+            }
+
+            std::cout << volume << std::endl;
+
+        }));
+
     return game.StartGame();
 }
 
