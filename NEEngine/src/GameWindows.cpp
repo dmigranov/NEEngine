@@ -122,8 +122,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
 #ifdef _DEBUG
     eflags |= AudioEngine_Debug;
 #endif
-    //m_audEngine = std::make_unique<DirectX::AudioEngine>(eflags);
-    new AudioEngine(eflags);
+    m_audEngine = std::make_unique<DirectX::AudioEngine>(eflags);
     
     return 0;
 }
