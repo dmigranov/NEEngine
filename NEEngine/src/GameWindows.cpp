@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "Scene.h"
 
+#include <Dbt.h>
+#include <ksmedia.h>
+
 using namespace DirectX;
 
 // Indicates to hybrid graphics systems to prefer the discrete part by default
@@ -62,9 +65,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
         freopen("CONOUT$", "w", stderr);
     }
 
-
-    //Game& g_game = Game::GetInstance();
-
+    HDEVNOTIFY hNewAudio = nullptr;
     // Register class and create window
     {
         // Register class
