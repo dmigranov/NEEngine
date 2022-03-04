@@ -381,6 +381,8 @@ void Game::CreateResources()
 void Game::Update(double deltaTime)
 {
     fpsCounter.Update();
+
+    // https://github.com/microsoft/DirectXTK/wiki/Adding-audio-to-your-project
     if (!m_audEngine->Update())
     {
         if (m_audEngine->IsCriticalError())
