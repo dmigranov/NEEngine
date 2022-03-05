@@ -161,6 +161,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(animationSystem);
     scene->AddSystem(selectionSystem);
+    scene->AddSystem(soundSystem);
 
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
