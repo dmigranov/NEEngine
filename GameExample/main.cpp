@@ -206,6 +206,7 @@ int main(int argc, char* argv[])
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
 
+            //todo: удерживать в границах - 1; 1
             if (kbs.U)
             {
                 pitch += 0.01f;
