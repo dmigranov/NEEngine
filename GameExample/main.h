@@ -59,10 +59,11 @@ private:
 
 class SoundSystem : public System {
 public:
-	SoundSystem(Sound* pSound);
+	SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem);
 	virtual void Execute(double deltaTime) override;
 private:
 	Sound* m_pSound;
+	SelectionSystem* m_pSelectionSystem;
 };
 
 
