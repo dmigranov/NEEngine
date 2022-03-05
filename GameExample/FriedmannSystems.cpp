@@ -231,28 +231,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
     m_renderSystem->SetRadius(radius);
     SphericalDopplerEffect::SetMu(mu);
-    /*
-    auto cameraPos = m_cameraTransform->GetSphericalPosition();
-    const auto& view = m_cameraTransform->GetView();
 
-    for (auto pEntity : m_entities)
-    {
-        auto pDopplerComponent = pEntity->GetComponent<DopplerComponent>();
-        auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
-        auto pos = pTransform->GetSphericalPosition();
-
-        auto chi = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
-        auto viewPos = Vector4::Transform(pos, view);
-        if (viewPos.z < 0)
-            chi = XM_2PI - chi;
-
-        auto radiusOld = m_radiusFunctiom(mu - chi);
-
-        //Я понял, в чем проблема! нельзя устанавливать это снаружи, надо делать это для всех вершин отдельно!
-        //std::cout << radiusOld << std::endl;
-        pDopplerComponent->SetOldRadius(radiusOld);
-    }
-        */
     if (m_timer->IsTimeToRepaint())
     {
         UpdateFriedmannWindow(mu);
