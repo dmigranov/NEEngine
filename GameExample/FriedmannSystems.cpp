@@ -264,8 +264,8 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-        pitch = chi / XM_2PI; //pitch = f(chi) ! [- 1; 1] ; chi [0; 2pi]
-
+        pitch = chi / XM_2PI; 
+        //есть ещё идейка: у всех планет своя стандартаня частота, но она меняется также, как цвет, в зависимоти от радиуса и хи!
 
         m_pSound->SetPitch(pitch);
     }
