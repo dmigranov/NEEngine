@@ -252,6 +252,17 @@ void SoundSystem::Execute(double deltaTime)
     if (pSelectedEntity != nullptr)
     {
         float pitch;
+        const auto& view = m_pCameraTransform->GetView();
+
+        auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
+        auto sphPosWorld = pSphTransform->GetSphericalPosition();
+        auto sphPosView = Vector4::Transform(sphPosWorld, view); //pos_view
+
+        auto radius = SphericalEffect::GetRadius();
+        double chi = acos(sphPosView.w / radius);
+
+        if (sphPosView.z < 0)
+            chi = XM_2PI - chi;
 
 
         m_pSound->SetPitch(pitch);
