@@ -49,8 +49,8 @@ int main(int argc, char* argv[])
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
     //Sound* ambientSound = new Sound(L"NightAmbienceSimple_02.wav");
-    Sound* ambientSound = new Sound(L"d-note (300).wav");
-    scene->AddAndPlayLoopedSound(ambientSound);
+    Sound* dNoteSound = new Sound(L"d-note (300).wav");
+    scene->AddAndPlayLoopedSound(dNoteSound);
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -199,7 +199,7 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
-    scene->AddSystem(new ActionSystem<InputComponent>([ambientSound]
+    scene->AddSystem(new ActionSystem<InputComponent>([dNoteSound]
     (Entity* pEntity, double deltaTime) {
             static float pitch = 0.f;
 
@@ -211,13 +211,13 @@ int main(int argc, char* argv[])
             if (kbs.U)
             {
                 pitch += 0.01f;
-                ambientSound->SetPitch(pitch);
+                dNoteSound->SetPitch(pitch);
                 std::cout << pitch << std::endl;
             }
             else if (kbs.Y)
             {
                 pitch -= 0.01f;
-                ambientSound->SetPitch(pitch);
+                dNoteSound->SetPitch(pitch);
                 std::cout << pitch << std::endl;
             }
 
