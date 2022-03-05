@@ -250,11 +250,14 @@ void SoundSystem::Execute(double deltaTime)
     auto pSelectedEntity = m_pSelectionSystem->GetSelectedEntity();
     if (pSelectedEntity != nullptr)
     {
+        float pitch;
 
+
+        m_pSound->SetPitch(pitch);
     }
     else
     {
-
+        m_pSound->SetPitch(0.f);
     }
 }
 
