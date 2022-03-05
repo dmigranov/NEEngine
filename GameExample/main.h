@@ -56,6 +56,14 @@ private:
 	std::function<double(double)> m_radiusFunctiom; 
 };
 
+class SoundSystem : public System {
+public:
+	SoundSystem(Sound* pSound);
+	virtual void Execute(double deltaTime) override;
+private:
+	Sound* m_pSound;
+};
+
 
 HWND CreateFriedmannWindow();
 
