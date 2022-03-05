@@ -153,7 +153,8 @@ int main(int argc, char* argv[])
     System* animationSystem = nullptr;
     SelectionSystem* selectionSystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem);
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, dNoteSound,
+        &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem);
     
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
