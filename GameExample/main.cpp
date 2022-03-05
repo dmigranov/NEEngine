@@ -48,8 +48,8 @@ int main(int argc, char* argv[])
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
-    //Sound* ambientSound = new Sound(L"NightAmbienceSimple_02.wav");
-    Sound* dNoteSound = new Sound(L"d-note (300).wav");
+    Sound* dNoteSound = new Sound(L"d-note (300).wav"); //todo более короткий файл
+    //todo звук щелчка 
     scene->AddAndPlayLoopedSound(dNoteSound);
 
     auto renderSystem = new SphericalRenderSystem();
