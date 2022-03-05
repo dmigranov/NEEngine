@@ -243,6 +243,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 {
     m_pSound = pSound;
     m_pSelectionSystem = pSelectionSystem;
+    m_pCameraTransform = pCameraTransform;
 }
 
 void SoundSystem::Execute(double deltaTime)

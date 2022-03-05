@@ -64,6 +64,7 @@ public:
 private:
 	Sound* m_pSound;
 	SelectionSystem* m_pSelectionSystem;
+	SphericalTransformComponent* m_pCameraTransform
 };
 
 
