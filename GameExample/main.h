@@ -56,6 +56,7 @@ private:
 	std::function<double(double)> m_radiusFunctiom; 
 };
 
+
 class SoundSystem : public System {
 public:
 	SoundSystem(Sound* pSound);
