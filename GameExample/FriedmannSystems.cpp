@@ -239,7 +239,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
 }
 
-SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem)
+SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
 {
     m_pSound = pSound;
     m_pSelectionSystem = pSelectionSystem;
