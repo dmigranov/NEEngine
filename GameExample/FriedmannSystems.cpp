@@ -264,14 +264,14 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-        pitch = 0.f; //pitch = f(chi) ! [- 1; 1]
+        pitch = chi / XM_2PI; //pitch = f(chi) ! [- 1; 1] ; chi [0; 2pi]
 
 
         m_pSound->SetPitch(pitch);
     }
     else
     {
-        m_pSound->SetPitch(0.f);
+        m_pSound->SetPitch(-0.5f);
     }
 }
 
