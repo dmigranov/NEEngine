@@ -265,6 +265,15 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem)
 
 void SoundSystem::Execute(double deltaTime)
 {
+    auto pSelectedEntity = m_pSelectionSystem->GetSelectedEntity();
+    if (pSelectedEntity != nullptr)
+    {
+
+    }
+    else
+    {
+
+    }
 }
 
 
