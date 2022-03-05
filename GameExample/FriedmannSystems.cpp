@@ -259,6 +259,8 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
 SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem)
 {
+    m_pSound = pSound;
+    m_pSelectionSystem = pSelectionSystem;
 }
 
 void SoundSystem::Execute(double deltaTime)
