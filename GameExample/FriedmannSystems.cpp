@@ -163,7 +163,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             }
         });
 
-    *soundSystem = new SoundSystem(pSound, *selectionSystem);
+    *soundSystem = new SoundSystem(pSound, *selectionSystem, cameraTransform);
 
 
     return timer;
