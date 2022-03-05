@@ -202,32 +202,6 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
-    /*
-    scene->AddSystem(new ActionSystem<InputComponent>([dNoteSound]
-    (Entity* pEntity, double deltaTime) {
-            static float pitch = 0.f;
-
-            auto pInput = pEntity->GetComponent<InputComponent>();
-            auto kbs = pInput->GetKeyboardState();
-            auto ms = pInput->GetMouseState();
-
-            if (kbs.U)
-            {
-                pitch += 0.01f;
-                dNoteSound->SetPitch(pitch);
-                std::cout << pitch << std::endl;
-            }
-            else if (kbs.Y)
-            {
-                pitch -= 0.01f;
-                dNoteSound->SetPitch(pitch);
-                std::cout << pitch << std::endl;
-            }
-
-
-        }));
-        */
-
     return game.StartGame();
 }
 
