@@ -50,7 +50,6 @@ int main(int argc, char* argv[])
 
     Sound* dNoteSound = new Sound(L"d-note (300).wav"); //todo более короткий файл
     dNoteSound->Play(true);
-
     // TODO звук щелчка 
 
     auto renderSystem = new SphericalRenderSystem();
