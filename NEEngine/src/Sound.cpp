@@ -20,7 +20,11 @@ Sound::~Sound()
 
 void Sound::Play(bool loop)
 {
-	if()
+	if (loop)
+	{
+		auto& game = Game::GetInstance();
+		auto scene = game.GetScene();
+	}
 	m_soundEffectInstance->Play(loop);
 }
 
