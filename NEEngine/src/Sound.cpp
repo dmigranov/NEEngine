@@ -2,6 +2,7 @@
 #include "Sound.h"
 
 #include "Game.h"
+#include "Scene.h"
 
 using namespace DirectX;
 
@@ -20,12 +21,13 @@ Sound::~Sound()
 
 void Sound::Play(bool loop)
 {
+	m_soundEffectInstance->Play(loop);
 	if (loop)
 	{
 		auto& game = Game::GetInstance();
-		auto scene = game.GetScene();
+		auto pScene = game.GetScene();
+		pScene->AddLoopedSound(this);
 	}
-	m_soundEffectInstance->Play(loop);
 }
 
 void Sound::SetVolume(float volume)
