@@ -37,8 +37,6 @@ public:
 	double GetWidth();
 	double GetHeight();
 
-	void AddAndPlayLoopedSound(Sound* sound);
-
 	friend class Game;
 	friend class Sound;
 
@@ -49,6 +47,7 @@ private:
 	std::vector<System*>	m_nonDrawingSystems;
 	std::vector<System*>	m_drawingSystems;
 
+	void AddLoopedSound(Sound* sound);
 	void ResetLoopedSounds();
 	std::vector<Sound*>	m_loopingSounds;
 

@@ -20,6 +20,7 @@ Sound::~Sound()
 
 void Sound::Play(bool loop)
 {
+	if()
 	m_soundEffectInstance->Play(loop);
 }
 
