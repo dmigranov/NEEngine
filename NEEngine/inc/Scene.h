@@ -31,8 +31,7 @@ public:
 
 	void SetCameraOutputSize(double width, double height);
 
-	//в текущей реализации вызывается только один раз,
-	//потому добавление новых энтитей в ходе работы программы невозможно
+	//в текущей реализации вызывается только один раз, потому добавление новых энтитей в ходе работы программы невозможно
 	void SynchronizeSystemsWithEntities();
 
 	double GetWidth();
@@ -44,8 +43,8 @@ public:
 private:
 	void UpdateProjMatrix();
 
-	std::vector<Entity *>	m_entities;
-	std::vector<System *>	m_nonDrawingSystems;
+	std::vector<Entity*>	m_entities;
+	std::vector<System*>	m_nonDrawingSystems;
 	std::vector<System*>	m_drawingSystems;
 
 	void ResetLoopedSounds();
