@@ -40,6 +40,8 @@ public:
 	void AddAndPlayLoopedSound(Sound* sound);
 
 	friend class Game;
+	friend class Sound;
+
 private:
 	void UpdateProjMatrix();
 
@@ -49,7 +51,6 @@ private:
 
 	void ResetLoopedSounds();
 	std::vector<Sound*>	m_loopingSounds;
-
 
 	//std::list<const Light*>	m_lights;
 
