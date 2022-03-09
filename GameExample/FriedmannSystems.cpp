@@ -141,12 +141,15 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
+                float muStart;
                 if (mu >= dist && mu <= (XM_2PI - dist))
                 {
+                    muStart = dist;
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
                 }
                 else //mu > (2 * XM_PI - dist)
                 {
+                    muStart = XM_2PI - dist;
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
                 }
 
