@@ -121,7 +121,7 @@ void SphericalTransformComponent::Recalculate()
 	RRoll = SphericalRotationXY(-m_roll);
 	//R = RPitch * RYaw * RRoll; //todo: order? 
 	R = RRoll * RYaw * RPitch;
-	m_world = R * T;
+	m_world = S * R * T;
 
 	if (nullptr != m_pParent)
 	{
