@@ -142,6 +142,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
+                //проблема в том, что при втором условии будет scale для обоих! все-таки придется перенести в шейдер!
                 float muStart;
                 if (mu >= dist && mu <= (XM_2PI - dist))
                 {
