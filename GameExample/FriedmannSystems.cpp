@@ -165,6 +165,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                     0, scaleCoeff, 0, 0,
                     0, 0, scaleCoeff, 0,
                     0, 0, 0, wScaleCoeff);
+                pTransform->SetScaleMatrix(scaleMatrix);
 
             }
         });
