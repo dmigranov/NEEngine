@@ -81,7 +81,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	float muEnd = muStart + epsilon;
 	float scaleCoeff, wScaleCoeff;
 
-	float rNewAddition = (muEnd - (mu < muStart ? muStart : (mu > muEnd ? muEnd : mu))) / epsilon;
+	
+	float rNewAddition = (muEnd - clamp(mu, muStart, muEnd)) / epsilon;
 	float rNew = initialObjectRadius + (bigRadius - initialObjectRadius) * rNewAddition;
 
 
