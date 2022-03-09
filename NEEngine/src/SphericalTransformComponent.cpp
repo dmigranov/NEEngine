@@ -161,6 +161,11 @@ void SphericalTransformComponent::SetWorld(const DirectX::SimpleMath::Matrix& wo
 }
 */
 
+void SphericalTransformComponent::SetScaleMatrix(const DirectX::SimpleMath::Matrix& scale)
+{
+	S = scale;
+}
+
 void SphericalTransformComponent::SetRadius(double radius)
 {
 	m_radius = radius;
