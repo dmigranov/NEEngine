@@ -137,7 +137,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
             auto mu = timer->GetMu();
 
-            auto scaleCoeff = 1.f, wScaleCoeff = 1.f;
+            float scaleCoeff, wScaleCoeff;
+            scaleCoeff = 1.f;
+            wScaleCoeff = 1.f;
             auto scaleMatrix = Matrix(  scaleCoeff, 0, 0, 0,
                                         0, scaleCoeff, 0, 0,
                                         0, 0, scaleCoeff, 0,
