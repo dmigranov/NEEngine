@@ -73,7 +73,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	//todo: тут домножить position1 на scale
 	const float epsilon = 0.5f;
 	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
-	const float bigRadius = 0.4f;
+	const float bigRadius = 0.9f;
 
 
 	float objectCenter = mul(viewWorld, float4(0.f, 0.f, 0.f, 1.f));
