@@ -138,8 +138,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto mu = timer->GetMu();
 
             float scaleCoeff, wScaleCoeff;
-            //scaleCoeff = r_new / r_orig
-            float rNew = 1.f;
+            float rNew = 1.f; //eta = chi: rNew = 0.5; eta = chi+epsilon: rNew = initialObjectRadius
             scaleCoeff = rNew / initialObjectRadius;
             wScaleCoeff = 1.f;
             auto scaleMatrix = Matrix(  scaleCoeff, 0, 0, 0,
