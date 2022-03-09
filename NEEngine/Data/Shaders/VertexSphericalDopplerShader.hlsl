@@ -75,7 +75,6 @@ VertexShaderOutput main(VertexShaderInput IN
 	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
 	const float bigRadius = 0.9f;
 
-
 	float objectCenter = mul(viewWorld, float4(0.f, 0.f, 0.f, 1.f));
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
