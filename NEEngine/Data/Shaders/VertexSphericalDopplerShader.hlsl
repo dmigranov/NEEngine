@@ -76,8 +76,14 @@ VertexShaderOutput main(VertexShaderInput IN
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
 		chiCenter += 3.14159265;
+
 	float muStart = chiCenter;
 	float muEnd = muStart + epsilon;
+	float scaleCoeff, wScaleCoeff;
+
+	float rNewAddition = (muEnd - (mu < muStart ? muStart : (mu > muEnd ? muEnd : mu))) / epsilon;
+	float rNew = initialObjectRadius + (bigRadius - initialObjectRadius) * rNewAddition;
+
 
 	double radius = RadiusFunction(mu);
 
