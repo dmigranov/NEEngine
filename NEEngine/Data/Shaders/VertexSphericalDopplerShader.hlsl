@@ -92,7 +92,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	matrix scaleMatrix = matrix(scaleCoeff, 0, 0, 0,
 								0, scaleCoeff, 0, 0,
 								0, 0, scaleCoeff, 0,
-								0, 0, 0, wScaleCoeff);
+								0, 0, 0, wScaleCoeff); 
 	position1 = mul(scaleMatrix, position1);
 	
 	double radius = RadiusFunction(mu);
