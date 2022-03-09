@@ -141,6 +141,15 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
+                if (mu >= dist && mu <= (XM_2PI - dist))
+                {
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
+                }
+                else //mu > (2 * XM_PI - dist)
+                {
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
+                }
+
                 float scaleCoeff, wScaleCoeff;
                 float rNew = 1.f; //eta = chi: rNew = 0.5; eta = chi+epsilon: rNew = initialObjectRadius
                 scaleCoeff = rNew / initialObjectRadius;
@@ -150,11 +159,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                     0, 0, scaleCoeff, 0,
                     0, 0, 0, wScaleCoeff);
 
-
-                if (mu >= dist && mu <= (XM_2PI - dist))
-                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
-                else //mu > (2 * XM_PI - dist)
-                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
             }
         });
 
