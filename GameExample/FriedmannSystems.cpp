@@ -124,7 +124,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
         });
 
     const auto epsilon = 0.02f;
-    *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([sphericalEffect, cameraTransform, timer]
+    *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([initialObjectRadius, sphericalEffect, cameraTransform, timer]
     (Entity* pEntity, double deltaTime) {
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
@@ -138,7 +138,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto mu = timer->GetMu();
 
             float scaleCoeff, wScaleCoeff;
-            scaleCoeff = 1.f;
+            //scaleCoeff = r_new / r_orig
+            float rNew = 1.f;
+            scaleCoeff = rNew / initialObjectRadius;
             wScaleCoeff = 1.f;
             auto scaleMatrix = Matrix(  scaleCoeff, 0, 0, 0,
                                         0, scaleCoeff, 0, 0,
