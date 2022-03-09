@@ -123,9 +123,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 }
         });
 
-    const auto epsilon = 0.1f;
-    const auto bigRadius = 0.2f; //тест
-    *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([bigRadius, epsilon, initialObjectRadius, sphericalEffect, cameraTransform, timer]
+    *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([sphericalEffect, cameraTransform, timer]
     (Entity* pEntity, double deltaTime) {
             auto cameraPos = cameraTransform->GetSphericalPosition();
 
@@ -142,32 +140,14 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
-                //проблема в том, что при втором условии будет scale для обоих! все-таки придется перенести в шейдер!
-                float muStart;
                 if (mu >= dist && mu <= (XM_2PI - dist))
                 {
-                    muStart = dist;
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
                 }
                 else //mu > (2 * XM_PI - dist)
                 {
-                    muStart = XM_2PI - dist;
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
                 }
-                float muEnd = muStart + epsilon;
-
-                float scaleCoeff, wScaleCoeff;
-
-                float rNewAddition = (muEnd - (mu < muStart ? muStart : (mu > muEnd ? muEnd : mu))) / epsilon; 
-                float rNew = initialObjectRadius + (bigRadius - initialObjectRadius) * rNewAddition;
-                scaleCoeff = rNew / initialObjectRadius;
-                wScaleCoeff = sqrt((1*1 - rNew * rNew)/(1*1 - initialObjectRadius * initialObjectRadius));
-                auto scaleMatrix = Matrix(scaleCoeff, 0, 0, 0,
-                    0, scaleCoeff, 0, 0,
-                    0, 0, scaleCoeff, 0,
-                    0, 0, 0, wScaleCoeff);
-                //pTransform->SetScaleMatrix(scaleMatrix);
-
             }
         });
 
