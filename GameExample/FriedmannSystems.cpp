@@ -137,19 +137,20 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
             auto mu = timer->GetMu();
 
-            float scaleCoeff, wScaleCoeff;
-            float rNew = 1.f; //eta = chi: rNew = 0.5; eta = chi+epsilon: rNew = initialObjectRadius
-            scaleCoeff = rNew / initialObjectRadius;
-            wScaleCoeff = 1.f;
-            auto scaleMatrix = Matrix(  scaleCoeff, 0, 0, 0,
-                                        0, scaleCoeff, 0, 0,
-                                        0, 0, scaleCoeff, 0,
-                                        0, 0, 0, wScaleCoeff);
-
             if (mu < dist)
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
+                float scaleCoeff, wScaleCoeff;
+                float rNew = 1.f; //eta = chi: rNew = 0.5; eta = chi+epsilon: rNew = initialObjectRadius
+                scaleCoeff = rNew / initialObjectRadius;
+                wScaleCoeff = 1.f;
+                auto scaleMatrix = Matrix(scaleCoeff, 0, 0, 0,
+                    0, scaleCoeff, 0, 0,
+                    0, 0, scaleCoeff, 0,
+                    0, 0, 0, wScaleCoeff);
+
+
                 if (mu >= dist && mu <= (XM_2PI - dist))
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
                 else //mu > (2 * XM_PI - dist)
