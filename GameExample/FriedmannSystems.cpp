@@ -123,7 +123,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 }
         });
 
-    const auto epsilon = 0.02f;
+    const auto epsilon = 0.1f;
     const auto bigRadius = 0.49f; //тест
     *visibilitySystem = new ActionSystem<SphericalTransformComponent, SphericalRenderingComponent>([bigRadius, epsilon, initialObjectRadius, sphericalEffect, cameraTransform, timer]
     (Entity* pEntity, double deltaTime) {
