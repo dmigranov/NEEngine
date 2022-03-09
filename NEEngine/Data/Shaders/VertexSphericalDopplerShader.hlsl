@@ -72,16 +72,6 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	double radius = RadiusFunction(mu);
 
-	double chi; 
-	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, position1), 1); //TODO: посмотреть альтернативные варианты
-	//во-первых, старый вариант: до центра
-	//во-вторых, до ближайшей к камере точки
-	if (instanceID == 1)
-		chi += 3.14159265;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
-	double radiusOld = RadiusFunction(mu - chi);
-	//неправильно! ведь мы считаем хи ДО пересчета координат точек!
-	//а надо после, ведь они изменятся!
-
 	if (abs(position1.w - 1) < 0.00001)
 		position = position1 * radius;
 	else
@@ -106,6 +96,15 @@ VertexShaderOutput main(VertexShaderInput IN
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
 		distance += 3.14159265 * radius;
+
+	double chi;
+	chi = distance / radius; //TODO: посмотреть альтернативные варианты
+	//во-первых, старый вариант: до центра
+	//во-вторых, до ближайшей к камере точки
+	double radiusOld = RadiusFunction(mu - chi);
+	//неправильно! ведь мы считаем хи ДО пересчета координат точек!
+	//а надо после, ведь они изменятся!
+
 
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
