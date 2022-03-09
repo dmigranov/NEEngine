@@ -70,6 +70,11 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
+	//todo: тут домножить position1 на scale
+	const float epsilon = 0.05f;
+	//float muStart = chiCenter;
+	//float muEnd = muStart + epsilon;
+
 	double radius = RadiusFunction(mu);
 
 	if (abs(position1.w - 1) < 0.00001)
