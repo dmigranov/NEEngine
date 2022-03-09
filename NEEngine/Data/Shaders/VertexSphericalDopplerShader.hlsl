@@ -44,10 +44,10 @@ float RadiusFunction(float mu)
 
 //entry point
 VertexShaderOutput main(VertexShaderInput IN
-	//, uint instanceID : SV_InstanceID //todo: ВЕРНУТЬ!
+	, uint instanceID : SV_InstanceID 
 )
 {
-	uint instanceID = 1; //todo: УБРАТЬ, ОТЛАДКА!
+	//uint instanceID = 1; //todo: УБРАТЬ, ОТЛАДКА!
 	matrix viewMatrixBack = -viewMatrixFront;
 	VertexShaderOutput OUT;
  
@@ -71,7 +71,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
 	//todo: тут домножить position1 на scale
-	const float epsilon = 0.5f;
+	const float epsilon = 0.1f;
 	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
 	const float bigRadius = 0.9f;
 
