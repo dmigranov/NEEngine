@@ -71,9 +71,9 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
 	//todo: тут домножить position1 на scale
-	const float epsilon = 0.05f;
+	const float epsilon = 0.2f;
 	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
-	const float bigRadius = 0.9f;
+	const float bigRadius = 0.2f;
 
 
 	float objectCenter = mul(viewWorld, float4(0.f, 0.f, 0.f, 1.f));
