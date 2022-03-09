@@ -79,7 +79,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	float objectCenter = mul(viewWorld, float4(0.f, 0.f, 0.f, 1.f));
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
-		chiCenter += 3.14159265;
+		chiCenter += 3.14159265; 
 
 	float muStart = chiCenter;
 	float muEnd = muStart + epsilon;
