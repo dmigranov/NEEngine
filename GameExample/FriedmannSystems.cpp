@@ -148,10 +148,13 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
             if (mu < dist)
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
-            else if (mu >= dist && mu <= (XM_2PI - dist))
-                renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
-            else //mu > (2 * XM_PI - dist)
-                renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
+            else
+            {
+                if (mu >= dist && mu <= (XM_2PI - dist))
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
+                else //mu > (2 * XM_PI - dist)
+                    renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_ALL);
+            }
         });
 
     *radiusUpdateSystem = new RadiusUpdateSystem(timer, renderSystem, cameraTransform);
