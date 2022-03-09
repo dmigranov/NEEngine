@@ -98,8 +98,7 @@ VertexShaderOutput main(VertexShaderInput IN
 		distance += 3.14159265 * radius;
 
 	double chi;
-	chi = distance / radius; //TODO: посмотреть альтернативные варианты
-	//во-первых, старый вариант: до центра
+	chi = distance / radius; //TODO: посмотреть альтернативные варианты: во-первых, старый вариант: до центра
 	//во-вторых, до ближайшей к камере точки
 	double radiusOld = RadiusFunction(mu - chi);
 
