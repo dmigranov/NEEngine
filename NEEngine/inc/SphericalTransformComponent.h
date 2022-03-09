@@ -19,6 +19,8 @@ public:
     virtual DirectX::SimpleMath::Vector4 GetSphericalPosition();
     //void SetWorld(const DirectX::SimpleMath::Matrix& world); //temporary method, for debug only
 
+    void SetScaleMatrix(const DirectX::SimpleMath::Matrix& scale);
+
     static void SetRadius(double radius);
 protected:
     virtual void Recalculate() override;
