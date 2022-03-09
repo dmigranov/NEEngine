@@ -3,8 +3,6 @@ cbuffer PerApplication : register(b0)
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
 	double density;
-	//double radiusBAD;
-	//double radiusOldBAD;
 	double mu;
 }
 
