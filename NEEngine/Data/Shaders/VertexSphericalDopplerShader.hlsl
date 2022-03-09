@@ -44,10 +44,10 @@ float RadiusFunction(float mu)
 
 //entry point
 VertexShaderOutput main(VertexShaderInput IN
-	, uint instanceID : SV_InstanceID
+	//, uint instanceID : SV_InstanceID //todo: ÂÅĞÍÓÒÜ!
 )
 {
-	//uint instanceID = 0; //todo: ÓÁĞÀÒÜ, ÎÒËÀÄÊÀ!
+	uint instanceID = 1; //todo: ÓÁĞÀÒÜ, ÎÒËÀÄÊÀ!
 	matrix viewMatrixBack = -viewMatrixFront;
 	VertexShaderOutput OUT;
  
