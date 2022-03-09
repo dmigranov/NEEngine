@@ -73,10 +73,6 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	double radius = RadiusFunction(mu);
 
-	double chi; 
-	chi = SphericalDistance(float4(0, 0, 0, 1), mul(viewWorld, position1), 1);
-	double radiusOld = RadiusFunction(mu - chi);
-
 	if (abs(position1.w - 1) < 0.00001)
 		position = position1 * radius;
 	else
@@ -93,6 +89,10 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float4 cameraSpacePosition = mul(viewWorld, position);
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	
+	double chi;
+	chi = distance / radius;
+	double radiusOld = RadiusFunction(mu - chi);
+
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
 	OUT.fogFactor = saturate(exp(-density * distance));
