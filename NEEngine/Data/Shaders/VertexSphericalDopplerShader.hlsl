@@ -102,9 +102,6 @@ VertexShaderOutput main(VertexShaderInput IN
 	//во-первых, старый вариант: до центра
 	//во-вторых, до ближайшей к камере точки
 	double radiusOld = RadiusFunction(mu - chi);
-	//неправильно! ведь мы считаем хи ДО пересчета координат точек!
-	//а надо после, ведь они изменятся!
-
 
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	OUT.tex = IN.tex;
