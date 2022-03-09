@@ -72,6 +72,7 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	//todo: тут домножить position1 на scale
 	const float epsilon = 0.05f;
+	float objectCenter = mul(viewWorld, float4(0.f, 0.f, 0.f, 1.f));
 	//float muStart = chiCenter;
 	//float muEnd = muStart + epsilon;
 
