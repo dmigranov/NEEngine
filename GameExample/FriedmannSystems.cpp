@@ -160,7 +160,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 float rNewAddition = (muEnd - (mu < muStart ? muStart : (mu > muEnd ? muEnd : mu))) / epsilon; 
                 float rNew = initialObjectRadius + (bigRadius - initialObjectRadius) * rNewAddition;
                 scaleCoeff = rNew / initialObjectRadius;
-                wScaleCoeff = sqrt((1*1 - rNew * rNew)/(1*1 - initialObjectRadius * initialObjectRadius);;
+                wScaleCoeff = sqrt((1*1 - rNew * rNew)/(1*1 - initialObjectRadius * initialObjectRadius));
                 auto scaleMatrix = Matrix(scaleCoeff, 0, 0, 0,
                     0, scaleCoeff, 0, 0,
                     0, 0, scaleCoeff, 0,
