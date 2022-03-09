@@ -79,6 +79,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	if (instanceID == 1)
 		chi += 3.14159265;	//расстояние увеличивается от 0 до 2pi: направленное расстояние (Directed distance)
 	double radiusOld = RadiusFunction(mu - chi);
+	//неправильно! ведь мы считаем хи ДО пересчета координат точек!
+	//а надо после, ведь они изменятся!
 
 	if (abs(position1.w - 1) < 0.00001)
 		position = position1 * radius;
