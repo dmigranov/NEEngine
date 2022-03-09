@@ -70,7 +70,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
-	/*
+	
 	const float epsilon = 0.3f;
 	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
 	const float bigRadius = 0.999f;
@@ -93,7 +93,7 @@ VertexShaderOutput main(VertexShaderInput IN
 								0, 0, scaleCoeff, 0,
 								0, 0, 0, wScaleCoeff); 
 	position1 = mul(scaleMatrix, position1);
-	*/
+	
 
 	double radius = RadiusFunction(mu);
 
