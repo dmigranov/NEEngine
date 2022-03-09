@@ -87,7 +87,12 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	float rNewAddition = (muEnd - clamp(mu, muStart, muEnd)) / epsilon;
 	float rNew = initialRadius + (bigRadius - initialRadius) * rNewAddition;
-
+	scaleCoeff = rNew / initialRadius;
+	wScaleCoeff = sqrt((1 - rNew * rNew) / (1 - initialRadius * initialRadius));
+	matrix scaleMatrix = matrix(scaleCoeff, 0, 0, 0,
+		0, scaleCoeff, 0, 0,
+		0, 0, scaleCoeff, 0,
+		0, 0, 0, wScaleCoeff);
 
 	double radius = RadiusFunction(mu);
 
