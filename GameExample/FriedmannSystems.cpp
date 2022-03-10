@@ -16,6 +16,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     
     auto timer = new FriedmannTimer(2.3, 0.1, 1./9.);
     double initialSimulationMu = timer->GetMu();
+    double initialRadius = ;
 
     *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
 
@@ -244,6 +245,11 @@ void RadiusUpdateSystem::Execute(double deltaTime)
         UpdateFriedmannWindow(mu);
     }
 
+}
+
+double RadiusUpdateSystem::RadiusFunction(double mu)
+{
+    return 0.0;
 }
 
 SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)

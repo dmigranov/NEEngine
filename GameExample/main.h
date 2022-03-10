@@ -49,6 +49,8 @@ class RadiusUpdateSystem : public System {
 public:
 	RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem * renderSystem, SphericalTransformComponent* cameraTransform);
 	virtual void Execute(double deltaTime) override;
+
+	double RadiusFunction(double mu);
 private:
 	FriedmannTimer* m_timer;
 	SphericalRenderSystem* m_renderSystem;
