@@ -55,7 +55,7 @@ private:
 	FriedmannTimer* m_timer;
 	SphericalRenderSystem* m_renderSystem;
 	SphericalTransformComponent* m_cameraTransform;
-	std::function<double(double)> m_radiusFunctiom; 
+	std::function<double(double)> m_radiusFunction; 
 };
 
 

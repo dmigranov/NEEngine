@@ -228,14 +228,14 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSy
     m_timer = timer;
     m_renderSystem = renderSystem;
     m_cameraTransform = cameraTransform;
-    m_radiusFunctiom  = [](double mu) { return 2 * (1 - cos(mu)); };
+    m_radiusFunction = [](double mu) { return 2 * (1 - cos(mu)); };
 }
 
 void RadiusUpdateSystem::Execute(double deltaTime)
 {
     double mu = m_timer->GetMu();
     //double radius = 2 * (1 - cos(mu));
-    double radius = m_radiusFunctiom(mu);
+    double radius = m_radiusFunction(mu);
 
     m_renderSystem->SetRadius(radius);
     SphericalDopplerEffect::SetMu(mu);
@@ -249,7 +249,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
 double RadiusUpdateSystem::RadiusFunction(double mu)
 {
-    return m_radiusFunctiom(mu);
+    return m_radiusFunction(mu);
 }
 
 SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
