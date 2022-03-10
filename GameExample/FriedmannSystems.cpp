@@ -249,7 +249,7 @@ void RadiusUpdateSystem::Execute(double deltaTime)
 
 double RadiusUpdateSystem::RadiusFunction(double mu)
 {
-    return 0.0;
+    return m_radiusFunctiom(mu);
 }
 
 SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
