@@ -156,7 +156,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     *radiusUpdateSystem = new RadiusUpdateSystem(timer, renderSystem, cameraTransform);
 
     *animationSystem = new ActionSystem<InputComponent>(
-        [timer] (Entity* pEntity, double deltaTime) {
+        [timer, initialSimulationMu] (Entity* pEntity, double deltaTime) {
             static auto isAnimation = true;
 
             double radius = SphericalEffect::GetRadius();
