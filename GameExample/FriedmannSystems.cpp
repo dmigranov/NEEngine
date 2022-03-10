@@ -13,7 +13,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem, 
     System** animationSystem, SelectionSystem** selectionSystem, System** soundSystem)
 {
-    
     auto timer = new FriedmannTimer(7., 0.1, 1./9.);
     double initialSimulationMu = timer->GetMu();
 
