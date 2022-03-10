@@ -71,6 +71,29 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
+	const float epsilon = 0.3f;
+	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
+	const float bigRadius = 0.999f;
+
+	float4 objectCenter = mul(viewWorld, float4(0, 0, 0, 1));
+	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
+	if (instanceID == 1)
+		chiCenter += 3.14159265;
+
+	float muStart = chiCenter;
+	float muEnd = muStart + epsilon;
+	float scaleCoeff, wScaleCoeff;
+
+	float rNewAddition = (muEnd - clamp((float)mu, muStart, muEnd)) / epsilon;
+	float rNew = initialRadius + (bigRadius - initialRadius) * rNewAddition;
+	scaleCoeff = rNew / initialRadius;
+	wScaleCoeff = sqrt((1 - rNew * rNew) / (1 - initialRadius * initialRadius));
+	matrix scaleMatrix = matrix(scaleCoeff, 0, 0, 0,
+		0, scaleCoeff, 0, 0,
+		0, 0, scaleCoeff, 0,
+		0, 0, 0, wScaleCoeff);
+	position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
+
 	double radius = RadiusFunction(mu);
 
 	if (abs(position1.w - 1) < 0.00001)
