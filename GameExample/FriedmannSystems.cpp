@@ -16,7 +16,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     
     auto timer = new FriedmannTimer(2.3, 0.1, 1./9.);
     double initialSimulationMu = timer->GetMu();
-    double initialRadius = ;
 
     *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
 
@@ -155,6 +154,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
         });
 
     *radiusUpdateSystem = new RadiusUpdateSystem(timer, renderSystem, cameraTransform);
+    double initialRadius = ((RadiusUpdateSystem*)(*radiusUpdateSystem))->RadiusFunction(initialSimulationMu);
 
     *animationSystem = new ActionSystem<InputComponent>(
         [timer, initialSimulationMu] (Entity* pEntity, double deltaTime) {
