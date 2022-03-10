@@ -91,7 +91,7 @@ VertexShaderOutput main(VertexShaderInput IN
 								0, scaleCoeff, 0, 0,
 								0, 0, scaleCoeff, 0,
 								0, 0, 0, wScaleCoeff); 
-	//position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
+	position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
 	
 
 	double radius = RadiusFunction(mu);

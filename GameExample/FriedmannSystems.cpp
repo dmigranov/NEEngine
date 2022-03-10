@@ -13,7 +13,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem, 
     System** animationSystem, SelectionSystem** selectionSystem, System** soundSystem)
 {
-    auto timer = new FriedmannTimer(2.3, 0.1, 1./3.);
+    auto timer = new FriedmannTimer(2.3, 0.1, 1./9.);
 
     *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
 
@@ -160,7 +160,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             double radius = SphericalEffect::GetRadius();
             if (isAnimation)
             {
-                if (radius > 0.5)
+                if (radius > 0.05)
                 {
                     timer->AddDelta(deltaTime);
                 }
@@ -275,10 +275,12 @@ void SoundSystem::Execute(double deltaTime)
         //pitch of sound - depends on frequency!
         //pitch ranges from -1 to +1, playback defaults to 0 (which is no pitch-shifting)
         //но непонятна прямая связь с частотой
+        m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
     }
     else
     {
+        m_pSound->SetVolume(0.);
         m_pSound->SetPitch(-0.5f);
     }
 }
