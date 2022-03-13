@@ -51,7 +51,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             }
             else if (kbs.Down)
             {
-                timer->SetMuCoeff(timer->GetMuCoeff() - muCoeffDelta);
+                auto muCoeff = timer->GetMuCoeff();
+                if (muCoeff > muCoeffDelta)
+                    timer->SetMuCoeff(muCoeff - muCoeffDelta);
             }
 
             if (kbs.M)
