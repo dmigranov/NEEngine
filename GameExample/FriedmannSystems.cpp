@@ -45,6 +45,15 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 timer->AddDelta(deltaTime);
             }
 
+            if (kbs.Up)
+            {
+
+            }
+            else if (kbs.Down)
+            {
+
+            }
+
             if (kbs.M)
                 sphericalEffect->SetVelocityCoefficient(sphericalEffect->GetVelocityCoefficient() + 100000);
             else if (kbs.N)
