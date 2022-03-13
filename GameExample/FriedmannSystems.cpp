@@ -225,6 +225,11 @@ void FriedmannTimer::SetMuCoeff(double muCoeff)
     m_muCoeff = muCoeff;
 }
 
+double FriedmannTimer::GetMuCoeff()
+{
+    return m_muCoeff;
+}
+
 void FriedmannTimer::SetFrameTime(double newTime)
 {
     m_currentFrameTime = newTime;
