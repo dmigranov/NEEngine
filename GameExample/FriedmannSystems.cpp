@@ -13,7 +13,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem, 
     System** animationSystem, SelectionSystem** selectionSystem, System** soundSystem)
 {
-    // Эти две переменные должны быть в соответствие друг с другом...
     double initialMuCoeff = 1. / 3.;
     double initialSimulationTime = 8. / (9. * initialMuCoeff);
 
