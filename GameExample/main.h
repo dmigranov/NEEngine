@@ -7,7 +7,7 @@ LRESULT CALLBACK WndProcFriedmann(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
 class FriedmannTimer {
 public:
-	FriedmannTimer(double initialSimulationTime, double frameTimeLimit, double muCoeff);
+	FriedmannTimer(double initialSimulationTime, double frameUpdateTimeLimit, double muCoeff);
 	void AddDelta(double deltaTime);
 	bool IsTimeToRepaint();
 	double GetSimulationTime();
@@ -21,7 +21,7 @@ private:
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;
 	double m_muCoeff = 1.;
-	double m_frameTimeLimit;
+	double m_frameUpdateTimeLimit;
 };
 
 class SelectionSystem :
