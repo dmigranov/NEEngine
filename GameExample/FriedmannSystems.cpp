@@ -225,7 +225,6 @@ double FriedmannTimer::GetSimulationTime()
 
 double FriedmannTimer::GetMu()
 {
-    //return m_currentSimulationTime * m_muCoeff;
     return m_mu;
 }
 
