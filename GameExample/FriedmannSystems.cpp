@@ -17,6 +17,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     double initialMuCoeff = 1. / 9.;
     double initialSimulationTime = 8.;
 
+    //initMuCoeff * initSimTime = 8/9. always. how&
+
     double frameUpdateTimeLimit = 0.1;
 
     auto timer = new FriedmannTimer(initialSimulationTime, frameUpdateTimeLimit, initialMuCoeff);
