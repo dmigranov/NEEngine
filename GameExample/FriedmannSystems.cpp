@@ -195,6 +195,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameUpdateTimeLimit, double muCoeff)
 {
     m_currentSimulationTime = initialSimulationTime;
+    m_mu = muCoeff * m_currentSimulationTime;
+
     m_frameUpdateTimeLimit = frameUpdateTimeLimit;
     m_muCoeff = muCoeff;
 }
@@ -203,7 +205,7 @@ void FriedmannTimer::AddDelta(double deltaTime)
 {
     m_currentSimulationTime += deltaTime;
     m_currentFrameTime += deltaTime;
-    m_mu
+    //m_mu
 }
 
 bool FriedmannTimer::IsTimeToRepaint()
