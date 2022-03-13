@@ -13,6 +13,8 @@ public:
 	double GetSimulationTime();
 	double GetMu();
 	double GetFrameTime();
+
+	void SetMuCoeff(double muCoeff); //coeff is speed
 private:
 	void SetFrameTime(double newTime);
 
