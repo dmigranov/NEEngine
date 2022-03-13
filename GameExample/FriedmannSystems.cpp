@@ -45,7 +45,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 timer->AddDelta(deltaTime);
             }
 
-            double muCoeffDelta = 0.01;
+            double muCoeffDelta = 0.01; 
             if (kbs.Up)
             {
                 timer->SetMuCoeff(timer->GetMuCoeff() + muCoeffDelta);
