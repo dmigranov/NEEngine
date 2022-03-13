@@ -21,6 +21,8 @@ private:
 
 	double m_currentSimulationTime;
 	double m_currentFrameTime = 0.;
+	double m_mu = 0;
+
 	double m_muCoeff = 1.;
 	double m_frameUpdateTimeLimit;
 };

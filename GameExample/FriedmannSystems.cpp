@@ -203,6 +203,7 @@ void FriedmannTimer::AddDelta(double deltaTime)
 {
     m_currentSimulationTime += deltaTime;
     m_currentFrameTime += deltaTime;
+    m_mu
 }
 
 bool FriedmannTimer::IsTimeToRepaint()
