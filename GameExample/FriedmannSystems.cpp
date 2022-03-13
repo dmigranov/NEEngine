@@ -15,7 +15,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 {
     // Эти две переменные должны быть в соответствие друг с другом...
     double initialMuCoeff = 1. / 9.;
-    double initialSimulationTime = 7.;
+    double initialSimulationTime = 8.;
 
     double frameUpdateTimeLimit = 0.1;
 
