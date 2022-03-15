@@ -101,6 +101,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	{
 		float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта для единичной гиперсферы в координатах world
 		float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
+		//todo: сделать 2pi - chi для каких-то?
+
 
 		// todo: можно воспользоваться знанием Хи центра объекта
 		// и посчитать сразу тут radius_old
