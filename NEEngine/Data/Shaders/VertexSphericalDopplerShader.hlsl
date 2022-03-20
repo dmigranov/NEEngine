@@ -147,7 +147,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
-		distance += PI * radius;
+		distance += 3.14 * radius;
 
 	double chi;
 	chi = distance / radius; //TODO: посмотреть альтернативные варианты: во-первых, старый вариант: до центра
