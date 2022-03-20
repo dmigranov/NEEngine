@@ -42,14 +42,14 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 
 float RadiusFunction(float mu) 
 { 
-	float startBoundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
+	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
 	float boundaryRadius = 2 * (1 - cos(boundary));
 	float startRadius = 0.05;
 
 	if (mu < boundary)
-		return startRadius + (boundaryRadius - startRadius) * mu / startBoundary;
+		return startRadius + (boundaryRadius - startRadius) * mu / boundary;
 	else if (mu > PI_2 - boundary)
-		return startRadius + (boundaryRadius - startRadius) * (PI_2 - mu) / startBoundary;
+		return startRadius + (boundaryRadius - startRadius) * (PI_2 - mu) / boundary;
 	return 2 * (1 - cos(mu)); 
 }
 
@@ -117,7 +117,7 @@ VertexShaderOutput main(VertexShaderInput IN
 		float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
 		// тут прибавлять ничего не надо, так как далее sin в квадрате, а sin^2 x = sin^2 (2pi-x) 
 
-		double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter); //0.3 - чтобы все не пересекалось из-за нулевого радиуса
+		double radiusOldCenter = RadiusFunction(mu - chiCenter); //0.3 - чтобы все не пересекалось из-за нулевого радиуса
 
 		float w_new = radiusOldCenter * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radiusOldCenter)), 2));
 
