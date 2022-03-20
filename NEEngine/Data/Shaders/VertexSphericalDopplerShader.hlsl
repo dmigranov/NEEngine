@@ -31,8 +31,8 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
-const double PI =	3.14159265;
-const double PI_2 = 6.2831853;
+const float PI =	3.14159265f;
+const float PI_2 =	6.2831853f;
 
 float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
@@ -44,7 +44,7 @@ float RadiusFunction(float mu)
 { 
 	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
 	float boundaryRadius = 2 * (1 - cos(boundary));
-	float startRadius = 0.05;
+	float startRadius = 0.05f;
 
 	if (mu < boundary)
 		return startRadius + (boundaryRadius - startRadius) * mu / boundary;
