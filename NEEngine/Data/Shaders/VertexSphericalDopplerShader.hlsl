@@ -44,15 +44,18 @@ float RadiusFunction(float mu)
 
 float RadiusAbridgedFunction(float mu)
 {
-	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
+	float boundary = 0.5f;
 	float boundaryRadius = 2 * (1 - cos(boundary));
-	float startRadius = 0.05f;
+	float startRadius = 0.16f;
 
 	if (mu < boundary)
 		return startRadius + (boundaryRadius - startRadius) * mu / boundary;
 	else if (mu > 6.2831853 - boundary)
 		return startRadius + (boundaryRadius - startRadius) * (6.2831853 - mu) / boundary;
 	return 2 * (1 - cos(mu));
+
+	// можно порегулировать скорость
+	// TODO: исправить вычисления радиуса при выделении!
 }
 
 //entry point
