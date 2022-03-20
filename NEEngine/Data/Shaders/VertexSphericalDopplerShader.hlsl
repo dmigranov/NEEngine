@@ -41,8 +41,10 @@ float RadiusFunction(float mu)
 { 
 	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
 	float boundaryRadius = 2 * (1 - cos(boundary));
+	float startRadius = 0.05;
+
 	if (mu < boundary)
-		return 0;
+		return (boundaryRadius - startRadius);
 	else if (mu > 2 * 3.14159265 - boundary)
 		return 0;
 	return 2 * (1 - cos(mu)); 
