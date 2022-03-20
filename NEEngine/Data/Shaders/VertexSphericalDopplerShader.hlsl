@@ -79,7 +79,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	if (instanceID == 1)
 		chiCenter += 3.14159265; 
 	
-	/*
+	// artificial scaling
+	/*		
 	float muStart = chiCenter;
 	float muEnd = muStart + epsilon;
 	float scaleCoeff, wScaleCoeff;
