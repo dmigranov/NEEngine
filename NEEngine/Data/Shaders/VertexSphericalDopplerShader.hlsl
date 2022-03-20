@@ -34,7 +34,6 @@ struct VertexShaderOutput
 const double PI =	3.14159265;
 const double PI_2 = 6.2831853;
 
-
 float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
 	float chordLength = distance(vec1, vec2); //chord length
@@ -43,14 +42,15 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 
 float RadiusFunction(float mu) 
 { 
-	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
+	float startBoundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
+	float endBoundary = PI_2 - startBoundary;
 	float boundaryRadius = 2 * (1 - cos(boundary));
-	float startRadius = 0.05;
+	float startRadius = 0.05, endRadius = startRadius;
 
 	if (mu < boundary)
-		return startRadius + (boundaryRadius - startRadius) * mu/boundary;
+		return startRadius + (boundaryRadius - startRadius) * mu / startBoundary;
 	else if (mu > PI_2 - boundary)
-		return 0;
+		return endRadius + (boundaryRadius - endRadius) * (PI_2 - mu) / endBoundary;
 	return 2 * (1 - cos(mu)); 
 }
 
