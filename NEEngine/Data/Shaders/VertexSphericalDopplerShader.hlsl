@@ -49,7 +49,7 @@ float RadiusFunction(float mu)
 
 	if (mu < boundary)
 		return startRadius + (boundaryRadius - startRadius) * mu/boundary;
-	else if (mu > 2 * 3.14159265 - boundary)
+	else if (mu > PI_2 - boundary)
 		return 0;
 	return 2 * (1 - cos(mu)); 
 }
