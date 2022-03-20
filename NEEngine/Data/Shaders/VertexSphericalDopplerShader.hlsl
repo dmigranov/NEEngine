@@ -106,10 +106,9 @@ VertexShaderOutput main(VertexShaderInput IN
 		// todo: можно воспользоваться знанием Хи центра объекта
 		// и посчитать сразу тут radius_old
 		// и использовать его для вычисления далее!
-		// итак, radius_old_center - для вычисления размеров
-		// radius_old - для цвета
-		double radiusOldСenter = RadiusFunction(mu - TODO_CHI);
-
+		// итак, radiusOldCenter - для вычисления размеров
+		// radiusOld - для цвета
+		double radiusOldСenter = RadiusFunction(mu - chiCenter);
 
 		float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
