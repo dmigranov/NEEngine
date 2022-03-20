@@ -78,7 +78,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
 		chiCenter += 3.14159265; 
-
+	
+	/*
 	float muStart = chiCenter;
 	float muEnd = muStart + epsilon;
 	float scaleCoeff, wScaleCoeff;
@@ -91,7 +92,8 @@ VertexShaderOutput main(VertexShaderInput IN
 								0, scaleCoeff, 0, 0,
 								0, 0, scaleCoeff, 0,
 								0, 0, 0, wScaleCoeff); 
-	//position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
+	position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
+	*/
 
 	double radius = RadiusFunction(mu);
 
