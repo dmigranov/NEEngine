@@ -32,6 +32,8 @@ struct VertexShaderOutput
 };
 
 const double PI = 3.14159265;
+const double PI_2 = 2 * 3.14159265;
+
 
 float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
