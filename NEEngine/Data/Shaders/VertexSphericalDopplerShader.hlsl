@@ -119,7 +119,8 @@ VertexShaderOutput main(VertexShaderInput IN
 		float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
 		// тут прибавлять ничего не надо, так как далее sin в квадрате, а sin^2 x = sin^2 (2pi-x) 
 
-		double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter); //0.3 - чтобы все не пересекалось из-за нулевого радиуса
+		//double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter); //0.3 - чтобы все не пересекалось из-за нулевого радиуса
+		double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter);
 
 		float w_new = radiusOldCenter * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radiusOldCenter)), 2));
 
