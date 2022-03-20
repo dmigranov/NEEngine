@@ -108,6 +108,8 @@ VertexShaderOutput main(VertexShaderInput IN
 		// и использовать его для вычисления далее!
 		// итак, radius_old_center - для вычисления размеров
 		// radius_old - для цвета
+		double radiusOldСenter = RadiusFunction(mu - TODO_CHI);
+
 
 		float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
