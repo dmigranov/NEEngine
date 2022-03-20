@@ -101,13 +101,8 @@ VertexShaderOutput main(VertexShaderInput IN
 	{
 		float4 objectCenter1 = float4(0, 0, 0, 1); //координаты центра объекта дл€ единичной гиперсферы в координатах world
 		float distanceFromPointToCenter = SphericalDistance(objectCenter1, position1, 1.); //must stay the same!
-		//тут прибавл€ть ничего не надо, так как далее sin в квадрате, а sin^2 x = sin^2 (2pi-x) 
+		// тут прибавл€ть ничего не надо, так как далее sin в квадрате, а sin^2 x = sin^2 (2pi-x) 
 
-		// todo: можно воспользоватьс€ знанием ’и центра объекта
-		// и посчитать сразу тут radius_old
-		// и использовать его дл€ вычислени€ далее!
-		// итак, radiusOldCenter - дл€ вычислени€ размеров
-		// radiusOld - дл€ цвета
 		double radiusOldCenter = RadiusFunction(mu + 0.5 - chiCenter); //0.5 - чтобы все не пересекалось из-за нулевого радиуса
 
 		float w_new = radiusOldCenter * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radiusOldCenter)), 2));
