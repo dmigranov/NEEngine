@@ -93,7 +93,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 objectCenter = mul(viewWorld, float4(0, 0, 0, 1));
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
-		chiCenter += PI; 
+		chiCenter += 3.14159265f;
 	
 	// artificial scaling
 	/*		
@@ -147,7 +147,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
-		distance += PI * radius;
+		distance += 3.14159265 * radius;
 
 	double chi;
 	chi = distance / radius; //TODO: посмотреть альтернативные варианты: во-первых, старый вариант: до центра
