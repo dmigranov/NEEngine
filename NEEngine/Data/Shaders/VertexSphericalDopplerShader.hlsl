@@ -39,7 +39,8 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 
 float RadiusFunction(float mu) 
 { 
-	float boundary = 0.28f;
+	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
+	float boundaryRadius = 2 * (1 - cos(boundary));
 	if (mu < boundary)
 		return 0;
 	else if (mu > 2 * 3.14159265 - boundary)
