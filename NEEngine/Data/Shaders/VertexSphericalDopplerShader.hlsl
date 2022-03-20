@@ -110,14 +110,14 @@ VertexShaderOutput main(VertexShaderInput IN
 		// radiusOld - для цвета
 		double radiusOldCenter = RadiusFunction(mu + 0.5 - chiCenter); //0.5 - чтобы все не пересекалось из-за нулевого радиуса
 
-		float w_new = radiusOldCenter * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radiusOldCenter)), 2));
+		float w_new = radius * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radius)), 2));
 
 		// TODO: формулы ниже не до конца обоснованы теоретически
 		// как это можно проверить: нужно пройти расстояние distanceFromPointToCenter от центра в том же самом направлении
 		// направление - это вектор в касательном пространстве
 		// Идея: найти уравнение прямой в гиперсфере
 
-		float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radiusOldCenter * radiusOldCenter - w_new * w_new));
+		float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radius * radius - w_new * w_new));
 		float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda; 
 		position = float4(x_new, y_new, z_new, w_new);
 	}
