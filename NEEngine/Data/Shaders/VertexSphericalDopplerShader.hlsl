@@ -42,6 +42,11 @@ float SphericalDistance(float4 vec1, float4 vec2, float radius)
 
 float RadiusFunction(float mu) 
 { 
+	return 2 * (1 - cos(mu)); 
+}
+
+float RadiusAbridgedFunction(float mu)
+{
 	float boundary = 0.28f; //2 * (1 - cos(0.28)) = 0.0779
 	float boundaryRadius = 2 * (1 - cos(boundary));
 	float startRadius = 0.05f;
@@ -50,7 +55,7 @@ float RadiusFunction(float mu)
 		return startRadius + (boundaryRadius - startRadius) * mu / boundary;
 	else if (mu > PI_2 - boundary)
 		return startRadius + (boundaryRadius - startRadius) * (PI_2 - mu) / boundary;
-	return 2 * (1 - cos(mu)); 
+	return 2 * (1 - cos(mu));
 }
 
 //entry point
