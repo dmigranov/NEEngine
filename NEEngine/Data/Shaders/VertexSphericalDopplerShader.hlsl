@@ -120,6 +120,10 @@ VertexShaderOutput main(VertexShaderInput IN
 		float lambda = sqrt((position1.x * position1.x + position1.y * position1.y + position1.z * position1.z) / (radiusOldCenter * radiusOldCenter - w_new * w_new));
 		float x_new = position1.x / lambda, y_new = position1.y / lambda, z_new = position1.z / lambda; 
 		position = float4(x_new, y_new, z_new, w_new);
+		// я понял! да, мы посчитали координаты для радиуса пространства radiusCenterOld.
+		// но остальные координаты - для другого радиуса, потому всякие расстояния считать некорректно!
+		// нужно просто домножить position, чтобы сумма квадратов была radius (видимые размеры от этого не изменятся!)
+		// 
 	}
 	
 	float4 cameraSpacePosition = mul(viewWorld, position);
