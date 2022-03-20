@@ -161,3 +161,5 @@ VertexShaderOutput main(VertexShaderInput IN
 
 	return OUT;
 }
+
+// TODO: исследовать проблему с использованием констант
