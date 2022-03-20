@@ -31,6 +31,8 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION; //должно быть последним при поступлении в пиксельный шейдер, если в нем не будем его брать (иначе всё сместится)
 };
 
+const double PI = 3.14159265;
+
 float SphericalDistance(float4 vec1, float4 vec2, float radius)
 {
 	float chordLength = distance(vec1, vec2); //chord length
@@ -85,7 +87,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 objectCenter = mul(viewWorld, float4(0, 0, 0, 1));
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
-		chiCenter += 3.14159265; 
+		chiCenter += PI; 
 	
 	// artificial scaling
 	/*		
@@ -139,7 +141,7 @@ VertexShaderOutput main(VertexShaderInput IN
 	
 	float distance = SphericalDistance(float4(0, 0, 0, radius), cameraSpacePosition, radius);
 	if (instanceID == 1)
-		distance += 3.14159265 * radius;
+		distance += PI * radius;
 
 	double chi;
 	chi = distance / radius; //TODO: посмотреть альтернативные варианты: во-первых, старый вариант: до центра
