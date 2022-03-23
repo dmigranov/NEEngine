@@ -31,7 +31,7 @@ class SelectionSystem :
 	public System
 {
 public:
-	SelectionSystem(InputComponent* pInputComponent, double initialObjectRadius);
+	SelectionSystem(InputComponent* pInputComponent, FriedmannTimer* timer, double initialObjectRadius);
 	virtual void Execute(double deltaTime) override;
 
 	Entity* GetSelectedEntity();
@@ -43,6 +43,7 @@ private:
 	Game& m_game;
 	SphericalTransformComponent* m_pCameraTransform;
 	SphericalCameraComponent* m_pCameraComponent;
+	FriedmannTimer* m_pTimer;
 
 	double m_initialObjectRadius;
 	int m_selectedIndex = -1;
