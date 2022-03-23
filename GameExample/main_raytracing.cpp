@@ -101,17 +101,18 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     if (pos.z < 0)
         chi = XM_2PI - chi;
 
+    {
+        // ÐÀÑÑ×ÅÒ ÍÎÂÎÃÎ ÂÈÄÈÌÎÃÎ ÐÀÄÈÓÑÀ Â ÑÎÎÒÂÅÒÑÒÂÈÅ Ñ ÒÅÌ, ×ÒÎ Â ØÅÉÄÅÐÅ
+        // muOriginal - êîãäà áûëà èñïóùåíà èíôîðìàöèÿ
+        float startRadius = 0.14f;
+        float multiplier = 2.f - startRadius / 2;
+        double muOriginal = mu - chi;
+        double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
 
-    // ÐÀÑÑ×ÅÒ ÍÎÂÎÃÎ ÂÈÄÈÌÎÃÎ ÐÀÄÈÓÑÀ Â ÑÎÎÒÂÅÒÑÒÂÈÅ Ñ ÒÅÌ, ×ÒÎ Â ØÅÉÄÅÐÅ
-    // muOriginal - êîãäà áûëà èñïóùåíà èíôîðìàöèÿ
-    float startRadius = 0.14f;
-    float multiplier = 2.f - startRadius / 2;
-    double muOriginal = mu - chi;
-    double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
-
-    w_sphere = effectiveRadius - 2 * effectiveRadius * pow(sin(initialObjectRadius / effectiveRadius / 2), 2);
-    r_sphere = sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
-    // todo: åñëè âîçâðàùàòüñÿ îáðàòíî, òî çàêîììåíòèðîâàòü äâå ñòðîêè âûøå
+        w_sphere = effectiveRadius - 2 * effectiveRadius * pow(sin(initialObjectRadius / effectiveRadius / 2), 2);
+        r_sphere = sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
+        // todo: åñëè âîçâðàùàòüñÿ îáðàòíî, òî çàêîììåíòèðîâàòü äâå ñòðîêè âûøå
+    }   // èëè ïðîñòî óäàëèòü âåñü áëîê!
 
     Vector4 leftReferenceVector(-r_sphere, 0, 0, w_sphere), rightReferenceVector(r_sphere, 0, 0, w_sphere);
 
