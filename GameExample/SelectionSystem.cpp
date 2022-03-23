@@ -16,7 +16,7 @@ SelectionSystem::SelectionSystem(InputComponent* pInputComponent, FriedmannTimer
 	m_initialObjectRadius = initialObjectRadius;
 	m_pCameraTransform = m_game.GetScene()->GetCamera()->GetComponent<SphericalTransformComponent>();
 	m_pCameraComponent = m_game.GetScene()->GetCamera()->GetComponent<SphericalCameraComponent>();
-	
+	m_pTimer = timer;
 }
 
 void SelectionSystem::Execute(double deltaTime)
