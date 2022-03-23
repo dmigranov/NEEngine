@@ -43,10 +43,6 @@ void SelectionSystem::Execute(double deltaTime)
 	//for (auto pEntity : m_entities)
 	for (int i = 0; i < m_entities.size(); i++)
 	{
-		//todo
-		//добавить в doppler component bool - выбран не выбран?
-		//а хотя это и так есть! 
-		//и доп. массив с булями не нужен!
 		Entity* pEntity = m_entities[i];
 
 		auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
