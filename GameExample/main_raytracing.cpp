@@ -109,6 +109,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     double muOriginal = mu - chi;
     double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
     radius = effectiveRadius; // !!!
+    auto w_sphere = radius - 2 * radius * pow(sin(initialObjectRadius / radius / 2), 2);
+    auto r_sphere = sqrt(radius * radius - w_sphere * w_sphere);
 
     Vector4 leftReferenceVector(-r_sphere, 0, 0, w_sphere), rightReferenceVector(r_sphere, 0, 0, w_sphere);
 
