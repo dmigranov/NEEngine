@@ -97,13 +97,18 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto pos_world = sphericalPosition;
     auto pos = Vector4::Transform(pos_world, view); //pos_view
     auto radius = SphericalEffect::GetRadius();
+    double chi = acos(pos.w / radius);
+    if (pos.z < 0)
+        chi = XM_2PI - chi;
+
 
     // ÐÀÑÑ×ÅÒ ÍÎÂÎÃÎ ÂÈÄÈÌÎÃÎ ÐÀÄÈÓÑÀ Â ÑÎÎÒÂÅÒÑÒÂÈÅ Ñ ÒÅÌ, ×ÒÎ Â ØÅÉÄÅÐÅ
     // muOriginal - êîãäà áûëà èñïóùåíà èíôîðìàöèÿ
     float startRadius = 0.14f;
     float multiplier = 2.f - startRadius / 2;
     double muOriginal = mu - chi;
-    return startRadius + multiplier * (1 - cos(muOriginal));
+    double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
+    radius = effectiveRadius; // !!!
 
     Vector4 leftReferenceVector(-r_sphere, 0, 0, w_sphere), rightReferenceVector(r_sphere, 0, 0, w_sphere);
 
