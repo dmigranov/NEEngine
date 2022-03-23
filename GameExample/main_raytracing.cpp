@@ -102,6 +102,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     // muOriginal - когда была испущено
     float startRadius = 0.14f;
     float multiplier = 2.f - startRadius / 2;
+    double muOriginal = mu - chi;
     return startRadius + multiplier * (1 - cos(muOriginal));
 
     Vector4 leftReferenceVector(-r_sphere, 0, 0, w_sphere), rightReferenceVector(r_sphere, 0, 0, w_sphere);
