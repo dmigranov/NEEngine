@@ -99,7 +99,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
     auto radius = SphericalEffect::GetRadius();
 
     // РАССЧЕТ НОВОГО ВИДИМОГО РАДИУСА В СООТВЕТСТВИЕ С ТЕМ, ЧТО В ШЕЙДЕРЕ
-    // muOriginal - когда была испущено
+    // muOriginal - когда была испущена информация
     float startRadius = 0.14f;
     float multiplier = 2.f - startRadius / 2;
     double muOriginal = mu - chi;

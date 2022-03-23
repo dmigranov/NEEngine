@@ -21,7 +21,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     auto timer = new FriedmannTimer(initialSimulationTime, frameUpdateTimeLimit, initialMuCoeff);
     double initialSimulationMu = timer->GetMu();
 
-    *selectionSystem = new SelectionSystem(inputComponent, initialObjectRadius);
+    *selectionSystem = new SelectionSystem(inputComponent, timer, initialObjectRadius);
 
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer, selectionSystem]
     (Entity* pEntity, double deltaTime) {
