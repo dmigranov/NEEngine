@@ -88,7 +88,9 @@ double RayTraceSphereNeg(DirectX::SimpleMath::Vector4 sphericalPosition, DirectX
     return t;
 }
 
-double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformComponent* pSphericalTransform, DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, double r_sphere, double w_sphere)
+double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformComponent* pSphericalTransform, 
+    DirectX::SimpleMath::Matrix view, DirectX::SimpleMath::Matrix proj, 
+    double r_sphere, double w_sphere, double mu)
 {
     const auto& world = pSphericalTransform->GetWorld();
     auto sphericalPosition = pSphericalTransform->GetSphericalPosition();
