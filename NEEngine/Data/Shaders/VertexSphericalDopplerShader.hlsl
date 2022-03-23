@@ -59,7 +59,6 @@ float RadiusAbridgedFunction(float mu)
 	float startRadius = 0.14f;
 	float multiplier = 2.f - startRadius / 2;
 	return startRadius + multiplier * (1 - cos(mu));
-	// TODO: исправить вычисления радиуса при выделении!
 }
 
 //entry point
