@@ -307,10 +307,9 @@ void SoundSystem::Execute(double deltaTime)
             chi = XM_2PI - chi;
 
         pitch = chi / XM_2PI; 
-        //есть ещё идейка: у всех планет своя стандартная частота, но она меняется также, как цвет, в зависимоти от радиуса и хи!
-        //pitch of sound - depends on frequency!
-        //pitch ranges from -1 to +1, playback defaults to 0 (which is no pitch-shifting)
-        //но непонятна прямая связь с частотой
+        
+        // todo: pitch = f(chi * R)
+
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
     }
