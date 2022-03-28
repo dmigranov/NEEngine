@@ -145,8 +145,6 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
     
-    //int currentSphereNumber = -1;
-
     System* controlSystem = nullptr;
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
