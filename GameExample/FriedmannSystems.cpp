@@ -309,10 +309,8 @@ void SoundSystem::Execute(double deltaTime)
         pitch = 1.99 * (chi / XM_2PI - 0.5); 
         
 
-        // todo: pitch = f(chi * R)
-        auto maxRadius = 4.;
-        // max radius * chi = 4 * 2PI
-        // min radus * chi = 0
+        auto maxRadius = 4.; //! has to be changed if the radius formula is changed
+        pitch = 1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
 
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
