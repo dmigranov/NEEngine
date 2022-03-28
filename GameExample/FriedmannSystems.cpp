@@ -306,7 +306,7 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-        pitch = chi / XM_2PI; 
+        pitch = chi / XM_2PI - 0.5; 
         
         // todo: pitch = f(chi * R)
 
