@@ -48,8 +48,8 @@ int main(int argc, char* argv[])
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
-    Sound* dNoteSound = new Sound(L"d-note (300).wav"); //todo более короткий файл
-    dNoteSound->Play(true);
+    Sound* dClicksSound = new Sound(L"clicks_4.wav"); //todo более короткий файл
+    dClicksSound->Play(true);
     // TODO звук щелчка 
 
     auto renderSystem = new SphericalRenderSystem();
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
     SelectionSystem* selectionSystem = nullptr;
     System* soundSystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, dNoteSound,
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, dClicksSound,
         &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem, &soundSystem);
     
     scene->AddSystem(controlSystem);
