@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
-    Sound* dClicksSound = new Sound(L"clicks_4_2x.wav"); //todo более короткий файл
+    Sound* dClicksSound = new Sound(L"clicks_4.wav"); //todo более короткий файл
     dClicksSound->Play(true);
     // TODO звук щелчка 
 
