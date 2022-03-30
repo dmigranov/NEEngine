@@ -109,8 +109,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
         double muOriginal = mu - chi;
         double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
 
-        //w_sphere = effectiveRadius - 2 * effectiveRadius * pow(sin(initialObjectRadius / effectiveRadius / 2), 2);
-        //r_sphere = sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
+        w_sphere = effectiveRadius - 2 * effectiveRadius * pow(sin(initialObjectRadius / effectiveRadius / 2), 2);
+        r_sphere = sqrt(effectiveRadius * effectiveRadius - w_sphere * w_sphere);
         // todo: если возвращаться обратно, то закомментировать две строки выше
     }   // или просто удалить весь блок!
 
