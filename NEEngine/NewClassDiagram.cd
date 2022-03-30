@@ -1,2 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Effect" Collapsed="true">
+    <Position X="6.75" Y="1" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>BAAEAGCAAAiAAQAAAAIAACAAABAgAAAAAAAAAAAARAA=</HashCode>
+      <FileName>inc\Effect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HyperbolicExpFogEffect" Collapsed="true">
+    <Position X="4" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGCAAIAAgQAAAAIAxCACABIAAAAYgAQAAAAEAAA=</HashCode>
+      <FileName>inc\HyperbolicExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalDopplerEffect" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="2" />
+    <NestedTypes>
+      <Struct Name="SphericalDopplerEffect::PerApplicationPSConstantBufferDoppler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalDopplerEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SphericalDopplerEffect::PerObjectPSConstantBuffer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalDopplerEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SphericalDopplerEffect::PerApplicationVSConstantBufferDoppler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>inc\SphericalDopplerEffect.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEADIggAAAAAgQAAEAIAAAAAABACAAQgAAAAAAAEQAA=</HashCode>
+      <FileName>inc\SphericalDopplerEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalEffect" Collapsed="true">
+    <Position X="6.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAgAAAAAAgAAAAAAAAgAAAAAAAAiAAAA=</HashCode>
+      <FileName>inc\SphericalEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalExpFogEffect" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGCAAIAAgQQAAAIAQCAAABIAAoAYgAQAAgAEQAA=</HashCode>
+      <FileName>inc\SphericalExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalExpFogPointEffect" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAQAAAAIAAAAAABAAAAAAAAAAAAEAQAA=</HashCode>
+      <FileName>inc\SphericalExpFogPointEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToricExpFogEffect" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAGCAAIAQgQAAAAIAwGAAABIAAAAYgAQAAAAEQAA=</HashCode>
+      <FileName>inc\ToricExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
