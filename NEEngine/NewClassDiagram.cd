@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Effect" Collapsed="true">
-    <Position X="5" Y="4.5" Width="1.25" />
+    <Position X="3.25" Y="6" Width="1.25" />
     <TypeIdentifier>
       <HashCode>BAAEAGCAAAiAAQAAAAIAACAAABAgAAAAAAAAAAAARAA=</HashCode>
       <FileName>inc\Effect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicExpFogEffect" Collapsed="true">
-    <Position X="2.25" Y="5.5" Width="2" />
+    <Position X="0.5" Y="7" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAAgQAAAAIAxCACABIAAAAYgAQAAAAEAAA=</HashCode>
       <FileName>inc\HyperbolicExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalDopplerEffect" Collapsed="true">
-    <Position X="3.5" Y="8" Width="2" />
+    <Position X="1.75" Y="9.5" Width="2" />
     <NestedTypes>
       <Struct Name="SphericalDopplerEffect::PerApplicationPSConstantBufferDoppler" Collapsed="true">
         <TypeIdentifier>
@@ -39,28 +39,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalEffect" Collapsed="true">
-    <Position X="4.75" Y="5.5" Width="1.75" />
+    <Position X="3" Y="7" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAgAAAAAAgAAAAAAAAgAAAAAAAAiAAAA=</HashCode>
       <FileName>inc\SphericalEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogEffect" Collapsed="true">
-    <Position X="4.75" Y="6.75" Width="1.75" />
+    <Position X="3" Y="8.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAAgQQAAAIAQCAAABIAAoAYgAQAAgAEQAA=</HashCode>
       <FileName>inc\SphericalExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogPointEffect" Collapsed="true">
-    <Position X="5.75" Y="8" Width="2.25" />
+    <Position X="4" Y="9.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAQAAAAIAAAAAABAAAAAAAAAAAAEAQAA=</HashCode>
       <FileName>inc\SphericalExpFogPointEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ToricExpFogEffect" Collapsed="true">
-    <Position X="7" Y="5.5" Width="1.5" />
+    <Position X="5.25" Y="7" Width="1.5" />
     <NestedTypes>
       <Struct Name="ToricExpFogEffect::PerApplicationVSConstantBuffer" Collapsed="true">
         <TypeIdentifier>
@@ -199,108 +199,136 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Game" Collapsed="true">
-    <Position X="1.5" Y="2.75" Width="1.5" />
+    <Position X="7.25" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAQA8IVOAAgAgxaQQmMAgAAhBoiCYAhEGhAj0spCSY0=</HashCode>
       <FileName>inc\Game.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Texture" Collapsed="true">
-    <Position X="6.75" Y="4.5" Width="1.5" />
+    <Position X="5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAQACAAAAgQABAAAAAQBAAAAAAACAAAIAAEAAAAA=</HashCode>
       <FileName>inc\Texture.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sound" Collapsed="true">
-    <Position X="2.25" Y="3.75" Width="1.5" />
+    <Position X="9" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAABAAAAAAAAEAAIAAQAACAhAAAAAAAAAA=</HashCode>
       <FileName>inc\Sound.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Scene" Collapsed="true">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="7.25" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAQQACAAEAAAACAhiAACKABAQAAAAACAEJABIEAAAAg=</HashCode>
       <FileName>inc\Scene.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ResourceManager" Collapsed="true">
-    <Position X="4" Y="3.75" Width="1.5" />
+    <Position X="9" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAMAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAQAE=</HashCode>
       <FileName>inc\ResourceManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entity" Collapsed="true">
-    <Position X="2" Y="0.5" Width="1.5" />
+    <Position X="1.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAEIEQAAEAAABBAAACCAAAAQEBQAAAAABAA=</HashCode>
       <FileName>inc\Entity.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Component" Collapsed="true">
-    <Position X="13.5" Y="0.5" Width="1.5" />
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAQAAAAAAAAAAABAAAAAAAABAAAAAAAA=</HashCode>
       <FileName>inc\Component.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ComponentTypeManager" Collapsed="true">
-    <Position X="16" Y="0.5" Width="2.25" />
+    <Position X="15" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABAAQAwhCAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>inc\ComponentTypeManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DopplerComponent" Collapsed="true">
-    <Position X="16.5" Y="4" Width="2" />
+    <Position X="15.5" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAABAEAAAAAIAAAAAAAAAAAUAAIgAAABAAAA=</HashCode>
       <FileName>inc\DopplerComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextComponent" Collapsed="true">
-    <Position X="17" Y="1.5" Width="1.5" />
+    <Position X="16" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAgAEAACAAAgAIAAAAAAAAQAAIAACAAAAAAAgAAAA=</HashCode>
       <FileName>inc\TextComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UpdaterComponent" Collapsed="true">
-    <Position X="16.75" Y="2.5" Width="2" />
+    <Position X="15.75" Y="2.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>inc\UpdaterComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TransformComponent" Collapsed="true">
-    <Position X="8.75" Y="1.5" Width="2" />
+    <Position X="6.5" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>QAAAJAAgAOGACaAAAAAAIAAAEARAAAFAAEABABFAAYA=</HashCode>
       <FileName>inc\TransformComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ToricTransformComponent" Collapsed="true">
-    <Position X="11.25" Y="2.75" Width="2.25" />
+    <Position X="9" Y="2.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAIAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAgAA=</HashCode>
       <FileName>inc\ToricTransformComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalTransformComponent" Collapsed="true">
-    <Position X="5.75" Y="2.75" Width="2.5" />
+    <Position X="3.5" Y="2.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAgAKAIAAAIAIAARAAAMAAAIANAAAAAAACEEwA=</HashCode>
       <FileName>inc\SphericalTransformComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicTransformComponent" Collapsed="true">
-    <Position X="8.5" Y="2.75" Width="2.5" />
+    <Position X="6.25" Y="2.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAgAKAAAAAAAIAAQAAAMEAAAANAAAAAAAAEEQA=</HashCode>
       <FileName>inc\HyperbolicTransformComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalCameraComponent" Collapsed="true">
+    <Position X="3.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAIAAAAgAABAAAAAAAAAAgAAAAAAAAIBAAAAgAgA=</HashCode>
+      <FileName>inc\SphericalCameraComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraComponent" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAABAIAghAAAAAABAgAAAUBCgQAAAAAYAAAA=</HashCode>
+      <FileName>inc\CameraComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HyperbolicCameraComponent" Collapsed="true">
+    <Position X="6.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\HyperbolicCameraComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshComponent" Collapsed="true">
+    <Position X="10" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAACCKAEACAAgABAACgABAAAAgIAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>inc\MeshComponent.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
