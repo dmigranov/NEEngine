@@ -129,7 +129,6 @@
     <ClInclude Include="inc\SphericalEffect.h" />
     <ClInclude Include="inc\SphericalExpFogEffect.h" />
     <ClInclude Include="inc\MeshLoader.h" />
-    <ClInclude Include="inc\RenderSystem.h" />
     <ClInclude Include="inc\ResourceManager.h" />
     <ClInclude Include="inc\Scene.h" />
     <ClInclude Include="inc\SphericalCube.h" />

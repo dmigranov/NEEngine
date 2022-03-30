@@ -332,9 +332,6 @@
     <ClInclude Include="inc\Component.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="inc\RenderSystem.h">
-      <Filter>Файлы заголовков\Systems</Filter>
-    </ClInclude>
     <ClInclude Include="inc\System.h">
       <Filter>Файлы заголовков\Systems</Filter>
     </ClInclude>

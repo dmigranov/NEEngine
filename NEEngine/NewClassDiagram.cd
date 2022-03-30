@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Effect" Collapsed="true">
     <Position X="6.75" Y="1" Width="1.25" />
     <TypeIdentifier>
@@ -64,6 +64,34 @@
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAQgQAAAAIAwGAAABIAAAAYgAQAAAAEQAA=</HashCode>
       <FileName>inc\ToricExpFogEffect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalMeshComponentFactory" Collapsed="true">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAADAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalMeshComponentFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeshComponentFactory" Collapsed="true">
+    <Position X="13.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>inc\MeshComponentFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HyperbolicMeshComponentFactory" Collapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\HyperbolicMeshComponentFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EuclideanMeshComponentFactory" Collapsed="true">
+    <Position X="15.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
+      <FileName>inc\EuclideanMeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
