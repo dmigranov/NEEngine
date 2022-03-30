@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="Effect" Collapsed="true">
-    <Position X="6.75" Y="1" Width="1.25" />
+    <Position X="5" Y="4.5" Width="1.25" />
     <TypeIdentifier>
       <HashCode>BAAEAGCAAAiAAQAAAAIAACAAABAgAAAAAAAAAAAARAA=</HashCode>
       <FileName>inc\Effect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicExpFogEffect" Collapsed="true">
-    <Position X="4" Y="2" Width="2" />
+    <Position X="2.25" Y="5.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAAgQAAAAIAxCACABIAAAAYgAQAAAAEAAA=</HashCode>
       <FileName>inc\HyperbolicExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalDopplerEffect" Collapsed="true">
-    <Position X="5.25" Y="4.5" Width="2" />
+    <Position X="3.5" Y="8" Width="2" />
     <NestedTypes>
       <Struct Name="SphericalDopplerEffect::PerApplicationPSConstantBufferDoppler" Collapsed="true">
         <TypeIdentifier>
@@ -39,59 +39,136 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalEffect" Collapsed="true">
-    <Position X="6.5" Y="2" Width="1.75" />
+    <Position X="4.75" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAgAAAAAAgAAAAAAAAgAAAAAAAAiAAAA=</HashCode>
       <FileName>inc\SphericalEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogEffect" Collapsed="true">
-    <Position X="6.5" Y="3.25" Width="1.75" />
+    <Position X="4.75" Y="6.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAAgQQAAAIAQCAAABIAAoAYgAQAAgAEQAA=</HashCode>
       <FileName>inc\SphericalExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalExpFogPointEffect" Collapsed="true">
-    <Position X="7.5" Y="4.5" Width="2.25" />
+    <Position X="5.75" Y="8" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAQAAAAIAAAAAABAAAAAAAAAAAAEAQAA=</HashCode>
       <FileName>inc\SphericalExpFogPointEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ToricExpFogEffect" Collapsed="true">
-    <Position X="8.75" Y="2" Width="1.5" />
+    <Position X="7" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAGCAAIAQgQAAAAIAwGAAABIAAAAYgAQAAAAEQAA=</HashCode>
       <FileName>inc\ToricExpFogEffect.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalMeshComponentFactory" Collapsed="true">
-    <Position X="11" Y="2" Width="1.5" />
+    <Position X="9" Y="7.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAADAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>inc\SphericalMeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MeshComponentFactory" Collapsed="true">
-    <Position X="13.25" Y="0.75" Width="1.5" />
+    <Position X="12.25" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>inc\MeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicMeshComponentFactory" Collapsed="true">
-    <Position X="13.25" Y="2" Width="1.5" />
+    <Position X="11.75" Y="7.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>inc\HyperbolicMeshComponentFactory.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EuclideanMeshComponentFactory" Collapsed="true">
-    <Position X="15.5" Y="2" Width="1.5" />
+    <Position X="15" Y="7.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
       <FileName>inc\EuclideanMeshComponentFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEIAAAAQAAAAAABAAAABAgAAAEIAAAAAAAAA=</HashCode>
+      <FileName>inc\System.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HyperbolicRenderSystem" Collapsed="true">
+    <Position X="31" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>inc\HyperbolicRenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputSystem" Collapsed="true">
+    <Position X="14.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQCAAEQAAAABAAAAAAAAAAAAAAAAAAAAKAA=</HashCode>
+      <FileName>inc\InputSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HyperbolicControlSystem" Collapsed="true">
+    <Position X="31" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAIAAQAAAABBgCAIAAAAAAAAAEQA=</HashCode>
+      <FileName>inc\HyperbolicControlSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ActionSystem&lt;...T&gt;" Collapsed="true">
+    <Position X="31" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\ActionSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalControlSystem" Collapsed="true">
+    <Position X="28.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAIAAQAAAAABgCAIAAAAAgAAAEQA=</HashCode>
+      <FileName>inc\SphericalControlSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalRenderSystem" Collapsed="true">
+    <Position X="28.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAABAAIAiAAgA=</HashCode>
+      <FileName>inc\SphericalRenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextPrintingSystem" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>inc\TextPrintingSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToricControlSystem" Collapsed="true">
+    <Position X="33.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\ToricControlSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToricRenderSystem" Collapsed="true">
+    <Position X="33.25" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAAAAAAAAAQAAAAACAAQAAAAAAAAAFAAAAACAAA=</HashCode>
+      <FileName>inc\ToricRenderSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UpdaterSystem" Collapsed="true">
+    <Position X="17.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\UpdaterSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
