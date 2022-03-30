@@ -102,63 +102,63 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicRenderSystem" Collapsed="true">
-    <Position X="31" Y="4" Width="2" />
+    <Position X="22.5" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>inc\HyperbolicRenderSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InputSystem" Collapsed="true">
-    <Position X="14.75" Y="2.75" Width="1.5" />
+    <Position X="17.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQCAAEQAAAABAAAAAAAAAAAAAAAAAAAAKAA=</HashCode>
       <FileName>inc\InputSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HyperbolicControlSystem" Collapsed="true">
-    <Position X="31" Y="2.75" Width="2" />
+    <Position X="22.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAIAAQAAAABBgCAIAAAAAAAAAEQA=</HashCode>
       <FileName>inc\HyperbolicControlSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ActionSystem&lt;...T&gt;" Collapsed="true">
-    <Position X="31" Y="1.75" Width="2" />
+    <Position X="22.5" Y="1.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>inc\ActionSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalControlSystem" Collapsed="true">
-    <Position X="28.75" Y="2.75" Width="2" />
+    <Position X="20.25" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAIAAQAAAAABgCAIAAAAAgAAAEQA=</HashCode>
       <FileName>inc\SphericalControlSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SphericalRenderSystem" Collapsed="true">
-    <Position X="28.75" Y="4" Width="2" />
+    <Position X="20.25" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAABAAIAiAAgA=</HashCode>
       <FileName>inc\SphericalRenderSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextPrintingSystem" Collapsed="true">
-    <Position X="20" Y="2.5" Width="1.5" />
+    <Position X="17.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>inc\TextPrintingSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ToricControlSystem" Collapsed="true">
-    <Position X="33.25" Y="2.75" Width="2" />
+    <Position X="24.75" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>inc\ToricControlSystem.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ToricRenderSystem" Collapsed="true">
-    <Position X="33.25" Y="4" Width="2" />
+    <Position X="24.75" Y="4" Width="2" />
     <TypeIdentifier>
       <HashCode>AIEAAAAAAAAAAAQAAAAACAAQAAAAAAAAAFAAAAACAAA=</HashCode>
       <FileName>inc\ToricRenderSystem.h</FileName>
