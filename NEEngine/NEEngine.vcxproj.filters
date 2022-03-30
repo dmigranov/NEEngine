@@ -533,5 +533,6 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="ClassDiagram.cd" />
+    <None Include="NewClassDiagram.cd" />
   </ItemGroup>
 </Project>
