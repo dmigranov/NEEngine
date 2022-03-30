@@ -306,11 +306,13 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-        pitch = 1.99 * (chi / XM_2PI - 0.5); 
+        pitch = -1.99 * (chi / XM_2PI - 0.5); 
         
 
         auto maxRadius = 4.; //! has to be changed if the radius formula is changed
-        pitch = 1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
+        pitch = -1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
+
+        std::cout << pitch << std::endl;
 
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
