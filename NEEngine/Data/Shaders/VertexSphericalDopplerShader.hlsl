@@ -127,7 +127,7 @@ VertexShaderOutput main(VertexShaderInput IN
 
 		//double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter); //0.3 - чтобы все не пересекалось из-за нулевого радиуса
 		//double radiusOldCenter = RadiusAbridgedFunction(mu - chiCenter);
-		double radiusOldCenter = RadiusFunction(mu - chiCenter);
+		double radiusOldCenter = RadiusFunction(mu + 0.3 - chiCenter);
 
 		float w_new = radiusOldCenter * (1 - 2 * pow(sin(distanceFromPointToCenter / (2 * radiusOldCenter)), 2));
 
