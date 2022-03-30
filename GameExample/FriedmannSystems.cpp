@@ -319,7 +319,7 @@ void SoundSystem::Execute(double deltaTime)
     else
     {
         m_pSound->SetVolume(0.);
-        m_pSound->SetPitch(-0.5f);
+        m_pSound->SetPitch(0.f);
     }
 }
 
