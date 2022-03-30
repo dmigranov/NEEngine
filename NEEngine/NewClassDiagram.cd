@@ -262,7 +262,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TextComponent" Collapsed="true">
-    <Position X="11.75" Y="1.5" Width="1.5" />
+    <Position X="11.5" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAgAEAACAAAgAIAAAAAAAAQAAIAACAAAAAAAgAAAA=</HashCode>
       <FileName>inc\TextComponent.h</FileName>
