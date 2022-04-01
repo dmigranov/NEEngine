@@ -120,8 +120,12 @@ void SphericalTransformComponent::Recalculate()
 	RPitch = SphericalRotationYZ(-m_pitch);
 	RRoll = SphericalRotationXY(-m_roll);
 	//R = RPitch * RYaw * RRoll; //todo: order? 
+	//R = RRoll * RYaw * RPitch // так было сделано в коммите "может, так?" от 28 февраля
+	// до этого же питч был слева, как сейчас
+	// контекст: это было как-то связано с вращением объектов (не камеры)
 	R = RRoll * RPitch * RYaw;
-	//неправильно!
+	//но теперь надо фиксить бэкспейс!
+
 	m_world = S * R * T;
 
 	if (nullptr != m_pParent)
