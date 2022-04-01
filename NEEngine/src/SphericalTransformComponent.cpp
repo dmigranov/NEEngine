@@ -124,7 +124,6 @@ void SphericalTransformComponent::Recalculate()
 	// до этого же питч был слева, как сейчас
 	// контекст: это было как-то связано с вращением объектов (не камеры)
 	R = RRoll * RPitch * RYaw;
-	//но теперь надо фиксить бэкспейс!
 
 	m_world = S * R * T;
 
