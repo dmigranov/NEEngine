@@ -200,6 +200,10 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity2);
 
+    //auto test = Vector4::Transform(Vector4(0, 0, 0, 1), SphericalRotationYW(0.1));
+    //std::cout << test.x << " " << test.y << " " << test.z << " " << test.w << " " << std::endl;
+    //две строки сверху - доказательство использования вектор строк
+
     return game.StartGame();
 }
 
