@@ -77,10 +77,6 @@ VertexShaderOutput main(VertexShaderInput IN
 	float4 position; //итоговая позиция
 	float4 position1 = normalize(IN.position); //нормализованные координаты: лежат на единичной гиперсфере
 
-	const float epsilon = 0.3f;
-	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
-	const float bigRadius = 0.999f;
-
 	float4 objectCenter = mul(viewWorld, float4(0, 0, 0, 1));
 	float chiCenter = SphericalDistance(float4(0, 0, 0, 1), objectCenter, 1);
 	if (instanceID == 1)
@@ -88,6 +84,11 @@ VertexShaderOutput main(VertexShaderInput IN
 	
 	// artificial scaling
 	/*		
+	const float epsilon = 0.3f;
+	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
+	const float bigRadius = 0.999f;
+
+
 	float muStart = chiCenter;
 	float muEnd = muStart + epsilon;
 	float scaleCoeff, wScaleCoeff;
