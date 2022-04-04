@@ -19,12 +19,23 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
 
     double m_dx = 0, m_dy = 0;
 
-    //if (ms.leftButton)
+
     if(pInput->IsRelative())
     {
         //pitch - around x, yaw - around y
         m_dx = -ms.x * rotationSpeed * deltaTime;
         m_dy = ms.y * rotationSpeed * deltaTime;
+
+        /*
+        if(kbs.Q)
+            m_dx = rotationSpeed * deltaTime;
+        if (kbs.E)
+            m_dx = -rotationSpeed * deltaTime;
+        if (kbs.O)
+            m_dy = rotationSpeed * deltaTime;
+        if (kbs.L)
+            m_dy = -rotationSpeed * deltaTime;
+            */
 
         m_pitch += m_dy;
         m_yaw += m_dx;
@@ -56,10 +67,10 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dx = -movementSpeed * deltaTime;
     if (kbs.D)
         dx = movementSpeed * deltaTime;
-    if (kbs.Q)
-        dy = -movementSpeed * deltaTime;
-    if (kbs.Z)
-        dy = movementSpeed * deltaTime;
+    //if (kbs.Q)
+    //    dy = -movementSpeed * deltaTime;
+    //if (kbs.Z)
+    //    dy = movementSpeed * deltaTime;
 
     if (kbs.Back)
         pTransform->SetPitchYawRoll(XM_2PI - m_pitch, m_yaw + XM_PI, 0); //todo: исправить!
