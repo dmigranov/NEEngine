@@ -62,7 +62,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         dy = movementSpeed * deltaTime;
 
     if (kbs.Back)
-        pTransform->SetPitchYawRoll(m_pitch + XM_PI, m_yaw, 0); //todo: исправить!
+        pTransform->SetPitchYawRoll(m_pitch + XM_PI, XM_2PI - m_yaw, 0); //todo: исправить!
     else
         pTransform->SetPitchYawRoll(m_pitch, m_yaw, 0);
 
