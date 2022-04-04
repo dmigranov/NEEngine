@@ -82,28 +82,6 @@ VertexShaderOutput main(VertexShaderInput IN
 	if (instanceID == 1)
 		chiCenter += 3.14159265f;
 	
-	// artificial scaling
-	/*		
-	const float epsilon = 0.3f;
-	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
-	const float bigRadius = 0.999f;
-
-
-	float muStart = chiCenter;
-	float muEnd = muStart + epsilon;
-	float scaleCoeff, wScaleCoeff;
-	
-	float rNewAddition = (muEnd - clamp((float)mu, muStart, muEnd)) / epsilon;
-	float rNew = initialRadius + (bigRadius - initialRadius) * rNewAddition;
-	scaleCoeff = rNew / initialRadius;
-	wScaleCoeff = sqrt((1 - rNew * rNew) / (1 - initialRadius * initialRadius));
-	matrix scaleMatrix = matrix(scaleCoeff, 0, 0, 0,
-								0, scaleCoeff, 0, 0,
-								0, 0, scaleCoeff, 0,
-								0, 0, 0, wScaleCoeff); 
-	position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
-	*/
-
 	double radius = RadiusFunction(mu);
 
 	if (abs(position1.w - 1) < 0.00001)
@@ -156,3 +134,25 @@ VertexShaderOutput main(VertexShaderInput IN
 }
 
 // TODO: исследовать проблему с использованием констант
+
+// artificial scaling: after chiCenter and radius calculation
+	/*
+	const float epsilon = 0.3f;
+	const float initialRadius = 0.1f; //!!!: pass to shader from CPU!
+	const float bigRadius = 0.999f;
+
+
+	float muStart = chiCenter;
+	float muEnd = muStart + epsilon;
+	float scaleCoeff, wScaleCoeff;
+
+	float rNewAddition = (muEnd - clamp((float)mu, muStart, muEnd)) / epsilon;
+	float rNew = initialRadius + (bigRadius - initialRadius) * rNewAddition;
+	scaleCoeff = rNew / initialRadius;
+	wScaleCoeff = sqrt((1 - rNew * rNew) / (1 - initialRadius * initialRadius));
+	matrix scaleMatrix = matrix(scaleCoeff, 0, 0, 0,
+								0, scaleCoeff, 0, 0,
+								0, 0, scaleCoeff, 0,
+								0, 0, 0, wScaleCoeff);
+	position1 = mul(scaleMatrix, position1);			//!!! закомментировать если не нужно делать большими
+	*/
