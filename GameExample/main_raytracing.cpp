@@ -107,6 +107,8 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
         float startRadius = 0.14f;
         float multiplier = 2.f - startRadius / 2;
         double muOriginal = mu - chi;
+
+        //double effectiveRadius = 2 * (1 - cos(muOriginal));
         double effectiveRadius = startRadius + multiplier * (1 - cos(muOriginal));
 
         w_sphere = effectiveRadius - 2 * effectiveRadius * pow(sin(initialObjectRadius / effectiveRadius / 2), 2);
