@@ -291,7 +291,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 void SoundSystem::Execute(double deltaTime)
 {
     auto pSelectedEntity = m_pSelectionSystem->GetSelectedEntity();
-    if (pSelectedEntity != nullptr) //&& is visible todo
+    if (pSelectedEntity != nullptr)
     {
         float pitch;
         const auto& view = m_pCameraTransform->GetView();
@@ -306,13 +306,10 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-        pitch = -1.99 * (chi / XM_2PI - 0.5); 
+        //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
         
-
         auto maxRadius = 4.; //! has to be changed if the radius formula is changed
-        //pitch = -1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
-        std::cout << 1.99 * (chi * radius / maxRadius / XM_2PI - 0.5) << std::endl;
-        //todo: это - неправильная формула! исправить
+        pitch = -1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
 
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
