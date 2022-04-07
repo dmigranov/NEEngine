@@ -83,6 +83,7 @@ SphericalControlSystem::SphericalControlSystem(double movementSpeed, double rota
         tempVector = Vector4::Transform(tempVector, RYaw);
 
         pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
+        //pTransform->Move(dx, dy, dz);
     }
 
     pInput->SetRelative(ms.leftButton ? true : false);

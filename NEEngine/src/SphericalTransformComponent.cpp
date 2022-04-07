@@ -40,7 +40,7 @@ void SphericalTransformComponent::Move(double dx, double dy, double dz)
 	//Matrix dT = SphericalRotationZW(dz) * SphericalRotationYW(dy) * SphericalRotationXW(dx);
 	Matrix dT = SphericalRotationXW(dx) * SphericalRotationYW(dy) * SphericalRotationZW(dz);
 	//T = R.Transpose() * dT * R * T;
-	T = dT * T;
+	T = dT * T; //за направление отвечает sphericalcontrolsystem
 
 	m_shouldRecalcWorld = true;
 	m_shouldRecalcView = true;
