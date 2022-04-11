@@ -48,8 +48,8 @@ int main(int argc, char* argv[])
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
-    //Sound* dClicksSound = new Sound(L"clicks_4.wav"); //todo более короткий файл
-    //dClicksSound->Play(true);
+    Sound* dClicksSound = new Sound(L"clicks_4.wav"); 
+    dClicksSound->Play(true);
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -144,24 +144,6 @@ int main(int argc, char* argv[])
 
     scene->AddEntity(textEntity1);
     
-    Sound* dynamicSound = new DynamicSound([](int16_t* data, int sampleRate, int frequency) {
-        //todo: через замыкание передавать хи?
-
-        const double timeStep = 1.0 / double(sampleRate);
-        const double freq = double(frequency);
-
-        int16_t* ptr = data;
-        double time = 0.0;
-        for (int j = 0; j < sampleRate; ++j, ++ptr)
-        {
-            double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
-            *ptr = int16_t(32768 * factor);
-            time += timeStep;
-        }
-        });
-    dynamicSound->Play();
-
     System* controlSystem = nullptr;
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
@@ -169,7 +151,7 @@ int main(int argc, char* argv[])
     SelectionSystem* selectionSystem = nullptr;
     System* soundSystem = nullptr;
 
-    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, dynamicSound,
+    auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius, dClicksSound,
         &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem, &soundSystem);
     
     scene->AddSystem(controlSystem);

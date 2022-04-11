@@ -283,7 +283,26 @@ double RadiusUpdateSystem::RadiusFunction(double mu)
 
 SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
 {
-    m_pSound = pSound;
+    m_pSoundOld = pSound;
+
+    m_pSound = new DynamicSound([](int16_t* data, int sampleRate, int frequency) {
+        //todo: через замыкание передавать хи?
+
+        const double timeStep = 1.0 / double(sampleRate);
+        const double freq = double(frequency);
+
+        int16_t* ptr = data;
+        double time = 0.0;
+        for (int j = 0; j < sampleRate; ++j, ++ptr)
+        {
+            double angle = (2.0 * XM_PI * freq) * time;
+            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            *ptr = int16_t(32768 * factor);
+            time += timeStep;
+        }
+        });
+    m_pSound->Play();
+
     m_pSelectionSystem = pSelectionSystem;
     m_pCameraTransform = pCameraTransform;
 }

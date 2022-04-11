@@ -71,6 +71,7 @@ public:
 	virtual void Execute(double deltaTime) override;
 private:
 	Sound* m_pSound;
+	Sound* m_pSoundOld;
 	SelectionSystem* m_pSelectionSystem;
 	SphericalTransformComponent* m_pCameraTransform;
 };
