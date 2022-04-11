@@ -172,6 +172,7 @@ private:
     friend class InputSystem;
 
     friend class Sound;
+    friend class DynamicSound;
 };
 
 
