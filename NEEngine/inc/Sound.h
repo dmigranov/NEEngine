@@ -13,8 +13,8 @@ public:
 	void SetPan(float pan);
 
 private:
-	std::unique_ptr<DirectX::SoundEffect> m_soundEffect;
-	std::unique_ptr<DirectX::SoundEffectInstance> m_soundEffectInstance;
+	DirectX::SoundEffect* m_soundEffect = nullptr;
+	DirectX::SoundEffectInstance* m_soundEffectInstance = nullptr;
 
 	std::function<void(int16_t*, int, int)> m_generateFunction;
 };

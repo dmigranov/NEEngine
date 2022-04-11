@@ -10,8 +10,8 @@ Sound::Sound(const wchar_t* waveFileName)
 {
 	auto& game = Game::GetInstance();
 
-	m_soundEffect = std::make_unique<SoundEffect>(game.m_audEngine.get(), waveFileName);
-	m_soundEffectInstance = m_soundEffect->CreateInstance();
+	m_soundEffect = new SoundEffect(game.m_audEngine.get(), waveFileName);
+	m_soundEffectInstance = m_soundEffect->CreateInstance().get();
 }
 
 Sound::Sound(std::function<void(int16_t*, int, int)> generateFunction)
@@ -19,17 +19,17 @@ Sound::Sound(std::function<void(int16_t*, int, int)> generateFunction)
 	auto& game = Game::GetInstance();
 
 	m_generateFunction = generateFunction;
-	m_soundEffectInstance = std::make_unique<DynamicSoundEffectInstance>(game.m_audEngine.get(),
+	m_soundEffectInstance = (SoundEffectInstance*)(new DynamicSoundEffectInstance(game.m_audEngine.get(),
 		[](DynamicSoundEffectInstance*)
 		{
 			// 'Buffer needed' event handler
 		},
-		44100, 1);
+		44100, 1));
 }
 
 Sound::~Sound()
 {
-	m_soundEffectInstance.reset();
+	delete m_soundEffectInstance;
 }
 
 void Sound::Play(bool loop)
