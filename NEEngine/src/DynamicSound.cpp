@@ -44,4 +44,5 @@ DynamicSound::~DynamicSound()
 
 void DynamicSound::Play(bool loop)
 {
+	m_dynamicSoundEffectInstance->Play();
 }
