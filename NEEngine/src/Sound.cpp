@@ -6,6 +6,11 @@
 
 using namespace DirectX;
 
+Sound::Sound()
+{
+	
+}
+
 Sound::Sound(const wchar_t* waveFileName)
 {
 	auto& game = Game::GetInstance();

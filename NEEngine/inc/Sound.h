@@ -11,6 +11,9 @@ public:
 	void SetPitch(float pitch);
 	void SetPan(float pan);
 
+protected:
+	Sound();
+
 private:
 	std::unique_ptr<DirectX::SoundEffect> m_soundEffect;
 	std::unique_ptr<DirectX::SoundEffectInstance> m_soundEffectInstance;
