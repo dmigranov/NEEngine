@@ -46,3 +46,18 @@ void DynamicSound::Play(bool loop)
 {
 	m_dynamicSoundEffectInstance->Play();
 }
+
+void DynamicSound::SetVolume(float volume)
+{
+	m_dynamicSoundEffectInstance->SetVolume(volume);
+}
+
+void DynamicSound::SetPitch(float pitch)
+{
+	m_dynamicSoundEffectInstance->SetPitch(pitch);
+}
+
+void DynamicSound::SetPan(float pan)
+{
+	m_dynamicSoundEffectInstance->SetPan(pan);
+}
