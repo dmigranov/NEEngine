@@ -21,15 +21,7 @@ Sound::Sound(const wchar_t* waveFileName)
 
 Sound::Sound(std::function<void(int16_t*, int, int)> generateFunction)
 {
-	auto& game = Game::GetInstance();
-
-	m_generateFunction = generateFunction;
-	m_soundEffectInstance = std::make_unique<DynamicSoundEffectInstance>(game.m_audEngine.get(),
-		[](DynamicSoundEffectInstance*)
-		{
-			// 'Buffer needed' event handler
-		},
-		44100, 1);
+	
 }
 
 Sound::~Sound()
