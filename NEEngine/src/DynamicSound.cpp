@@ -18,6 +18,9 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 		[this](DynamicSoundEffectInstance* effect)
 		{
 			// 'Buffer needed' event handler
+			// This callback function is invoked whenever there are <= 2 buffers pending 
+			// or whenever a buffer completes playback. 
+			// You should submit sufficient data to avoid starving the voice.
 
 			int count = effect->GetPendingBufferCount();
 			while (count < 3)
