@@ -155,7 +155,7 @@ int main(int argc, char* argv[])
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 0.5 * (sin(angle) + 1.0);
+            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
