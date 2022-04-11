@@ -39,4 +39,5 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 
 DynamicSound::~DynamicSound()
 {
+	m_dynamicSoundEffectInstance.reset();
 }
