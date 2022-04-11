@@ -19,11 +19,6 @@ Sound::Sound(const wchar_t* waveFileName)
 	m_soundEffectInstance = m_soundEffect->CreateInstance();
 }
 
-Sound::Sound(std::function<void(int16_t*, int, int)> generateFunction)
-{
-	
-}
-
 Sound::~Sound()
 {
 	m_soundEffectInstance.reset();
