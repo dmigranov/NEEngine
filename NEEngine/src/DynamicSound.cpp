@@ -4,6 +4,8 @@
 #include "Game.h"
 #include "Scene.h"
 
+using namespace DirectX;
+
 DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunction)
 {
 	auto& game = Game::GetInstance();
