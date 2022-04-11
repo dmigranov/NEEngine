@@ -31,6 +31,7 @@
     <ClCompile Include="src\BitmapRenderSystem.cpp" />
     <ClCompile Include="src\ComponentTypeManager.cpp" />
     <ClCompile Include="src\DopplerComponent.cpp" />
+    <ClCompile Include="src\DynamicSound.cpp" />
     <ClCompile Include="src\EuclideanMeshComponentFactory.cpp" />
     <ClCompile Include="src\HyperbolicCameraComponent.cpp" />
     <ClCompile Include="src\HyperbolicControlSystem.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="inc\ComponentTypeManager.h" />
     <ClInclude Include="inc\DopplerComponent.h" />
     <ClInclude Include="inc\Drawer2D.h" />
+    <ClInclude Include="inc\DynamicSound.h" />
     <ClInclude Include="inc\Effect.h" />
     <ClInclude Include="inc\Entity.h" />
     <ClInclude Include="inc\EuclideanMeshComponentFactory.h" />

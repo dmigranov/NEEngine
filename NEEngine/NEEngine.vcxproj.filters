@@ -282,6 +282,9 @@
     <ClCompile Include="src\Sound.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\DynamicSound.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -480,6 +483,9 @@
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="inc\Sound.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DynamicSound.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
