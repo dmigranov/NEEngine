@@ -74,6 +74,8 @@ private:
 	Sound* m_pSoundOld;
 	SelectionSystem* m_pSelectionSystem;
 	SphericalTransformComponent* m_pCameraTransform;
+
+	double m_currentChi;
 };
 
 

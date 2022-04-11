@@ -285,8 +285,11 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 {
     m_pSoundOld = pSound;
 
-    m_pSound = new DynamicSound([](int16_t* data, int sampleRate, int frequency) {
-        //todo: через замыкание передавать хи?
+    m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
+        
+        m_currentChi; //todo
+
+        //todo : щелчки
 
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
@@ -297,6 +300,10 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         {
             double angle = (2.0 * XM_PI * freq) * time;
             double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+
+            // PCM: 16 bit
+            // -32 767 … 32 767 
+
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
@@ -325,6 +332,8 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
+            m_currentChi = chi;
+        /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
         
         auto maxRadius = 4.; //! has to be changed if the radius formula is changed
@@ -333,11 +342,13 @@ void SoundSystem::Execute(double deltaTime)
 
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
+        */
     }
     else
     {
-        m_pSound->SetVolume(0.);
-        m_pSound->SetPitch(0.f);
+        m_currentChi = -1;
+        //m_pSound->SetVolume(0.);
+        //m_pSound->SetPitch(0.f);
     }
 }
 
