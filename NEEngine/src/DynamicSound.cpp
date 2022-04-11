@@ -15,9 +15,10 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 	// PCM (»мпульсно-кодова€ модул€ци€) 44100 Hz, 16-bit, 1 channel
 	m_audioBytes.resize(44100 * 2);
 	m_dynamicSoundEffectInstance = std::make_unique<DynamicSoundEffectInstance>(game.m_audEngine.get(),
-		[](DynamicSoundEffectInstance*)
+		[this](DynamicSoundEffectInstance*)
 		{
 			// 'Buffer needed' event handler
+			m_audioBytes;
 		},
 		44100, 1);
 }
