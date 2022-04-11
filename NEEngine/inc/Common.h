@@ -8,6 +8,7 @@
 #include "InputComponent.h"
 #include "Entity.h"
 #include "Sound.h"
+#include "DynamicSound.h"
 
 // Components
 
