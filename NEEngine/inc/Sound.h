@@ -5,7 +5,7 @@ public:
 	Sound(const wchar_t* waveFileName);
 	~Sound();
 
-	void Play(bool loop = false);
+	virtual void Play(bool loop = false);
 
 	void SetVolume(float volume);
 	void SetPitch(float pitch);
