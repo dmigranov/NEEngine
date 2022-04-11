@@ -392,7 +392,7 @@ void Game::Update(double deltaTime)
             m_pScene->ResetLoopedSounds();
         }
     }
-    else if (!m_audEngine->Update())
+    else if (!m_audEngine->Update()) // ! Updating audio engine every frame
     {
         if (m_audEngine->IsCriticalError())
         {
