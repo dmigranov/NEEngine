@@ -17,9 +17,14 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 	m_dynamicSoundEffectInstance = std::make_unique<DynamicSoundEffectInstance>(game.m_audEngine.get(),
 		[this](DynamicSoundEffectInstance* effect)
 		{
-			int count = effect->GetPendingBufferCount();
 			// 'Buffer needed' event handler
-			m_audioBytes;
+
+			int count = effect->GetPendingBufferCount();
+			while (count < 3)
+			{
+				effect->SubmitBuffer(&m_audioBytes.front(), m_audioBytes.size());
+				++count;
+			}
 		},
 		44100, 1);
 }
