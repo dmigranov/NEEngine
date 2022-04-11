@@ -7,9 +7,9 @@ public:
 
 	virtual void Play(bool loop = false);
 
-	void SetVolume(float volume);
-	void SetPitch(float pitch);
-	void SetPan(float pan);
+	virtual void SetVolume(float volume);
+	virtual void SetPitch(float pitch);
+	virtual void SetPan(float pan);
 
 protected:
 	Sound();

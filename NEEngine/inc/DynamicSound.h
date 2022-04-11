@@ -7,7 +7,7 @@ public:
     DynamicSound(std::function<void(int16_t*, int, int)> generateFunction);
     ~DynamicSound();
 
-    virtual void Play(bool loop = false);
+    virtual void Play(bool loop = false) override;
 
 private:
     std::unique_ptr<DirectX::DynamicSoundEffectInstance> m_dynamicSoundEffectInstance;

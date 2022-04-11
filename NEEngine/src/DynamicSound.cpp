@@ -41,3 +41,7 @@ DynamicSound::~DynamicSound()
 {
 	m_dynamicSoundEffectInstance.reset();
 }
+
+void DynamicSound::Play(bool loop)
+{
+}
