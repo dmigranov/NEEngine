@@ -304,7 +304,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             currentTickMax = 2; //todo
         }
               
-
         size_t sampleCount = m_pSound->GetSampleCount(); 
 
         int repetitionStep = 0;
@@ -327,6 +326,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
+
+        currentTick = (currentTick + 1) % currentTickMax;
     }, 0.5);
 
     m_pSound->Play();
