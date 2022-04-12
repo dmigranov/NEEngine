@@ -286,7 +286,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
     m_pSoundOld = pSound;
 
     m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
-        
         double amplitude = 1;// m_currentChi / XM_2PI;
         std::cout << m_currentChi << std::endl;
         if (m_currentChi < 0)
