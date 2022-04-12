@@ -301,7 +301,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int repetitionStep = 0;
         int soundSampleCount = 50;
-        int repetitionCount = (int)(m_currentChi/XM_2PI * 10);
+        int repetitionCount = (int)(11 - m_currentChi/XM_2PI * 10);
         if(repetitionCount > 0)
             repetitionStep = sampleCount / repetitionCount;
         //sample count 8820
