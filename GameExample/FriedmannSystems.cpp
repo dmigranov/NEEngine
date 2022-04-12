@@ -324,7 +324,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double factor = (repetitionStep > 0 && j % repetitionStep < soundSampleCount) ? sin(angle) : 0; //from -1 to 1
 
             // PCM 16 bit: -32 767 … 32 767 
-
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
@@ -358,6 +357,7 @@ void SoundSystem::Execute(double deltaTime)
         else
             m_hasChiChanged = false;
         m_currentChi = chi;
+
         /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
         
