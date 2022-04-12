@@ -291,7 +291,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         if (m_currentChi < 0)
             amplitude = 0;
 
-        //todo : щелчки
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
 
@@ -308,7 +307,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
-        }, 0.25);
+        }, 0.1);
     m_pSound->Play();
 
     m_pSelectionSystem = pSelectionSystem;
