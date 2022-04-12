@@ -293,15 +293,18 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double time = 0.0;
 
 
-        static unsigned int currentTickMax = 4;
-
         // дл€ дальнейшего ”ћ≈Ќ№Ў≈Ќ»я частоты: 
         // завести статическую переменную 
         // прибавл€ть и % на currentTickMax
         // звук - только когда currentTick = 0!
         static unsigned int currentTick = 0;
+        unsigned int currentTickMax = 0;
         if (m_hasChiChanged)
+        {
             currentTick = 0;
+            currentTickMax = ...
+        }
+              
 
         size_t sampleCount = m_pSound->GetSampleCount(); 
 
