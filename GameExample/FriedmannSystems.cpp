@@ -301,7 +301,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         if (m_hasChiChanged)
         {
             currentTick = 0;
-            currentTickMax = 1; //todo
         }
               
         size_t sampleCount = m_pSound->GetSampleCount(); 
@@ -319,7 +318,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             else
             {
                 repetitionStep = sampleCount; 
-                //todo
+                currentTickMax = ((m_currentChi - XM_PI) / XM_PI * 10);
             }
         }
 
