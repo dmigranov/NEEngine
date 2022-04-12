@@ -309,7 +309,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
-        });
+        }, 0.25);
     m_pSound->Play();
 
     m_pSelectionSystem = pSelectionSystem;
