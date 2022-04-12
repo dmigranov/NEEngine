@@ -64,3 +64,8 @@ void DynamicSound::SetPan(float pan)
 {
 	m_dynamicSoundEffectInstance->SetPan(pan);
 }
+
+size_t DynamicSound::GetSampleCount()
+{
+	return m_sampleCount;
+}
