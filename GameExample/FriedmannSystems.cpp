@@ -302,12 +302,13 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
-            if (j > sampleCount / 2)
+            if (j > sampleCount / 100)
             {
                 *ptr = int16_t(0);
                 time += timeStep;
                 continue;
             }
+
             double angle = (2.0 * XM_PI * freq) * time;
             double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
