@@ -313,7 +313,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
-
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
             double factor = (repetitionStep > 0 && j % repetitionStep < soundSampleCount) ? sin(angle) : 0; //from -1 to 1
