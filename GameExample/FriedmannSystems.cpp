@@ -286,18 +286,13 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
     m_pSoundOld = pSound;
 
     m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
-        double amplitude = m_currentChi / XM_2PI;
-        if (m_currentChi < 0)
-            amplitude = 0;
-        //эксперимент работаете
-
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
 
         int16_t* ptr = data;
         double time = 0.0;
 
-        size_t sampleCount = m_pSound->GetSampleCount();
+        size_t sampleCount = m_pSound->GetSampleCount(); 
 
         int repetitionStep = 0;
         int soundSampleCount = 50;
@@ -306,8 +301,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             int repetitionCount = (int)(11 - m_currentChi / XM_2PI * 10);
             repetitionStep = sampleCount / repetitionCount;
         }
-        //sample count 8820
-
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
