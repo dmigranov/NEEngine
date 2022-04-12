@@ -4,7 +4,7 @@ class DynamicSound :
     public Sound
 {
 public:
-    DynamicSound(std::function<void(int16_t*, int, int)> generateFunction);
+    DynamicSound(std::function<void(int16_t*, int, int)> generateFunction, double length);
     ~DynamicSound();
 
     virtual void Play(bool loop = false) override;
