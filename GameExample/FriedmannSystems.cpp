@@ -302,7 +302,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
-            if (j > sampleCount / 100)
+            if (j > sampleCount / 2) //частоту можно регулировать так
             {
                 *ptr = int16_t(0);
                 time += timeStep;
