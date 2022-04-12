@@ -16,8 +16,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 	m_audioBytes.resize(44100 * 2);
 
 	// Для начала, сгенерируем буфер заранее
-	m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()),
-		44100, 440);
+	//m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), 44100, 440);
 
 	m_dynamicSoundEffectInstance = std::make_unique<DynamicSoundEffectInstance>(game.m_audEngine.get(),
 		[this](DynamicSoundEffectInstance* effect)
@@ -30,6 +29,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 			int count = effect->GetPendingBufferCount();
 			while (count < 3)
 			{
+				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), 44100, 440); //тут или за while?
 				effect->SubmitBuffer(&m_audioBytes.front(), m_audioBytes.size());
 				++count;
 			}
