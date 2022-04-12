@@ -300,9 +300,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         size_t sampleCount = m_pSound->GetSampleCount();
 
-        int repetitionCount = 1;
+        int repetitionCount = 10;
         int repetitionStep = sampleCount / repetitionCount;
-        int soundSampleCount = 10;
+        int soundSampleCount = 50;
         //sample count 8820
 
 
@@ -320,7 +320,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
-        }, 1);
+        }, 0.5);
     m_pSound->Play();
 
     m_pSelectionSystem = pSelectionSystem;
