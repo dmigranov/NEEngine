@@ -15,7 +15,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 	// PCM (»мпульсно-кодова€ модул€ци€) 44100 Hz, 16-bit, 1 channel
 	// умножаем на два - так как вектор однобайтовых чисел, а работаем с двухбайтовыми
 	// первое число - количество сэмплов
-	m_audioBytes.resize(44100 * 2);
+	m_audioBytes.resize(11025 * 2);
 
 	// ƒл€ начала, сгенерируем буфер заранее
 	//m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), 44100, 440);
