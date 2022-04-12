@@ -309,6 +309,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             repetitionStep = sampleCount / repetitionCount;
         }
 
+        auto radius = SphericalEffect::GetRadius();
+
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
 
