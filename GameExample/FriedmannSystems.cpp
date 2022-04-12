@@ -312,7 +312,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         {
             if (m_currentChi < XM_PI)
             {
-                int repetitionCount = (int)(11 - m_currentChi / XM_2PI * 10);
+                int repetitionCount = (11 - (int)(m_currentChi / XM_PI * 10)); //было 2PI
                 repetitionStep = sampleCount / repetitionCount;
                 currentTick = 0;
             }
