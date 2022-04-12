@@ -287,7 +287,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
     m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
         double amplitude = m_currentChi / XM_2PI;
-        std::cout << m_currentChi << std::endl;
         if (m_currentChi < 0)
             amplitude = 0;
         //эксперимент работаете
@@ -312,7 +311,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
             //double factor = (double)(sampleCount/2 - j) / sampleCount * 2 * (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1            //double factor = (double)(sampleCount/2 - j) / sampleCount * 2 * (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1
-            double factor = (j % repetitionStep < soundSampleCount) ? sin(angle) : 0; //from -1 to 1
+            double factor = amplitude * (j % repetitionStep < soundSampleCount) ? sin(angle) : 0; //from -1 to 1
 
             // PCM: 16 bit
             // -32 767 Е 32 767 
