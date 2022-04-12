@@ -290,6 +290,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         std::cout << m_currentChi << std::endl;
         if (m_currentChi < 0)
             amplitude = 0;
+        //эксперимент работаете
 
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
@@ -299,7 +300,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < m_pSound->GetSampleCount(); ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = amplitude * 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            double factor = 1/(time+0.1) * 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             // PCM: 16 bit
             // -32 767 Е 32 767 
