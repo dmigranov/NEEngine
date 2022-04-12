@@ -346,7 +346,10 @@ void SoundSystem::Execute(double deltaTime)
 
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
-
+        if (m_currentChi != chi)
+            m_hasChiChanged = true;
+        else
+            m_hasChiChanged = false;
         m_currentChi = chi;
         /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
