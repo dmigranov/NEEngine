@@ -294,7 +294,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
 
         // дл€ дальнейшего ”ћ≈Ќ№Ў≈Ќ»я частоты: 
-        // завести статическую переменную 
         // прибавл€ть и % на currentTickMax
         // звук - только когда currentTick = 0!
         static unsigned int currentTick = 0;
@@ -302,7 +301,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         if (m_hasChiChanged)
         {
             currentTick = 0;
-            currentTickMax = ...
+            currentTickMax = 2; //todo
         }
               
 
@@ -329,7 +328,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
-        }, 0.5);
+    }, 0.5);
+
     m_pSound->Play();
 
     m_pSelectionSystem = pSelectionSystem;
