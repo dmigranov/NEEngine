@@ -310,7 +310,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             }
 
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            double factor = sin(angle);
 
             // PCM: 16 bit
             // -32 767 … 32 767 
