@@ -336,6 +336,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
+        //todo: вылетает!
 
         currentTick = (currentTick + 1) % currentTickMax;
     }, 0.5);
