@@ -297,7 +297,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         // прибавлять и % на currentTickMax
         // звук - только когда currentTick = 0!
         static unsigned int currentTick = 0;
-        unsigned int currentTickMax = 10;
+        static unsigned int currentTickMax = 1;
         if (m_hasChiChanged)
         {
             currentTick = 0;
@@ -317,7 +317,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             }
             else
             {
-
+                repetitionStep = sampleCount;
             }
         }
 
