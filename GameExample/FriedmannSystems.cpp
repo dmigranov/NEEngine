@@ -287,7 +287,10 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
     m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
         
-        m_currentChi; //todo
+        double amplitude = 1;// m_currentChi / XM_2PI;
+        std::cout << m_currentChi << std::endl;
+        if (m_currentChi < 0)
+            amplitude = 0;
 
         //todo : щелчки
 
@@ -299,7 +302,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            double factor = amplitude * 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             // PCM: 16 bit
             // -32 767 Е 32 767 
@@ -332,7 +335,7 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
 
-            m_currentChi = chi;
+        m_currentChi = chi;
         /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
         
