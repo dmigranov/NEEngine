@@ -318,7 +318,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             else
             {
                 repetitionStep = sampleCount; 
-                currentTickMax = ((m_currentChi - XM_PI) / XM_PI * 10);
+                currentTickMax = ((m_currentChi - XM_PI) / XM_PI * 10); //проверить, вылетает!
             }
         }
 
