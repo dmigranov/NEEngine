@@ -317,7 +317,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             }
             else
             {
-                repetitionStep = sampleCount;
+                repetitionStep = sampleCount; 
+                //todo
             }
         }
 
