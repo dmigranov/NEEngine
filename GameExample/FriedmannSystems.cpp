@@ -297,11 +297,11 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         // прибавлять и % на currentTickMax
         // звук - только когда currentTick = 0!
         static unsigned int currentTick = 0;
-        unsigned int currentTickMax = 0;
+        unsigned int currentTickMax = 10;
         if (m_hasChiChanged)
         {
             currentTick = 0;
-            currentTickMax = 2; //todo
+            currentTickMax = 10; //todo
         }
               
         size_t sampleCount = m_pSound->GetSampleCount(); 
