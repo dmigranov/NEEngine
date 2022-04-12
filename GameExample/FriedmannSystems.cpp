@@ -302,6 +302,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int repetitionCount = 1;
         int repetitionStep = sampleCount / repetitionCount;
+        int soundSampleCount = 30;
+        int currentRepetitionStep = 0;
+        //sample count 8820
 
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
