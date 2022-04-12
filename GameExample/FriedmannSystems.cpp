@@ -310,8 +310,15 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int soundSampleCount = 50;
         if (m_currentChi > 0)
         {
-            int repetitionCount = (int)(11 - m_currentChi / XM_2PI * 10);
-            repetitionStep = sampleCount / repetitionCount;
+            if (m_currentChi < XM_PI)
+            {
+                int repetitionCount = (int)(11 - m_currentChi / XM_2PI * 10);
+                repetitionStep = sampleCount / repetitionCount;
+            }
+            else
+            {
+
+            }
         }
 
         auto radius = SphericalEffect::GetRadius();
