@@ -297,10 +297,10 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int16_t* ptr = data;
         double time = 0.0;
-        for (int j = 0; j < m_pSound->GetSampleCount(); ++j, ++ptr)
+        for (int j = 0; j < m_pSound->GetSampleCount()/10; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 1/(time+0.1) * 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             // PCM: 16 bit
             // -32 767 … 32 767 
