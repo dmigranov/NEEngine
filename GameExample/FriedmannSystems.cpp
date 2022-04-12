@@ -293,7 +293,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         //todo : щелчки
 
-        const double timeStep = 1.0 / double(sampleRate);
+        const double timeStep = 0.1 / double(sampleRate);
         const double freq = double(frequency);
 
         int16_t* ptr = data;

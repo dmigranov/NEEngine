@@ -27,7 +27,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 			// You should submit sufficient data to avoid starving the voice.
 
 			int count = effect->GetPendingBufferCount();
-			while (count < 3)
+			while (count < 2) //
 			{
 				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), 44100, 440); //тут или за while?
 				effect->SubmitBuffer(&m_audioBytes.front(), m_audioBytes.size());
