@@ -300,13 +300,17 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         size_t sampleCount = m_pSound->GetSampleCount();
 
+        int repetitionCount = 1;
+        int repetitionStep = sampleCount / repetitionCount;
+
+
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
-
+            
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
-            //double factor = (double)(sampleCount/2 - j) / sampleCount * 2 * (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1
-
+            //double factor = (double)(sampleCount/2 - j) / sampleCount * 2 * (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1            //double factor = (double)(sampleCount/2 - j) / sampleCount * 2 * (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1
+            double factor = (j > sampleCount / 2) ? 0 : sin(angle); //from -1 to 1
 
             // PCM: 16 bit
             // -32 767 … 32 767 
