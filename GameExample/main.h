@@ -70,7 +70,7 @@ public:
 	SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform);
 	virtual void Execute(double deltaTime) override;
 private:
-	Sound* m_pSound;
+	DynamicSound* m_pSound;
 	Sound* m_pSoundOld;
 	SelectionSystem* m_pSelectionSystem;
 	SphericalTransformComponent* m_pCameraTransform;

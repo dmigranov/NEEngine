@@ -292,13 +292,12 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             amplitude = 0;
 
         //todo : щелчки
-
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
 
         int16_t* ptr = data;
         double time = 0.0;
-        for (int j = 0; j < sampleRate/4; ++j, ++ptr)
+        for (int j = 0; j < m_pSound->GetSampleCount(); ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
             double factor = amplitude * 0.5 * (sin(angle) + 1.0); //from 0 to 1
