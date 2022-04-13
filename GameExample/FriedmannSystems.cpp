@@ -297,6 +297,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         if (m_hasObjectChanged) 
         {
+            std::cout << "changed!" << std::endl;
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
             m_hasObjectChanged = false;
@@ -367,6 +368,7 @@ void SoundSystem::Execute(double deltaTime)
             chi = XM_2PI - chi;
         m_currentChi = chi;
 
+        //! проблема в том, что тут успевает стать false!
         if (m_currentEntity != pSelectedEntity)
             m_hasObjectChanged = true;
         else
