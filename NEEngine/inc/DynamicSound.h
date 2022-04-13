@@ -13,6 +13,10 @@ public:
     virtual void SetPitch(float pitch) override;
     virtual void SetPan(float pan) override;
 
+    virtual void Stop() override;
+    virtual void Pause() override;
+    virtual void Resume() override;
+
     size_t GetSampleCount();
 private:
     std::unique_ptr<DirectX::DynamicSoundEffectInstance> m_dynamicSoundEffectInstance;

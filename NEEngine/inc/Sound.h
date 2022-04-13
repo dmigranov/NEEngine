@@ -11,6 +11,10 @@ public:
 	virtual void SetPitch(float pitch);
 	virtual void SetPan(float pan);
 
+	virtual void Stop();
+	virtual void Pause();
+	virtual void Resume();
+
 protected:
 	Sound();
 
