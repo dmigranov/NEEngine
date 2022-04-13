@@ -327,8 +327,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
             double factor = (m_currentChi > 0 && //todo: делить по модулю сразу при накапливании во избежание переполнения ниже?
                             (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < soundSampleCount)
-                ? sin(angle) 
-                : 0; //from -1 to 1
+                ? sin(angle) : 0; //from -1 to 1
 
             // PCM 16 bit: -32 767 … 32 767 
             *ptr = int16_t(32768 * factor);
