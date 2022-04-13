@@ -315,7 +315,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
-        unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds;
+        unsigned int mustBePlayedEverySamples = sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
 
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
