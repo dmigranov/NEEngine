@@ -292,7 +292,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.5, maxKnockFrequency = 50.;
+        static double minKnockFrequency = 0.01, maxKnockFrequency = 10.;
 
         if (m_hasObjectChanged) 
         {
@@ -315,7 +315,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int soundSampleCount = 30; //delta
         double knockFrequency = minKnockFrequency + (1 - m_currentChi / XM_2PI) * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
-
+        std::cout << knockFrequency << std::endl;
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
 
