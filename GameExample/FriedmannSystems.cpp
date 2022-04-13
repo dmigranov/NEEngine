@@ -313,12 +313,12 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int repetitionStep = 0;
         int soundSampleCount = 50; //delta
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
-        std::cout << knockFrequency << std::endl;
-
         
         double mustBePlayedEverySeconds = 1. / knockFrequency;
+        std::cout << mustBePlayedEverySeconds << std::endl;
+
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
-        unsigned int mustBePlayedEverySamples = sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
+        unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
 
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
