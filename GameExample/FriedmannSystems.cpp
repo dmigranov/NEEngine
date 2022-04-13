@@ -288,11 +288,14 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
     double length = 0.2;
     m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int frequency) {
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
+        static unsigned long sampleCountForCurrentObject = 0; 
+
         static double minKnockFrequency = 0.5, maxKnockFrequency = 100.;
 
         if (m_hasChiChanged) 
         {
             timeForCurrentObject = 0.;
+            sampleCountForCurrentObject = 0;
         }
 
         auto radius = SphericalEffect::GetRadius();
