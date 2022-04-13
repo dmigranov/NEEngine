@@ -293,6 +293,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             timeForCurrentObject = 0.;
         }
 
+        auto radius = SphericalEffect::GetRadius();
+
         const double timeStep = 1.0 / double(sampleRate);
         const double freq = double(frequency);
 
@@ -303,22 +305,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int repetitionStep = 0;
         int soundSampleCount = 50;
-        if (m_currentChi > 0)
-        {
-            if (m_currentChi < XM_PI)
-            {
-                int repetitionCount = (10 - (int)(m_currentChi / XM_PI * 10)); //было 2PI
-                repetitionStep = sampleCount / repetitionCount;
-                currentTick = 0; 
-            }
-            else
-            {
-                repetitionStep = sampleCount; 
-                currentTickMax = ((m_currentChi - XM_PI) / XM_PI * 10); //проверить, вылетает!
-            }
-        }
-
-        auto radius = SphericalEffect::GetRadius();
+        double frequency = 1.; //todo
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
