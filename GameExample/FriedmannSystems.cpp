@@ -327,9 +327,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //double factor = (currentTick == 0 && repetitionStep > 0 && j % repetitionStep < soundSampleCount)
             //    ? sin(angle) : 0; //from -1 to 1
 
-            // а где j? !!
-            double factor = (m_currentChi > 0 && 
-                            sampleCountForCurrentObject % mustBePlayedEverySamples < soundSampleCount)
+            double factor = (m_currentChi > 0 && //todo: делить по модулю во избежание переполнения ниже?
+                            (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < soundSampleCount)
                 ? sin(angle) 
                 : 0; //from -1 to 1
 
