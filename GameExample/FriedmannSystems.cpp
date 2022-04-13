@@ -309,7 +309,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int16_t* ptr = data;
         double time = 0.0;
-                      
+        
         int repetitionStep = 0;
         int soundSampleCount = 30; //delta
 
