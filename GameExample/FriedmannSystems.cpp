@@ -395,3 +395,64 @@ void SoundSystem::Execute(double deltaTime)
 
 
 // Ќа вс€кий случай: код без изменений (одна система на всЄ) - по состо€нию на начало 21.02.2022
+
+/*
+m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int frequency) {
+        static double currentTime = 0.0; //а может сразу в сэмплах измер€ть?
+
+        const double timeStep = 1.0 / double(sampleRate);
+        const double freq = double(frequency);
+
+        int16_t* ptr = data;
+        double time = 0.0;
+
+
+        // дл€ дальнейшего ”ћ≈Ќ№Ў≈Ќ»я частоты:
+        // прибавл€ть и % на currentTickMax
+        // звук - только когда currentTick = 0!
+        static unsigned int currentTick = 0;
+        static unsigned int currentTickMax = 1;
+        if (m_hasChiChanged)
+        {
+            currentTick = 0;
+        }
+
+        size_t sampleCount = m_pSound->GetSampleCount();
+
+        int repetitionStep = 0;
+        int soundSampleCount = 50;
+        if (m_currentChi > 0)
+        {
+            if (m_currentChi < XM_PI)
+            {
+                int repetitionCount = (10 - (int)(m_currentChi / XM_PI * 10)); //было 2PI
+                repetitionStep = sampleCount / repetitionCount;
+                currentTick = 0;
+            }
+            else
+            {
+                repetitionStep = sampleCount;
+                currentTickMax = ((m_currentChi - XM_PI) / XM_PI * 10); //проверить, вылетает!
+            }
+        }
+
+        auto radius = SphericalEffect::GetRadius();
+
+        for (int j = 0; j < sampleCount; ++j, ++ptr)
+        {
+            double angle = (2.0 * XM_PI * freq) * time;
+            //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            double factor = (currentTick == 0 && repetitionStep > 0 && j % repetitionStep < soundSampleCount)
+                ? sin(angle)
+                : 0; //from -1 to 1
+
+            // PCM 16 bit: -32 767 Е 32 767
+            *ptr = int16_t(32768 * factor);
+            time += timeStep;
+        }
+        //todo: вылетает!
+
+        currentTick = (currentTick + 1) % currentTickMax;
+        currentTime += length;
+    }, length);
+*/
