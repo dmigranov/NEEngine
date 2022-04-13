@@ -330,9 +330,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double factor = (m_currentChi > 0 &&
                             //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
                             (
-                                //(j > startPlayIndex && j < startPlayIndex + playSampleCount) 
-                                //|| 
-                                j < (sampleCountForCurrentObject + playSampleCount) % mustBePlayedEverySamples
+                                (j > startPlayIndex && j < startPlayIndex + playSampleCount) 
+                                || 
+                                (j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples)
                             ))
                 ? sin(angle) : 0; //from -1 to 1
 
