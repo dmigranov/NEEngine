@@ -325,7 +325,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //    ? sin(angle) 
             //    : 0; //from -1 to 1
 
-            double factor = (true)
+            double factor = (sampleCountForCurrentObject % mustBePlayedEverySamples < soundSampleCount)
                 ? sin(angle) 
                 : 0; //from -1 to 1
 
