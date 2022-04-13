@@ -331,8 +331,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
                             //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
                             (
                                 (j > startPlayIndex && j < startPlayIndex + playSampleCount) 
-                                || 
-                                (j < playSampleCount && j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples) //проверка на то что малеький?
+                                //|| 
+                                //(j < playSampleCount && j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples) //проверка на то что малеький?
                             ))
                 ? sin(angle) : 0; //from -1 to 1
 
