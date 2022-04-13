@@ -324,13 +324,15 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            if (j==0 || j == sampleRate - 1)
-                std::cout << time << " " << sin(angle) << std::endl;
+            //if (j==0 || j == sampleRate - 1)
+            //    std::cout << time << " " << sin(angle) << std::endl;
 
             double factor = 0.;
             if(m_currentChi > 0 &&
                             ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
             {
+                //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
+                //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
                 factor = sin(angle); //from -1 to 1
                 numberSamplesPlayed++;
             }
