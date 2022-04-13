@@ -365,11 +365,15 @@ void SoundSystem::Execute(double deltaTime)
 
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
+        m_currentChi = chi;
+
+
         if (m_currentChi != chi)
             m_hasChiChanged = true;
         else
             m_hasChiChanged = false;
-        m_currentChi = chi;
+
+        m_currentEntity = ;
 
         /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
@@ -385,6 +389,7 @@ void SoundSystem::Execute(double deltaTime)
     else
     {
         m_currentChi = -1;
+        m_currentEntity = nullptr;
         //m_pSound->SetVolume(0.);
         //m_pSound->SetPitch(0.f);
     }
