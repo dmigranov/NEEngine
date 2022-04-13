@@ -64,6 +64,21 @@ void DynamicSound::SetPan(float pan)
 	m_dynamicSoundEffectInstance->SetPan(pan);
 }
 
+void DynamicSound::Stop(bool immediate)
+{
+	m_dynamicSoundEffectInstance->Stop(immediate);
+}
+
+void DynamicSound::Pause()
+{
+	m_dynamicSoundEffectInstance->Pause();
+}
+
+void DynamicSound::Resume()
+{
+	m_dynamicSoundEffectInstance->Resume();
+}
+
 size_t DynamicSound::GetSampleCount()
 {
 	return m_sampleCount;
