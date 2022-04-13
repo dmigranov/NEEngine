@@ -311,7 +311,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double time = 0.0;
         
         int repetitionStep = 0;
-        int soundSampleCount = 30; //delta
+        int playSampleCount = 30; //delta
 
         //double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         double distanceNormalized = 1 - m_currentChi / XM_2PI;
@@ -325,8 +325,11 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         {
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+
+            unsigned int startPlayIndex = sampleCountForCurrentObject % mustBePlayedEverySamples;
             double factor = (m_currentChi > 0 && //todo: делить по модулю сразу при накапливании во избежание переполнения ниже?
-                            (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < soundSampleCount)
+                            //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
+                            (j > startPlayIndex && j < startPlayIndex + playSampleCount))
                 ? sin(angle) : 0; //from -1 to 1
 
             // PCM 16 bit: -32 767 … 32 767 
