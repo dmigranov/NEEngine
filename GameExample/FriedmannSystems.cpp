@@ -310,7 +310,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int16_t* ptr = data;
         double time = 0.0;
         
-        int repetitionStep = 0;
         int playSampleCount = 100; //delta
 
         //double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
@@ -325,6 +324,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
+            if (j == sampleRate - 1)
+                std::cout << angle << std::endl;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             double factor = 0.;
