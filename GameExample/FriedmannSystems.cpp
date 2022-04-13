@@ -285,6 +285,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 {
     m_pSoundOld = pSound;
 
+    double length = 0.5;
     m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
         static double currentTime = 0.0;
         
@@ -344,7 +345,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //todo: вылетает!
 
         currentTick = (currentTick + 1) % currentTickMax;
-    }, 0.5);
+    }, length);
 
     m_pSound->Play();
 
