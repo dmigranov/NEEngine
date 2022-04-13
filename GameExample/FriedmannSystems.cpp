@@ -324,9 +324,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         {
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
-            //double factor = (currentTick == 0 && repetitionStep > 0 && j % repetitionStep < soundSampleCount)
-            //    ? sin(angle) : 0; //from -1 to 1
-
             double factor = (m_currentChi > 0 && //todo: делить по модулю сразу при накапливании во избежание переполнения ниже?
                             (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < soundSampleCount)
                 ? sin(angle) 
