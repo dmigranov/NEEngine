@@ -294,7 +294,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         static double minKnockFrequency = 0.5, maxKnockFrequency = 100.;
 
-        if (m_hasChiChanged) 
+        if (m_hasChiChanged) //todo: object changed
         {
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
