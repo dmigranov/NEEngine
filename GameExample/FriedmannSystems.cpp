@@ -336,7 +336,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         }
 
         timeForCurrentObject += length;
-        sampleCountForCurrentObject = (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples;
+        sampleCountForCurrentObject += sampleRate;
+        //sampleCountForCurrentObject = (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples;
     }, length);
 
     m_pSound->Play();
