@@ -292,7 +292,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.5, maxKnockFrequency = 100.;
+        static double minKnockFrequency = 0.5, maxKnockFrequency = 50.;
 
         if (m_hasObjectChanged) 
         {
@@ -313,7 +313,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int repetitionStep = 0;
         int soundSampleCount = 30; //delta
-        double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
+        double knockFrequency = minKnockFrequency + (1 - m_currentChi / XM_2PI) * (maxKnockFrequency - minKnockFrequency);
         
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
