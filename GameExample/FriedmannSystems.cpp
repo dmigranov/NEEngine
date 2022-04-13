@@ -334,7 +334,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             time += timeStep;
         }
 
-        std::cout << sampleCountForCurrentObject << std::endl;
+        std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
 
         timeForCurrentObject += length;
         sampleCountForCurrentObject += sampleRate;
