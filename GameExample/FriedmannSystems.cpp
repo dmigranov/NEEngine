@@ -287,12 +287,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
     double length = 0.5;
     m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int frequency) {
-        static double currentTime = 0.0;
+        static double currentTime = 0.0; //а может сразу в сэмплах измерять?
         
         const double timeStep = 1.0 / double(sampleRate);
-
-        //currentTime += фактическое время с предыдущего раза; //todo
-
         const double freq = double(frequency);
 
         int16_t* ptr = data;
@@ -345,6 +342,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //todo: вылетает!
 
         currentTick = (currentTick + 1) % currentTickMax;
+        currentTime += length;
     }, length);
 
     m_pSound->Play();
