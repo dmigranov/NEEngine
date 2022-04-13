@@ -297,7 +297,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         if (m_hasObjectChanged) 
         {
-            std::cout << "changed!" << std::endl;
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
             m_hasObjectChanged = false;
@@ -335,8 +334,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
-
-        std::cout << sampleCountForCurrentObject << std::endl;
 
         timeForCurrentObject += length;
         sampleCountForCurrentObject += sampleRate;
