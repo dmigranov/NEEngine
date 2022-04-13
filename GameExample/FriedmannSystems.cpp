@@ -330,7 +330,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double factor = (m_currentChi > 0 &&
                             //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
                             (
-                                (j > startPlayIndex && j < startPlayIndex + playSampleCount) 
+                                (j > startPlayIndex && j < startPlayIndex + playSampleCount)  
                                 //|| 
                                 //(j < playSampleCount && j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples) //проверка на то что малеький?
                             ))
