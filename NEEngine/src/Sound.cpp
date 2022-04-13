@@ -6,6 +6,21 @@
 
 using namespace DirectX;
 
+void Sound::Stop(bool immediate)
+{
+	m_soundEffectInstance->Stop(immediate);
+}
+
+void Sound::Pause()
+{
+	m_soundEffectInstance->Pause();
+}
+
+void Sound::Resume()
+{
+	m_soundEffectInstance->Resume();
+}
+
 Sound::Sound()
 {
 	

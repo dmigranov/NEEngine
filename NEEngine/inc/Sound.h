@@ -11,7 +11,7 @@ public:
 	virtual void SetPitch(float pitch);
 	virtual void SetPan(float pan);
 
-	virtual void Stop();
+	virtual void Stop(bool immediate = true);
 	virtual void Pause();
 	virtual void Resume();
 
