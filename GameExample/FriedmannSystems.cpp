@@ -311,7 +311,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //sampleCount = sampleRate
 
         int repetitionStep = 0;
-        int soundSampleCount = 50; //delta
+        int soundSampleCount = 30; //delta
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
         
         double mustBePlayedEverySeconds = 1. / knockFrequency;
@@ -335,7 +335,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             *ptr = int16_t(32768 * factor);
             time += timeStep;
 
-            //strange, связано с проверкой на изменение chi
+            //todo: сплошной гул в начале?
         }
 
         timeForCurrentObject += length;
