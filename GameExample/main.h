@@ -76,6 +76,8 @@ private:
 	SphericalTransformComponent* m_pCameraTransform;
 
 	double m_currentChi;
+	Entity* m_currentEntity = nullptr;
+
 	bool m_hasChiChanged = false;
 };
 
