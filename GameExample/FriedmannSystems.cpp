@@ -295,7 +295,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         auto radius = SphericalEffect::GetRadius();
 
-        const double timeStep = length / double(sampleRate);
+        const double timeStep = 1. / double(sampleRate); //length instead of 1?
         const double freq = double(frequency);
 
         int16_t* ptr = data;
