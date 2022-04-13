@@ -309,13 +309,10 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int16_t* ptr = data;
         double time = 0.0;
                       
-        //sampleCount = sampleRate
-
         int repetitionStep = 0;
         int soundSampleCount = 30; //delta
         double knockFrequency = minKnockFrequency + (1 - m_currentChi / XM_2PI) * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
-        std::cout << knockFrequency << std::endl;
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
 
@@ -331,8 +328,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             // PCM 16 bit: -32 767 … 32 767 
             *ptr = int16_t(32768 * factor);
             time += timeStep;
-
-            //todo: сплошной гул в начале?
         }
 
         timeForCurrentObject += length;
