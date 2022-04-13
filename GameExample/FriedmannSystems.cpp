@@ -311,8 +311,11 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
                       
         int repetitionStep = 0;
         int soundSampleCount = 30; //delta
+
+        double distanceNormalized = 0.; //todo
         double knockFrequency = minKnockFrequency + (1 - m_currentChi / XM_2PI) * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
+
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
 
@@ -358,7 +361,6 @@ void SoundSystem::Execute(double deltaTime)
         if (sphPosView.z < 0)
             chi = XM_2PI - chi;
         m_currentChi = chi;
-
 
         if (m_currentEntity != pSelectedEntity)
             m_hasObjectChanged = true;
