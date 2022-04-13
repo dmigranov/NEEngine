@@ -371,8 +371,8 @@ void SoundSystem::Execute(double deltaTime)
         //! проблема в том, что тут успевает стать false!
         if (m_currentEntity != pSelectedEntity)
             m_hasObjectChanged = true;
-        else
-            m_hasObjectChanged = false;
+        //else
+        //    m_hasObjectChanged = false;
 
         m_currentEntity = pSelectedEntity;
 
