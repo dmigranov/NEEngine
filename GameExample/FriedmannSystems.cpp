@@ -287,6 +287,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
     double length = 0.2;
     m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int frequency) {
+        // sampleRate - количество сэмплов
+        
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
@@ -306,14 +308,14 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int16_t* ptr = data;
         double time = 0.0;
                       
-        size_t sampleCount = m_pSound->GetSampleCount(); 
+        //sampleCount = sampleRate
 
         int repetitionStep = 0;
         int soundSampleCount = 50; //delta
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
-        for (int j = 0; j < sampleCount; ++j, ++ptr)
+        for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
             double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
