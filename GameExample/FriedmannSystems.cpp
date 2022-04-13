@@ -311,7 +311,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double time = 0.0;
         
         int repetitionStep = 0;
-        int playSampleCount = 30; //delta
+        int playSampleCount = 100; //delta
 
         //double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         double distanceNormalized = 1 - m_currentChi / XM_2PI;
@@ -327,19 +327,21 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double angle = (2.0 * XM_PI * freq) * time;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
-            double factor = (m_currentChi > 0 &&
-                            (
-                                (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
-                            )
-                ? sin(angle) : 0; //from -1 to 1
-
+            double factor = 0.;
+            if(m_currentChi > 0 &&
+                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
+            )
+            {
+                factor = sin(angle); //from -1 to 1
+                numberSamplesPlayed++;
+            }
             // PCM 16 bit: -32 767 … 32 767 
             *ptr = int16_t(32768 * factor);
             time += timeStep;
         }
 
-        std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
-
+        //std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
+        std::cout << numberSamplesPlayed << std::endl;
         timeForCurrentObject += length;
         sampleCountForCurrentObject += sampleRate;
         //sampleCountForCurrentObject = (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples;
