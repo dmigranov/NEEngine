@@ -304,7 +304,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         auto radius = SphericalEffect::GetRadius();
 
-        const double timeStep = 1. / double(sampleRate); //length instead of 1?
+        const double timeStep = length / double(sampleRate); //length instead of 1?
         const double freq = double(frequency);
 
         int16_t* ptr = data;
@@ -324,8 +324,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            if (j == sampleRate - 1)
-                std::cout << time << " " << angle << std::endl;
+            if (j==0 || j == sampleRate - 1)
+                std::cout << time << " " << sin(angle) << std::endl;
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             double factor = 0.;
