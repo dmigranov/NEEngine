@@ -286,7 +286,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
     m_pSoundOld = pSound;
 
     double length = 0.5;
-    m_pSound = new DynamicSound([this](int16_t* data, int sampleRate, int frequency) {
+    m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int frequency) {
         static double currentTime = 0.0;
         
         const double timeStep = 1.0 / double(sampleRate);
