@@ -314,18 +314,19 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int soundSampleCount = 50; //delta
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
+        unsigned int mustBePlayedEverySamples = 0.; //todo
 
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
+            //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
             //double factor = (currentTick == 0 && repetitionStep > 0 && j % repetitionStep < soundSampleCount)
             //    ? sin(angle) 
             //    : 0; //from -1 to 1
 
-            //double factor = (true)
-            //    ? sin(angle) 
-            //    : 0; //from -1 to 1
+            double factor = (true)
+                ? sin(angle) 
+                : 0; //from -1 to 1
 
             // PCM 16 bit: -32 767 … 32 767 
             *ptr = int16_t(32768 * factor);
