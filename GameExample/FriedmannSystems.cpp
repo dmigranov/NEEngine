@@ -390,6 +390,8 @@ void SoundSystem::Execute(double deltaTime)
         m_pSound->SetVolume(1.);
         m_pSound->SetPitch(pitch);
         */
+
+        //m_pSound->SetPan(-1);
     }
     else
     {
