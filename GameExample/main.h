@@ -78,7 +78,7 @@ private:
 	double m_currentChi;
 	Entity* m_currentEntity = nullptr;
 
-	bool m_hasChiChanged = false;
+	bool m_hasObjectChanged = false;
 };
 
 

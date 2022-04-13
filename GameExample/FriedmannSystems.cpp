@@ -294,11 +294,11 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         static double minKnockFrequency = 0.5, maxKnockFrequency = 100.;
 
-        if (m_hasChiChanged) 
+        if (m_hasObjectChanged) 
         {
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
-            m_hasChiChanged = false;
+            m_hasObjectChanged = false;
         }
 
         auto radius = SphericalEffect::GetRadius();
@@ -370,9 +370,9 @@ void SoundSystem::Execute(double deltaTime)
 
 
         if (m_currentEntity != pSelectedEntity)
-            m_hasChiChanged = true;
+            m_hasObjectChanged = true;
         else
-            m_hasChiChanged = false;
+            m_hasObjectChanged = false;
 
         m_currentEntity = pSelectedEntity;
 
@@ -415,7 +415,7 @@ m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int fr
         // звук - только когда currentTick = 0!
         static unsigned int currentTick = 0;
         static unsigned int currentTickMax = 1;
-        if (m_hasChiChanged)
+        if (m_hasObjectChanged)
         {
             currentTick = 0;
         }
