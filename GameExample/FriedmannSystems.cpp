@@ -329,8 +329,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             unsigned int startPlayIndex = sampleCountForCurrentObject % mustBePlayedEverySamples;
             double factor = (m_currentChi > 0 &&
                             //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
-                            ((j > startPlayIndex && j < startPlayIndex + playSampleCount) || j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples)
-                )
+                            ((j > startPlayIndex && j < startPlayIndex + playSampleCount) 
+                                || j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples))
                 ? sin(angle) : 0; //from -1 to 1
 
             // PCM 16 bit: -32 767 … 32 767 
