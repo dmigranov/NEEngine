@@ -312,7 +312,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int repetitionStep = 0;
         int soundSampleCount = 30; //delta
 
-        double distanceNormalized = 0.; //todo
+        double distanceNormalized = 0.; //todo 
         double knockFrequency = minKnockFrequency + (1 - m_currentChi / XM_2PI) * (maxKnockFrequency - minKnockFrequency);
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
