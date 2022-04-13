@@ -321,6 +321,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
 
+        int numberSamplesPlayed = 0;
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
@@ -329,8 +330,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             double factor = (m_currentChi > 0 &&
                             (
                                 (sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
-                                || 
-                                (j < playSampleCount && j < (startPlayIndex + playSampleCount) % mustBePlayedEverySamples) //проверка на то что малеький?
                             )
                 ? sin(angle) : 0; //from -1 to 1
 
