@@ -327,7 +327,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //double factor = 0.5 * (sin(angle) + 1.0); //from 0 to 1
 
             unsigned int startPlayIndex = sampleCountForCurrentObject % mustBePlayedEverySamples;
-            double factor = (m_currentChi > 0 && //todo: делить по модулю сразу при накапливании во избежание переполнения ниже?
+            double factor = (m_currentChi > 0 &&
                             //(sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
                             (j > startPlayIndex && j < startPlayIndex + playSampleCount))
                 ? sin(angle) : 0; //from -1 to 1
