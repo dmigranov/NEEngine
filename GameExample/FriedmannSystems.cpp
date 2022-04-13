@@ -334,6 +334,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //todo: вылетает!
 
         timeForCurrentObject += length;
+        sampleCountForCurrentObject += sampleRate;
     }, length);
 
     m_pSound->Play();
