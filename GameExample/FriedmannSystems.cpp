@@ -305,7 +305,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         int repetitionStep = 0;
         int soundSampleCount = 50;
-        double frequency = 1.; //todo
+        double knockFrequency = 1.; //todo
 
         for (int j = 0; j < sampleCount; ++j, ++ptr)
         {
