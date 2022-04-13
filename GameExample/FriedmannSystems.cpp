@@ -316,7 +316,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double knockFrequency = minKnockFrequency + m_currentChi / XM_2PI * (maxKnockFrequency - minKnockFrequency);
         
         double mustBePlayedEverySeconds = 1. / knockFrequency;
-        std::cout << mustBePlayedEverySeconds << std::endl;
 
         //unsigned int mustBePlayedEverySamples = 44100 * mustBePlayedEverySeconds; 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //так больше операций, но не завязаны на 44100
@@ -329,7 +328,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //    ? sin(angle) : 0; //from -1 to 1
 
             // а где j? !!
-            double factor = (m_currentChi > 0 && sampleCountForCurrentObject % mustBePlayedEverySamples < soundSampleCount)
+            double factor = (m_currentChi > 0 && 
+                            sampleCountForCurrentObject % mustBePlayedEverySamples < soundSampleCount)
                 ? sin(angle) 
                 : 0; //from -1 to 1
 
