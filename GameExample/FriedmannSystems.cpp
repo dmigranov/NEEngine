@@ -331,6 +331,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             // PCM 16 bit: -32 767 Е 32 767 
             *ptr = int16_t(32768 * factor);
             time += timeStep;
+
+            //strange, св€зано с проверкой на изменение chi
         }
 
         timeForCurrentObject += length;
