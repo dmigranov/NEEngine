@@ -285,7 +285,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 {
     m_pSoundOld = pSound;
 
-    double length = 0.2;
+    double length = 0.1;
     double maxRadius = 4.;
     m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate, int frequency) {
         // sampleRate - количество сэмплов
@@ -329,8 +329,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
             double factor = 0.;
             if(m_currentChi > 0 &&
-                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount)
-            )
+                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
             {
                 factor = sin(angle); //from -1 to 1
                 numberSamplesPlayed++;
