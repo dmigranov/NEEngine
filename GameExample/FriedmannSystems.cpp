@@ -315,8 +315,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
-        //double knockFrequency = minKnockFrequency + 
-        //    distanceNormalized * (maxKnockFrequency - minKnockFrequency);
+        //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
         if (distanceNormalized < 0.5)
             knockFrequency = distanceNormalized;
