@@ -6,7 +6,7 @@
 
 using namespace DirectX;
 
-DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunction, double length)
+DynamicSound::DynamicSound(std::function<void(int16_t*, int)> generateFunction, double length)
 {
 	auto& game = Game::GetInstance();
 
@@ -32,7 +32,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 			while (count < 3)
 			{
 				//m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), m_sampleCount, 440); //тут или за while?
-				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytesBuffers[m_currentBuffer].front()), m_sampleCount, 440);
+				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytesBuffers[m_currentBuffer].front()), m_sampleCount);
 				effect->SubmitBuffer(&m_audioBytesBuffers[m_currentBuffer].front(), m_audioBytesBuffers[m_currentBuffer].size());
 				
 				count++; 

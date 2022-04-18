@@ -287,7 +287,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
     double length = 0.1;
     double maxRadius = 4.;
-    m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate, int frequency) {
+    m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) {
         // sampleRate - количество сэмплов
         
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
@@ -307,7 +307,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         auto radius = SphericalEffect::GetRadius();
 
         const double timeStep = length / double(sampleRate); //length instead of 1?
-        const double freq = double(frequency);
 
         int16_t* ptr = data;
         double time = 0.0;
@@ -324,7 +323,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //std::cout << mustBePlayedEverySamples << std::endl;
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
-            double angle = (2.0 * XM_PI * freq) * time;
             double factor = 0.;
             size_t playSampleIndex = (sampleCountForCurrentObject + j) % mustBePlayedEverySamples;
             if (m_currentChi > 0 &&

@@ -4,7 +4,7 @@ class DynamicSound :
     public Sound
 {
 public:
-    DynamicSound(std::function<void(int16_t*, int, int)> generateFunction, double length);
+    DynamicSound(std::function<void(int16_t*, int)> generateFunction, double length);
     ~DynamicSound();
 
     virtual void Play(bool loop = false) override;
@@ -20,7 +20,7 @@ public:
     size_t GetSampleCount();
 private:
     std::unique_ptr<DirectX::DynamicSoundEffectInstance> m_dynamicSoundEffectInstance;
-    std::function<void(int16_t*, int, int)> m_generateFunction;
+    std::function<void(int16_t*, int)> m_generateFunction;
 
     size_t m_sampleCount;
 
