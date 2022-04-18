@@ -293,7 +293,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измер€ть?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.01, maxKnockFrequency = 10.;
+        static double minKnockFrequency = 0.01, maxKnockFrequency = 100.;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
@@ -312,7 +312,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int16_t* ptr = data;
         double time = 0.0;
         
-        int playSampleCount = 100; //delta
+        int playSampleCount = 20; //delta
 
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
@@ -321,7 +321,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не зав€заны на 44100
-
+        //std::cout << mustBePlayedEverySamples << std::endl;
         int numberSamplesPlayed = 0;
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
@@ -331,16 +331,14 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
             double factor = 0.;
             if (m_currentChi > 0 &&
-                ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
+                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
             {
                 //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
                 factor = sin(angle); //from -1 to 1
                 numberSamplesPlayed++;
-                std::cout << "O";
+                //std::cout << time << " " << sin(angle) << std::endl;
             }
-            else
-                std::cout << " ";
 
             // PCM 16 bit: -32 767 Е 32 767 
             *ptr = int16_t(32768 * factor);
