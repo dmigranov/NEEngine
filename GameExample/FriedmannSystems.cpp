@@ -281,10 +281,8 @@ double RadiusUpdateSystem::RadiusFunction(double mu)
     return m_radiusFunction(mu);
 }
 
-SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
+SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
 {
-    m_pSoundOld = pSound;
-
     double length = 0.1;
     double maxRadius = 4.;
     m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) {

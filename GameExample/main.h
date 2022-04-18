@@ -67,11 +67,10 @@ private:
 
 class SoundSystem : public System {
 public:
-	SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform);
+	SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform);
 	virtual void Execute(double deltaTime) override;
 private:
 	DynamicSound* m_pSound;
-	Sound* m_pSoundOld;
 	SelectionSystem* m_pSelectionSystem;
 	SphericalTransformComponent* m_pCameraTransform;
 
