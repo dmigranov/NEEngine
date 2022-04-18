@@ -379,19 +379,6 @@ void SoundSystem::Execute(double deltaTime)
         if (m_oldRadius != radius)
             m_hasRadiusChanged = true;
         m_oldRadius = radius;
-
-        /*
-        //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
-        
-        auto maxRadius = 4.; //! has to be changed if the radius formula is changed
-        pitch = -1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
-        //или расстояние надо считать по-другому, не как chi * radius?
-
-        m_pSound->SetVolume(1.);
-        m_pSound->SetPitch(pitch);
-        */
-
-        //m_pSound->SetPan(-1);
     }
     else
     {
@@ -464,4 +451,15 @@ m_pSound = new DynamicSound([this, length](int16_t* data, int sampleRate, int fr
         currentTick = (currentTick + 1) % currentTickMax;
         currentTime += length;
     }, length);
+*/
+
+/*
+        //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
+
+        auto maxRadius = 4.; //! has to be changed if the radius formula is changed
+        pitch = -1.99 *  (chi * radius / maxRadius / XM_2PI - 0.5); // alternative formula
+        //или расстояние надо считать по-другому, не как chi * radius?
+
+        m_pSound->SetVolume(1.);
+        m_pSound->SetPitch(pitch);
 */
