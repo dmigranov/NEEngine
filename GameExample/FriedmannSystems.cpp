@@ -316,11 +316,12 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         static double minDistance = 0.5, middleDistance = 0.8;
 
         if (distanceNormalized < 0.5)
-            knockFrequency = distanceNormalized; //todo
+            knockFrequency = distanceNormalized / minDistance * minKnockFrequency;
+            //knockFrequency = distanceNormalized;
         else if (distanceNormalized < middleDistance)
-            knockFrequency = minKnockFrequency + (distanceNormalized - minDistance)/(middleDistance - minDistance) * (middleKnockFrequency - minKnockFrequency);
+            knockFrequency = minKnockFrequency + (distanceNormalized - minDistance) / (middleDistance - minDistance) * (middleKnockFrequency - minKnockFrequency);
         else
-            knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance)/(1. - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
+            knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance) / (1. - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
 
         std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
