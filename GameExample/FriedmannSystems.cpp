@@ -312,13 +312,13 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
-        static double minKnockFrequency = 0.01, middleKnockFrequency = 5., maxKnockFrequency = 50.;
+        static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
         static double minDistance = 0.5, middleDistance = 0.8;
 
         if (distanceNormalized < 0.5)
             knockFrequency = distanceNormalized;
         else if (distanceNormalized < 0.8)
-            knockFrequency = 0.5 + (distanceNormalized - 0.5)/0.3 * (middleKnockFrequency - 0.5);
+            knockFrequency = minKnockFrequency + (distanceNormalized - minDistance)/(middleDistance - minDistance) * (middleKnockFrequency - minKnockFrequency);
         else
             knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance)/(1 - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
 
