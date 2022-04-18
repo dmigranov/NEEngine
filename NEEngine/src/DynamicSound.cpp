@@ -35,7 +35,7 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytesBuffers[m_currentBuffer].front()), m_sampleCount, 440);
 				effect->SubmitBuffer(&m_audioBytesBuffers[m_currentBuffer].front(), m_audioBytesBuffers[m_currentBuffer].size());
 				
-				count++;
+				count++; 
 				m_currentBuffer++;
 			}
 		},
