@@ -344,7 +344,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         //std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
         timeForCurrentObject += length;
         sampleCountForCurrentObject += sampleRate;
-        //sampleCountForCurrentObject = (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples;
     }, length);
 
     m_pSound->Play();
@@ -384,8 +383,6 @@ void SoundSystem::Execute(double deltaTime)
     {
         m_currentChi = -1;
         m_currentEntity = nullptr;
-        //m_pSound->SetVolume(0.);
-        //m_pSound->SetPitch(0.f);
     }
 }
 
