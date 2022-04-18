@@ -318,7 +318,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         //double knockFrequency = minKnockFrequency + 
         //    distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
-        if (distanceNormalized < 0.7)
+        if (distanceNormalized < 0.5)
+            knockFrequency = knockFrequency + distanceNormalized * (0.5 - minKnockFrequency);
+        else if (distanceNormalized < 0.7)
             knockFrequency = minKnockFrequency + distanceNormalized * (5. - minKnockFrequency);
         else
             knockFrequency = 50.; //todo
