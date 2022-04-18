@@ -293,7 +293,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.01, maxKnockFrequency = 50.;
+        static double minKnockFrequency = 0.01, maxKnockFrequency = 20.;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
@@ -312,7 +312,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         int16_t* ptr = data;
         double time = 0.0;
         
-        int playSampleCount = 30; //delta
+        int playSampleCount = 10; //delta
 
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
