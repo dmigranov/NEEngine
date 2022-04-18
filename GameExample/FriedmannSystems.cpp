@@ -374,8 +374,11 @@ void SoundSystem::Execute(double deltaTime)
 
         if (m_currentEntity != pSelectedEntity)
             m_hasObjectChanged = true;
-        
         m_currentEntity = pSelectedEntity;
+
+        if (m_oldRadius != radius)
+            m_hasRadiusChanged = true;
+        m_oldRadius = radius;
 
         /*
         //pitch = -1.99 * (chi / XM_2PI - 0.5); //old, based on chi
