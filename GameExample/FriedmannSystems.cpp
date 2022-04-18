@@ -313,6 +313,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
         static double minKnockFrequency = 0.01, middleKnockFrequency = 5., maxKnockFrequency = 50.;
+        static double minDistance =, middleDistance =, maxDistance = ;
 
         if (distanceNormalized < 0.5)
             knockFrequency = distanceNormalized;
