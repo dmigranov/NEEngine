@@ -32,9 +32,11 @@ DynamicSound::DynamicSound(std::function<void(int16_t*, int, int)> generateFunct
 			while (count < 3)
 			{
 				//m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytes.front()), m_sampleCount, 440); //тут или за while?
-				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytesBuffers[m_currentBuffer++].front()), m_sampleCount, 440);
-				effect->SubmitBuffer(&m_audioBytes.front(), m_audioBytes.size());
-				++count;
+				m_generateFunction(reinterpret_cast<int16_t*>(&m_audioBytesBuffers[m_currentBuffer].front()), m_sampleCount, 440);
+				effect->SubmitBuffer(&m_audioBytesBuffers[m_currentBuffer].front(), m_audioBytesBuffers[m_currentBuffer].size());
+				
+				count++;
+				m_currentBuffer++;
 			}
 		},
 		44100, 1);
