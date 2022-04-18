@@ -313,10 +313,12 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         
         int playSampleCount = 10; //delta
 
-        double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
-        double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
-        //std::cout << knockFrequency << std::endl;
+        double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
+        double knockFrequency = minKnockFrequency + 
+            distanceNormalized * (maxKnockFrequency - minKnockFrequency);
+        std::cout << knockFrequency << std::endl;
+
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
