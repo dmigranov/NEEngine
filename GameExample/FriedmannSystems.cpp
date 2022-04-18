@@ -293,7 +293,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.01, maxKnockFrequency = 30.;
+        static double minKnockFrequency = 0.01, maxKnockFrequency = 50.;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
@@ -328,7 +328,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             if (m_currentChi > 0 &&
                             (playSampleIndex < playSampleCount))
             {
-                factor = sin((double)playSampleIndex / playSampleCount * XM_2PI);
+                factor = 0.5 * sin((double)playSampleIndex / playSampleCount * XM_2PI);
             }
 
             // PCM 16 bit: -32 767 … 32 767 
