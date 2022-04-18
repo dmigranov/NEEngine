@@ -98,7 +98,7 @@ double RayTraceSphereMouse(double mouseX, double mouseY, SphericalTransformCompo
 
 
 
-FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent * cameraTransform, SphericalRenderSystem* renderSystem, InputComponent * inputComponent, double initialObjectRadius, Sound* pSound,
+FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, SphericalTransformComponent * cameraTransform, SphericalRenderSystem* renderSystem, InputComponent * inputComponent, double initialObjectRadius,
 	System ** controlSystem, System ** visibilitySystem, System ** radiusUpdateSystem, 
 	System ** animationSystem, SelectionSystem ** selectionSystem, System ** soundSystem);
 
