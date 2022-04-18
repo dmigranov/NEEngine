@@ -79,6 +79,9 @@ private:
 	Entity* m_currentEntity = nullptr;
 
 	bool m_hasObjectChanged = false;
+
+	double m_oldRadius = -1.;
+	bool m_hasRadiusChanged = true;
 };
 
 
