@@ -291,8 +291,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.01, maxKnockFrequency = 50.;
-
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
             timeForCurrentObject = 0.;
@@ -314,6 +312,8 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
+        static double minKnockFrequency = 0.01, middleKnockFrequency = 5., maxKnockFrequency = 50.;
+
         if (distanceNormalized < 0.5)
             knockFrequency = distanceNormalized;
         else if (distanceNormalized < 0.8)
