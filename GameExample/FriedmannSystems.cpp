@@ -315,9 +315,15 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
-        double knockFrequency = minKnockFrequency + 
-            distanceNormalized * (maxKnockFrequency - minKnockFrequency);
-        std::cout << knockFrequency << std::endl;
+        //double knockFrequency = minKnockFrequency + 
+        //    distanceNormalized * (maxKnockFrequency - minKnockFrequency);
+        double knockFrequency = 0.;
+        if (distanceNormalized < 0.7)
+            knockFrequency = minKnockFrequency + distanceNormalized * (5. - minKnockFrequency);
+        else
+            knockFrequency = 50.; //todo
+
+        std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
