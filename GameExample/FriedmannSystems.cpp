@@ -293,7 +293,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
 
-        static double minKnockFrequency = 0.01, maxKnockFrequency = 50.;
+        static double minKnockFrequency = 0.01, maxKnockFrequency = 5000.;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
@@ -330,8 +330,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //    std::cout << time << " " << sin(angle) << std::endl;
 
             double factor = 0.;
+            size_t playSampleIndex = (sampleCountForCurrentObject + j) % mustBePlayedEverySamples;
             if (m_currentChi > 0 &&
-                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
+                            (playSampleIndex < playSampleCount))
             {
                 //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
