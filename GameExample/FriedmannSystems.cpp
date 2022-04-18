@@ -320,7 +320,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         else if (distanceNormalized < 0.8)
             knockFrequency = 0.5 + (distanceNormalized - 0.5)/0.3 * (middleKnockFrequency - 0.5);
         else
-            knockFrequency = middleKnockFrequency + (distanceNormalized - 0.8)/0.2 * (maxKnockFrequency - middleKnockFrequency); //todo
+            knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance)/(1 - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
 
         std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
