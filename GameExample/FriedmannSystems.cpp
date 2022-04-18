@@ -317,7 +317,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double distanceNormalized = 1 - m_currentChi / XM_2PI;
         double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
-        std::cout << knockFrequency << std::endl;
+        //std::cout << knockFrequency << std::endl;
         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не зав€заны на 44100
@@ -330,14 +330,18 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             //    std::cout << time << " " << sin(angle) << std::endl;
 
             double factor = 0.;
-            if(m_currentChi > 0 &&
-                            ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
+            if (m_currentChi > 0 &&
+                ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples < playSampleCount))
             {
                 //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
                 factor = sin(angle); //from -1 to 1
                 numberSamplesPlayed++;
+                std::cout << "O";
             }
+            else
+                std::cout << " ";
+
             // PCM 16 bit: -32 767 Е 32 767 
             *ptr = int16_t(32768 * factor);
             time += timeStep;
