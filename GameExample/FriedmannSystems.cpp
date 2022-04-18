@@ -336,7 +336,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
             {
                 //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
-                //factor = sin(angle); //from -1 to 1
+                //factor = sin(angle); //from -1 to 1 
                 factor = sin((double)playSampleIndex / playSampleCount * XM_2PI);
                 numberSamplesPlayed++;
             }
