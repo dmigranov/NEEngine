@@ -295,7 +295,7 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         static double minKnockFrequency = 0.01, maxKnockFrequency = 10.;
 
-        if (m_hasObjectChanged) 
+        if (m_hasObjectChanged)  //todo: radius changed!
         {
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
