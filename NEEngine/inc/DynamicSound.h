@@ -25,6 +25,6 @@ private:
     size_t m_sampleCount;
 
     constexpr static size_t m_audioBytesBufferCount = 3;
-    size_t m_audioBytesCurrent = 0;
+    size_t m_currentBuffer = 0;
     std::vector<uint8_t> m_audioBytesBuffers[m_audioBytesBufferCount];
 };
