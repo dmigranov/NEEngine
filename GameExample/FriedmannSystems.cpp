@@ -372,12 +372,9 @@ void SoundSystem::Execute(double deltaTime)
             chi = XM_2PI - chi;
         m_currentChi = chi;
 
-        //! проблема в том, что тут успевает стать false!
         if (m_currentEntity != pSelectedEntity)
             m_hasObjectChanged = true;
-        //else
-        //    m_hasObjectChanged = false;
-
+        
         m_currentEntity = pSelectedEntity;
 
         /*
