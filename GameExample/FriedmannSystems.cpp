@@ -336,9 +336,8 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
                 //double angle = (XM_2PI * freq) * timeStep * ((sampleCountForCurrentObject + j) % mustBePlayedEverySamples);
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
                 //factor = sin(angle); //from -1 to 1
-                factor = 1;
+                factor = 0.5;
                 numberSamplesPlayed++;
-                //std::cout << time << " " << sin(angle) << std::endl;
             }
 
             // PCM 16 bit: -32 767 Е 32 767 
