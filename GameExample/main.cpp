@@ -48,10 +48,6 @@ int main(int argc, char* argv[])
     Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
     Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
 
-    Sound* dClicksSound = new Sound(L"clicks_4.wav"); 
-    //dClicksSound->Play(true);
-    //todo: get rid after everything is done
-
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
     scene->AddSystem(new InputSystem());
