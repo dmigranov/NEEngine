@@ -326,8 +326,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            //if (j==0 || j == sampleRate - 1)
-            //    std::cout << time << " " << sin(angle) << std::endl;
+            //if (j == 0 || j == sampleRate - 1)
+            if (j % 1000 == 0 )
+                std::cout << time << " " << sin(angle) << std::endl;
 
             double factor = 0.;
             if(m_currentChi > 0 &&
