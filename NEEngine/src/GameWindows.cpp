@@ -33,7 +33,7 @@ int Game::StartGame()
             TranslateMessage(&msg);
             DispatchMessage(&msg);	//dispatch передает сообщение winproc!!!
         }
-        else
+        else // https://gamedev.stackexchange.com/questions/59857/game-loop-on-windows - why else
         {
             this->Tick();	//update & render
         }
