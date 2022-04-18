@@ -322,13 +322,9 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не зав€заны на 44100
         //std::cout << mustBePlayedEverySamples << std::endl;
-        int numberSamplesPlayed = 0;
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double angle = (2.0 * XM_PI * freq) * time;
-            //if (j == 0 || j == sampleRate - 1)
-            //    std::cout << time << " " << sin(angle) << std::endl;
-
             double factor = 0.;
             size_t playSampleIndex = (sampleCountForCurrentObject + j) % mustBePlayedEverySamples;
             if (m_currentChi > 0 &&
@@ -338,7 +334,6 @@ SoundSystem::SoundSystem(Sound* pSound, SelectionSystem* pSelectionSystem, Spher
                 //todo: сделать синусоиду, чтобы укоадывалась во все звучащие сэмплы
                 //factor = sin(angle); //from -1 to 1 
                 factor = sin((double)playSampleIndex / playSampleCount * XM_2PI);
-                numberSamplesPlayed++;
             }
 
             // PCM 16 bit: -32 767 Е 32 767 
