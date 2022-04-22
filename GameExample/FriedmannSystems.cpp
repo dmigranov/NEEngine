@@ -289,7 +289,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         static unsigned long sampleCountForCurrentObject = 0; 
         static bool needToRecalculateFrequency = true;
 
-        if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
+        if (m_hasObjectChanged || m_hasRadiusChanged)
         {
             sampleCountForCurrentObject = 0;
 
