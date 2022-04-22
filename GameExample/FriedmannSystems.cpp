@@ -322,28 +322,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         int16_t* ptr = data;
         
         int playSampleCount = 10; //delta
-
-        /*
-        double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
-        double knockFrequency = 0.;
-
-        static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
-        static double minDistance = 0.5, middleDistance = 0.8;
-
-        if (distanceNormalized < 0.5)
-            knockFrequency = distanceNormalized / minDistance * minKnockFrequency;
-        else if (distanceNormalized < middleDistance)
-            knockFrequency = minKnockFrequency + (distanceNormalized - minDistance) / (middleDistance - minDistance) * (middleKnockFrequency - minKnockFrequency);
-        else
-            knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance) / (1. - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
-
-        std::cout << distanceNormalized << " " << knockFrequency << std::endl;
-
-        double mustBePlayedEverySeconds = 1. / knockFrequency;
-
-        unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
-        */
-
         bool isFirstKnockInThisBuffer = true;
 
         for (int j = 0; j < sampleRate; ++j, ++ptr)
