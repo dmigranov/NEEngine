@@ -321,7 +321,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         const double timeStep = length / double(sampleRate);
 
         int16_t* ptr = data;
-        double time = 0.0;
         
         int playSampleCount = 10; //delta
 
@@ -361,6 +360,8 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                     if (needToRecalculateFrequency)
                     {
 
+                        double frequency = CalculateFrequency();
+
                         needToRecalculateFrequency = false;
                     }
 
@@ -371,7 +372,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
             // PCM 16 bit: -32 767 … 32 767 
             *ptr = int16_t(32768 * factor);
-            time += timeStep;
         }
 
         //std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
