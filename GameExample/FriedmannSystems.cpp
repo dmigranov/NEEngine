@@ -299,14 +299,6 @@ double CalculateFrequency(double distanceNormalized)
     return knockFrequency;
 }
 
-unsigned int CalculateMustBePlayedEverySamples(double knockFrequency)
-{
-    double mustBePlayedEverySeconds = 1. / knockFrequency;
-
-    unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
-    return 0;
-}
-
 SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
 {
     double length = 0.1;

@@ -65,7 +65,6 @@ private:
 };
 
 double CalculateFrequency(double distanceNormalized);
-unsigned int CalculateMustBePlayedEverySamples(double knockFrequency);
 
 class SoundSystem : public System {
 public:
