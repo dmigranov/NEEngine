@@ -364,7 +364,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
                         mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
-
+                        sampleCountForCurrentObject = -j;
 
                         needToRecalculateFrequency = false;
                     }
