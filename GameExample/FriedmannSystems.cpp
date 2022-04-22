@@ -359,8 +359,8 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                 {
                     if (needToRecalculateFrequency)
                     {
-
-                        double frequency = CalculateFrequency();
+                        double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
+                        double knockFrequency = CalculateFrequency(distanceNormalized);
 
                         needToRecalculateFrequency = false;
                     }
