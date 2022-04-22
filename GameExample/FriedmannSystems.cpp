@@ -324,6 +324,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         
         int playSampleCount = 10; //delta
         bool isFirstKnockInThisBuffer = true;
+        bool willKnockHappenInThisBuffer = 0;
 
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
