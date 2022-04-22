@@ -341,6 +341,11 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
             {
                 if (isFirstKnockInThisBuffer)
                 {
+                    if (needToRecalculateFrequency)
+                    {
+
+                        needToRecalculateFrequency = false;
+                    }
 
                     isFirstKnockInThisBuffer = false;
                 }
