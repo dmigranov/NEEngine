@@ -285,9 +285,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 {
     double length = 0.1;
     double maxRadius = 4.;
-    m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) {
-        // sampleRate - количество сэмплов
-        
+    m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
         static unsigned long sampleCountForCurrentObject = 0; 
         static bool needToRecalculateFrequency = true;
 
