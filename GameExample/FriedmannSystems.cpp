@@ -283,6 +283,7 @@ double RadiusUpdateSystem::RadiusFunction(double mu)
 
 double CalculateFrequency(double distanceNormalized)
 {
+    //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
     double knockFrequency = 0.;
 
     static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
@@ -309,8 +310,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
         if (m_hasObjectChanged || m_hasRadiusChanged)
         {
-            //sampleCountForCurrentObject = 0;
-
             needToRecalculateFrequency = true;
             m_hasObjectChanged = false;
             m_hasRadiusChanged = false;
@@ -326,7 +325,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
         /*
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
-        //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
 
         static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
