@@ -339,6 +339,11 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
             if (m_currentChi > 0 &&
                             (playSampleIndex < playSampleCount))
             {
+                if (isFirstKnockInThisBuffer)
+                {
+
+                    isFirstKnockInThisBuffer = false;
+                }
                 factor = 0.5 * sin((double)playSampleIndex / playSampleCount * XM_2PI);
             }
 
