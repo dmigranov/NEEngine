@@ -361,6 +361,8 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                     {
                         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
                         double knockFrequency = CalculateFrequency(distanceNormalized);
+                        std::cout << distanceNormalized << " " << knockFrequency << std::endl;
+
                         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
                         mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
