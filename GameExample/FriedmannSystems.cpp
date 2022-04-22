@@ -291,7 +291,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
         if (m_hasObjectChanged || m_hasRadiusChanged)
         {
-            sampleCountForCurrentObject = 0;
+            //sampleCountForCurrentObject = 0;
 
             needToRecalculateFrequency = true;
             m_hasObjectChanged = false;
@@ -300,7 +300,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
         auto radius = SphericalEffect::GetRadius();
 
-        const double timeStep = length / double(sampleRate); //length instead of 1?
+        const double timeStep = length / double(sampleRate);
 
         int16_t* ptr = data;
         double time = 0.0;
