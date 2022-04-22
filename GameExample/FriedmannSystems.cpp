@@ -329,7 +329,9 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 
         unsigned int mustBePlayedEverySamples = (double)sampleRate / length * mustBePlayedEverySeconds; //вместо 44100 * mustBePlayedEverySeconds; так больше операций, но не завязаны на 44100
         */
-        
+
+        bool isFirstKnockInThisBuffer = true;
+
         for (int j = 0; j < sampleRate; ++j, ++ptr)
         {
             double factor = 0.;
