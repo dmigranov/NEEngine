@@ -352,11 +352,9 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                 factor = 0.5 * sin((double)playSampleIndex / playSampleCount * XM_2PI);
             }
 
-            // PCM 16 bit: -32 767 … 32 767 
-            *ptr = int16_t(32768 * factor);
+            *ptr = int16_t(32768 * factor); // PCM 16 bit: -32 767 … 32 767 
         }
 
-        //std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
         sampleCountForCurrentObject += sampleRate;
     }, length);
 
