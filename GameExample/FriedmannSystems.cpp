@@ -288,6 +288,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
     m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
         static unsigned long sampleCountForCurrentObject = 0; 
         static bool needToRecalculateFrequency = true;
+        static unsigned int mustBePlayedEverySamples = 1; //!
 
         if (m_hasObjectChanged || m_hasRadiusChanged)
         {
@@ -310,6 +311,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
         //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
         double knockFrequency = 0.;
+
         static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
         static double minDistance = 0.5, middleDistance = 0.8;
 
