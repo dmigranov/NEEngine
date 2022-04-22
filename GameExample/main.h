@@ -64,7 +64,7 @@ private:
 	std::function<double(double)> m_radiusFunction; 
 };
 
-
+double CalculateFrequency(double distanceNormalized);
 class SoundSystem : public System {
 public:
 	SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform);
@@ -103,5 +103,3 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
 	System ** animationSystem, SelectionSystem ** selectionSystem, System ** soundSystem);
 
 const int friedmann_w = 300, friedmann_h = 90;
-
-
