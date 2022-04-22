@@ -288,13 +288,11 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
     m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) {
         // sampleRate - количество сэмплов
         
-        static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
         static bool needToRecalculateFrequency = true;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
-            timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
             needToRecalculateFrequency = true;
 
@@ -345,7 +343,6 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         }
 
         //std::cout << sampleCountForCurrentObject << " " << mustBePlayedEverySamples << " " << (sampleCountForCurrentObject + sampleRate) % mustBePlayedEverySamples << std::endl;
-        timeForCurrentObject += length;
         sampleCountForCurrentObject += sampleRate;
     }, length);
 
