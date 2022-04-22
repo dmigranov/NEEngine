@@ -281,6 +281,23 @@ double RadiusUpdateSystem::RadiusFunction(double mu)
     return m_radiusFunction(mu);
 }
 
+double CalculateFrequency(double distanceNormalized)
+{
+    double knockFrequency = 0.;
+
+    static double minKnockFrequency = 0.5, middleKnockFrequency = 5., maxKnockFrequency = 50.;
+    static double minDistance = 0.5, middleDistance = 0.8;
+
+    if (distanceNormalized < 0.5)
+        knockFrequency = distanceNormalized / minDistance * minKnockFrequency;
+    else if (distanceNormalized < middleDistance)
+        knockFrequency = minKnockFrequency + (distanceNormalized - minDistance) / (middleDistance - minDistance) * (middleKnockFrequency - minKnockFrequency);
+    else
+        knockFrequency = middleKnockFrequency + (distanceNormalized - middleDistance) / (1. - middleDistance) * (maxKnockFrequency - middleKnockFrequency);
+
+    return knockFrequency;
+}
+
 SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
 {
     double length = 0.1;
