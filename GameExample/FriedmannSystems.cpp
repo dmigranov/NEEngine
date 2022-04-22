@@ -290,11 +290,13 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
         
         static double timeForCurrentObject = 0.0; //а может сразу в сэмплах измерять?
         static unsigned long sampleCountForCurrentObject = 0; 
+        static bool needToRecalculateFrequency = true;
 
         if (m_hasObjectChanged || m_hasRadiusChanged)  //todo: radius changed!
         {
             timeForCurrentObject = 0.;
             sampleCountForCurrentObject = 0;
+            needToRecalculateFrequency = true;
 
             m_hasObjectChanged = false;
             m_hasRadiusChanged = false;
