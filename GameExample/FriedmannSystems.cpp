@@ -281,6 +281,7 @@ double RadiusUpdateSystem::RadiusFunction(double mu)
     return m_radiusFunction(mu);
 }
 
+//Maximize (Piecewise[{{2*y*(1-cos(x)), x >= y}, {0, x < y}}]) on y < 2pi and x > 0 and x < 2pi and y > 0
 double CalculateFrequency(double distanceNormalized)
 {
     //double knockFrequency = minKnockFrequency + distanceNormalized * (maxKnockFrequency - minKnockFrequency);
