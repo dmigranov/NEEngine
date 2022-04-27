@@ -9,6 +9,7 @@
 #include "Entity.h"
 #include "Sound.h"
 #include "DynamicSound.h"
+#include "Texture.h"
 
 // Components
 

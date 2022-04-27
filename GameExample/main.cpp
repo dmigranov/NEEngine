@@ -42,11 +42,11 @@ int main(int argc, char* argv[])
 
     auto friedmannHwnd = CreateFriedmannWindow();
 
-    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
-    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
-    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
-    Texture* greenTexture = resourceManager->CreateTexture(L"green_texture.dds");
-    Texture* greenWithBlueTexture = resourceManager->CreateTexture(L"green.dds");
+    Texture* earthTexture = new Texture(L"earth8k.dds");
+    Texture* rainbowTexture1 = new Texture(L"rainbow4_rot.dds");
+    Texture* rainbowTexture2 = new Texture(L"rainbow4.dds");
+    Texture* greenTexture = new Texture(L"green_texture.dds");
+    Texture* greenWithBlueTexture = new Texture(L"green.dds");
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
