@@ -2,8 +2,6 @@
 class Texture
 {
 public:
-	//Texture();
-	//Texture(const Texture&);
 	Texture(const WCHAR* name);
 	~Texture();
 
