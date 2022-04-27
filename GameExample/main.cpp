@@ -20,7 +20,6 @@ int main(int argc, char* argv[])
     game.InitializeEngine(L"Test game", true, false, true);
     game.SetBackgroundColor(DirectX::Colors::Black);   //todo: перенести
     Scene* scene = game.GetScene();
-    auto resourceManager = game.GetResourceManager();
 
     {
         auto componentTypeManager = game.GetComponentTypeManager();
