@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "Texture.h"
 #include "DDSTextureLoader.h"
-
+#include "Game.h"
+#include "ResourceManager.h"
 
 Texture::Texture() : m_texture(nullptr), m_resource(nullptr)
 {
@@ -9,6 +10,13 @@ Texture::Texture() : m_texture(nullptr), m_resource(nullptr)
 
 Texture::Texture(const Texture&)
 {
+}
+
+Texture::Texture(const WCHAR* name)
+{
+	Game& game = Game::GetInstance();
+	auto resourceManager = game.GetResourceManager();
+	*this = *resourceManager->CreateTexture(name);
 }
 
 Texture::~Texture()
