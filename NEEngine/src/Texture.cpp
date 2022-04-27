@@ -32,9 +32,7 @@ Texture::Texture(const WCHAR* name) : Texture()
 			MB_ICONERROR
 		);
 	}
-	textures.push_back(texture);
-	return texture;
-
+	resourceManager->AddTexture(this);
 }
 
 Texture::~Texture()
