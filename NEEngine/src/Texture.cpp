@@ -15,6 +15,9 @@ Texture::Texture(const Texture&)
 Texture::Texture(const WCHAR* name) : Texture()
 {
 	Game& game = Game::GetInstance();
+	auto resourceManager = game.GetResourceManager();
+	//*this = *resourceManager->CreateTexture(name);
+
 	if (!this->Initialize(game.GetDevice(), name))
 	{
 		std::wstring ws1(L"Texture ");
