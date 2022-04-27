@@ -12,11 +12,25 @@ Texture::Texture(const Texture&)
 {
 }
 
-Texture::Texture(const WCHAR* name)
+Texture::Texture(const WCHAR* name) : Texture()
 {
 	Game& game = Game::GetInstance();
-	auto resourceManager = game.GetResourceManager();
-	*this = *resourceManager->CreateTexture(name);
+	if (!this->Initialize(game.GetDevice(), name))
+	{
+		std::wstring ws1(L"Texture ");
+		std::wstring ws2(name);
+		std::wstring ws3(L" not found");
+		auto errorMsg = ws1 + ws2 + ws3;
+		int msgboxID = MessageBox(
+			NULL,
+			(LPCWSTR)errorMsg.c_str(),
+			(LPCWSTR)L"Resource not found",
+			MB_ICONERROR
+		);
+	}
+	textures.push_back(texture);
+	return texture;
+
 }
 
 Texture::~Texture()
