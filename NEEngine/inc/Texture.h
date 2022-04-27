@@ -4,6 +4,7 @@ class Texture
 public:
 	Texture();
 	Texture(const Texture&);
+	Texture(const WCHAR* name);
 	~Texture();
 
 	bool Initialize(ID3D11Device* device, const WCHAR* name);
