@@ -12,6 +12,7 @@ Texture::Texture(const Texture&)
 {
 }
 
+
 Texture::Texture(const WCHAR* name) : Texture()
 {
 	Game& game = Game::GetInstance();
