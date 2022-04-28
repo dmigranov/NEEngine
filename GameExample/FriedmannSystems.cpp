@@ -188,7 +188,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
     *animationSystem = new ActionSystem<InputComponent>(
         [timer, initialRadius] (Entity* pEntity, double deltaTime) {
-
+            /*
             double radius = SphericalEffect::GetRadius();
             if (isAnimation)
             {
@@ -199,6 +199,9 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 else
                     isAnimation = false;
             }
+            */
+
+            timer->AddDelta(deltaTime);
         });
 
     *soundSystem = new SoundSystem(*selectionSystem, cameraTransform);
