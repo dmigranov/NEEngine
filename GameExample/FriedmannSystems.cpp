@@ -23,6 +23,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
     *selectionSystem = new SelectionSystem(inputComponent, timer, initialObjectRadius);
 
+    static auto isAnimation = true; //!
+
     *controlSystem = new ActionSystem<InputComponent>([sphericalEffect, timer, selectionSystem]
     (Entity* pEntity, double deltaTime) {
             
@@ -184,7 +186,6 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
     *animationSystem = new ActionSystem<InputComponent>(
         [timer, initialRadius] (Entity* pEntity, double deltaTime) {
-            static auto isAnimation = true; //!
 
             double radius = SphericalEffect::GetRadius();
             if (isAnimation)
