@@ -39,10 +39,12 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
             if (kbs.Left)
             {
+                isAnimation = false;
                 timer->AddDelta(-deltaTime);
             }
             else if (kbs.Right)
             {
+                isAnimation = false;
                 timer->AddDelta(deltaTime);
             }
 
