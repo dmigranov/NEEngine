@@ -14,6 +14,8 @@ using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
+    //todo: были какие-то щелчки все равно
+
     double radius = 1.;
 
     Game& game = Game::GetInstance();
