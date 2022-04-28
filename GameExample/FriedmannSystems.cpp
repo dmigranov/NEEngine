@@ -7,6 +7,7 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+//todo: зациклить эта (eta)!
 
 FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect, 
     SphericalTransformComponent* cameraTransform, SphericalRenderSystem* renderSystem, InputComponent* inputComponent, double initialObjectRadius,
@@ -188,20 +189,21 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
     *animationSystem = new ActionSystem<InputComponent>(
         [timer, initialRadius] (Entity* pEntity, double deltaTime) {
-            /*
-            double radius = SphericalEffect::GetRadius();
+            
             if (isAnimation)
-            {
+            {   /*
+                double radius = SphericalEffect::GetRadius();
                 if (radius >= initialRadius)
                 {
                     timer->AddDelta(deltaTime);
                 }
                 else
                     isAnimation = false;
-            }
-            */
+                */
 
-            timer->AddDelta(deltaTime);
+                timer->AddDelta(deltaTime);
+            }
+            
         });
 
     *soundSystem = new SoundSystem(*selectionSystem, cameraTransform);
