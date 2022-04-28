@@ -44,10 +44,15 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                 timer->AddDelta(deltaTime);
             }
 
+            static bool oldPressedPauseButton = false;
             if (kbs.Space)
             {
-                //todo
+                if (!oldPressedPauseButton)
+                    isAnimation = !isAnimation;
+                oldPressedPauseButton = true;
             }
+            else
+                oldPressedPauseButton = false;
 
             double muCoeffDelta = 0.01; 
             if (kbs.Up)
