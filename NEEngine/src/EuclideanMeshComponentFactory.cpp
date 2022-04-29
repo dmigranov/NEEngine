@@ -164,9 +164,18 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
 
     if (!infile)
     {
-        std::cerr << "Unable to open file " << filepath << std::endl;
-        exit(1); //todo
+        //std::cerr << "Unable to open file " << filepath << std::endl;
+        std::string msg = "Unable to open file " + filepath; 
+        int msgboxID = MessageBox(
+            NULL,
+            (LPCWSTR)L"Can't create input layout",
+            (LPCWSTR)L"Can't create input layout",
+            MB_ICONERROR
+        );
+        return nullptr;
     }
+
+
 
     return nullptr;
 }
