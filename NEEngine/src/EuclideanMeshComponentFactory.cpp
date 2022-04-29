@@ -226,3 +226,18 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
 
     return nullptr;
 }
+
+std::vector<std::string> EuclideanMeshComponentFactory::parseString(std::string str, char delimiter)
+{
+    return std::vector<std::string>();
+}
+
+std::vector<double> EuclideanMeshComponentFactory::getDoubleValues(std::vector<std::string> strings)
+{
+    return std::vector<double>();
+}
+
+std::vector<int> EuclideanMeshComponentFactory::getIntValues(std::vector<std::string> strings)
+{
+    return std::vector<int>();
+}
