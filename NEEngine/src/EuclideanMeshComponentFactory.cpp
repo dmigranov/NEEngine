@@ -181,7 +181,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
 
     std::string str;
 
-    //std::vector<Mesh::VertexPosColor> vertices;
+    std::vector<VertexData> vertices;
     std::vector<WORD> vertexIndices;
 
     std::vector<Vector4> positions;
