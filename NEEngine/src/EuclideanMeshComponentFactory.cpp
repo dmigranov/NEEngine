@@ -229,15 +229,36 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
 
 std::vector<std::string> EuclideanMeshComponentFactory::parseString(std::string str, char delimiter)
 {
-    return std::vector<std::string>();
+    std::vector<std::string> vec;
+    size_t startIndex = 0;
+    size_t endIndex;
+    while ((endIndex = str.find(delimiter, startIndex)) != std::string::npos)
+    {
+        std::string substr = str.substr(startIndex, endIndex - startIndex);
+        vec.push_back(substr);
+        startIndex = endIndex + 1;
+    }
+    std::string substr = str.substr(startIndex, endIndex - startIndex);
+    vec.push_back(substr);
+    return vec;
 }
 
 std::vector<double> EuclideanMeshComponentFactory::getDoubleValues(std::vector<std::string> strings)
 {
-    return std::vector<double>();
+    std::vector<double> vec;
+    for (std::string str : strings)
+    {
+        vec.push_back(atof(str.c_str()));
+    }
+    return vec;
 }
 
 std::vector<int> EuclideanMeshComponentFactory::getIntValues(std::vector<std::string> strings)
 {
-    return std::vector<int>();
+    std::vector<int> vec;
+    for (std::string str : strings)
+    {
+        vec.push_back(atoi(str.c_str()));
+    }
+    return vec;
 }
