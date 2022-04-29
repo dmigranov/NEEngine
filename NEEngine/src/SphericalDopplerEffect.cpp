@@ -17,7 +17,7 @@
 #include "EllDopplerVertexShader.h"
 
 double SphericalDopplerEffect::m_radiusOld = 1.;
-double SphericalDopplerEffect::m_mu = -1.;
+double SphericalDopplerEffect::m_eta = -1.;
 
 SphericalDopplerEffect::SphericalDopplerEffect(Texture* pTexture, Texture* pTextureAlt, double fogDensity, DirectX::XMVECTORF32 fogColor) : SphericalExpFogEffect(pTexture, fogDensity, fogColor)
 {
@@ -83,7 +83,7 @@ void SphericalDopplerEffect::UpdatePerObject(const Entity* pEntity, double delta
 
 	//perApplicationVSConstantBufferDoppler.radius = m_radius;
 	//perApplicationVSConstantBufferDoppler.radiusOld = pDoppler->GetOldRadius();
-	perApplicationVSConstantBufferDoppler.mu = m_mu;
+	perApplicationVSConstantBufferDoppler.mu = m_eta;
 
 			
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBufferDoppler);
@@ -128,7 +128,7 @@ double SphericalDopplerEffect::GetOldRadius()
 
 void SphericalDopplerEffect::SetMu(double mu)
 {
-	m_mu = mu;
+	m_eta = mu;
 }
 
 void SphericalDopplerEffect::SetFogColor(DirectX::XMVECTORF32 fogColor)

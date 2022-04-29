@@ -60,5 +60,5 @@ private:
 
     Texture* m_pTextureAlt = nullptr;
 
-    static double m_mu;
+    static double m_eta;
 };
