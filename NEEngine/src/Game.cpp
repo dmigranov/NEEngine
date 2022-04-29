@@ -16,10 +16,8 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-Game::Game(unsigned int width, unsigned int height) noexcept :
-    m_hwnd(nullptr),
-    m_outputWidth(width),
-    m_outputHeight(height)
+Game::Game() noexcept :
+    m_hwnd(nullptr)
 {
 }
 
@@ -33,7 +31,7 @@ Game::~Game()
 
 Game& Game::GetInstance()
 {
-    static Game game(800, 600);
+    static Game game(); //!!
     return game;
 }
 

@@ -68,7 +68,7 @@ public:
     inline void SetupOutputMerger();
 
 private:
-    Game(unsigned int width, unsigned int height) noexcept;
+    Game() noexcept;
     Game(Game const&) = delete;
     ~Game();
 
