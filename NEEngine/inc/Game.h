@@ -19,7 +19,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeEngine(const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
+    int InitializeEngine(const WCHAR* windowName = L"Non-Euclidean Spaces' Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
 
     int StartGame();
 
