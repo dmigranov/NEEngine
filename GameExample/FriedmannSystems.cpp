@@ -225,6 +225,11 @@ void FriedmannTimer::AddDelta(double deltaTime)
     m_currentSimulationTime += deltaTime;
     m_currentFrameTime += deltaTime;
     m_mu += m_muCoeff * deltaTime;
+
+    if (this.mu < 0)
+        this.mu = this.mu + PI_MUL_2;
+    if (this.mu > PI_MUL_2)
+        this.mu = this.mu - PI_MUL_2;
 }
 
 bool FriedmannTimer::IsTimeToRepaint()
