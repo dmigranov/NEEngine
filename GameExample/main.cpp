@@ -78,12 +78,7 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
     smc->SetEffect(effect);
 
-    auto loadedMesh = EuclideanMeshComponentFactory::CreateMeshFromFile("mesh.sph");
-    loadedMesh->SetEffect(new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black));
-    smc = loadedMesh;
-
-    //auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
-    //earth_mc->SetEffect(effectEarth);
+    //auto loadedMesh = EuclideanMeshComponentFactory::CreateMeshFromFile("mesh.sph");
 
     auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
     pointComp->SetEffect(pointEffect);
