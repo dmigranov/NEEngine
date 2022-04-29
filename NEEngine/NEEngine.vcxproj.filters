@@ -102,32 +102,14 @@
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mesh.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalCube.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalMesh.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalOctahedron.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
     <ClCompile Include="src\Drawer2D.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Texture.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalSphere.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
     <ClCompile Include="src\FPSCounter.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalEllipsoid.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
     <ClCompile Include="src\GameWindows.cpp">
       <Filter>Исходные файлы</Filter>

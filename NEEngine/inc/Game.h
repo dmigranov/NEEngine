@@ -12,7 +12,6 @@ class Texture;
 class Drawer2D;
 class TextDrawer;
 class Mesh;
-class SphericalMesh;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -157,14 +156,6 @@ private:
     HDEVNOTIFY m_hNewAudio = nullptr;
 
     bool isInitialized = false;
-
-    friend class Mesh;
-
-    friend class SphericalMesh;
-    friend class SphericalOctahedron;
-    friend class SphericalCube;
-    friend class SphericalSphere;
-    friend class SphericalEllipsoid;
 
     friend class Scene;
 
