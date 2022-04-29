@@ -38,7 +38,7 @@ void SelectionSystem::Execute(double deltaTime)
 
 	int width, height;
 	m_game.GetWindowSize(width, height);
-	auto mu = m_pTimer->GetMu();
+	auto mu = m_pTimer->GetEta();
 
 	//for (auto pEntity : m_entities)
 	for (int i = 0; i < m_entities.size(); i++)

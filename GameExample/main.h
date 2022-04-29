@@ -11,7 +11,7 @@ public:
 	void AddDelta(double deltaTime);
 	bool IsTimeToRepaint();
 	double GetSimulationTime();
-	double GetMu();
+	double GetEta();
 	double GetFrameTime();
 
 	void SetMuCoeff(double muCoeff); //coeff is speed

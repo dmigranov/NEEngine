@@ -20,7 +20,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     double frameUpdateTimeLimit = 0.1;
 
     auto timer = new FriedmannTimer(initialSimulationTime, frameUpdateTimeLimit, initialMuCoeff);
-    double initialSimulationMu = timer->GetMu();
+    double initialSimulationMu = timer->GetEta();
 
     *selectionSystem = new SelectionSystem(inputComponent, timer, initialObjectRadius);
 
@@ -167,7 +167,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
             auto radius = SphericalEffect::GetRadius();
             auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
-            auto mu = timer->GetMu();
+            auto mu = timer->GetEta();
 
             if (mu < dist)
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
@@ -247,7 +247,7 @@ double FriedmannTimer::GetSimulationTime()
     return m_currentSimulationTime;
 }
 
-double FriedmannTimer::GetMu()
+double FriedmannTimer::GetEta()
 {
     return m_mu;
 }
@@ -285,7 +285,7 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSy
 
 void RadiusUpdateSystem::Execute(double deltaTime)
 {
-    double mu = m_timer->GetMu();
+    double mu = m_timer->GetEta();
     //double radius = 2 * (1 - cos(mu));
     double radius = m_radiusFunction(mu);
 
