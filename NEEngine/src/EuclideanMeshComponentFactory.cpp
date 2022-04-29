@@ -189,6 +189,10 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
     std::vector<Vector2> uv0;
     std::vector<int> textureIndices;
 
+    while (std::getline(infile, str))
+    {
+        //todo
+    }
 
     return nullptr;
 }
