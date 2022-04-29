@@ -199,6 +199,8 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
                 str = str.substr(2);
                 std::vector<std::string> parsedStrings = parseString(str, ' ');
                 std::vector<double> values = getDoubleValues(parsedStrings);
+                if (values.size() < 3)
+                    return nullptr; //todo
                 positions.push_back(Vector4(values[0], values[1], values[2], values[3]));
             }
             else if (str[1] == 't') //vt 0 0
