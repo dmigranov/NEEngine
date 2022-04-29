@@ -15,7 +15,7 @@ public:
 	double GetFrameTime();
 
 	void SetMuCoeff(double muCoeff); //coeff is speed
-	double GetMuCoeff();
+	double GetEtaCoeff();
 private:
 	void SetFrameTime(double newTime);
 

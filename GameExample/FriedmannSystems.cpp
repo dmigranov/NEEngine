@@ -62,11 +62,11 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             double muCoeffDelta = 0.01; 
             if (kbs.Up)
             {
-                timer->SetMuCoeff(timer->GetMuCoeff() + muCoeffDelta);
+                timer->SetMuCoeff(timer->GetEtaCoeff() + muCoeffDelta);
             }
             else if (kbs.Down)
             {
-                auto muCoeff = timer->GetMuCoeff();
+                auto muCoeff = timer->GetEtaCoeff();
                 if (muCoeff >= muCoeffDelta)
                     timer->SetMuCoeff(muCoeff - muCoeffDelta);
             }
@@ -262,7 +262,7 @@ void FriedmannTimer::SetMuCoeff(double muCoeff)
     m_muCoeff = muCoeff;
 }
 
-double FriedmannTimer::GetMuCoeff()
+double FriedmannTimer::GetEtaCoeff()
 {
     return m_muCoeff;
 }
