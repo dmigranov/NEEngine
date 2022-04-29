@@ -7,6 +7,7 @@
 #include "TextComponent.h"
 #include "RandomSphericalGenerator.h"
 #include "SphericalMath.h"
+#include "EuclideanMeshComponentFactory.h"
 
 
 using namespace DirectX;
