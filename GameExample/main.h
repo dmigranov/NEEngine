@@ -23,7 +23,7 @@ private:
 	double m_currentFrameTime = 0.;
 	double m_eta = 0;
 
-	double m_muCoeff = 1.;
+	double m_etaCoeff = 1.;
 	double m_frameUpdateTimeLimit;
 };
 

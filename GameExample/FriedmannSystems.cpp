@@ -217,14 +217,14 @@ FriedmannTimer::FriedmannTimer(double initialSimulationTime, double frameUpdateT
     m_eta = muCoeff * m_currentSimulationTime;
 
     m_frameUpdateTimeLimit = frameUpdateTimeLimit;
-    m_muCoeff = muCoeff;
+    m_etaCoeff = muCoeff;
 }
 
 void FriedmannTimer::AddDelta(double deltaTime)
 {
     m_currentSimulationTime += deltaTime;
     m_currentFrameTime += deltaTime;
-    m_eta += m_muCoeff * deltaTime;
+    m_eta += m_etaCoeff * deltaTime;
 
     if (m_eta < 0)
         m_eta = m_eta + XM_2PI;
@@ -259,12 +259,12 @@ double FriedmannTimer::GetFrameTime()
 
 void FriedmannTimer::SetEtaCoeff(double etaCoeff)
 {
-    m_muCoeff = etaCoeff;
+    m_etaCoeff = etaCoeff;
 }
 
 double FriedmannTimer::GetEtaCoeff()
 {
-    return m_muCoeff;
+    return m_etaCoeff;
 }
 
 void FriedmannTimer::SetFrameTime(double newTime)
