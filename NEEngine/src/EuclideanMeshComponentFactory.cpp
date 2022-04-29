@@ -4,6 +4,9 @@
 #include "MeshComponent.h"
 #include "Game.h"
 
+#include <atlbase.h>
+#include <atlconv.h>
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
