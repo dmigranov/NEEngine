@@ -160,7 +160,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, vertices, indicesCount, indices);
 }
 
-MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::string filepath)
+MeshComponent* EuclideanMeshComponentFactory::CreateMeshFromFile(std::string filepath)
 {
     std::ifstream infile;
     infile.open(filepath);
@@ -251,7 +251,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
         vertexIndices.push_back(i);
     }
 
-    return MeshComponentFactory::CreateMeshComponent<VertexData>();
+    return MeshComponentFactory::CreateMeshComponent<VertexData>(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
 }
 
 std::vector<std::string> EuclideanMeshComponentFactory::parseString(std::string str, char delimiter)

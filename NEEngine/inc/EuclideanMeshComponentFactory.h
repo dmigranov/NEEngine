@@ -16,7 +16,7 @@ public:
     static MeshComponent* CreateCube(double side);
     static MeshComponent* CreateRectangularCuboid(double xSide, double ySide, double zSide);
 
-    static MeshComponent* CreateSphericalMeshFromFile(std::string fileName);
+    static MeshComponent* CreateMeshFromFile(std::string fileName);
 
 private:
     static std::vector<std::string> parseString(std::string str, char delimiter);
