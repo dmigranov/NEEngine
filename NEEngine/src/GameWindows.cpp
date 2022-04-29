@@ -152,6 +152,9 @@ int Game::InitializeEngine(unsigned int width, unsigned int height, const WCHAR*
     else
         nCmdShow = SW_SHOWNORMAL;
 
+    m_outputWidth = width;
+    m_outputHeight = height;
+
     return InitializeEngine(hInstance, nCmdShow, windowName, isConsoleEnabled, isFullscreenEnabled, isVSyncEnabled);
 }
 
