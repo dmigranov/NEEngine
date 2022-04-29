@@ -157,9 +157,16 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, vertices, indicesCount, indices);
 }
 
-MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::string fileName)
+MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::string filepath)
 {
+    std::ifstream infile;
+    infile.open(filepath);
 
+    if (!infile)
+    {
+        std::cerr << "Unable to open file " << filepath << std::endl;
+        exit(1); //todo
+    }
 
     return nullptr;
 }
