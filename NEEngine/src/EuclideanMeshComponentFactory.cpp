@@ -215,6 +215,9 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
                 str = str.substr(3);
                 std::vector<std::string> parsedStrings = parseString(str, ' ');
                 std::vector<double> values = getDoubleValues(parsedStrings);
+                if (values.size() < 2)
+                    return nullptr; //todo
+
                 uv0.push_back(Vector2(values[0], values[1]));
             }
         }
@@ -222,10 +225,15 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
         {
             str = str.substr(2);
             std::vector<std::string> parsedStrings = parseString(str, ' ');
+            if (parsedStrings.size() < 3)
+                return nullptr; //todo
+
             for (std::string substr : parsedStrings) //2/2
             {
                 std::vector<std::string> strIndices = parseString(substr, '/');
                 std::vector<int> indices = getIntValues(strIndices);
+                if (indices.size() < 2)
+                    return nullptr; //todo
 
                 positionIndices.push_back(indices[0] - 1); //индексы считаются с единицы, а не с нуля
                 textureIndices.push_back(indices[1] - 1);
