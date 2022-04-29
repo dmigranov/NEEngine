@@ -251,7 +251,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
         vertexIndices.push_back(i);
     }
 
-    return nullptr;
+    return MeshComponentFactory::CreateMeshComponent<VertexData>();
 }
 
 std::vector<std::string> EuclideanMeshComponentFactory::parseString(std::string str, char delimiter)
