@@ -143,7 +143,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windo
     return 0;
 }
 
-int Game::InitializeEngine(const WCHAR* windowName, bool isConsoleEnabled, bool isFullscreenEnabled, bool isVSyncEnabled)
+int Game::InitializeEngine(unsigned int width, unsigned int height, const WCHAR* windowName, bool isConsoleEnabled, bool isFullscreenEnabled, bool isVSyncEnabled)
 {
     auto hInstance = GetModuleHandle(nullptr);
     int nCmdShow;
