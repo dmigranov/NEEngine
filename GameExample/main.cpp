@@ -78,6 +78,8 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
     smc->SetEffect(effect);
 
+    auto loadedMesh = EuclideanMeshComponentFactory::CreateMeshFromFile();
+
     //auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
     //earth_mc->SetEffect(effectEarth);
 
