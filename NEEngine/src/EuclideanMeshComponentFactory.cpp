@@ -241,6 +241,17 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
         }
     }
 
+    for (int i = 0; i < positionIndices.size(); i++)
+    {
+        auto posIndex = positionIndices[i];
+        auto texIndex = textureIndices[i];
+
+        Mesh::VertexPosColor vpc = { positions[posIndex], XMFLOAT4(1.f, 1.f, 1.f, 1.f), uv0[texIndex] };
+        vertices.push_back(vpc);
+        vertexIndices.push_back(i);
+    }
+
+
     return nullptr;
 }
 
