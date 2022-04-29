@@ -186,6 +186,7 @@ MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::s
 
     std::vector<Vector4> positions;
     std::vector<int> positionIndices;
+
     std::vector<Vector2> uv0;
     std::vector<int> textureIndices;
 
