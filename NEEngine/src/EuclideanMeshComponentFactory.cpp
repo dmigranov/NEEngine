@@ -156,3 +156,10 @@ MeshComponent* EuclideanMeshComponentFactory::CreateRectangularCuboid(double xSi
 
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, vertices, indicesCount, indices);
 }
+
+MeshComponent* EuclideanMeshComponentFactory::CreateSphericalMeshFromFile(std::string fileName)
+{
+
+
+    return nullptr;
+}
