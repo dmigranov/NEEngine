@@ -31,7 +31,7 @@ Game::~Game()
 
 Game& Game::GetInstance()
 {
-    static Game game(); //!!
+    static Game game;
     return game;
 }
 
