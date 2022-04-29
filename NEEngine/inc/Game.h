@@ -19,7 +19,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeEngine(unsigned int width, unsigned int height, const WCHAR* windowName = L"Non-Euclidean Spaces' Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
+    int InitializeEngine(unsigned int width = 800, unsigned int height = 600, const WCHAR* windowName = L"Non-Euclidean Spaces' Visualizer", bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true);
 
     int StartGame();
 
