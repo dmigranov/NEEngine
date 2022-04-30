@@ -37,8 +37,9 @@ public:
 	std::string GetName() const;
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
-	//todo: T* pComponent, чтобы была проверка типов?
-	template<typename T> void AddComponent(Component* pComponent)		//new (а не T* лучше?)
+	
+	//было Component&*, сделал T*
+	template<typename T> void AddComponent(T* pComponent)		//new 
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();
 		auto componentIndex = manager->template GetComponentTypeIndex<T>();
