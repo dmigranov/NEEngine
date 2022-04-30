@@ -38,7 +38,7 @@ public:
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
 	//todo: T* pComponent, чтобы была проверка типов?
-	template<typename T> void AddComponent(Component* pComponent)		//new
+	template<typename T> void AddComponent(Component* pComponent)		//new (а не T* лучше?)
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();
 		auto componentIndex = manager->template GetComponentTypeIndex<T>();
