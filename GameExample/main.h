@@ -61,14 +61,14 @@ private:
 	FriedmannTimer* m_timer;
 	SphericalRenderSystem* m_renderSystem;
 	SphericalTransformComponent* m_cameraTransform;
-	static std::function<double(double)> m_radiusFunction; 
+	const static std::function<double(double)> m_radiusFunction;
 };
 
 double CalculateFrequency(double distanceNormalized);
 
 class SoundSystem : public System {
 public:
-	SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform);
+	SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform, FriedmannTimer* timer);
 	virtual void Execute(double deltaTime) override;
 private:
 	DynamicSound* m_pSound;

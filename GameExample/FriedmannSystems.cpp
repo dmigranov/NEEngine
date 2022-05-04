@@ -206,7 +206,7 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
             
         });
 
-    *soundSystem = new SoundSystem(*selectionSystem, cameraTransform);
+    *soundSystem = new SoundSystem(*selectionSystem, cameraTransform, timer);
 
     return timer;
 }
@@ -272,6 +272,8 @@ void FriedmannTimer::SetFrameTime(double newTime)
     m_currentFrameTime = newTime;
 }
 
+const std::function<double(double)> RadiusUpdateSystem::m_radiusFunction = [](double mu) { return 2 * (1 - cos(mu)); };
+
 RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem* renderSystem, SphericalTransformComponent* cameraTransform)
 {
     SubscribeToComponentType<SphericalTransformComponent>();
@@ -280,7 +282,7 @@ RadiusUpdateSystem::RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSy
     m_timer = timer;
     m_renderSystem = renderSystem;
     m_cameraTransform = cameraTransform;
-    m_radiusFunction = [](double mu) { return 2 * (1 - cos(mu)); };
+    //m_radiusFunction = [](double mu) { return 2 * (1 - cos(mu)); };
 }
 
 void RadiusUpdateSystem::Execute(double deltaTime)
@@ -324,11 +326,11 @@ double CalculateFrequency(double distanceNormalized)
     return knockFrequency;
 }
 
-SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform)
+SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform, FriedmannTimer* timer)
 {
     double length = 0.1;
     double maxRadius = 4.;
-    m_pSound = new DynamicSound([this, length, maxRadius](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
+    m_pSound = new DynamicSound([this, length, maxRadius, timer](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
         static unsigned long sampleCountForCurrentObject = 0; 
         static unsigned int mustBePlayedEverySamples = 1; //! (% 1 is always 0 so for first time there always will be a knock - what we need exactly)
         static double knockFrequency = 0.;
@@ -365,7 +367,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
                         knockFrequency = CalculateFrequency(distanceNormalized);
 
-                        knockFrequency = RadiusUpdateSystem::RadiusFunction(eta - m_currentChi) / radius * 1.;
+                        //knockFrequency = RadiusUpdateSystem::RadiusFunction(timer->GetEta() - m_currentChi) / radius * 1.;
                         std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
                         double mustBePlayedEverySeconds = 1. / knockFrequency;
