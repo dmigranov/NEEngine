@@ -14,12 +14,12 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
     System** controlSystem, System** visibilitySystem, System** radiusUpdateSystem, 
     System** animationSystem, SelectionSystem** selectionSystem, System** soundSystem)
 {
-    double initialMuCoeff = 1. / 3.;
-    double initialSimulationTime = 8. / (9. * initialMuCoeff);
+    double initialEtaCoeff = 1. / 3.;
+    double initialSimulationTime = 8. / (9. * initialEtaCoeff);
 
     double frameUpdateTimeLimit = 0.1;
 
-    auto timer = new FriedmannTimer(initialSimulationTime, frameUpdateTimeLimit, initialMuCoeff);
+    auto timer = new FriedmannTimer(initialSimulationTime, frameUpdateTimeLimit, initialEtaCoeff);
     double initialSimulationMu = timer->GetEta();
 
     *selectionSystem = new SelectionSystem(inputComponent, timer, initialObjectRadius);
@@ -167,13 +167,13 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
 
             auto radius = SphericalEffect::GetRadius();
             auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.); // dist is Chi 
-            auto mu = timer->GetEta();
+            auto eta = timer->GetEta();
 
-            if (mu < dist)
+            if (eta < dist)
                 renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_NONE);
             else
             {
-                if (mu >= dist && mu <= (XM_2PI - dist))
+                if (eta >= dist && eta <= (XM_2PI - dist))
                 {
                     renderingComponent->SetSphericalVisibility(SphericalVisibility::VISIBLE_FRONT);
                 }
@@ -365,7 +365,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                         double distanceNormalized = 1 - m_currentChi * radius / XM_2PI / maxRadius;
                         knockFrequency = CalculateFrequency(distanceNormalized);
 
-                        knockFrequency = / radius * 1.;
+                        knockFrequency = RadiusUpdateSystem::RadiusFunction(eta - m_currentChi) / radius * 1.;
                         std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
                         double mustBePlayedEverySeconds = 1. / knockFrequency;

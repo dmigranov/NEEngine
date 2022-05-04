@@ -56,12 +56,12 @@ public:
 	RadiusUpdateSystem(FriedmannTimer * timer, SphericalRenderSystem * renderSystem, SphericalTransformComponent* cameraTransform);
 	virtual void Execute(double deltaTime) override;
 
-	double RadiusFunction(double mu);
+	static double RadiusFunction(double mu);
 private:
 	FriedmannTimer* m_timer;
 	SphericalRenderSystem* m_renderSystem;
 	SphericalTransformComponent* m_cameraTransform;
-	std::function<double(double)> m_radiusFunction; 
+	static std::function<double(double)> m_radiusFunction; 
 };
 
 double CalculateFrequency(double distanceNormalized);
