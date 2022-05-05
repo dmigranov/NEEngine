@@ -400,6 +400,8 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
 void SoundSystem::Execute(double deltaTime)
 {
     auto pSelectedEntity = m_pSelectionSystem->GetSelectedEntity();
+    //pSelectedEntity = m_pSelectionSystem->GetEntitySelectedByUser();
+
     if (pSelectedEntity != nullptr)
     {
         float pitch;
