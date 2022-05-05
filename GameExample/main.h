@@ -48,6 +48,9 @@ private:
 	double m_initialObjectRadius;
 	int m_selectedIndex = -1;
 	Entity* m_pSelectedEntity = nullptr;
+
+	Entity* m_pLastEntitySelectedByUser = nullptr;
+
 	double m_minDistance = 1000000.;
 };
 
