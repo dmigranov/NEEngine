@@ -37,6 +37,9 @@ public:
 	Entity* GetSelectedEntity();
 	int GetSelectedIndex();
 
+	void SetEntitySelectedByUser(Entity * pEntity);
+	Entity* GetEntitySelectedByUser();
+
 	std::vector<Entity*> GetEntities();
 private:
 	InputComponent* m_pInputComponent;

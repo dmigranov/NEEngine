@@ -82,6 +82,16 @@ int SelectionSystem::GetSelectedIndex()
 	return m_selectedIndex;
 }
 
+void SelectionSystem::SetEntitySelectedByUser(Entity* pEntity)
+{
+	m_pLastEntitySelectedByUser = pEntity;
+}
+
+Entity* SelectionSystem::GetEntitySelectedByUser()
+{
+	return m_pLastEntitySelectedByUser;
+}
+
 std::vector<Entity*> SelectionSystem::GetEntities()
 {
 	return m_entities;
