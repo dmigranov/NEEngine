@@ -90,6 +90,8 @@ FriedmannTimer* CreateFriedmannSystems(SphericalDopplerEffect* sphericalEffect,
                     if (!oldPressedSelectButton)
                     {
                         dopplerComponent->SetSelected(!dopplerComponent->IsSelected());
+                        if (dopplerComponent->IsSelected())
+                            (*selectionSystem)->SetEntitySelectedByUser(selectedEntity);
                     }
                     oldPressedSelectButton = true;
                 }
