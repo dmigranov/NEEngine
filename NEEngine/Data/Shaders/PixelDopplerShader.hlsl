@@ -208,7 +208,10 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 
 	//double freqNew = freq * (1 - radiusRatio / C); //todo: change formula! f(radiusRatio) - landau
 	double freqNew = freq * radiusRatio;
-	double hueNew = getHue(freqNew);
+	//double hueNew = getHue(freqNew);
+	float lambdaNew = getWavelengthFromFrequency(freqNew);
+	float lambdaWidened = widenLambda(lambdaNew);
+	float hueNew = getHue(lambdaWidened);
 
 	bool isRedshift = false, isBlueshift = false;
 	float originalHueNew = hueNew;
