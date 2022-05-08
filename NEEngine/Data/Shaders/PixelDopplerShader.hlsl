@@ -159,6 +159,24 @@ float3 hsv2rgb(float3 hsv)
 	return float3(r, g, b);
 }
 
+float widenLambda(float lambda)
+{
+	float lambdaNew;
+	float w1 = 75., w2 = 540., w3 = 2000.;	// 10000 is too big; 1 - too small (won't be darkened at all)
+
+	if (abs(lambda - w2) > 0.01)
+	{
+		float z1 = 400., z2 = 540., z3 = 650.;
+		float a = (z3 - z2) / (z3 - z1);
+		float b = (lambda - w1) / (lambda - w2) * (w3 - w2) / (w3 - w1);
+		lambdaNew = (a * z1 - b * z2) / (a - b);
+	}
+	else
+		lambdaNew = lambda;
+
+	return lambdaNew;
+}
+
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
