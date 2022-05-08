@@ -177,6 +177,16 @@ float widenLambda(float lambda)
 	return lambdaNew;
 }
 
+float getWavelengthFromFrequency(float frequency)
+{
+	float lambda = 2. * PI * C / frequency;
+	return lambda;
+}
+
+float getHueFromWavelength(float lambda)
+{
+
+}
 
 float4 main(PixelShaderInput IN) : SV_TARGET
 {
