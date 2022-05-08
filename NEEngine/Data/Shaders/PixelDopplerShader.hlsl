@@ -185,7 +185,8 @@ float getWavelengthFromFrequency(float frequency)
 
 float getHueFromWavelength(float lambda)
 {
-
+	double hue = (650. - lambda) * 270 / 250;
+	return hue;
 }
 
 float4 main(PixelShaderInput IN) : SV_TARGET
