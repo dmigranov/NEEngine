@@ -38,7 +38,7 @@ public:
 
 	//void AddComponent(const ComponentType type, Component* pComponent);	//old
 	
-	//было Component&*, сделал T*
+	//было Component*, сделал T*
 	template<typename T> void AddComponent(T* pComponent)		//new 
 	{
 		auto manager = Game::GetInstance().GetComponentTypeManager();

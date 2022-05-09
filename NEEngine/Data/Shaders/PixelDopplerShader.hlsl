@@ -211,7 +211,7 @@ float4 main(PixelShaderInput IN) : SV_TARGET
 	//double hueNew = getHue(freqNew);
 	float lambdaNew = getWavelengthFromFrequency(freqNew);
 	float lambdaWidened = widenLambda(lambdaNew);
-	float hueNew = getHue(lambdaWidened);
+	float hueNew = getHueFromWavelength(lambdaWidened);
 
 	bool isRedshift = false, isBlueshift = false;
 	float originalHueNew = hueNew;
