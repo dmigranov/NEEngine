@@ -18,6 +18,7 @@ int main(int argc, char* argv[])
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
+    cameraComponent->SetFovY(DirectX::XM_PI/3);
     cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
@@ -71,6 +72,7 @@ int main(int argc, char* argv[])
             }));
     }
 
+    /*
     {
         auto childEntity = new Entity();
         auto ttc2 = new ToricTransformComponent(3, 0, 0);
@@ -85,6 +87,7 @@ int main(int argc, char* argv[])
             pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
             }));
     }
+    */
 
     return Game::GetInstance().StartGame();
 }
