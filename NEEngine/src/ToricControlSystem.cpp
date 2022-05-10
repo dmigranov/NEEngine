@@ -17,7 +17,7 @@ ToricControlSystem::ToricControlSystem(double movementSpeed, double rotationSpee
 
     //todo: speeds
 
-    if (ms.leftButton)
+    if (pInput->IsRelative())
     {
         Vector3 delta = Vector3(float(ms.x), float(ms.y), 0.f);
         pTransform->Rotate(Vector3(delta.y, delta.x, 0.) * deltaTime * 1.9);
@@ -41,4 +41,5 @@ ToricControlSystem::ToricControlSystem(double movementSpeed, double rotationSpee
     if (kbs.D)
         pTransform->Move(right);
 
+    pInput->SetRelative(ms.leftButton ? true : false);
     }) {}
