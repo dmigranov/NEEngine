@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
 
-    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
+    Texture* earthTexture = new Texture(L"earth8k.dds");
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
