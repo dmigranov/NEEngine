@@ -144,6 +144,11 @@ void HyperbolicExpFogEffect::UpdatePerApplication()
 	//todo
 }
 
+void HyperbolicExpFogEffect::Clean()
+{
+	//todo
+}
+
 unsigned int HyperbolicExpFogEffect::GetVertexBufferSize() const
 {
 	return sizeof(HyperbolicMeshComponentFactory::VertexData);

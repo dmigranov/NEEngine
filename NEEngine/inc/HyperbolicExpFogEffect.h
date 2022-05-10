@@ -40,6 +40,8 @@ public:
     virtual void UpdatePerScene() override;             //todo: impl
     virtual void UpdatePerApplication() override;       //todo: impl
 
+    virtual void Clean() override;
+
     virtual unsigned int GetVertexBufferSize() const override;
     virtual const std::type_info& GetVertexDataType() override;
 

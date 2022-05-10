@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(L"Test game", true, false, false);
+    game.InitializeEngine(1280, 720, L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
         componentTypeManager->SetTypeAdditionEnded();
     }
 
-    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
+    Texture* earthTexture = new Texture(L"earth8k.dds");
 
     scene->AddSystem(new InputSystem());
     scene->AddSystem(new HyperbolicRenderSystem());
