@@ -120,7 +120,12 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([](double) {return "Hello"; }, 10, 10, Alignment::UpLeft, DirectX::Colors::Black));
+    textEntity->AddComponent<TextComponent>(new TextComponent([effect](double) {
+        if (effect->GetMode())
+            return "Spherical Space";
+        else
+            return "Elliptic Space";
+        }, 10, 10, Alignment::UpLeft, DirectX::Colors::Black));
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
