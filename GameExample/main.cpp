@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.2, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalExpFogEffect(earthTexture, 0.4, DirectX::Colors::PowderBlue);
 
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     bigSphereMesh->SetEffect(effect);
 
     {
-        auto transformComponent = new SphericalTransformComponent(0, -XM_PIDIV2, 0);
+        auto transformComponent = new SphericalTransformComponent(-XM_PIDIV2, 0, 0);
         auto entity = new Entity();
         entity->AddComponent<SphericalTransformComponent>(transformComponent);
         entity->AddComponent<MeshComponent>(bigSphereMesh);
