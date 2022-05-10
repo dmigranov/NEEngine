@@ -133,14 +133,7 @@ int main(int argc, char* argv[])
             else if (kbs.D2)
                 effect->SetMode(false);
 
-            if (kbs.I)
-                renderSystem->SetRadius(renderSystem->GetRadius() + 0.1);
-            else if (kbs.O)
-            {
-                auto radius = renderSystem->GetRadius();
-                if (radius > 0.1)
-                    renderSystem->SetRadius(radius - 0.1);
-            }
+
 
         }));
 
