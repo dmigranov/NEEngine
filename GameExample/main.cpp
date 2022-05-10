@@ -106,12 +106,16 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
     }
 
+
+    auto bigSphereMesh = SphericalMeshComponentFactory::CreateSphericalSphere(0.9, 20, 20);
+    bigSphereMesh->SetEffect(effect);
+
     {
-
-    }
-
-    {
-
+        auto transformComponent = new SphericalTransformComponent(0, -XM_PIDIV2, 0);
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+        entity->AddComponent<MeshComponent>(bigSphereMesh);
+        scene->AddEntity(entity);
     }
 
     scene->AddSystem(new TextPrintingSystem());
