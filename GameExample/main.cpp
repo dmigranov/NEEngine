@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
     double radius = 1.;
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(L"Test game", true, false, false);
+    game.InitializeEngine(1280, 720, L"Test game", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
