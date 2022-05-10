@@ -11,6 +11,11 @@ void SphericalEffect::SetMode(bool isSpherical)
 	m_isSpherical = isSpherical;
 }
 
+bool SphericalEffect::GetMode()
+{
+	return m_isSpherical;
+}
+
 void SphericalEffect::SetRadius(double radius)
 {
 	m_radius = radius;

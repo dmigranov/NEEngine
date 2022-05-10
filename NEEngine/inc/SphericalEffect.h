@@ -6,6 +6,8 @@ class SphericalEffect :
 {
 public:
     static void SetMode(bool isSpherical);
+    static bool GetMode();
+
     static void SetRadius(double radius);
     static double GetRadius();
 protected:
