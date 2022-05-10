@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
         true, false, false);
 
     auto resourceManager = Game::GetInstance().GetResourceManager();
-    Texture* cubemapTexture = resourceManager->CreateTexture(L"cubemap.dds");
+    Texture* cubemapTexture = new Texture(L"cubemap.dds");
 
 
     Entity* cameraEntity = new Entity("camera1");
