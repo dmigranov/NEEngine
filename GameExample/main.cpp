@@ -106,6 +106,13 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
     }
 
+    {
+
+    }
+
+    {
+
+    }
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
