@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent("HELLO", 10, 10, Alignment::UpLeft, DirectX::Colors::Black));
+    textEntity->AddComponent<TextComponent>(new TextComponent([](double) {return ""; }, 10, 10, Alignment::UpLeft, DirectX::Colors::Black));
     scene->AddEntity(textEntity);
 
     scene->AddSystem(new ActionSystem<InputComponent>(
