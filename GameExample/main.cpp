@@ -1,55 +1,254 @@
 ﻿#pragma once
 
-#include "Geometries/ToricGeometry.h"
+
+#include "main.h"
+
+#include "InputSystem.h"
+#include "TextPrintingSystem.h"
+#include "TextComponent.h"
+#include "RandomSphericalGenerator.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
+float SphericalDistance(Vector4 vec1, Vector4 vec2, double radius)
+{
+    float chordLength = Vector4::Distance(vec1, vec2); //chord length
+    return 2 * radius * asin(chordLength / (2. * radius)); //angle is 2arcsin(L/2R), length of arc equals angle * R
+}
+
 int main(int argc, char* argv[])
 {
-    auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        8, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
-        true, false, false);
+    double radius = 1.;
 
-    auto resourceManager = Game::GetInstance().GetResourceManager();
-    Texture* cubemapTexture = new Texture(L"cubemap.dds");
+    Game& game = Game::GetInstance();
+    game.InitializeEngine(1280, 720, L"Spherical and Elliptic Spaces", true, false, false);
+    game.SetBackgroundColor(DirectX::Colors::Black);   //todo: перенести
+    Scene* scene = game.GetScene();
+    auto resourceManager = game.GetResourceManager();
+
+    {
+        auto componentTypeManager = game.GetComponentTypeManager();
+        componentTypeManager->RegisterComponentType<CameraComponent>();
+        componentTypeManager->RegisterComponentType<InputComponent>();
+
+        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
+        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
+
+        componentTypeManager->RegisterComponentType<TextComponent>();
+
+        componentTypeManager->SetTypeAdditionEnded();         //MeshComponent - registered by default
+    }
+
+    auto friedmannHwnd = CreateFriedmannWindow();
+
+    Texture* earthTexture = resourceManager->CreateTexture(L"earth8k.dds");
+    Texture* rainbowTexture1 = resourceManager->CreateTexture(L"rainbow4_rot.dds");
+    Texture* rainbowTexture2 = resourceManager->CreateTexture(L"rainbow4.dds");
+    Texture* greenTexture = resourceManager->CreateTexture(L"green.dds");
+
+
+    auto renderSystem = new SphericalRenderSystem();
+    renderSystem->SetRadius(radius);
+    scene->AddSystem(new InputSystem());
+    scene->AddSystem(renderSystem);
+    scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
 
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new ToricTransformComponent();
-    auto cameraComponent = new CameraComponent();
-    cameraComponent->SetFovY(DirectX::XM_PI/3);
-    cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
-    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
+    auto cameraTransform = new SphericalTransformComponent();
+    auto cameraComponent = new SphericalCameraComponent();
+    cameraComponent->SetFovY(XM_PI / 3);
+    cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.005, DirectX::Colors::PowderBlue);
+    auto effect = new SphericalDopplerEffect(rainbowTexture2, 0.1, DirectX::Colors::Black);
+    auto effectEarth = new SphericalDopplerEffect(greenTexture, 0.1, DirectX::Colors::Black);
+    //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
-    //auto charWalkComponent = new WalkComponent(200, 4);
-    auto charInputComponent = new InputComponent();
+    auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
-    auto entity1 = new Entity();
-    auto ttc1 = new ToricTransformComponent();
+    double objectRadius = 0.1;
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
+    smc->SetEffect(effect);
+
+    auto earth_mc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
+    earth_mc->SetEffect(effectEarth);
+
+
+
+    auto pointComp = SphericalMeshComponentFactory::CreateSphericalPoint();
+    pointComp->SetEffect(pointEffect);
+
+    // --- Uniform Distribution --- //
+
+    RandomSphericalGenerator generator(radius);
+    int sphereCount = 100;
+    auto randomPoints = new Vector4[sphereCount];
+    auto entities = new Entity * [sphereCount];
+    for (int i = 0; i < sphereCount - 1; i++)
     {
-        auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
-        tmc1->SetEffect(effect);
-        entity1->AddComponent<ToricTransformComponent>(ttc1);
-        entity1->AddComponent<MeshComponent>(tmc1);
-        entity1->AddComponent<InputComponent>(charInputComponent);
-        scene->AddEntity(entity1);
+    again:
+        auto point = generator.GeneratePoint();
 
-        entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
-            auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
+        for (int j = 0; j < i; j++)
+        {
+            auto otherPoint = randomPoints[j];
+            auto distance = SphericalDistance(point, otherPoint, radius);
+
+            if (distance < 2 * objectRadius)
+                goto again;
+        }
+
+        randomPoints[i] = point;
+        auto transformComponent = new SphericalTransformComponent();
+        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+
+        entity->AddComponent<MeshComponent>(smc);
+        //entity->AddComponent<MeshComponent>(pointComp);
+
+        scene->AddEntity(entity);
+        entities[i] = entity;
+    }
+
+    auto transformComponent = new SphericalTransformComponent();
+    auto entity = new Entity();
+    entity->AddComponent<SphericalTransformComponent>(transformComponent);
+    entity->AddComponent<MeshComponent>(earth_mc);
+
+    scene->AddEntity(entity);
+    entities[sphereCount - 1] = entity;
+
+    delete[] randomPoints;
+
+
+    scene->AddSystem(new TextPrintingSystem());
+    auto textEntity = new Entity();
+    textEntity->AddComponent<TextComponent>(new TextComponent([cameraTransform, renderSystem](double delta) {
+        auto pos = cameraTransform->GetSphericalPosition();
+        auto x = pos.x, y = pos.y, z = pos.z, w = pos.w;
+        std::stringstream ss;
+
+        ss << std::fixed << std::setprecision(2);
+        ss << "X: " << pos.x << std::endl;
+        ss << "Y: " << pos.y << std::endl;
+        ss << "Z: " << pos.z << std::endl;
+        ss << "W: " << pos.w << std::endl;
+        ss << "R: " << renderSystem->GetRadius() << std::endl;
+
+        return ss.str();
+
+        }, 10, 10, Alignment::UpLeft, DirectX::Colors::White));
+
+    scene->AddEntity(textEntity);
+
+    scene->AddSystem(new ActionSystem<InputComponent>(
+        [effect, effectEarth, renderSystem, entities, sphereCount, cameraTransform](Entity* pEntity, double deltaTime) {
+
+            static double frameTime = 0;
+            static double time = 2.3;
+            double mu = time / 3.;
+            double radius = 2 * (1 - cos(mu));
+            auto cameraPos = cameraTransform->GetSphericalPosition();
+            static auto isAnimation = true;
+
+            renderSystem->SetRadius(radius);
+            int count = 0;
+            for (int i = 0; i < sphereCount; i++)
+            {
+                Entity* sphere = entities[i];
+                auto pTransform = sphere->GetComponent<SphericalTransformComponent>();
+                auto pos = pTransform->GetSphericalPosition();
+                auto dist = SphericalDistance(pos / radius, cameraPos / radius, 1.);
+                if (dist < mu)
+                    sphere->SetVisible(true);
+                else
+                {
+                    count++;
+                    sphere->SetVisible(false);
+                }
+            }
+
+            if (isAnimation)
+            {
+                if (radius > 0.5)
+                {
+                    time += deltaTime;
+                    frameTime += deltaTime;
+                }
+                else
+                    isAnimation = false;
+            }
+
+            auto pInput = pEntity->GetComponent<InputComponent>();
+            auto kbs = pInput->GetKeyboardState();
+
+            if (kbs.D1)
+                effect->SetMode(true);
+            else if (kbs.D2)
+                effect->SetMode(false);
+
+
+            if (kbs.Left)
+            {
+                time -= deltaTime;
+                frameTime -= deltaTime;
+            }
+            else if (kbs.Right)
+            {
+                time += deltaTime;
+                frameTime += deltaTime;
+            }
+
+            if (kbs.M)
+            {
+                effect->SetVelocity(effect->GetVelocity() + 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() + 100000);
+            }
+            else if (kbs.N)
+            {
+                effect->SetVelocity(effect->GetVelocity() - 100000);
+                effectEarth->SetVelocity(effect->GetVelocity() - 100000);
+            }
+
+            if (frameTime >= 0.1 || frameTime <= -0.1)
+            {
+                UpdateFriedmannWindow(mu);
+                frameTime = 0;
+            }
+
+        }));
+
+    return game.StartGame();
+}
+
+
+
+
+
+
+
+
+/*
+    scene->AddSystem(new ActionSystem<InputComponent, SphericalTransformComponent, WalkComponent>(
+        [](Entity* pEntity, double deltaTime) {
+            auto pTransform = pEntity->GetComponent<SphericalTransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
+            auto pWalk = pEntity->GetComponent<WalkComponent>();
 
-            Vector3 up(0, deltaTime * 200, 0);
-            Vector3 right(deltaTime * 200, 0, 0);
-            Vector3 fwd(0, 0, deltaTime * 200);
+
+            Vector3 up(0, deltaTime * pWalk->m_movementGain, 0);
+            Vector3 right(deltaTime * pWalk->m_movementGain, 0, 0);
+            Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
+
 
             if (kbs.R)
                 pTransform->Move(up);
@@ -58,36 +257,9 @@ int main(int argc, char* argv[])
 
             if (kbs.T)
                 pTransform->Rotate(deltaTime, 0, 0);
-            if (kbs.Y)
-                pTransform->Rotate(-deltaTime, 0, 0);
             if (kbs.G)
                 pTransform->Rotate(0, deltaTime, 0);
-            if (kbs.H)
-                pTransform->Rotate(0, -deltaTime, 0);
             if (kbs.B)
                 pTransform->Rotate(0, 0, deltaTime);
-            if (kbs.N)
-                pTransform->Rotate(0, 0, -deltaTime);
-
-            }));
-    }
-
-    /*
-    {
-        auto childEntity = new Entity();
-        auto ttc2 = new ToricTransformComponent(3, 0, 0);
-        ttc2->SetParent(ttc1);
-        auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
-        tmc2->SetEffect(effect);
-        childEntity->AddComponent<ToricTransformComponent>(ttc2);
-        childEntity->AddComponent<MeshComponent>(tmc2);
-        scene->AddEntity(childEntity);
-
-        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([](double delta, Entity* pEntity) {
-            pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
-            }));
-    }
-    */
-
-    return Game::GetInstance().StartGame();
-}
+        }));
+        */
