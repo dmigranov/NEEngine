@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
     }
 
 
-    auto bigSphereMesh = SphericalMeshComponentFactory::CreateSphericalSphere(0.9, 20, 20);
+    auto bigSphereMesh = SphericalMeshComponentFactory::CreateSphericalSphere(0.85, 30, 30);
     bigSphereMesh->SetEffect(effect);
 
     {
