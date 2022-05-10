@@ -179,6 +179,7 @@
     <ClCompile Include="SelectionSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="main_friedmann.cpp_" />
     <None Include="main_hyperb.cpp_" />
     <None Include="main_sphere.cpp_" />
     <None Include="main_torus.cpp_" />
