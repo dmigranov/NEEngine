@@ -94,9 +94,9 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
     smc->SetEffect(effect);
 
-    /*
-    cameraComponent->SetFovY(XM_PI/2 - 0.2); //эксперимент с видимостью
-    int sphereCount = 6;
+    
+    cameraComponent->SetFovY(XM_PI/2); //эксперимент с видимостью
+    int sphereCount = 8;
     for (int i = 1; i < sphereCount; i++)
     {
         auto transformComponent = new SphericalTransformComponent(0, i * XM_PI / sphereCount, 0);
@@ -105,34 +105,7 @@ int main(int argc, char* argv[])
         entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
-    for (int i = 1; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / sphereCount);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    */
 
-    // --- Uniform Distribution --- //
-
-    RandomSphericalGenerator generator(radius);
-    int sphereCount = 20;
-    for (int i = 0; i < sphereCount; i++)
-    {
-        auto point = generator.GeneratePoint();
-        std::cout << point.x << " " << point.y << " " << point.z << " " << point.w << std::endl;
-        auto transformComponent = new SphericalTransformComponent();
-        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-
-        //if(пересекаются сферы с уже добавленными)
-            //переген.
-    }
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
