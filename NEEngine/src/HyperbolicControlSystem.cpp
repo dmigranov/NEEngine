@@ -19,7 +19,7 @@ HyperbolicControlSystem::HyperbolicControlSystem(double movementSpeed, double ro
 
     double m_dx = 0, m_dy = 0;
 
-    if (ms.leftButton)
+    if (pInput->IsRelative())
     {
         //pitch - around x, yaw - around y
         m_dx = -ms.x * rotationSpeed * deltaTime;
@@ -64,5 +64,6 @@ HyperbolicControlSystem::HyperbolicControlSystem(double movementSpeed, double ro
         pTransform->Move(tempVector.x, tempVector.y, tempVector.z);
     }
 
+    pInput->SetRelative(ms.leftButton ? true : false);
     })
 { }
