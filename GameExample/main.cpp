@@ -87,8 +87,12 @@ int main(int argc, char* argv[])
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
-    //scene->AddEntity(entity1);
+    entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
 
+        }));
+    scene->AddEntity(entity1);
+
+    /*
     entity2->AddComponent<HyperbolicTransformComponent>(tc2);
     entity2->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity2);
@@ -100,6 +104,7 @@ int main(int argc, char* argv[])
     entity4->AddComponent<HyperbolicTransformComponent>(tc4);
     entity4->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity4);
+    */
 
     return game.StartGame();
 }
