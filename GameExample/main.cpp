@@ -89,9 +89,9 @@ int main(int argc, char* argv[])
     smc->SetEffect(effect);
 
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
-    auto tc2 = new HyperbolicTransformComponent(0, 0, 0.3);
-    auto tc3 = new HyperbolicTransformComponent(0, 0, 0.6);
-    auto tc4 = new HyperbolicTransformComponent(0, 0, 0.9);
+    auto tc2 = new HyperbolicTransformComponent(0, 0, 0.5);
+    auto tc3 = new HyperbolicTransformComponent(0, 0, 1.);
+    auto tc4 = new HyperbolicTransformComponent(0, 0, 1.5);
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
