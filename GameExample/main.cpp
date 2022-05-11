@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(1280, 720, L"Test game", true, false, false);
+    game.InitializeEngine(1280, 720, L"Hyperbolic Space", true, false, false);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
@@ -58,8 +58,8 @@ int main(int argc, char* argv[])
             else if (kbs.X)
                 pTransform->Move(right);
 
-            auto pos = pTransform->GetHyperbolicPosition();
-            std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
+            //auto pos = pTransform->GetHyperbolicPosition();
+            //std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
             //в общем проблема с бысрым ростом функции, поэтому увлекаться не стоит
                 
         }));
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.1, DirectX::Colors::PowderBlue);
+    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.4, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
