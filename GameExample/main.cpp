@@ -88,15 +88,15 @@ int main(int argc, char* argv[])
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
     entity1->AddComponent<InputComponent>(new InputComponent());
-    entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
+    entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double delta, Entity* pEntity) {
         auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
         auto pInput = pEntity->GetComponent<InputComponent>();
 
         auto kbs = pInput->GetKeyboardState();
         if (kbs.Z)
-            pTransform->Move(-5*deltaTime, 0, 0);
+            pTransform->Move(-5 * delta, 0, 0);
         else if (kbs.X)
-            pTransform->Move(5*deltaTime, 0, 0);
+            pTransform->Move(5 * delta, 0, 0);        
         }));
     scene->AddEntity(entity1);
 
