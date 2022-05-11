@@ -15,7 +15,7 @@ public:
     virtual void Rotate(DirectX::SimpleMath::Vector3 r) override;
     virtual void Rotate(double deltaPitch, double deltaYaw, double deltaRoll) override;
     virtual void SetPitchYawRoll(double pitch, double yaw, double roll) override;
-
+    DirectX::SimpleMath::Vector4 GetHyperbolicPosition();
 protected:
     virtual void Recalculate() override;
     virtual void RecalculateView() override;

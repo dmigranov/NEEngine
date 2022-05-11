@@ -71,6 +71,12 @@ void HyperbolicTransformComponent::SetPitchYawRoll(double pitch, double yaw, dou
 	m_shouldRecalcView = true;
 }
 
+DirectX::SimpleMath::Vector4 HyperbolicTransformComponent::GetHyperbolicPosition()
+{
+	Recalculate();
+	return m_position;
+}
+
 void HyperbolicTransformComponent::Recalculate()
 {
 	RYaw = HyperbolicRotationXZ(-m_yaw);
