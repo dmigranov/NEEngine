@@ -87,8 +87,9 @@ int main(int argc, char* argv[])
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
+    entity1->AddComponent<InputComponent>(new InputComponent());
     entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
-
+        auto pTransform = pEntity->GetComponent<HyperbolicTransformComponent>();
         }));
     scene->AddEntity(entity1);
 
