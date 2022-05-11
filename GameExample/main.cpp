@@ -85,9 +85,9 @@ int main(int argc, char* argv[])
     smc->SetEffect(effect);
 
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
-    auto tc2 = new HyperbolicTransformComponent(2.3, 0, 0);
-    auto tc3 = new HyperbolicTransformComponent(4.6, 0, 0);
-    auto tc4 = new HyperbolicTransformComponent(6.9, 0, 0);
+    auto tc2 = new HyperbolicTransformComponent(0, 0, 2.3);
+    auto tc3 = new HyperbolicTransformComponent(0, 0, 4.6);
+    auto tc4 = new HyperbolicTransformComponent(0, 0, 6.9);
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
@@ -95,7 +95,6 @@ int main(int argc, char* argv[])
     entity1->AddComponent<WalkComponent>(new WalkComponent(3, 4));
     scene->AddEntity(entity1);
 
-    /*
     entity2->AddComponent<HyperbolicTransformComponent>(tc2);
     entity2->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity2);
@@ -107,7 +106,7 @@ int main(int argc, char* argv[])
     entity4->AddComponent<HyperbolicTransformComponent>(tc4);
     entity4->AddComponent<MeshComponent>(smc);
     scene->AddEntity(entity4);
-    */
+    
 
     return game.StartGame();
 }
