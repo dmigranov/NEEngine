@@ -60,6 +60,7 @@ int main(int argc, char* argv[])
 
             auto pos = pTransform->GetHyperbolicPosition();
             std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
+            //в общем проблема с бысрым ростом функции, поэтому увлекаться не стоит
                 
         }));
 
