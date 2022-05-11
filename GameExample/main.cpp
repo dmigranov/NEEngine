@@ -57,6 +57,7 @@ int main(int argc, char* argv[])
                 pTransform->Move(-right);
             else if (kbs.X)
                 pTransform->Move(right);
+            std::cout << pTransform->GetPosition().z << std::endl;
                 
         }));
 
