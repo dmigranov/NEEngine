@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
 
     for (int i = 1; i < 5; i++) {
         auto entity = new Entity();
-        entity->AddComponent<HyperbolicTransformComponent>(new HyperbolicTransformComponent(0., 0., i*0.5));
+        entity->AddComponent<HyperbolicTransformComponent>(new HyperbolicTransformComponent(0., 0., i*0.7));
         entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
