@@ -81,13 +81,13 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity(), entity3 = new Entity(), entity4 = new Entity();
 
-    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(1, 20, 20);
+    auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.3, 20, 20);
     smc->SetEffect(effect);
 
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
-    auto tc2 = new HyperbolicTransformComponent(0, 0, 2.3);
-    auto tc3 = new HyperbolicTransformComponent(0, 0, 4.6);
-    auto tc4 = new HyperbolicTransformComponent(0, 0, 6.9);
+    auto tc2 = new HyperbolicTransformComponent(0, 0, 1);
+    auto tc3 = new HyperbolicTransformComponent(0, 0, 2);
+    auto tc4 = new HyperbolicTransformComponent(0, 0, 3);
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
