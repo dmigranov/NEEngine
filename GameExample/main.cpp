@@ -57,7 +57,9 @@ int main(int argc, char* argv[])
                 pTransform->Move(-right);
             else if (kbs.X)
                 pTransform->Move(right);
-            std::cout << pTransform->GetPosition().z << std::endl;
+
+            auto pos = pTransform->GetHyperbolicPosition();
+            std::cout << pos.x << " " << pos.y << " " << pos.z << " " << pos.w << std::endl;
                 
         }));
 
