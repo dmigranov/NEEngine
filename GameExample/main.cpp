@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.5, DirectX::Colors::PowderBlue);
+    auto effect = new HyperbolicExpFogEffect(earthTexture, 0.3, DirectX::Colors::PowderBlue);
 
 
     auto charWalkComponent = new WalkComponent(3, 4);
@@ -81,13 +81,13 @@ int main(int argc, char* argv[])
     smc->SetEffect(effect);
 
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0);
-    auto tc2 = new HyperbolicTransformComponent(0.7, 0, 0);
-    auto tc3 = new HyperbolicTransformComponent(1.4, 0, 0);
-    auto tc4 = new HyperbolicTransformComponent(2.1, 0, 0);
+    auto tc2 = new HyperbolicTransformComponent(2.3, 0, 0);
+    auto tc3 = new HyperbolicTransformComponent(4.6, 0, 0);
+    auto tc4 = new HyperbolicTransformComponent(6.9, 0, 0);
 
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
-    scene->AddEntity(entity1);
+    //scene->AddEntity(entity1);
 
     entity2->AddComponent<HyperbolicTransformComponent>(tc2);
     entity2->AddComponent<MeshComponent>(smc);
