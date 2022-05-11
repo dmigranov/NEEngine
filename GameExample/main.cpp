@@ -49,15 +49,15 @@ int main(int argc, char* argv[])
             Vector3 fwd(0, 0, deltaTime * pWalk->m_movementGain);
 
             if (kbs.R)
-                pTransform->Move(up);
+                pTransform->Move(fwd);
             if (kbs.F)
-                pTransform->Move(-up);
-
+                pTransform->Move(-fwd);
 
             if (kbs.Z)
-                pTransform->Move(right);
-            else if (kbs.X)
                 pTransform->Move(-right);
+            else if (kbs.X)
+                pTransform->Move(right);
+                
         }));
 
 
@@ -68,7 +68,6 @@ int main(int argc, char* argv[])
     cameraEntity->AddComponent<HyperbolicTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<HyperbolicCameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
-    //cameraEntity->AddComponent<WalkComponent>(new WalkComponent(3, 4));
 
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
@@ -93,6 +92,7 @@ int main(int argc, char* argv[])
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
     entity1->AddComponent<InputComponent>(new InputComponent());
+    entity1->AddComponent<WalkComponent>(new WalkComponent(3, 4));
     scene->AddEntity(entity1);
 
     /*
