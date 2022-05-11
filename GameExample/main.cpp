@@ -88,9 +88,6 @@ int main(int argc, char* argv[])
     auto smc = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.25, 20, 20);
     smc->SetEffect(effect);
 
-    auto smc2 = HyperbolicMeshComponentFactory::CreateHyperbolicSphere(0.1, 20, 20);
-    smc2->SetEffect(effect);
-
     auto tc1 = new HyperbolicTransformComponent(0, 0, 0.);
     entity1->AddComponent<HyperbolicTransformComponent>(tc1);
     entity1->AddComponent<MeshComponent>(smc);
@@ -98,10 +95,10 @@ int main(int argc, char* argv[])
     entity1->AddComponent<WalkComponent>(new WalkComponent(3, 4));
     scene->AddEntity(entity1);
 
-    for (int i = 1; i < 10; i++) {
+    for (int i = 1; i < 5; i++) {
         auto entity = new Entity();
         entity->AddComponent<HyperbolicTransformComponent>(new HyperbolicTransformComponent(0., 0., i*0.5));
-        entity->AddComponent<MeshComponent>(smc2);
+        entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
 
