@@ -20,7 +20,10 @@ int main(int argc, char* argv[])
         char* sphereCountStr = argv[0];
         try {
             int number = std::stoi(sphereCountStr);
-
+            if (number > 0)
+                sphereCount = number;
+            else
+                sphereCount = 100;
         }
         catch (std::exception const& e) {
             // Could not be parsed into a number
