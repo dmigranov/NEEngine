@@ -87,7 +87,6 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
     smc->SetEffect(effect);
 
-
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
 
     RandomSphericalGenerator generator(radius);   
@@ -106,18 +105,6 @@ int main(int argc, char* argv[])
         scene->AddEntity(entity);
         entities[i] = entity;
     }
-
-    /*
-    int sphereCount = 6;
-    for (int i = 0; i < sphereCount; i++)
-    {
-        auto transformComponent = new SphericalTransformComponent(0, 0, i * XM_PI / sphereCount);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-        scene->AddEntity(entity);
-    }
-    */
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();
@@ -138,9 +125,6 @@ int main(int argc, char* argv[])
                 effect->SetMode(true);
             else if (kbs.D2)
                 effect->SetMode(false);
-
-
-
         }));
 
     return game.StartGame();
