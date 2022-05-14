@@ -12,31 +12,6 @@ using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
-    int sphereCount;
-    if (argc < 2)
-    {
-        std::cerr << "No input parameter was present, sphereCount = 100 (default)" << std::endl;
-        sphereCount = 100;
-    }
-    else
-    {
-        char* sphereCountStr = argv[1];
-        try {
-            int number = std::stoi(sphereCountStr);
-            if (number > 0)
-                sphereCount = number;
-            else
-                sphereCount = 100;
-        }
-        catch (std::exception const& e) {
-            // Could not be parsed into a number
-            std::cerr << "Couldn't parse, sphereCount = 100 (default)" << std::endl;
-            sphereCount = 100;
-        }
-    }
-
-
-
     double radius = 1.;
 
     Game& game = Game::GetInstance();
@@ -62,6 +37,29 @@ int main(int argc, char* argv[])
     }
 
     Texture* earthTexture = new Texture(L"earth8k.dds");
+
+    int sphereCount;
+    if (argc < 2)
+    {
+        std::cerr << "No input parameter was present, sphereCount = 100 (default)" << std::endl;
+        sphereCount = 100;
+    }
+    else
+    {
+        char* sphereCountStr = argv[1];
+        try {
+            int number = std::stoi(sphereCountStr);
+            if (number > 0)
+                sphereCount = number;
+            else
+                sphereCount = 100;
+        }
+        catch (std::exception const& e) {
+            // Could not be parsed into a number
+            std::cerr << "Couldn't parse, sphereCount = 100 (default)" << std::endl;
+            sphereCount = 100;
+        }
+    }
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
