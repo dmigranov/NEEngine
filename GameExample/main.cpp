@@ -17,7 +17,16 @@ int main(int argc, char* argv[])
         sphereCount = 100;
     else
     {
+        char* sphereCountStr = argv[0];
+        try {
+            int number = std::stoi(sphereCountStr);
 
+        }
+        catch (std::exception const& e) {
+            // Could not be parsed into a number
+            std::cerr << "Couldn't parse, sphereCount = 100 (default)" << std::endl;
+            sphereCount = 100;
+        }
     }
 
 
