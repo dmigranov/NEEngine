@@ -12,6 +12,16 @@ using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
+    int sphereCount;
+    if (argc < 1)
+        sphereCount = 100;
+    else
+    {
+
+    }
+
+
+
     double radius = 1.;
 
     Game& game = Game::GetInstance();
@@ -66,6 +76,8 @@ int main(int argc, char* argv[])
 
 
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
+
+    /*
     int sphereCount = 6;
     for (int i = 0; i < sphereCount; i++)
     {
@@ -75,18 +87,7 @@ int main(int argc, char* argv[])
         entity->AddComponent<MeshComponent>(smc);
         scene->AddEntity(entity);
     }
-
-
-    auto bigSphereMesh = SphericalMeshComponentFactory::CreateSphericalSphere(0.85, 30, 30);
-    bigSphereMesh->SetEffect(effect);
-
-    {
-        auto transformComponent = new SphericalTransformComponent(0, -XM_PIDIV2, 0);
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(bigSphereMesh);
-        scene->AddEntity(entity);
-    }
+    */
 
     scene->AddSystem(new TextPrintingSystem());
     auto textEntity = new Entity();

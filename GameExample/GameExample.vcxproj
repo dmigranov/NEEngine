@@ -183,6 +183,7 @@
     <None Include="main_hyperb.cpp_" />
     <None Include="main_regular_sphere.cpp_" />
     <None Include="main_sphere.cpp_" />
+    <None Include="main_sphere_fps.cpp_" />
     <None Include="main_torus.cpp_" />
     <None Include="packages.config" />
   </ItemGroup>
