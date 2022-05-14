@@ -13,11 +13,14 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     int sphereCount;
-    if (argc < 1)
+    if (argc < 2)
+    {
+        std::cerr << "No input parameter was present, sphereCount = 100 (default)" << std::endl;
         sphereCount = 100;
+    }
     else
     {
-        char* sphereCountStr = argv[0];
+        char* sphereCountStr = argv[1];
         try {
             int number = std::stoi(sphereCountStr);
             if (number > 0)
