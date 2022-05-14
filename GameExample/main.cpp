@@ -90,6 +90,43 @@ int main(int argc, char* argv[])
 
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
 
+    RandomSphericalGenerator generator(radius);   
+    auto randomPoints = new Vector4[sphereCount];
+    auto entities = new Entity * [sphereCount];
+    for (int i = 0; i < sphereCount; i++)
+    {
+    again:
+        auto point = generator.GeneratePoint();
+
+        for (int j = 0; j < i; j++)
+        {
+            auto otherPoint = randomPoints[j];
+            auto distance = SphericalDistance(point, otherPoint, radius);
+
+            if (distance < 2 * objectRadius)
+                goto again;
+        }
+
+        randomPoints[i] = point;
+        auto transformComponent = new SphericalTransformComponent();
+        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w); //!!!
+
+        auto sphericalRenderingComponent = new SphericalRenderingComponent();
+        auto dopplerComponent = new DopplerComponent();
+        auto entity = new Entity();
+        entity->AddComponent<SphericalTransformComponent>(transformComponent);
+        entity->AddComponent<SphericalRenderingComponent>(sphericalRenderingComponent);
+        entity->AddComponent<DopplerComponent>(dopplerComponent);
+        entity->AddComponent<MeshComponent>(smc);
+        //entity->AddComponent<MeshComponent>(pointComp);
+
+        scene->AddEntity(entity);
+        entities[i] = entity;
+    }
+
+    delete[] randomPoints;
+
+
     /*
     int sphereCount = 6;
     for (int i = 0; i < sphereCount; i++)
