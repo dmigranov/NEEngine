@@ -23,7 +23,7 @@ Scene * InitializeToricGeometry(const wchar_t * windowName, DirectX::XMVECTORF32
                                 bool isConsoleEnabled = false, bool isFullscreenEnabled = false, bool isVSyncEnabled = true)
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(1280, 720, L"Toric Space", true, false, false);
+    game.InitializeEngine(1280, 720, L"Toric Space", isConsoleEnabled, isFullscreenEnabled, isVSyncEnabled);
     game.SetBackgroundColor(color);   //TODO: other place?
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
