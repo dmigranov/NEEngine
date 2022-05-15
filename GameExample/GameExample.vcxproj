@@ -185,6 +185,7 @@
     <None Include="main_sphere.cpp_" />
     <None Include="main_sphere_fps.cpp_" />
     <None Include="main_torus.cpp_" />
+    <None Include="main_torus_fps.cpp_" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
