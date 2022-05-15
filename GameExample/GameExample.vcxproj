@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="main_friedmann.cpp_" />
+    <None Include="main_friedmann_fps.cpp_" />
     <None Include="main_hyperb.cpp_" />
     <None Include="main_regular_sphere.cpp_" />
     <None Include="main_sphere.cpp_" />

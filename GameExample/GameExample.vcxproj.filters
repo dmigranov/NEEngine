@@ -57,6 +57,9 @@
     <None Include="main_torus_fps.cpp_">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="main_friedmann_fps.cpp_">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="cube creation code.txt">
