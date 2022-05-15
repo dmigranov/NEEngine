@@ -45,19 +45,14 @@ int main(int argc, char* argv[])
     auto friedmannHwnd = CreateFriedmannWindow();
 
     int sphereCount = 100;
-    if (argc < 2)
-    {
-        std::cerr << "No input parameter was present, sphereCount = 100 (default)" << std::endl;
-    }
-    else
+    bool isDefault = true;
+    if (argc >= 2)
     {
         char* sphereCountStr = argv[1];
         try {
             int number = std::stoi(sphereCountStr);
             if (number > 0)
                 sphereCount = number;
-            else
-                sphereCount = 100;
         }
         catch (std::exception const& e) {
             // Could not be parsed into a number
