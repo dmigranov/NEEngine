@@ -10,5 +10,7 @@ private:
 	unsigned int m_fps, m_count;
 	double m_frameTime;
 	DWORD m_startTime;
+
+	size_t m_totalFrameCount = 0;
 };
 

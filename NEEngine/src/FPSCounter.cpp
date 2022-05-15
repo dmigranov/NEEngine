@@ -10,6 +10,7 @@ FPSCounter::FPSCounter()
 
 void FPSCounter::Update()
 {
+	m_totalFrameCount++;
 	m_count++;
 	DWORD endTime;
 	if ((endTime = timeGetTime()) >= (m_startTime + 1000))
