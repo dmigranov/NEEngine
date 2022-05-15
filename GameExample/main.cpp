@@ -66,8 +66,6 @@ int main(int argc, char* argv[])
         std::cerr << "Couldn't parse input parameters, sphereCount = 100 (default)" << std::endl;
 
 
-
-    Texture* earthTexture = new Texture(L"earth8k.dds");
     Texture* rainbowTexture2 = new Texture(L"rainbow4.dds");
     Texture* greenTexture = new Texture(L"green_texture.dds");
 
