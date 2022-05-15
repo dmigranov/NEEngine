@@ -25,6 +25,6 @@ protected:
 
 	bool m_shouldRecalc;
 	bool m_isPerspective;
-	DirectX::SimpleMath::Matrix m_proj;
+	DirectX::XMMATRIX m_proj;
 };
 

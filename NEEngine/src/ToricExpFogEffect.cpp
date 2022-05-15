@@ -108,7 +108,8 @@ void ToricExpFogEffect::UpdatePerObject(const Entity* pEntity, double deltaTime)
 	//todo: только обновлять CB_Application если что-то изменилось? (то есть в UpdatePerApplication?)
 
 	auto pCameraComponent = game.GetScene()->GetCamera()->GetComponent<CameraComponent>();
-	perApplicationVSConstantBuffer.proj = pCameraComponent->GetProj();
+	const auto& proj = pCameraComponent->GetProj();
+	perApplicationVSConstantBuffer.proj = proj;
 	game.UpdateSubresource(g_d3dVSConstantBuffers[ConstantBuffer::CB_Application], &perApplicationVSConstantBuffer);
 
 	const auto& view = (game.GetScene())->GetCamera()->GetComponent<ToricTransformComponent>()->GetView();
