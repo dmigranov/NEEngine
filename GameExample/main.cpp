@@ -1,129 +1,93 @@
 ﻿#pragma once
 
-#include "Geometries/SphericalEllipticGeometry.h"
-#include "WalkComponent.h"
-#include "InputSystem.h"
-#include "TextPrintingSystem.h"
-#include "TextComponent.h"
-#include "RandomSphericalGenerator.h"
+#include "Geometries/ToricGeometry.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
-    double radius = 1.;
+    auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
+        8, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
+        true, false, false);
 
-    Game& game = Game::GetInstance();
-    game.InitializeEngine(1280, 720, L"Spherical & Elliptic Spaces", true, false, true);
-    game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
-    Scene* scene = game.GetScene();
-    auto resourceManager = game.GetResourceManager();
+    auto resourceManager = Game::GetInstance().GetResourceManager();
+    Texture* cubemapTexture = new Texture(L"cubemap.dds");
 
-    { 
-        auto componentTypeManager = game.GetComponentTypeManager();
-        componentTypeManager->RegisterComponentType<CameraComponent>();
-        componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
-
-        componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
-        componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
-
-        componentTypeManager->RegisterComponentType<TextComponent>();
-
-        //MeshComponent - registered by default
-
-        componentTypeManager->SetTypeAdditionEnded();
-    }
-
-    Texture* earthTexture = new Texture(L"earth8k.dds");
-
-    int sphereCount;
-    if (argc < 2)
-    {
-        std::cerr << "No input parameter was present, sphereCount = 100 (default)" << std::endl;
-        sphereCount = 100;
-    }
-    else
-    {
-        char* sphereCountStr = argv[1];
-        try {
-            int number = std::stoi(sphereCountStr);
-            if (number > 0)
-                sphereCount = number;
-            else
-                sphereCount = 100;
-        }
-        catch (std::exception const& e) {
-            // Could not be parsed into a number
-            std::cerr << "Couldn't parse, sphereCount = 100 (default)" << std::endl;
-            sphereCount = 100;
-        }
-    }
-
-    auto renderSystem = new SphericalRenderSystem();
-    renderSystem->SetRadius(radius);
-    scene->AddSystem(new InputSystem());
-    scene->AddSystem(renderSystem);
-    scene->AddSystem(new SphericalControlSystem(0.3, 1.3));
 
     Entity* cameraEntity = new Entity("camera1");
-    auto cameraTransform = new SphericalTransformComponent();
-    auto cameraComponent = new SphericalCameraComponent();
-    cameraEntity->AddComponent<SphericalTransformComponent>(cameraTransform);
-    cameraEntity->AddComponent<SphericalCameraComponent>(cameraComponent);
+    auto cameraTransform = new ToricTransformComponent();
+    auto cameraComponent = new CameraComponent();
+    cameraComponent->SetFovY(DirectX::XM_PI / 3);
+    cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
+    cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new SphericalExpFogEffect(earthTexture, 0.4, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.005, DirectX::Colors::PowderBlue);
 
-    auto charWalkComponent = new WalkComponent(3, 4);
+    //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.03, 9, 10); //200 triangles
-    smc->SetEffect(effect);
-
-    cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
-
-    RandomSphericalGenerator generator(radius);   
-    auto entities = new Entity * [sphereCount];
-    for (int i = 0; i < sphereCount; i++)
+    auto entity1 = new Entity();
+    auto ttc1 = new ToricTransformComponent();
     {
-        auto point = generator.GeneratePoint();
+        auto tmc1 = EuclideanMeshComponentFactory::CreateCube(3);
+        tmc1->SetEffect(effect);
+        entity1->AddComponent<ToricTransformComponent>(ttc1);
+        entity1->AddComponent<MeshComponent>(tmc1);
+        entity1->AddComponent<InputComponent>(charInputComponent);
+        scene->AddEntity(entity1);
 
-        auto transformComponent = new SphericalTransformComponent();
-        transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w); //!!!
-
-        auto entity = new Entity();
-        entity->AddComponent<SphericalTransformComponent>(transformComponent);
-        entity->AddComponent<MeshComponent>(smc);
-
-        scene->AddEntity(entity);
-        entities[i] = entity;
-    }
-
-    scene->AddSystem(new TextPrintingSystem());
-    auto textEntity = new Entity();
-    textEntity->AddComponent<TextComponent>(new TextComponent([effect](double) {
-        if (effect->GetMode())
-            return "Spherical Space";
-        else
-            return "Elliptic Space";
-        }, 10, 10, Alignment::UpLeft, DirectX::Colors::Black));
-    scene->AddEntity(textEntity);
-
-    scene->AddSystem(new ActionSystem<InputComponent>(
-        [effect, renderSystem](Entity* pEntity, double deltaTime) {
+        entity1->AddComponent<UpdaterComponent>(new UpdaterComponent([](double deltaTime, Entity* pEntity) {
+            auto pTransform = pEntity->GetComponent<ToricTransformComponent>();
             auto pInput = pEntity->GetComponent<InputComponent>();
             auto kbs = pInput->GetKeyboardState();
+            auto ms = pInput->GetMouseState();
 
-            if (kbs.D1)
-                effect->SetMode(true);
-            else if (kbs.D2)
-                effect->SetMode(false);
-        }));
+            Vector3 up(0, deltaTime * 200, 0);
+            Vector3 right(deltaTime * 200, 0, 0);
+            Vector3 fwd(0, 0, deltaTime * 200);
 
-    return game.StartGame();
+            if (kbs.R)
+                pTransform->Move(up);
+            if (kbs.F)
+                pTransform->Move(-up);
+
+            if (kbs.T)
+                pTransform->Rotate(deltaTime, 0, 0);
+            if (kbs.Y)
+                pTransform->Rotate(-deltaTime, 0, 0);
+            if (kbs.G)
+                pTransform->Rotate(0, deltaTime, 0);
+            if (kbs.H)
+                pTransform->Rotate(0, -deltaTime, 0);
+            if (kbs.B)
+                pTransform->Rotate(0, 0, deltaTime);
+            if (kbs.N)
+                pTransform->Rotate(0, 0, -deltaTime);
+
+            }));
+    }
+
+    /*
+    {
+        auto childEntity = new Entity();
+        auto ttc2 = new ToricTransformComponent(3, 0, 0);
+        ttc2->SetParent(ttc1);
+        auto tmc2 = EuclideanMeshComponentFactory::CreateCube(1);
+        tmc2->SetEffect(effect);
+        childEntity->AddComponent<ToricTransformComponent>(ttc2);
+        childEntity->AddComponent<MeshComponent>(tmc2);
+        scene->AddEntity(childEntity);
+
+        childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([](double delta, Entity* pEntity) {
+            pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
+            }));
+    }
+    */
+
+    return Game::GetInstance().StartGame();
 }
