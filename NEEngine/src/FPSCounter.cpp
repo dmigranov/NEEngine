@@ -11,11 +11,6 @@ FPSCounter::FPSCounter()
 void FPSCounter::Update()
 {
 	m_totalFrameCount++;
-	if (m_totalFrameCount > 1000)
-	{
-		m_totalFrameCount = 0;
-		m_totalTime = 0.;
-	}
 
 	m_count++;
 	DWORD endTime;
@@ -30,6 +25,12 @@ void FPSCounter::Update()
 		std::cout << m_meanFPS << std::endl;
 
 		m_startTime = timeGetTime();
+	}
+
+	if (m_totalFrameCount > 1000)
+	{
+		m_totalFrameCount = 0;
+		m_totalTime = 0.;
 	}
 }
 
