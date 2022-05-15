@@ -12,5 +12,6 @@ private:
 	DWORD m_startTime;
 
 	size_t m_totalFrameCount = 0;
+	double m_totalTime = 0.;
 };
 
