@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
         replicationCount, DirectX::SimpleMath::Vector3(10, 10, 10), 20, 0.9,
-        true, false, false);
+        true, false, true);
 
     if (isDefault)
         std::cerr << "Couldn't parse, replication count = 8 (default)" << std::endl;
