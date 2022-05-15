@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
     double radius = 1.;
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(1280, 720, L"Spherical & Elliptic Spaces", true, false, false);
+    game.InitializeEngine(1280, 720, L"Spherical & Elliptic Spaces", true, false, true);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);   //todo: перенести
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 9, 10); //200 triangles
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.03, 9, 10); //200 triangles
     smc->SetEffect(effect);
 
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
