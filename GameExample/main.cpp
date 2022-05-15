@@ -7,9 +7,31 @@ using namespace DirectX::SimpleMath;
 
 int main(int argc, char* argv[])
 {
+    int replicationCount = 8;
+    bool isDefault = true;
+    if (argc >= 2)
+    {
+        char* sphereCountStr = argv[1];
+        try {
+            int number = std::stoi(sphereCountStr);
+            if (number > 0)
+                replicationCount = number;
+        }
+        catch (std::exception const& e) {
+            // Could not be parsed into a number
+        }
+    }
+
+    long totalReplicationCount = (2 * replicationCount + 1);
+    totalReplicationCount = totalReplicationCount * totalReplicationCount * totalReplicationCount;
+
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        8, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
+        replicationCount, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
         true, false, false);
+
+    if (isDefault)
+        std::cerr << "Couldn't parse, replication count = 8 (default)" << std::endl;
+    std::cerr << "Total replication count: " << totalReplicationCount << std::endl;
 
     auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = new Texture(L"cubemap.dds");
