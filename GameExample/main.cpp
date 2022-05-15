@@ -68,10 +68,8 @@ int main(int argc, char* argv[])
 
 
     Texture* earthTexture = new Texture(L"earth8k.dds");
-    Texture* rainbowTexture1 = new Texture(L"rainbow4_rot.dds");
     Texture* rainbowTexture2 = new Texture(L"rainbow4.dds");
     Texture* greenTexture = new Texture(L"green_texture.dds");
-    Texture* greenWithBlueTexture = new Texture(L"green.dds");
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -109,7 +107,6 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100; //100
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity * [sphereCount];
     for (int i = 0; i < sphereCount; i++)
