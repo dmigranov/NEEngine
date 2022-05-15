@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     Scene* scene = game.GetScene();
     auto resourceManager = game.GetResourceManager();
 
-    {
+    { 
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
