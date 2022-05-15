@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
             }));
     }
 
-    /*
+    
     {
         auto childEntity = new Entity();
         auto ttc2 = new ToricTransformComponent(3, 0, 0);
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
             pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
             }));
     }
-    */
+    
 
     return Game::GetInstance().StartGame();
 }
