@@ -82,8 +82,6 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto entity1 = new Entity(), entity2 = new Entity();
-
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 9, 10);
     smc->SetEffect(effect);
 
