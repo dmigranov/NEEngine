@@ -18,6 +18,7 @@ void FPSCounter::Update()
 		m_frameTime = (double)(endTime - m_startTime) / m_count;
 		m_fps = m_count;
 		m_count = 0;
+		m_totalTime += (endTime - m_startTime);
 
 		m_startTime = timeGetTime();
 	}
