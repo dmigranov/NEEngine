@@ -17,7 +17,6 @@ void FPSCounter::Update()
 		m_totalTime = 0.;
 	}
 
-
 	m_count++;
 	DWORD endTime;
 	if ((endTime = timeGetTime()) >= (m_startTime + 1000))
@@ -25,6 +24,7 @@ void FPSCounter::Update()
 		m_frameTime = (double)(endTime - m_startTime) / m_count;
 		m_fps = m_count;
 		m_count = 0;
+
 		m_totalTime += (endTime - m_startTime);
 		m_meanFPS = 1000. * m_totalFrameCount / m_totalTime;
 		std::cout << m_meanFPS << std::endl;
