@@ -52,14 +52,19 @@ int main(int argc, char* argv[])
         try {
             int number = std::stoi(sphereCountStr);
             if (number > 0)
+            {
                 sphereCount = number;
+                isDefault = false;
+            }
         }
         catch (std::exception const& e) {
             // Could not be parsed into a number
-            std::cerr << "Couldn't parse, sphereCount = 100 (default)" << std::endl;
-            sphereCount = 100;
         }
     }
+
+    if (isDefault)
+        std::cerr << "Couldn't parse input parameters, sphereCount = 100 (default)" << std::endl;
+
 
 
     Texture* earthTexture = new Texture(L"earth8k.dds");
