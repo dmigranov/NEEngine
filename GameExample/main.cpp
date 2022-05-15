@@ -15,7 +15,10 @@ int main(int argc, char* argv[])
         try {
             int number = std::stoi(sphereCountStr);
             if (number > 0)
+            {
                 replicationCount = number;
+                isDefault = false;
+            }
         }
         catch (std::exception const& e) {
             // Could not be parsed into a number
@@ -26,7 +29,7 @@ int main(int argc, char* argv[])
     totalReplicationCount = totalReplicationCount * totalReplicationCount * totalReplicationCount;
 
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        replicationCount, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
+        replicationCount, DirectX::SimpleMath::Vector3(10, 10, 10), 20, 0.9,
         true, false, false);
 
     if (isDefault)
@@ -48,7 +51,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.005, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.001, DirectX::Colors::PowderBlue);
 
     //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
@@ -69,32 +72,17 @@ int main(int argc, char* argv[])
             auto kbs = pInput->GetKeyboardState();
             auto ms = pInput->GetMouseState();
 
-            Vector3 up(0, deltaTime * 200, 0);
-            Vector3 right(deltaTime * 200, 0, 0);
-            Vector3 fwd(0, 0, deltaTime * 200);
+            Vector3 up(0, deltaTime * 2, 0);
+            Vector3 right(deltaTime * 2, 0, 0);
+            Vector3 fwd(0, 0, deltaTime * 2);
 
-            if (kbs.R)
-                pTransform->Move(up);
-            if (kbs.F)
-                pTransform->Move(-up);
+            pTransform->Rotate(up);
 
-            if (kbs.T)
-                pTransform->Rotate(deltaTime, 0, 0);
-            if (kbs.Y)
-                pTransform->Rotate(-deltaTime, 0, 0);
-            if (kbs.G)
-                pTransform->Rotate(0, deltaTime, 0);
-            if (kbs.H)
-                pTransform->Rotate(0, -deltaTime, 0);
-            if (kbs.B)
-                pTransform->Rotate(0, 0, deltaTime);
-            if (kbs.N)
-                pTransform->Rotate(0, 0, -deltaTime);
 
             }));
     }
 
-    
+    /*
     {
         auto childEntity = new Entity();
         auto ttc2 = new ToricTransformComponent(3, 0, 0);
@@ -109,7 +97,7 @@ int main(int argc, char* argv[])
             pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
             }));
     }
-    
+    */
 
     return Game::GetInstance().StartGame();
 }
