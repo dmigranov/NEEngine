@@ -181,13 +181,14 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
         } 
     }
     
-    std::cout << triCount << std::endl;
-
     auto g_Vertices = &vertices[0];
     auto verticesCount = vertices.size();
 
     auto g_Indices = &indices[0];
     auto indicesCount = indices.size();
+
+    //std::cout << indicesCount << std::endl;
+
 
     return MeshComponentFactory::CreateMeshComponent<VertexData>(verticesCount, g_Vertices, indicesCount, g_Indices);
 }

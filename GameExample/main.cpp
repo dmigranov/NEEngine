@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     auto charWalkComponent = new WalkComponent(3, 4);
     auto charInputComponent = new InputComponent();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 9, 10);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 9, 10); //200 triangles
     smc->SetEffect(effect);
 
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью
