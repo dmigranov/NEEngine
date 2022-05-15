@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
 
     auto entity1 = new Entity(), entity2 = new Entity();
 
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 20, 20);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.1, 9, 10);
     smc->SetEffect(effect);
 
     cameraComponent->SetFovY(XM_PI / 2); //эксперимент с видимостью

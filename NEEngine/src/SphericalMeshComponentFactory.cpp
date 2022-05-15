@@ -172,13 +172,16 @@ MeshComponent* SphericalMeshComponentFactory::CreateSphericalSphere(double radiu
             indices.push_back(nextI * stride + j);
             indices.push_back(i * stride + j);
             indices.push_back(i * stride + nextJ);
+            triCount++;
             
             indices.push_back(nextI * stride + j);
             indices.push_back(i * stride + nextJ);
             indices.push_back(nextI * stride + nextJ);
+            triCount++;
         } 
     }
     
+    std::cout << triCount << std::endl;
 
     auto g_Vertices = &vertices[0];
     auto verticesCount = vertices.size();
