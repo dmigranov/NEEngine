@@ -426,7 +426,8 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::FinishDrawing()
 {
-    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20, Colors::White);
+    m_textDrawer->DrawTextUpRightAlign(
+        (std::to_string(fpsCounter.GetFPS()) + "\n" + std::to_string(fpsCounter.GetMeanFPS())).c_str(), m_outputWidth - 20, 20, Colors::White);
 
     
     float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
