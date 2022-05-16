@@ -95,7 +95,7 @@ void ToricRenderSystem::Execute(double deltaTime)
 	instanceData.SysMemPitch = 0;
 	instanceData.SysMemSlicePitch = 0;
 
-	// todo: OPTIMIZE!
+	// TODO: OPTIMIZE! FIX!
 	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData); // !!! это неправильно? буфер создается каждый кадр, это явно неоптимально
 
 
