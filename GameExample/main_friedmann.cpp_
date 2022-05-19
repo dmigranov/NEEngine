@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     double radius = 1.;
 
     Game& game = Game::GetInstance();
-    game.InitializeEngine(1280, 720, L"Friedmann", true, false, true);
+    game.InitializeEngine(1280, 720, L"Friedmann Model Visualization", true, false, true);
     game.SetBackgroundColor(DirectX::Colors::Black);   //todo: перенести
     Scene* scene = game.GetScene();
 
@@ -45,10 +45,8 @@ int main(int argc, char* argv[])
     auto friedmannHwnd = CreateFriedmannWindow();
 
     Texture* earthTexture = new Texture(L"earth8k.dds");
-    Texture* rainbowTexture1 = new Texture(L"rainbow4_rot.dds");
     Texture* rainbowTexture2 = new Texture(L"rainbow4.dds");
     Texture* greenTexture = new Texture(L"green_texture.dds");
-    Texture* greenWithBlueTexture = new Texture(L"green.dds");
 
     auto renderSystem = new SphericalRenderSystem();
     renderSystem->SetRadius(radius);
@@ -106,7 +104,7 @@ int main(int argc, char* argv[])
         randomPoints[i] = point;
         auto transformComponent = new SphericalTransformComponent();
         transformComponent->MoveAbsolute(point.x, point.y, point.z, point.w); //!!!
-        
+
         auto sphericalRenderingComponent = new SphericalRenderingComponent();
         auto dopplerComponent = new DopplerComponent();
         auto entity = new Entity();
@@ -141,7 +139,7 @@ int main(int argc, char* argv[])
         }, 10, 10, Alignment::UpLeft, DirectX::Colors::White));
 
     scene->AddEntity(textEntity1);
-    
+
     System* controlSystem = nullptr;
     System* visibilitySystem = nullptr;
     System* radiusUpdateSystem = nullptr;
@@ -151,7 +149,7 @@ int main(int argc, char* argv[])
 
     auto timer = CreateFriedmannSystems(effect, cameraTransform, renderSystem, pInputComponent, objectRadius,
         &controlSystem, &visibilitySystem, &radiusUpdateSystem, &animationSystem, &selectionSystem, &soundSystem);
-    
+
     scene->AddSystem(controlSystem);
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(animationSystem);
@@ -178,14 +176,14 @@ int main(int argc, char* argv[])
             auto pSphTransform = pSelectedEntity->GetComponent<SphericalTransformComponent>();
             auto sphPosWorld = pSphTransform->GetSphericalPosition();
             auto sphPosView = Vector4::Transform(sphPosWorld, view); //pos_view
-            
+
             auto radius = SphericalEffect::GetRadius();
             double chi = acos(sphPosView.w / radius);
             if (sphPosView.z > 0)
                 ss << "Front half" << std::endl;
             else {
                 ss << "Back half" << std::endl;
-                chi = XM_2PI - chi; 
+                chi = XM_2PI - chi;
             }
             ss << "Chi: " << chi << std::endl;
             //ss << "Chi: " << SphericalDistance(Vector4(0, 0, 0, 1), sphPosView/radius, 1) << std::endl;
