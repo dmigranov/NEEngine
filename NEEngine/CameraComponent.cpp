@@ -34,8 +34,7 @@ void CameraComponent::SetOutputSize(double width, double height)
 {
 	m_width = width;
 	m_height = height;
-	//m_aspect = width / height;
-	m_aspect = height / width;
+	m_aspect = width / height;
 	m_shouldRecalc = true;
 }
 
