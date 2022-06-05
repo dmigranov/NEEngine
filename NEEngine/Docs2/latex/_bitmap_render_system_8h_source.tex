@@ -1,0 +1,21 @@
+\hypertarget{_bitmap_render_system_8h_source}{}\doxysection{Bitmap\+Render\+System.\+h}
+\label{_bitmap_render_system_8h_source}\index{inc/BitmapRenderSystem.h@{inc/BitmapRenderSystem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}System.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_bitmap_render_system}{BitmapRenderSystem}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_system}{System}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_bitmap_render_system}{BitmapRenderSystem}}();}
+\DoxyCodeLine{8     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Execute(\textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} AddEntity(\mbox{\hyperlink{class_entity}{Entity}}* pEntity) \textcolor{keyword}{override};}
+\DoxyCodeLine{11     std::vector<Entity*> m\_opaqueEntities;}
+\DoxyCodeLine{12     std::vector<Entity*> m\_nonOpaqueEntities;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} Render(\mbox{\hyperlink{class_entity}{Entity}} * pEntity, ID3D11DeviceContext* pDeviceContext, ID3D11Resource* pConstantBuffer);}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+
+\end{DoxyCode}

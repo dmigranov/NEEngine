@@ -1,0 +1,194 @@
+\hypertarget{class_spherical_exp_fog_effect}{}\doxysection{Spherical\+Exp\+Fog\+Effect Class Reference}
+\label{class_spherical_exp_fog_effect}\index{SphericalExpFogEffect@{SphericalExpFogEffect}}
+
+
+Inheritance diagram for Spherical\+Exp\+Fog\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spherical_exp_fog_effect__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Spherical\+Exp\+Fog\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_spherical_exp_fog_effect__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{Per\+Application\+PSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{Per\+Application\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_frame_v_s_constant_buffer}{Per\+Frame\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_object_v_s_constant_buffer}{Per\+Object\+VSConstant\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a24ea7b6c9fab15047067e10e34a9316c}\label{class_spherical_exp_fog_effect_a24ea7b6c9fab15047067e10e34a9316c}} 
+{\bfseries Spherical\+Exp\+Fog\+Effect} (\mbox{\hyperlink{class_texture}{Texture}} $\ast$p\+Texture, double fog\+Density, Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\item 
+virtual bool \mbox{\hyperlink{class_spherical_exp_fog_effect_a09a6fccf9fb4a95e0044a1359fca4b21}{Initialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_spherical_exp_fog_effect_a932e6d0f6ab29e8463ce995b6d2f300e}{Deinitialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_spherical_exp_fog_effect_ab0ec1b5edb92037c9d66c3c5ced3acfd}{Update\+Per\+Object}} (const \mbox{\hyperlink{class_entity}{Entity}} $\ast$p\+Entity, double delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_spherical_exp_fog_effect_a6966f1e53c878c6c662e2d7097c8c771}{Update\+Per\+Scene}} () override
+\item 
+virtual void \mbox{\hyperlink{class_spherical_exp_fog_effect_a1d9cfb87b4677c8b2f8004dd719fa17e}{Update\+Per\+Application}} () override
+\item 
+virtual void \mbox{\hyperlink{class_spherical_exp_fog_effect_a804d71a74c35864523412bf6c73eaad6}{Clean}} () override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_spherical_exp_fog_effect_ab81b4b1ab0866da55526e912adbec9fd}{Get\+Vertex\+Buffer\+Size}} () const override
+\item 
+virtual const std\+::type\+\_\+info \& \mbox{\hyperlink{class_spherical_exp_fog_effect_a7b984a051a63577f124bbc670c476434}{Get\+Vertex\+Data\+Type}} () override
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_ad7a12c9e09771f78faebde56bb31443d}\label{class_spherical_exp_fog_effect_ad7a12c9e09771f78faebde56bb31443d}} 
+virtual void {\bfseries Set\+Fog\+Color} (Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_ad06349d9dc1c501357c5843252065ba6}\label{class_spherical_exp_fog_effect_ad06349d9dc1c501357c5843252065ba6}} 
+enum {\bfseries Constant\+Buffer} \{ {\bfseries CB\+\_\+\+Application}
+, {\bfseries CB\+\_\+\+Frame}
+, {\bfseries CB\+\_\+\+Object}
+, {\bfseries Num\+Constant\+Buffers}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a1d9306f7100e8a04f5defcfdfe527b70}\label{class_spherical_exp_fog_effect_a1d9306f7100e8a04f5defcfdfe527b70}} 
+\mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{Per\+Application\+PSConstant\+Buffer}} {\bfseries per\+Application\+PSConstant\+Buffer}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_aa71abc464d5bb81902fb7c6b691f9462}\label{class_spherical_exp_fog_effect_aa71abc464d5bb81902fb7c6b691f9462}} 
+\mbox{\hyperlink{struct_spherical_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{Per\+Application\+VSConstant\+Buffer}} {\bfseries per\+Application\+VSConstant\+Buffer}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a5f41c942ef260586f03c077094953dd0}\label{class_spherical_exp_fog_effect_a5f41c942ef260586f03c077094953dd0}} 
+ID3\+D11\+Input\+Layout $\ast$ {\bfseries g\+\_\+d3d\+Input\+Layout} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_aae2e3c179f2408cb9382f48d5af1f0cb}\label{class_spherical_exp_fog_effect_aae2e3c179f2408cb9382f48d5af1f0cb}} 
+ID3\+D11\+Vertex\+Shader $\ast$ {\bfseries g\+\_\+d3d\+Vertex\+Shader\+Sph} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a20eb2c675182f15e6379f8ad88963ea7}\label{class_spherical_exp_fog_effect_a20eb2c675182f15e6379f8ad88963ea7}} 
+ID3\+D11\+Vertex\+Shader $\ast$ {\bfseries g\+\_\+d3d\+Vertex\+Shader\+Ell} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_aa2e95dad8f83d883346734d85d2419cb}\label{class_spherical_exp_fog_effect_aa2e95dad8f83d883346734d85d2419cb}} 
+ID3\+D11\+Pixel\+Shader $\ast$ {\bfseries g\+\_\+d3d\+Pixel\+Shader} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_ae3035a5c657be391db4a8714d043bc32}\label{class_spherical_exp_fog_effect_ae3035a5c657be391db4a8714d043bc32}} 
+ID3\+D11\+Sampler\+State $\ast$ {\bfseries g\+\_\+d3d\+Sampler\+State} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_af7d09b889fd1656924af1404f351bc93}\label{class_spherical_exp_fog_effect_af7d09b889fd1656924af1404f351bc93}} 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ {\bfseries m\+\_\+p\+Texture} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a84bcdb69895a3e7e15870ef9a3fcc65d}\label{class_spherical_exp_fog_effect_a84bcdb69895a3e7e15870ef9a3fcc65d}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries g\+\_\+d3d\+VSConstant\+Buffers} \mbox{[}Num\+Constant\+Buffers\mbox{]}
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_afd29ca0ce7f3a3079942873b533fd54d}\label{class_spherical_exp_fog_effect_afd29ca0ce7f3a3079942873b533fd54d}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries g\+\_\+d3d\+PSConstant\+Buffer} = nullptr
+\item 
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a1edfa9ef0236a8ff306c1e5f9b502676}\label{class_spherical_exp_fog_effect_a1edfa9ef0236a8ff306c1e5f9b502676}} 
+\mbox{\hyperlink{class_game}{Game}} \& {\bfseries game}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a804d71a74c35864523412bf6c73eaad6}\label{class_spherical_exp_fog_effect_a804d71a74c35864523412bf6c73eaad6}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!Clean@{Clean}}
+\index{Clean@{Clean}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Clean()}{Clean()}}
+{\footnotesize\ttfamily void Spherical\+Exp\+Fog\+Effect\+::\+Clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a932e6d0f6ab29e8463ce995b6d2f300e}\label{class_spherical_exp_fog_effect_a932e6d0f6ab29e8463ce995b6d2f300e}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!Deinitialize@{Deinitialize}}
+\index{Deinitialize@{Deinitialize}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Deinitialize()}{Deinitialize()}}
+{\footnotesize\ttfamily void Spherical\+Exp\+Fog\+Effect\+::\+Deinitialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_ab81b4b1ab0866da55526e912adbec9fd}\label{class_spherical_exp_fog_effect_ab81b4b1ab0866da55526e912adbec9fd}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!GetVertexBufferSize@{GetVertexBufferSize}}
+\index{GetVertexBufferSize@{GetVertexBufferSize}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexBufferSize()}{GetVertexBufferSize()}}
+{\footnotesize\ttfamily unsigned int Spherical\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Buffer\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a7b984a051a63577f124bbc670c476434}\label{class_spherical_exp_fog_effect_a7b984a051a63577f124bbc670c476434}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!GetVertexDataType@{GetVertexDataType}}
+\index{GetVertexDataType@{GetVertexDataType}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexDataType()}{GetVertexDataType()}}
+{\footnotesize\ttfamily const std\+::type\+\_\+info \& Spherical\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Data\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a09a6fccf9fb4a95e0044a1359fca4b21}\label{class_spherical_exp_fog_effect_a09a6fccf9fb4a95e0044a1359fca4b21}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool Spherical\+Exp\+Fog\+Effect\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a1d9cfb87b4677c8b2f8004dd719fa17e}\label{class_spherical_exp_fog_effect_a1d9cfb87b4677c8b2f8004dd719fa17e}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!UpdatePerApplication@{UpdatePerApplication}}
+\index{UpdatePerApplication@{UpdatePerApplication}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerApplication()}{UpdatePerApplication()}}
+{\footnotesize\ttfamily void Spherical\+Exp\+Fog\+Effect\+::\+Update\+Per\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_ab0ec1b5edb92037c9d66c3c5ced3acfd}\label{class_spherical_exp_fog_effect_ab0ec1b5edb92037c9d66c3c5ced3acfd}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!UpdatePerObject@{UpdatePerObject}}
+\index{UpdatePerObject@{UpdatePerObject}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerObject()}{UpdatePerObject()}}
+{\footnotesize\ttfamily void Spherical\+Exp\+Fog\+Effect\+::\+Update\+Per\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{p\+Entity,  }\item[{double}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_spherical_exp_fog_effect_a6966f1e53c878c6c662e2d7097c8c771}\label{class_spherical_exp_fog_effect_a6966f1e53c878c6c662e2d7097c8c771}} 
+\index{SphericalExpFogEffect@{SphericalExpFogEffect}!UpdatePerScene@{UpdatePerScene}}
+\index{UpdatePerScene@{UpdatePerScene}!SphericalExpFogEffect@{SphericalExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerScene()}{UpdatePerScene()}}
+{\footnotesize\ttfamily void Spherical\+Exp\+Fog\+Effect\+::\+Update\+Per\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Spherical\+Exp\+Fog\+Effect.\+h\item 
+src/Spherical\+Exp\+Fog\+Effect.\+cpp\end{DoxyCompactItemize}

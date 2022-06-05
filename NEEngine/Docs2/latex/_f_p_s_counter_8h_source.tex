@@ -1,0 +1,25 @@
+\hypertarget{_f_p_s_counter_8h_source}{}\doxysection{FPSCounter.\+h}
+\label{_f_p_s_counter_8h_source}\index{inc/FPSCounter.h@{inc/FPSCounter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{keyword}{class }\mbox{\hyperlink{class_f_p_s_counter}{FPSCounter}}}
+\DoxyCodeLine{3 \{}
+\DoxyCodeLine{4 \textcolor{keyword}{public}: }
+\DoxyCodeLine{5     \mbox{\hyperlink{class_f_p_s_counter}{FPSCounter}}();}
+\DoxyCodeLine{6     \textcolor{keywordtype}{void} Update();  \textcolor{comment}{//called each frame}}
+\DoxyCodeLine{7     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetFPS();}
+\DoxyCodeLine{8     \textcolor{keywordtype}{double} GetFrameTime();}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetMeanFPS();}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_fps, m\_count, m\_meanFPS;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{double} m\_frameTime;}
+\DoxyCodeLine{14     DWORD m\_startTime;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{size\_t} m\_totalFrameCount = 0;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{size\_t} m\_totalTime = 0.;}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\hypertarget{_toric_render_system_8h_source}{}\doxysection{Toric\+Render\+System.\+h}
+\label{_toric_render_system_8h_source}\index{inc/ToricRenderSystem.h@{inc/ToricRenderSystem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}System.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_transform_component}{TransformComponent}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_toric_render_system}{ToricRenderSystem}} :}
+\DoxyCodeLine{7     \textcolor{keyword}{public} \mbox{\hyperlink{class_system}{System}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_toric_render_system_1_1_instance_type}{InstanceType}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         DirectX::SimpleMath::Vector3 position;}
+\DoxyCodeLine{13     \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_toric_render_system}{ToricRenderSystem}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} replicationCount, \textcolor{keywordtype}{double} torX, \textcolor{keywordtype}{double} torY, \textcolor{keywordtype}{double} torZ);}
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Execute(\textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} Render(\mbox{\hyperlink{class_entity}{Entity}}* pEntity, ID3D11DeviceContext* pDeviceContext, \textcolor{keywordtype}{double} deltaTime);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} m\_replicationCount;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} m\_torX, m\_torY, m\_torZ;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_instanceCount, m\_instanceCountPerDimension;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     ID3D11Buffer* m\_d3dInstanceBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+
+\end{DoxyCode}

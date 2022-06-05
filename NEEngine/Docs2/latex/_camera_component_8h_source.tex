@@ -1,0 +1,36 @@
+\hypertarget{_camera_component_8h_source}{}\doxysection{Camera\+Component.\+h}
+\label{_camera_component_8h_source}\index{inc/CameraComponent.h@{inc/CameraComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Component.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_camera_component}{CameraComponent}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_camera_component}{CameraComponent}}(\textcolor{keywordtype}{bool} isPerspective = \textcolor{keyword}{true});}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_camera_component}{CameraComponent}}(\textcolor{keywordtype}{double} nearPlane, \textcolor{keywordtype}{double} farPlane, \textcolor{keywordtype}{double} aspect = 1., \textcolor{keywordtype}{double} fovY = DirectX::XM\_PIDIV2, \textcolor{keywordtype}{bool} isPerspective = \textcolor{keyword}{true});}
+\DoxyCodeLine{9     \textcolor{keyword}{virtual} \textcolor{keyword}{const} DirectX::XMMATRIX\& GetProj();}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} SetFovY(\textcolor{keywordtype}{double} fovY);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} SetAspect(\textcolor{keywordtype}{double} aspect);}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} SetOutputSize(\textcolor{keywordtype}{double} width, \textcolor{keywordtype}{double} height);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} SetPerspective(\textcolor{keywordtype}{bool} isPerspective);}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} SetOrthogonalWidth(\textcolor{keywordtype}{double} width);}
+\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} RecalculateProj();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{double} m\_fovY;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{double} m\_nearPlane,  m\_farPlane;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} m\_aspect;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} m\_width = -\/1, m\_height = -\/1;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} m\_orthoWidth = 1;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} m\_shouldRecalc;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} m\_isPerspective;}
+\DoxyCodeLine{28     DirectX::XMMATRIX m\_proj;}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}

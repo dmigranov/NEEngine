@@ -1,0 +1,40 @@
+\hypertarget{_mesh_component_8h_source}{}\doxysection{Mesh\+Component.\+h}
+\label{_mesh_component_8h_source}\index{inc/MeshComponent.h@{inc/MeshComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Component.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_effect}{Effect}};}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh_component}{MeshComponent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh_component_factory}{MeshComponentFactory}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_effect}{Effect}}* GetEffect() \textcolor{keyword}{const};}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} SetEffect(\mbox{\hyperlink{class_effect}{Effect}}* effect);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     ID3D11Buffer * GetVertexBuffer() \textcolor{keyword}{const};}
+\DoxyCodeLine{17     ID3D11Buffer * GetIndexBuffer() \textcolor{keyword}{const};}
+\DoxyCodeLine{18     D3D\_PRIMITIVE\_TOPOLOGY GetTopology() \textcolor{keyword}{const};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetIndicesCount();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{const} std::type\_info\& GetVertexDataType();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_mesh_component}{\string~MeshComponent}}();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_mesh_component}{MeshComponent}}(ID3D11Buffer* g\_d3dVertexBuffer, ID3D11Buffer* g\_d3dIndexBuffer, \textcolor{keyword}{const} std::type\_info\& vertexDataType, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} indicesCount, D3D\_PRIMITIVE\_TOPOLOGY topology = D3D11\_PRIMITIVE\_TOPOLOGY\_TRIANGLELIST);}
+\DoxyCodeLine{27     ID3D11Buffer* g\_d3dVertexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{28     ID3D11Buffer* g\_d3dIndexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29     D3D\_PRIMITIVE\_TOPOLOGY m\_topology;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_indicesCount = 0;}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_effect}{Effect}}* m\_pEffect;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{const} std::type\_info\& m\_vertexDataType;}
+\DoxyCodeLine{34 \};}
+
+\end{DoxyCode}

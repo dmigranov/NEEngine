@@ -1,0 +1,10 @@
+<map id="SphericalMesh" name="SphericalMesh">
+<area shape="rect" id="node1" title=" " alt="" coords="108,132,216,159"/>
+<area shape="rect" id="node3" href="$class_spherical_asteroid.html" title=" " alt="" coords="281,5,405,32"/>
+<area shape="rect" id="node4" href="$class_spherical_cube.html" title=" " alt="" coords="290,56,397,83"/>
+<area shape="rect" id="node5" href="$class_spherical_dodecahedron.html" title=" " alt="" coords="264,107,423,133"/>
+<area shape="rect" id="node6" href="$class_spherical_ellipsoid.html" title=" " alt="" coords="281,157,406,184"/>
+<area shape="rect" id="node7" href="$class_spherical_octahedron.html" title=" " alt="" coords="272,208,415,235"/>
+<area shape="rect" id="node8" href="$class_spherical_sphere.html" title=" " alt="" coords="285,259,402,285"/>
+<area shape="rect" id="node2" href="$class_mesh.html" title=" " alt="" coords="5,132,60,159"/>
+</map>

@@ -1,0 +1,24 @@
+\hypertarget{_spherical_render_system_8h_source}{}\doxysection{Spherical\+Render\+System.\+h}
+\label{_spherical_render_system_8h_source}\index{inc/SphericalRenderSystem.h@{inc/SphericalRenderSystem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}System.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_spherical_render_system}{SphericalRenderSystem}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_system}{System}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_spherical_render_system}{SphericalRenderSystem}}(\textcolor{keywordtype}{double} radius = 1.);}
+\DoxyCodeLine{8     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spherical_render_system_a7fb1add1593ff19303a6810dddc107b0}{Execute}}(\textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} SetRadius(\textcolor{keywordtype}{double} radius);}
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} GetRadius();}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} Render(\mbox{\hyperlink{class_entity}{Entity}}* pEntity, ID3D11DeviceContext* pDeviceContext, \textcolor{keywordtype}{double} deltaTime);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} UpdateOnRadiusChange();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{double} m\_radius;}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+
+\end{DoxyCode}

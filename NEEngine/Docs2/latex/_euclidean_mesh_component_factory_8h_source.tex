@@ -1,0 +1,32 @@
+\hypertarget{_euclidean_mesh_component_factory_8h_source}{}\doxysection{Euclidean\+Mesh\+Component\+Factory.\+h}
+\label{_euclidean_mesh_component_factory_8h_source}\index{inc/EuclideanMeshComponentFactory.h@{inc/EuclideanMeshComponentFactory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}MeshComponentFactory.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_euclidean_mesh_component_factory}{EuclideanMeshComponentFactory}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_mesh_component_factory}{MeshComponentFactory}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_euclidean_mesh_component_factory_1_1_vertex_data}{VertexData}}}
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9         DirectX::XMFLOAT4 Position;}
+\DoxyCodeLine{10         \textcolor{comment}{//DirectX::XMFLOAT4 Normal;}}
+\DoxyCodeLine{11         \textcolor{comment}{//DirectX::XMFLOAT4 Tangent; //нужно ли?}}
+\DoxyCodeLine{12         DirectX::XMFLOAT2 TexCoord;}
+\DoxyCodeLine{13     \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{static} \mbox{\hyperlink{class_mesh_component}{MeshComponent}}* CreateSphere(\textcolor{keywordtype}{double} radius, \textcolor{keywordtype}{int} sliceCount = 30, \textcolor{keywordtype}{int} stackCount = 30);}
+\DoxyCodeLine{16     \textcolor{keyword}{static} \mbox{\hyperlink{class_mesh_component}{MeshComponent}}* CreateCube(\textcolor{keywordtype}{double} side);}
+\DoxyCodeLine{17     \textcolor{keyword}{static} \mbox{\hyperlink{class_mesh_component}{MeshComponent}}* CreateRectangularCuboid(\textcolor{keywordtype}{double} xSide, \textcolor{keywordtype}{double} ySide, \textcolor{keywordtype}{double} zSide);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{static} \mbox{\hyperlink{class_mesh_component}{MeshComponent}}* CreateMeshFromFile(std::string fileName);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     \textcolor{keyword}{static} std::vector<std::string> parseString(std::string str, \textcolor{keywordtype}{char} delimiter);}
+\DoxyCodeLine{23     \textcolor{keyword}{static} std::vector<double> getDoubleValues(std::vector<std::string> strings);}
+\DoxyCodeLine{24     \textcolor{keyword}{static} std::vector<int> getIntValues(std::vector<std::string> strings);}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+
+\end{DoxyCode}

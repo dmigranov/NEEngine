@@ -1,0 +1,28 @@
+\hypertarget{_timer_8h_source}{}\doxysection{Timer.\+h}
+\label{_timer_8h_source}\index{inc/Timer.h@{inc/Timer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_timer}{Timer}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_timer}{Timer}}();}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_timer}{\string~Timer}}();}
+\DoxyCodeLine{9     DWORD GetTimer();}
+\DoxyCodeLine{10     DWORD GetMillisFromStart();}
+\DoxyCodeLine{11     DWORD GetDelta();}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} Sleep(\textcolor{keywordtype}{int} ms);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} Stopwatch(\textcolor{keywordtype}{int} ms);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     DWORD m\_timerStart;}
+\DoxyCodeLine{18     DWORD m\_stopwatchStart;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} Reset();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+
+\end{DoxyCode}

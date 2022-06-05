@@ -1,0 +1,139 @@
+\hypertarget{class_transform_component}{}\doxysection{Transform\+Component Class Reference}
+\label{class_transform_component}\index{TransformComponent@{TransformComponent}}
+
+
+Inheritance diagram for Transform\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_transform_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Transform\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_transform_component__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transform_component_abe4423e17d0d4a443670fe50f2059906}\label{class_transform_component_abe4423e17d0d4a443670fe50f2059906}} 
+{\bfseries Transform\+Component} (double x, double y, double z)
+\item 
+\mbox{\Hypertarget{class_transform_component_a5bf6749022dfa076363cf8bffe61ee09}\label{class_transform_component_a5bf6749022dfa076363cf8bffe61ee09}} 
+{\bfseries Transform\+Component} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 position)
+\item 
+\mbox{\Hypertarget{class_transform_component_aa54b2a5c160c6da56baea6fa578f5350}\label{class_transform_component_aa54b2a5c160c6da56baea6fa578f5350}} 
+{\bfseries Transform\+Component} (double x, double y, double z, double rx, double ry, double rz, double sx=1, double sy=1, double sz=1)
+\item 
+\mbox{\Hypertarget{class_transform_component_afa95a5948c15175697d22c54492946c2}\label{class_transform_component_afa95a5948c15175697d22c54492946c2}} 
+{\bfseries Transform\+Component} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 position, Direct\+X\+::\+Simple\+Math\+::\+Vector3 rotation, Direct\+X\+::\+Simple\+Math\+::\+Vector3 scale)
+\item 
+\mbox{\Hypertarget{class_transform_component_a58a9f881443ca9f299b44e9f54a8c3bc}\label{class_transform_component_a58a9f881443ca9f299b44e9f54a8c3bc}} 
+virtual void {\bfseries Move} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 v)
+\item 
+\mbox{\Hypertarget{class_transform_component_a85452560019472bd97e7df938c2741dc}\label{class_transform_component_a85452560019472bd97e7df938c2741dc}} 
+virtual void {\bfseries Move} (double x, double y, double z)
+\item 
+\mbox{\Hypertarget{class_transform_component_a3ed30c5deed748b39acb67be6abfcfb5}\label{class_transform_component_a3ed30c5deed748b39acb67be6abfcfb5}} 
+virtual void {\bfseries Rotate} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 r)
+\item 
+\mbox{\Hypertarget{class_transform_component_aa38fdf6990d85ed107e5a898cf485b19}\label{class_transform_component_aa38fdf6990d85ed107e5a898cf485b19}} 
+virtual void {\bfseries Rotate} (double rx, double ry, double rz)
+\item 
+\mbox{\Hypertarget{class_transform_component_a86fbfc82f3e24557b75cb1db640e6aa2}\label{class_transform_component_a86fbfc82f3e24557b75cb1db640e6aa2}} 
+virtual void {\bfseries Rotate\+Global} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 r)
+\item 
+\mbox{\Hypertarget{class_transform_component_a75378994f02b9948e58be0256330fad8}\label{class_transform_component_a75378994f02b9948e58be0256330fad8}} 
+virtual void {\bfseries Rotate\+Global} (double rx, double ry, double rz)
+\item 
+\mbox{\Hypertarget{class_transform_component_a6886933a3531eacc842b04a8c4edf549}\label{class_transform_component_a6886933a3531eacc842b04a8c4edf549}} 
+virtual void {\bfseries Set\+Pitch\+Yaw\+Roll} (double pitch, double yaw, double roll)
+\item 
+\mbox{\Hypertarget{class_transform_component_a37d1b1c2546b69ae1359b514c7aad868}\label{class_transform_component_a37d1b1c2546b69ae1359b514c7aad868}} 
+void {\bfseries Set\+Parent} (\mbox{\hyperlink{class_transform_component}{Transform\+Component}} $\ast$p\+Parent)
+\item 
+\mbox{\Hypertarget{class_transform_component_ab8a85e7d54bf5f69967b8d50aab3eefe}\label{class_transform_component_ab8a85e7d54bf5f69967b8d50aab3eefe}} 
+const Direct\+X\+::\+Simple\+Math\+::\+Matrix \& {\bfseries Get\+World} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_abdb6ce12d6cee45e4c1dc54f99f49f40}\label{class_transform_component_abdb6ce12d6cee45e4c1dc54f99f49f40}} 
+const Direct\+X\+::\+Simple\+Math\+::\+Matrix \& {\bfseries Get\+View} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_a1ece51b3f1725651e85a03c169451620}\label{class_transform_component_a1ece51b3f1725651e85a03c169451620}} 
+virtual const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \& {\bfseries Get\+Rotation} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_ae265969555a917f100748a79133e07f1}\label{class_transform_component_ae265969555a917f100748a79133e07f1}} 
+virtual const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \& {\bfseries Get\+Forward} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_ad64a7c77f1065c55d4c111525fb5feef}\label{class_transform_component_ad64a7c77f1065c55d4c111525fb5feef}} 
+virtual const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \& {\bfseries Get\+Right} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_aa6a54c2181204c27b47e2567ef900f86}\label{class_transform_component_aa6a54c2181204c27b47e2567ef900f86}} 
+virtual const Direct\+X\+::\+Simple\+Math\+::\+Vector3 \& {\bfseries Get\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transform_component_a8f991bc6c8513e0c52272c3fad9f2b93}\label{class_transform_component_a8f991bc6c8513e0c52272c3fad9f2b93}} 
+virtual void {\bfseries Recalculate} ()
+\item 
+\mbox{\Hypertarget{class_transform_component_a081ab448d2ee830903bf9111c55bcff2}\label{class_transform_component_a081ab448d2ee830903bf9111c55bcff2}} 
+virtual void {\bfseries Recalculate\+View} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transform_component_aa3db7d56a39295c8f9ecd7f8b35a5b36}\label{class_transform_component_aa3db7d56a39295c8f9ecd7f8b35a5b36}} 
+\mbox{\hyperlink{class_transform_component}{Transform\+Component}} $\ast$ {\bfseries m\+\_\+p\+Parent}
+\item 
+\mbox{\Hypertarget{class_transform_component_a1e3c613fb862175a92f6fd16914f6e6d}\label{class_transform_component_a1e3c613fb862175a92f6fd16914f6e6d}} 
+Direct\+X\+::\+Simple\+Math\+::\+Matrix {\bfseries old\+Parent\+Matrix}
+\item 
+\mbox{\Hypertarget{class_transform_component_a024a767f3ad530953ca3f7824afc0fd3}\label{class_transform_component_a024a767f3ad530953ca3f7824afc0fd3}} 
+Direct\+X\+::\+Simple\+Math\+::\+Matrix {\bfseries m\+\_\+world}
+\item 
+\mbox{\Hypertarget{class_transform_component_af28934129006f7f1733cd177385da166}\label{class_transform_component_af28934129006f7f1733cd177385da166}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+position\+Local}
+\item 
+\mbox{\Hypertarget{class_transform_component_a13ee22d2420edcb716f0bf168a043790}\label{class_transform_component_a13ee22d2420edcb716f0bf168a043790}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_transform_component_ae4f3586357faa705f88a34809a019c54}\label{class_transform_component_ae4f3586357faa705f88a34809a019c54}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+rotation\+Global}
+\item 
+\mbox{\Hypertarget{class_transform_component_abd2953dc5fcdad93f1bc0fd394973efe}\label{class_transform_component_abd2953dc5fcdad93f1bc0fd394973efe}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+scale}
+\item 
+\mbox{\Hypertarget{class_transform_component_a7bc97a4abc2d5d2d31d31a4b42c08e6f}\label{class_transform_component_a7bc97a4abc2d5d2d31d31a4b42c08e6f}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+position}
+\item 
+\mbox{\Hypertarget{class_transform_component_ab8be3a8c148445630dc29c50914b02d6}\label{class_transform_component_ab8be3a8c148445630dc29c50914b02d6}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+forward}
+\item 
+\mbox{\Hypertarget{class_transform_component_abfedfdd99cb4f3ecb271089be67f28d6}\label{class_transform_component_abfedfdd99cb4f3ecb271089be67f28d6}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+right}
+\item 
+\mbox{\Hypertarget{class_transform_component_a2becda053e92ecb533e56e111654ef54}\label{class_transform_component_a2becda053e92ecb533e56e111654ef54}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector3 {\bfseries m\+\_\+up}
+\item 
+\mbox{\Hypertarget{class_transform_component_a63fa3bd7f0212cb486e3f8dd09fda323}\label{class_transform_component_a63fa3bd7f0212cb486e3f8dd09fda323}} 
+Direct\+X\+::\+Simple\+Math\+::\+Matrix {\bfseries m\+\_\+view}
+\item 
+\mbox{\Hypertarget{class_transform_component_a38c1124cf6bc70da6246b745f9192d18}\label{class_transform_component_a38c1124cf6bc70da6246b745f9192d18}} 
+bool {\bfseries m\+\_\+should\+Recalc\+World}
+\item 
+\mbox{\Hypertarget{class_transform_component_aab9e9310773d51d97b5e37a250ec1174}\label{class_transform_component_aab9e9310773d51d97b5e37a250ec1174}} 
+bool {\bfseries m\+\_\+should\+Recalc\+View}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Transform\+Component.\+h\item 
+Transform\+Component.\+cpp\end{DoxyCompactItemize}
