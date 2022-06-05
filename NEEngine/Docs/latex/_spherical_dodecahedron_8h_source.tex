@@ -1,0 +1,31 @@
+\hypertarget{_spherical_dodecahedron_8h_source}{}\doxysection{Spherical\+Dodecahedron.\+h}
+\label{_spherical_dodecahedron_8h_source}\index{inc/SphericalDodecahedron.h@{inc/SphericalDodecahedron.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}SphericalMesh.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_spherical_dodecahedron}{SphericalDodecahedron}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_spherical_mesh}{SphericalMesh}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \textcolor{keyword}{enum class} FixedCoordinate \{}
+\DoxyCodeLine{8         FC\_X,}
+\DoxyCodeLine{9         FC\_Y,}
+\DoxyCodeLine{10         FC\_Z,}
+\DoxyCodeLine{11         FC\_W}
+\DoxyCodeLine{12     \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_spherical_dodecahedron}{SphericalDodecahedron}}(\textcolor{keywordtype}{double} wSec, DirectX::XMMATRIX world);}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_spherical_dodecahedron}{SphericalDodecahedron}}(\textcolor{keywordtype}{double} wSec);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} SetSectionHeight(\textcolor{keywordtype}{double} newSectionHeight);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{double} GetSectionHeight();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     FixedCoordinate fc;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{double} sectionHeight;}
+\DoxyCodeLine{23     DirectX::XMFLOAT4 GenerateRandomColor();}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+
+\end{DoxyCode}

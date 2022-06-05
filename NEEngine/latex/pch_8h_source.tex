@@ -1,0 +1,69 @@
+\hypertarget{pch_8h_source}{}\doxysection{pch.\+h}
+\label{pch_8h_source}\index{inc/pch.h@{inc/pch.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// pch.h}}
+\DoxyCodeLine{3 \textcolor{comment}{// Header for standard system include files.}}
+\DoxyCodeLine{4 \textcolor{comment}{//}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{// System includes}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <winsdkver.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define \_WIN32\_WINNT 0x0A00}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <sdkddkver.h>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{// DirectX includes}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <d3d11.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <d3dcompiler.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <DirectXMath.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <DirectXColors.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// STL includes}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// Link library dependencies}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#pragma comment(lib, "{}d3d11.lib"{}})}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#pragma comment(lib, "{}dxgi.lib"{}})}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#pragma comment(lib, "{}d3dcompiler.lib"{}})}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#pragma comment(lib, "{}winmm.lib"{}})}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{//DirectXTK}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}Keyboard.h"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}Mouse.h"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}SimpleMath.h"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}Audio.h"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{// Safely release a COM object. The function can be used to safely release a COM object and set the COM pointer to NULL. This function allows us to safely release a COM object even if it has already been released before. }}
+\DoxyCodeLine{43 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{44 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} SafeRelease(T\& ptr)}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (ptr != NULL)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         ptr-\/>Release();}
+\DoxyCodeLine{49         ptr = NULL;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{namespace }DX}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} ThrowIfFailed(HRESULT hr)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (FAILED(hr))}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             \textcolor{comment}{// Set a breakpoint on this line to catch DirectX API errors}}
+\DoxyCodeLine{60             \textcolor{keywordflow}{throw} std::exception();}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}

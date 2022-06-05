@@ -1,0 +1,59 @@
+\hypertarget{class_system}{}\doxysection{System Class Reference}
+\label{class_system}\index{System@{System}}
+Inheritance diagram for System\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=6.770294cm]{class_system}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_system_ac0b85d4e13f16a0f10fe3847e3e490e8}{Execute}} (double delta\+Time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_system_ae9710bab2d7f1c1e18f1111da519e1bc}\label{class_system_ae9710bab2d7f1c1e18f1111da519e1bc}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Subscribe\+To\+Component\+Type} ()
+\item 
+\mbox{\Hypertarget{class_system_ae038c76c78b5784a1ca75b4571666d62}\label{class_system_ae038c76c78b5784a1ca75b4571666d62}} 
+virtual void {\bfseries Add\+Entity} (\mbox{\hyperlink{class_entity}{Entity}} $\ast$p\+Entity)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_system_a036dcccaa8a6c89478a834dfaae590b3}\label{class_system_a036dcccaa8a6c89478a834dfaae590b3}} 
+std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} $\ast$ $>$ {\bfseries m\+\_\+entities}
+\item 
+\mbox{\Hypertarget{class_system_a54b54b55edc936fd3b69cac8fd1a08be}\label{class_system_a54b54b55edc936fd3b69cac8fd1a08be}} 
+boost\+::dynamic\+\_\+bitset {\bfseries m\+\_\+components\+Mask}
+\item 
+\mbox{\Hypertarget{class_system_a771cec85c86091c4d4a8f8192bb5ced0}\label{class_system_a771cec85c86091c4d4a8f8192bb5ced0}} 
+boolean {\bfseries m\+\_\+is\+Drawing} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_system_a032858ae1fe02d2d1170981c2af2d67c}\label{class_system_a032858ae1fe02d2d1170981c2af2d67c}} 
+class {\bfseries Scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_system_ac0b85d4e13f16a0f10fe3847e3e490e8}\label{class_system_ac0b85d4e13f16a0f10fe3847e3e490e8}} 
+\index{System@{System}!Execute@{Execute}}
+\index{Execute@{Execute}!System@{System}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily virtual void System\+::\+Execute (\begin{DoxyParamCaption}\item[{double}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_spherical_render_system_a7fb1add1593ff19303a6810dddc107b0}{Spherical\+Render\+System}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/System.\+h\item 
+System.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\hypertarget{_toric_exp_fog_effect_8h_source}{}\doxysection{Toric\+Exp\+Fog\+Effect.\+h}
+\label{_toric_exp_fog_effect_8h_source}\index{inc/ToricExpFogEffect.h@{inc/ToricExpFogEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Effect.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}};}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}};}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_toric_exp_fog_effect}{ToricExpFogEffect}} :}
+\DoxyCodeLine{8     \textcolor{keyword}{public} \mbox{\hyperlink{class_effect}{Effect}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{PerApplicationVSConstantBuffer}}}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         DirectX::XMMATRIX proj;}
+\DoxyCodeLine{15         \textcolor{keywordtype}{double} density = 0.1;}
+\DoxyCodeLine{16         \textcolor{keywordtype}{double} pad;}
+\DoxyCodeLine{17     \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_frame_v_s_constant_buffer}{PerFrameVSConstantBuffer}}}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         DirectX::XMMATRIX view;}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_object_v_s_constant_buffer}{PerObjectVSConstantBuffer}}}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         DirectX::XMMATRIX world;}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{PerApplicationPSConstantBuffer}}}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_toric_exp_fog_effect}{ToricExpFogEffect}}(\mbox{\hyperlink{class_texture}{Texture}}* pTexture, \textcolor{keywordtype}{double} fogDensity, DirectX::XMVECTORF32 fogColor);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} Initialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Deinitialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} UpdatePerObject(\textcolor{keyword}{const} \mbox{\hyperlink{class_entity}{Entity}}* pEntity, \textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} UpdatePerScene() \textcolor{keyword}{override};             \textcolor{comment}{//todo: impl}}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} UpdatePerApplication() \textcolor{keyword}{override};       \textcolor{comment}{//todo: impl}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetVertexBufferSize() \textcolor{keyword}{const override};}
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::type\_info\& GetVertexDataType() \textcolor{keyword}{override};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} SetFogColor(DirectX::XMVECTORF32 fogColor);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_toric_exp_fog_effect}{\string~ToricExpFogEffect}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Clean() \textcolor{keyword}{override};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{private}:}
+\DoxyCodeLine{54     \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{PerApplicationPSConstantBuffer}} perApplicationPSConstantBuffer;}
+\DoxyCodeLine{55     \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{PerApplicationVSConstantBuffer}} perApplicationVSConstantBuffer;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     ID3D11InputLayout* g\_d3dInputLayout = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     ID3D11VertexShader* g\_d3dVertexShader = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     ID3D11PixelShader* g\_d3dPixelShader = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     ID3D11SamplerState* g\_d3dSamplerState = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \mbox{\hyperlink{class_texture}{Texture}}* m\_pTexture = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{enum} ConstantBuffer}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69         CB\_Application, \textcolor{comment}{//The application level constant buffer stores variables that rarely change. }}
+\DoxyCodeLine{70         CB\_Frame,       \textcolor{comment}{//The frame level constant buffer stores variables that change each frame. An example of a frame level shader variable would be the camera’s view matrix which changes whenever the camera moves}}
+\DoxyCodeLine{71         CB\_Object,      \textcolor{comment}{//The object level constant buffer stores variables that are different for every object being rendered. An example of an object level shader variable is the object’s world matrix.}}
+\DoxyCodeLine{72         NumConstantBuffers}
+\DoxyCodeLine{73     \};}
+\DoxyCodeLine{74     \textcolor{comment}{//three constant buffers: buffers are used to store shader variables that remain constant during current draw call. An example of a constant shader variable is the camera’s projection matrix. Since the projection matrix will be the same for every vertex of the object, this variable does not need to be passed to the shader using vertex data.}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     ID3D11Buffer* g\_d3dVSConstantBuffers[NumConstantBuffers];}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     ID3D11Buffer* g\_d3dPSConstantBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{class_game}{Game}}\& game;}
+\DoxyCodeLine{81 \};}
+
+\end{DoxyCode}

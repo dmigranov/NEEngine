@@ -1,0 +1,70 @@
+\hypertarget{_spherical_doppler_effect_8h_source}{}\doxysection{Spherical\+Doppler\+Effect.\+h}
+\label{_spherical_doppler_effect_8h_source}\index{inc/SphericalDopplerEffect.h@{inc/SphericalDopplerEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}SphericalExpFogEffect.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_spherical_doppler_effect}{SphericalDopplerEffect}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_spherical_exp_fog_effect}{SphericalExpFogEffect}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_application_p_s_constant_buffer_doppler}{PerApplicationPSConstantBufferDoppler}} }
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9         DirectX::XMVECTORF32 fogColor = DirectX::Colors::CadetBlue;}
+\DoxyCodeLine{10         DirectX::XMVECTORF32 selectionColor = DirectX::Colors::GhostWhite;}
+\DoxyCodeLine{11         \textcolor{keywordtype}{double} velocity\_coeff = 50000000.; \textcolor{comment}{//0}}
+\DoxyCodeLine{12     \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_object_p_s_constant_buffer}{PerObjectPSConstantBuffer}}}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         \textcolor{keywordtype}{int} isSelected = 0;}
+\DoxyCodeLine{17         \textcolor{keywordtype}{int} pad1;}
+\DoxyCodeLine{18         \textcolor{keywordtype}{int} pad2;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} pad3;}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_application_v_s_constant_buffer_doppler}{PerApplicationVSConstantBufferDoppler}}}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24         DirectX::XMMATRIX projFront;}
+\DoxyCodeLine{25         DirectX::XMMATRIX projBack;}
+\DoxyCodeLine{26         \textcolor{keywordtype}{double} density = 0.1;}
+\DoxyCodeLine{27         \textcolor{comment}{//double radius = 1.;}}
+\DoxyCodeLine{28         \textcolor{comment}{//double radiusOld = 1.;}}
+\DoxyCodeLine{29         \textcolor{keywordtype}{double} mu = 0.;}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_spherical_doppler_effect}{SphericalDopplerEffect}}(\mbox{\hyperlink{class_texture}{Texture}}* pTexture, \mbox{\hyperlink{class_texture}{Texture}}* pTextureAlt, \textcolor{keywordtype}{double} fogDensity, DirectX::XMVECTORF32 fogColor);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} Initialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Deinitialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} UpdatePerObject(\textcolor{keyword}{const} \mbox{\hyperlink{class_entity}{Entity}}* pEntity, \textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Clean() \textcolor{keyword}{override};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} SetVelocityCoefficient(\textcolor{keywordtype}{double} velocity);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{double} GetVelocityCoefficient();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetOldRadius();}
+\DoxyCodeLine{45     \textcolor{keyword}{static} \textcolor{keywordtype}{void} SetMu(\textcolor{keywordtype}{double} mu);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{//virtual void SetRadius(double radius) override;}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} SetFogColor(DirectX::XMVECTORF32 fogColor) \textcolor{keyword}{override};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_application_p_s_constant_buffer_doppler}{PerApplicationPSConstantBufferDoppler}}   perApplicationPSConstantBuffer;}
+\DoxyCodeLine{53     \mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_object_p_s_constant_buffer}{PerObjectPSConstantBuffer}}               perObjectPSConstantBuffer;}
+\DoxyCodeLine{54     \mbox{\hyperlink{struct_spherical_doppler_effect_1_1_per_application_v_s_constant_buffer_doppler}{PerApplicationVSConstantBufferDoppler}}   perApplicationVSConstantBufferDoppler;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     ID3D11Buffer* g\_d3dPerObjectPSConstantBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{static} \textcolor{keywordtype}{double} m\_radiusOld;\textcolor{comment}{// = 1.;}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_texture}{Texture}}* m\_pTextureAlt = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{static} \textcolor{keywordtype}{double} m\_eta;}
+\DoxyCodeLine{64 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,123 @@
+\hypertarget{class_hyperbolic_transform_component}{}\doxysection{Hyperbolic\+Transform\+Component Class Reference}
+\label{class_hyperbolic_transform_component}\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+Inheritance diagram for Hyperbolic\+Transform\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_hyperbolic_transform_component}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_hyperbolic_transform_component_ae4bcf083d01014ae0ddcd3f9577910c6}\label{class_hyperbolic_transform_component_ae4bcf083d01014ae0ddcd3f9577910c6}} 
+{\bfseries Hyperbolic\+Transform\+Component} (double x, double y, double z)
+\item 
+\mbox{\Hypertarget{class_hyperbolic_transform_component_ab4cb5f80efb57b20667efa78a6fd5a13}\label{class_hyperbolic_transform_component_ab4cb5f80efb57b20667efa78a6fd5a13}} 
+{\bfseries Hyperbolic\+Transform\+Component} (double x, double y, double z, double rx, double ry, double rz)
+\item 
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a6866b42de4de498b842de96263d71930}\label{class_hyperbolic_transform_component_a6866b42de4de498b842de96263d71930}} 
+{\bfseries Hyperbolic\+Transform\+Component} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 position)
+\item 
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a679ae901485b29379b5b3c518a5bf327}\label{class_hyperbolic_transform_component_a679ae901485b29379b5b3c518a5bf327}} 
+{\bfseries Hyperbolic\+Transform\+Component} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 position, Direct\+X\+::\+Simple\+Math\+::\+Vector3 rotation)
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_a5bf42cd4a7ff98e96c6a8bd7637aa801}{Move}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 v) override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_a4f14f70133f1ae184debcf1537500598}{Move}} (double dx, double dy, double dz) override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_a15c6e1379029924345f1051b9b312421}{Rotate}} (Direct\+X\+::\+Simple\+Math\+::\+Vector3 r) override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_a673da9ced81d766573048c3dbe22b722}{Rotate}} (double delta\+Pitch, double delta\+Yaw, double delta\+Roll) override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_a3a18c45894e9e351f7988874d8093e40}{Set\+Pitch\+Yaw\+Roll}} (double pitch, double yaw, double roll) override
+\item 
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a2c713c4bc09469c41b2da420ce177e32}\label{class_hyperbolic_transform_component_a2c713c4bc09469c41b2da420ce177e32}} 
+Direct\+X\+::\+Simple\+Math\+::\+Vector4 {\bfseries Get\+Hyperbolic\+Position} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_acf6e503e76a07ad7c08505a02c1b64dc}{Recalculate}} () override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_transform_component_af844eb2d96f8ac72ecaf80419aff6da4}{Recalculate\+View}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a5bf42cd4a7ff98e96c6a8bd7637aa801}\label{class_hyperbolic_transform_component_a5bf42cd4a7ff98e96c6a8bd7637aa801}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!Move@{Move}}
+\index{Move@{Move}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Move (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a4f14f70133f1ae184debcf1537500598}\label{class_hyperbolic_transform_component_a4f14f70133f1ae184debcf1537500598}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!Move@{Move}}
+\index{Move@{Move}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Move (\begin{DoxyParamCaption}\item[{double}]{dx,  }\item[{double}]{dy,  }\item[{double}]{dz }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_acf6e503e76a07ad7c08505a02c1b64dc}\label{class_hyperbolic_transform_component_acf6e503e76a07ad7c08505a02c1b64dc}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!Recalculate@{Recalculate}}
+\index{Recalculate@{Recalculate}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{Recalculate()}{Recalculate()}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Recalculate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_af844eb2d96f8ac72ecaf80419aff6da4}\label{class_hyperbolic_transform_component_af844eb2d96f8ac72ecaf80419aff6da4}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!RecalculateView@{RecalculateView}}
+\index{RecalculateView@{RecalculateView}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{RecalculateView()}{RecalculateView()}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Recalculate\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a15c6e1379029924345f1051b9b312421}\label{class_hyperbolic_transform_component_a15c6e1379029924345f1051b9b312421}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{Direct\+X\+::\+Simple\+Math\+::\+Vector3}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a673da9ced81d766573048c3dbe22b722}\label{class_hyperbolic_transform_component_a673da9ced81d766573048c3dbe22b722}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{double}]{delta\+Pitch,  }\item[{double}]{delta\+Yaw,  }\item[{double}]{delta\+Roll }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+\mbox{\Hypertarget{class_hyperbolic_transform_component_a3a18c45894e9e351f7988874d8093e40}\label{class_hyperbolic_transform_component_a3a18c45894e9e351f7988874d8093e40}} 
+\index{HyperbolicTransformComponent@{HyperbolicTransformComponent}!SetPitchYawRoll@{SetPitchYawRoll}}
+\index{SetPitchYawRoll@{SetPitchYawRoll}!HyperbolicTransformComponent@{HyperbolicTransformComponent}}
+\doxysubsubsection{\texorpdfstring{SetPitchYawRoll()}{SetPitchYawRoll()}}
+{\footnotesize\ttfamily void Hyperbolic\+Transform\+Component\+::\+Set\+Pitch\+Yaw\+Roll (\begin{DoxyParamCaption}\item[{double}]{pitch,  }\item[{double}]{yaw,  }\item[{double}]{roll }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_transform_component}{Transform\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Hyperbolic\+Transform\+Component.\+h\item 
+src/Hyperbolic\+Transform\+Component.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,23 @@
+\hypertarget{_hyperbolic_mesh_component_factory_8h_source}{}\doxysection{Hyperbolic\+Mesh\+Component\+Factory.\+h}
+\label{_hyperbolic_mesh_component_factory_8h_source}\index{inc/HyperbolicMeshComponentFactory.h@{inc/HyperbolicMeshComponentFactory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}MeshComponentFactory.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_hyperbolic_mesh_component_factory}{HyperbolicMeshComponentFactory}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_mesh_component_factory}{MeshComponentFactory}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_hyperbolic_mesh_component_factory_1_1_vertex_data}{VertexData}}}
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9         DirectX::XMFLOAT4 Position;}
+\DoxyCodeLine{10         \textcolor{comment}{//DirectX::XMFLOAT4 Normal;}}
+\DoxyCodeLine{11         \textcolor{comment}{//DirectX::XMFLOAT4 Tangent; //нужно ли?}}
+\DoxyCodeLine{12         DirectX::XMFLOAT2 TexCoord;}
+\DoxyCodeLine{13     \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{static} \mbox{\hyperlink{class_mesh_component}{MeshComponent}}* CreateHyperbolicSphere(\textcolor{keywordtype}{double} radius, \textcolor{keywordtype}{int} sliceCount, \textcolor{keywordtype}{int} stackCount);}
+\DoxyCodeLine{16 \};}
+\DoxyCodeLine{17 }
+
+\end{DoxyCode}

@@ -1,0 +1,21 @@
+\hypertarget{_updater_component_8h_source}{}\doxysection{Updater\+Component.\+h}
+\label{_updater_component_8h_source}\index{inc/UpdaterComponent.h@{inc/UpdaterComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Component.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_transform_component}{TransformComponent}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_updater_component}{UpdaterComponent}} :}
+\DoxyCodeLine{7     \textcolor{keyword}{public} \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_updater_component}{UpdaterComponent}}(std::function<\textcolor{keywordtype}{void}(\textcolor{keywordtype}{double} delta, \mbox{\hyperlink{class_entity}{Entity}} * pEntity)> func);}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} operator()(\textcolor{keywordtype}{double} delta, \mbox{\hyperlink{class_entity}{Entity}}* pEntity);}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     std::function<void(\textcolor{keywordtype}{double} delta, \mbox{\hyperlink{class_entity}{Entity}}* pEntity)> m\_func;}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+
+\end{DoxyCode}

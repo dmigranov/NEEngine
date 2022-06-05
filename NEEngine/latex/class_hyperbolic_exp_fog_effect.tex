@@ -1,0 +1,134 @@
+\hypertarget{class_hyperbolic_exp_fog_effect}{}\doxysection{Hyperbolic\+Exp\+Fog\+Effect Class Reference}
+\label{class_hyperbolic_exp_fog_effect}\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+Inheritance diagram for Hyperbolic\+Exp\+Fog\+Effect\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_hyperbolic_exp_fog_effect}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_hyperbolic_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{Per\+Application\+PSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_hyperbolic_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{Per\+Application\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_hyperbolic_exp_fog_effect_1_1_per_frame_v_s_constant_buffer}{Per\+Frame\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_hyperbolic_exp_fog_effect_1_1_per_object_v_s_constant_buffer}{Per\+Object\+VSConstant\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_a7890f8e1b9551cb3bca2acb8cd7c87a2}\label{class_hyperbolic_exp_fog_effect_a7890f8e1b9551cb3bca2acb8cd7c87a2}} 
+{\bfseries Hyperbolic\+Exp\+Fog\+Effect} (\mbox{\hyperlink{class_texture}{Texture}} $\ast$p\+Texture, double fog\+Density, Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\item 
+virtual bool \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_a9067ae4be003bab46cdbfdbfce6745ad}{Initialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_a3bd5f2c44abe70b055f82116f0531e40}{Deinitialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_afe0eb068e5728db12b77a6c42a73d8c1}{Update\+Per\+Object}} (const \mbox{\hyperlink{class_entity}{Entity}} $\ast$p\+Entity, double delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_a5771a3a508b7507b2283e30964798aa2}{Update\+Per\+Scene}} () override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_ae8dbe7ab3edc49b2fd7f097309794cd6}{Update\+Per\+Application}} () override
+\item 
+virtual void \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_ac3e8c0f0b5bd42ed00b851e8e9db83e3}{Clean}} () override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_a0d47764bd904620527416aad8e70d192}{Get\+Vertex\+Buffer\+Size}} () const override
+\item 
+virtual const std\+::type\+\_\+info \& \mbox{\hyperlink{class_hyperbolic_exp_fog_effect_aeaaa29f8bf82ac89dc0f94eb078c5cda}{Get\+Vertex\+Data\+Type}} () override
+\item 
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_ab4c041fbecff7ed9c11fb3ef29a49ec3}\label{class_hyperbolic_exp_fog_effect_ab4c041fbecff7ed9c11fb3ef29a49ec3}} 
+void {\bfseries Set\+Fog\+Color} (Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_ac3e8c0f0b5bd42ed00b851e8e9db83e3}\label{class_hyperbolic_exp_fog_effect_ac3e8c0f0b5bd42ed00b851e8e9db83e3}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!Clean@{Clean}}
+\index{Clean@{Clean}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Clean()}{Clean()}}
+{\footnotesize\ttfamily void Hyperbolic\+Exp\+Fog\+Effect\+::\+Clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_a3bd5f2c44abe70b055f82116f0531e40}\label{class_hyperbolic_exp_fog_effect_a3bd5f2c44abe70b055f82116f0531e40}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!Deinitialize@{Deinitialize}}
+\index{Deinitialize@{Deinitialize}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Deinitialize()}{Deinitialize()}}
+{\footnotesize\ttfamily void Hyperbolic\+Exp\+Fog\+Effect\+::\+Deinitialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_a0d47764bd904620527416aad8e70d192}\label{class_hyperbolic_exp_fog_effect_a0d47764bd904620527416aad8e70d192}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!GetVertexBufferSize@{GetVertexBufferSize}}
+\index{GetVertexBufferSize@{GetVertexBufferSize}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexBufferSize()}{GetVertexBufferSize()}}
+{\footnotesize\ttfamily unsigned int Hyperbolic\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Buffer\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_aeaaa29f8bf82ac89dc0f94eb078c5cda}\label{class_hyperbolic_exp_fog_effect_aeaaa29f8bf82ac89dc0f94eb078c5cda}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!GetVertexDataType@{GetVertexDataType}}
+\index{GetVertexDataType@{GetVertexDataType}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexDataType()}{GetVertexDataType()}}
+{\footnotesize\ttfamily const std\+::type\+\_\+info \& Hyperbolic\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Data\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_a9067ae4be003bab46cdbfdbfce6745ad}\label{class_hyperbolic_exp_fog_effect_a9067ae4be003bab46cdbfdbfce6745ad}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool Hyperbolic\+Exp\+Fog\+Effect\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_ae8dbe7ab3edc49b2fd7f097309794cd6}\label{class_hyperbolic_exp_fog_effect_ae8dbe7ab3edc49b2fd7f097309794cd6}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!UpdatePerApplication@{UpdatePerApplication}}
+\index{UpdatePerApplication@{UpdatePerApplication}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerApplication()}{UpdatePerApplication()}}
+{\footnotesize\ttfamily void Hyperbolic\+Exp\+Fog\+Effect\+::\+Update\+Per\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_afe0eb068e5728db12b77a6c42a73d8c1}\label{class_hyperbolic_exp_fog_effect_afe0eb068e5728db12b77a6c42a73d8c1}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!UpdatePerObject@{UpdatePerObject}}
+\index{UpdatePerObject@{UpdatePerObject}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerObject()}{UpdatePerObject()}}
+{\footnotesize\ttfamily void Hyperbolic\+Exp\+Fog\+Effect\+::\+Update\+Per\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{p\+Entity,  }\item[{double}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_hyperbolic_exp_fog_effect_a5771a3a508b7507b2283e30964798aa2}\label{class_hyperbolic_exp_fog_effect_a5771a3a508b7507b2283e30964798aa2}} 
+\index{HyperbolicExpFogEffect@{HyperbolicExpFogEffect}!UpdatePerScene@{UpdatePerScene}}
+\index{UpdatePerScene@{UpdatePerScene}!HyperbolicExpFogEffect@{HyperbolicExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerScene()}{UpdatePerScene()}}
+{\footnotesize\ttfamily void Hyperbolic\+Exp\+Fog\+Effect\+::\+Update\+Per\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Hyperbolic\+Exp\+Fog\+Effect.\+h\item 
+src/Hyperbolic\+Exp\+Fog\+Effect.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,24 @@
+\hypertarget{_spherical_effect_8h_source}{}\doxysection{Spherical\+Effect.\+h}
+\label{_spherical_effect_8h_source}\index{inc/SphericalEffect.h@{inc/SphericalEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Effect.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_spherical_effect}{SphericalEffect}} :}
+\DoxyCodeLine{5     \textcolor{keyword}{public} \mbox{\hyperlink{class_effect}{Effect}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \textcolor{keyword}{static} \textcolor{keywordtype}{void} SetMode(\textcolor{keywordtype}{bool} isSpherical);}
+\DoxyCodeLine{9     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} GetMode();}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keyword}{static} \textcolor{keywordtype}{void} SetRadius(\textcolor{keywordtype}{double} radius);}
+\DoxyCodeLine{12     \textcolor{keyword}{static} \textcolor{keywordtype}{double} GetRadius();}
+\DoxyCodeLine{13 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} m\_isSpherical;}
+\DoxyCodeLine{15     \textcolor{keyword}{static} \textcolor{keywordtype}{double} m\_radius;}
+\DoxyCodeLine{16     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} m\_radius\_set;}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+
+\end{DoxyCode}

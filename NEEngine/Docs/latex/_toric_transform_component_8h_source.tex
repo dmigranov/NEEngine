@@ -1,0 +1,31 @@
+\hypertarget{_toric_transform_component_8h_source}{}\doxysection{Toric\+Transform\+Component.\+h}
+\label{_toric_transform_component_8h_source}\index{inc/ToricTransformComponent.h@{inc/ToricTransformComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}TransformComponent.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_transform_component}{TransformComponent}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}}();}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}}(DirectX::SimpleMath::Vector3 position);}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} rx, \textcolor{keywordtype}{double} ry, \textcolor{keywordtype}{double} rz, \textcolor{keywordtype}{double} sx = 1, \textcolor{keywordtype}{double} sy = 1, \textcolor{keywordtype}{double} sz = 1);}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_toric_transform_component}{ToricTransformComponent}}(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Move(DirectX::SimpleMath::Vector3 v) \textcolor{keyword}{override};}
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Move(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z) \textcolor{keyword}{override};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{comment}{//virtual void Recalculate() override;}}
+\DoxyCodeLine{17     \textcolor{comment}{//virtual void RecalculateView() override;}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{static} \textcolor{keywordtype}{void} SetTorusDimensions(\textcolor{keywordtype}{double} tX, \textcolor{keywordtype}{double} tY, \textcolor{keywordtype}{double} tZ);}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} Normalize();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keywordtype}{double} m\_torX, m\_torY, m\_torZ;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+
+\end{DoxyCode}

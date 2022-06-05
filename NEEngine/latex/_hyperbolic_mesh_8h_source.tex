@@ -1,0 +1,20 @@
+\hypertarget{_hyperbolic_mesh_8h_source}{}\doxysection{Hyperbolic\+Mesh.\+h}
+\label{_hyperbolic_mesh_8h_source}\index{inc/HyperbolicMesh.h@{inc/HyperbolicMesh.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Mesh.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_hyperbolic_mesh}{HyperbolicMesh}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_mesh}{Mesh}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_hyperbolic_mesh}{HyperbolicMesh}}();}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_hyperbolic_mesh}{HyperbolicMesh}}(\textcolor{keywordtype}{int} nv, \mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}* vertices, \textcolor{keywordtype}{int} ni, WORD* indices);}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_hyperbolic_mesh}{HyperbolicMesh}}(\textcolor{keywordtype}{int} nv, \mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}* vertices, \textcolor{keywordtype}{int} ni, WORD* indices, DirectX::XMMATRIX world);}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render(std::list<DirectX::XMMATRIX> matrices) \textcolor{keyword}{override};}
+\DoxyCodeLine{11     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render() \textcolor{keyword}{override};}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render(DirectX::XMMATRIX matrix) \textcolor{keyword}{override};}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+
+\end{DoxyCode}

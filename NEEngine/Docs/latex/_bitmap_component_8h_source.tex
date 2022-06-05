@@ -1,0 +1,51 @@
+\hypertarget{_bitmap_component_8h_source}{}\doxysection{Bitmap\+Component.\+h}
+\label{_bitmap_component_8h_source}\index{inc/BitmapComponent.h@{inc/BitmapComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Component.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_bitmap_component}{BitmapComponent}} :}
+\DoxyCodeLine{7     \textcolor{keyword}{public} \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_bitmap_component_1_1_vertex_type}{VertexType}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         DirectX::SimpleMath::Vector4 position; \textcolor{comment}{//todo: исправить на Vector3 снова?}}
+\DoxyCodeLine{13         DirectX::SimpleMath::Vector2 uv;}
+\DoxyCodeLine{14     \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \mbox{\hyperlink{class_bitmap_component}{BitmapComponent}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bitmapWidth, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bitmapHeight, \textcolor{keywordtype}{bool} isOpaque = \textcolor{keyword}{true});}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_bitmap_component}{BitmapComponent}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bitmapWidth, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bitmapHeight, \mbox{\hyperlink{class_texture}{Texture}} * texture, \textcolor{keywordtype}{bool} isOpaque = \textcolor{keyword}{true});}
+\DoxyCodeLine{19     }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_bitmap_component}{\string~BitmapComponent}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} SetFrameIndex(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} frameIndex);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} SetTexture(\mbox{\hyperlink{class_texture}{Texture}}* texture);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool} IsOpaque();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_bitmap_render_system}{BitmapRenderSystem}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} InitializeBuffers(ID3D11Device* device);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} UpdateBuffers();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} m\_isOpaque = \textcolor{keyword}{true};   \textcolor{comment}{//opaque -\/ непрозрачный}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_bitmapWidth, m\_bitmapHeight;}
+\DoxyCodeLine{35     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_texWidth = 0, m\_texHeight = 0;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     ID3D11Buffer* m\_vertexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{38     ID3D11Buffer* m\_indexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{39     ID3D11Device* m\_pDevice = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} m\_vertexCount, m\_indexCount;}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_texture}{Texture}}* m\_spriteSheet;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_frameIndex = 0;}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}

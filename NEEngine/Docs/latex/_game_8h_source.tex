@@ -1,0 +1,243 @@
+\hypertarget{_game_8h_source}{}\doxysection{Game.\+h}
+\label{_game_8h_source}\index{inc/Game.h@{inc/Game.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}FPSCounter.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_scene}{Scene}};}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_resource_manager}{ResourceManager}};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_component_type_manager}{ComponentTypeManager}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_drawer2_d}{Drawer2D}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_text_drawer}{TextDrawer}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh}{Mesh}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keyword}{static} \mbox{\hyperlink{class_game}{Game}}\& GetInstance();}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} InitializeEngine(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width = 800, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height = 600, \textcolor{keyword}{const} WCHAR* windowName = L\textcolor{stringliteral}{"{}Non-\/Euclidean Spaces' Visualizer"{}}, \textcolor{keywordtype}{bool} isConsoleEnabled = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isFullscreenEnabled = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isVSyncEnabled = \textcolor{keyword}{true});}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} StartGame();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_scene}{Scene}}* GetScene();}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_resource_manager}{ResourceManager}}* GetResourceManager();}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_component_type_manager}{ComponentTypeManager}}* GetComponentTypeManager();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetFPS();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} SetBackgroundColor(DirectX::XMVECTORF32);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     RECT GetGameWindowRect();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} GetWindowSize(\textcolor{keywordtype}{int}\& width, \textcolor{keywordtype}{int}\& height);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     ID3D11Device* \textcolor{keyword}{const} GetDevice();}
+\DoxyCodeLine{38     ID3D11DeviceContext* \textcolor{keyword}{const} GetDeviceContext();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     ID3D11VertexShader* CreateVertexShaderFromBytecode(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* code, SIZE\_T bytecodeLength);}
+\DoxyCodeLine{41     ID3D11GeometryShader* CreateGeometryShaderFromBytecode(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* code, SIZE\_T bytecodeLength);}
+\DoxyCodeLine{42     ID3D11PixelShader* CreatePixelShaderFromBytecode(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* code, SIZE\_T bytecodeLength);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} VSSetShader(ID3D11VertexShader* pVertexShader);}
+\DoxyCodeLine{45     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} GSSetShader(ID3D11GeometryShader* pGeometryShader);}
+\DoxyCodeLine{46     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} PSSetShader(ID3D11PixelShader* pPixelShader);}
+\DoxyCodeLine{47     }
+\DoxyCodeLine{48     ID3D11InputLayout* CreateInputLayout(\textcolor{keyword}{const} D3D11\_INPUT\_ELEMENT\_DESC* inputElementDescs,}
+\DoxyCodeLine{49         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} numElements, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* bytecode, SIZE\_T bytecodeLength);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     ID3D11Buffer* CreateBuffer(D3D11\_BUFFER\_DESC bufferDesc, \textcolor{keyword}{const} D3D11\_SUBRESOURCE\_DATA* pInitialData = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     ID3D11SamplerState* CreateSamplerState(D3D11\_SAMPLER\_DESC samplerDesc);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} PSSetSampler(ID3D11SamplerState *samplerState); \textcolor{comment}{//todo: сделать вар. с несколькими сэмплерами!}}
+\DoxyCodeLine{56     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} IASetInputLayout(ID3D11InputLayout* inputLayout);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers);}
+\DoxyCodeLine{59     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers);}
+\DoxyCodeLine{60     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} VSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers);}
+\DoxyCodeLine{61     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} PSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} UpdateSubresource(ID3D11Buffer* buffer, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pSrcData);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* \textcolor{keyword}{const}* ppShaderResourceViews);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} SetupRasterizer();}
+\DoxyCodeLine{68     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} SetupOutputMerger();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{private}:}
+\DoxyCodeLine{71     \mbox{\hyperlink{class_game}{Game}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{72     \mbox{\hyperlink{class_game}{Game}}(\mbox{\hyperlink{class_game}{Game}} \textcolor{keyword}{const}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_game}{\string~Game}}();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{int} InitializeEngine(HINSTANCE hInstance, \textcolor{keywordtype}{int} nCmdShow, \textcolor{keyword}{const} WCHAR* windowName = L\textcolor{stringliteral}{"{}Spherical \& Elliptical Spaces Visualizer"{}}, \textcolor{keywordtype}{bool} isConsoleEnabled = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isFullscreenEnabled = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isVSyncEnabled = \textcolor{keyword}{true});}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{class_game}{Game}}\& operator=(\mbox{\hyperlink{class_game}{Game}} \textcolor{keyword}{const}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{comment}{// Initialization and management}}
+\DoxyCodeLine{80     \textcolor{keywordtype}{int} Initialize(HWND window, \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} Cleanup();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{comment}{// Basic game loop}}
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} Tick();}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{// Messages}}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} OnWindowSizeChanged(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} OnNewAudioDevice() \textcolor{keyword}{noexcept} \{ m\_retryAudio = \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keyword}{friend} LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} CreateResources();}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} Update(\textcolor{keywordtype}{double} deltaTime);}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} Render(\textcolor{keywordtype}{double} deltaTime);}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} Clear(\textcolor{keyword}{const} \textcolor{keywordtype}{float} clearColor[4], \textcolor{keywordtype}{float} clearDepth, UINT8 clearStencil);}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} Present();}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} StartDrawing();}
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} FinishDrawing();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{bool} LoadContent();}
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} UnloadContent();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{comment}{// Device resources.}}
+\DoxyCodeLine{106     HWND                                            m\_hwnd;             \textcolor{comment}{//дескриптор окна игры}}
+\DoxyCodeLine{107     \textcolor{keywordtype}{int}                                             m\_outputWidth;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{int}                                             m\_outputHeight;}
+\DoxyCodeLine{109     \textcolor{keywordtype}{bool}                                            m\_isVSyncEnabled = \textcolor{keyword}{true};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{comment}{// Direct3D device and swap chain.}}
+\DoxyCodeLine{112     ID3D11Device* g\_d3dDevice = \textcolor{keyword}{nullptr};                                    \textcolor{comment}{//used for allocating GPU resources such as buffers, textures, shaders, and state objects}}
+\DoxyCodeLine{113     ID3D11DeviceContext* g\_d3dDeviceContext = \textcolor{keyword}{nullptr};                      \textcolor{comment}{//used to configure the rendering pipeline and draw geometry}}
+\DoxyCodeLine{114     IDXGISwapChain* g\_d3dSwapChain = \textcolor{keyword}{nullptr};                               \textcolor{comment}{//stores the buffers that are used for rendering data; used to determine how the buffers are swapped when the rendered image should be presented to the scree}}
+\DoxyCodeLine{115     UINT m\_backBufferCount = 1;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{// Render target view for the back buffer of the swap chain.}}
+\DoxyCodeLine{118     ID3D11RenderTargetView* g\_d3dRenderTargetView = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{119     \textcolor{comment}{// Depth/stencil view for use as a depth buffer.}}
+\DoxyCodeLine{120     ID3D11DepthStencilView* g\_d3dDepthStencilView = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{121     \textcolor{comment}{// A texture to associate to the depth stencil view.}}
+\DoxyCodeLine{122     ID3D11Texture2D* g\_d3dDepthStencilBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{comment}{// Define the functionality of the depth/stencil stages.}}
+\DoxyCodeLine{125     ID3D11DepthStencilState* g\_d3dDepthStencilState = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{comment}{// Define the functionality of the rasterizer stage.}}
+\DoxyCodeLine{128     ID3D11RasterizerState* g\_d3dRasterizerState = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{comment}{// Blend state: necessary for alpha blending}}
+\DoxyCodeLine{131     ID3D11BlendState* g\_d3dBlendState = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{132     \textcolor{comment}{//ID3D11BlendState* g\_d3dBlendStateOff = nullptr;}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     D3D11\_VIEWPORT g\_Viewport = \{ 0 \};              \textcolor{comment}{//The g\_Viewport variable defines the size of the viewport rectangle. The viewport rectangle is also used by the rasterizer stage to determine the renderable area on screen.}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \mbox{\hyperlink{class_scene}{Scene}}* m\_pScene;}
+\DoxyCodeLine{137     \mbox{\hyperlink{class_resource_manager}{ResourceManager}}* m\_pResourceManager;}
+\DoxyCodeLine{138     \mbox{\hyperlink{class_component_type_manager}{ComponentTypeManager}}* m\_pComponentTypeManager;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{comment}{// Timer}}
+\DoxyCodeLine{141     DWORD                                           previousTime = timeGetTime();}
+\DoxyCodeLine{142     \textcolor{keyword}{const} \textcolor{keywordtype}{float}                                     targetFramerate = 30.0f;}
+\DoxyCodeLine{143     \textcolor{keyword}{const} \textcolor{keywordtype}{float}                                     maxTimeStep = 1.0f / targetFramerate;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \mbox{\hyperlink{class_text_drawer}{TextDrawer}} *                          m\_textDrawer;}
+\DoxyCodeLine{146     \mbox{\hyperlink{class_drawer2_d}{Drawer2D}} *                            m\_drawer2D;}
+\DoxyCodeLine{147     \textcolor{keyword}{const} \textcolor{keywordtype}{int}                             aimSize = 20;}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \mbox{\hyperlink{class_f_p_s_counter}{FPSCounter}}                            fpsCounter;}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     DirectX::XMVECTORF32 m\_backgroundColor = DirectX::Colors::CadetBlue;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \textcolor{comment}{// AUDIO}}
+\DoxyCodeLine{154     std::unique\_ptr<DirectX::AudioEngine> m\_audEngine;}
+\DoxyCodeLine{155     \textcolor{keywordtype}{bool} m\_retryAudio = \textcolor{keyword}{false};}
+\DoxyCodeLine{156     HDEVNOTIFY m\_hNewAudio = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keywordtype}{bool} isInitialized = \textcolor{keyword}{false};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_scene}{Scene}};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_bitmap_render_system}{BitmapRenderSystem}};}
+\DoxyCodeLine{163     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_input_system}{InputSystem}};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_sound}{Sound}};}
+\DoxyCodeLine{166     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_dynamic_sound}{DynamicSound}};}
+\DoxyCodeLine{167 \};}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::PSSetSampler(ID3D11SamplerState* samplerState)}
+\DoxyCodeLine{172 \{}
+\DoxyCodeLine{173     g\_d3dDeviceContext-\/>PSSetSamplers(0, 1, \&samplerState);}
+\DoxyCodeLine{174 \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::IASetInputLayout(ID3D11InputLayout* inputLayout)}
+\DoxyCodeLine{177 \{}
+\DoxyCodeLine{178     g\_d3dDeviceContext-\/>IASetInputLayout(inputLayout);}
+\DoxyCodeLine{179 \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::VSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers)}
+\DoxyCodeLine{182 \{}
+\DoxyCodeLine{183     g\_d3dDeviceContext-\/>VSSetConstantBuffers(0, numBuffers, ppConstantBuffers);}
+\DoxyCodeLine{184 \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::PSSetConstantBuffers(UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers)}
+\DoxyCodeLine{187 \{}
+\DoxyCodeLine{188     g\_d3dDeviceContext-\/>PSSetConstantBuffers(0, numBuffers, ppConstantBuffers);}
+\DoxyCodeLine{189 \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::VSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers)}
+\DoxyCodeLine{192 \{}
+\DoxyCodeLine{193     g\_d3dDeviceContext-\/>VSSetConstantBuffers(startSlot, numBuffers, ppConstantBuffers);}
+\DoxyCodeLine{194 \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::PSSetConstantBuffers(UINT startSlot, UINT numBuffers, ID3D11Buffer* \textcolor{keyword}{const}* ppConstantBuffers)}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     g\_d3dDeviceContext-\/>PSSetConstantBuffers(startSlot, numBuffers, ppConstantBuffers);}
+\DoxyCodeLine{199 \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::UpdateSubresource(ID3D11Buffer* buffer, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pSrcData)}
+\DoxyCodeLine{202 \{}
+\DoxyCodeLine{203     g\_d3dDeviceContext-\/>UpdateSubresource(buffer, 0, \textcolor{keyword}{nullptr}, pSrcData, 0, 0);}
+\DoxyCodeLine{204 \}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::PSSetShaderResources(UINT NumViews, ID3D11ShaderResourceView* \textcolor{keyword}{const}* ppShaderResourceViews)}
+\DoxyCodeLine{207 \{}
+\DoxyCodeLine{208     g\_d3dDeviceContext-\/>PSSetShaderResources(0, NumViews, ppShaderResourceViews);}
+\DoxyCodeLine{209 \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::SetupRasterizer()}
+\DoxyCodeLine{212 \{}
+\DoxyCodeLine{213     g\_d3dDeviceContext-\/>RSSetState(g\_d3dRasterizerState);}
+\DoxyCodeLine{214     g\_d3dDeviceContext-\/>RSSetViewports(1, \&g\_Viewport);}
+\DoxyCodeLine{215 \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::SetupOutputMerger()}
+\DoxyCodeLine{218 \{}
+\DoxyCodeLine{219     g\_d3dDeviceContext-\/>OMSetRenderTargets(1, \&g\_d3dRenderTargetView, g\_d3dDepthStencilView);}
+\DoxyCodeLine{220     g\_d3dDeviceContext-\/>OMSetDepthStencilState(g\_d3dDepthStencilState, 1); \textcolor{comment}{//1 is Reference value to perform against when doing a depth-\/stencil test.}}
+\DoxyCodeLine{221     g\_d3dDeviceContext-\/>OMSetBlendState(g\_d3dBlendState, 0, 0xffffffff);}
+\DoxyCodeLine{222 \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::VSSetShader(ID3D11VertexShader* pVertexShader)}
+\DoxyCodeLine{225 \{}
+\DoxyCodeLine{226     g\_d3dDeviceContext-\/>VSSetShader(pVertexShader, \textcolor{keyword}{nullptr}, 0);}
+\DoxyCodeLine{227 \}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::GSSetShader(ID3D11GeometryShader* pGeometryShader)}
+\DoxyCodeLine{230 \{}
+\DoxyCodeLine{231     g\_d3dDeviceContext-\/>GSSetShader(pGeometryShader, \textcolor{keyword}{nullptr}, 0);}
+\DoxyCodeLine{232 \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} Game::PSSetShader(ID3D11PixelShader* pPixelShader)}
+\DoxyCodeLine{235 \{}
+\DoxyCodeLine{236     g\_d3dDeviceContext-\/>PSSetShader(pPixelShader, \textcolor{keyword}{nullptr}, 0);}
+\DoxyCodeLine{237 \}}
+
+\end{DoxyCode}

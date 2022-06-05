@@ -1,0 +1,26 @@
+\hypertarget{_text_drawer_8h_source}{}\doxysection{Text\+Drawer.\+h}
+\label{_text_drawer_8h_source}\index{inc/TextDrawer.h@{inc/TextDrawer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <SpriteBatch.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <SpriteFont.h>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_text_drawer}{TextDrawer}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_text_drawer}{TextDrawer}}(ID3D11Device* device, ID3D11DeviceContext* context);}
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} DrawTextUpRightAlign(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, DirectX::XMVECTOR color);}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} DrawTextUpLeftAlign(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, DirectX::XMVECTOR color);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} DrawTextDownLeftAlign(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, DirectX::XMVECTOR color);}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} DrawTextDownRightAlign(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, DirectX::XMVECTOR color);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     std::unique\_ptr<DirectX::SpriteBatch> m\_spriteBatch;}
+\DoxyCodeLine{18     std::unique\_ptr<DirectX::SpriteFont> m\_font;}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\hypertarget{_system_8h_source}{}\doxysection{System.\+h}
+\label{_system_8h_source}\index{inc/System.h@{inc/System.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <boost/dynamic\_bitset.hpp>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Game.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ComponentTypeManager.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_entity}{Entity}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_system}{System}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_system}{System}}();}
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_system}{\string~System}}() \{\};}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Execute(\textcolor{keywordtype}{double} deltaTime) \{\};}
+\DoxyCodeLine{16 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17     \textcolor{comment}{//void SubscribeToComponentType(ComponentType ct);}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keywordtype}{void} SubscribeToComponentType()}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         \textcolor{keyword}{auto} manager = Game::GetInstance().GetComponentTypeManager();}
+\DoxyCodeLine{22         boost::dynamic\_bitset<> add(manager-\/>GetComponentTypesCount());}
+\DoxyCodeLine{23         add[manager-\/>template GetComponentTypeIndex<T>()] = 1;}
+\DoxyCodeLine{24         m\_componentsMask |= add;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     std::vector<Entity *> m\_entities;}
+\DoxyCodeLine{28     boost::dynamic\_bitset<> m\_componentsMask;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{boolean} m\_isDrawing = \textcolor{keyword}{false};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} AddEntity(\mbox{\hyperlink{class_entity}{Entity}}* pEntity);}
+\DoxyCodeLine{32     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_scene}{Scene}};}
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     \textcolor{keyword}{const} boost::dynamic\_bitset<>\& GetComponentsMask();}
+\DoxyCodeLine{35 \};}
+\DoxyCodeLine{36 }
+
+\end{DoxyCode}

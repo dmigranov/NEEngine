@@ -1,0 +1,79 @@
+\hypertarget{_mesh_8h_source}{}\doxysection{Mesh.\+h}
+\label{_mesh_8h_source}\index{inc/Mesh.h@{inc/Mesh.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Texture.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{comment}{//todo"{} ”ƒјЋ»“№!}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh}{Mesh}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh_1_1_mesh_updater}{MeshUpdater}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12     \textcolor{keyword}{public}:}
+\DoxyCodeLine{13         \mbox{\hyperlink{class_mesh_1_1_mesh_updater}{MeshUpdater}}(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, \textcolor{keywordtype}{float} delta)> func);}
+\DoxyCodeLine{14         DirectX::SimpleMath::Matrix operator()(DirectX::SimpleMath::Matrix in, \textcolor{keywordtype}{float} delta);}
+\DoxyCodeLine{15     \textcolor{keyword}{private}:}
+\DoxyCodeLine{16         std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, \textcolor{keywordtype}{float} delta)> m\_func;}
+\DoxyCodeLine{17     \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mesh_1_1_mesh_constant_buffer}{MeshConstantBuffer}} \textcolor{comment}{//=Object Constant Buffer}}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         DirectX::XMMATRIX m\_world;}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Vertex data}}
+\DoxyCodeLine{26     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         DirectX::XMFLOAT4 Position;  \textcolor{comment}{//координаты точки в четырехмерном пространстве}}
+\DoxyCodeLine{29         DirectX::XMFLOAT4 Color;}
+\DoxyCodeLine{30         DirectX::XMFLOAT2 TexCoord;}
+\DoxyCodeLine{31     \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_mesh}{Mesh}}();}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_mesh}{Mesh}}(\textcolor{keywordtype}{int} nv, \mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}* vertices, \textcolor{keywordtype}{int} ni, WORD* indices);}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_mesh}{Mesh}}(\textcolor{keywordtype}{int} nv, \mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}* vertices, \textcolor{keywordtype}{int} ni, WORD* indices, DirectX::XMMATRIX world);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_mesh}{\string~Mesh}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     DirectX::XMMATRIX GetWorldMatrix();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} SetWorldMatrix(DirectX::XMMATRIX world);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} SetConstants(\mbox{\hyperlink{struct_mesh_1_1_mesh_constant_buffer}{MeshConstantBuffer}} constantBuffer);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} SetTexture(\mbox{\hyperlink{class_texture}{Texture}}* texture);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} SetParent(\mbox{\hyperlink{class_mesh}{Mesh}}* parent);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} AddUpdater(\mbox{\hyperlink{class_mesh_1_1_mesh_updater}{MeshUpdater}} updater);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} Update(\textcolor{keywordtype}{float} deltaTime);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render(std::list<DirectX::XMMATRIX> matrices) = 0;}
+\DoxyCodeLine{50     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render() = 0;}
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Render(DirectX::XMMATRIX matrix) = 0;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{55     ID3D11Buffer* g\_d3dVertexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{56     ID3D11Buffer* g\_d3dIndexBuffer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{57     ID3D11DeviceContext* deviceContext;}
+\DoxyCodeLine{58     ID3D11Resource* d3dConstantBuffer;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \mbox{\hyperlink{struct_mesh_1_1_vertex_pos_color}{VertexPosColor}}* g\_Vertices;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} verticesCount;}
+\DoxyCodeLine{62     WORD* g\_Indices;}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int} indicesCount;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     std::list<MeshUpdater> meshUpdaters;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{class_mesh}{Mesh}}* parentMesh = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{68     \mbox{\hyperlink{struct_mesh_1_1_mesh_constant_buffer}{MeshConstantBuffer}} constantBuffer;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \mbox{\hyperlink{class_texture}{Texture}}* m\_texture;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+
+\end{DoxyCode}

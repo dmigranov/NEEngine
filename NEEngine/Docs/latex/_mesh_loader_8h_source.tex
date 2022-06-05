@@ -1,0 +1,20 @@
+\hypertarget{_mesh_loader_8h_source}{}\doxysection{Mesh\+Loader.\+h}
+\label{_mesh_loader_8h_source}\index{inc/MeshLoader.h@{inc/MeshLoader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{class }VertexTexMeshComponent;}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_mesh_loader}{MeshLoader}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{keyword}{static} VertexTexMeshComponent* LoadMesh(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* filepath);}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     \textcolor{keyword}{static} std::vector<std::string> parseString(std::string str, \textcolor{keywordtype}{char} delimiter);}
+\DoxyCodeLine{10     \textcolor{keyword}{static} std::vector<double> getDoubleValues(std::vector<std::string> strings);}
+\DoxyCodeLine{11     \textcolor{keyword}{static} std::vector<int> getIntValues(std::vector<std::string> strings);}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+
+\end{DoxyCode}

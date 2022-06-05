@@ -1,0 +1,25 @@
+\hypertarget{_spherical_exp_fog_point_effect_8h_source}{}\doxysection{Spherical\+Exp\+Fog\+Point\+Effect.\+h}
+\label{_spherical_exp_fog_point_effect_8h_source}\index{inc/SphericalExpFogPointEffect.h@{inc/SphericalExpFogPointEffect.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}SphericalExpFogEffect.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_spherical_exp_fog_point_effect}{SphericalExpFogPointEffect}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_spherical_exp_fog_effect}{SphericalExpFogEffect}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_spherical_exp_fog_point_effect}{SphericalExpFogPointEffect}}(\textcolor{keywordtype}{double} fogDensity, DirectX::XMVECTORF32 fogColor);}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} Initialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Deinitialize() \textcolor{keyword}{override};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} UpdatePerObject(\textcolor{keyword}{const} \mbox{\hyperlink{class_entity}{Entity}}* pEntity, \textcolor{keywordtype}{double} deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Clean() \textcolor{keyword}{override};}
+\DoxyCodeLine{15 \textcolor{keyword}{private}:}
+\DoxyCodeLine{16     ID3D11GeometryShader* g\_d3dGeometryShader = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}

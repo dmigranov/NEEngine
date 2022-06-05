@@ -1,0 +1,59 @@
+\hypertarget{_transform_component_8h_source}{}\doxysection{Transform\+Component.\+h}
+\label{_transform_component_8h_source}\index{inc/TransformComponent.h@{inc/TransformComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Component.h"{}}}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_transform_component}{TransformComponent}} :}
+\DoxyCodeLine{4     \textcolor{keyword}{public} \mbox{\hyperlink{class_component}{Component}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{public}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_transform_component}{TransformComponent}}();}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_transform_component}{TransformComponent}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_transform_component}{TransformComponent}}(DirectX::SimpleMath::Vector3 position);}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_transform_component}{TransformComponent}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} rx, \textcolor{keywordtype}{double} ry, \textcolor{keywordtype}{double} rz, \textcolor{keywordtype}{double} sx = 1, \textcolor{keywordtype}{double} sy = 1, \textcolor{keywordtype}{double} sz = 1);}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_transform_component}{TransformComponent}}(DirectX::SimpleMath::Vector3 position, DirectX::SimpleMath::Vector3 rotation, DirectX::SimpleMath::Vector3 scale);}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Move(DirectX::SimpleMath::Vector3 v);}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Move(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z);}
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Rotate(DirectX::SimpleMath::Vector3 r);}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Rotate(\textcolor{keywordtype}{double} rx, \textcolor{keywordtype}{double} ry, \textcolor{keywordtype}{double} rz);}
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} RotateGlobal(DirectX::SimpleMath::Vector3 r);}
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} RotateGlobal(\textcolor{keywordtype}{double} rx, \textcolor{keywordtype}{double} ry, \textcolor{keywordtype}{double} rz);}
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} SetPitchYawRoll(\textcolor{keywordtype}{double} pitch, \textcolor{keywordtype}{double} yaw, \textcolor{keywordtype}{double} roll);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} SetParent(\mbox{\hyperlink{class_transform_component}{TransformComponent}}* pParent);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{const} DirectX::SimpleMath::Matrix\& GetWorld();}
+\DoxyCodeLine{23     \textcolor{keyword}{const} DirectX::SimpleMath::Matrix\& GetView();}
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \textcolor{keyword}{const} DirectX::SimpleMath::Vector3\& GetRotation();}
+\DoxyCodeLine{25     \textcolor{keyword}{virtual} \textcolor{keyword}{const} DirectX::SimpleMath::Vector3\& GetForward();}
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keyword}{const} DirectX::SimpleMath::Vector3\& GetRight();}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \textcolor{keyword}{const} DirectX::SimpleMath::Vector3\& GetPosition();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Recalculate();}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} RecalculateView();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_transform_component}{TransformComponent}}* m\_pParent;}
+\DoxyCodeLine{35     DirectX::SimpleMath::Matrix oldParentMatrix;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     DirectX::SimpleMath::Matrix m\_world;}
+\DoxyCodeLine{38     DirectX::SimpleMath::Vector3 m\_positionLocal;}
+\DoxyCodeLine{39     DirectX::SimpleMath::Vector3 m\_rotation;}
+\DoxyCodeLine{40     DirectX::SimpleMath::Vector3 m\_rotationGlobal;}
+\DoxyCodeLine{41     DirectX::SimpleMath::Vector3 m\_scale;}
+\DoxyCodeLine{42     DirectX::SimpleMath::Vector3 m\_position;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     DirectX::SimpleMath::Vector3 m\_forward, m\_right, m\_up;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     DirectX::SimpleMath::Matrix m\_view;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} m\_shouldRecalcWorld;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} m\_shouldRecalcView;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+
+\end{DoxyCode}
