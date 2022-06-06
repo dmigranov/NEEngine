@@ -1,0 +1,7 @@
+<map id="SphericalEffect" name="SphericalEffect">
+<area shape="rect" id="node1" title=" " alt="" coords="123,80,233,107"/>
+<area shape="rect" id="node3" href="$class_spherical_exp_fog_effect.html" title=" " alt="" coords="101,155,255,181"/>
+<area shape="rect" id="node2" href="$class_effect.html" title=" " alt="" coords="151,5,205,32"/>
+<area shape="rect" id="node4" href="$class_spherical_doppler_effect.html" title=" " alt="" coords="5,229,159,256"/>
+<area shape="rect" id="node5" href="$class_spherical_exp_fog_point_effect.html" title=" " alt="" coords="183,229,367,256"/>
+</map>

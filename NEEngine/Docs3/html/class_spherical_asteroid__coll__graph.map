@@ -1,0 +1,8 @@
+<map id="SphericalAsteroid" name="SphericalAsteroid">
+<area shape="rect" id="node1" title=" " alt="" coords="211,247,335,273"/>
+<area shape="rect" id="node2" href="$class_spherical_mesh.html" title=" " alt="" coords="219,171,327,197"/>
+<area shape="rect" id="node3" href="$class_mesh.html" title=" " alt="" coords="245,95,300,121"/>
+<area shape="rect" id="node4" href="$struct_mesh_1_1_vertex_pos_color.html" title=" " alt="" coords="5,5,159,32"/>
+<area shape="rect" id="node5" href="$struct_mesh_1_1_mesh_constant_buffer.html" title=" " alt="" coords="183,5,362,32"/>
+<area shape="rect" id="node6" href="$class_texture.html" title=" " alt="" coords="387,5,452,32"/>
+</map>

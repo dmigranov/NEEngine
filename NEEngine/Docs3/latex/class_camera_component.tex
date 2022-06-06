@@ -1,0 +1,94 @@
+\hypertarget{class_camera_component}{}\doxysection{Camera\+Component Class Reference}
+\label{class_camera_component}\index{CameraComponent@{CameraComponent}}
+
+
+Inheritance diagram for Camera\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_camera_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Camera\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{class_camera_component__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_component_aaad977bfcf1469ee0cb7aadfebf9baa9}\label{class_camera_component_aaad977bfcf1469ee0cb7aadfebf9baa9}} 
+{\bfseries Camera\+Component} (bool is\+Perspective=true)
+\item 
+\mbox{\Hypertarget{class_camera_component_af1fcb036cfd276db69b15c91eae226ca}\label{class_camera_component_af1fcb036cfd276db69b15c91eae226ca}} 
+{\bfseries Camera\+Component} (double near\+Plane, double far\+Plane, double aspect=1., double fovY=Direct\+X\+::\+XM\+\_\+\+PIDIV2, bool is\+Perspective=true)
+\item 
+\mbox{\Hypertarget{class_camera_component_ae3340233f153a8223cd43b5101e47dc9}\label{class_camera_component_ae3340233f153a8223cd43b5101e47dc9}} 
+virtual const Direct\+X\+::\+XMMATRIX \& {\bfseries Get\+Proj} ()
+\item 
+\mbox{\Hypertarget{class_camera_component_aca38a8cf9961a3da45177b7634aa160e}\label{class_camera_component_aca38a8cf9961a3da45177b7634aa160e}} 
+void {\bfseries Set\+FovY} (double fovY)
+\item 
+\mbox{\Hypertarget{class_camera_component_a9ac60b26baa78c1a46bee8c8c7235966}\label{class_camera_component_a9ac60b26baa78c1a46bee8c8c7235966}} 
+void {\bfseries Set\+Aspect} (double aspect)
+\item 
+\mbox{\Hypertarget{class_camera_component_a23c6dab7c256551d6d42a251610be84e}\label{class_camera_component_a23c6dab7c256551d6d42a251610be84e}} 
+void {\bfseries Set\+Output\+Size} (double width, double height)
+\item 
+\mbox{\Hypertarget{class_camera_component_a6a62d4d5ed7a8b6ba62c79feddfac7f4}\label{class_camera_component_a6a62d4d5ed7a8b6ba62c79feddfac7f4}} 
+void {\bfseries Set\+Perspective} (bool is\+Perspective)
+\item 
+\mbox{\Hypertarget{class_camera_component_a2d16be9080878b0e23f31878c8c4384d}\label{class_camera_component_a2d16be9080878b0e23f31878c8c4384d}} 
+void {\bfseries Set\+Orthogonal\+Width} (double width)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_component_aad26412613acc7ef9f94ed505516616b}\label{class_camera_component_aad26412613acc7ef9f94ed505516616b}} 
+virtual void {\bfseries Recalculate\+Proj} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_component_a3a811da50b7afc6c3783eb11df3116ea}\label{class_camera_component_a3a811da50b7afc6c3783eb11df3116ea}} 
+double {\bfseries m\+\_\+fovY}
+\item 
+\mbox{\Hypertarget{class_camera_component_a26ceab8eb030bb082c3d9fae51598f34}\label{class_camera_component_a26ceab8eb030bb082c3d9fae51598f34}} 
+double {\bfseries m\+\_\+near\+Plane}
+\item 
+\mbox{\Hypertarget{class_camera_component_a0f1f3b0fc612f543e5f41568d596b63a}\label{class_camera_component_a0f1f3b0fc612f543e5f41568d596b63a}} 
+double {\bfseries m\+\_\+far\+Plane}
+\item 
+\mbox{\Hypertarget{class_camera_component_a81c34908c562152f5cf9d3ed929e2008}\label{class_camera_component_a81c34908c562152f5cf9d3ed929e2008}} 
+double {\bfseries m\+\_\+aspect}
+\item 
+\mbox{\Hypertarget{class_camera_component_aae9c96ebed7125a60a1402d3bec2ce57}\label{class_camera_component_aae9c96ebed7125a60a1402d3bec2ce57}} 
+double {\bfseries m\+\_\+width} = -\/1
+\item 
+\mbox{\Hypertarget{class_camera_component_a99ae78ddfcb937e773cda8d05982f8df}\label{class_camera_component_a99ae78ddfcb937e773cda8d05982f8df}} 
+double {\bfseries m\+\_\+height} = -\/1
+\item 
+\mbox{\Hypertarget{class_camera_component_ac995dca4271b5cd577e2d9fc2575a29d}\label{class_camera_component_ac995dca4271b5cd577e2d9fc2575a29d}} 
+double {\bfseries m\+\_\+ortho\+Width} = 1
+\item 
+\mbox{\Hypertarget{class_camera_component_a4a4514453f43f96f51fdae12ea6e496d}\label{class_camera_component_a4a4514453f43f96f51fdae12ea6e496d}} 
+bool {\bfseries m\+\_\+should\+Recalc}
+\item 
+\mbox{\Hypertarget{class_camera_component_aff72e71a8c9cda7d6cb5237e65344aa6}\label{class_camera_component_aff72e71a8c9cda7d6cb5237e65344aa6}} 
+bool {\bfseries m\+\_\+is\+Perspective}
+\item 
+\mbox{\Hypertarget{class_camera_component_a2d9f4fe6ae23ace254c7827d935e218e}\label{class_camera_component_a2d9f4fe6ae23ace254c7827d935e218e}} 
+Direct\+X\+::\+XMMATRIX {\bfseries m\+\_\+proj}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Camera\+Component.\+h\item 
+Camera\+Component.\+cpp\end{DoxyCompactItemize}

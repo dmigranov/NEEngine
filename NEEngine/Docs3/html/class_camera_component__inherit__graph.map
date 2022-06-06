@@ -1,0 +1,6 @@
+<map id="CameraComponent" name="CameraComponent">
+<area shape="rect" id="node1" title=" " alt="" coords="143,80,276,107"/>
+<area shape="rect" id="node3" href="$class_hyperbolic_camera_component.html" title=" " alt="" coords="5,155,200,181"/>
+<area shape="rect" id="node4" href="$class_spherical_camera_component.html" title=" " alt="" coords="224,155,411,181"/>
+<area shape="rect" id="node2" href="$class_component.html" title=" " alt="" coords="165,5,253,32"/>
+</map>

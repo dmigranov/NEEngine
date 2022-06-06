@@ -67,7 +67,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "C:/Denis Learning/repos/NEEngine/NEEngine/Docs2"
+OUTPUT_DIRECTORY       = "C:/Denis Learning/repos/NEEngine/NEEngine/Docs3"
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -2735,4 +2735,4 @@ GENERATE_LEGEND        = YES
 # files.
 # The default value is: YES.
 
-DOT_CLEANUP            = YES
+DOT_CLEANUP            = NO

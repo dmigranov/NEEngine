@@ -1,0 +1,6 @@
+<map id="SphericalCameraComponent" name="SphericalCameraComponent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,247,192,273"/>
+<area shape="rect" id="node2" href="$class_camera_component.html" title=" " alt="" coords="32,171,165,197"/>
+<area shape="rect" id="node3" href="$class_component.html" title=" " alt="" coords="55,95,143,121"/>
+<area shape="rect" id="node4" href="$class_entity.html" title="Basic class for all entities (objects) in the scene." alt="" coords="71,5,127,32"/>
+</map>

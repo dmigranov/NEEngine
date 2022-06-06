@@ -1,0 +1,148 @@
+\hypertarget{class_toric_exp_fog_effect}{}\doxysection{Toric\+Exp\+Fog\+Effect Class Reference}
+\label{class_toric_exp_fog_effect}\index{ToricExpFogEffect@{ToricExpFogEffect}}
+
+
+Inheritance diagram for Toric\+Exp\+Fog\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_toric_exp_fog_effect__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Toric\+Exp\+Fog\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{class_toric_exp_fog_effect__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_p_s_constant_buffer}{Per\+Application\+PSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_application_v_s_constant_buffer}{Per\+Application\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_frame_v_s_constant_buffer}{Per\+Frame\+VSConstant\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_toric_exp_fog_effect_1_1_per_object_v_s_constant_buffer}{Per\+Object\+VSConstant\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a22b9ab0488ac4ff8f9298718e3074662}\label{class_toric_exp_fog_effect_a22b9ab0488ac4ff8f9298718e3074662}} 
+{\bfseries Toric\+Exp\+Fog\+Effect} (\mbox{\hyperlink{class_texture}{Texture}} $\ast$p\+Texture, double fog\+Density, Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\item 
+virtual bool \mbox{\hyperlink{class_toric_exp_fog_effect_affacae77204ac8b28a28c3aaef76c88d}{Initialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_toric_exp_fog_effect_a4ab8619a1a55fbb4f237a45e75d94ccf}{Deinitialize}} () override
+\item 
+virtual void \mbox{\hyperlink{class_toric_exp_fog_effect_a450cf25530d34a6dde06a5b95d0f5708}{Update\+Per\+Object}} (const \mbox{\hyperlink{class_entity}{Entity}} $\ast$p\+Entity, double delta\+Time) override
+\item 
+virtual void \mbox{\hyperlink{class_toric_exp_fog_effect_aff4fd24dec97dbaacc9c5b4e34c1a460}{Update\+Per\+Scene}} () override
+\item 
+virtual void \mbox{\hyperlink{class_toric_exp_fog_effect_ab498f080f7ca1f63cc8ebc068119862c}{Update\+Per\+Application}} () override
+\item 
+virtual unsigned int \mbox{\hyperlink{class_toric_exp_fog_effect_a82946519eabac11a6b75c04a7ca05bb0}{Get\+Vertex\+Buffer\+Size}} () const override
+\item 
+virtual const std\+::type\+\_\+info \& \mbox{\hyperlink{class_toric_exp_fog_effect_aaabc1789df5d883ef882d109042d0a6e}{Get\+Vertex\+Data\+Type}} () override
+\item 
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a334c833ba9c965e68f47a63d3fe5e09e}\label{class_toric_exp_fog_effect_a334c833ba9c965e68f47a63d3fe5e09e}} 
+void {\bfseries Set\+Fog\+Color} (Direct\+X\+::\+XMVECTORF32 fog\+Color)
+\item 
+virtual void \mbox{\hyperlink{class_toric_exp_fog_effect_a28d6600e0f94aa3fa26765f76f834a94}{Clean}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a28d6600e0f94aa3fa26765f76f834a94}\label{class_toric_exp_fog_effect_a28d6600e0f94aa3fa26765f76f834a94}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!Clean@{Clean}}
+\index{Clean@{Clean}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Clean()}{Clean()}}
+{\footnotesize\ttfamily void Toric\+Exp\+Fog\+Effect\+::\+Clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a4ab8619a1a55fbb4f237a45e75d94ccf}\label{class_toric_exp_fog_effect_a4ab8619a1a55fbb4f237a45e75d94ccf}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!Deinitialize@{Deinitialize}}
+\index{Deinitialize@{Deinitialize}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Deinitialize()}{Deinitialize()}}
+{\footnotesize\ttfamily void Toric\+Exp\+Fog\+Effect\+::\+Deinitialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a82946519eabac11a6b75c04a7ca05bb0}\label{class_toric_exp_fog_effect_a82946519eabac11a6b75c04a7ca05bb0}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!GetVertexBufferSize@{GetVertexBufferSize}}
+\index{GetVertexBufferSize@{GetVertexBufferSize}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexBufferSize()}{GetVertexBufferSize()}}
+{\footnotesize\ttfamily unsigned int Toric\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Buffer\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_aaabc1789df5d883ef882d109042d0a6e}\label{class_toric_exp_fog_effect_aaabc1789df5d883ef882d109042d0a6e}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!GetVertexDataType@{GetVertexDataType}}
+\index{GetVertexDataType@{GetVertexDataType}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{GetVertexDataType()}{GetVertexDataType()}}
+{\footnotesize\ttfamily const std\+::type\+\_\+info \& Toric\+Exp\+Fog\+Effect\+::\+Get\+Vertex\+Data\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_affacae77204ac8b28a28c3aaef76c88d}\label{class_toric_exp_fog_effect_affacae77204ac8b28a28c3aaef76c88d}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily bool Toric\+Exp\+Fog\+Effect\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_ab498f080f7ca1f63cc8ebc068119862c}\label{class_toric_exp_fog_effect_ab498f080f7ca1f63cc8ebc068119862c}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!UpdatePerApplication@{UpdatePerApplication}}
+\index{UpdatePerApplication@{UpdatePerApplication}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerApplication()}{UpdatePerApplication()}}
+{\footnotesize\ttfamily void Toric\+Exp\+Fog\+Effect\+::\+Update\+Per\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_a450cf25530d34a6dde06a5b95d0f5708}\label{class_toric_exp_fog_effect_a450cf25530d34a6dde06a5b95d0f5708}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!UpdatePerObject@{UpdatePerObject}}
+\index{UpdatePerObject@{UpdatePerObject}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerObject()}{UpdatePerObject()}}
+{\footnotesize\ttfamily void Toric\+Exp\+Fog\+Effect\+::\+Update\+Per\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_entity}{Entity}} $\ast$}]{p\+Entity,  }\item[{double}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+\mbox{\Hypertarget{class_toric_exp_fog_effect_aff4fd24dec97dbaacc9c5b4e34c1a460}\label{class_toric_exp_fog_effect_aff4fd24dec97dbaacc9c5b4e34c1a460}} 
+\index{ToricExpFogEffect@{ToricExpFogEffect}!UpdatePerScene@{UpdatePerScene}}
+\index{UpdatePerScene@{UpdatePerScene}!ToricExpFogEffect@{ToricExpFogEffect}}
+\doxysubsubsection{\texorpdfstring{UpdatePerScene()}{UpdatePerScene()}}
+{\footnotesize\ttfamily void Toric\+Exp\+Fog\+Effect\+::\+Update\+Per\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_effect}{Effect}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Toric\+Exp\+Fog\+Effect.\+h\item 
+src/Toric\+Exp\+Fog\+Effect.\+cpp\end{DoxyCompactItemize}

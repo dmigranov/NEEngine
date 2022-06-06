@@ -1,0 +1,6 @@
+<map id="ToricTransformComponent" name="ToricTransformComponent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,247,179,273"/>
+<area shape="rect" id="node2" href="$class_transform_component.html" title=" " alt="" coords="19,171,165,197"/>
+<area shape="rect" id="node3" href="$class_component.html" title=" " alt="" coords="48,95,136,121"/>
+<area shape="rect" id="node4" href="$class_entity.html" title="Basic class for all entities (objects) in the scene." alt="" coords="64,5,120,32"/>
+</map>

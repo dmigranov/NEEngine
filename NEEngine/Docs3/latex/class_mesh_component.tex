@@ -1,0 +1,85 @@
+\hypertarget{class_mesh_component}{}\doxysection{Mesh\+Component Class Reference}
+\label{class_mesh_component}\index{MeshComponent@{MeshComponent}}
+
+
+Inheritance diagram for Mesh\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_mesh_component__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Mesh\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{class_mesh_component__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_component_a57fa20324d4595669a7739957979523e}\label{class_mesh_component_a57fa20324d4595669a7739957979523e}} 
+\mbox{\hyperlink{class_effect}{Effect}} $\ast$ {\bfseries Get\+Effect} () const
+\item 
+\mbox{\Hypertarget{class_mesh_component_acc1dafc00c130ed8333794eb43458619}\label{class_mesh_component_acc1dafc00c130ed8333794eb43458619}} 
+void {\bfseries Set\+Effect} (\mbox{\hyperlink{class_effect}{Effect}} $\ast$effect)
+\item 
+\mbox{\Hypertarget{class_mesh_component_a6bde2dcb0b0517c7cf6f9e8ea3efd423}\label{class_mesh_component_a6bde2dcb0b0517c7cf6f9e8ea3efd423}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries Get\+Vertex\+Buffer} () const
+\item 
+\mbox{\Hypertarget{class_mesh_component_a77f6d71eaadf318c6c178a7b2347dbef}\label{class_mesh_component_a77f6d71eaadf318c6c178a7b2347dbef}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries Get\+Index\+Buffer} () const
+\item 
+\mbox{\Hypertarget{class_mesh_component_ab598649d031cd921786c5248ebe26818}\label{class_mesh_component_ab598649d031cd921786c5248ebe26818}} 
+D3\+D\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY {\bfseries Get\+Topology} () const
+\item 
+\mbox{\Hypertarget{class_mesh_component_a965531539686d4cc4005492865144b7a}\label{class_mesh_component_a965531539686d4cc4005492865144b7a}} 
+unsigned int {\bfseries Get\+Indices\+Count} ()
+\item 
+\mbox{\Hypertarget{class_mesh_component_a2f455d3c4f93a71f8e5e516d3806810d}\label{class_mesh_component_a2f455d3c4f93a71f8e5e516d3806810d}} 
+const std\+::type\+\_\+info \& {\bfseries Get\+Vertex\+Data\+Type} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_component_a524244ad346f8b6659c09718915733fe}\label{class_mesh_component_a524244ad346f8b6659c09718915733fe}} 
+{\bfseries Mesh\+Component} (ID3\+D11\+Buffer $\ast$g\+\_\+d3d\+Vertex\+Buffer, ID3\+D11\+Buffer $\ast$g\+\_\+d3d\+Index\+Buffer, const std\+::type\+\_\+info \&vertex\+Data\+Type, unsigned int indices\+Count, D3\+D\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY topology=D3\+D11\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TRIANGLELIST)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_component_a9c28f1315dc8311b60a03559fb06833c}\label{class_mesh_component_a9c28f1315dc8311b60a03559fb06833c}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries g\+\_\+d3d\+Vertex\+Buffer} = nullptr
+\item 
+\mbox{\Hypertarget{class_mesh_component_a22d61303809e8ec998a08c8a4ddc1a7a}\label{class_mesh_component_a22d61303809e8ec998a08c8a4ddc1a7a}} 
+ID3\+D11\+Buffer $\ast$ {\bfseries g\+\_\+d3d\+Index\+Buffer} = nullptr
+\item 
+\mbox{\Hypertarget{class_mesh_component_ae6c6c2119167f200cd1018306bfdf65a}\label{class_mesh_component_ae6c6c2119167f200cd1018306bfdf65a}} 
+D3\+D\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY {\bfseries m\+\_\+topology}
+\item 
+\mbox{\Hypertarget{class_mesh_component_a0ed4406932783912200cdd2db9e9a9e7}\label{class_mesh_component_a0ed4406932783912200cdd2db9e9a9e7}} 
+unsigned int {\bfseries m\+\_\+indices\+Count} = 0
+\item 
+\mbox{\Hypertarget{class_mesh_component_a981bff64222f5d13b48b9bd9c7227c5a}\label{class_mesh_component_a981bff64222f5d13b48b9bd9c7227c5a}} 
+\mbox{\hyperlink{class_effect}{Effect}} $\ast$ {\bfseries m\+\_\+p\+Effect}
+\item 
+\mbox{\Hypertarget{class_mesh_component_a3c7b417fe607d8123c58a6ad56b60c64}\label{class_mesh_component_a3c7b417fe607d8123c58a6ad56b60c64}} 
+const std\+::type\+\_\+info \& {\bfseries m\+\_\+vertex\+Data\+Type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_component_afc64fe4b2bf6869836e78b9ae43020cc}\label{class_mesh_component_afc64fe4b2bf6869836e78b9ae43020cc}} 
+class {\bfseries Mesh\+Component\+Factory}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Mesh\+Component.\+h\item 
+inc/Mesh\+Component.\+cpp\end{DoxyCompactItemize}

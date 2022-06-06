@@ -1,0 +1,60 @@
+\hypertarget{class_effect}{}\doxysection{Effect Class Reference}
+\label{class_effect}\index{Effect@{Effect}}
+
+
+Inheritance diagram for Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_effect__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_effect_a14202845e477e24690c48efb5a562e0b}\label{class_effect_a14202845e477e24690c48efb5a562e0b}} 
+virtual bool {\bfseries Initialize} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_a51de64f5e5605a339454fadad75d95f7}\label{class_effect_a51de64f5e5605a339454fadad75d95f7}} 
+virtual void {\bfseries Update\+Per\+Object} (const \mbox{\hyperlink{class_entity}{Entity}} $\ast$p\+Entity, double delta\+Time)=0
+\item 
+\mbox{\Hypertarget{class_effect_ad55d93c06bf94f0e955fbf22223f9409}\label{class_effect_ad55d93c06bf94f0e955fbf22223f9409}} 
+virtual void {\bfseries Update\+Per\+Scene} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_acb022b8d0d4ce5f360bde26bf6acc72a}\label{class_effect_acb022b8d0d4ce5f360bde26bf6acc72a}} 
+virtual void {\bfseries Update\+Per\+Application} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_a284958190fa132ee5794b4173ea8be11}\label{class_effect_a284958190fa132ee5794b4173ea8be11}} 
+virtual void {\bfseries Clean} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_ac57063a225028b03b1848064f859fcdd}\label{class_effect_ac57063a225028b03b1848064f859fcdd}} 
+virtual unsigned int {\bfseries Get\+Vertex\+Buffer\+Size} () const =0
+\item 
+\mbox{\Hypertarget{class_effect_a752ef55ad65f84c618745cb473b5f671}\label{class_effect_a752ef55ad65f84c618745cb473b5f671}} 
+virtual void {\bfseries Deinitialize} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_a980db3bd6f4d5b53c36f031539d030c5}\label{class_effect_a980db3bd6f4d5b53c36f031539d030c5}} 
+virtual const std\+::type\+\_\+info \& {\bfseries Get\+Vertex\+Data\+Type} ()=0
+\item 
+\mbox{\Hypertarget{class_effect_a4423babc0abe4c4b04b8efb754b31e91}\label{class_effect_a4423babc0abe4c4b04b8efb754b31e91}} 
+virtual std\+::string {\bfseries Get\+Name} ()
+\item 
+\mbox{\Hypertarget{class_effect_a1a7db285d4bbe2ec5ee24d7bd7904532}\label{class_effect_a1a7db285d4bbe2ec5ee24d7bd7904532}} 
+bool {\bfseries Is\+Inited} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_effect_a2ffc89a9d1d6431444d854db0b46edbd}\label{class_effect_a2ffc89a9d1d6431444d854db0b46edbd}} 
+bool {\bfseries m\+\_\+is\+Inited} = false
+\item 
+\mbox{\Hypertarget{class_effect_afb18d65c173cbcef5e1ebcd34c744990}\label{class_effect_afb18d65c173cbcef5e1ebcd34c744990}} 
+std\+::string {\bfseries m\+\_\+magic}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Effect.\+h\item 
+Effect.\+cpp\end{DoxyCompactItemize}

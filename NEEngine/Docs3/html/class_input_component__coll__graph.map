@@ -1,0 +1,5 @@
+<map id="InputComponent" name="InputComponent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,171,121,197"/>
+<area shape="rect" id="node2" href="$class_component.html" title=" " alt="" coords="19,95,107,121"/>
+<area shape="rect" id="node3" href="$class_entity.html" title="Basic class for all entities (objects) in the scene." alt="" coords="35,5,91,32"/>
+</map>
