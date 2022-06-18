@@ -469,6 +469,9 @@
     <None Include="NewClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Linking Info.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{802A2142-3802-46EF-946B-42BFD9754DCA}</ProjectGuid>
