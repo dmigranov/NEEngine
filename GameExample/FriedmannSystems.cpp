@@ -330,7 +330,7 @@ double CalculateFrequency(double distanceNormalized)
 
 SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform, FriedmannTimer* timer)
 {
-    double length = 0.02;
+    double length = 0.05;
     double maxRadius = 4.;
     m_pSound = new DynamicSound([this, length, maxRadius, timer](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
         static unsigned long sampleCountForCurrentObject = 0; 
