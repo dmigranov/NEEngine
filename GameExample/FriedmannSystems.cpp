@@ -330,7 +330,7 @@ double CalculateFrequency(double distanceNormalized)
 
 SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformComponent* pCameraTransform, FriedmannTimer* timer)
 {
-    double length = 0.1;
+    double length = 0.02;
     double maxRadius = 4.;
     m_pSound = new DynamicSound([this, length, maxRadius, timer](int16_t* data, int sampleRate) { // sampleRate - количество сэмплов
         static unsigned long sampleCountForCurrentObject = 0; 
@@ -370,7 +370,7 @@ SoundSystem::SoundSystem(SelectionSystem* pSelectionSystem, SphericalTransformCo
                         knockFrequency = CalculateFrequency(distanceNormalized);
 
                         //knockFrequency = RadiusUpdateSystem::RadiusFunction(timer->GetEta() - m_currentChi) / radius * 1.;
-                        std::cout << distanceNormalized << " " << knockFrequency << std::endl;
+                        //std::cout << distanceNormalized << " " << knockFrequency << std::endl;
 
                         double mustBePlayedEverySeconds = 1. / knockFrequency;
 
