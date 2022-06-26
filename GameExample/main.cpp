@@ -8,7 +8,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        20, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
+        1, DirectX::SimpleMath::Vector3(10, 10, 10), 20, 0.9,
         true, false, false);
 
     auto resourceManager = Game::GetInstance().GetResourceManager();
@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
-    cameraComponent->SetFovY(DirectX::XM_PI / 3);
+    cameraComponent->SetFovY(DirectX::XM_PI / 2);
     cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
