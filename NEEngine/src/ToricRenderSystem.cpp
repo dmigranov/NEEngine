@@ -31,21 +31,6 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	if (m_torZ != 0)
 		m_instanceCount *= m_instanceCountPerDimension;
 
-	m_isDrawing = true;
-}
-
-void ToricRenderSystem::Execute(double deltaTime)
-{
-	auto& game = Game::GetInstance();
-	ID3D11DeviceContext* pDeviceContext = game.GetDeviceContext();
-	auto pDevice = game.GetDevice();
-
-	//Rasterizer Stage
-	game.SetupRasterizer();
-
-	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
-	game.SetupOutputMerger();
-
 	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
 	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
 	//снизу - вообще все инстансы одинаковые в рамках кадра
@@ -95,12 +80,30 @@ void ToricRenderSystem::Execute(double deltaTime)
 	instanceData.SysMemPitch = 0;
 	instanceData.SysMemSlicePitch = 0;
 
+	auto& game = Game::GetInstance();
 	// TODO: OPTIMIZE! FIX!
 	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData); // !!! это неправильно? буфер создается каждый кадр, это явно неоптимально
 
 
 	delete[] instances; //can be safely deleted - accorirding to the CreateBuffer specification
 	instances = nullptr;
+
+	m_isDrawing = true;
+}
+
+void ToricRenderSystem::Execute(double deltaTime)
+{
+	auto& game = Game::GetInstance();
+	ID3D11DeviceContext* pDeviceContext = game.GetDeviceContext();
+	auto pDevice = game.GetDevice();
+
+	//Rasterizer Stage
+	game.SetupRasterizer();
+
+	//Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
+	game.SetupOutputMerger();
+
+	
 
 	//TODO: more optimal effect-wise traversal (and maybe create some dedicated claas for this traversal?)
 	for (auto pEntity : m_entities)
