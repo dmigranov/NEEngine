@@ -31,10 +31,7 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	if (m_torZ != 0)
 		m_instanceCount *= m_instanceCountPerDimension;
 
-	//todo: а может, сделать так, чтобы инстансы у всех объектов были одинаковые 
-	//(по крайней мере в рамках кадра - execute) и сразу тут формировать массив?
-	//снизу - вообще все инстансы одинаковые в рамках кадра
-	//но может сделать зависимыми от камеры? или оптимизировать?
+	// instnce data stays the same as frames change
 
 	auto X_replicationCount = m_torX > 0 ? m_replicationCount : 0;
 	auto Y_replicationCount = m_torY > 0 ? m_replicationCount : 0;
@@ -67,12 +64,10 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	D3D11_SUBRESOURCE_DATA instanceData;
 	HRESULT result;
 
-	instanceBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	//instanceBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
+	instanceBufferDesc.Usage = D3D11_USAGE_DEFAULT;		//instanceBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 	instanceBufferDesc.ByteWidth = sizeof(InstanceType) * m_instanceCount;
 	instanceBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	instanceBufferDesc.CPUAccessFlags = 0;
-	//instanceBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	instanceBufferDesc.CPUAccessFlags = 0;				//instanceBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	instanceBufferDesc.MiscFlags = 0;
 	instanceBufferDesc.StructureByteStride = 0;
 
@@ -81,9 +76,7 @@ ToricRenderSystem::ToricRenderSystem(unsigned int replicationCount, double torX,
 	instanceData.SysMemSlicePitch = 0;
 
 	auto& game = Game::GetInstance();
-	// TODO: OPTIMIZE! FIX!
-	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData); // !!! это неправильно? буфер создается каждый кадр, это явно неоптимально
-
+	m_d3dInstanceBuffer = game.CreateBuffer(instanceBufferDesc, &instanceData);
 
 	delete[] instances; //can be safely deleted - accorirding to the CreateBuffer specification
 	instances = nullptr;
