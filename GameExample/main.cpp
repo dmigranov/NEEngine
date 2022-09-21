@@ -73,7 +73,7 @@ int main(int argc, char* argv[])
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
 
     double objectRadius = 0.1; //0.49
-    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 30, 30);
+    auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(objectRadius, 15, 15);
     smc->SetEffect(effect);
 
     //auto loadedMesh = EuclideanMeshComponentFactory::CreateMeshFromFile("mesh.sph");
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
     // --- Uniform Distribution --- //
 
     RandomSphericalGenerator generator(radius);
-    int sphereCount = 100; //100
+    int sphereCount = 80; //100
     auto randomPoints = new Vector4[sphereCount];
     auto entities = new Entity * [sphereCount];
     for (int i = 0; i < sphereCount; i++)
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
     scene->AddSystem(visibilitySystem);
     scene->AddSystem(animationSystem);
     scene->AddSystem(selectionSystem);
-    scene->AddSystem(soundSystem);
+    //scene->AddSystem(soundSystem);
 
     scene->AddSystem(radiusUpdateSystem);   // !!! has to be after all systems where simulation time changes!
 
