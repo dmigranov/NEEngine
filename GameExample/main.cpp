@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "Geometries/SphericalEllipticGeometry.h"
-#include "WalkComponent.h"
 #include "InputSystem.h"
 #include "TextPrintingSystem.h"
 #include "TextComponent.h"
@@ -24,7 +23,6 @@ int main(int argc, char* argv[])
         auto componentTypeManager = game.GetComponentTypeManager();
         componentTypeManager->RegisterComponentType<CameraComponent>();
         componentTypeManager->RegisterComponentType<InputComponent>();
-        componentTypeManager->RegisterComponentType<WalkComponent>();
 
         componentTypeManager->RegisterComponentType<SphericalTransformComponent>();
         componentTypeManager->RegisterComponentType<SphericalCameraComponent>();
@@ -55,9 +53,6 @@ int main(int argc, char* argv[])
 
 
     auto effect = new SphericalExpFogEffect(earthTexture, 0.4, DirectX::Colors::PowderBlue);
-
-    auto charWalkComponent = new WalkComponent(3, 4);
-    auto charInputComponent = new InputComponent();
 
     auto entity1 = new Entity(), entity2 = new Entity();
 
