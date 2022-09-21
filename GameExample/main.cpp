@@ -8,7 +8,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        21, DirectX::SimpleMath::Vector3(35, 35, 35), 20, 0.9,
+        19, DirectX::SimpleMath::Vector3(37, 37, 37), 20, 0.7,
         true, false, false);
 
     auto resourceManager = Game::GetInstance().GetResourceManager();
@@ -24,7 +24,6 @@ int main(int argc, char* argv[])
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
-
 
     auto effect = new ToricExpFogEffect(cubemapTexture, 0.006, DirectX::Colors::PowderBlue);
 
@@ -72,7 +71,6 @@ int main(int argc, char* argv[])
             }));
     }
 
-    /*
     {
         auto childEntity = new Entity();
         auto ttc2 = new ToricTransformComponent(3, 0, 0);
@@ -85,9 +83,9 @@ int main(int argc, char* argv[])
 
         childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([](double delta, Entity* pEntity) {
             pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
+            //pEntity->GetComponent<ToricTransformComponent>()->Rotate(0, -3 * delta, 0); //вокруг собственной оси
             }));
     }
-    */
 
     return Game::GetInstance().StartGame();
 }
