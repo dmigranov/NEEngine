@@ -14,7 +14,6 @@ int main(int argc, char* argv[])
     auto resourceManager = Game::GetInstance().GetResourceManager();
     Texture* cubemapTexture = new Texture(L"cubemap.dds");
 
-
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
