@@ -27,7 +27,6 @@ int main(int argc, char* argv[])
 
     auto effect = new ToricExpFogEffect(cubemapTexture, 0.006, DirectX::Colors::PowderBlue);
 
-    //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
     auto entity1 = new Entity();
