@@ -45,7 +45,6 @@ int main(int argc, char* argv[])
     auto friedmannHwnd = CreateFriedmannWindow();
 
     Texture* earthTexture = new Texture(L"earth8k.dds");
-    Texture* rainbowTexture2 = new Texture(L"rainbow4.dds");
     Texture* greenTexture = new Texture(L"green_texture.dds");
 
     auto renderSystem = new SphericalRenderSystem();
@@ -67,7 +66,7 @@ int main(int argc, char* argv[])
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
-    auto effect = new SphericalDopplerEffect(greenTexture, rainbowTexture2, 0.1, DirectX::Colors::Black);
+    auto effect = new SphericalDopplerEffect(greenTexture, earthTexture, 0.1, DirectX::Colors::Black);
     //auto effect = new SphericalExpFogEffect(earthTexture, 0.15, DirectX::Colors::Black);
 
     auto pointEffect = new SphericalExpFogPointEffect(0.1, DirectX::Colors::Black);
