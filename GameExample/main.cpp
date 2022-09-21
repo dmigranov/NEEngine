@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     scene->AddEntity(cameraEntity);
 
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.004, DirectX::Colors::PowderBlue);
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.006, DirectX::Colors::PowderBlue);
 
     //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
