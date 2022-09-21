@@ -8,7 +8,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        20, DirectX::SimpleMath::Vector3(30, 30, 30), 20, 0.9,
+        19, DirectX::SimpleMath::Vector3(37, 37, 37), 20, 0.7,
         true, false, false);
 
     auto resourceManager = Game::GetInstance().GetResourceManager();
@@ -18,17 +18,15 @@ int main(int argc, char* argv[])
     Entity* cameraEntity = new Entity("camera1");
     auto cameraTransform = new ToricTransformComponent();
     auto cameraComponent = new CameraComponent();
-    cameraComponent->SetFovY(DirectX::XM_PI/3);
+    cameraComponent->SetFovY(DirectX::XM_PI / 3);
     cameraEntity->AddComponent<ToricTransformComponent>(cameraTransform);
     cameraEntity->AddComponent<CameraComponent>(cameraComponent);
     cameraEntity->AddComponent<InputComponent>(new InputComponent());
     scene->SetCamera(cameraEntity, cameraComponent);
     scene->AddEntity(cameraEntity);
 
+    auto effect = new ToricExpFogEffect(cubemapTexture, 0.006, DirectX::Colors::PowderBlue);
 
-    auto effect = new ToricExpFogEffect(cubemapTexture, 0.002, DirectX::Colors::PowderBlue);
-
-    //auto charWalkComponent = new WalkComponent(200, 4);
     auto charInputComponent = new InputComponent();
 
     auto entity1 = new Entity();
@@ -72,7 +70,6 @@ int main(int argc, char* argv[])
             }));
     }
 
-    /*
     {
         auto childEntity = new Entity();
         auto ttc2 = new ToricTransformComponent(3, 0, 0);
@@ -85,9 +82,9 @@ int main(int argc, char* argv[])
 
         childEntity->AddComponent<UpdaterComponent>(new UpdaterComponent([](double delta, Entity* pEntity) {
             pEntity->GetComponent<ToricTransformComponent>()->RotateGlobal(0, 2 * delta, 0);
+            //pEntity->GetComponent<ToricTransformComponent>()->Rotate(0, -3 * delta, 0); //вокруг собственной оси
             }));
     }
-    */
 
     return Game::GetInstance().StartGame();
 }
