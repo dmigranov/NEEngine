@@ -60,7 +60,6 @@ int main(int argc, char* argv[])
     auto smc = SphericalMeshComponentFactory::CreateSphericalSphere(0.12, 20, 20);
     smc->SetEffect(effect);
 
-
     cameraComponent->SetFovY(XM_PI / 3); //эксперимент с видимостью
     int sphereCount = 6;
     for (int i = 0; i < sphereCount; i++)
