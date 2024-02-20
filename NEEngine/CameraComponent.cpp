@@ -58,3 +58,15 @@ void CameraComponent::RecalculateProj()
 		m_proj = DirectX::XMMatrixOrthographicLH(m_orthoWidth * m_aspect, m_orthoWidth, m_nearPlane, m_farPlane);
 	m_shouldRecalc = false;
 }
+
+DirectX::SimpleMath::Matrix CameraComponent::ReverseProjectionMatrix(double fovY, double aspect, double nearPlane, double farPlane)
+{
+	// TODO: рассчитать
+	float height = 1.f / tanf(fovY / 2);
+	float width = height / aspect;
+	return DirectX::SimpleMath::Matrix(
+		width, 0, 0, 0,
+		0, height, 0, 0, //after this - wrong
+		0,0,2/(farPlane-nearPlane),(nearPlane+farPlane)/(nearPlane-farPlane),
+		0,0,2/ (nearPlane - farPlane), (nearPlane + farPlane)/ (farPlane - nearPlane));
+}

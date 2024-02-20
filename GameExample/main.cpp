@@ -8,7 +8,7 @@ using namespace DirectX::SimpleMath;
 int main(int argc, char* argv[])
 {
     auto scene = InitializeToricGeometry(L"Test game", DirectX::Colors::PowderBlue,
-        16, DirectX::SimpleMath::Vector3(42, 42, 42), 20, 0.7,
+        13, DirectX::SimpleMath::Vector3(45, 45, 45), 20, 0.7,
         true, false, false);
 
     auto resourceManager = Game::GetInstance().GetResourceManager();

@@ -26,5 +26,8 @@ protected:
 	bool m_shouldRecalc;
 	bool m_isPerspective;
 	DirectX::XMMATRIX m_proj;
+private:
+	DirectX::SimpleMath::Matrix ReverseProjectionMatrix(double fovY, double aspect, double nearPlane, double farPlane);
+
 };
 
